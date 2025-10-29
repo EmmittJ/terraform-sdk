@@ -4,8 +4,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// Container for property values in Terraform constructs.
 /// Similar to BicepValue&lt;T&gt; in Azure.Provisioning.
 /// Supports four states: Unset, Literal, Expression, and Reference.
+/// Implements ITerraformResolvable for two-pass resolution.
 /// </summary>
-public class TerraformValue<T> : ITerraformValue
+public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<TerraformExpression>
 {
     private TerraformValueKind _kind = TerraformValueKind.Unset;
     private T? _literalValue;
@@ -78,17 +79,52 @@ public class TerraformValue<T> : ITerraformValue
         _reference = null;
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Compiles this value to a TerraformExpression for HCL generation.
+    /// This is a convenience method that creates a temporary context and uses the two-pass resolution system.
+    /// </summary>
+    /// <returns>The compiled expression.</returns>
     public TerraformExpression Compile()
+    {
+        // Create a temporary scope and context for standalone compilation
+        var scope = new TerraformConfiguration("temp");
+        var context = new TerraformContext(scope);
+
+        // Use the two-pass resolution system
+        Prepare(context);
+        return Resolve(context);
+    }
+
+    /// <summary>
+    /// Preparation phase - prepare nested expressions and track dependencies.
+    /// </summary>
+    public void Prepare(ITerraformPrepareContext context)
+    {
+        if (_kind == TerraformValueKind.Expression && _expression is ITerraformResolvable<TerraformExpression> resolvable)
+        {
+            context.Prepare(resolvable);
+        }
+        else if (_kind == TerraformValueKind.Reference && _reference is not null)
+        {
+            // Track dependency on referenced construct
+            _reference.RecordDependency(context);
+        }
+    }
+
+    /// <summary>
+    /// Resolution phase - resolve to a TerraformExpression.
+    /// </summary>
+    public TerraformExpression Resolve(ITerraformResolveContext context)
     {
         return _kind switch
         {
-            TerraformValueKind.Unset => throw new InvalidOperationException("Cannot compile an unset value"),
+            TerraformValueKind.Unset => throw new InvalidOperationException("Cannot resolve an unset value"),
             TerraformValueKind.Literal => TerraformExpression.Literal(_literalValue),
-            TerraformValueKind.Expression when _expression is not null => _expression,
-            TerraformValueKind.Expression => throw new InvalidOperationException("Expression value is null"),
+            TerraformValueKind.Expression when _expression is ITerraformResolvable<TerraformExpression> resolvable
+                => context.Resolve(resolvable),
+            TerraformValueKind.Expression => _expression ?? throw new InvalidOperationException("Expression is null"),
             TerraformValueKind.Reference when _reference is not null => _reference.ToExpression(),
-            TerraformValueKind.Reference => throw new InvalidOperationException("Reference value is null"),
+            TerraformValueKind.Reference => throw new InvalidOperationException("Reference is null"),
             _ => throw new InvalidOperationException($"Unknown value kind: {_kind}")
         };
     }

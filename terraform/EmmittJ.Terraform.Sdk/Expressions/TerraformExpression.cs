@@ -3,14 +3,33 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Base class for all Terraform expressions (AST nodes).
 /// Expressions are pure syntax trees and don't hold typed values.
+/// Implements ITerraformResolvable to support two-pass resolution.
 /// </summary>
-public abstract class TerraformExpression
+public abstract class TerraformExpression : ITerraformResolvable
 {
     /// <summary>
     /// Converts this expression to its HCL string representation.
     /// </summary>
     /// <returns>The HCL string representation.</returns>
     public abstract string ToHcl();
+
+    /// <summary>
+    /// Preparation phase - override to track dependencies or validate structure.
+    /// Default implementation does nothing.
+    /// </summary>
+    public virtual void Prepare(ITerraformPrepareContext context)
+    {
+        // Default: no preparation needed for simple expressions
+    }
+
+    /// <summary>
+    /// Resolution phase - converts expression to HCL string.
+    /// Default implementation calls ToHcl().
+    /// </summary>
+    public virtual string Resolve(ITerraformResolveContext context)
+    {
+        return ToHcl();
+    }
 
     /// <summary>
     /// Creates a literal expression from a value.

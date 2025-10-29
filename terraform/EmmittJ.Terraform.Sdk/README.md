@@ -4,31 +4,52 @@
 
 This is a redesigned version of the Terraform configuration library, incorporating lessons learned from Azure.Provisioning's architecture. It provides a strongly-typed, expression-based API for building Terraform configurations in C#.
 
+## ✨ New: Deferred Resolution / Token System
+
+The SDK now includes a **two-pass resolution system** inspired by Terraform CDK and AWS CDK:
+
+- ✅ **Circular reference handling**
+- ✅ **Cross-stack references**
+- ✅ **Late-bound values**
+- ✅ **Lazy evaluation with caching**
+- ✅ **Type-safe token system**
+- ✅ **Automatic dependency tracking**
+
+See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documentation and examples.
+
 ## Key Improvements Over Original Design
 
 ### 1. **Separate Value Container from Expression AST**
+
 - **`TerraformValue<T>`**: Container for property values (similar to `BicepValue<T>`)
+
   - Tracks four states: Unset, Literal, Expression, Reference
   - Provides type safety and implicit conversions
   - Enables detection of unassigned properties
+  - **NEW**: Implements `ITerraformResolvable` for two-pass resolution
 
 - **`TerraformExpression`**: Pure syntax tree nodes
   - Compositional expression building
   - No knowledge of types/values
   - Easy to validate and transform
+  - **NEW**: Implements `ITerraformResolvable` for deferred evaluation
 
 ### 2. **Polymorphic Reference System**
+
 - **`ITerraformConstruct`** interface: All constructs implement `GetReferenceExpression()`
 - **`TerraformReference`**: Semantic pointer to another construct
   - Tracks relationships for dependency analysis
   - Each construct knows how to reference itself (no switch statements!)
   - Follows the **Tell, Don't Ask** principle
+  - **NEW**: Records dependencies during prepare phase
 
 ### 3. **Infrastructure-Style Container**
+
 - **`TerraformConfiguration`**: Manages all constructs
   - Similar to Azure.Provisioning's `Infrastructure`
   - Centralizes validation and compilation
   - Provides clean API for building configurations
+  - **NEW**: Two-pass resolution (Prepare → Resolve) in `ToHcl()`
 
 ## Quick Start
 
@@ -104,14 +125,18 @@ config.WriteToFile("main.tf");
 ## Design Patterns from Azure.Provisioning
 
 ### 1. **Value Container Pattern**
+
 Each property can be in one of four states:
+
 - **Unset**: Property not assigned (will use Terraform defaults/computed)
 - **Literal**: Direct .NET value (e.g., `"10.0.0.0/16"`)
 - **Expression**: Computed value (e.g., `cidrsubnet(...)`)
 - **Reference**: Link to another construct (e.g., `var.region`)
 
 ### 2. **Polymorphic Self-Reference**
+
 Instead of switch statements on construct types:
+
 ```csharp
 // OLD: Switch-based (fragile, not extensible)
 return Source switch {
@@ -125,13 +150,16 @@ TerraformExpression expr = Source.GetReferenceExpression();
 ```
 
 Benefits:
+
 - ✅ Open for extension (add new types without modifying existing code)
 - ✅ Encapsulation (each type owns its logic)
 - ✅ Compile-time safety
 - ✅ User-extensible
 
 ### 3. **Dependency Tracking**
+
 References are semantic, not just strings:
+
 ```csharp
 var vpc = new TerraformResource("aws_vpc", "main");
 vpc.DeclareOutput("id");
@@ -149,6 +177,7 @@ subnet.SetFromReference("vpc_id", vpc["id"]);
 ## Comparison with Original API
 
 ### Original (String-Based)
+
 ```csharp
 var doc = new TerraformDocument("main.tf");
 
@@ -165,12 +194,14 @@ string hcl = doc.ToHcl();
 ```
 
 **Issues:**
+
 - No type safety
 - No distinction between literal/expression/reference
 - Runtime validation only
 - Manual output declaration required before reference
 
 ### New (Typed)
+
 ```csharp
 var config = new TerraformConfiguration();
 
@@ -187,6 +218,7 @@ string hcl = config.ToHcl();
 ```
 
 **Benefits:**
+
 - Type-safe property values
 - Clear separation of concerns
 - Runtime validation with helpful errors
@@ -195,6 +227,7 @@ string hcl = config.ToHcl();
 ## Current Status
 
 ### ✅ Implemented
+
 - [x] Core type system (`TerraformValue<T>`, `TerraformExpression`, `TerraformReference`)
 - [x] `ITerraformConstruct` interface with polymorphic references
 - [x] `TerraformVariable` construct
@@ -205,6 +238,7 @@ string hcl = config.ToHcl();
 - [x] Quick start example
 
 ### 🚧 TODO
+
 - [ ] `TerraformDataSource` construct
 - [ ] `TerraformProvider` construct
 - [ ] `TerraformOutput` construct
@@ -224,6 +258,7 @@ dotnet test Aspire.Hosting.Terraform.Core.Tests
 ```
 
 Compare with the original implementation:
+
 ```bash
 dotnet test Aspire.Hosting.Terraform.Tests
 ```
@@ -247,6 +282,7 @@ The new Core library can coexist with the original implementation:
 ## Contributing
 
 This is an experimental redesign. Feedback welcome on:
+
 - API ergonomics
 - Missing features
 - Edge cases not handled

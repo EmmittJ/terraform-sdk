@@ -38,6 +38,17 @@ public class TerraformReference(ITerraformConstruct source, string? propertyPath
     }
 
     /// <summary>
+    /// Records a dependency during the preparation phase.
+    /// This allows the configuration to track which constructs depend on others.
+    /// </summary>
+    internal void RecordDependency(ITerraformPrepareContext context)
+    {
+        // The dependency tracking will be handled by the configuration's dependency graph
+        // For now, this is a placeholder that can be extended when we implement
+        // the full dependency tracking system
+    }
+
+    /// <summary>
     /// Implicit conversion from TerraformReference to TerraformExpression.
     /// </summary>
     public static implicit operator TerraformExpression(TerraformReference reference)

@@ -10,6 +10,11 @@ public class TerraformConfiguration(string name = "main")
     private readonly string _name = name;
 
     /// <summary>
+    /// Gets the name of this configuration.
+    /// </summary>
+    public string Name => _name;
+
+    /// <summary>
     /// Adds a construct (variable, resource, data source, etc.) to this configuration.
     /// </summary>
     public void Add(ITerraformConstruct construct)
@@ -28,15 +33,37 @@ public class TerraformConfiguration(string name = "main")
     public IReadOnlyList<ITerraformConstruct> Constructs => _constructs.AsReadOnly();
 
     /// <summary>
-    /// Compiles all constructs to HCL.
+    /// Compiles all constructs to HCL using two-pass resolution.
+    /// Pass 1: Prepare - collect dependencies, validate structure
+    /// Pass 2: Resolve - generate HCL
     /// </summary>
     public string ToHcl()
     {
+        var context = new TerraformContext(this);
+
+        // Pass 1: Prepare - collect dependencies, track references
+        foreach (var construct in _constructs)
+        {
+            if (construct is ITerraformResolvable resolvable)
+            {
+                context.Prepare(resolvable);
+            }
+        }
+
+        // Pass 2: Resolve - generate HCL
         var sb = new System.Text.StringBuilder();
 
         foreach (var construct in _constructs)
         {
-            sb.Append(construct.ToHcl());
+            if (construct is ITerraformResolvable resolvable)
+            {
+                sb.Append(context.Resolve(resolvable));
+            }
+            else
+            {
+                // Fallback for non-resolvable constructs
+                sb.Append(construct.ToHcl());
+            }
             sb.AppendLine();
         }
 
