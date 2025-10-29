@@ -77,8 +77,7 @@ public class TerraformValueTests
     {
         var value = new TerraformValue<string>("hello");
         var context = TerraformContext.Temporary();
-        context.Prepare(value);
-        var expr = context.ToHcl(value);
+        var expr = value.Resolve(context);
 
         return Verify(expr.ToHcl());
     }
@@ -88,8 +87,7 @@ public class TerraformValueTests
     {
         var value = new TerraformValue<int>(42);
         var context = TerraformContext.Temporary();
-        context.Prepare(value);
-        var expr = context.ToHcl(value);
+        var expr = value.Resolve(context);
 
         return Verify(expr.ToHcl());
     }
@@ -99,8 +97,7 @@ public class TerraformValueTests
     {
         var value = new TerraformValue<bool>(true);
         var context = TerraformContext.Temporary();
-        context.Prepare(value);
-        var expr = context.ToHcl(value);
+        var expr = value.Resolve(context);
 
         return Verify(expr.ToHcl());
     }
@@ -111,8 +108,7 @@ public class TerraformValueTests
         var expr = TerraformExpression.Identifier("count.index");
         var value = new TerraformValue<int>(expr);
         var context = TerraformContext.Temporary();
-        context.Prepare(value);
-        var compiled = context.ToHcl(value);
+        var compiled = value.Resolve(context);
 
         return Verify(compiled.ToHcl());
     }
@@ -124,8 +120,7 @@ public class TerraformValueTests
         var reference = variable.AsReference();
         var value = new TerraformValue<string>(reference);
         var context = TerraformContext.Temporary();
-        context.Prepare(value);
-        var expr = context.ToHcl(value);
+        var expr = value.Resolve(context);
 
         return Verify(expr.ToHcl());
     }
@@ -136,6 +131,6 @@ public class TerraformValueTests
         var value = new TerraformValue<string>();
         var context = TerraformContext.Temporary();
 
-        Assert.Throws<InvalidOperationException>(() => context.ToHcl(value));
+        Assert.Throws<InvalidOperationException>(() => value.Resolve(context));
     }
 }
