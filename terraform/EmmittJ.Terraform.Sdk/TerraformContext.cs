@@ -1,87 +1,75 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Single context implementation for both prepare and resolve phases.
-/// Maintains state throughout the two-pass resolution process.
+/// Context implementation for terraform preparation and resolution.
+/// Maintains state for indentation and circular dependency detection.
 /// </summary>
-public class TerraformContext : ITerraformPrepareContext, ITerraformResolveContext
+/// <remarks>
+/// Creates a new context for the given scope.
+/// </remarks>
+/// <param name="scope">The configuration scope.</param>
+public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
 {
-    private readonly HashSet<ITerraformConstruct> _preparingConstructs = new();
-    private readonly HashSet<ITerraformConstruct> _resolvingConstructs = new();
-
-    /// <inheritdoc/>
-    public TerraformConfiguration Scope { get; }
+    /// <summary>
+    /// Creates a temporary context for testing or one-off resolution.
+    /// </summary>
+    /// <returns>A temporary context.</returns>
+    public static TerraformContext Temporary() => new(new("temp"));
 
     /// <summary>
-    /// Creates a new context for the given scope.
+    /// Creates a temporary context for testing or one-off resolution.
     /// </summary>
-    /// <param name="scope">The configuration scope.</param>
-    public TerraformContext(TerraformConfiguration scope)
+    /// <typeparam name="T">The type of the resolvable.</typeparam>
+    /// <param name="resolvable">Optional resolvable to prepare immediately.</param>
+    /// <returns>A temporary context with the resolvable prepared (if provided).</returns>
+    public static TerraformContext Temporary<T>(ITerraformResolvable<T>? resolvable = null)
     {
-        Scope = scope ?? throw new ArgumentNullException(nameof(scope));
+        var context = new TerraformContext(new("temp"));
+        if (resolvable != null)
+        {
+            resolvable.Prepare(context);
+        }
+        return context;
     }
 
+    private int _indentLevel = 0;
+
     /// <inheritdoc/>
-    public void Prepare<T>(ITerraformResolvable<T> resolvable)
+    public TerraformConfiguration Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
+
+    /// <inheritdoc/>
+    public int IndentLevel => _indentLevel;
+
+    /// <inheritdoc/>
+    public string Indent { get; private set; } = string.Empty;
+
+    /// <inheritdoc/>
+    public IDisposable PushIndent()
     {
-        if (resolvable == null)
-        {
-            return;
-        }
+        _indentLevel++;
+        Indent = new string(' ', _indentLevel * 2);
+        return new IndentScope(this);
+    }
 
-        // Detect circular preparation
-        if (resolvable is ITerraformConstruct construct)
+    private void PopIndent()
+    {
+        if (_indentLevel > 0)
         {
-            if (_preparingConstructs.Contains(construct))
-            {
-                throw new InvalidOperationException(
-                    $"Circular dependency detected during preparation of construct: {construct}");
-            }
-
-            _preparingConstructs.Add(construct);
-            try
-            {
-                resolvable.Prepare(this);
-            }
-            finally
-            {
-                _preparingConstructs.Remove(construct);
-            }
-        }
-        else
-        {
-            resolvable.Prepare(this);
+            _indentLevel--;
+            Indent = new string(' ', _indentLevel * 2);
         }
     }
 
-    /// <inheritdoc/>
-    public T Resolve<T>(ITerraformResolvable<T> resolvable)
+    /// <summary>
+    /// Disposable helper for managing indent scope.
+    /// </summary>
+    private class IndentScope(TerraformContext context) : IDisposable
     {
-        if (resolvable == null)
+        private readonly TerraformContext _context = context;
+
+        public void Dispose()
         {
-            throw new ArgumentNullException(nameof(resolvable));
+            _context.PopIndent();
         }
-
-        // Detect circular resolution
-        if (resolvable is ITerraformConstruct construct)
-        {
-            if (_resolvingConstructs.Contains(construct))
-            {
-                throw new InvalidOperationException(
-                    $"Circular dependency detected during resolution of construct: {construct}");
-            }
-
-            _resolvingConstructs.Add(construct);
-            try
-            {
-                return resolvable.Resolve(this);
-            }
-            finally
-            {
-                _resolvingConstructs.Remove(construct);
-            }
-        }
-
-        return resolvable.Resolve(this);
     }
 }

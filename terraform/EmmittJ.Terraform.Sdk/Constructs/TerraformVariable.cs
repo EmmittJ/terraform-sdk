@@ -36,36 +36,49 @@ public class TerraformVariable(string name) : ITerraformConstruct
     public TerraformExpression GetReferenceExpression()
         => TerraformExpression.Identifier($"var.{Name}");
 
-    /// <inheritdoc/>
-    public string ToHcl(int indent = 0)
+    /// <summary>
+    /// Preparation phase - prepares all nested values.
+    /// </summary>
+    public void Prepare(ITerraformContext context)
     {
-        var indentStr = new string(' ', indent * 2);
-        var innerIndent = new string(' ', (indent + 1) * 2);
+        Default.Prepare(context);
+    }
+
+    /// <summary>
+    /// Resolution phase - generates HCL string with optional context.
+    /// </summary>
+    public string Resolve(ITerraformContext? context = null)
+    {
+        context ??= TerraformContext.Temporary(this);
+
         var sb = new System.Text.StringBuilder();
 
-        sb.AppendLine($"{indentStr}variable \"{Name}\" {{");
+        sb.AppendLine($"{context.Indent}variable \"{Name}\" {{");
 
-        if (Description != null)
+        using (context.PushIndent())
         {
-            sb.AppendLine($"{innerIndent}description = \"{Description}\"");
+            if (Description != null)
+            {
+                sb.AppendLine($"{context.Indent}description = \"{Description}\"");
+            }
+
+            if (Type != null)
+            {
+                sb.AppendLine($"{context.Indent}type = {Type}");
+            }
+
+            if (!Default.IsEmpty)
+            {
+                sb.AppendLine($"{context.Indent}default = {Default.Resolve(context).ToHcl(context)}");
+            }
+
+            if (Sensitive)
+            {
+                sb.AppendLine($"{context.Indent}sensitive = true");
+            }
         }
 
-        if (Type != null)
-        {
-            sb.AppendLine($"{innerIndent}type = {Type}");
-        }
-
-        if (!Default.IsEmpty)
-        {
-            sb.AppendLine($"{innerIndent}default = {Default.Compile().ToHcl()}");
-        }
-
-        if (Sensitive)
-        {
-            sb.AppendLine($"{innerIndent}sensitive = true");
-        }
-
-        sb.AppendLine($"{indentStr}}}");
+        sb.AppendLine($"{context.Indent}}}");
 
         return sb.ToString();
     }

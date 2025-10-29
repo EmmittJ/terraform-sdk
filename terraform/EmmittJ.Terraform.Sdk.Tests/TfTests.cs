@@ -230,7 +230,7 @@ public class TfTests
         var subnet = new TerraformResource("aws_subnet", "example")
             .Set("cidr_block", Tf.Functions.CidrSubnet(vpcCidr.GetReferenceExpression(), 8, TerraformExpression.Literal(1)));
 
-        return Verify(subnet.ToHcl());
+        return Verify(subnet.Resolve());
     }
 
     [Fact]
@@ -253,6 +253,6 @@ public class TfTests
         var local = new TerraformLocal()
             .Set("subnet_cidrs", TerraformExpression.Raw("[for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]"));
 
-        return Verify(local.ToHcl());
+        return Verify(local.Resolve());
     }
 }

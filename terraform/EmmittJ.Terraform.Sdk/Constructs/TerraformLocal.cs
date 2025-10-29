@@ -33,38 +33,41 @@ public class TerraformLocal : TerraformConstruct
         => TerraformExpression.Identifier($"local.{name}");
 
     /// <inheritdoc/>
-    public override string ToHcl(int indent = 0)
+    public override string Resolve(ITerraformContext? context = null)
     {
         if (Properties.Count == 0)
         {
             return string.Empty;
         }
+        context ??= TerraformContext.Temporary(this);
 
-        var indentStr = new string(' ', indent * 2);
-        var innerIndent = new string(' ', (indent + 1) * 2);
         var sb = new System.Text.StringBuilder();
 
-        sb.AppendLine($"{indentStr}locals {{");
+        sb.AppendLine($"{context.Indent}locals {{");
 
-        foreach (var (name, value) in Properties)
+        using (context.PushIndent())
         {
-            if (!value.IsEmpty)
+            foreach (var (name, value) in Properties)
             {
-                var compiledExpr = value.Compile();
+                if (!value.IsEmpty)
+                {
+                    var compiledExpr = value.Resolve(context);
 
-                // Check if this is a block (nested block syntax without '=')
-                if (compiledExpr is TerraformBlock block)
-                {
-                    sb.AppendLine($"{innerIndent}{name} {block.ToHcl(indent + 1)}");
-                }
-                else
-                {
-                    sb.AppendLine($"{innerIndent}{name} = {compiledExpr.ToHcl()}");
+                    // Check if this is a block (nested block syntax without '=')
+                    if (compiledExpr is TerraformBlock block)
+                    {
+                        // Don't push indent - block.ToHcl() will handle its own indentation
+                        sb.AppendLine($"{context.Indent}{name} {block.ToHcl(context)}");
+                    }
+                    else
+                    {
+                        sb.AppendLine($"{context.Indent}{name} = {compiledExpr.ToHcl(context)}");
+                    }
                 }
             }
         }
 
-        sb.AppendLine($"{indentStr}}}");
+        sb.AppendLine($"{context.Indent}}}");
 
         return sb.ToString();
     }

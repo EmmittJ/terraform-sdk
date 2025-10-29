@@ -8,7 +8,7 @@ public class TerraformProviderTests
         var provider = new TerraformProvider("aws")
             .Set("region", "us-east-1");
 
-        return Verify(provider.ToHcl());
+        return Verify(provider.Resolve());
     }
 
     [Fact]
@@ -20,7 +20,7 @@ public class TerraformProviderTests
         };
         provider.Set("region", "us-west-2");
 
-        return Verify(provider.ToHcl());
+        return Verify(provider.Resolve());
     }
 
     [Fact]
@@ -31,7 +31,7 @@ public class TerraformProviderTests
             .Set("subscription_id", "12345-67890")
             .Set("tenant_id", "abcde-fghij");
 
-        return Verify(provider.ToHcl());
+        return Verify(provider.Resolve());
     }
 
     [Fact]
@@ -41,7 +41,7 @@ public class TerraformProviderTests
         var provider = new TerraformProvider("aws")
             .Set("region", regionVar.AsReference());
 
-        return Verify(provider.ToHcl());
+        return Verify(provider.Resolve());
     }
 
     [Fact]
@@ -51,7 +51,7 @@ public class TerraformProviderTests
             .Set("region", TerraformExpression.Identifier("var.region"))
             .Set("skip_metadata_api_check", true);
 
-        return Verify(provider.ToHcl());
+        return Verify(provider.Resolve());
     }
 
     [Fact]
@@ -83,7 +83,7 @@ public class TerraformProviderTests
         // Verify fluent chaining returns TerraformProvider
         Assert.IsType<TerraformProvider>(provider);
 
-        return Verify(provider.ToHcl());
+        return Verify(provider.Resolve());
     }
 
     [Fact]

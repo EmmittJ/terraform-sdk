@@ -108,27 +108,28 @@ public class TerraformObject : TerraformExpression, IEnumerable
     public int Count => _properties.Count;
 
     /// <summary>
-    /// Converts the object to HCL syntax.
-    /// Uses compact single-line format for simple objects, multi-line for complex ones.
+    /// Converts the object to HCL syntax with proper indentation.
+    /// Uses context for indentation when available.
     /// </summary>
-    public override string ToHcl()
+    public override string ToHcl(ITerraformContext? context = null)
     {
         if (_properties.Count == 0)
-            return "{}";
-
-        var props = _properties.Select(kvp => $"{kvp.Key} = {kvp.Value.ToHcl()}").ToList();
-
-        // Use single-line format for simple objects (all values are simple literals or identifiers)
-        bool isSimple = _properties.All(kvp =>
-            kvp.Value is LiteralExpression<string> or LiteralExpression<int> or LiteralExpression<bool> or IdentifierExpression);
-
-        if (isSimple || _properties.Count == 1)
         {
-            return $"{{ {string.Join(", ", props)} }}";
+            return "{}";
         }
 
-        // Use multi-line format for complex objects
-        return $"{{\n    {string.Join("\n    ", props)}\n  }}";
+        var currentIndent = context?.Indent ?? "";
+        var nextIndent = currentIndent + "  ";
+
+        var sb = new System.Text.StringBuilder();
+        sb.AppendLine("{");
+        foreach (var (key, value) in _properties)
+        {
+            sb.AppendLine($"{nextIndent}{key} = {value.ToHcl(context)}");
+        }
+        sb.Append($"{currentIndent}}}");
+
+        return sb.ToString();
     }
 
     /// <summary>

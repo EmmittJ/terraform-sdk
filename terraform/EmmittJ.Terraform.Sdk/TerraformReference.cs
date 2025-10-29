@@ -41,7 +41,7 @@ public class TerraformReference(ITerraformConstruct source, string? propertyPath
     /// Records a dependency during the preparation phase.
     /// This allows the configuration to track which constructs depend on others.
     /// </summary>
-    internal void RecordDependency(ITerraformPrepareContext context)
+    internal void RecordDependency(ITerraformContext context)
     {
         // The dependency tracking will be handled by the configuration's dependency graph
         // For now, this is a placeholder that can be extended when we implement

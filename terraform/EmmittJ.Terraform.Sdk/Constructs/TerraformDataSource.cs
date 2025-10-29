@@ -14,21 +14,23 @@ public class TerraformDataSource(string type, string name) : TerraformProvisiona
         => TerraformExpression.Identifier($"data.{Type}.{Name}");
 
     /// <inheritdoc/>
-    public override string ToHcl(int indent = 0)
+    public override string Resolve(ITerraformContext? context = null)
     {
-        var indentStr = new string(' ', indent * 2);
-        var innerIndent = new string(' ', (indent + 1) * 2);
+        context ??= TerraformContext.Temporary(this);
         var sb = new System.Text.StringBuilder();
 
-        sb.AppendLine($"{indentStr}data \"{Type}\" \"{Name}\" {{");
+        sb.AppendLine($"{context.Indent}data \"{Type}\" \"{Name}\" {{");
 
-        // Meta-arguments first
-        WriteMetaArguments(sb, innerIndent);
+        using (context.PushIndent())
+        {
+            // Meta-arguments first
+            WriteMetaArguments(sb, context);
 
-        // Regular properties
-        WriteProperties(sb, innerIndent);
+            // Regular properties
+            WriteProperties(sb, context);
+        }
 
-        sb.AppendLine($"{indentStr}}}");
+        sb.AppendLine($"{context.Indent}}}");
 
         return sb.ToString();
     }

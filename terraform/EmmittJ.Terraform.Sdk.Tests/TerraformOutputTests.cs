@@ -10,7 +10,7 @@ public class TerraformOutputTests
             Value = "vpc-12345"
         };
 
-        return Verify(output.ToHcl());
+        return Verify(output.Resolve());
     }
 
     [Fact]
@@ -24,7 +24,7 @@ public class TerraformOutputTests
             Value = vpc["id"]
         };
 
-        return Verify(output.ToHcl());
+        return Verify(output.Resolve());
     }
 
     [Fact]
@@ -36,7 +36,7 @@ public class TerraformOutputTests
             Description = "The AWS region"
         };
 
-        return Verify(output.ToHcl());
+        return Verify(output.Resolve());
     }
 
     [Fact]
@@ -48,7 +48,7 @@ public class TerraformOutputTests
             Sensitive = true
         };
 
-        return Verify(output.ToHcl());
+        return Verify(output.Resolve());
     }
 
     [Fact]
@@ -60,7 +60,7 @@ public class TerraformOutputTests
         };
         output.DependsOn.Add("aws_instance.web");
 
-        return Verify(output.ToHcl());
+        return Verify(output.Resolve());
     }
 
     [Fact]
@@ -74,7 +74,7 @@ public class TerraformOutputTests
         };
         output.DependsOn.Add("aws_db_instance.main");
 
-        return Verify(output.ToHcl());
+        return Verify(output.Resolve());
     }
 
     [Fact]
@@ -85,7 +85,7 @@ public class TerraformOutputTests
             Value = TerraformExpression.Raw("[for s in aws_subnet.private : s.id]")
         };
 
-        return Verify(output.ToHcl());
+        return Verify(output.Resolve());
     }
 
     [Fact]
@@ -93,7 +93,7 @@ public class TerraformOutputTests
     {
         var output = new TerraformOutput("test");
 
-        var ex = Assert.Throws<InvalidOperationException>(() => output.ToHcl());
+        var ex = Assert.Throws<InvalidOperationException>(() => output.Resolve());
         Assert.Contains("must have a value set", ex.Message);
     }
 

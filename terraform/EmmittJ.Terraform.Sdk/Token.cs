@@ -37,7 +37,7 @@ public static class Token
     /// <typeparam name="T">The type of value to produce.</typeparam>
     /// <param name="producer">Function that produces the value at resolution time.</param>
     /// <returns>A lazy resolvable value.</returns>
-    public static ITerraformResolvable<T> Lazy<T>(Func<ITerraformResolveContext, T> producer)
+    public static ITerraformResolvable<T> Lazy<T>(Func<ITerraformContext, T> producer)
         => new LazyValue<T>(producer);
 
     /// <summary>
@@ -53,24 +53,24 @@ public static class Token
 /// <summary>
 /// Internal implementation of a lazy value that defers computation until resolution.
 /// </summary>
-internal class LazyValue<T> : ITerraformResolvable<T>
+internal class LazyValue<T>(Func<ITerraformContext, T> producer) : ITerraformResolvable<T>
 {
-    private readonly Func<ITerraformResolveContext, T> _producer;
+    private readonly Func<ITerraformContext, T> _producer = producer ?? throw new ArgumentNullException(nameof(producer));
     private T? _cachedValue;
     private bool _isCached;
 
-    public LazyValue(Func<ITerraformResolveContext, T> producer)
-    {
-        _producer = producer ?? throw new ArgumentNullException(nameof(producer));
-    }
-
-    public void Prepare(ITerraformPrepareContext context)
+    public void Prepare(ITerraformContext context)
     {
         // Lazy values don't need preparation - they're computed at resolution time
     }
 
-    public T Resolve(ITerraformResolveContext context)
+    public T Resolve(ITerraformContext? context = null)
     {
+        if (context is null)
+        {
+            throw new InvalidOperationException("LazyValue requires a resolution context.");
+        }
+
         if (!_isCached || _cachedValue is null)
         {
             _cachedValue = _producer(context);

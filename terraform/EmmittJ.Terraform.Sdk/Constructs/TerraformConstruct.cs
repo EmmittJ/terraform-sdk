@@ -3,8 +3,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Abstract base class for all Terraform constructs (resources, data sources, providers, locals).
 /// Provides common property management and HCL generation infrastructure.
+/// Implements ITerraformResolvable for two-pass resolution support.
 /// </summary>
-public abstract class TerraformConstruct : ITerraformConstruct
+public abstract class TerraformConstruct : ITerraformConstruct, ITerraformResolvable
 {
     private readonly Dictionary<string, ITerraformValue> _properties = [];
 
@@ -36,6 +37,21 @@ public abstract class TerraformConstruct : ITerraformConstruct
     /// <inheritdoc/>
     public abstract TerraformExpression GetReferenceExpression();
 
-    /// <inheritdoc/>
-    public abstract string ToHcl(int indent = 0);
+    /// <summary>
+    /// Preparation phase - prepares all nested values and expressions.
+    /// </summary>
+    public virtual void Prepare(ITerraformContext context)
+    {
+        foreach (var value in _properties.Values)
+        {
+            value.Prepare(context);
+        }
+    }
+
+    /// <summary>
+    /// Resolution phase - generates HCL string with optional context.
+    /// When context is provided, uses it for dependency tracking.
+    /// When context is null, creates a temporary context.
+    /// </summary>
+    public abstract string Resolve(ITerraformContext? context = null);
 }

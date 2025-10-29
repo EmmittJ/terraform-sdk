@@ -3,7 +3,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Base interface for all Terraform constructs (variables, resources, data sources, etc.).
 /// </summary>
-public interface ITerraformConstruct
+public interface ITerraformConstruct : ITerraformResolvable
 {
     /// <summary>
     /// Gets the expression that references this construct in HCL.
@@ -11,10 +11,4 @@ public interface ITerraformConstruct
     /// </summary>
     /// <returns>The expression that represents a reference to this construct.</returns>
     internal TerraformExpression GetReferenceExpression();
-
-    /// <summary>
-    /// Compiles this construct to its HCL representation.
-    /// </summary>
-    /// <returns>The HCL string for this construct.</returns>
-    string ToHcl(int indent = 0);
 }

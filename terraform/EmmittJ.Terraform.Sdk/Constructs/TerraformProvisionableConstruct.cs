@@ -71,55 +71,73 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     protected abstract string GetConstructTypeLabel();
 
     /// <summary>
+    /// Preparation phase - prepares all meta-arguments and properties.
+    /// </summary>
+    public override void Prepare(ITerraformContext context)
+    {
+        base.Prepare(context);
+
+        if (!Count.IsEmpty && Count is ITerraformResolvable<TerraformExpression> countResolvable)
+        {
+            countResolvable.Prepare(context);
+        }
+
+        if (!ForEach.IsEmpty && ForEach is ITerraformResolvable<TerraformExpression> forEachResolvable)
+        {
+            forEachResolvable.Prepare(context);
+        }
+    }
+
+    /// <summary>
     /// Writes meta-arguments to HCL (count, for_each, depends_on, provider).
     /// </summary>
-    protected void WriteMetaArguments(System.Text.StringBuilder sb, string indent)
+    protected void WriteMetaArguments(System.Text.StringBuilder sb, ITerraformContext context)
     {
         if (!Count.IsEmpty)
         {
-            sb.AppendLine($"{indent}count = {Count.Compile().ToHcl()}");
+            sb.AppendLine($"{context.Indent}count = {Count.Resolve(context).ToHcl(context)}");
         }
 
         if (!ForEach.IsEmpty)
         {
-            sb.AppendLine($"{indent}for_each = {ForEach.Compile().ToHcl()}");
+            sb.AppendLine($"{context.Indent}for_each = {ForEach.Resolve(context).ToHcl(context)}");
         }
 
         if (DependsOn.Count > 0)
         {
             var deps = string.Join(", ", DependsOn);
-            sb.AppendLine($"{indent}depends_on = [{deps}]");
+            sb.AppendLine($"{context.Indent}depends_on = [{deps}]");
         }
 
         if (Provider != null)
         {
-            sb.AppendLine($"{indent}provider = {Provider}");
+            sb.AppendLine($"{context.Indent}provider = {Provider}");
         }
     }
 
     /// <summary>
     /// Writes regular properties to HCL.
     /// </summary>
-    protected void WriteProperties(System.Text.StringBuilder sb, string indent)
+    protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
         foreach (var (key, value) in Properties)
         {
             if (!value.IsEmpty)
             {
-                var compiledExpr = value.Compile();
+                var compiledExpr = value.Resolve(context);
 
                 // Check if this is a block (nested block syntax without '=')
                 if (compiledExpr is TerraformBlock block)
                 {
-                    // Extract indent level from indent string
-                    int indentLevel = indent.Length / 2;
-                    sb.AppendLine($"{indent}{key} {block.ToHcl(indentLevel)}");
+                    // Don't push indent - block.ToHcl() will handle its own indentation
+                    sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
                 }
                 else
                 {
-                    sb.AppendLine($"{indent}{key} = {compiledExpr.ToHcl()}");
+                    sb.AppendLine($"{context.Indent}{key} = {compiledExpr.ToHcl(context)}");
                 }
             }
         }
     }
+
 }

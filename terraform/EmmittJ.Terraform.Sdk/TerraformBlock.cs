@@ -12,21 +12,23 @@ public class TerraformBlock : TerraformObject
     /// Converts the block to HCL syntax.
     /// Generates block body syntax with arguments inside.
     /// </summary>
-    public override string ToHcl() => ToHcl(0);
-
-    /// <summary>
-    /// Converts the block to HCL syntax with indentation.
-    /// The indent parameter represents the current nesting level.
-    /// </summary>
-    public string ToHcl(int indent)
+    public override string ToString()
     {
         if (_properties.Count == 0)
+        {
             return "{}";
+        }
 
-        var baseIndent = new string(' ', indent * 2);
-        var innerIndent = new string(' ', (indent + 1) * 2);
-        var props = _properties.Select(kvp => $"{innerIndent}{kvp.Key} = {kvp.Value.ToHcl()}").ToList();
+        var sb = new System.Text.StringBuilder();
+        sb.AppendLine("{");
 
-        return $"{{\n{string.Join("\n", props)}\n{baseIndent}}}";
+        foreach (var (key, value) in _properties)
+        {
+            sb.AppendLine($"  {key} = {value}");
+        }
+
+        sb.AppendLine("}");
+
+        return sb.ToString();
     }
 }

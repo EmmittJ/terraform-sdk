@@ -76,7 +76,9 @@ public class TerraformValueTests
     public Task Compile_LiteralString_ReturnsQuotedHcl()
     {
         var value = new TerraformValue<string>("hello");
-        var expr = value.Compile();
+        var context = TerraformContext.Temporary();
+        context.Prepare(value);
+        var expr = context.ToHcl(value);
 
         return Verify(expr.ToHcl());
     }
@@ -85,7 +87,9 @@ public class TerraformValueTests
     public Task Compile_LiteralInt_ReturnsUnquotedHcl()
     {
         var value = new TerraformValue<int>(42);
-        var expr = value.Compile();
+        var context = TerraformContext.Temporary();
+        context.Prepare(value);
+        var expr = context.ToHcl(value);
 
         return Verify(expr.ToHcl());
     }
@@ -94,7 +98,9 @@ public class TerraformValueTests
     public Task Compile_LiteralBool_ReturnsLowercaseHcl()
     {
         var value = new TerraformValue<bool>(true);
-        var expr = value.Compile();
+        var context = TerraformContext.Temporary();
+        context.Prepare(value);
+        var expr = context.ToHcl(value);
 
         return Verify(expr.ToHcl());
     }
@@ -104,7 +110,9 @@ public class TerraformValueTests
     {
         var expr = TerraformExpression.Identifier("count.index");
         var value = new TerraformValue<int>(expr);
-        var compiled = value.Compile();
+        var context = TerraformContext.Temporary();
+        context.Prepare(value);
+        var compiled = context.ToHcl(value);
 
         return Verify(compiled.ToHcl());
     }
@@ -115,7 +123,9 @@ public class TerraformValueTests
         var variable = new TerraformVariable("region");
         var reference = variable.AsReference();
         var value = new TerraformValue<string>(reference);
-        var expr = value.Compile();
+        var context = TerraformContext.Temporary();
+        context.Prepare(value);
+        var expr = context.ToHcl(value);
 
         return Verify(expr.ToHcl());
     }
@@ -124,7 +134,8 @@ public class TerraformValueTests
     public void Compile_UnsetValue_ThrowsException()
     {
         var value = new TerraformValue<string>();
+        var context = TerraformContext.Temporary();
 
-        Assert.Throws<InvalidOperationException>(() => value.Compile());
+        Assert.Throws<InvalidOperationException>(() => context.ToHcl(value));
     }
 }

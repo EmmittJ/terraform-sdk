@@ -10,7 +10,7 @@ public class TerraformLocalTests
             .Set("environment", "production")
             .Set("common_tags", TerraformExpression.Raw("{ Environment = \"prod\", ManagedBy = \"Terraform\" }"));
 
-        return Verify(locals.ToHcl());
+        return Verify(locals.Resolve());
     }
 
     [Fact]
@@ -20,7 +20,7 @@ public class TerraformLocalTests
             .Set("vpc_cidr", "10.0.0.0/16")
             .Set("subnet_count", 3);
 
-        return Verify(locals.ToHcl());
+        return Verify(locals.Resolve());
     }
 
     [Fact]
@@ -30,7 +30,7 @@ public class TerraformLocalTests
         var locals = new TerraformLocal()
             .Set("region", regionVar.AsReference());
 
-        return Verify(locals.ToHcl());
+        return Verify(locals.Resolve());
     }
 
     [Fact]
@@ -64,7 +64,7 @@ public class TerraformLocalTests
         // Verify fluent chaining returns TerraformLocal
         Assert.IsType<TerraformLocal>(locals);
 
-        return Verify(locals.ToHcl());
+        return Verify(locals.Resolve());
     }
 
     [Fact]
@@ -87,14 +87,14 @@ public class TerraformLocalTests
             .Set("subnet_cidrs", TerraformExpression.Raw("[for i in range(3) : cidrsubnet(local.vpc_cidr, 8, i)]"))
             .Set("vpc_cidr", "10.0.0.0/16");
 
-        return Verify(locals.ToHcl());
+        return Verify(locals.Resolve());
     }
 
     [Fact]
     public void Local_Empty_GeneratesEmptyString()
     {
         var locals = new TerraformLocal();
-        var hcl = locals.ToHcl();
+        var hcl = locals.Resolve();
 
         Assert.Equal(string.Empty, hcl);
     }

@@ -46,7 +46,7 @@ public class TerraformConfiguration(string name = "main")
         {
             if (construct is ITerraformResolvable resolvable)
             {
-                context.Prepare(resolvable);
+                resolvable.Prepare(context);
             }
         }
 
@@ -57,12 +57,12 @@ public class TerraformConfiguration(string name = "main")
         {
             if (construct is ITerraformResolvable resolvable)
             {
-                sb.Append(context.Resolve(resolvable));
+                sb.Append(resolvable.Resolve(context));
             }
             else
             {
                 // Fallback for non-resolvable constructs
-                sb.Append(construct.ToHcl());
+                sb.Append(construct.Resolve());
             }
             sb.AppendLine();
         }

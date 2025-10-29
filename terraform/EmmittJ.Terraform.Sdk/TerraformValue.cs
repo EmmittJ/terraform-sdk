@@ -80,29 +80,13 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
     }
 
     /// <summary>
-    /// Compiles this value to a TerraformExpression for HCL generation.
-    /// This is a convenience method that creates a temporary context and uses the two-pass resolution system.
-    /// </summary>
-    /// <returns>The compiled expression.</returns>
-    public TerraformExpression Compile()
-    {
-        // Create a temporary scope and context for standalone compilation
-        var scope = new TerraformConfiguration("temp");
-        var context = new TerraformContext(scope);
-
-        // Use the two-pass resolution system
-        Prepare(context);
-        return Resolve(context);
-    }
-
-    /// <summary>
     /// Preparation phase - prepare nested expressions and track dependencies.
     /// </summary>
-    public void Prepare(ITerraformPrepareContext context)
+    public void Prepare(ITerraformContext context)
     {
         if (_kind == TerraformValueKind.Expression && _expression is ITerraformResolvable<TerraformExpression> resolvable)
         {
-            context.Prepare(resolvable);
+            resolvable.Prepare(context);
         }
         else if (_kind == TerraformValueKind.Reference && _reference is not null)
         {
@@ -114,14 +98,16 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
     /// <summary>
     /// Resolution phase - resolve to a TerraformExpression.
     /// </summary>
-    public TerraformExpression Resolve(ITerraformResolveContext context)
+    public TerraformExpression Resolve(ITerraformContext? context = null)
     {
+        context ??= TerraformContext.Temporary();
+
         return _kind switch
         {
             TerraformValueKind.Unset => throw new InvalidOperationException("Cannot resolve an unset value"),
             TerraformValueKind.Literal => TerraformExpression.Literal(_literalValue),
             TerraformValueKind.Expression when _expression is ITerraformResolvable<TerraformExpression> resolvable
-                => context.Resolve(resolvable),
+                => resolvable.Resolve(context),
             TerraformValueKind.Expression => _expression ?? throw new InvalidOperationException("Expression is null"),
             TerraformValueKind.Reference when _reference is not null => _reference.ToExpression(),
             TerraformValueKind.Reference => throw new InvalidOperationException("Reference is null"),

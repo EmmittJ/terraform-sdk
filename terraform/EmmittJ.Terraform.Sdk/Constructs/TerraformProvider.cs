@@ -15,40 +15,43 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
         => TerraformExpression.Identifier(Alias != null ? $"{Name}.{Alias}" : Name);
 
     /// <inheritdoc/>
-    public override string ToHcl(int indent = 0)
+    public override string Resolve(ITerraformContext? context = null)
     {
-        var indentStr = new string(' ', indent * 2);
-        var innerIndent = new string(' ', (indent + 1) * 2);
+        context ??= TerraformContext.Temporary(this);
         var sb = new System.Text.StringBuilder();
 
-        sb.AppendLine($"{indentStr}provider \"{Name}\" {{");
+        sb.AppendLine($"{context.Indent}provider \"{Name}\" {{");
 
-        // Alias comes first if present
-        if (Alias != null)
+        using (context.PushIndent())
         {
-            sb.AppendLine($"{innerIndent}alias = \"{Alias}\"");
-        }
-
-        // Configuration properties
-        foreach (var (key, value) in Properties)
-        {
-            if (!value.IsEmpty)
+            // Alias comes first if present
+            if (Alias != null)
             {
-                var compiledExpr = value.Compile();
+                sb.AppendLine($"{context.Indent}alias = \"{Alias}\"");
+            }
 
-                // Check if this is a block (nested block syntax without '=')
-                if (compiledExpr is TerraformBlock block)
+            // Configuration properties
+            foreach (var (key, value) in Properties)
+            {
+                if (!value.IsEmpty)
                 {
-                    sb.AppendLine($"{innerIndent}{key} {block.ToHcl(indent + 1)}");
-                }
-                else
-                {
-                    sb.AppendLine($"{innerIndent}{key} = {compiledExpr.ToHcl()}");
+                    var compiledExpr = value.Resolve(context);
+
+                    // Check if this is a block (nested block syntax without '=')
+                    if (compiledExpr is TerraformBlock block)
+                    {
+                        // Don't push indent - block.ToHcl() will handle its own indentation
+                        sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
+                    }
+                    else
+                    {
+                        sb.AppendLine($"{context.Indent}{key} = {compiledExpr.ToHcl(context)}");
+                    }
                 }
             }
         }
 
-        sb.AppendLine($"{indentStr}}}");
+        sb.AppendLine($"{context.Indent}}}");
 
         return sb.ToString();
     }

@@ -34,41 +34,54 @@ public class TerraformOutput(string name) : ITerraformConstruct
     public TerraformExpression GetReferenceExpression()
         => TerraformExpression.Identifier($"output.{Name}");
 
-    /// <inheritdoc/>
-    public string ToHcl(int indent = 0)
+    /// <summary>
+    /// Preparation phase - prepares all nested values.
+    /// </summary>
+    public void Prepare(ITerraformContext context)
     {
+        Value.Prepare(context);
+    }
+
+    /// <summary>
+    /// Resolution phase - generates HCL string with optional context.
+    /// </summary>
+    public string Resolve(ITerraformContext? context = null)
+    {
+        context ??= TerraformContext.Temporary(this);
+
         if (Value.IsEmpty)
         {
             throw new InvalidOperationException($"Output '{Name}' must have a value set before it can be synthesized.");
         }
 
-        var indentStr = new string(' ', indent * 2);
-        var innerIndent = new string(' ', (indent + 1) * 2);
         var sb = new System.Text.StringBuilder();
 
-        sb.AppendLine($"{indentStr}output \"{Name}\" {{");
+        sb.AppendLine($"{context.Indent}output \"{Name}\" {{");
 
-        // Value is required
-        sb.AppendLine($"{innerIndent}value = {Value.Compile().ToHcl()}");
-
-        // Optional attributes
-        if (Description != null)
+        using (context.PushIndent())
         {
-            sb.AppendLine($"{innerIndent}description = \"{Description}\"");
+            // Value is required
+            sb.AppendLine($"{context.Indent}value = {Value.Resolve(context).ToHcl(context)}");
+
+            // Optional attributes
+            if (Description != null)
+            {
+                sb.AppendLine($"{context.Indent}description = \"{Description}\"");
+            }
+
+            if (Sensitive.HasValue)
+            {
+                sb.AppendLine($"{context.Indent}sensitive = {Sensitive.Value.ToString().ToLowerInvariant()}");
+            }
+
+            if (DependsOn.Count > 0)
+            {
+                var deps = string.Join(", ", DependsOn);
+                sb.AppendLine($"{context.Indent}depends_on = [{deps}]");
+            }
         }
 
-        if (Sensitive.HasValue)
-        {
-            sb.AppendLine($"{innerIndent}sensitive = {Sensitive.Value.ToString().ToLowerInvariant()}");
-        }
-
-        if (DependsOn.Count > 0)
-        {
-            var deps = string.Join(", ", DependsOn);
-            sb.AppendLine($"{innerIndent}depends_on = [{deps}]");
-        }
-
-        sb.AppendLine($"{indentStr}}}");
+        sb.AppendLine($"{context.Indent}}}");
 
         return sb.ToString();
     }

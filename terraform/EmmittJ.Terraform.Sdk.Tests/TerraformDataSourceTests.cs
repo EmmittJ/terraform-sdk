@@ -10,7 +10,7 @@ public class TerraformDataSourceTests
             .Set("owners", "099720109477")
             .DeclareOutput("id");
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -22,7 +22,7 @@ public class TerraformDataSourceTests
         };
         dataSource.Set("state", "available");
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -35,7 +35,7 @@ public class TerraformDataSourceTests
         };
         dataSource.Set("id", TerraformExpression.Identifier("each.value"));
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -46,7 +46,7 @@ public class TerraformDataSourceTests
             Provider = "aws.west"
         };
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -56,7 +56,7 @@ public class TerraformDataSourceTests
         dataSource.DependsOn.Add("aws_internet_gateway.main");
         dataSource.Set("id", "vpc-12345");
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -67,7 +67,7 @@ public class TerraformDataSourceTests
             .Set("id", variable.AsReference())
             .DeclareOutput("cidr_block");
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -77,7 +77,7 @@ public class TerraformDataSourceTests
             .Set("most_recent", TerraformExpression.Literal(true))
             .Set("owners", "self");
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -121,7 +121,7 @@ public class TerraformDataSourceTests
         // Verify fluent chaining returns TerraformDataSource
         Assert.IsType<TerraformDataSource>(dataSource);
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -150,7 +150,7 @@ public class TerraformDataSourceTests
 
         dataSource.DeclareOutput("id");
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 
     [Fact]
@@ -165,6 +165,6 @@ public class TerraformDataSourceTests
         dataSource.Set("vpc_id", "vpc-12345");
         dataSource.DeclareOutput("id");
 
-        return Verify(dataSource.ToHcl());
+        return Verify(dataSource.Resolve());
     }
 }

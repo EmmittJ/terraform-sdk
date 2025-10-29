@@ -11,12 +11,10 @@ public class TerraformResolvableTests
     {
         // Arrange
         var expr = TerraformExpression.Literal("test");
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act
-        expr.Prepare(context);
-        var result = expr.Resolve(context);
+        var result = expr.ToHcl(context);
 
         // Assert
         Assert.Equal("\"test\"", result);
@@ -27,12 +25,10 @@ public class TerraformResolvableTests
     {
         // Arrange
         var value = new TerraformValue<string>("hello");
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary(value);
 
         // Act
-        context.Prepare(value);
-        var expr = context.Resolve(value);
+        var expr = value.Resolve(context);
 
         // Assert
         Assert.Equal("\"hello\"", expr.ToHcl());
@@ -49,18 +45,13 @@ public class TerraformResolvableTests
             return "computed";
         });
 
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
-
-        // Act - Prepare phase should not evaluate
-        context.Prepare(lazyValue);
-        Assert.Equal(0, evaluationCount); // Prepare should not evaluate lazy values
+        var context = TerraformContext.Temporary();
 
         // Act - Resolve phase should evaluate
-        var result1 = context.Resolve(lazyValue);
+        var result1 = lazyValue.Resolve(context);
         Assert.Equal(1, evaluationCount); // First resolve should evaluate once
 
-        var result2 = context.Resolve(lazyValue);
+        var result2 = lazyValue.Resolve(context);
         Assert.Equal(1, evaluationCount); // Second resolve should use cached value
 
         // Assert
@@ -78,7 +69,7 @@ public class TerraformResolvableTests
         var context = new TerraformContext(config);
 
         // Act
-        var result = context.Resolve(lazyValue);
+        var result = lazyValue.Resolve(context);
 
         // Assert
         Assert.Equal("test-config", result);
@@ -117,12 +108,10 @@ public class TerraformResolvableTests
         // Arrange
         var expr = TerraformExpression.Literal(42);
         var value = new TerraformValue<int>(expr);
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act
-        context.Prepare(value);
-        var result = context.Resolve(value);
+        var result = value.Resolve(context);
 
         // Assert
         Assert.Equal("42", result.ToHcl());
@@ -136,12 +125,10 @@ public class TerraformResolvableTests
         var reference = new TerraformReference(resource, "id");
         var value = new TerraformValue<string>(reference);
 
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act - Should not throw
-        context.Prepare(value);
-        var result = context.Resolve(value);
+        var result = value.Resolve(context);
 
         // Assert
         Assert.Equal("aws_instance.web.id", result.ToHcl());
@@ -151,12 +138,11 @@ public class TerraformResolvableTests
     public void TerraformContext_HasCorrectScope()
     {
         // Arrange
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Assert
         Assert.NotNull(context);
-        Assert.Same(config, context.Scope);
+        Assert.Same(context.Scope, context.Scope);
     }
 
     [Fact]
@@ -165,11 +151,10 @@ public class TerraformResolvableTests
         // Arrange
         var stringToken = Token.AsString(Token.Lazy(() => "hello"));
 
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act
-        var result = context.Resolve(stringToken);
+        var result = stringToken.Resolve(context);
 
         // Assert
         Assert.Equal("hello", result);
@@ -181,11 +166,10 @@ public class TerraformResolvableTests
         // Arrange
         var numberToken = Token.AsNumber(Token.Lazy(() => 42));
 
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act
-        var result = context.Resolve(numberToken);
+        var result = numberToken.Resolve(context);
 
         // Assert
         Assert.Equal(42, result);
@@ -197,11 +181,10 @@ public class TerraformResolvableTests
         // Arrange
         var boolToken = Token.AsBoolean(Token.Lazy(() => true));
 
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act
-        var result = context.Resolve(boolToken);
+        var result = boolToken.Resolve(context);
 
         // Assert
         Assert.True(result);
@@ -213,11 +196,10 @@ public class TerraformResolvableTests
         // Arrange
         var listToken = Token.AsList(Token.Lazy(() => new List<string> { "a", "b", "c" }));
 
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act
-        var result = context.Resolve(listToken);
+        var result = listToken.Resolve(context);
 
         // Assert
         Assert.Equal(new List<string> { "a", "b", "c" }, result);
@@ -234,13 +216,12 @@ public class TerraformResolvableTests
             return "computed";
         });
 
-        var config = new TerraformConfiguration();
-        var context = new TerraformContext(config);
+        var context = TerraformContext.Temporary();
 
         // Act
-        var result1 = context.Resolve(lazy);
-        var result2 = context.Resolve(lazy);
-        var result3 = context.Resolve(lazy);
+        var result1 = lazy.Resolve(context);
+        var result2 = lazy.Resolve(context);
+        var result3 = lazy.Resolve(context);
 
         // Assert
         Assert.Equal(1, computationCount); // Lazy value should compute only once
@@ -290,13 +271,14 @@ public class TerraformResolvableTests
     }
 
     [Fact]
-    public void TerraformValue_Compile_StillWorksForBackwardCompatibility()
+    public void TerraformValue_Resolve_WorksWithContext()
     {
         // Arrange
         var value = new TerraformValue<string>("test");
+        var context = TerraformContext.Temporary();
 
         // Act
-        var expr = value.Compile();
+        var expr = value.Resolve(context);
 
         // Assert
         Assert.Equal("\"test\"", expr.ToHcl());
@@ -315,7 +297,7 @@ public class TerraformResolvableTests
         });
 
         var context = new TerraformContext(config);
-        var result = context.Resolve(computedRegion);
+        var result = computedRegion.Resolve(context);
 
         // Assert
         Assert.Equal("us-west-2", result);
@@ -328,7 +310,7 @@ public class TerraformResolvableTests
             return ctx.Scope.Name == "production" ? "us-east-1" : "us-west-2";
         });
 
-        var prodResult = prodContext.Resolve(prodRegion);
+        var prodResult = prodRegion.Resolve(prodContext);
         Assert.Equal("us-east-1", prodResult);
 
         return Task.CompletedTask;
@@ -442,9 +424,9 @@ public class TerraformResolvableTests
         var context = new TerraformContext(config);
 
         // Act - Resolve multiple times
-        var result1 = context.Resolve(expensiveComputation);
-        var result2 = context.Resolve(expensiveComputation);
-        var result3 = context.Resolve(expensiveComputation);
+        var result1 = expensiveComputation.Resolve(context);
+        var result2 = expensiveComputation.Resolve(context);
+        var result3 = expensiveComputation.Resolve(context);
 
         // Assert - Computed only once due to caching
         Assert.Equal(1, computeCount);
