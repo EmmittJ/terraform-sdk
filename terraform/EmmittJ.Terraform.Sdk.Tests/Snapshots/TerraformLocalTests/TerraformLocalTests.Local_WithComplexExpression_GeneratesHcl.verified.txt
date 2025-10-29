@@ -1,0 +1,4 @@
+﻿locals {
+  subnet_cidrs = [for i in range(3) : cidrsubnet(local.vpc_cidr, 8, i)]
+  vpc_cidr = "10.0.0.0/16"
+}

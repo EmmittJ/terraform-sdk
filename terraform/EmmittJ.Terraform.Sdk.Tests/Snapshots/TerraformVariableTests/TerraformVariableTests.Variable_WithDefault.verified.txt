@@ -1,0 +1,4 @@
+﻿variable "test_var" {
+  default = "default_value"
+}
+

@@ -1,0 +1,4 @@
+﻿data "aws_vpc" "selected" {
+  depends_on = [aws_internet_gateway.main]
+  id = "vpc-12345"
+}

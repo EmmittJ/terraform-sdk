@@ -1,0 +1,4 @@
+﻿data "aws_availability_zones" "available" {
+  count = 3
+  state = "available"
+}

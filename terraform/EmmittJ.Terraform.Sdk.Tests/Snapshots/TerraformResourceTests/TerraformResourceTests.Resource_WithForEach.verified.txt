@@ -1,0 +1,10 @@
+﻿variable "availability_zones" {
+  type = set(string)
+}
+
+resource "aws_subnet" "az" {
+  for_each = var.availability_zones
+  availability_zone = each.value
+  cidr_block = "10.0.1.0/24"
+}
+

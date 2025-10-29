@@ -1,0 +1,3 @@
+﻿variable "test_var" {
+}
+

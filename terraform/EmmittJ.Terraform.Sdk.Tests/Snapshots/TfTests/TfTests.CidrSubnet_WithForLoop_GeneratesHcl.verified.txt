@@ -1,0 +1,3 @@
+﻿locals {
+  subnet_cidrs = [for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]
+}

@@ -1,0 +1,14 @@
+﻿resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+}
+
+resource "aws_internet_gateway" "main" {
+  vpc_id = "aws_vpc.main.id"
+}
+
+resource "aws_route" "internet" {
+  depends_on = [aws_internet_gateway.main]
+  route_table_id = "aws_route_table.main.id"
+  gateway_id = "aws_internet_gateway.main.id"
+}
+
