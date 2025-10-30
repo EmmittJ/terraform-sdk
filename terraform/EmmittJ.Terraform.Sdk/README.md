@@ -85,42 +85,100 @@ string hcl = config.ToHcl();
 config.WriteToFile("main.tf");
 ```
 
+## Project Structure
+
+The SDK is organized into logical folders for maintainability and clarity:
+
+```
+EmmittJ.Terraform.Sdk/
+├── Core/                           # Core type system and configuration
+├── Constructs/                     # Terraform construct implementations
+├── Expressions/                    # Expression AST and complex types
+├── Validation/                     # Validation system (Phase 1 - In Progress)
+├── Exceptions/                     # Custom exception types
+└── Tf.cs                           # Helper functions and type constraints
+```
+
+### Design Rationale
+
+**Core/** contains the fundamental type system:
+
+- Interfaces that define contracts (`ITerraformConstruct`, `ITerraformResolvable`, etc.)
+- The main value container (`TerraformValue<T>`) and its states
+- References between constructs (`TerraformReference`)
+- Configuration container and resolution context
+
+**Constructs/** contains all Terraform block types:
+
+- Variables, Resources, Data Sources, Providers, Locals, Outputs
+- Base classes with shared functionality
+- Extension methods for fluent APIs
+
+**Expressions/** contains the expression AST and complex value types:
+
+- Expression nodes (binary operations, function calls, conditionals, etc.)
+- Complex types like objects and blocks that combine values and structure
+
+**Validation/** will contain the validation system (Phase 1):
+
+- Validation results and error reporting
+- Future: Dependency graph, circular reference detection
+
+**Exceptions/** contains custom exception hierarchy:
+
+- Rich error context with construct information
+- Separate types for validation vs configuration errors
+
 ## Type System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ TerraformConfiguration                              │
+│ TerraformConfiguration (Core/)                      │
 │ - Container for all constructs                     │
+│ - Two-pass resolution (Prepare → Resolve)          │
 │ - Validates and compiles to HCL                    │
 └─────────────────────────────────────────────────────┘
                     │
                     │ contains
                     ▼
 ┌─────────────────────────────────────────────────────┐
-│ ITerraformConstruct                                 │
-│ - TerraformVariable                                 │
-│ - TerraformResource                                 │
-│ - TerraformDataSource (TODO)                       │
-│ - TerraformProvider (TODO)                         │
+│ ITerraformConstruct (Core/)                         │
+│ - TerraformVariable (Constructs/)                   │
+│ - TerraformResource (Constructs/)                   │
+│ - TerraformDataSource (Constructs/)                 │
+│ - TerraformProvider (Constructs/)                   │
+│ - TerraformLocal (Constructs/)                      │
+│ - TerraformOutput (Constructs/)                     │
 └─────────────────────────────────────────────────────┘
                     │
                     │ has properties
                     ▼
 ┌─────────────────────────────────────────────────────┐
-│ TerraformValue<T>                                   │
+│ TerraformValue<T> (Core/)                           │
 │ ┌─────────────┬──────────────┬────────┬──────────┐ │
 │ │ Unset       │ Literal      │ Expr   │ Ref      │ │
 │ │ (not set)   │ (typed val)  │ (AST)  │ (link)   │ │
 │ └─────────────┴──────────────┴────────┴──────────┘ │
+│ Kind tracked by TerraformValueKind enum (Core/)    │
 └─────────────────────────────────────────────────────┘
          │                  │              │
          │                  │              │
          ▼                  ▼              ▼
 ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
 │TerraformExpr │  │Literal<T>    │  │TerraformRef  │
-│(AST nodes)   │  │(value)       │  │(construct)   │
+│(Expressions/)│  │(value)       │  │(Core/)       │
+│- Binary ops  │  │              │  │- Tracks deps │
+│- Functions   │  │              │  │- Polymorphic │
+│- Conditionals│  │              │  │              │
 └──────────────┘  └──────────────┘  └──────────────┘
 ```
+
+**Key Design Principles:**
+
+1. **Separation of Concerns**: Values (Core/) are separate from expressions (Expressions/)
+2. **Polymorphism**: Each construct knows how to reference itself via `ITerraformConstruct.GetReferenceExpression()`
+3. **Type Safety**: `TerraformValue<T>` provides compile-time checking while supporting dynamic HCL generation
+4. **Two-Pass Resolution**: `ITerraformResolvable` enables dependency tracking and late binding
 
 ## Design Patterns from Azure.Provisioning
 
@@ -228,26 +286,85 @@ string hcl = config.ToHcl();
 
 ### ✅ Implemented
 
+#### Core System
+
 - [x] Core type system (`TerraformValue<T>`, `TerraformExpression`, `TerraformReference`)
 - [x] `ITerraformConstruct` interface with polymorphic references
-- [x] `TerraformVariable` construct
-- [x] `TerraformResource` construct with meta-arguments
-- [x] `TerraformConfiguration` container
-- [x] Expression AST (Identifier, Literal, MemberAccess, FunctionCall, Binary operators)
-- [x] Basic HCL generation
-- [x] Quick start example
+- [x] `ITerraformResolvable` two-pass resolution system
+- [x] `TerraformConfiguration` container with Prepare → Resolve phases
+- [x] `TerraformContext` resolution context
 
-### 🚧 TODO
+#### Constructs (All Implemented!)
 
-- [ ] `TerraformDataSource` construct
-- [ ] `TerraformProvider` construct
-- [ ] `TerraformOutput` construct
-- [ ] `TerraformLocal` construct
-- [ ] Validation system (required properties, circular dependencies)
-- [ ] Dependency graph building
-- [ ] More expression types (conditionals, for expressions, etc.)
-- [ ] Helper functions library (Tf.CidrSubnet, Tf.Format, etc.)
-- [ ] Provider-specific strongly-typed resources (future)
+- [x] `TerraformVariable` - Input variables
+- [x] `TerraformResource` - Resources with meta-arguments
+- [x] `TerraformDataSource` - Data sources
+- [x] `TerraformProvider` - Provider configurations
+- [x] `TerraformLocal` - Local values
+- [x] `TerraformOutput` - Output values
+
+#### Expression System
+
+- [x] Expression AST (Identifier, Literal, MemberAccess, FunctionCall)
+- [x] Binary operators (Add, Subtract, Multiply, Divide, Modulo, etc.)
+- [x] Conditional (ternary) expressions
+- [x] For expressions
+- [x] Function calls
+
+#### Values & Types
+
+- [x] `TerraformValue<T>` with 4-state pattern (Unset, Literal, Expression, Reference)
+- [x] `TerraformObject` for maps/objects
+- [x] `TerraformBlock` for nested blocks
+- [x] Implicit conversions and type safety
+
+#### Error Handling
+
+- [x] Custom exception hierarchy (`TerraformException`, `TerraformConfigurationException`, `TerraformValidationException`)
+- [x] `ValidationResult` and `ValidationError` types
+
+#### Infrastructure
+
+- [x] HCL generation with proper indentation
+- [x] File writing support
+- [x] 125 passing unit tests with snapshot verification
+
+### 🚧 In Progress (Phase 1 - Foundation)
+
+- [ ] **Validation System** - Required property validation, reference validation, circular dependency detection
+- [ ] **Dependency Graph** - Explicit graph building with topological sorting and cycle detection
+- [ ] **Module Support** - `TerraformModule` construct for reusable configurations
+
+### 📋 Planned (Phase 2+)
+
+#### Production Features
+
+- [ ] Backend configuration support
+- [ ] Terraform settings block (required_version, required_providers)
+- [ ] Lifecycle meta-arguments (create_before_destroy, prevent_destroy, ignore_changes)
+- [ ] Integration tests with `terraform validate`
+
+#### Expression Enhancements
+
+- [ ] Splat expressions (`resource.*.id`)
+- [ ] Dynamic blocks
+- [ ] Complex string templates
+- [ ] Try/catch expressions
+
+#### Developer Experience
+
+- [ ] Comprehensive user guide
+- [ ] Sample project gallery
+- [ ] Property-based testing
+- [ ] Better error messages with suggestions
+
+#### Long-term
+
+- [ ] Provider-specific type safety via source generators
+- [ ] Fluent validation integration
+- [ ] Performance optimization
+
+See [IMPROVEMENT_AREAS.md](../IMPROVEMENT_AREAS.md) for the complete roadmap.
 
 ## Testing
 
