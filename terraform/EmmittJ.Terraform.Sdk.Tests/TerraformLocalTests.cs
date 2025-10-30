@@ -41,7 +41,7 @@ public class TerraformLocalTests
 
         var reference = locals["region"];
 
-        Assert.Equal("local.region", reference.ToExpression().ToHcl());
+        Assert.Equal("local.region", reference.ToHcl());
     }
 
     [Fact]
@@ -49,7 +49,7 @@ public class TerraformLocalTests
     {
         var locals = new TerraformLocal();
 
-        var ex = Assert.Throws<InvalidOperationException>(() => locals["undefined"]);
+        var ex = Assert.Throws<TerraformConfigurationException>(() => locals["undefined"]);
         Assert.Contains("has not been defined", ex.Message);
     }
 

@@ -33,6 +33,8 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
     }
 
     private int _indentLevel = 0;
+    private ITerraformConstruct? _currentConstruct;
+    private readonly DependencyGraph _dependencyGraph = new();
 
     /// <inheritdoc/>
     public TerraformConfiguration Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
@@ -42,6 +44,41 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
 
     /// <inheritdoc/>
     public string Indent { get; private set; } = string.Empty;
+
+    /// <summary>
+    /// Gets the dependency graph being built during the Prepare phase.
+    /// </summary>
+    public DependencyGraph DependencyGraph => _dependencyGraph;
+
+    /// <summary>
+    /// Sets the current construct being prepared/resolved.
+    /// Used for automatic dependency tracking.
+    /// </summary>
+    /// <param name="construct">The current construct.</param>
+    // TODO: Add this to the ITerraformContext interface
+    // TODO: consider making this IDisposable to auto-reset after scope
+    public void SetCurrentConstruct(ITerraformConstruct? construct)
+    {
+        _currentConstruct = construct;
+        if (construct != null)
+        {
+            _dependencyGraph.AddConstruct(construct);
+        }
+    }
+
+    /// <summary>
+    /// Records a dependency from the current construct to another construct.
+    /// Called automatically when resolving references during the Prepare phase.
+    /// </summary>
+    /// <param name="dependency">The construct being depended upon.</param>
+    // TODO: Add this to the ITerraformContext interface
+    public void RecordDependency(ITerraformConstruct dependency)
+    {
+        if (_currentConstruct != null && dependency != _currentConstruct)
+        {
+            _dependencyGraph.AddDependency(_currentConstruct, dependency);
+        }
+    }
 
     /// <inheritdoc/>
     public IDisposable PushIndent()

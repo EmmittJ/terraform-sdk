@@ -51,7 +51,11 @@ public class TerraformOutput(string name) : ITerraformConstruct
 
         if (Value.IsEmpty)
         {
-            throw new InvalidOperationException($"Output '{Name}' must have a value set before it can be synthesized.");
+            throw new TerraformConfigurationException(
+                $"Output '{Name}' must have a value set before it can be synthesized. " +
+                "Use the Value property to set the output value.",
+                this,
+                "Value");
         }
 
         var sb = new System.Text.StringBuilder();

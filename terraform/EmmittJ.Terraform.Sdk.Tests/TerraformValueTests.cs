@@ -38,7 +38,7 @@ public class TerraformValueTests
         var reference = variable.AsReference();
         var value = new TerraformValue<string>(reference);
 
-        Assert.Equal(TerraformValueKind.Reference, value.Kind);
+        Assert.Equal(TerraformValueKind.Expression, value.Kind);
         Assert.False(value.IsEmpty);
     }
 
@@ -131,6 +131,6 @@ public class TerraformValueTests
         var value = new TerraformValue<string>();
         var context = TerraformContext.Temporary();
 
-        Assert.Throws<InvalidOperationException>(() => value.Resolve(context));
+        Assert.Throws<TerraformConfigurationException>(() => value.Resolve(context));
     }
 }

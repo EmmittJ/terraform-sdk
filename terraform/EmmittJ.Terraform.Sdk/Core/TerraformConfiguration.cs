@@ -44,11 +44,13 @@ public class TerraformConfiguration(string name = "main")
         // Pass 1: Prepare - collect dependencies, track references
         foreach (var construct in _constructs)
         {
+            context.SetCurrentConstruct(construct);
             if (construct is ITerraformResolvable resolvable)
             {
                 resolvable.Prepare(context);
             }
         }
+        context.SetCurrentConstruct(null);
 
         // Pass 2: Resolve - generate HCL
         var sb = new System.Text.StringBuilder();
@@ -72,13 +74,86 @@ public class TerraformConfiguration(string name = "main")
 
     /// <summary>
     /// Validates the configuration (checks for required values, circular dependencies, etc.).
+    /// Returns a ValidationResult containing any errors or warnings found.
     /// </summary>
-    public void Validate()
+    public ValidationResult Validate()
     {
-        // TODO: Implement validation logic
-        // - Check for required properties
-        // - Detect circular dependencies
-        // - Validate references
+        var errors = new List<ValidationError>();
+
+        // Build dependency graph by preparing all constructs
+        var context = new TerraformContext(this);
+        foreach (var construct in _constructs)
+        {
+            context.SetCurrentConstruct(construct);
+            if (construct is ITerraformResolvable resolvable)
+            {
+                try
+                {
+                    resolvable.Prepare(context);
+                }
+                catch (Exception ex)
+                {
+                    errors.Add(new ValidationError(
+                        $"Error during preparation: {ex.Message}",
+                        ValidationSeverity.Error,
+                        construct));
+                }
+            }
+        }
+        context.SetCurrentConstruct(null);
+
+        // Check for circular dependencies
+        var cycles = context.DependencyGraph.FindCycles();
+        foreach (var cycle in cycles)
+        {
+            var cycleDescription = string.Join(" -> ", cycle.Select(GetConstructName));
+            errors.Add(new ValidationError(
+                $"Circular dependency detected: {cycleDescription} -> {GetConstructName(cycle[0])}",
+                ValidationSeverity.Error));
+        }
+
+        // Check for duplicate names
+        var nameGroups = _constructs
+            .Select(c => new { Construct = c, Name = TryGetConstructName(c), Type = c.GetType() })
+            .Where(x => x.Name != null)
+            .GroupBy(x => new { x.Type, x.Name })
+            .Where(g => g.Count() > 1);
+
+        foreach (var group in nameGroups)
+        {
+            var typeName = group.Key.Type.Name;
+            errors.Add(new ValidationError(
+                $"Duplicate {typeName} name: '{group.Key.Name}'",
+                ValidationSeverity.Error,
+                group.First().Construct,
+                "Name"));
+        }
+
+        // TODO: Additional validations
+        // - Check for required properties (would need metadata or attributes)
+        // - Validate reference targets exist
+        // - Type validation for variable usage
+
+        return new ValidationResult(errors);
+    }
+
+    /// <summary>
+    /// Gets a string representation of a construct for error messages.
+    /// </summary>
+    private static string GetConstructName(ITerraformConstruct construct)
+    {
+        var type = construct.GetType().Name;
+        var name = TryGetConstructName(construct);
+        return name != null ? $"{type}({name})" : type;
+    }
+
+    /// <summary>
+    /// Tries to get the name property from a construct.
+    /// </summary>
+    private static string? TryGetConstructName(ITerraformConstruct construct)
+    {
+        var nameProperty = construct.GetType().GetProperty("Name");
+        return nameProperty?.GetValue(construct) as string;
     }
 
     /// <summary>

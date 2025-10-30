@@ -169,7 +169,7 @@ public class TerraformResourceTests
         var reference = resource["cidr_block"];
 
         Assert.NotNull(reference);
-        Assert.Equal("aws_vpc.main.cidr_block", reference.ToExpression().ToHcl());
+        Assert.Equal("aws_vpc.main.cidr_block", reference.ToHcl());
     }
 
     [Fact]

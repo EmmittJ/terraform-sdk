@@ -28,19 +28,17 @@ public class TerraformObject : TerraformExpression, IEnumerable
 
     /// <summary>
     /// Sets a property with a literal value (string, number, bool, etc.).
+    /// Note: TerraformExpression should use the other overload.
     /// </summary>
-    public TerraformObject Set<T>(string key, T value)
+    public TerraformObject Set<T>(string key, T value) where T : notnull
     {
-        _properties[key] = Literal(value);
-        return this;
-    }
+        // If someone passes a TerraformExpression, redirect to the correct overload
+        if (value is TerraformExpression expr)
+        {
+            return Set(key, expr);
+        }
 
-    /// <summary>
-    /// Sets a property with a reference value.
-    /// </summary>
-    public TerraformObject Set(string key, TerraformReference reference)
-    {
-        _properties[key] = reference?.ToExpression() ?? throw new ArgumentNullException(nameof(reference));
+        _properties[key] = Literal(value);
         return this;
     }
 
@@ -65,14 +63,6 @@ public class TerraformObject : TerraformExpression, IEnumerable
         }
 
         _properties[key] = Literal(value);
-    }
-
-    /// <summary>
-    /// Adds a property with a reference value (for collection initializer syntax).
-    /// </summary>
-    public void Add(string key, TerraformReference reference)
-    {
-        _properties[key] = reference?.ToExpression() ?? throw new ArgumentNullException(nameof(reference));
     }
 
     /// <summary>
@@ -108,31 +98,6 @@ public class TerraformObject : TerraformExpression, IEnumerable
     public int Count => _properties.Count;
 
     /// <summary>
-    /// Converts the object to HCL syntax with proper indentation.
-    /// Uses context for indentation when available.
-    /// </summary>
-    public override string ToHcl(ITerraformContext? context = null)
-    {
-        if (_properties.Count == 0)
-        {
-            return "{}";
-        }
-
-        var currentIndent = context?.Indent ?? "";
-        var nextIndent = currentIndent + "  ";
-
-        var sb = new System.Text.StringBuilder();
-        sb.AppendLine("{");
-        foreach (var (key, value) in _properties)
-        {
-            sb.AppendLine($"{nextIndent}{key} = {value.ToHcl(context)}");
-        }
-        sb.Append($"{currentIndent}}}");
-
-        return sb.ToString();
-    }
-
-    /// <summary>
     /// Merges another TerraformObject into this one.
     /// Later values overwrite earlier ones.
     /// </summary>
@@ -153,12 +118,7 @@ public class TerraformObject : TerraformExpression, IEnumerable
         var obj = new TerraformObject();
         foreach (var (key, value) in pairs)
         {
-            if (value is TerraformExpression expr)
-                obj.Set(key, expr);
-            else if (value is TerraformReference refr)
-                obj.Set(key, refr);
-            else
-                obj.Set(key, value);
+            obj.Set(key, value);
         }
         return obj;
     }
@@ -180,4 +140,42 @@ public class TerraformObject : TerraformExpression, IEnumerable
     /// Gets the enumerator for the properties (required for collection initializer).
     /// </summary>
     public IEnumerator GetEnumerator() => _properties.GetEnumerator();
+
+    /// <summary>
+    /// Preparation phase - prepares all nested expressions and records dependencies for references.
+    /// </summary>
+    public override void Prepare(ITerraformContext context)
+    {
+        // Prepare any nested resolvable expressions
+        foreach (var (_, expr) in _properties)
+        {
+            expr.Prepare(context);
+        }
+    }
+
+    /// <summary>
+    /// Converts the object to HCL syntax with proper indentation.
+    /// Uses context for indentation when available.
+    /// </summary>
+    public override string Resolve(ITerraformContext? context = null)
+    {
+        if (_properties.Count == 0)
+        {
+            return "{}";
+        }
+
+        var currentIndent = context?.Indent ?? "";
+        var nextIndent = currentIndent + "  ";
+
+        var sb = new System.Text.StringBuilder();
+        sb.AppendLine("{");
+        foreach (var (key, value) in _properties)
+        {
+            sb.AppendLine($"{nextIndent}{key} = {value.ToHcl(context)}");
+        }
+        sb.Append($"{currentIndent}}}");
+
+        return sb.ToString();
+    }
+
 }

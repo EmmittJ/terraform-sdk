@@ -53,9 +53,11 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     {
         if (!_declaredOutputs.Contains(attributeName))
         {
-            throw new InvalidOperationException(
+            throw new TerraformConfigurationException(
                 $"Attribute '{attributeName}' has not been declared as an output for {GetConstructTypeLabel()} '{Type}.{Name}'. " +
-                $"Call DeclareOutput(\"{attributeName}\") first.");
+                $"Use DeclareOutput(\"{attributeName}\") to declare it first, or check for typos in the attribute name.",
+                this,
+                attributeName);
         }
         return new TerraformReference(this, attributeName);
     }
@@ -114,30 +116,4 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
             sb.AppendLine($"{context.Indent}provider = {Provider}");
         }
     }
-
-    /// <summary>
-    /// Writes regular properties to HCL.
-    /// </summary>
-    protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
-    {
-        foreach (var (key, value) in Properties)
-        {
-            if (!value.IsEmpty)
-            {
-                var compiledExpr = value.Resolve(context);
-
-                // Check if this is a block (nested block syntax without '=')
-                if (compiledExpr is TerraformBlock block)
-                {
-                    // Don't push indent - block.ToHcl() will handle its own indentation
-                    sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
-                }
-                else
-                {
-                    sb.AppendLine($"{context.Indent}{key} = {compiledExpr.ToHcl(context)}");
-                }
-            }
-        }
-    }
-
 }

@@ -30,25 +30,7 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
                 sb.AppendLine($"{context.Indent}alias = \"{Alias}\"");
             }
 
-            // Configuration properties
-            foreach (var (key, value) in Properties)
-            {
-                if (!value.IsEmpty)
-                {
-                    var compiledExpr = value.Resolve(context);
-
-                    // Check if this is a block (nested block syntax without '=')
-                    if (compiledExpr is TerraformBlock block)
-                    {
-                        // Don't push indent - block.ToHcl() will handle its own indentation
-                        sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
-                    }
-                    else
-                    {
-                        sb.AppendLine($"{context.Indent}{key} = {compiledExpr.ToHcl(context)}");
-                    }
-                }
-            }
+            WriteProperties(sb, context);
         }
 
         sb.AppendLine($"{context.Indent}}}");

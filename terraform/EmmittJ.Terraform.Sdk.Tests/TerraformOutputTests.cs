@@ -93,7 +93,7 @@ public class TerraformOutputTests
     {
         var output = new TerraformOutput("test");
 
-        var ex = Assert.Throws<InvalidOperationException>(() => output.Resolve());
+        var ex = Assert.Throws<TerraformConfigurationException>(() => output.Resolve());
         Assert.Contains("must have a value set", ex.Message);
     }
 

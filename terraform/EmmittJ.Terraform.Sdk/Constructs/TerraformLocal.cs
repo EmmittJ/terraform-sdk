@@ -14,9 +14,11 @@ public class TerraformLocal : TerraformConstruct
         {
             if (!Properties.ContainsKey(name))
             {
-                throw new InvalidOperationException(
+                throw new TerraformConfigurationException(
                     $"Local value '{name}' has not been defined. " +
-                    $"Call Set(\"{name}\", value) first.");
+                    $"Use Set(\"{name}\", value) to define it first.",
+                    this,
+                    name);
             }
             return new TerraformReference(this, name);
         }

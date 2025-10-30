@@ -94,7 +94,7 @@ public class TerraformDataSourceTests
     {
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu");
 
-        var ex = Assert.Throws<InvalidOperationException>(() => dataSource["id"]);
+        var ex = Assert.Throws<TerraformConfigurationException>(() => dataSource["id"]);
         Assert.Contains("has not been declared as an output", ex.Message);
     }
 
@@ -106,7 +106,7 @@ public class TerraformDataSourceTests
 
         var reference = dataSource["id"];
 
-        Assert.Equal("data.aws_ami.ubuntu.id", reference.ToExpression().ToHcl());
+        Assert.Equal("data.aws_ami.ubuntu.id", reference.ToHcl());
     }
 
     [Fact]

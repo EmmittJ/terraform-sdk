@@ -3,8 +3,11 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Represents a semantic reference to another Terraform construct.
 /// This tracks relationships between constructs for dependency analysis and validation.
+/// Extends TerraformExpression so it can be stored directly while maintaining metadata.
+/// Records dependencies during Prepare and resolves to HCL string during ToHcl.
 /// </summary>
 public class TerraformReference(ITerraformConstruct source, string? propertyPath = null)
+    : TerraformExpression
 {
     /// <summary>
     /// Gets the construct being referenced.
@@ -17,10 +20,21 @@ public class TerraformReference(ITerraformConstruct source, string? propertyPath
     public string? PropertyPath { get; } = propertyPath;
 
     /// <summary>
-    /// Converts this reference to a TerraformExpression.
-    /// Delegates to the source construct to build its own reference expression (polymorphism!).
+    /// Preparation phase - records the dependency.
     /// </summary>
-    public TerraformExpression ToExpression()
+    public override void Prepare(ITerraformContext context)
+    {
+        if (context is TerraformContext terraformContext)
+        {
+            terraformContext.RecordDependency(Source);
+        }
+    }
+
+    /// <summary>
+    /// Resolves this reference to a concrete TerraformExpression.
+    /// Builds the reference expression by appending property path segments if present.
+    /// </summary>
+    private TerraformExpression ResolveSource()
     {
         // Ask the source construct how to reference itself
         TerraformExpression expr = Source.GetReferenceExpression();
@@ -38,19 +52,10 @@ public class TerraformReference(ITerraformConstruct source, string? propertyPath
     }
 
     /// <summary>
-    /// Records a dependency during the preparation phase.
-    /// This allows the configuration to track which constructs depend on others.
+    /// Generates HCL for this reference by resolving it to an expression.
     /// </summary>
-    internal void RecordDependency(ITerraformContext context)
+    public override string Resolve(ITerraformContext? context = null)
     {
-        // The dependency tracking will be handled by the configuration's dependency graph
-        // For now, this is a placeholder that can be extended when we implement
-        // the full dependency tracking system
+        return ResolveSource().Resolve(context);
     }
-
-    /// <summary>
-    /// Implicit conversion from TerraformReference to TerraformExpression.
-    /// </summary>
-    public static implicit operator TerraformExpression(TerraformReference reference)
-        => reference.ToExpression();
 }

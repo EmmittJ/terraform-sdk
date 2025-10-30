@@ -97,7 +97,7 @@ public class TerraformVariableTests
         var reference = variable.AsReference();
 
         Assert.NotNull(reference);
-        Assert.Equal("var.test_var", reference.ToExpression().ToHcl());
+        Assert.Equal("var.test_var", reference.ToHcl());
     }
 
     [Fact]

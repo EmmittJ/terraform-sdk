@@ -11,7 +11,6 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
     private TerraformValueKind _kind = TerraformValueKind.Unset;
     private T? _literalValue;
     private TerraformExpression? _expression;
-    private TerraformReference? _reference;
 
     /// <inheritdoc/>
     public TerraformValueKind Kind => _kind;
@@ -51,12 +50,11 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
     }
 
     /// <summary>
-    /// Creates a value from a reference.
+    /// Creates a value from a reference (TerraformReference is a TerraformExpression).
     /// </summary>
     public TerraformValue(TerraformReference reference)
+        : this((TerraformExpression)reference)
     {
-        _kind = TerraformValueKind.Reference;
-        _reference = reference ?? throw new ArgumentNullException(nameof(reference));
     }
 
     /// <summary>
@@ -76,7 +74,6 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
         _kind = TerraformValueKind.Unset;
         _literalValue = default;
         _expression = null;
-        _reference = null;
     }
 
     /// <summary>
@@ -84,14 +81,9 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
     /// </summary>
     public void Prepare(ITerraformContext context)
     {
-        if (_kind == TerraformValueKind.Expression && _expression is ITerraformResolvable<TerraformExpression> resolvable)
+        if (_kind == TerraformValueKind.Expression && _expression is ITerraformResolvable<string> resolvable)
         {
             resolvable.Prepare(context);
-        }
-        else if (_kind == TerraformValueKind.Reference && _reference is not null)
-        {
-            // Track dependency on referenced construct
-            _reference.RecordDependency(context);
         }
     }
 
@@ -104,14 +96,14 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
 
         return _kind switch
         {
-            TerraformValueKind.Unset => throw new InvalidOperationException("Cannot resolve an unset value"),
+            TerraformValueKind.Unset => throw new TerraformConfigurationException(
+                $"Cannot resolve an unset {typeof(T).Name} value. " +
+                "Set the property before calling ToHcl()."),
             TerraformValueKind.Literal => TerraformExpression.Literal(_literalValue),
-            TerraformValueKind.Expression when _expression is ITerraformResolvable<TerraformExpression> resolvable
-                => resolvable.Resolve(context),
-            TerraformValueKind.Expression => _expression ?? throw new InvalidOperationException("Expression is null"),
-            TerraformValueKind.Reference when _reference is not null => _reference.ToExpression(),
-            TerraformValueKind.Reference => throw new InvalidOperationException("Reference is null"),
-            _ => throw new InvalidOperationException($"Unknown value kind: {_kind}")
+            TerraformValueKind.Expression => _expression ?? throw new TerraformConfigurationException(
+                $"Expression is null for {typeof(T).Name} value."),
+            _ => throw new TerraformConfigurationException(
+                $"Unknown value kind: {_kind} for {typeof(T).Name} value.")
         };
     }
 
