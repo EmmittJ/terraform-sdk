@@ -5,34 +5,34 @@ namespace EmmittJ.Terraform.Sdk;
 /// Provides common property management and HCL generation infrastructure.
 /// Implements ITerraformResolvable for two-pass resolution support.
 /// </summary>
-public abstract class TerraformConstruct : ITerraformConstruct, ITerraformResolvable
+public abstract class TerraformConstruct : ITerraformResolvable<string>
 {
-    private readonly Dictionary<string, ITerraformValue> _properties = [];
+    private readonly Dictionary<string, TerraformProperty> _properties = [];
 
     /// <summary>
-    /// Gets a property value.
+    /// Internal setter for property accessors and extension methods.
+    /// Supports null to remove properties.
     /// </summary>
-    public TerraformValue<T> GetInternal<T>(string propertyName)
+    internal void WithPropertyInternal(string key, TerraformProperty? value)
     {
-        if (_properties.TryGetValue(propertyName, out var value) && value is TerraformValue<T> typed)
-        {
-            return typed;
-        }
-        return new TerraformValue<T>();
+        if (value == null)
+            _properties.Remove(key);
+        else
+            _properties[key] = value;
     }
 
     /// <summary>
-    /// Sets a property value.
+    /// Gets a property value (for derived classes).
     /// </summary>
-    public void SetInternal(string propertyName, ITerraformValue value)
+    internal TerraformProperty? GetProperty(string key)
     {
-        _properties[propertyName] = value;
+        return _properties.TryGetValue(key, out var value) ? value : null;
     }
 
     /// <summary>
     /// Gets the properties dictionary for subclasses to use in HCL generation.
     /// </summary>
-    protected IReadOnlyDictionary<string, ITerraformValue> Properties => _properties;
+    protected IReadOnlyDictionary<string, TerraformProperty> Properties => _properties;
 
     /// <summary>
     /// Writes properties to HCL with proper formatting.
@@ -42,28 +42,27 @@ public abstract class TerraformConstruct : ITerraformConstruct, ITerraformResolv
     /// <param name="context">The context for indentation and resolution.</param>
     protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        foreach (var (key, value) in Properties.OrderBy(p => p.Key))
+        foreach (var (key, property) in Properties.OrderBy(p => p.Key))
         {
-            if (!value.IsEmpty)
-            {
-                var compiledExpr = value.Resolve(context);
+            var expression = property.ToExpression();
 
-                // Check if this is a block (nested block syntax without '=')
-                if (compiledExpr is TerraformBlockExpression block)
-                {
-                    // Don't push indent - block.ToHcl() will handle its own indentation
-                    sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
-                }
-                else
-                {
-                    sb.AppendLine($"{context.Indent}{key} = {compiledExpr.ToHcl(context)}");
-                }
+            // Check if this is a block (nested block syntax without '=')
+            if (expression is TerraformBlockExpression block)
+            {
+                // Don't push indent - block.ToHcl() will handle its own indentation
+                sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
+            }
+            else
+            {
+                // Standard property assignment with '='
+                var hcl = property.Resolve(context);
+                sb.AppendLine($"{context.Indent}{key} = {hcl}");
             }
         }
     }
 
     /// <inheritdoc/>
-    public abstract TerraformExpression GetReferenceExpression();
+    public abstract TerraformExpression AsReference();
 
     /// <summary>
     /// Preparation phase - prepares all nested values and expressions.
@@ -83,3 +82,5 @@ public abstract class TerraformConstruct : ITerraformConstruct, ITerraformResolv
     /// </summary>
     public abstract string Resolve(ITerraformContext? context = null);
 }
+
+

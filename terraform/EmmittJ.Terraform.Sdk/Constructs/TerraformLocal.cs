@@ -25,13 +25,13 @@ public class TerraformLocal : TerraformConstruct
     }
 
     /// <inheritdoc/>
-    public override TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => TerraformExpression.Identifier("local");
 
     /// <summary>
     /// Gets the reference expression for a specific local value.
     /// </summary>
-    public TerraformExpression GetReferenceExpression(string name)
+    public TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"local.{name}");
 
     /// <inheritdoc/>
@@ -49,22 +49,21 @@ public class TerraformLocal : TerraformConstruct
 
         using (context.PushIndent())
         {
-            foreach (var (name, value) in Properties)
+            foreach (var (name, property) in Properties)
             {
-                if (!value.IsEmpty)
-                {
-                    var compiledExpr = value.Resolve(context);
+                var expression = property.ToExpression();
 
-                    // Check if this is a block (nested block syntax without '=')
-                    if (compiledExpr is TerraformBlockExpression block)
-                    {
-                        // Don't push indent - block.ToHcl() will handle its own indentation
-                        sb.AppendLine($"{context.Indent}{name} {block.ToHcl(context)}");
-                    }
-                    else
-                    {
-                        sb.AppendLine($"{context.Indent}{name} = {compiledExpr.ToHcl(context)}");
-                    }
+                // Check if this is a block (nested block syntax without '=')
+                if (expression is TerraformBlockExpression block)
+                {
+                    // Don't push indent - block.ToHcl() will handle its own indentation
+                    sb.AppendLine($"{context.Indent}{name} {block.ToHcl(context)}");
+                }
+                else
+                {
+                    // Standard property assignment with '='
+                    var hcl = property.Resolve(context);
+                    sb.AppendLine($"{context.Indent}{name} = {hcl}");
                 }
             }
         }

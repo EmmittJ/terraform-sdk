@@ -10,7 +10,7 @@ public class TerraformDataSource(string type, string name) : TerraformProvisiona
     protected override string GetConstructTypeLabel() => "data source";
 
     /// <inheritdoc/>
-    public override TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"data.{Type}.{Name}");
 
     /// <inheritdoc/>

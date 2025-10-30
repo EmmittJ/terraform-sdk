@@ -13,7 +13,7 @@ public sealed class ValidationError
     /// <summary>
     /// Gets the construct where the error occurred, if applicable.
     /// </summary>
-    public ITerraformConstruct? Construct { get; }
+    public TerraformConstruct? Construct { get; }
 
     /// <summary>
     /// Gets the property name where the error occurred, if applicable.
@@ -35,7 +35,7 @@ public sealed class ValidationError
     public ValidationError(
         string message,
         ValidationSeverity severity = ValidationSeverity.Error,
-        ITerraformConstruct? construct = null,
+        TerraformConstruct? construct = null,
         string? propertyName = null)
     {
         Message = message ?? throw new ArgumentNullException(nameof(message));

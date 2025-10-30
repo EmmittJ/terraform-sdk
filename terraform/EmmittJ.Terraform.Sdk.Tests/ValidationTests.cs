@@ -23,13 +23,13 @@ public class ValidationTests
         var resourceB = new TerraformResource("null_resource", "b");
 
         // Resource A depends on Resource B's id
-        resourceA.Set("triggers", new TerraformObjectExpression
+        resourceA.WithProperty("triggers", new TerraformObjectExpression
         {
             ["b_id"] = new TerraformReferenceExpression(resourceB, "id")
         });
 
         // Resource B depends on Resource A's id (creating the cycle)
-        resourceB.Set("triggers", new TerraformObjectExpression
+        resourceB.WithProperty("triggers", new TerraformObjectExpression
         {
             ["a_id"] = new TerraformReferenceExpression(resourceA, "id")
         });
@@ -180,11 +180,11 @@ public class ValidationTests
         vpc.DeclareOutput("id");
 
         var subnet = new TerraformResource("aws_subnet", "app");
-        subnet.Set("vpc_id", vpc["id"]);
+        subnet.WithProperty("vpc_id", vpc["id"]);
         subnet.DeclareOutput("id");
 
         var instance = new TerraformResource("aws_instance", "web");
-        instance.Set("subnet_id", subnet["id"]);
+        instance.WithProperty("subnet_id", subnet["id"]);
 
         config.Add(vpc);
         config.Add(subnet);
@@ -195,3 +195,4 @@ public class ValidationTests
         Assert.True(result.IsValid);
     }
 }
+

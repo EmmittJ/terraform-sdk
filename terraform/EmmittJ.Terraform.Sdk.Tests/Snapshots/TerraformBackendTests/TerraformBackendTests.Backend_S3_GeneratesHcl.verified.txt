@@ -5,6 +5,5 @@
     key = "vpc/terraform.tfstate"
     region = "us-west-2"
   }
-
 }
 

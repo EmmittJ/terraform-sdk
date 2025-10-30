@@ -7,42 +7,25 @@ namespace EmmittJ.Terraform.Sdk;
 public static class TerraformConstructExtensions
 {
     /// <summary>
-    /// Sets a property value from a TerraformValue.
+    /// Fluent builder method with type-safe return - returns T instead of TerraformConstruct.
     /// </summary>
-    public static TConstruct Set<TConstruct, TValue>(this TConstruct construct, string propertyName, TerraformValue<TValue> value)
-        where TConstruct : TerraformConstruct
+    public static T WithProperty<T>(this T construct, string key, TerraformProperty value)
+        where T : TerraformConstruct
     {
-        construct.SetInternal(propertyName, value);
+        construct
+            .WithPropertyInternal(key, value);
         return construct;
     }
 
     /// <summary>
-    /// Sets a property value from an expression.
-    /// Handles all implicit conversions: string, int, bool, arrays, TerraformObject, TerraformReference, etc.
+    /// Convenience method for referencing other constructs.
+    /// Type-safe return eliminates casting.
     /// </summary>
-    public static TConstruct Set<TConstruct>(this TConstruct construct, string propertyName, TerraformExpression expression)
-        where TConstruct : TerraformConstruct
+    public static T WithReference<T>(this T construct, string propertyName, TerraformConstruct reference)
+        where T : TerraformConstruct
     {
-        construct.SetInternal(propertyName, new TerraformValue<object>(expression));
+        construct
+            .WithPropertyInternal(propertyName, reference.AsReference());
         return construct;
-    }
-
-    /// <summary>
-    /// Gets a property value.
-    /// </summary>
-    public static TerraformValue<TValue> Get<TValue>(this TerraformConstruct construct, string propertyName)
-    {
-        return construct.GetInternal<TValue>(propertyName);
-    }
-
-    /// <summary>
-    /// Creates a reference to this construct that can be used in expressions.
-    /// Works for all construct types: variables, resources, data sources, locals, etc.
-    /// </summary>
-    /// <param name="construct">The construct to create a reference for.</param>
-    /// <returns>A TerraformReference that can be implicitly converted to TerraformExpression.</returns>
-    public static TerraformReferenceExpression AsReference(this ITerraformConstruct construct)
-    {
-        return new TerraformReferenceExpression(construct);
     }
 }

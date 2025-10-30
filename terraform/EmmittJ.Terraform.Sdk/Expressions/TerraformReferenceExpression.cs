@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk;
 /// Extends TerraformExpression so it can be stored directly while maintaining metadata.
 /// Records dependencies during Prepare and resolves to HCL string during ToHcl.
 /// </summary>
-public class TerraformReferenceExpression(ITerraformConstruct source, string? propertyPath = null)
+public class TerraformReferenceExpression(TerraformConstruct source, string? propertyPath = null)
     : TerraformExpression
 {
     /// <summary>
     /// Gets the construct being referenced.
     /// </summary>
-    public ITerraformConstruct Source { get; } = source ?? throw new ArgumentNullException(nameof(source));
+    public TerraformConstruct Source { get; } = source ?? throw new ArgumentNullException(nameof(source));
 
     /// <summary>
     /// Gets the optional property path (e.g., "endpoints.primary").
@@ -37,7 +37,7 @@ public class TerraformReferenceExpression(ITerraformConstruct source, string? pr
     private TerraformExpression ResolveSource()
     {
         // Ask the source construct how to reference itself
-        TerraformExpression expr = Source.GetReferenceExpression();
+        TerraformExpression expr = Source.AsReference();
 
         // If there's a property path, append it as member access
         if (!string.IsNullOrEmpty(PropertyPath))

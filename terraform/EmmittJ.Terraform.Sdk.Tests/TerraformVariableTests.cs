@@ -82,10 +82,10 @@ public class TerraformVariableTests
     }
 
     [Fact]
-    public void Variable_GetReferenceExpression_ReturnsCorrectHcl()
+    public void Variable_AsReference_ReturnsCorrectHcl()
     {
         var variable = new TerraformVariable("test_var");
-        var expr = variable.GetReferenceExpression();
+        var expr = variable.AsReference();
 
         Assert.Equal("var.test_var", expr.ToHcl());
     }

@@ -33,7 +33,7 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
     }
 
     private int _indentLevel = 0;
-    private ITerraformConstruct? _currentConstruct;
+    private TerraformConstruct? _currentConstruct;
     private readonly DependencyGraph _dependencyGraph = new();
 
     /// <inheritdoc/>
@@ -57,7 +57,7 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
     /// <param name="construct">The current construct.</param>
     // TODO: Add this to the ITerraformContext interface
     // TODO: consider making this IDisposable to auto-reset after scope
-    public void SetCurrentConstruct(ITerraformConstruct? construct)
+    public void SetCurrentConstruct(TerraformConstruct? construct)
     {
         _currentConstruct = construct;
         if (construct != null)
@@ -72,7 +72,7 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
     /// </summary>
     /// <param name="dependency">The construct being depended upon.</param>
     // TODO: Add this to the ITerraformContext interface
-    public void RecordDependency(ITerraformConstruct dependency)
+    public void RecordDependency(TerraformConstruct dependency)
     {
         if (_currentConstruct != null && dependency != _currentConstruct)
         {

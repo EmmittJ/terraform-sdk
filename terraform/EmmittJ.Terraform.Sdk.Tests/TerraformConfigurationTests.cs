@@ -28,7 +28,7 @@ public class TerraformConfigurationTests
     {
         var config = new TerraformConfiguration("main");
         var resource = new TerraformResource("aws_vpc", "main")
-            .Set("cidr_block", "10.0.0.0/16");
+            .WithProperty("cidr_block", "10.0.0.0/16");
         config.Add(resource);
 
         return Verify(config.ToHcl());
@@ -41,12 +41,12 @@ public class TerraformConfigurationTests
 
         // Add in mixed order
         config.Add(new TerraformResource("aws_vpc", "main")
-            .Set("cidr_block", "10.0.0.0/16"));
+            .WithProperty("cidr_block", "10.0.0.0/16"));
 
         config.Add(new TerraformVariable("region"));
 
         config.Add(new TerraformResource("aws_subnet", "public")
-            .Set("cidr_block", "10.0.1.0/24"));
+            .WithProperty("cidr_block", "10.0.1.0/24"));
 
         config.Add(new TerraformVariable("environment"));
 
@@ -65,3 +65,4 @@ public class TerraformConfigurationTests
         Assert.Contains(variable, config.Constructs);
     }
 }
+

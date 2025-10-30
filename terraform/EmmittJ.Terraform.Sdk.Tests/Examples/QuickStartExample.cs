@@ -42,10 +42,10 @@ public static class QuickStartExample
 
         // Define locals for common values
         var locals = new TerraformLocal()
-            .Set("project_name", "example-vpc")
-            .Set("environment", "production");
+            .WithProperty("project_name", "example-vpc")
+            .WithProperty("environment", "production");
         locals
-            .Set("common_tags", new TerraformObjectExpression
+            .WithProperty("common_tags", new TerraformObjectExpression
             {
                 ["Environment"] = locals["environment"],
                 ["Project"] = locals["project_name"],
@@ -55,8 +55,8 @@ public static class QuickStartExample
 
         // Define AWS provider
         var awsProvider = new TerraformProvider("aws")
-            .Set("region", awsRegion.AsReference())
-            .Set("default_tags", new TerraformBlockExpression
+            .WithProperty("region", awsRegion.AsReference())
+            .WithProperty("default_tags", new TerraformBlockExpression
             {
                 ["tags"] = locals["common_tags"]
             });
@@ -64,10 +64,10 @@ public static class QuickStartExample
 
         // Create VPC resource
         var vpc = new TerraformResource("aws_vpc", "main")
-            .Set("cidr_block", baseCidrBlock.AsReference())
-            .Set("enable_dns_hostnames", true)
-            .Set("enable_dns_support", true)
-            .Set("tags", Tf.Functions.Merge(
+            .WithProperty("cidr_block", baseCidrBlock.AsReference())
+            .WithProperty("enable_dns_hostnames", true)
+            .WithProperty("enable_dns_support", true)
+            .WithProperty("tags", Tf.Functions.Merge(
                 locals["common_tags"],
                 new TerraformObjectExpression
                 {
@@ -79,8 +79,8 @@ public static class QuickStartExample
 
         // Create internet gateway
         var igw = new TerraformResource("aws_internet_gateway", "main")
-            .Set("vpc_id", vpc["id"])
-            .Set("tags", Tf.Functions.Merge(
+            .WithProperty("vpc_id", vpc["id"])
+            .WithProperty("tags", Tf.Functions.Merge(
                 locals["common_tags"],
                 new TerraformObjectExpression
                 {
@@ -91,17 +91,17 @@ public static class QuickStartExample
 
         // Create subnets using for_each
         var subnets = new TerraformResource("aws_subnet", "public")
-            .Set("for_each", Tf.Functions.ToSet(availabilityZones.AsReference()))
-            .Set("vpc_id", vpc["id"])
-            .Set("availability_zone", Tf.Helpers.EachValue)
-            .Set("cidr_block", Tf.Functions.CidrSubnet(
+            .WithProperty("for_each", Tf.Functions.ToSet(availabilityZones.AsReference()))
+            .WithProperty("vpc_id", vpc["id"])
+            .WithProperty("availability_zone", Tf.Helpers.EachValue)
+            .WithProperty("cidr_block", Tf.Functions.CidrSubnet(
                 baseCidrBlock.AsReference(),
                 4,
                 Tf.Functions.Index(
                     availabilityZones.AsReference(),
                     Tf.Helpers.EachValue) + 1))
-            .Set("map_public_ip_on_launch", true)
-            .Set("tags", Tf.Functions.Merge(
+            .WithProperty("map_public_ip_on_launch", true)
+            .WithProperty("tags", Tf.Functions.Merge(
                 locals["common_tags"],
                 new TerraformObjectExpression
                 {
@@ -152,12 +152,12 @@ public static class QuickStartExample
 
         // Provider
         var aws = new TerraformProvider("aws")
-            .Set("region", region.AsReference());
+            .WithProperty("region", region.AsReference());
         config.Add(aws);
 
         // Resource
         var bucket = new TerraformResource("aws_s3_bucket", "example")
-            .Set("bucket", Tf.Functions.Format("%s-bucket", region.AsReference()))
+            .WithProperty("bucket", Tf.Functions.Format("%s-bucket", region.AsReference()))
             .DeclareOutput("arn");
         config.Add(bucket);
 
@@ -180,19 +180,19 @@ public static class QuickStartExample
 
         // Using Tf helper functions
         var locals = new TerraformLocal()
-            .Set("vpc_cidr", "10.0.0.0/16")
-            .Set("subnet_count", 3)
-            .Set("formatted_name", Tf.Functions.Format("app-%s-%s", "prod", "web"))
-            .Set("region_list", new List<string>() { "us-east-1", "us-west-2" });
+            .WithProperty("vpc_cidr", "10.0.0.0/16")
+            .WithProperty("subnet_count", 3)
+            .WithProperty("formatted_name", Tf.Functions.Format("app-%s-%s", "prod", "web"))
+            .WithProperty("region_list", new List<string>() { "us-east-1", "us-west-2" });
         locals
-            .Set("subnet_cidrs", TerraformExpression.ForList(
+            .WithProperty("subnet_cidrs", TerraformExpression.ForList(
                 "i",
                 Tf.Functions.Range(locals["subnet_count"]),
                 i => Tf.Functions.CidrSubnet(
                     locals["vpc_cidr"],
                     8,
                     i)))
-            .Set("region_count", Tf.Functions.Length(locals["region_list"]));
+            .WithProperty("region_count", Tf.Functions.Length(locals["region_list"]));
 
         config.Add(locals);
 
@@ -216,3 +216,4 @@ public static class QuickStartExample
         Console.WriteLine(CreateFunctionExample().ToHcl());
     }
 }
+

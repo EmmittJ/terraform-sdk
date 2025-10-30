@@ -4,7 +4,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Represents a Terraform module block.
 /// Modules allow you to reuse and compose Terraform configurations.
 /// </summary>
-public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable
+public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<string>
 {
     private readonly HashSet<string> _declaredOutputs = new();
 
@@ -65,7 +65,7 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable
     public TerraformReferenceExpression this[string outputName] => GetOutput(outputName);
 
     /// <inheritdoc/>
-    public override TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"module.{Name}");
 
     /// <summary>
@@ -75,9 +75,9 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable
     {
         foreach (var variable in Properties.Values)
         {
-            if (variable is ITerraformResolvable resolvable)
+            if (variable is ITerraformPreparable preparable)
             {
-                resolvable.Prepare(context);
+                preparable.Prepare(context);
             }
         }
     }

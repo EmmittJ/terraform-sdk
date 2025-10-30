@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformConfiguration(string name = "main")
 {
-    private readonly List<ITerraformConstruct> _constructs = [];
+    private readonly List<TerraformConstruct> _constructs = [];
     private readonly string _name = name;
 
     /// <summary>
@@ -41,7 +41,7 @@ public class TerraformConfiguration(string name = "main")
     /// <summary>
     /// Adds a construct (variable, resource, data source, etc.) to this configuration.
     /// </summary>
-    public void Add(ITerraformConstruct construct)
+    public void Add(TerraformConstruct construct)
     {
         if (construct == null)
         {
@@ -54,7 +54,7 @@ public class TerraformConfiguration(string name = "main")
     /// <summary>
     /// Gets all constructs in this configuration.
     /// </summary>
-    public IReadOnlyList<ITerraformConstruct> Constructs => _constructs.AsReadOnly();
+    public IReadOnlyList<TerraformConstruct> Constructs => _constructs.AsReadOnly();
 
     /// <summary>
     /// Compiles all constructs to HCL using two-pass resolution.
@@ -69,9 +69,9 @@ public class TerraformConfiguration(string name = "main")
         foreach (var construct in _constructs)
         {
             context.SetCurrentConstruct(construct);
-            if (construct is ITerraformResolvable resolvable)
+            if (construct is ITerraformPreparable preparable)
             {
-                resolvable.Prepare(context);
+                preparable.Prepare(context);
             }
         }
         context.SetCurrentConstruct(null);
@@ -82,15 +82,7 @@ public class TerraformConfiguration(string name = "main")
         // Render all constructs (terraform block is first if present)
         foreach (var construct in _constructs)
         {
-            if (construct is ITerraformResolvable resolvable)
-            {
-                sb.Append(resolvable.Resolve(context));
-            }
-            else
-            {
-                // Fallback for non-resolvable constructs
-                sb.Append(construct.Resolve());
-            }
+            sb.Append(construct.Resolve(context));
             sb.AppendLine();
         }
 
@@ -110,11 +102,11 @@ public class TerraformConfiguration(string name = "main")
         foreach (var construct in _constructs)
         {
             context.SetCurrentConstruct(construct);
-            if (construct is ITerraformResolvable resolvable)
+            if (construct is ITerraformPreparable preparable)
             {
                 try
                 {
-                    resolvable.Prepare(context);
+                    preparable.Prepare(context);
                 }
                 catch (Exception ex)
                 {
@@ -165,7 +157,7 @@ public class TerraformConfiguration(string name = "main")
     /// <summary>
     /// Gets a string representation of a construct for error messages.
     /// </summary>
-    private static string GetConstructName(ITerraformConstruct construct)
+    private static string GetConstructName(TerraformConstruct construct)
     {
         var type = construct.GetType().Name;
         var name = TryGetConstructName(construct);
@@ -175,7 +167,7 @@ public class TerraformConfiguration(string name = "main")
     /// <summary>
     /// Tries to get the name property from a construct.
     /// </summary>
-    private static string? TryGetConstructName(ITerraformConstruct construct)
+    private static string? TryGetConstructName(TerraformConstruct construct)
     {
         var nameProperty = construct.GetType().GetProperty("Name");
         return nameProperty?.GetValue(construct) as string;

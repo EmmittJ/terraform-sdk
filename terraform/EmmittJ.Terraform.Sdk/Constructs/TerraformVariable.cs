@@ -3,9 +3,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Represents a Terraform variable declaration.
 /// </summary>
-public class TerraformVariable(string name) : ITerraformConstruct
+public class TerraformVariable(string name) : TerraformConstruct
 {
-    private readonly Dictionary<string, ITerraformValue> _properties = [];
+    private TerraformProperty? _default;
 
     /// <summary>
     /// Gets the name of the variable.
@@ -19,8 +19,13 @@ public class TerraformVariable(string name) : ITerraformConstruct
 
     /// <summary>
     /// Gets or sets the default value.
+    /// Can be a literal value or an expression.
     /// </summary>
-    public TerraformValue<object> Default { get; set; } = new();
+    public TerraformProperty? Default
+    {
+        get => _default;
+        set => _default = value;
+    }
 
     /// <summary>
     /// Gets or sets the type constraint (e.g., "string", "list(string)").
@@ -33,21 +38,22 @@ public class TerraformVariable(string name) : ITerraformConstruct
     public bool Sensitive { get; set; }
 
     /// <inheritdoc/>
-    public TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"var.{Name}");
 
     /// <summary>
     /// Preparation phase - prepares all nested values.
     /// </summary>
-    public void Prepare(ITerraformContext context)
+    public override void Prepare(ITerraformContext context)
     {
-        Default.Prepare(context);
+        base.Prepare(context);
+        _default?.Prepare(context);
     }
 
     /// <summary>
     /// Resolution phase - generates HCL string with optional context.
     /// </summary>
-    public string Resolve(ITerraformContext? context = null)
+    public override string Resolve(ITerraformContext? context = null)
     {
         context ??= TerraformContext.Temporary(this);
 
@@ -67,9 +73,9 @@ public class TerraformVariable(string name) : ITerraformConstruct
                 sb.AppendLine($"{context.Indent}type = {Type}");
             }
 
-            if (!Default.IsEmpty)
+            if (_default != null)
             {
-                sb.AppendLine($"{context.Indent}default = {Default.Resolve(context).ToHcl(context)}");
+                sb.AppendLine($"{context.Indent}default = {_default.Resolve(context)}");
             }
 
             if (Sensitive)
@@ -82,15 +88,4 @@ public class TerraformVariable(string name) : ITerraformConstruct
 
         return sb.ToString();
     }
-
-    /// <summary>
-    /// Creates a reference to this variable.
-    /// </summary>
-    public TerraformReferenceExpression AsReference() => new(this);
-
-    /// <summary>
-    /// Implicit conversion to reference for convenience.
-    /// </summary>
-    public static implicit operator TerraformReferenceExpression(TerraformVariable variable)
-        => variable.AsReference();
 }

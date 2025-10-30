@@ -36,7 +36,7 @@ See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documenta
 
 ### 2. **Polymorphic Reference System**
 
-- **`ITerraformConstruct`** interface: All constructs implement `GetReferenceExpression()`
+- **`ITerraformConstruct`** interface: All constructs implement `AsReference()`
 - **`TerraformReference`**: Semantic pointer to another construct
   - Tracks relationships for dependency analysis
   - Each construct knows how to reference itself (no switch statements!)
@@ -369,7 +369,7 @@ EmmittJ.Terraform.Sdk/
 **Key Design Principles:**
 
 1. **Separation of Concerns**: Values (Core/) are separate from expressions (Expressions/)
-2. **Polymorphism**: Each construct knows how to reference itself via `ITerraformConstruct.GetReferenceExpression()`
+2. **Polymorphism**: Each construct knows how to reference itself via `ITerraformConstruct.AsReference()`
 3. **Type Safety**: `TerraformValue<T>` provides compile-time checking while supporting dynamic HCL generation
 4. **Two-Pass Resolution**: `ITerraformResolvable` enables dependency tracking and late binding
 
@@ -397,7 +397,7 @@ return Source switch {
 };
 
 // NEW: Polymorphic (extensible, maintainable)
-TerraformExpression expr = Source.GetReferenceExpression();
+TerraformExpression expr = Source.AsReference();
 ```
 
 Benefits:

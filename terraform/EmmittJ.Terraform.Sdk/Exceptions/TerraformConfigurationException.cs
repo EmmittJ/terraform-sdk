@@ -29,7 +29,7 @@ public sealed class TerraformConfigurationException : TerraformException
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
-    public TerraformConfigurationException(string message, ITerraformConstruct construct)
+    public TerraformConfigurationException(string message, TerraformConstruct construct)
         : base(message, construct)
     {
     }
@@ -40,7 +40,7 @@ public sealed class TerraformConfigurationException : TerraformException
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="propertyName">The property name where the error occurred.</param>
-    public TerraformConfigurationException(string message, ITerraformConstruct construct, string propertyName)
+    public TerraformConfigurationException(string message, TerraformConstruct construct, string propertyName)
         : base(message, construct)
     {
         PropertyName = propertyName;
@@ -55,7 +55,7 @@ public sealed class TerraformConfigurationException : TerraformException
     /// <param name="propertyPath">The full property path for nested errors.</param>
     public TerraformConfigurationException(
         string message,
-        ITerraformConstruct construct,
+        TerraformConstruct construct,
         string propertyName,
         string propertyPath)
         : base(message, construct)
@@ -80,7 +80,7 @@ public sealed class TerraformConfigurationException : TerraformException
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="innerException">The inner exception.</param>
-    public TerraformConfigurationException(string message, ITerraformConstruct construct, Exception innerException)
+    public TerraformConfigurationException(string message, TerraformConstruct construct, Exception innerException)
         : base(message, construct, innerException)
     {
     }

@@ -9,22 +9,22 @@ public sealed class DependencyGraph
 {
     // Maps each construct to the set of constructs it depends on
     // e.g., subnet depends on vpc: _dependsOn[subnet] = { vpc }
-    private readonly Dictionary<ITerraformConstruct, HashSet<ITerraformConstruct>> _dependsOn = new();
+    private readonly Dictionary<TerraformConstruct, HashSet<TerraformConstruct>> _dependsOn = new();
 
     /// <summary>
     /// Gets all constructs in the dependency graph.
     /// </summary>
-    public IReadOnlyCollection<ITerraformConstruct> Constructs => _dependsOn.Keys;
+    public IReadOnlyCollection<TerraformConstruct> Constructs => _dependsOn.Keys;
 
     /// <summary>
     /// Adds a construct to the graph.
     /// </summary>
     /// <param name="construct">The construct to add.</param>
-    public void AddConstruct(ITerraformConstruct construct)
+    public void AddConstruct(TerraformConstruct construct)
     {
         if (!_dependsOn.ContainsKey(construct))
         {
-            _dependsOn[construct] = new HashSet<ITerraformConstruct>();
+            _dependsOn[construct] = new HashSet<TerraformConstruct>();
         }
     }
 
@@ -35,7 +35,7 @@ public sealed class DependencyGraph
     /// </summary>
     /// <param name="dependent">The construct that has the dependency (e.g., subnet).</param>
     /// <param name="dependency">The construct being depended upon (e.g., vpc).</param>
-    public void AddDependency(ITerraformConstruct dependent, ITerraformConstruct dependency)
+    public void AddDependency(TerraformConstruct dependent, TerraformConstruct dependency)
     {
         ArgumentNullException.ThrowIfNull(dependent);
         ArgumentNullException.ThrowIfNull(dependency);
@@ -53,11 +53,11 @@ public sealed class DependencyGraph
     /// </summary>
     /// <param name="construct">The construct to get dependencies for.</param>
     /// <returns>The set of constructs that this construct depends on.</returns>
-    public IReadOnlySet<ITerraformConstruct> GetDependsOn(ITerraformConstruct construct)
+    public IReadOnlySet<TerraformConstruct> GetDependsOn(TerraformConstruct construct)
     {
         return _dependsOn.TryGetValue(construct, out var deps)
             ? deps
-            : new HashSet<ITerraformConstruct>();
+            : new HashSet<TerraformConstruct>();
     }
 
     /// <summary>
@@ -66,9 +66,9 @@ public sealed class DependencyGraph
     /// </summary>
     /// <param name="construct">The construct to find dependents for.</param>
     /// <returns>The set of constructs that depend on this construct.</returns>
-    public IReadOnlySet<ITerraformConstruct> GetDependents(ITerraformConstruct construct)
+    public IReadOnlySet<TerraformConstruct> GetDependents(TerraformConstruct construct)
     {
-        var dependents = new HashSet<ITerraformConstruct>();
+        var dependents = new HashSet<TerraformConstruct>();
         foreach (var (dependent, dependencies) in _dependsOn)
         {
             if (dependencies.Contains(construct))
@@ -92,12 +92,12 @@ public sealed class DependencyGraph
     /// Finds all circular dependency chains in the graph.
     /// </summary>
     /// <returns>A collection of circular dependency chains.</returns>
-    public IReadOnlyList<IReadOnlyList<ITerraformConstruct>> FindCycles()
+    public IReadOnlyList<IReadOnlyList<TerraformConstruct>> FindCycles()
     {
-        var cycles = new List<IReadOnlyList<ITerraformConstruct>>();
-        var visited = new HashSet<ITerraformConstruct>();
-        var recursionStack = new HashSet<ITerraformConstruct>();
-        var path = new List<ITerraformConstruct>();
+        var cycles = new List<IReadOnlyList<TerraformConstruct>>();
+        var visited = new HashSet<TerraformConstruct>();
+        var recursionStack = new HashSet<TerraformConstruct>();
+        var path = new List<TerraformConstruct>();
 
         foreach (var construct in _dependsOn.Keys)
         {
@@ -111,11 +111,11 @@ public sealed class DependencyGraph
     }
 
     private void FindCyclesRecursive(
-        ITerraformConstruct construct,
-        HashSet<ITerraformConstruct> visited,
-        HashSet<ITerraformConstruct> recursionStack,
-        List<ITerraformConstruct> path,
-        List<IReadOnlyList<ITerraformConstruct>> cycles)
+        TerraformConstruct construct,
+        HashSet<TerraformConstruct> visited,
+        HashSet<TerraformConstruct> recursionStack,
+        List<TerraformConstruct> path,
+        List<IReadOnlyList<TerraformConstruct>> cycles)
     {
         visited.Add(construct);
         recursionStack.Add(construct);
@@ -147,7 +147,7 @@ public sealed class DependencyGraph
     /// </summary>
     /// <returns>Topologically sorted constructs.</returns>
     /// <exception cref="TerraformConfigurationException">Thrown if the graph contains cycles.</exception>
-    public IReadOnlyList<ITerraformConstruct> TopologicalSort()
+    public IReadOnlyList<TerraformConstruct> TopologicalSort()
     {
         if (HasCycles())
         {
@@ -157,8 +157,8 @@ public sealed class DependencyGraph
                 $"Cannot perform topological sort: circular dependency detected: {cycleDescription}");
         }
 
-        var result = new List<ITerraformConstruct>();
-        var visited = new HashSet<ITerraformConstruct>();
+        var result = new List<TerraformConstruct>();
+        var visited = new HashSet<TerraformConstruct>();
 
         foreach (var construct in _dependsOn.Keys)
         {
@@ -172,9 +172,9 @@ public sealed class DependencyGraph
     }
 
     private void TopologicalSortRecursive(
-        ITerraformConstruct construct,
-        HashSet<ITerraformConstruct> visited,
-        List<ITerraformConstruct> result)
+        TerraformConstruct construct,
+        HashSet<TerraformConstruct> visited,
+        List<TerraformConstruct> result)
     {
         visited.Add(construct);
 
@@ -194,7 +194,7 @@ public sealed class DependencyGraph
     /// <summary>
     /// Gets a string representation of a construct for error messages.
     /// </summary>
-    private static string GetConstructName(ITerraformConstruct construct)
+    private static string GetConstructName(TerraformConstruct construct)
     {
         var type = construct.GetType().Name;
         var nameProperty = construct.GetType().GetProperty("Name");

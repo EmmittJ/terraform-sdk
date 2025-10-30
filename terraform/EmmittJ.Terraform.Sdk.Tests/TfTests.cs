@@ -6,7 +6,7 @@ public class TfTests
     public Task CidrSubnet_WithExpressions_GeneratesHcl()
     {
         var vpcCidr = new TerraformVariable("vpc_cidr");
-        var subnet = Tf.Functions.CidrSubnet(vpcCidr.GetReferenceExpression(), 8, TerraformExpression.Literal(0));
+        var subnet = Tf.Functions.CidrSubnet(vpcCidr.AsReference(), 8, TerraformExpression.Literal(0));
 
         return Verify(subnet.ToHcl());
     }
@@ -61,7 +61,7 @@ public class TfTests
     {
         var name = new TerraformVariable("name");
         var region = new TerraformVariable("region");
-        var formatted = Tf.Functions.Format("%s-%s-bucket", name.GetReferenceExpression(), region.GetReferenceExpression());
+        var formatted = Tf.Functions.Format("%s-%s-bucket", name.AsReference(), region.AsReference());
 
         return Verify(formatted.ToHcl());
     }
@@ -119,7 +119,7 @@ public class TfTests
     public Task File_WithExpression_GeneratesHcl()
     {
         var path = new TerraformVariable("config_path");
-        var contents = Tf.Functions.File(path.GetReferenceExpression());
+        var contents = Tf.Functions.File(path.AsReference());
 
         return Verify(contents.ToHcl());
     }
@@ -228,7 +228,7 @@ public class TfTests
     {
         var vpcCidr = new TerraformVariable("vpc_cidr");
         var subnet = new TerraformResource("aws_subnet", "example")
-            .Set("cidr_block", Tf.Functions.CidrSubnet(vpcCidr.GetReferenceExpression(), 8, TerraformExpression.Literal(1)));
+            .WithProperty("cidr_block", Tf.Functions.CidrSubnet(vpcCidr.AsReference(), 8, TerraformExpression.Literal(1)));
 
         return Verify(subnet.Resolve());
     }
@@ -238,7 +238,7 @@ public class TfTests
     {
         // format("subnet-%s", element(split("-", var.name), 0))
         var varName = new TerraformVariable("name");
-        var split = Tf.Functions.Function("split", TerraformExpression.Literal("-"), varName.GetReferenceExpression());
+        var split = Tf.Functions.Function("split", TerraformExpression.Literal("-"), varName.AsReference());
         var element = Tf.Functions.Element(split, 0);
         var formatted = Tf.Functions.Format("subnet-%s", element);
 
@@ -251,8 +251,9 @@ public class TfTests
         // [for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]
         var vpcCidr = new TerraformVariable("vpc_cidr");
         var local = new TerraformLocal()
-            .Set("subnet_cidrs", TerraformExpression.Raw("[for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]"));
+            .WithProperty("subnet_cidrs", TerraformExpression.Raw("[for i in range(3) : cidrsubnet(var.vpc_cidr, 8, i)]"));
 
         return Verify(local.Resolve());
     }
 }
+

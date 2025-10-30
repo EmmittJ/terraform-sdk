@@ -20,7 +20,11 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
     /// </summary>
-    public TerraformValue<string> RequiredVersion { get; set; } = new();
+    public string? RequiredVersion
+    {
+        get => (GetProperty("required_version") as LiteralProperty<string>)?.Value;
+        set => WithPropertyInternal("required_version", value != null ? new LiteralProperty<string>(value) : null);
+    }
 
     /// <summary>
     /// Gets the required providers with their source and version constraints.
@@ -39,29 +43,30 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
     /// </summary>
     public TerraformBackend? Backend
     {
-        get => this.Get<TerraformBackend>("backend")?.LiteralValue;
-        set
-        {
-            if (value is not null)
-            {
-                SetInternal("backend", new TerraformValue<TerraformBackend>(value));
-            }
-        }
+        get => (GetProperty("backend") as ExpressionProperty)?.Expression as TerraformBackend;
+        set => WithPropertyInternal("backend", value != null ? new ExpressionProperty(value) : null);
     }
-    private TerraformBackend? _backend;
 
     /// <summary>
     /// Gets or sets the provider metadata block (for provider development).
     /// </summary>
-    public TerraformValue<object> ProviderMeta { get; set; } = new();
+    public object? ProviderMeta
+    {
+        get => (GetProperty("provider_meta") as LiteralProperty<object>)?.Value;
+        set => WithPropertyInternal("provider_meta", value != null ? new LiteralProperty<object>(value) : null);
+    }
 
     /// <summary>
     /// Gets or sets the cloud block configuration (for Terraform Cloud/Enterprise).
     /// </summary>
-    public TerraformValue<object> Cloud { get; set; } = new();
+    public object? Cloud
+    {
+        get => (GetProperty("cloud") as LiteralProperty<object>)?.Value;
+        set => WithPropertyInternal("cloud", value != null ? new LiteralProperty<object>(value) : null);
+    }
 
     /// <inheritdoc/>
-    public override TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => throw new NotSupportedException("Terraform configuration blocks cannot be referenced in expressions.");
 
     /// <inheritdoc/>
@@ -74,14 +79,15 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
 
         using (context.PushIndent())
         {
-            // Required version
-            if (!RequiredVersion.IsEmpty)
+            // Render in specific order for Terraform conventions
+            // 1. required_version (from properties)
+            if (Properties.TryGetValue("required_version", out var versionProp))
             {
-                sb.AppendLine($"{context.Indent}required_version = {RequiredVersion.Resolve(context).ToHcl(context)}");
+                sb.AppendLine($"{context.Indent}required_version = {versionProp.Resolve(context)}");
                 sb.AppendLine();
             }
 
-            // Required providers
+            // 2. Required providers
             if (_requiredProviders.Count > 0)
             {
                 sb.AppendLine($"{context.Indent}required_providers {{");
@@ -110,7 +116,7 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
                 sb.AppendLine();
             }
 
-            // Experiments
+            // 3. Experiments
             if (_experiments.Count > 0)
             {
                 var experimentsList = string.Join(", ", _experiments.Select(e => $"\"{e}\""));
@@ -118,11 +124,23 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
                 sb.AppendLine();
             }
 
-            // Write properties added via SetInternal (backend, cloud, provider_meta, etc.)
-            if (Properties.Count > 0)
+            // 4. Other properties (backend, cloud, provider_meta, etc.) - exclude required_version
+            foreach (var (key, property) in Properties.Where(p => p.Key != "required_version").OrderBy(p => p.Key))
             {
-                WriteProperties(sb, context);
-                sb.AppendLine();
+                var expression = property.ToExpression();
+
+                // Check if this is a block (nested block syntax without '=')
+                if (expression is TerraformBlockExpression block)
+                {
+                    // Don't push indent - block.ToHcl() will handle its own indentation
+                    sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
+                }
+                else
+                {
+                    // Standard property assignment with '='
+                    var hcl = property.Resolve(context);
+                    sb.AppendLine($"{context.Indent}{key} = {hcl}");
+                }
             }
         }
 
@@ -154,7 +172,7 @@ public class ProviderRequirement
 public class TerraformCloudBlock : TerraformConstruct
 {
     /// <inheritdoc/>
-    public override TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => throw new NotSupportedException("Cloud blocks cannot be referenced in expressions.");
 
     /// <inheritdoc/>

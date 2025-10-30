@@ -113,10 +113,10 @@ public class TerraformOutputTests
     }
 
     [Fact]
-    public void Output_GetReferenceExpression_ReturnsCorrectIdentifier()
+    public void Output_AsReference_ReturnsCorrectIdentifier()
     {
         var output = new TerraformOutput("vpc_id");
-        var expr = output.GetReferenceExpression();
+        var expr = output.AsReference();
 
         Assert.Equal("output.vpc_id", expr.ToHcl());
     }

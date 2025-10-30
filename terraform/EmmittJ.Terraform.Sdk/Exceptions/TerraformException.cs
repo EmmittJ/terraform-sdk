@@ -8,7 +8,7 @@ public class TerraformException : Exception
     /// <summary>
     /// Gets the construct associated with this exception, if any.
     /// </summary>
-    public ITerraformConstruct? Construct { get; }
+    public TerraformConstruct? Construct { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformException"/> class.
@@ -41,7 +41,7 @@ public class TerraformException : Exception
     /// </summary>
     /// <param name="message">The message that describes the error.</param>
     /// <param name="construct">The construct associated with this exception.</param>
-    public TerraformException(string message, ITerraformConstruct construct)
+    public TerraformException(string message, TerraformConstruct construct)
         : base(message)
     {
         Construct = construct;
@@ -53,7 +53,7 @@ public class TerraformException : Exception
     /// <param name="message">The error message that explains the reason for the exception.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="innerException">The exception that is the cause of the current exception.</param>
-    public TerraformException(string message, ITerraformConstruct construct, Exception innerException)
+    public TerraformException(string message, TerraformConstruct construct, Exception innerException)
         : base(message, innerException)
     {
         Construct = construct;

@@ -6,8 +6,8 @@ public class TerraformDataSourceTests
     public Task DataSource_BasicConfiguration_GeneratesHcl()
     {
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
-            .Set("most_recent", true)
-            .Set("owners", "099720109477")
+            .WithProperty("most_recent", true)
+            .WithProperty("owners", "099720109477")
             .DeclareOutput("id");
 
         return Verify(dataSource.Resolve());
@@ -20,7 +20,7 @@ public class TerraformDataSourceTests
         {
             Count = 3
         };
-        dataSource.Set("state", "available");
+        dataSource.WithProperty("state", "available");
 
         return Verify(dataSource.Resolve());
     }
@@ -33,7 +33,7 @@ public class TerraformDataSourceTests
         {
             ForEach = subnetIds.AsReference()
         };
-        dataSource.Set("id", TerraformExpression.Identifier("each.value"));
+        dataSource.WithProperty("id", TerraformExpression.Identifier("each.value"));
 
         return Verify(dataSource.Resolve());
     }
@@ -54,7 +54,7 @@ public class TerraformDataSourceTests
     {
         var dataSource = new TerraformDataSource("aws_vpc", "selected");
         dataSource.DependsOn.Add("aws_internet_gateway.main");
-        dataSource.Set("id", "vpc-12345");
+        dataSource.WithProperty("id", "vpc-12345");
 
         return Verify(dataSource.Resolve());
     }
@@ -64,7 +64,7 @@ public class TerraformDataSourceTests
     {
         var variable = new TerraformVariable("vpc_id") { Type = "string" };
         var dataSource = new TerraformDataSource("aws_vpc", "selected")
-            .Set("id", variable.AsReference())
+            .WithProperty("id", variable.AsReference())
             .DeclareOutput("cidr_block");
 
         return Verify(dataSource.Resolve());
@@ -74,17 +74,17 @@ public class TerraformDataSourceTests
     public Task DataSource_WithExpression_GeneratesHcl()
     {
         var dataSource = new TerraformDataSource("aws_ami", "filtered")
-            .Set("most_recent", TerraformExpression.Literal(true))
-            .Set("owners", "self");
+            .WithProperty("most_recent", TerraformExpression.Literal(true))
+            .WithProperty("owners", "self");
 
         return Verify(dataSource.Resolve());
     }
 
     [Fact]
-    public void DataSource_GetReferenceExpression_ReturnsCorrectIdentifier()
+    public void DataSource_AsReference_ReturnsCorrectIdentifier()
     {
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu");
-        var expr = dataSource.GetReferenceExpression();
+        var expr = dataSource.AsReference();
 
         Assert.Equal("data.aws_ami.ubuntu", expr.ToHcl());
     }
@@ -113,8 +113,8 @@ public class TerraformDataSourceTests
     public Task DataSource_FluentChaining_MaintainsType()
     {
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
-            .Set("most_recent", true)
-            .Set("owners", "099720109477")
+            .WithProperty("most_recent", true)
+            .WithProperty("owners", "099720109477")
             .DeclareOutput("id")
             .DeclareOutput("name");
 
@@ -129,7 +129,7 @@ public class TerraformDataSourceTests
     {
         var config = new TerraformConfiguration();
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
-            .Set("most_recent", true)
+            .WithProperty("most_recent", true)
             .DeclareOutput("id");
 
         config.Add(dataSource);
@@ -141,12 +141,12 @@ public class TerraformDataSourceTests
     public Task DataSource_ComplexFilter_GeneratesHcl()
     {
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
-            .Set("most_recent", true)
-            .Set("owners", "099720109477");
+            .WithProperty("most_recent", true)
+            .WithProperty("owners", "099720109477");
 
         // In real usage, this would be a complex object, but for now we use a simple value
-        dataSource.Set("filter_name", "name");
-        dataSource.Set("filter_values", "ubuntu/images/*");
+        dataSource.WithProperty("filter_name", "name");
+        dataSource.WithProperty("filter_values", "ubuntu/images/*");
 
         dataSource.DeclareOutput("id");
 
@@ -162,9 +162,10 @@ public class TerraformDataSourceTests
             Provider = "aws.west"
         };
         dataSource.DependsOn.Add("aws_vpc.main");
-        dataSource.Set("vpc_id", "vpc-12345");
+        dataSource.WithProperty("vpc_id", "vpc-12345");
         dataSource.DeclareOutput("id");
 
         return Verify(dataSource.Resolve());
     }
 }
+

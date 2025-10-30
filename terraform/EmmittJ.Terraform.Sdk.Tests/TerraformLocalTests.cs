@@ -6,9 +6,9 @@ public class TerraformLocalTests
     public Task Local_WithLiteralValues_GeneratesHcl()
     {
         var locals = new TerraformLocal()
-            .Set("region", "us-east-1")
-            .Set("environment", "production")
-            .Set("common_tags", TerraformExpression.Raw("{ Environment = \"prod\", ManagedBy = \"Terraform\" }"));
+            .WithProperty("region", "us-east-1")
+            .WithProperty("environment", "production")
+            .WithProperty("common_tags", TerraformExpression.Raw("{ Environment = \"prod\", ManagedBy = \"Terraform\" }"));
 
         return Verify(locals.Resolve());
     }
@@ -17,8 +17,8 @@ public class TerraformLocalTests
     public Task Local_WithExpression_GeneratesHcl()
     {
         var locals = new TerraformLocal()
-            .Set("vpc_cidr", "10.0.0.0/16")
-            .Set("subnet_count", 3);
+            .WithProperty("vpc_cidr", "10.0.0.0/16")
+            .WithProperty("subnet_count", 3);
 
         return Verify(locals.Resolve());
     }
@@ -28,7 +28,7 @@ public class TerraformLocalTests
     {
         var regionVar = new TerraformVariable("aws_region") { Type = "string" };
         var locals = new TerraformLocal()
-            .Set("region", regionVar.AsReference());
+            .WithProperty("region", regionVar.AsReference());
 
         return Verify(locals.Resolve());
     }
@@ -37,7 +37,7 @@ public class TerraformLocalTests
     public void Local_GetReference_ReturnsCorrectExpression()
     {
         var locals = new TerraformLocal()
-            .Set("region", "us-east-1");
+            .WithProperty("region", "us-east-1");
 
         var reference = locals["region"];
 
@@ -57,9 +57,9 @@ public class TerraformLocalTests
     public Task Local_FluentChaining_MaintainsType()
     {
         var locals = new TerraformLocal()
-            .Set("env", "prod")
-            .Set("region", "us-west-2")
-            .Set("az_count", 3);
+            .WithProperty("env", "prod")
+            .WithProperty("region", "us-west-2")
+            .WithProperty("az_count", 3);
 
         // Verify fluent chaining returns TerraformLocal
         Assert.IsType<TerraformLocal>(locals);
@@ -72,8 +72,8 @@ public class TerraformLocalTests
     {
         var config = new TerraformConfiguration();
         var locals = new TerraformLocal()
-            .Set("project_name", "my-app")
-            .Set("environment", "staging");
+            .WithProperty("project_name", "my-app")
+            .WithProperty("environment", "staging");
 
         config.Add(locals);
 
@@ -84,8 +84,8 @@ public class TerraformLocalTests
     public Task Local_WithComplexExpression_GeneratesHcl()
     {
         var locals = new TerraformLocal()
-            .Set("subnet_cidrs", TerraformExpression.Raw("[for i in range(3) : cidrsubnet(local.vpc_cidr, 8, i)]"))
-            .Set("vpc_cidr", "10.0.0.0/16");
+            .WithProperty("subnet_cidrs", TerraformExpression.Raw("[for i in range(3) : cidrsubnet(local.vpc_cidr, 8, i)]"))
+            .WithProperty("vpc_cidr", "10.0.0.0/16");
 
         return Verify(locals.Resolve());
     }
@@ -105,13 +105,14 @@ public class TerraformLocalTests
         var config = new TerraformConfiguration();
 
         var locals = new TerraformLocal()
-            .Set("region", "us-east-1");
+            .WithProperty("region", "us-east-1");
         config.Add(locals);
 
         var provider = new TerraformProvider("aws")
-            .Set("region", locals["region"]);
+            .WithProperty("region", locals["region"]);
         config.Add(provider);
 
         return Verify(config.ToHcl());
     }
 }
+

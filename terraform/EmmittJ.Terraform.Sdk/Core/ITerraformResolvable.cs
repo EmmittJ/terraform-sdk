@@ -5,14 +5,8 @@ namespace EmmittJ.Terraform.Sdk;
 /// Enables deferred resolution for handling circular references, cross-stack references, and late-bound values.
 /// </summary>
 /// <typeparam name="T">The type that will be resolved.</typeparam>
-public interface ITerraformResolvable<out T>
+public interface ITerraformResolvable<out T> : ITerraformPreparable
 {
-    /// <summary>
-    /// Preparation phase - called first to track dependencies and validate structure.
-    /// </summary>
-    /// <param name="context">The context for preparation and resolution.</param>
-    void Prepare(ITerraformContext context);
-
     /// <summary>
     /// Converts to HCL representation with optional context.
     /// When context is provided, uses it for indentation and scope access.
@@ -24,9 +18,13 @@ public interface ITerraformResolvable<out T>
 }
 
 /// <summary>
-/// Non-generic base interface for scenarios where runtime polymorphism is needed.
-/// Resolves to a string representation.
+/// Interface for preparation phase of Terraform resolvables.
 /// </summary>
-public interface ITerraformResolvable : ITerraformResolvable<string>
+public interface ITerraformPreparable
 {
+    /// <summary>
+    /// Preparation phase - called first to track dependencies and validate structure.
+    /// </summary>
+    /// <param name="context">The context for preparation and resolution.</param>
+    void Prepare(ITerraformContext context);
 }

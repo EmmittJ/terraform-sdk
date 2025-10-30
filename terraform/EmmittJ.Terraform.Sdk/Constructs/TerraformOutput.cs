@@ -3,8 +3,10 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Represents a Terraform output value block.
 /// </summary>
-public class TerraformOutput(string name) : ITerraformConstruct
+public class TerraformOutput(string name) : TerraformConstruct
 {
+    private TerraformProperty? _value;
+
     /// <summary>
     /// Gets the output name.
     /// </summary>
@@ -12,8 +14,13 @@ public class TerraformOutput(string name) : ITerraformConstruct
 
     /// <summary>
     /// Gets or sets the output value.
+    /// Can be a literal value or an expression.
     /// </summary>
-    public TerraformValue<object> Value { get; set; } = new();
+    public TerraformProperty? Value
+    {
+        get => _value;
+        set => _value = value;
+    }
 
     /// <summary>
     /// Gets or sets the description.
@@ -31,25 +38,26 @@ public class TerraformOutput(string name) : ITerraformConstruct
     public List<string> DependsOn { get; } = new();
 
     /// <inheritdoc/>
-    public TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
 
     /// <summary>
     /// Preparation phase - prepares all nested values.
     /// </summary>
-    public void Prepare(ITerraformContext context)
+    public override void Prepare(ITerraformContext context)
     {
-        Value.Prepare(context);
+        base.Prepare(context);
+        _value?.Prepare(context);
     }
 
     /// <summary>
     /// Resolution phase - generates HCL string with optional context.
     /// </summary>
-    public string Resolve(ITerraformContext? context = null)
+    public override string Resolve(ITerraformContext? context = null)
     {
         context ??= TerraformContext.Temporary(this);
 
-        if (Value.IsEmpty)
+        if (_value == null)
         {
             throw new TerraformConfigurationException(
                 $"Output '{Name}' must have a value set before it can be synthesized. " +
@@ -65,7 +73,7 @@ public class TerraformOutput(string name) : ITerraformConstruct
         using (context.PushIndent())
         {
             // Value is required
-            sb.AppendLine($"{context.Indent}value = {Value.Resolve(context).ToHcl(context)}");
+            sb.AppendLine($"{context.Indent}value = {_value.Resolve(context)}");
 
             // Optional attributes
             if (Description != null)

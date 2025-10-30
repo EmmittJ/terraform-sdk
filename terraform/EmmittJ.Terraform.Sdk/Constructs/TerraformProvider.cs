@@ -11,7 +11,7 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
     public string? Alias { get; set; }
 
     /// <inheritdoc/>
-    public override TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => TerraformExpression.Identifier(Alias != null ? $"{Name}.{Alias}" : Name);
 
     /// <inheritdoc/>

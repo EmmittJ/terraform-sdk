@@ -12,6 +12,8 @@ namespace EmmittJ.Terraform.Sdk;
 public abstract class TerraformProvisionableConstruct(string type, string name) : NamedTerraformConstruct(name)
 {
     private readonly HashSet<string> _declaredOutputs = [];
+    private TerraformProperty? _count;
+    private TerraformProperty? _forEach;
 
     /// <summary>
     /// Gets the type of this construct (e.g., "aws_vpc", "azurerm_resource_group").
@@ -20,13 +22,23 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
 
     /// <summary>
     /// Gets or sets the count meta-argument.
+    /// Can be a number or an expression.
     /// </summary>
-    public TerraformValue<int> Count { get; set; } = new();
+    public TerraformProperty? Count
+    {
+        get => _count;
+        set => _count = value;
+    }
 
     /// <summary>
     /// Gets or sets the for_each meta-argument.
+    /// Can be a set, map, or an expression.
     /// </summary>
-    public TerraformValue<object> ForEach { get; set; } = new();
+    public TerraformProperty? ForEach
+    {
+        get => _forEach;
+        set => _forEach = value;
+    }
 
     /// <summary>
     /// Gets or sets the provider meta-argument.
@@ -84,15 +96,8 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     {
         base.Prepare(context);
 
-        if (!Count.IsEmpty && Count is ITerraformResolvable<TerraformExpression> countResolvable)
-        {
-            countResolvable.Prepare(context);
-        }
-
-        if (!ForEach.IsEmpty && ForEach is ITerraformResolvable<TerraformExpression> forEachResolvable)
-        {
-            forEachResolvable.Prepare(context);
-        }
+        _count?.Prepare(context);
+        _forEach?.Prepare(context);
     }
 
     /// <summary>
@@ -100,14 +105,14 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     /// </summary>
     protected void WriteMetaArguments(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        if (!Count.IsEmpty)
+        if (_count != null)
         {
-            sb.AppendLine($"{context.Indent}count = {Count.Resolve(context).ToHcl(context)}");
+            sb.AppendLine($"{context.Indent}count = {_count.Resolve(context)}");
         }
 
-        if (!ForEach.IsEmpty)
+        if (_forEach != null)
         {
-            sb.AppendLine($"{context.Indent}for_each = {ForEach.Resolve(context).ToHcl(context)}");
+            sb.AppendLine($"{context.Indent}for_each = {_forEach.Resolve(context)}");
         }
 
         if (DependsOn.Count > 0)

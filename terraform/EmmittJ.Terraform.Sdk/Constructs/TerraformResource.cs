@@ -10,7 +10,7 @@ public class TerraformResource(string type, string name) : TerraformProvisionabl
     protected override string GetConstructTypeLabel() => "resource";
 
     /// <inheritdoc/>
-    public override TerraformExpression GetReferenceExpression()
+    public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"{Type}.{Name}");
 
     /// <inheritdoc/>
