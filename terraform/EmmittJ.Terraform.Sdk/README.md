@@ -85,6 +85,199 @@ string hcl = config.ToHcl();
 config.WriteToFile("main.tf");
 ```
 
+## Phase 2 Features: Backend, Settings, and Lifecycle
+
+The SDK now includes comprehensive support for Terraform's configuration blocks and meta-arguments:
+
+### Backend Configuration
+
+```csharp
+// Configure S3 backend
+var config = new TerraformConfiguration("main")
+{
+    Backend = new TerraformBackend { Type = "s3" }
+};
+config.Backend.Config["bucket"] = "my-terraform-state";
+config.Backend.Config["key"] = "prod/terraform.tfstate";
+config.Backend.Config["region"] = "us-east-1";
+config.Backend.Config["encrypt"] = true;
+
+// Configure Azure backend
+var config = new TerraformConfiguration("main")
+{
+    Backend = new TerraformBackend { Type = "azurerm" }
+};
+config.Backend.Config["storage_account_name"] = "mystorageaccount";
+config.Backend.Config["container_name"] = "tfstate";
+config.Backend.Config["key"] = "prod.terraform.tfstate";
+```
+
+### Terraform Settings
+
+```csharp
+// Configure Terraform version and providers
+var config = new TerraformConfiguration("main")
+{
+    Settings = new TerraformSettings
+    {
+        RequiredVersion = ">= 1.0"
+    }
+};
+
+// Add provider requirements
+config.Settings.RequiredProviders["aws"] = new ProviderRequirement
+{
+    Source = "hashicorp/aws",
+    Version = "~> 5.0"
+};
+
+config.Settings.RequiredProviders["azurerm"] = new ProviderRequirement
+{
+    Source = "hashicorp/azurerm",
+    Version = ">= 3.0"
+};
+
+// Enable experimental features
+config.Settings.Experiments.Add("module_variable_optional_attrs");
+```
+
+### Lifecycle Meta-Arguments
+
+```csharp
+// Create before destroy for zero-downtime replacement
+var instance = new TerraformResource("aws_instance", "web")
+{
+    Lifecycle = new LifecycleConfig
+    {
+        CreateBeforeDestroy = true
+    }
+};
+instance.Set("ami", "ami-12345678")
+    .Set("instance_type", "t2.micro");
+
+// Prevent accidental deletion
+var database = new TerraformResource("aws_db_instance", "prod")
+{
+    Lifecycle = new LifecycleConfig
+    {
+        PreventDestroy = true
+    }
+};
+
+// Ignore changes to specific attributes
+var resource = new TerraformResource("aws_instance", "app")
+{
+    Lifecycle = new LifecycleConfig()
+};
+resource.Lifecycle.IgnoreChanges.Add("tags");
+resource.Lifecycle.IgnoreChanges.Add("user_data");
+
+// Ignore all changes
+var managed_elsewhere = new TerraformResource("aws_s3_bucket", "external")
+{
+    Lifecycle = new LifecycleConfig()
+};
+managed_elsewhere.Lifecycle.IgnoreChanges.Add("all");
+
+// Preconditions and postconditions
+var instance = new TerraformResource("aws_instance", "validated")
+{
+    Lifecycle = new LifecycleConfig()
+};
+
+instance.Lifecycle.Preconditions.Add(new LifecycleCheck
+{
+    Condition = new TerraformExpression("can(regex(\"^ami-\", self.ami))"),
+    ErrorMessage = "AMI ID must start with 'ami-'"
+});
+
+instance.Lifecycle.Postconditions.Add(new LifecycleCheck
+{
+    Condition = new TerraformExpression("self.public_ip != \"\""),
+    ErrorMessage = "Instance must have a public IP"
+});
+```
+
+### Complete Configuration Example
+
+```csharp
+// Build a complete Terraform configuration
+var config = new TerraformConfiguration("main")
+{
+    Settings = new TerraformSettings { RequiredVersion = ">= 1.0" },
+    Backend = new TerraformBackend { Type = "s3" }
+};
+
+// Configure settings
+config.Settings.RequiredProviders["aws"] = new ProviderRequirement
+{
+    Source = "hashicorp/aws",
+    Version = "~> 5.0"
+};
+
+// Configure backend
+config.Backend.Config["bucket"] = "my-state-bucket";
+config.Backend.Config["key"] = "prod/terraform.tfstate";
+config.Backend.Config["region"] = "us-east-1";
+
+// Add provider
+var provider = new TerraformProvider("aws");
+provider.Set("region", "us-west-2");
+config.Add(provider);
+
+// Add resource with lifecycle
+var instance = new TerraformResource("aws_instance", "web")
+{
+    Lifecycle = new LifecycleConfig
+    {
+        CreateBeforeDestroy = true,
+        PreventDestroy = false
+    }
+};
+instance.Lifecycle.IgnoreChanges.Add("tags");
+instance.Set("ami", "ami-12345678")
+    .Set("instance_type", "t2.micro");
+config.Add(instance);
+
+// Generate HCL with terraform {} block, backend, and lifecycle
+string hcl = config.ToHcl();
+```
+
+Generated HCL:
+
+```hcl
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+
+  backend "s3" {
+    bucket = "my-state-bucket"
+    key = "prod/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
+provider "aws" {
+  region = "us-west-2"
+}
+
+resource "aws_instance" "web" {
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy = false
+    ignore_changes = [tags]
+  }
+  ami = "ami-12345678"
+  instance_type = "t2.micro"
+}
+```
+
 ## Project Structure
 
 The SDK is organized into logical folders for maintainability and clarity:

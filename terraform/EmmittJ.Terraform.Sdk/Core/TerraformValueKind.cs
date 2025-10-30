@@ -18,10 +18,5 @@ public enum TerraformValueKind
     /// <summary>
     /// The value is a TerraformExpression (function call, arithmetic, etc.).
     /// </summary>
-    Expression,
-
-    /// <summary>
-    /// The value is a reference to another construct.
-    /// </summary>
-    Reference
+    Expression
 }

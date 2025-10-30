@@ -163,19 +163,25 @@ public class TerraformObjectExpression : TerraformExpression, IEnumerable
         {
             return "{}";
         }
-
-        var currentIndent = context?.Indent ?? "";
-        var nextIndent = currentIndent + "  ";
+        context ??= TerraformContext.Temporary(this);
 
         var sb = new System.Text.StringBuilder();
         sb.AppendLine("{");
-        foreach (var (key, value) in _properties)
+
+        using (context.PushIndent())
         {
-            sb.AppendLine($"{nextIndent}{key} = {value.ToHcl(context)}");
+            WriteProperties(sb, context);
         }
-        sb.Append($"{currentIndent}}}");
+        sb.Append($"{context.Indent}}}");
 
         return sb.ToString();
     }
 
+    protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    {
+        foreach (var (key, value) in _properties.OrderBy(p => p.Key))
+        {
+            sb.AppendLine($"{context.Indent}{key} = {value.ToHcl(context)}");
+        }
+    }
 }

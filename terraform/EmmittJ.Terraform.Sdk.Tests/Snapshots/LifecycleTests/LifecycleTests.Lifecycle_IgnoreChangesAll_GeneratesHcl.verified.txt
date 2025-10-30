@@ -1,0 +1,7 @@
+﻿resource "aws_instance" "web" {
+  lifecycle {
+    ignore_changes = all
+  }
+  ami = "ami-12345678"
+}
+

@@ -8,27 +8,4 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformBlockExpression : TerraformObjectExpression
 {
-    /// <summary>
-    /// Converts the block to HCL syntax.
-    /// Generates block body syntax with arguments inside.
-    /// </summary>
-    public override string ToString()
-    {
-        if (_properties.Count == 0)
-        {
-            return "{}";
-        }
-
-        var sb = new System.Text.StringBuilder();
-        sb.AppendLine("{");
-
-        foreach (var (key, value) in _properties)
-        {
-            sb.AppendLine($"  {key} = {value}");
-        }
-
-        sb.AppendLine("}");
-
-        return sb.ToString();
-    }
 }

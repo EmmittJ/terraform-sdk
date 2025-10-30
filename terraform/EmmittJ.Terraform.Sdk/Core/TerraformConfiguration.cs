@@ -15,6 +15,30 @@ public class TerraformConfiguration(string name = "main")
     public string Name => _name;
 
     /// <summary>
+    /// Gets or sets the terraform {} block configuration.
+    /// This configures Terraform itself, including backend, required providers, and other settings.
+    /// When set, it will be automatically added to the constructs list.
+    /// </summary>
+    public TerraformConfigurationBlock? Terraform
+    {
+        get => _terraform;
+        set
+        {
+            if (_terraform != null)
+            {
+                _constructs.Remove(_terraform);
+            }
+            _terraform = value;
+            if (_terraform != null)
+            {
+                // Insert at the beginning so terraform block appears first
+                _constructs.Insert(0, _terraform);
+            }
+        }
+    }
+    private TerraformConfigurationBlock? _terraform;
+
+    /// <summary>
     /// Adds a construct (variable, resource, data source, etc.) to this configuration.
     /// </summary>
     public void Add(ITerraformConstruct construct)
@@ -55,6 +79,7 @@ public class TerraformConfiguration(string name = "main")
         // Pass 2: Resolve - generate HCL
         var sb = new System.Text.StringBuilder();
 
+        // Render all constructs (terraform block is first if present)
         foreach (var construct in _constructs)
         {
             if (construct is ITerraformResolvable resolvable)

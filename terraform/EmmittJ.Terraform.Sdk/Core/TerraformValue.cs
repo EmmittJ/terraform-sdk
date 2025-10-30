@@ -52,7 +52,7 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
     /// <summary>
     /// Creates a value from a reference (TerraformReference is a TerraformExpression).
     /// </summary>
-    public TerraformValue(TerraformReference reference)
+    public TerraformValue(TerraformReferenceExpression reference)
         : this((TerraformExpression)reference)
     {
     }
@@ -114,6 +114,6 @@ public class TerraformValue<T> : ITerraformValue, ITerraformResolvable<Terraform
     public static implicit operator TerraformValue<T>(TerraformExpression expression)
         => new(expression);
 
-    public static implicit operator TerraformValue<T>(TerraformReference reference)
+    public static implicit operator TerraformValue<T>(TerraformReferenceExpression reference)
         => new(reference);
 }

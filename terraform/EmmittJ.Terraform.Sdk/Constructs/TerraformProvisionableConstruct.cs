@@ -39,6 +39,11 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     public List<string> DependsOn { get; } = [];
 
     /// <summary>
+    /// Gets or sets the lifecycle configuration for this resource.
+    /// </summary>
+    public LifecycleConfig? Lifecycle { get; set; }
+
+    /// <summary>
     /// Declares an output attribute for this construct.
     /// </summary>
     public void DeclareOutputInternal(string attributeName)
@@ -91,7 +96,7 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     }
 
     /// <summary>
-    /// Writes meta-arguments to HCL (count, for_each, depends_on, provider).
+    /// Writes meta-arguments to HCL (count, for_each, depends_on, provider, lifecycle).
     /// </summary>
     protected void WriteMetaArguments(System.Text.StringBuilder sb, ITerraformContext context)
     {
@@ -114,6 +119,11 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
         if (Provider != null)
         {
             sb.AppendLine($"{context.Indent}provider = {Provider}");
+        }
+
+        if (Lifecycle != null && Lifecycle.HasConfiguration())
+        {
+            sb.Append(Lifecycle.ToBlockExpression().ToHcl(context));
         }
     }
 }
