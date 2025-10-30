@@ -45,7 +45,7 @@ public static class QuickStartExample
             .Set("project_name", "example-vpc")
             .Set("environment", "production");
         locals
-            .Set("common_tags", new TerraformObject
+            .Set("common_tags", new TerraformObjectExpression
             {
                 ["Environment"] = locals["environment"],
                 ["Project"] = locals["project_name"],
@@ -56,7 +56,7 @@ public static class QuickStartExample
         // Define AWS provider
         var awsProvider = new TerraformProvider("aws")
             .Set("region", awsRegion.AsReference())
-            .Set("default_tags", new TerraformBlock
+            .Set("default_tags", new TerraformBlockExpression
             {
                 ["tags"] = locals["common_tags"]
             });
@@ -69,7 +69,7 @@ public static class QuickStartExample
             .Set("enable_dns_support", true)
             .Set("tags", Tf.Functions.Merge(
                 locals["common_tags"],
-                new TerraformObject
+                new TerraformObjectExpression
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-vpc")
                 }))
@@ -82,7 +82,7 @@ public static class QuickStartExample
             .Set("vpc_id", vpc["id"])
             .Set("tags", Tf.Functions.Merge(
                 locals["common_tags"],
-                new TerraformObject
+                new TerraformObjectExpression
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-igw")
                 }))
@@ -103,7 +103,7 @@ public static class QuickStartExample
             .Set("map_public_ip_on_launch", true)
             .Set("tags", Tf.Functions.Merge(
                 locals["common_tags"],
-                new TerraformObject
+                new TerraformObjectExpression
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-public-", Tf.Helpers.EachValue),
                     ["Tier"] = "Public"

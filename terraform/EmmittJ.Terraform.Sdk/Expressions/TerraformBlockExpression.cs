@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Example: default_tags { tags = {...} } not default_tags = { tags = {...} }
 /// Inherits from TerraformObject but overrides ToHcl() to generate block syntax.
 /// </summary>
-public class TerraformBlock : TerraformObject
+public class TerraformBlockExpression : TerraformObjectExpression
 {
     /// <summary>
     /// Converts the block to HCL syntax.

@@ -8,7 +8,7 @@ public class TerraformLocal : TerraformConstruct
     /// <summary>
     /// Gets a reference to a local value.
     /// </summary>
-    public TerraformReference this[string name]
+    public TerraformReferenceExpression this[string name]
     {
         get
         {
@@ -20,7 +20,7 @@ public class TerraformLocal : TerraformConstruct
                     this,
                     name);
             }
-            return new TerraformReference(this, name);
+            return new TerraformReferenceExpression(this, name);
         }
     }
 
@@ -56,7 +56,7 @@ public class TerraformLocal : TerraformConstruct
                     var compiledExpr = value.Resolve(context);
 
                     // Check if this is a block (nested block syntax without '=')
-                    if (compiledExpr is TerraformBlock block)
+                    if (compiledExpr is TerraformBlockExpression block)
                     {
                         // Don't push indent - block.ToHcl() will handle its own indentation
                         sb.AppendLine($"{context.Indent}{name} {block.ToHcl(context)}");

@@ -49,7 +49,7 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     /// <summary>
     /// Gets a reference to an output attribute.
     /// </summary>
-    public TerraformReference GetOutput(string attributeName)
+    public TerraformReferenceExpression GetOutput(string attributeName)
     {
         if (!_declaredOutputs.Contains(attributeName))
         {
@@ -59,13 +59,13 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
                 this,
                 attributeName);
         }
-        return new TerraformReference(this, attributeName);
+        return new TerraformReferenceExpression(this, attributeName);
     }
 
     /// <summary>
     /// Indexer for convenient property access.
     /// </summary>
-    public TerraformReference this[string attributeName] => GetOutput(attributeName);
+    public TerraformReferenceExpression this[string attributeName] => GetOutput(attributeName);
 
     /// <summary>
     /// Gets the label for this construct type (e.g., "resource", "data source") for error messages.

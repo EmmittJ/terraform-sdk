@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Extends TerraformExpression so it can be stored directly while maintaining metadata.
 /// Records dependencies during Prepare and resolves to HCL string during ToHcl.
 /// </summary>
-public class TerraformReference(ITerraformConstruct source, string? propertyPath = null)
+public class TerraformReferenceExpression(ITerraformConstruct source, string? propertyPath = null)
     : TerraformExpression
 {
     /// <summary>

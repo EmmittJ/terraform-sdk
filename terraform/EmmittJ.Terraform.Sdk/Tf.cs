@@ -414,16 +414,16 @@ public static class Tf
         /// Creates a new TerraformObject for building HCL objects.
         /// </summary>
         /// <returns>A new TerraformObject.</returns>
-        public static TerraformObject Object() => new TerraformObject();
+        public static TerraformObjectExpression Object() => new TerraformObjectExpression();
 
         /// <summary>
         /// Creates an object expression with a fluent builder API.
         /// </summary>
         /// <param name="configure">Action to configure the object.</param>
         /// <returns>A configured object expression.</returns>
-        public static TerraformObject Object(Action<TerraformObject> configure)
+        public static TerraformObjectExpression Object(Action<TerraformObjectExpression> configure)
         {
-            var obj = new TerraformObject();
+            var obj = new TerraformObjectExpression();
             configure(obj);
             return obj;
         }

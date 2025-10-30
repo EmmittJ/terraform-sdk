@@ -41,8 +41,8 @@ public static class TerraformConstructExtensions
     /// </summary>
     /// <param name="construct">The construct to create a reference for.</param>
     /// <returns>A TerraformReference that can be implicitly converted to TerraformExpression.</returns>
-    public static TerraformReference AsReference(this ITerraformConstruct construct)
+    public static TerraformReferenceExpression AsReference(this ITerraformConstruct construct)
     {
-        return new TerraformReference(construct);
+        return new TerraformReferenceExpression(construct);
     }
 }

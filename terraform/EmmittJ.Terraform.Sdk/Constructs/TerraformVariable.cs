@@ -86,11 +86,11 @@ public class TerraformVariable(string name) : ITerraformConstruct
     /// <summary>
     /// Creates a reference to this variable.
     /// </summary>
-    public TerraformReference AsReference() => new(this);
+    public TerraformReferenceExpression AsReference() => new(this);
 
     /// <summary>
     /// Implicit conversion to reference for convenience.
     /// </summary>
-    public static implicit operator TerraformReference(TerraformVariable variable)
+    public static implicit operator TerraformReferenceExpression(TerraformVariable variable)
         => variable.AsReference();
 }

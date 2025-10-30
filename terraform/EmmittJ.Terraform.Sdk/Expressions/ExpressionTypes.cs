@@ -144,41 +144,6 @@ internal class ListExpression : TerraformExpression
 }
 
 /// <summary>
-/// Object/Map literal expression (e.g., { key = value }).
-/// </summary>
-public class ObjectExpression : TerraformExpression
-{
-    private readonly Dictionary<string, TerraformExpression> _properties = new();
-
-    public ObjectExpression() { }
-
-    public ObjectExpression Set(string key, TerraformExpression value)
-    {
-        _properties[key] = value;
-        return this;
-    }
-
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        if (_properties.Count == 0)
-            return "{}";
-
-        var currentIndent = context?.Indent ?? "";
-        var nextIndent = currentIndent + "  ";
-
-        var sb = new System.Text.StringBuilder();
-        sb.AppendLine("{");
-        foreach (var kvp in _properties)
-        {
-            sb.AppendLine($"{nextIndent}{kvp.Key} = {kvp.Value.ToHcl(context)}");
-        }
-        sb.Append($"{currentIndent}}}");
-
-        return sb.ToString();
-    }
-}
-
-/// <summary>
 /// String interpolation expression (e.g., "${var.name}-suffix").
 /// </summary>
 internal class StringInterpolationExpression : TerraformExpression

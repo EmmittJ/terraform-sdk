@@ -23,15 +23,15 @@ public class ValidationTests
         var resourceB = new TerraformResource("null_resource", "b");
 
         // Resource A depends on Resource B's id
-        resourceA.Set("triggers", new TerraformObject
+        resourceA.Set("triggers", new TerraformObjectExpression
         {
-            ["b_id"] = new TerraformReference(resourceB, "id")
+            ["b_id"] = new TerraformReferenceExpression(resourceB, "id")
         });
 
         // Resource B depends on Resource A's id (creating the cycle)
-        resourceB.Set("triggers", new TerraformObject
+        resourceB.Set("triggers", new TerraformObjectExpression
         {
-            ["a_id"] = new TerraformReference(resourceA, "id")
+            ["a_id"] = new TerraformReferenceExpression(resourceA, "id")
         });
 
         config.Add(resourceA);
@@ -62,14 +62,14 @@ public class ValidationTests
         context.DependencyGraph.AddConstruct(resourceB);
 
         // Create a TerraformObject with a reference - use Set() method
-        var obj = new TerraformObject();
-        var refToB = new TerraformReference(resourceB, "id");
+        var obj = new TerraformObjectExpression();
+        var refToB = new TerraformReferenceExpression(resourceB, "id");
         obj.Set("ref", refToB);
 
         // Verify the reference was stored (not converted)
         var stored = obj.Get("ref");
         Assert.NotNull(stored);
-        Assert.IsType<TerraformReference>(stored);
+        Assert.IsType<TerraformReferenceExpression>(stored);
 
         // Set current construct to resourceA and prepare the object
         context.SetCurrentConstruct(resourceA);

@@ -8,19 +8,19 @@ using System.Collections;
 /// Similar to BicepDictionary in Azure.Provisioning.
 /// Supports collection initializer syntax.
 /// </summary>
-public class TerraformObject : TerraformExpression, IEnumerable
+public class TerraformObjectExpression : TerraformExpression, IEnumerable
 {
     protected readonly Dictionary<string, TerraformExpression> _properties = new();
 
     /// <summary>
     /// Creates a new empty TerraformObject.
     /// </summary>
-    public TerraformObject() { }
+    public TerraformObjectExpression() { }
 
     /// <summary>
     /// Sets a property with a TerraformExpression value.
     /// </summary>
-    public TerraformObject Set(string key, TerraformExpression value)
+    public TerraformObjectExpression Set(string key, TerraformExpression value)
     {
         _properties[key] = value ?? throw new ArgumentNullException(nameof(value));
         return this;
@@ -30,7 +30,7 @@ public class TerraformObject : TerraformExpression, IEnumerable
     /// Sets a property with a literal value (string, number, bool, etc.).
     /// Note: TerraformExpression should use the other overload.
     /// </summary>
-    public TerraformObject Set<T>(string key, T value) where T : notnull
+    public TerraformObjectExpression Set<T>(string key, T value) where T : notnull
     {
         // If someone passes a TerraformExpression, redirect to the correct overload
         if (value is TerraformExpression expr)
@@ -101,7 +101,7 @@ public class TerraformObject : TerraformExpression, IEnumerable
     /// Merges another TerraformObject into this one.
     /// Later values overwrite earlier ones.
     /// </summary>
-    public TerraformObject Merge(TerraformObject other)
+    public TerraformObjectExpression Merge(TerraformObjectExpression other)
     {
         foreach (var (key, value) in other._properties)
         {
@@ -113,9 +113,9 @@ public class TerraformObject : TerraformExpression, IEnumerable
     /// <summary>
     /// Creates a new TerraformObject from key-value pairs.
     /// </summary>
-    public static TerraformObject FromPairs(params (string Key, object Value)[] pairs)
+    public static TerraformObjectExpression FromPairs(params (string Key, object Value)[] pairs)
     {
-        var obj = new TerraformObject();
+        var obj = new TerraformObjectExpression();
         foreach (var (key, value) in pairs)
         {
             obj.Set(key, value);
@@ -126,9 +126,9 @@ public class TerraformObject : TerraformExpression, IEnumerable
     /// <summary>
     /// Implicit conversion from Dictionary to TerraformObject.
     /// </summary>
-    public static implicit operator TerraformObject(Dictionary<string, TerraformExpression> dict)
+    public static implicit operator TerraformObjectExpression(Dictionary<string, TerraformExpression> dict)
     {
-        var obj = new TerraformObject();
+        var obj = new TerraformObjectExpression();
         foreach (var (key, value) in dict)
         {
             obj.Set(key, value);

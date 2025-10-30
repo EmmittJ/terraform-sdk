@@ -49,7 +49,7 @@ public abstract class TerraformConstruct : ITerraformConstruct, ITerraformResolv
                 var compiledExpr = value.Resolve(context);
 
                 // Check if this is a block (nested block syntax without '=')
-                if (compiledExpr is TerraformBlock block)
+                if (compiledExpr is TerraformBlockExpression block)
                 {
                     // Don't push indent - block.ToHcl() will handle its own indentation
                     sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");

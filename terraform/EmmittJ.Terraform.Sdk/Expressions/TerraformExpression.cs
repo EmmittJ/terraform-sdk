@@ -65,7 +65,7 @@ public abstract class TerraformExpression : ITerraformResolvable<string>
     /// Creates an object/map literal expression.
     /// Returns TerraformExpression to avoid overload resolution issues.
     /// </summary>
-    public static TerraformExpression Object() => new ObjectExpression();
+    public static TerraformExpression Object() => new TerraformObjectExpression();
 
     /// <summary>
     /// Creates a string interpolation expression.

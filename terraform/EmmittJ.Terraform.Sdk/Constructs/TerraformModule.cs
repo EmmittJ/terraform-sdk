@@ -44,7 +44,7 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable
     /// </summary>
     /// <param name="outputName">The name of the module output.</param>
     /// <returns>A reference to the module output.</returns>
-    public TerraformReference GetOutput(string outputName)
+    public TerraformReferenceExpression GetOutput(string outputName)
     {
         if (!_declaredOutputs.Contains(outputName))
         {
@@ -54,7 +54,7 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable
                 this,
                 outputName);
         }
-        return new TerraformReference(this, outputName);
+        return new TerraformReferenceExpression(this, outputName);
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable
     /// </summary>
     /// <param name="outputName">The name of the module output.</param>
     /// <returns>A reference to the module output.</returns>
-    public TerraformReference this[string outputName] => GetOutput(outputName);
+    public TerraformReferenceExpression this[string outputName] => GetOutput(outputName);
 
     /// <inheritdoc/>
     public override TerraformExpression GetReferenceExpression()
