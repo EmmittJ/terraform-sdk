@@ -5,6 +5,11 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformResource(string type, string name) : TerraformProvisionableConstruct(type, name)
 {
+    /// <inheritdoc/>
+    protected override string BlockType => "resource";
+
+    /// <inheritdoc/>
+    protected override string[] Labels => [Type, Name];
 
     /// <inheritdoc/>
     protected override string GetConstructTypeLabel() => "resource";
@@ -14,24 +19,9 @@ public class TerraformResource(string type, string name) : TerraformProvisionabl
         => TerraformExpression.Identifier($"{Type}.{Name}");
 
     /// <inheritdoc/>
-    public override string Resolve(ITerraformContext? context = null)
+    protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        context ??= TerraformContext.Temporary(this);
-        var sb = new System.Text.StringBuilder();
-
-        sb.AppendLine($"{context.Indent}resource \"{Type}\" \"{Name}\" {{");
-
-        using (context.PushIndent())
-        {
-            // Meta-arguments first
-            WriteMetaArguments(sb, context);
-
-            // Regular properties
-            WriteProperties(sb, context);
-        }
-
-        sb.AppendLine($"{context.Indent}}}");
-
-        return sb.ToString();
+        // Meta-arguments first
+        WriteMetaArguments(sb, context);
     }
 }

@@ -91,12 +91,12 @@ public class TerraformLocalTests
     }
 
     [Fact]
-    public void Local_Empty_GeneratesEmptyString()
+    public void Local_Empty_GeneratesEmptyBlock()
     {
         var locals = new TerraformLocal();
         var hcl = locals.Resolve();
 
-        Assert.Equal(string.Empty, hcl);
+        Assert.Equal("locals {\r\n}\r\n", hcl);
     }
 
     [Fact]

@@ -5,12 +5,16 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformOutput(string name) : TerraformConstruct
 {
-    private TerraformProperty? _value;
-
     /// <summary>
     /// Gets the output name.
     /// </summary>
     public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
+
+    /// <inheritdoc/>
+    protected override string BlockType => "output";
+
+    /// <inheritdoc/>
+    protected override string[] Labels => [Name];
 
     /// <summary>
     /// Gets or sets the output value.
@@ -18,19 +22,27 @@ public class TerraformOutput(string name) : TerraformConstruct
     /// </summary>
     public TerraformProperty? Value
     {
-        get => _value;
-        set => _value = value;
+        get => GetProperty<TerraformProperty>("value");
+        set => WithPropertyInternal("value", value, priority: 0);
     }
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    public string? Description { get; set; }
+    public TerraformLiteralProperty<string>? Description
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => WithPropertyInternal("description", value, priority: 1);
+    }
 
     /// <summary>
     /// Gets or sets whether the output is sensitive.
     /// </summary>
-    public bool? Sensitive { get; set; }
+    public TerraformLiteralProperty<bool>? Sensitive
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("sensitive");
+        set => WithPropertyInternal("sensitive", value, priority: 2);
+    }
 
     /// <summary>
     /// Gets the list of resources this depends on.
@@ -41,23 +53,10 @@ public class TerraformOutput(string name) : TerraformConstruct
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
 
-    /// <summary>
-    /// Preparation phase - prepares all nested values.
-    /// </summary>
-    public override void Prepare(ITerraformContext context)
+    /// <inheritdoc/>
+    protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        base.Prepare(context);
-        _value?.Prepare(context);
-    }
-
-    /// <summary>
-    /// Resolution phase - generates HCL string with optional context.
-    /// </summary>
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        context ??= TerraformContext.Temporary(this);
-
-        if (_value == null)
+        if (Value == null)
         {
             throw new TerraformConfigurationException(
                 $"Output '{Name}' must have a value set before it can be synthesized. " +
@@ -65,26 +64,26 @@ public class TerraformOutput(string name) : TerraformConstruct
                 this,
                 "Value");
         }
+    }
+
+    /// <inheritdoc/>
+    public override string Resolve(ITerraformContext? context = null)
+    {
+        context ??= TerraformContext.Temporary(this);
 
         var sb = new System.Text.StringBuilder();
 
-        sb.AppendLine($"{context.Indent}output \"{Name}\" {{");
+        sb.Append($"{context.Indent}{BlockType}");
+        foreach (var identifier in Labels)
+        {
+            sb.Append($" \"{identifier}\"");
+        }
+        sb.AppendLine(" {");
 
         using (context.PushIndent())
         {
-            // Value is required
-            sb.AppendLine($"{context.Indent}value = {_value.Resolve(context).ToHcl(context)}");
-
-            // Optional attributes
-            if (Description != null)
-            {
-                sb.AppendLine($"{context.Indent}description = \"{Description}\"");
-            }
-
-            if (Sensitive.HasValue)
-            {
-                sb.AppendLine($"{context.Indent}sensitive = {Sensitive.Value.ToString().ToLowerInvariant()}");
-            }
+            WriteAdditionalProperties(sb, context);
+            WriteProperties(sb, context);
 
             if (DependsOn.Count > 0)
             {

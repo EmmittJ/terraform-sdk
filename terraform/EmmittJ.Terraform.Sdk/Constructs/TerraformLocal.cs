@@ -5,6 +5,12 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformLocal : TerraformConstruct
 {
+    /// <inheritdoc/>
+    protected override string BlockType => "locals";
+
+    /// <inheritdoc/>
+    protected override string[] Labels => Array.Empty<string>();
+
     /// <summary>
     /// Gets a reference to a local value.
     /// </summary>
@@ -33,27 +39,4 @@ public class TerraformLocal : TerraformConstruct
     /// </summary>
     public TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"local.{name}");
-
-    /// <inheritdoc/>
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        if (Properties.Count == 0)
-        {
-            return string.Empty;
-        }
-        context ??= TerraformContext.Temporary(this);
-
-        var sb = new System.Text.StringBuilder();
-
-        sb.AppendLine($"{context.Indent}locals {{");
-
-        using (context.PushIndent())
-        {
-            WriteProperties(sb, context);
-        }
-
-        sb.AppendLine($"{context.Indent}}}");
-
-        return sb.ToString();
-    }
 }

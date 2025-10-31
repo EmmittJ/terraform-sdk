@@ -16,17 +16,31 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
     {
     }
 
+    /// <inheritdoc/>
+    protected override string BlockType => "module";
+
+    /// <inheritdoc/>
+    protected override string[] Labels => [Name];
+
     /// <summary>
     /// Gets or sets the source of the module.
     /// Can be a local path, registry source, git URL, etc.
     /// </summary>
-    public required string Source { get; set; }
+    public required TerraformLiteralProperty<string> Source
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("source") ?? throw new InvalidOperationException("Source is required");
+        set => WithPropertyInternal("source", value, priority: 0);
+    }
 
     /// <summary>
     /// Gets or sets the version constraint for the module (optional).
     /// Only applicable for registry modules.
     /// </summary>
-    public string? Version { get; set; }
+    public TerraformLiteralProperty<string>? Version
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => WithPropertyInternal("version", value, priority: 1);
+    }
 
     /// <summary>
     /// Declares an output from this module that can be referenced.
@@ -67,48 +81,4 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"module.{Name}");
-
-    /// <summary>
-    /// Preparation phase - prepare all input variables.
-    /// </summary>
-    public override void Prepare(ITerraformContext context)
-    {
-        foreach (var variable in Properties.Values)
-        {
-            if (variable is ITerraformPreparable preparable)
-            {
-                preparable.Prepare(context);
-            }
-        }
-    }
-
-    /// <summary>
-    /// Resolution phase - generates the module block HCL.
-    /// </summary>
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        context ??= TerraformContext.Temporary(this);
-
-        var sb = new System.Text.StringBuilder();
-
-        sb.AppendLine($"{context.Indent}module \"{Name}\" {{");
-
-        using (context.PushIndent())
-        {
-            // Source is required
-            sb.AppendLine($"{context.Indent}source = \"{Source}\"");
-
-            // Version is optional
-            if (!string.IsNullOrWhiteSpace(Version))
-            {
-                sb.AppendLine($"{context.Indent}version = \"{Version}\"");
-            }
-
-            WriteProperties(sb, context);
-        }
-
-        sb.AppendLine($"{context.Indent}}}");
-
-        return sb.ToString();
-    }
 }

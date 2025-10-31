@@ -11,6 +11,12 @@ namespace EmmittJ.Terraform.Sdk;
 public abstract class TerraformProperty : ITerraformResolvable<TerraformExpression>
 {
     /// <summary>
+    /// Gets or sets the priority for property ordering in HCL output.
+    /// Lower numbers render first. Null (default) means alphabetical ordering at the end.
+    /// </summary>
+    public int? Priority { get; set; }
+
+    /// <summary>
     /// Preparation phase - prepare nested expressions and track dependencies.
     /// </summary>
     public abstract void Prepare(ITerraformContext context);
@@ -24,56 +30,56 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
     /// Implicit conversion from literal values to LiteralProperty.
     /// </summary>
     public static implicit operator TerraformProperty(string value)
-        => new LiteralProperty<string>(value);
+        => new TerraformLiteralProperty<string>(value);
 
     /// <summary>
     /// Implicit conversion from literal values to LiteralProperty.
     /// </summary>
     public static implicit operator TerraformProperty(int value)
-        => new LiteralProperty<int>(value);
+        => new TerraformLiteralProperty<int>(value);
 
     /// <summary>
     /// Implicit conversion from literal values to LiteralProperty.
     /// </summary>
     public static implicit operator TerraformProperty(bool value)
-        => new LiteralProperty<bool>(value);
+        => new TerraformLiteralProperty<bool>(value);
 
     /// <summary>
     /// Implicit conversion from literal values to LiteralProperty.
     /// </summary>
     public static implicit operator TerraformProperty(double value)
-        => new LiteralProperty<double>(value);
+        => new TerraformLiteralProperty<double>(value);
 
     /// <summary>
     /// Implicit conversion from expressions to ExpressionProperty.
     /// </summary>
     public static implicit operator TerraformProperty(TerraformExpression expression)
-        => new ExpressionProperty(expression);
+        => new TerraformExpressionProperty(expression);
 
     /// <summary>
     /// Implicit conversion from string array to ExpressionProperty (list).
     /// </summary>
     public static implicit operator TerraformProperty(string[] values)
-        => new ExpressionProperty(values);
+        => new TerraformExpressionProperty(values);
 
     /// <summary>
     /// Implicit conversion from int array to ExpressionProperty (list).
     /// </summary>
     public static implicit operator TerraformProperty(int[] values)
-        => new ExpressionProperty(values);
+        => new TerraformExpressionProperty(values);
 
     /// <summary>
     /// Implicit conversion from List<string> to ExpressionProperty (list).
     /// </summary>
     public static implicit operator TerraformProperty(List<string> values)
-        => new ExpressionProperty(TerraformExpression.List(values.Select(TerraformExpression.Literal).ToArray()));
+        => new TerraformExpressionProperty(TerraformExpression.List(values.Select(TerraformExpression.Literal).ToArray()));
 }
 
 /// <summary>
 /// Literal property value - wraps a .NET value.
 /// No preparation needed since there are no dependencies.
 /// </summary>
-public sealed class LiteralProperty<T> : TerraformProperty
+public sealed class TerraformLiteralProperty<T> : TerraformProperty
 {
     private readonly T _value;
 
@@ -83,9 +89,9 @@ public sealed class LiteralProperty<T> : TerraformProperty
     public T Value => _value;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="LiteralProperty{T}"/> class.
+    /// Initializes a new instance of the <see cref="TerraformLiteralProperty{T}"/> class.
     /// </summary>
-    public LiteralProperty(T value)
+    public TerraformLiteralProperty(T value)
     {
         _value = value ?? throw new ArgumentNullException(nameof(value));
     }
@@ -101,13 +107,19 @@ public sealed class LiteralProperty<T> : TerraformProperty
     {
         return TerraformExpression.Literal(_value);
     }
+
+    /// <summary>
+    /// Implicit conversion from T to TerraformLiteralProperty<T>.
+    /// </summary>
+    public static implicit operator TerraformLiteralProperty<T>(T value)
+        => new TerraformLiteralProperty<T>(value);
 }
 
 /// <summary>
 /// Expression property value - wraps a TerraformExpression.
 /// Delegates preparation to the wrapped expression.
 /// </summary>
-public sealed class ExpressionProperty : TerraformProperty
+public sealed class TerraformExpressionProperty : TerraformProperty
 {
     private readonly TerraformExpression _expression;
 
@@ -117,9 +129,9 @@ public sealed class ExpressionProperty : TerraformProperty
     public TerraformExpression Expression => _expression;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ExpressionProperty"/> class.
+    /// Initializes a new instance of the <see cref="TerraformExpressionProperty"/> class.
     /// </summary>
-    public ExpressionProperty(TerraformExpression expression)
+    public TerraformExpressionProperty(TerraformExpression expression)
     {
         _expression = expression ?? throw new ArgumentNullException(nameof(expression));
     }
@@ -139,4 +151,47 @@ public sealed class ExpressionProperty : TerraformProperty
     {
         return _expression;
     }
+}
+
+/// <summary>
+/// Type property value - wraps a Terraform type constraint.
+/// Types are rendered without quotes (e.g., string, list(string), map(number)).
+/// See: https://developer.hashicorp.com/terraform/language/expressions/types
+/// </summary>
+public sealed class TerraformTypeProperty : TerraformProperty
+{
+    private readonly string _typeConstraint;
+
+    /// <summary>
+    /// Gets the type constraint string.
+    /// </summary>
+    public string TypeConstraint => _typeConstraint;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TerraformTypeProperty"/> class.
+    /// </summary>
+    /// <param name="typeConstraint">The type constraint (e.g., "string", "list(string)", "map(number)").</param>
+    public TerraformTypeProperty(string typeConstraint)
+    {
+        _typeConstraint = typeConstraint ?? throw new ArgumentNullException(nameof(typeConstraint));
+    }
+
+    /// <inheritdoc/>
+    public override void Prepare(ITerraformContext context)
+    {
+        // Type constraints don't need preparation - no dependencies
+    }
+
+    /// <inheritdoc/>
+    public override TerraformExpression Resolve(ITerraformContext? context = null)
+    {
+        // Return a type identifier expression (renders without quotes)
+        return TerraformExpression.Identifier(_typeConstraint);
+    }
+
+    /// <summary>
+    /// Implicit conversion from string to TerraformTypeProperty.
+    /// </summary>
+    public static implicit operator TerraformTypeProperty?(string? typeConstraint)
+        => typeConstraint != null ? new TerraformTypeProperty(typeConstraint) : null;
 }

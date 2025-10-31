@@ -17,13 +17,19 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
     {
     }
 
+    /// <inheritdoc/>
+    protected override string BlockType => "terraform";
+
+    /// <inheritdoc/>
+    protected override string[] Labels => Array.Empty<string>();
+
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
     /// </summary>
-    public string? RequiredVersion
+    public TerraformLiteralProperty<string>? RequiredVersion
     {
-        get => (GetProperty("required_version") as LiteralProperty<string>)?.Value;
-        set => WithPropertyInternal("required_version", value != null ? new LiteralProperty<string>(value) : null);
+        get => GetProperty<TerraformLiteralProperty<string>>("required_version");
+        set => WithPropertyInternal("required_version", value);
     }
 
     /// <summary>
@@ -43,8 +49,8 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
     /// </summary>
     public TerraformBackend? Backend
     {
-        get => (GetProperty("backend") as ExpressionProperty)?.Expression as TerraformBackend;
-        set => WithPropertyInternal("backend", value != null ? new ExpressionProperty(value) : null);
+        get => GetProperty<TerraformExpressionProperty>("backend")?.Expression as TerraformBackend;
+        set => WithPropertyInternal("backend", value != null ? new TerraformExpressionProperty(value) : null);
     }
 
     /// <summary>
@@ -52,8 +58,8 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
     /// </summary>
     public object? ProviderMeta
     {
-        get => (GetProperty("provider_meta") as LiteralProperty<object>)?.Value;
-        set => WithPropertyInternal("provider_meta", value != null ? new LiteralProperty<object>(value) : null);
+        get => GetProperty<TerraformLiteralProperty<object>>("provider_meta")?.Value;
+        set => WithPropertyInternal("provider_meta", value != null ? new TerraformLiteralProperty<object>(value) : null);
     }
 
     /// <summary>
@@ -61,8 +67,8 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
     /// </summary>
     public object? Cloud
     {
-        get => (GetProperty("cloud") as LiteralProperty<object>)?.Value;
-        set => WithPropertyInternal("cloud", value != null ? new LiteralProperty<object>(value) : null);
+        get => GetProperty<TerraformLiteralProperty<object>>("cloud")?.Value;
+        set => WithPropertyInternal("cloud", value != null ? new TerraformLiteralProperty<object>(value) : null);
     }
 
     /// <inheritdoc/>
@@ -161,26 +167,14 @@ public class ProviderRequirement
 public class TerraformCloudBlock : TerraformConstruct
 {
     /// <inheritdoc/>
-    public override TerraformExpression AsReference()
-        => throw new NotSupportedException("Cloud blocks cannot be referenced in expressions.");
+    protected override string BlockType => "cloud";
 
     /// <inheritdoc/>
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        context ??= TerraformContext.Temporary(this);
-        var sb = new System.Text.StringBuilder();
+    protected override string[] Labels => Array.Empty<string>();
 
-        sb.AppendLine($"{context.Indent}cloud {{");
-
-        using (context.PushIndent())
-        {
-            WriteProperties(sb, context);
-        }
-
-        sb.AppendLine($"{context.Indent}}}");
-
-        return sb.ToString();
-    }
+    /// <inheritdoc/>
+    public override TerraformExpression AsReference()
+        => throw new NotSupportedException("Cloud blocks cannot be referenced in expressions.");
 }
 
 /// <summary>

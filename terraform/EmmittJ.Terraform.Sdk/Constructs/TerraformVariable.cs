@@ -5,17 +5,25 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformVariable(string name) : TerraformConstruct
 {
-    private TerraformProperty? _default;
-
     /// <summary>
     /// Gets the name of the variable.
     /// </summary>
     public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
 
+    /// <inheritdoc/>
+    protected override string BlockType => "variable";
+
+    /// <inheritdoc/>
+    protected override string[] Labels => [Name];
+
     /// <summary>
     /// Gets or sets the description of the variable.
     /// </summary>
-    public string? Description { get; set; }
+    public TerraformLiteralProperty<string>? Description
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => WithPropertyInternal("description", value, priority: 0);  // description first
+    }
 
     /// <summary>
     /// Gets or sets the default value.
@@ -23,69 +31,29 @@ public class TerraformVariable(string name) : TerraformConstruct
     /// </summary>
     public TerraformProperty? Default
     {
-        get => _default;
-        set => _default = value;
+        get => GetProperty<TerraformProperty>("default");
+        set => WithPropertyInternal("default", value, priority: 2);  // default after type
     }
 
     /// <summary>
     /// Gets or sets the type constraint (e.g., "string", "list(string)").
     /// </summary>
-    public string? Type { get; set; }
+    public TerraformTypeProperty? Type
+    {
+        get => GetProperty<TerraformTypeProperty>("type");
+        set => WithPropertyInternal("type", value, priority: 1);  // type second
+    }
 
     /// <summary>
     /// Gets or sets whether the variable is sensitive.
     /// </summary>
-    public bool Sensitive { get; set; }
+    public TerraformLiteralProperty<bool>? Sensitive
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("sensitive");
+        set => WithPropertyInternal("sensitive", value, priority: 3);  // sensitive last
+    }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"var.{Name}");
-
-    /// <summary>
-    /// Preparation phase - prepares all nested values.
-    /// </summary>
-    public override void Prepare(ITerraformContext context)
-    {
-        base.Prepare(context);
-        _default?.Prepare(context);
-    }
-
-    /// <summary>
-    /// Resolution phase - generates HCL string with optional context.
-    /// </summary>
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        context ??= TerraformContext.Temporary(this);
-
-        var sb = new System.Text.StringBuilder();
-
-        sb.AppendLine($"{context.Indent}variable \"{Name}\" {{");
-
-        using (context.PushIndent())
-        {
-            if (Description != null)
-            {
-                sb.AppendLine($"{context.Indent}description = \"{Description}\"");
-            }
-
-            if (Type != null)
-            {
-                sb.AppendLine($"{context.Indent}type = {Type}");
-            }
-
-            if (_default != null)
-            {
-                sb.AppendLine($"{context.Indent}default = {_default.Resolve(context).ToHcl(context)}");
-            }
-
-            if (Sensitive)
-            {
-                sb.AppendLine($"{context.Indent}sensitive = true");
-            }
-        }
-
-        sb.AppendLine($"{context.Indent}}}");
-
-        return sb.ToString();
-    }
 }
