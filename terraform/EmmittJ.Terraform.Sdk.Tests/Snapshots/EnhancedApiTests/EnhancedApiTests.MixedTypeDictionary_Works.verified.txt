@@ -1,0 +1,9 @@
+﻿resource "test_resource" "example" {
+  config = {
+    count = 5
+    enabled = true
+    name = "my-resource"
+    timeout = 30.5
+  }
+}
+

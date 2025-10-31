@@ -73,6 +73,42 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
     /// </summary>
     public static implicit operator TerraformProperty(List<string> values)
         => new TerraformExpressionProperty(TerraformExpression.List(values.Select(TerraformExpression.Literal).ToArray()));
+
+    /// <summary>
+    /// Implicit conversion from Dictionary<string, string> to ExpressionProperty (object/map).
+    /// This enables cleaner map literals: .WithProperty("tags", new Dictionary<string, string> { ["Name"] = "value" })
+    /// </summary>
+    public static implicit operator TerraformProperty(Dictionary<string, string> values)
+    {
+        var obj = new TerraformObjectExpression();
+        foreach (var (key, value) in values)
+        {
+            obj.Set(key, TerraformExpression.Literal(value));
+        }
+        return new TerraformExpressionProperty(obj);
+    }
+
+    /// <summary>
+    /// Implicit conversion from Dictionary<string, object> to ExpressionProperty (object/map).
+    /// This enables cleaner map literals with mixed types.
+    /// </summary>
+    public static implicit operator TerraformProperty(Dictionary<string, object> values)
+    {
+        var obj = new TerraformObjectExpression();
+        foreach (var (key, value) in values)
+        {
+            obj.Set(key, value switch
+            {
+                string s => TerraformExpression.Literal(s),
+                int i => TerraformExpression.Literal(i),
+                bool b => TerraformExpression.Literal(b),
+                double d => TerraformExpression.Literal(d),
+                TerraformExpression expr => expr,
+                _ => TerraformExpression.Literal(value.ToString() ?? "")
+            });
+        }
+        return new TerraformExpressionProperty(obj);
+    }
 }
 
 /// <summary>

@@ -18,6 +18,18 @@ public static class TerraformConstructExtensions
     }
 
     /// <summary>
+    /// Fluent builder method with type-safe return and priority support.
+    /// Lower priority values render first in HCL output.
+    /// </summary>
+    public static T WithProperty<T>(this T construct, string key, TerraformProperty value, int priority)
+        where T : TerraformConstruct
+    {
+        construct
+            .WithPropertyInternal(key, value, priority);
+        return construct;
+    }
+
+    /// <summary>
     /// Convenience method for referencing other constructs.
     /// Type-safe return eliminates casting.
     /// </summary>
@@ -26,6 +38,18 @@ public static class TerraformConstructExtensions
     {
         construct
             .WithPropertyInternal(propertyName, reference.AsReference());
+        return construct;
+    }
+
+    /// <summary>
+    /// Convenience method for referencing other constructs with priority support.
+    /// Lower priority values render first in HCL output.
+    /// </summary>
+    public static T WithReference<T>(this T construct, string propertyName, TerraformConstruct reference, int priority)
+        where T : TerraformConstruct
+    {
+        construct
+            .WithPropertyInternal(propertyName, reference.AsReference(), priority);
         return construct;
     }
 }

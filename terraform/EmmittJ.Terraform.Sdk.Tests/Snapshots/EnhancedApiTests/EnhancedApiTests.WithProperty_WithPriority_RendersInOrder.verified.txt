@@ -1,0 +1,9 @@
+﻿resource "aws_instance" "web" {
+  ami = "ami-12345"
+  instance_type = "t2.micro"
+  monitoring = true
+  tags = {
+    Name = "Web Server"
+  }
+}
+
