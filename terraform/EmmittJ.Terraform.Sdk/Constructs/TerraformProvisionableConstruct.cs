@@ -107,12 +107,12 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     {
         if (_count != null)
         {
-            sb.AppendLine($"{context.Indent}count = {_count.Resolve(context)}");
+            sb.AppendLine($"{context.Indent}count = {_count.Resolve(context).ToHcl(context)}");
         }
 
         if (_forEach != null)
         {
-            sb.AppendLine($"{context.Indent}for_each = {_forEach.Resolve(context)}");
+            sb.AppendLine($"{context.Indent}for_each = {_forEach.Resolve(context).ToHcl(context)}");
         }
 
         if (DependsOn.Count > 0)

@@ -12,6 +12,11 @@ public interface ITerraformContext
     TerraformConfiguration Scope { get; }
 
     /// <summary>
+    /// Gets the dependency graph being built during the Prepare phase.
+    /// </summary>
+    DependencyGraph DependencyGraph { get; }
+
+    /// <summary>
     /// Gets the current indentation level.
     /// </summary>
     int IndentLevel { get; }

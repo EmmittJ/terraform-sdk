@@ -36,28 +36,17 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
 
     /// <summary>
     /// Writes properties to HCL with proper formatting.
-    /// Properties are written in alphabetical order for consistency.
+    /// Properties are written in alphabetical order for consistent output.
     /// </summary>
     /// <param name="sb">The StringBuilder to append to.</param>
     /// <param name="context">The context for indentation and resolution.</param>
     protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
-        foreach (var (key, property) in Properties.OrderBy(p => p.Key))
+        foreach (var (key, property) in _properties.OrderBy(kvp => kvp.Key))
         {
-            var expression = property.ToExpression();
-
-            // Check if this is a block (nested block syntax without '=')
-            if (expression is TerraformBlockExpression block)
-            {
-                // Don't push indent - block.ToHcl() will handle its own indentation
-                sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
-            }
-            else
-            {
-                // Standard property assignment with '='
-                var hcl = property.Resolve(context);
-                sb.AppendLine($"{context.Indent}{key} = {hcl}");
-            }
+            var expression = property.Resolve(context);
+            var hcl = expression.ToHcl(context);
+            sb.AppendLine($"{context.Indent}{key}{expression.AssignmentOperator}{hcl}");
         }
     }
 

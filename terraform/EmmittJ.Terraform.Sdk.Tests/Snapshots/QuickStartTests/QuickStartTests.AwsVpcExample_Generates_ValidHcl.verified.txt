@@ -16,13 +16,13 @@ variable "availability_zones" {
 }
 
 locals {
-  project_name = "example-vpc"
-  environment = "production"
   common_tags = {
     Environment = local.environment
     ManagedBy = "Terraform"
     Project = local.project_name
   }
+  environment = "production"
+  project_name = "example-vpc"
 }
 
 provider "aws" {

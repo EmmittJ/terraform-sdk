@@ -4,9 +4,22 @@
 
 This is a redesigned version of the Terraform configuration library, incorporating lessons learned from Azure.Provisioning's architecture. It provides a strongly-typed, expression-based API for building Terraform configurations in C#.
 
-## ✨ New: Deferred Resolution / Token System
+## ✨ New: Polymorphic Property System
 
-The SDK now includes a **two-pass resolution system** inspired by Terraform CDK and AWS CDK:
+The SDK uses a **polymorphic property system** for type-safe, fluent configuration building:
+
+- ✅ **No null reference exceptions** - each property class only has needed fields
+- ✅ **Compile-time type safety** - polymorphic dispatch instead of runtime switching
+- ✅ **Fluent builder pattern** - `WithProperty<T>()` methods for clean chaining
+- ✅ **Implicit conversions** - ergonomic API with automatic type conversion
+- ✅ **Automatic two-phase resolution** - dependency tracking and HCL generation
+- ✅ **Type-safe dictionary** - `Dictionary<string, TerraformProperty>` instead of `object`
+
+See [MIGRATION_GUIDE.md](MIGRATION_GUIDE.md) for migration from the old API and [TYPE_SYSTEM_REVIEW.md](TYPE_SYSTEM_REVIEW.md) for architecture details.
+
+## ✨ Two-Pass Resolution System
+
+The SDK includes a **two-pass resolution system** inspired by Terraform CDK and AWS CDK:
 
 - ✅ **Circular reference handling**
 - ✅ **Cross-stack references**
@@ -19,20 +32,21 @@ See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documenta
 
 ## Key Improvements Over Original Design
 
-### 1. **Separate Value Container from Expression AST**
+### 1. **Polymorphic Property System**
 
-- **`TerraformValue<T>`**: Container for property values (similar to `BicepValue<T>`)
+- **`TerraformProperty`**: Abstract base class for all property values
 
-  - Tracks four states: Unset, Literal, Expression, Reference
-  - Provides type safety and implicit conversions
-  - Enables detection of unassigned properties
-  - **NEW**: Implements `ITerraformResolvable` for two-pass resolution
+  - Implements `ITerraformResolvable<TerraformExpression>` for two-phase resolution
+  - Sealed subclasses: `LiteralProperty<T>` and `ExpressionProperty`
+  - No null fields - each class only has what it needs
+  - Provides type safety via polymorphic dispatch (no runtime type checking)
+  - Implicit conversions for ergonomic API
 
 - **`TerraformExpression`**: Pure syntax tree nodes
   - Compositional expression building
   - No knowledge of types/values
   - Easy to validate and transform
-  - **NEW**: Implements `ITerraformResolvable` for deferred evaluation
+  - Implements `ITerraformResolvable<string>` for HCL generation
 
 ### 2. **Polymorphic Reference System**
 
@@ -54,30 +68,35 @@ See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documenta
 ## Quick Start
 
 ```csharp
-using Aspire.Hosting.Terraform.Core;
+using EmmittJ.Terraform.Sdk;
 
 // Create a configuration
 var config = new TerraformConfiguration("main");
 
-// Define a variable
-var region = new TerraformVariable("aws_region")
-{
-    Description = "AWS region",
-    Type = "string",
-    Default = "us-east-1"
-};
-config.Add(region);
+// Define a local value using fluent API
+var locals = new TerraformLocal()
+    .WithProperty("region", "us-east-1")
+    .WithProperty("environment", "production")
+    .WithProperty("common_tags", TerraformExpression.Object(new Dictionary<string, string>
+    {
+        ["Environment"] = "prod",
+        ["ManagedBy"] = "Terraform"
+    }));
+config.Add(locals);
 
-// Create a resource
-var vpc = new TerraformResource("aws_vpc", "main");
-vpc.SetFromReference("cidr_block", region.AsReference());
-vpc.DeclareOutput("id");
-vpc.DeclareOutput("cidr_block");
+// Create resources with fluent builder pattern
+var vpc = new TerraformResource("aws_vpc", "main")
+    .WithProperty("cidr_block", "10.0.0.0/16")
+    .WithProperty("enable_dns_hostnames", true)
+    .WithReference("tags", locals);  // Reference to local values
 config.Add(vpc);
 
-// Reference the VPC's outputs
-var subnet = new TerraformResource("aws_subnet", "main");
-subnet.SetFromReference("vpc_id", vpc["id"]); // Type-safe!
+// Reference the VPC in a subnet - type-safe!
+var subnet = new TerraformResource("aws_subnet", "public")
+    .WithReference("vpc_id", vpc)  // Automatic reference creation
+    .WithProperty("cidr_block", "10.0.1.0/24")
+    .WithProperty("availability_zone", "us-west-2a")
+    .WithProperty("map_public_ip_on_launch", true);
 config.Add(subnet);
 
 // Generate HCL
@@ -297,7 +316,7 @@ EmmittJ.Terraform.Sdk/
 **Core/** contains the fundamental type system:
 
 - Interfaces that define contracts (`ITerraformConstruct`, `ITerraformResolvable`, etc.)
-- The main value container (`TerraformValue<T>`) and its states
+- The polymorphic property system (`TerraformProperty`, `LiteralProperty<T>`, `ExpressionProperty`)
 - References between constructs (`TerraformReference`)
 - Configuration container and resolution context
 
@@ -347,42 +366,55 @@ EmmittJ.Terraform.Sdk/
                     │ has properties
                     ▼
 ┌─────────────────────────────────────────────────────┐
-│ TerraformValue<T> (Core/)                           │
-│ ┌─────────────┬──────────────┬────────┬──────────┐ │
-│ │ Unset       │ Literal      │ Expr   │ Ref      │ │
-│ │ (not set)   │ (typed val)  │ (AST)  │ (link)   │ │
-│ └─────────────┴──────────────┴────────┴──────────┘ │
-│ Kind tracked by TerraformValueKind enum (Core/)    │
+│ TerraformProperty (Core/) - Polymorphic             │
+│ ┌────────────────────────┬─────────────────────┐   │
+│ │ LiteralProperty<T>     │ ExpressionProperty  │   │
+│ │ (sealed)               │ (sealed)            │   │
+│ │ - T _value             │ - TerraformExpr     │   │
+│ │ - No null fields       │ - No null fields    │   │
+│ └────────────────────────┴─────────────────────┘   │
+│ Storage: Dictionary<string, TerraformProperty>     │
 └─────────────────────────────────────────────────────┘
-         │                  │              │
-         │                  │              │
-         ▼                  ▼              ▼
-┌──────────────┐  ┌──────────────┐  ┌──────────────┐
-│TerraformExpr │  │Literal<T>    │  │TerraformRef  │
-│(Expressions/)│  │(value)       │  │(Core/)       │
-│- Binary ops  │  │              │  │- Tracks deps │
-│- Functions   │  │              │  │- Polymorphic │
-│- Conditionals│  │              │  │              │
-└──────────────┘  └──────────────┘  └──────────────┘
+         │                              │
+         │ Resolve()                    │ Resolve()
+         ▼                              ▼
+┌──────────────┐              ┌──────────────┐
+│LiteralExpr<T>│              │TerraformExpr │
+│(Expressions/)│              │(Expressions/)│
+│- Creates HCL │              │- Binary ops  │
+│- Escaping    │              │- Functions   │
+│- Type format │              │- Conditionals│
+└──────────────┘              └──────────────┘
 ```
 
 **Key Design Principles:**
 
-1. **Separation of Concerns**: Values (Core/) are separate from expressions (Expressions/)
+1. **Separation of Concerns**: Properties (Core/) are separate from expressions (Expressions/)
 2. **Polymorphism**: Each construct knows how to reference itself via `ITerraformConstruct.AsReference()`
-3. **Type Safety**: `TerraformValue<T>` provides compile-time checking while supporting dynamic HCL generation
+3. **Type Safety**: Polymorphic `TerraformProperty` provides compile-time checking and eliminates null fields
 4. **Two-Pass Resolution**: `ITerraformResolvable` enables dependency tracking and late binding
+5. **Sealed Classes**: Enable JIT devirtualization for better performance
 
 ## Design Patterns from Azure.Provisioning
 
-### 1. **Value Container Pattern**
+### 1. **Polymorphic Property Pattern**
 
-Each property can be in one of four states:
+Properties use inheritance instead of discriminated unions:
 
-- **Unset**: Property not assigned (will use Terraform defaults/computed)
-- **Literal**: Direct .NET value (e.g., `"10.0.0.0/16"`)
-- **Expression**: Computed value (e.g., `cidrsubnet(...)`)
-- **Reference**: Link to another construct (e.g., `var.region`)
+- **`LiteralProperty<T>`**: Wraps a .NET value (e.g., `"10.0.0.0/16"`, `true`, `42`)
+  - Only has `T _value` field - no null references
+  - Resolve() creates `LiteralExpression<T>` on demand
+- **`ExpressionProperty`**: Wraps a `TerraformExpression` (computed values, references)
+  - Only has `TerraformExpression _expression` field - no null references
+  - Resolve() delegates to wrapped expression
+
+Benefits:
+
+- ✅ No null fields (each class has only what it needs)
+- ✅ Compile-time dispatch (sealed classes enable devirtualization)
+- ✅ Type-safe storage (`Dictionary<string, TerraformProperty>`)
+- ✅ Automatic traversal (polymorphic `Prepare()` and `Resolve()`)
+- ✅ Ergonomic API (implicit conversions maintained)
 
 ### 2. **Polymorphic Self-Reference**
 
@@ -481,11 +513,12 @@ string hcl = config.ToHcl();
 
 #### Core System
 
-- [x] Core type system (`TerraformValue<T>`, `TerraformExpression`, `TerraformReference`)
+- [x] Polymorphic property system (`TerraformProperty`, `LiteralProperty<T>`, `ExpressionProperty`)
 - [x] `ITerraformConstruct` interface with polymorphic references
-- [x] `ITerraformResolvable` two-pass resolution system
+- [x] `ITerraformResolvable<T>` two-pass resolution system
 - [x] `TerraformConfiguration` container with Prepare → Resolve phases
 - [x] `TerraformContext` resolution context
+- [x] Type-safe property storage (`Dictionary<string, TerraformProperty>`)
 
 #### Constructs (All Implemented!)
 
@@ -506,10 +539,13 @@ string hcl = config.ToHcl();
 
 #### Values & Types
 
-- [x] `TerraformValue<T>` with 4-state pattern (Unset, Literal, Expression, Reference)
+- [x] Polymorphic `TerraformProperty` base class with sealed subclasses
+- [x] `LiteralProperty<T>` for .NET values (no null fields)
+- [x] `ExpressionProperty` for computed values and references (no null fields)
 - [x] `TerraformObject` for maps/objects
-- [x] `TerraformBlock` for nested blocks
+- [x] `TerraformBlock` for nested blocks (no `=` operator)
 - [x] Implicit conversions and type safety
+- [x] Fluent builder API with generic extension methods
 
 #### Error Handling
 

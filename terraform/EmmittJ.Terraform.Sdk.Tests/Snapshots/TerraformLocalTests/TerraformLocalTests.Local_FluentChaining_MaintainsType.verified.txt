@@ -1,5 +1,5 @@
 ﻿locals {
+  az_count = 3
   env = "prod"
   region = "us-west-2"
-  az_count = 3
 }

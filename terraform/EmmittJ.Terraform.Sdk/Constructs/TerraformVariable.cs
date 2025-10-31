@@ -75,7 +75,7 @@ public class TerraformVariable(string name) : TerraformConstruct
 
             if (_default != null)
             {
-                sb.AppendLine($"{context.Indent}default = {_default.Resolve(context)}");
+                sb.AppendLine($"{context.Indent}default = {_default.Resolve(context).ToHcl(context)}");
             }
 
             if (Sensitive)

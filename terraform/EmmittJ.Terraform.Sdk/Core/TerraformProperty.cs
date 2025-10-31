@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Participates in two-phase resolution (Prepare and Resolve).
 /// Replaces TerraformValue&lt;T&gt; with a polymorphic design.
 /// </summary>
-public abstract class TerraformProperty : ITerraformResolvable<string>
+public abstract class TerraformProperty : ITerraformResolvable<TerraformExpression>
 {
     /// <summary>
     /// Preparation phase - prepare nested expressions and track dependencies.
@@ -18,12 +18,7 @@ public abstract class TerraformProperty : ITerraformResolvable<string>
     /// <summary>
     /// Resolution phase - resolve to HCL string.
     /// </summary>
-    public abstract string Resolve(ITerraformContext? context = null);
-
-    /// <summary>
-    /// Convert to expression for use in other expressions.
-    /// </summary>
-    public abstract TerraformExpression ToExpression();
+    public abstract TerraformExpression Resolve(ITerraformContext? context = null);
 
     /// <summary>
     /// Implicit conversion from literal values to LiteralProperty.
@@ -102,13 +97,7 @@ public sealed class LiteralProperty<T> : TerraformProperty
     }
 
     /// <inheritdoc/>
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        return ToExpression().ToHcl(context ?? TerraformContext.Temporary());
-    }
-
-    /// <inheritdoc/>
-    public override TerraformExpression ToExpression()
+    public override TerraformExpression Resolve(ITerraformContext? context = null)
     {
         return TerraformExpression.Literal(_value);
     }
@@ -146,13 +135,7 @@ public sealed class ExpressionProperty : TerraformProperty
     }
 
     /// <inheritdoc/>
-    public override string Resolve(ITerraformContext? context = null)
-    {
-        return _expression.ToHcl(context ?? TerraformContext.Temporary());
-    }
-
-    /// <inheritdoc/>
-    public override TerraformExpression ToExpression()
+    public override TerraformExpression Resolve(ITerraformContext? context = null)
     {
         return _expression;
     }

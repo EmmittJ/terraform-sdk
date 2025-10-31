@@ -1,9 +1,9 @@
 ﻿locals {
-  vpc_cidr = "10.0.0.0/16"
-  subnet_count = 3
   formatted_name = format("app-%s-%s", "prod", "web")
+  region_count = length(local.region_list)
   region_list = ["us-east-1", "us-west-2"]
   subnet_cidrs = [for i in range(local.subnet_count) : cidrsubnet(local.vpc_cidr, 8, i)]
-  region_count = length(local.region_list)
+  subnet_count = 3
+  vpc_cidr = "10.0.0.0/16"
 }
 

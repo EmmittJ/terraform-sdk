@@ -9,6 +9,13 @@ namespace EmmittJ.Terraform.Sdk;
 public abstract class TerraformExpression : ITerraformResolvable<string>
 {
     /// <summary>
+    /// The assignment operator used when rendering properties.
+    /// Default is " = " for object expressions.
+    /// Override to " " (space) for block expressions (no equals sign).
+    /// </summary>
+    public virtual string AssignmentOperator => " = ";
+
+    /// <summary>
     /// Preparation phase - prepares nested expressions and records dependencies.
     /// Override this in derived classes that contain nested resolvable expressions.
     /// </summary>

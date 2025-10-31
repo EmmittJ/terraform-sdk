@@ -8,4 +8,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public class TerraformBlockExpression : TerraformObjectExpression
 {
+    /// <summary>
+    /// Override assignment operator to use space instead of " = " for block syntax.
+    /// This means properties render as "key value" instead of "key = value".
+    /// </summary>
+    public override string AssignmentOperator => " ";
 }

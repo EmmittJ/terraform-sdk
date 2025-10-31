@@ -1,5 +1,5 @@
 ﻿locals {
-  region = "us-east-1"
-  environment = "production"
   common_tags = { Environment = "prod", ManagedBy = "Terraform" }
+  environment = "production"
+  region = "us-east-1"
 }

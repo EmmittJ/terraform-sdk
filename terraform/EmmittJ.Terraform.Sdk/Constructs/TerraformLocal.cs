@@ -49,23 +49,7 @@ public class TerraformLocal : TerraformConstruct
 
         using (context.PushIndent())
         {
-            foreach (var (name, property) in Properties)
-            {
-                var expression = property.ToExpression();
-
-                // Check if this is a block (nested block syntax without '=')
-                if (expression is TerraformBlockExpression block)
-                {
-                    // Don't push indent - block.ToHcl() will handle its own indentation
-                    sb.AppendLine($"{context.Indent}{name} {block.ToHcl(context)}");
-                }
-                else
-                {
-                    // Standard property assignment with '='
-                    var hcl = property.Resolve(context);
-                    sb.AppendLine($"{context.Indent}{name} = {hcl}");
-                }
-            }
+            WriteProperties(sb, context);
         }
 
         sb.AppendLine($"{context.Indent}}}");

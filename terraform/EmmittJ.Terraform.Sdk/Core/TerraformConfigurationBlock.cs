@@ -83,7 +83,7 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
             // 1. required_version (from properties)
             if (Properties.TryGetValue("required_version", out var versionProp))
             {
-                sb.AppendLine($"{context.Indent}required_version = {versionProp.Resolve(context)}");
+                sb.AppendLine($"{context.Indent}required_version = {versionProp.Resolve(context).ToHcl(context)}");
                 sb.AppendLine();
             }
 
@@ -127,20 +127,9 @@ public class TerraformConfigurationBlock : NamedTerraformConstruct
             // 4. Other properties (backend, cloud, provider_meta, etc.) - exclude required_version
             foreach (var (key, property) in Properties.Where(p => p.Key != "required_version").OrderBy(p => p.Key))
             {
-                var expression = property.ToExpression();
-
-                // Check if this is a block (nested block syntax without '=')
-                if (expression is TerraformBlockExpression block)
-                {
-                    // Don't push indent - block.ToHcl() will handle its own indentation
-                    sb.AppendLine($"{context.Indent}{key} {block.ToHcl(context)}");
-                }
-                else
-                {
-                    // Standard property assignment with '='
-                    var hcl = property.Resolve(context);
-                    sb.AppendLine($"{context.Indent}{key} = {hcl}");
-                }
+                var expression = property.Resolve(context);
+                var hcl = expression.ToHcl(context);
+                sb.AppendLine($"{context.Indent}{key}{expression.AssignmentOperator}{hcl}");
             }
         }
 

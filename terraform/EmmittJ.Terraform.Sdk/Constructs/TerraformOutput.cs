@@ -73,7 +73,7 @@ public class TerraformOutput(string name) : TerraformConstruct
         using (context.PushIndent())
         {
             // Value is required
-            sb.AppendLine($"{context.Indent}value = {_value.Resolve(context)}");
+            sb.AppendLine($"{context.Indent}value = {_value.Resolve(context).ToHcl(context)}");
 
             // Optional attributes
             if (Description != null)

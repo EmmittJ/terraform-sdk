@@ -177,11 +177,11 @@ public class TerraformObjectExpression : TerraformExpression, IEnumerable
         return sb.ToString();
     }
 
-    protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
+    protected virtual void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
         foreach (var (key, value) in _properties.OrderBy(p => p.Key))
         {
-            sb.AppendLine($"{context.Indent}{key} = {value.ToHcl(context)}");
+            sb.AppendLine($"{context.Indent}{key}{base.AssignmentOperator}{value.ToHcl(context)}");
         }
     }
 }
