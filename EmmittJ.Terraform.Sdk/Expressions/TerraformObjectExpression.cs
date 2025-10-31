@@ -157,8 +157,10 @@ public class TerraformObjectExpression : TerraformExpression,
         {
             if (key is not string s)
                 throw new ArgumentException("Key must be a string", nameof(key));
-            if (value is not TerraformExpression expr)
-                throw new ArgumentException("Value must be a TerraformExpression", nameof(value));
+            if (value is null)
+                throw new ArgumentNullException(nameof(value));
+
+            var expr = value as TerraformExpression ?? TerraformExpression.FromObject(value);
             _properties[s] = expr;
         }
     }
@@ -167,8 +169,10 @@ public class TerraformObjectExpression : TerraformExpression,
     {
         if (key is not string s)
             throw new ArgumentException("Key must be a string", nameof(key));
-        if (value is not TerraformExpression expr)
-            throw new ArgumentException("Value must be a TerraformExpression", nameof(value));
+        if (value is null)
+            throw new ArgumentNullException(nameof(value));
+
+        var expr = value as TerraformExpression ?? TerraformExpression.FromObject(value);
         Add(s, expr);
     }
 

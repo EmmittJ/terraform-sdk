@@ -10,6 +10,20 @@ internal class IdentifierExpression(string name) : TerraformExpression
     public string Name => _name;
 
     public override string Resolve(ITerraformContext? context = null) => _name;
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is IdentifierExpression other
+            && string.Equals(_name, other._name, StringComparison.Ordinal);
+    }
+
+    public override int GetHashCode()
+        => StringComparer.Ordinal.GetHashCode(_name);
 }
 
 /// <summary>
@@ -41,6 +55,25 @@ internal class LiteralExpression<T>(T value) : TerraformExpression
             .Replace("\r", "\\r")
             .Replace("\t", "\\t");
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is LiteralExpression<T> other
+            && EqualityComparer<T>.Default.Equals(_value, other._value);
+    }
+
+    public override int GetHashCode()
+    {
+        // EqualityComparer<T>.Default handles both value and reference types.
+        return _value is null
+            ? 0
+            : EqualityComparer<T>.Default.GetHashCode(_value);
+    }
 }
 
 /// <summary>
@@ -51,6 +84,20 @@ internal class RawExpression(string hcl) : TerraformExpression
     private readonly string _hcl = hcl ?? throw new ArgumentNullException(nameof(hcl));
 
     public override string Resolve(ITerraformContext? context = null) => _hcl;
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is RawExpression other
+            && string.Equals(_hcl, other._hcl, StringComparison.Ordinal);
+    }
+
+    public override int GetHashCode()
+        => StringComparer.Ordinal.GetHashCode(_hcl);
 }
 
 /// <summary>
@@ -84,6 +131,22 @@ internal class BinaryExpression(TerraformExpression left, BinaryOperator op, Ter
 
         return $"{_left.ToHcl(context)} {opString} {_right.ToHcl(context)}";
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is BinaryExpression other
+            && _operator == other._operator
+            && Equals(_left, other._left)
+            && Equals(_right, other._right);
+    }
+
+    public override int GetHashCode()
+        => HashCode.Combine(_operator, _left, _right);
 }
 
 /// <summary>
@@ -95,6 +158,21 @@ internal class MemberAccessExpression(TerraformExpression obj, string member) : 
     private readonly string _member = member ?? throw new ArgumentNullException(nameof(member));
 
     public override string Resolve(ITerraformContext? context = null) => $"{_object.ToHcl(context)}.{_member}";
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is MemberAccessExpression other
+            && Equals(_object, other._object)
+            && string.Equals(_member, other._member, StringComparison.Ordinal);
+    }
+
+    public override int GetHashCode()
+        => HashCode.Combine(_object, StringComparer.Ordinal.GetHashCode(_member));
 }
 
 /// <summary>
@@ -109,6 +187,29 @@ internal class FunctionCallExpression(string functionName, params TerraformExpre
     {
         var args = string.Join(", ", _arguments.Select(a => a.ToHcl(context)));
         return $"{_functionName}({args})";
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is FunctionCallExpression other
+            && string.Equals(_functionName, other._functionName, StringComparison.Ordinal)
+            && _arguments.SequenceEqual(other._arguments);
+    }
+
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+        hash.Add(StringComparer.Ordinal.GetHashCode(_functionName));
+        foreach (var argument in _arguments)
+        {
+            hash.Add(argument);
+        }
+        return hash.ToHashCode();
     }
 }
 
@@ -140,6 +241,27 @@ internal class ListExpression : TerraformExpression
 
         var items = string.Join(", ", _elements.Select(e => e.ToHcl(context)));
         return $"[{items}]";
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is ListExpression other
+            && _elements.SequenceEqual(other._elements);
+    }
+
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+        foreach (var element in _elements)
+        {
+            hash.Add(element);
+        }
+        return hash.ToHashCode();
     }
 }
 
@@ -183,6 +305,61 @@ internal class StringInterpolationExpression : TerraformExpression
         }
         sb.Append("\"");
         return sb.ToString();
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        if (obj is not StringInterpolationExpression other || _parts.Count != other._parts.Count)
+        {
+            return false;
+        }
+
+        for (var i = 0; i < _parts.Count; i++)
+        {
+            var thisPart = _parts[i];
+            var otherPart = other._parts[i];
+
+            if (thisPart is string thisString && otherPart is string otherString)
+            {
+                if (!string.Equals(thisString, otherString, StringComparison.Ordinal))
+                {
+                    return false;
+                }
+            }
+            else if (thisPart is TerraformExpression thisExpr && otherPart is TerraformExpression otherExpr)
+            {
+                if (!Equals(thisExpr, otherExpr))
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+        foreach (var part in _parts)
+        {
+            hash.Add(part switch
+            {
+                string str => StringComparer.Ordinal.GetHashCode(str),
+                TerraformExpression expr => expr.GetHashCode(),
+                _ => 0
+            });
+        }
+        return hash.ToHashCode();
     }
 }
 
@@ -234,6 +411,39 @@ internal class ForExpression : TerraformExpression
         {
             return $"[for {iteratorPart} in {_collection.ToHcl(context)} : {_resultExpression.ToHcl(context)}{conditionPart}]";
         }
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        if (obj is not ForExpression other)
+        {
+            return false;
+        }
+
+        return string.Equals(_itemVar, other._itemVar, StringComparison.Ordinal)
+            && string.Equals(_keyVar, other._keyVar, StringComparison.Ordinal)
+            && Equals(_collection, other._collection)
+            && Equals(_resultExpression, other._resultExpression)
+            && Equals(_keyExpression, other._keyExpression)
+            && Equals(_condition, other._condition)
+            && _isMap == other._isMap;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(
+            StringComparer.Ordinal.GetHashCode(_itemVar),
+            _keyVar is null ? 0 : StringComparer.Ordinal.GetHashCode(_keyVar),
+            _collection,
+            _resultExpression,
+            _keyExpression,
+            _condition,
+            _isMap);
     }
 }
 
