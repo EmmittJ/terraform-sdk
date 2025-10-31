@@ -68,13 +68,14 @@ public class TerraformConfiguration(string name = "main")
         // Pass 1: Prepare - collect dependencies, track references
         foreach (var construct in _constructs)
         {
-            context.SetCurrentConstruct(construct);
-            if (construct is ITerraformPreparable preparable)
+            using (context.SetCurrentConstruct(construct))
             {
-                preparable.Prepare(context);
+                if (construct is ITerraformPreparable preparable)
+                {
+                    preparable.Prepare(context);
+                }
             }
         }
-        context.SetCurrentConstruct(null);
 
         // Pass 2: Resolve - generate HCL
         var sb = new System.Text.StringBuilder();
@@ -101,23 +102,24 @@ public class TerraformConfiguration(string name = "main")
         var context = new TerraformContext(this);
         foreach (var construct in _constructs)
         {
-            context.SetCurrentConstruct(construct);
-            if (construct is ITerraformPreparable preparable)
+            using (context.SetCurrentConstruct(construct))
             {
-                try
+                if (construct is ITerraformPreparable preparable)
                 {
-                    preparable.Prepare(context);
-                }
-                catch (Exception ex)
-                {
-                    errors.Add(new ValidationError(
-                        $"Error during preparation: {ex.Message}",
-                        ValidationSeverity.Error,
-                        construct));
+                    try
+                    {
+                        preparable.Prepare(context);
+                    }
+                    catch (Exception ex)
+                    {
+                        errors.Add(new ValidationError(
+                            $"Error during preparation: {ex.Message}",
+                            ValidationSeverity.Error,
+                            construct));
+                    }
                 }
             }
         }
-        context.SetCurrentConstruct(null);
 
         // Check for circular dependencies
         var cycles = context.DependencyGraph.FindCycles();
@@ -146,10 +148,22 @@ public class TerraformConfiguration(string name = "main")
                 "Name"));
         }
 
-        // TODO: Additional validations
-        // - Check for required properties (would need metadata or attributes)
-        // - Validate reference targets exist
-        // - Type validation for variable usage
+        // Validate reference targets exist within the configuration
+        var allConstructs = _constructs.ToHashSet();
+        foreach (var construct in _constructs)
+        {
+            var dependencies = context.DependencyGraph.GetDependsOn(construct);
+            foreach (var dependency in dependencies)
+            {
+                if (!allConstructs.Contains(dependency))
+                {
+                    errors.Add(new ValidationError(
+                        $"{GetConstructName(construct)} references {GetConstructName(dependency)} which is not in the configuration",
+                        ValidationSeverity.Error,
+                        construct));
+                }
+            }
+        }
 
         return new ValidationResult(errors);
     }

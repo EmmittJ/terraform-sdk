@@ -50,28 +50,19 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
     /// </summary>
     public DependencyGraph DependencyGraph => _dependencyGraph;
 
-    /// <summary>
-    /// Sets the current construct being prepared/resolved.
-    /// Used for automatic dependency tracking.
-    /// </summary>
-    /// <param name="construct">The current construct.</param>
-    // TODO: Add this to the ITerraformContext interface
-    // TODO: consider making this IDisposable to auto-reset after scope
-    public void SetCurrentConstruct(TerraformConstruct? construct)
+    /// <inheritdoc/>
+    public IDisposable SetCurrentConstruct(TerraformConstruct? construct)
     {
+        var previousConstruct = _currentConstruct;
         _currentConstruct = construct;
         if (construct != null)
         {
             _dependencyGraph.AddConstruct(construct);
         }
+        return new ConstructScope(this, previousConstruct);
     }
 
-    /// <summary>
-    /// Records a dependency from the current construct to another construct.
-    /// Called automatically when resolving references during the Prepare phase.
-    /// </summary>
-    /// <param name="dependency">The construct being depended upon.</param>
-    // TODO: Add this to the ITerraformContext interface
+    /// <inheritdoc/>
     public void RecordDependency(TerraformConstruct dependency)
     {
         if (_currentConstruct != null && dependency != _currentConstruct)
@@ -107,6 +98,27 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
         public void Dispose()
         {
             _context.PopIndent();
+        }
+    }
+
+    /// <summary>
+    /// Disposable helper for managing construct scope.
+    /// Automatically restores the previous construct when disposed.
+    /// </summary>
+    private class ConstructScope : IDisposable
+    {
+        private readonly TerraformContext _context;
+        private readonly TerraformConstruct? _previousConstruct;
+
+        public ConstructScope(TerraformContext context, TerraformConstruct? previousConstruct)
+        {
+            _context = context;
+            _previousConstruct = previousConstruct;
+        }
+
+        public void Dispose()
+        {
+            _context._currentConstruct = _previousConstruct;
         }
     }
 }
