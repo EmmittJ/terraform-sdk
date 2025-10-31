@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 public abstract class TerraformConstruct : ITerraformResolvable<string>
 {
-    private readonly Dictionary<string, TerraformProperty> _properties = [];
+    private readonly TerraformPropertyCollection _properties = new();
 
     /// <summary>
     /// Gets the block type (e.g., "resource", "data", "provider", "output", "variable", "module").
@@ -35,12 +35,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// Supports null to remove properties.
     /// </summary>
     internal void WithPropertyInternal(string key, TerraformProperty? value)
-    {
-        if (value == null)
-            _properties.Remove(key);
-        else
-            _properties[key] = value;
-    }
+        => _properties.Set(key, value);
 
     /// <summary>
     /// Internal setter for property accessors with priority support.
@@ -48,13 +43,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// </summary>
     internal void WithPropertyInternal(string key, TerraformProperty? value, int? priority)
     {
-        if (value == null)
-            _properties.Remove(key);
-        else
-        {
-            value.Priority = priority;
-            _properties[key] = value;
-        }
+        _properties.Set(key, value, priority);
     }
 
     /// <summary>
@@ -62,7 +51,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// </summary>
     internal T? GetProperty<T>(string key) where T : class
     {
-        return _properties.TryGetValue(key, out var value) && value is T typedValue ? typedValue : null;
+        return _properties.Get<T>(key);
     }
 
     /// <summary>
@@ -79,11 +68,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
         // Order by: priority first (ascending), then alphabetically by key
-        var orderedProperties = _properties
-            .OrderBy(kvp => kvp.Value.Priority ?? int.MaxValue)  // Properties without priority go last
-            .ThenBy(kvp => kvp.Key);                              // Then alphabetical within same priority
-
-        foreach (var (key, property) in orderedProperties)
+        foreach (var (key, property) in _properties.GetOrderedProperties())
         {
             var expression = property.Resolve(context);
             var hcl = expression.ToHcl(context);

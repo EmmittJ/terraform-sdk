@@ -22,19 +22,7 @@ public class TerraformConfiguration(string name = "main")
     public TerraformConfigurationBlock? Terraform
     {
         get => _terraform;
-        set
-        {
-            if (_terraform != null)
-            {
-                _constructs.Remove(_terraform);
-            }
-            _terraform = value;
-            if (_terraform != null)
-            {
-                // Insert at the beginning so terraform block appears first
-                _constructs.Insert(0, _terraform);
-            }
-        }
+        set => _terraform = value;
     }
     private TerraformConfigurationBlock? _terraform;
 
@@ -66,6 +54,8 @@ public class TerraformConfiguration(string name = "main")
         var context = new TerraformContext(this);
 
         // Pass 1: Prepare - collect dependencies, track references
+        _terraform?.Prepare(context);
+
         foreach (var construct in _constructs)
         {
             using (context.SetCurrentConstruct(construct))
@@ -80,7 +70,14 @@ public class TerraformConfiguration(string name = "main")
         // Pass 2: Resolve - generate HCL
         var sb = new System.Text.StringBuilder();
 
-        // Render all constructs (terraform block is first if present)
+        // Render terraform block first if present
+        if (_terraform != null)
+        {
+            sb.Append(_terraform.ToHcl(context));
+            sb.AppendLine();
+        }
+
+        // Render all constructs
         foreach (var construct in _constructs)
         {
             sb.Append(construct.Resolve(context));
@@ -100,6 +97,8 @@ public class TerraformConfiguration(string name = "main")
 
         // Build dependency graph by preparing all constructs
         var context = new TerraformContext(this);
+        _terraform?.Prepare(context);
+
         foreach (var construct in _constructs)
         {
             using (context.SetCurrentConstruct(construct))
