@@ -155,6 +155,26 @@ public abstract class TerraformExpression : ITerraformResolvable<string>
     public static implicit operator TerraformExpression(double value) => Literal(value);
     public static implicit operator TerraformExpression(float value) => Literal(value);
 
+    /// <summary>
+    /// Converts an object to a TerraformExpression based on its runtime type.
+    /// Useful for handling Dictionary&lt;string, object&gt; and similar scenarios.
+    /// Note: Cannot be an implicit operator as C# doesn't allow conversions from object (base type).
+    /// </summary>
+    public static TerraformExpression FromObject(object value)
+    {
+        return value switch
+        {
+            TerraformExpression expr => expr,
+            string s => Literal(s),
+            int i => Literal(i),
+            long l => Literal(l),
+            bool b => Literal(b),
+            double d => Literal(d),
+            float f => Literal(f),
+            _ => Literal(value.ToString() ?? "")
+        };
+    }
+
     // Implicit conversion from arrays and lists to list expressions
     public static implicit operator TerraformExpression(TerraformExpression[] values) => List(values);
     public static implicit operator TerraformExpression(string[] values) => List(values.Select(v => Literal(v)));

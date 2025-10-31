@@ -83,7 +83,7 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
         var obj = new TerraformObjectExpression();
         foreach (var (key, value) in values)
         {
-            obj.Set(key, TerraformExpression.Literal(value));
+            obj[key] = value;
         }
         return new TerraformExpressionProperty(obj);
     }
@@ -97,15 +97,7 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
         var obj = new TerraformObjectExpression();
         foreach (var (key, value) in values)
         {
-            obj.Set(key, value switch
-            {
-                string s => TerraformExpression.Literal(s),
-                int i => TerraformExpression.Literal(i),
-                bool b => TerraformExpression.Literal(b),
-                double d => TerraformExpression.Literal(d),
-                TerraformExpression expr => expr,
-                _ => TerraformExpression.Literal(value.ToString() ?? "")
-            });
+            obj[key] = TerraformExpression.FromObject(value);
         }
         return new TerraformExpressionProperty(obj);
     }

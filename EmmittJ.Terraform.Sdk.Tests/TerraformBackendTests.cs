@@ -12,13 +12,14 @@ public class TerraformBackendTests
             Terraform = new TerraformConfigurationBlock
             {
                 Backend = new TerraformBackend("s3")
+                {
+                    ["bucket"] = "my-terraform-state",
+                    ["key"] = "vpc/terraform.tfstate",
+                    ["region"] = "us-west-2",
+                    ["encrypt"] = true
+                }
             }
         };
-
-        config.Terraform.Backend.Set("bucket", "my-terraform-state");
-        config.Terraform.Backend.Set("key", "vpc/terraform.tfstate");
-        config.Terraform.Backend.Set("region", "us-west-2");
-        config.Terraform.Backend.Set("encrypt", true);
 
         return Verify(config.ToHcl());
     }
@@ -31,13 +32,14 @@ public class TerraformBackendTests
             Terraform = new TerraformConfigurationBlock
             {
                 Backend = new TerraformBackend("azurerm")
+                {
+                    ["resource_group_name"] = "terraform-state-rg",
+                    ["storage_account_name"] = "tfstate",
+                    ["container_name"] = "tfstate",
+                    ["key"] = "prod.terraform.tfstate"
+                }
             }
         };
-
-        config.Terraform.Backend.Set("resource_group_name", "terraform-state-rg");
-        config.Terraform.Backend.Set("storage_account_name", "tfstate");
-        config.Terraform.Backend.Set("container_name", "tfstate");
-        config.Terraform.Backend.Set("key", "prod.terraform.tfstate");
 
         return Verify(config.ToHcl());
     }
@@ -51,11 +53,12 @@ public class TerraformBackendTests
             {
                 RequiredVersion = ">=1.0",
                 Backend = new TerraformBackend("s3")
+                {
+                    ["bucket"] = "my-terraform-state",
+                    ["key"] = "vpc/terraform.tfstate"
+                }
             }
         };
-
-        config.Terraform.Backend.Set("bucket", "my-terraform-state");
-        config.Terraform.Backend.Set("key", "vpc/terraform.tfstate");
 
         return Verify(config.ToHcl());
     }

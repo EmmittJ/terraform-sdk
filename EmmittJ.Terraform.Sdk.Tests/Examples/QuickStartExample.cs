@@ -55,7 +55,7 @@ public static class QuickStartExample
 
         // Define AWS provider
         var awsProvider = new TerraformProvider("aws")
-            .WithProperty("region", awsRegion.AsReference())
+            .WithReference("region", awsRegion)
             .WithProperty("default_tags", new TerraformBlockExpression
             {
                 ["tags"] = locals["common_tags"]
@@ -64,7 +64,7 @@ public static class QuickStartExample
 
         // Create VPC resource
         var vpc = new TerraformResource("aws_vpc", "main")
-            .WithProperty("cidr_block", baseCidrBlock.AsReference())
+            .WithReference("cidr_block", baseCidrBlock)
             .WithProperty("enable_dns_hostnames", true)
             .WithProperty("enable_dns_support", true)
             .WithProperty("tags", Tf.Functions.Merge(
@@ -127,7 +127,7 @@ public static class QuickStartExample
             Value = TerraformExpression.ForMap(
                 "az",
                 "subnet",
-                subnets.AsReference(),
+                availabilityZones.AsReference(),
                 (az, subnet) => (az, subnet["id"]))
         };
         config.Add(subnetIdsOutput);
@@ -152,7 +152,7 @@ public static class QuickStartExample
 
         // Provider
         var aws = new TerraformProvider("aws")
-            .WithProperty("region", region.AsReference());
+            .WithReference("region", region);
         config.Add(aws);
 
         // Resource

@@ -120,9 +120,11 @@ public class TerraformIntegrationTests_Backend : TerraformIntegrationTestBase
             Terraform = new TerraformConfigurationBlock
             {
                 Backend = new TerraformBackend("local")
+                {
+                    ["path"] = "terraform.tfstate"
+                }
             }
         };
-        config.Terraform.Backend.Set("path", "terraform.tfstate");
 
         config.Add(new TerraformResource("aws_s3_bucket", "data")
             .WithProperty("bucket", "my-data-bucket"));
@@ -217,6 +219,9 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
             {
                 RequiredVersion = ">= 1.0",
                 Backend = new TerraformBackend("local")
+                {
+                    ["path"] = "terraform.tfstate"
+                }
             }
         };
 
@@ -225,8 +230,6 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
             Source = "hashicorp/aws",
             Version = "~> 5.0"
         };
-
-        config.Terraform.Backend.Set("path", "terraform.tfstate");
 
         // Add provider
         var provider = new TerraformProvider("aws");

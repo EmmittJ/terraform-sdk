@@ -61,10 +61,10 @@ public class ValidationTests
         context.DependencyGraph.AddConstruct(resourceA);
         context.DependencyGraph.AddConstruct(resourceB);
 
-        // Create a TerraformObject with a reference - use Set() method
+        // Create a TerraformObject with a reference
         var obj = new TerraformObjectExpression();
         var refToB = new TerraformReferenceExpression(resourceB, "id");
-        obj.Set("ref", refToB);
+        obj["ref"] = refToB;
 
         // Verify the reference was stored (not converted)
         var stored = obj.Get("ref");
