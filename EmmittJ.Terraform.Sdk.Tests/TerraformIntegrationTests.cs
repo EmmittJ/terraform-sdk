@@ -173,7 +173,7 @@ public class TerraformIntegrationTests_Lifecycle : TerraformIntegrationTestBase
         var config = new TerraformConfiguration("main");
         var resource = new TerraformResource("aws_instance", "web")
         {
-            Lifecycle = new LifecycleConfig
+            Lifecycle = new TerraformLifecycleConfig
             {
                 CreateBeforeDestroy = true,
                 PreventDestroy = false
@@ -244,7 +244,7 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
         // Add resource with lifecycle (reference ami output)
         var instance = new TerraformResource("aws_instance", "web")
         {
-            Lifecycle = new LifecycleConfig
+            Lifecycle = new TerraformLifecycleConfig
             {
                 CreateBeforeDestroy = true
             }

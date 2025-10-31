@@ -12,7 +12,7 @@ public class LifecycleTests
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
         resource.WithProperty("instance_type", "t2.micro");
-        resource.Lifecycle = new LifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleConfig
         {
             CreateBeforeDestroy = true
         };
@@ -28,7 +28,7 @@ public class LifecycleTests
 
         var resource = new TerraformResource("aws_s3_bucket", "data");
         resource.WithProperty("bucket", "my-important-data");
-        resource.Lifecycle = new LifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleConfig
         {
             PreventDestroy = true
         };
@@ -45,7 +45,7 @@ public class LifecycleTests
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
         resource.WithProperty("instance_type", "t2.micro");
-        resource.Lifecycle = new LifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleConfig
         {
             IgnoreChanges = { "tags", "user_data" }
         };
@@ -61,7 +61,7 @@ public class LifecycleTests
 
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
-        resource.Lifecycle = new LifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleConfig
         {
             IgnoreChanges = { "all" }
         };
@@ -78,7 +78,7 @@ public class LifecycleTests
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
         resource.WithProperty("instance_type", "t2.micro");
-        resource.Lifecycle = new LifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleConfig
         {
             CreateBeforeDestroy = true,
             PreventDestroy = false,
@@ -99,7 +99,7 @@ public class LifecycleTests
         resource.WithProperty("instance_type", "t2.micro");
         resource.DeclareOutput("ami");
 
-        resource.Lifecycle = new LifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleConfig
         {
             CreateBeforeDestroy = true,
             PreventDestroy = false
@@ -121,7 +121,7 @@ public class LifecycleTests
         resource.WithProperty("instance_type", "t2.micro");
         resource.DeclareOutput("public_ip");
 
-        resource.Lifecycle = new LifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleConfig
         {
             CreateBeforeDestroy = true
         };

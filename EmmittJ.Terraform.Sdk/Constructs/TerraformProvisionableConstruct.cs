@@ -53,7 +53,7 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     /// <summary>
     /// Gets or sets the lifecycle configuration for this resource.
     /// </summary>
-    public LifecycleConfig? Lifecycle { get; set; }
+    public TerraformLifecycleConfig? Lifecycle { get; set; }
 
     /// <summary>
     /// Declares an output attribute for this construct.

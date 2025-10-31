@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Controls resource creation, destruction, and change detection behavior.
 /// This is a data class that can be converted to a block expression.
 /// </summary>
-public class LifecycleConfig
+public class TerraformLifecycleConfig
 {
     /// <summary>
     /// Gets or sets whether to create the replacement resource before destroying the original.
@@ -57,9 +57,9 @@ public class LifecycleConfig
 /// </summary>
 internal class LifecycleBlockExpression : TerraformBlockExpression
 {
-    private readonly LifecycleConfig _config;
+    private readonly TerraformLifecycleConfig _config;
 
-    public LifecycleBlockExpression(LifecycleConfig config)
+    public LifecycleBlockExpression(TerraformLifecycleConfig config)
     {
         _config = config;
     }
