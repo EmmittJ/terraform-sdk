@@ -1,0 +1,15 @@
+﻿data "aws_ami" "ubuntu" {
+  lifecycle {
+
+    postcondition {
+      condition     = self.image_id != ""
+      error_message = "AMI must be found"
+    }
+
+    postcondition {
+      condition     = self.state == "available"
+      error_message = "AMI must be available"
+    }
+  }
+  most_recent = true
+}

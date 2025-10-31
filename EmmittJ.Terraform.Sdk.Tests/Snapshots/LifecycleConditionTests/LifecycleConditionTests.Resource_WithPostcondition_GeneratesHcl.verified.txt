@@ -1,0 +1,10 @@
+﻿resource "aws_instance" "web" {
+  lifecycle {
+
+    postcondition {
+      condition     = self.public_ip != ""
+      error_message = "Instance must have a public IP"
+    }
+  }
+  instance_type = "t2.micro"
+}

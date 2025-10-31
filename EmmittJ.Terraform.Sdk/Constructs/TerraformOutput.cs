@@ -49,6 +49,12 @@ public class TerraformOutput(string name) : TerraformConstruct
     /// </summary>
     public List<string> DependsOn { get; } = new();
 
+    /// <summary>
+    /// Gets the list of preconditions to validate before using this output.
+    /// Preconditions allow you to validate assumptions about the output value.
+    /// </summary>
+    public List<TerraformCondition> Preconditions { get; } = new();
+
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
@@ -89,6 +95,19 @@ public class TerraformOutput(string name) : TerraformConstruct
             {
                 var deps = string.Join(", ", DependsOn);
                 sb.AppendLine($"{context.Indent}depends_on = [{deps}]");
+            }
+
+            // Write preconditions
+            foreach (var precondition in Preconditions)
+            {
+                sb.AppendLine();
+                sb.AppendLine($"{context.Indent}precondition {{");
+                using (context.PushIndent())
+                {
+                    sb.AppendLine($"{context.Indent}condition     = {precondition.Condition}");
+                    sb.AppendLine($"{context.Indent}error_message = \"{precondition.ErrorMessage}\"");
+                }
+                sb.AppendLine($"{context.Indent}}}");
             }
         }
 

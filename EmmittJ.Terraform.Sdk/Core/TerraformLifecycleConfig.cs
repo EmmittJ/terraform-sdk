@@ -33,6 +33,18 @@ public class TerraformLifecycleConfig
     public TerraformExpression? ReplaceTriggeredBy { get; set; }
 
     /// <summary>
+    /// Gets the list of preconditions to validate before applying changes.
+    /// Preconditions are checked before Terraform applies the resource configuration.
+    /// </summary>
+    public List<TerraformCondition> Preconditions { get; init; } = new();
+
+    /// <summary>
+    /// Gets the list of postconditions to validate after applying changes.
+    /// Postconditions are checked after Terraform applies the resource configuration.
+    /// </summary>
+    public List<TerraformCondition> Postconditions { get; init; } = new();
+
+    /// <summary>
     /// Returns true if any lifecycle configuration is set.
     /// </summary>
     internal bool HasConfiguration()
@@ -40,7 +52,9 @@ public class TerraformLifecycleConfig
         return CreateBeforeDestroy.HasValue ||
                PreventDestroy.HasValue ||
                IgnoreChanges.Count > 0 ||
-               ReplaceTriggeredBy != null;
+               ReplaceTriggeredBy != null ||
+               Preconditions.Count > 0 ||
+               Postconditions.Count > 0;
     }
 
     /// <summary>
@@ -101,6 +115,32 @@ internal class LifecycleBlockExpression : TerraformBlockExpression
                 sb.AppendLine($"{context.Indent}replace_triggered_by = [{_config.ReplaceTriggeredBy.ToHcl(context)}]");
             }
 
+            // Write preconditions
+            foreach (var precondition in _config.Preconditions)
+            {
+                sb.AppendLine();
+                sb.AppendLine($"{context.Indent}precondition {{");
+                using (context.PushIndent())
+                {
+                    sb.AppendLine($"{context.Indent}condition     = {precondition.Condition}");
+                    sb.AppendLine($"{context.Indent}error_message = \"{precondition.ErrorMessage}\"");
+                }
+                sb.AppendLine($"{context.Indent}}}");
+            }
+
+            // Write postconditions
+            foreach (var postcondition in _config.Postconditions)
+            {
+                sb.AppendLine();
+                sb.AppendLine($"{context.Indent}postcondition {{");
+                using (context.PushIndent())
+                {
+                    sb.AppendLine($"{context.Indent}condition     = {postcondition.Condition}");
+                    sb.AppendLine($"{context.Indent}error_message = \"{postcondition.ErrorMessage}\"");
+                }
+                sb.AppendLine($"{context.Indent}}}");
+            }
+
             // Write any additional properties from the block expression
             foreach (var (key, value) in _properties.OrderBy(p => p.Key))
             {
@@ -110,5 +150,40 @@ internal class LifecycleBlockExpression : TerraformBlockExpression
 
         sb.AppendLine($"{context.Indent}}}");
         return sb.ToString();
+    }
+}
+
+/// <summary>
+/// Represents a condition (precondition or postcondition) for lifecycle validation.
+/// Conditions allow you to validate assumptions about resources during Terraform operations.
+/// </summary>
+public class TerraformCondition
+{
+    /// <summary>
+    /// Gets the condition expression that must evaluate to true.
+    /// </summary>
+    public string Condition { get; }
+
+    /// <summary>
+    /// Gets the error message to display when the condition is false.
+    /// </summary>
+    public string ErrorMessage { get; }
+
+    /// <summary>
+    /// Creates a new condition.
+    /// </summary>
+    /// <param name="condition">The condition expression that must be true.</param>
+    /// <param name="errorMessage">The error message to display on failure.</param>
+    /// <exception cref="ArgumentException">Thrown when condition or errorMessage is null or empty.</exception>
+    public TerraformCondition(string condition, string errorMessage)
+    {
+        if (string.IsNullOrWhiteSpace(condition))
+            throw new ArgumentException("Condition cannot be null or empty.", nameof(condition));
+
+        if (string.IsNullOrWhiteSpace(errorMessage))
+            throw new ArgumentException("Error message cannot be null or empty.", nameof(errorMessage));
+
+        Condition = condition;
+        ErrorMessage = errorMessage;
     }
 }
