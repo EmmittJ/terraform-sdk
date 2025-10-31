@@ -1,0 +1,8 @@
+﻿terraform {
+  provider_meta "analytics" {
+    count = 42
+    enabled = true
+    name = "test-module"
+    rate = 3.14
+  }
+}

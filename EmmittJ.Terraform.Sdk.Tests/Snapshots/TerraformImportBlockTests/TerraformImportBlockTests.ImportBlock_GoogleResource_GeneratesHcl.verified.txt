@@ -1,0 +1,5 @@
+﻿import {
+  to = google_compute_instance.default
+  id = "projects/my-project/zones/us-central1-a/instances/my-instance"
+}
+

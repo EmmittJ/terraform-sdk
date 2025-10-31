@@ -1,0 +1,5 @@
+﻿moved {
+  from = module.old_name
+  to = module.new_name
+}
+

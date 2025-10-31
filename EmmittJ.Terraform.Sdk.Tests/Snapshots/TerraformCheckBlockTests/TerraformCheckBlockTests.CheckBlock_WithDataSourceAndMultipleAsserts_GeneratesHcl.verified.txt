@@ -1,0 +1,17 @@
+﻿check "external_validation" {
+  data "http" "external_config" {
+    url = "https://config.example.com/settings.json"
+  }
+
+  assert {
+    condition = data.http.external_config.status_code == 200
+    error_message = "Failed to fetch external configuration"
+  }
+
+  assert {
+    condition = jsondecode(data.http.external_config.response_body).enabled == true
+    error_message = "External configuration indicates feature is not enabled"
+  }
+
+}
+

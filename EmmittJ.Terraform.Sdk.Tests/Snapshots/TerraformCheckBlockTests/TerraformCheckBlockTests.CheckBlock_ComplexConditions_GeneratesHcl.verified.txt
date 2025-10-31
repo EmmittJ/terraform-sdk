@@ -1,0 +1,13 @@
+﻿check "complex_validation" {
+  assert {
+    condition = alltrue([for instance in aws_instance.web : instance.monitoring == true])
+    error_message = "All instances must have monitoring enabled"
+  }
+
+  assert {
+    condition = can(regex("^prod-", var.environment_name))
+    error_message = "Production environment name must start with 'prod-'"
+  }
+
+}
+

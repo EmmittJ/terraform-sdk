@@ -1,0 +1,6 @@
+﻿import {
+  to = aws_instance.example
+  id = "i-1234567890abcdef0"
+  provider = aws.west
+}
+

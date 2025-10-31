@@ -1,0 +1,7 @@
+﻿terraform {
+  provider_meta "tracking" {
+    module_id = "vpc-standard"
+    tracked = true
+    version = "1.5.0"
+  }
+}

@@ -1,0 +1,6 @@
+﻿terraform {
+  provider_meta "my-provider" {
+    hello = "world"
+    version = "1.0.0"
+  }
+}

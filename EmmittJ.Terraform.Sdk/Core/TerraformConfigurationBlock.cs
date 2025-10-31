@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using EmmittJ.Terraform.Sdk.Core;
 
 namespace EmmittJ.Terraform.Sdk;
 
@@ -12,6 +13,7 @@ public class TerraformConfigurationBlock : ITerraformPreparable
     private readonly TerraformPropertyCollection _properties = new();
     private readonly Dictionary<string, ProviderRequirement> _requiredProviders = new();
     private readonly List<string> _experiments = new();
+    private readonly List<TerraformProviderMetaConfig> _providerMetas = new();
 
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
@@ -44,13 +46,11 @@ public class TerraformConfigurationBlock : ITerraformPreparable
     }
 
     /// <summary>
-    /// Gets or sets the provider metadata block (for provider development).
+    /// Gets the list of provider metadata configurations.
+    /// Provider metadata allows modules to pass provider-specific information independently of provider configuration.
+    /// Multiple provider_meta blocks can be defined for different providers.
     /// </summary>
-    public object? ProviderMeta
-    {
-        get => GetProperty<TerraformLiteralProperty<object>>("provider_meta")?.Value;
-        set => SetProperty("provider_meta", value != null ? new TerraformLiteralProperty<object>(value) : null);
-    }
+    public List<TerraformProviderMetaConfig> ProviderMetas => _providerMetas;
 
     /// <summary>
     /// Gets or sets the cloud block configuration (for Terraform Cloud/Enterprise).
@@ -142,13 +142,19 @@ public class TerraformConfigurationBlock : ITerraformPreparable
                 sb.AppendLine($"{context.Indent}experiments = [{experimentsList}]");
             }
 
-            // 4. cloud block (if present)
+            // 4. provider_meta blocks (if present)
+            foreach (var providerMeta in _providerMetas.OrderBy(pm => pm.ProviderName))
+            {
+                RenderProviderMetaBlock(sb, context, providerMeta);
+            }
+
+            // 5. cloud block (if present)
             if (Cloud != null)
             {
                 RenderCloudBlock(sb, context);
             }
 
-            // 5. Remaining properties (backend, provider_meta, etc.) ordered by priority then key
+            // 6. Remaining properties (backend, etc.) ordered by priority then key
             foreach (var (key, property) in _properties.GetOrderedProperties().Where(p => p.Key != "required_version"))
             {
                 var expression = property.Resolve(context);
@@ -218,6 +224,40 @@ public class TerraformConfigurationBlock : ITerraformPreparable
         }
 
         sb.AppendLine($"{context.Indent}}}");
+    }
+
+    private void RenderProviderMetaBlock(StringBuilder sb, ITerraformContext context, TerraformProviderMetaConfig providerMeta)
+    {
+        if (string.IsNullOrWhiteSpace(providerMeta.ProviderName))
+        {
+            return;
+        }
+
+        sb.AppendLine($"{context.Indent}provider_meta \"{providerMeta.ProviderName}\" {{");
+
+        using (context.PushIndent())
+        {
+            foreach (var (key, value) in providerMeta.Metadata.OrderBy(kvp => kvp.Key))
+            {
+                var formattedValue = FormatMetadataValue(value);
+                sb.AppendLine($"{context.Indent}{key} = {formattedValue}");
+            }
+        }
+
+        sb.AppendLine($"{context.Indent}}}");
+    }
+
+    private static string FormatMetadataValue(object? value)
+    {
+        return value switch
+        {
+            null => "null",
+            string s => $"\"{s}\"",
+            bool b => b ? "true" : "false",
+            int or long or short or byte => value.ToString() ?? "0",
+            float or double or decimal => value.ToString() ?? "0",
+            _ => $"\"{value}\""
+        };
     }
 
     private T? GetProperty<T>(string key) where T : class

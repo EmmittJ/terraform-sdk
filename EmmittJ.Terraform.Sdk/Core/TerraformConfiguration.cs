@@ -98,6 +98,37 @@ public class TerraformConfiguration(string name = "main")
     {
         var errors = new List<ValidationError>();
 
+        // Validate terraform block constraints
+        if (_terraform != null)
+        {
+            // Check cloud/backend mutual exclusivity
+            if (_terraform.Cloud != null && _terraform.Backend != null)
+            {
+                errors.Add(new ValidationError(
+                    "The 'cloud' and 'backend' blocks are mutually exclusive. Only one can be specified in the terraform block.",
+                    ValidationSeverity.Error,
+                    null,
+                    "terraform"));
+            }
+
+            // Check workspaces tags/name mutual exclusivity
+            if (_terraform.Cloud?.Workspaces != null)
+            {
+                var workspaces = _terraform.Cloud.Workspaces;
+                var hasName = !string.IsNullOrWhiteSpace(workspaces.Name);
+                var hasTags = workspaces.Tags != null && workspaces.Tags.Count > 0;
+
+                if (hasName && hasTags)
+                {
+                    errors.Add(new ValidationError(
+                        "The 'name' and 'tags' attributes in the workspaces block are mutually exclusive. Only one can be specified.",
+                        ValidationSeverity.Error,
+                        null,
+                        "terraform.cloud.workspaces"));
+                }
+            }
+        }
+
         // Build dependency graph by preparing all constructs
         var context = new TerraformContext(this);
         _terraform?.Prepare(context);
