@@ -127,7 +127,7 @@ public static class QuickStartExample
             Value = TerraformExpression.ForMap(
                 "az",
                 "subnet",
-                availabilityZones.AsReference(),
+                subnets.AsReference(),
                 (az, subnet) => (az, subnet["id"]))
         };
         config.Add(subnetIdsOutput);
