@@ -1,0 +1,8 @@
+﻿terraform {
+  cloud {
+    organization = "example_corp"
+    workspaces {
+      name = "my-workspace"
+    }
+  }
+}

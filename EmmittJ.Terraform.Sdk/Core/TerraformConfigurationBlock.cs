@@ -54,12 +54,9 @@ public class TerraformConfigurationBlock : ITerraformPreparable
 
     /// <summary>
     /// Gets or sets the cloud block configuration (for Terraform Cloud/Enterprise).
+    /// Mutually exclusive with Backend.
     /// </summary>
-    public object? Cloud
-    {
-        get => GetProperty<TerraformLiteralProperty<object>>("cloud")?.Value;
-        set => SetProperty("cloud", value != null ? new TerraformLiteralProperty<object>(value) : null);
-    }
+    public TerraformCloudConfig? Cloud { get; set; }
 
     /// <summary>
     /// Adds or updates an arbitrary property on the terraform block.
@@ -108,7 +105,6 @@ public class TerraformConfigurationBlock : ITerraformPreparable
                 var expression = versionProp.Resolve(context);
                 var hcl = expression.ToHcl(context);
                 sb.AppendLine($"{context.Indent}required_version{expression.AssignmentOperator}{hcl}");
-                sb.AppendLine();
             }
 
             // 2. required_providers block
@@ -137,7 +133,6 @@ public class TerraformConfigurationBlock : ITerraformPreparable
                 }
 
                 sb.AppendLine($"{context.Indent}}}");
-                sb.AppendLine();
             }
 
             // 3. experiments list
@@ -145,10 +140,15 @@ public class TerraformConfigurationBlock : ITerraformPreparable
             {
                 var experimentsList = string.Join(", ", _experiments.Select(e => $"\"{e}\""));
                 sb.AppendLine($"{context.Indent}experiments = [{experimentsList}]");
-                sb.AppendLine();
             }
 
-            // 4. Remaining properties (backend, cloud, etc.) ordered by priority then key, excluding required_version
+            // 4. cloud block (if present)
+            if (Cloud != null)
+            {
+                RenderCloudBlock(sb, context);
+            }
+
+            // 5. Remaining properties (backend, provider_meta, etc.) ordered by priority then key
             foreach (var (key, property) in _properties.GetOrderedProperties().Where(p => p.Key != "required_version"))
             {
                 var expression = property.Resolve(context);
@@ -157,9 +157,67 @@ public class TerraformConfigurationBlock : ITerraformPreparable
             }
         }
 
-        sb.AppendLine("}");
+        sb.AppendLine($"{context.Indent}}}");
 
         return sb.ToString();
+    }
+
+    private void RenderCloudBlock(StringBuilder sb, ITerraformContext context)
+    {
+        if (Cloud == null) return;
+
+        sb.AppendLine($"{context.Indent}cloud {{");
+
+        using (context.PushIndent())
+        {
+            if (!string.IsNullOrWhiteSpace(Cloud.Organization))
+            {
+                sb.AppendLine($"{context.Indent}organization = \"{Cloud.Organization}\"");
+            }
+
+            if (!string.IsNullOrWhiteSpace(Cloud.Hostname))
+            {
+                sb.AppendLine($"{context.Indent}hostname = \"{Cloud.Hostname}\"");
+            }
+
+            if (!string.IsNullOrWhiteSpace(Cloud.Token))
+            {
+                sb.AppendLine($"{context.Indent}token = \"{Cloud.Token}\"");
+            }
+
+            if (Cloud.Workspaces != null)
+            {
+                RenderWorkspacesBlock(sb, context, Cloud.Workspaces);
+            }
+        }
+
+        sb.AppendLine($"{context.Indent}}}");
+    }
+
+    private void RenderWorkspacesBlock(StringBuilder sb, ITerraformContext context, CloudWorkspaceConfig workspaces)
+    {
+        sb.AppendLine($"{context.Indent}workspaces {{");
+
+        using (context.PushIndent())
+        {
+            if (!string.IsNullOrWhiteSpace(workspaces.Name))
+            {
+                sb.AppendLine($"{context.Indent}name = \"{workspaces.Name}\"");
+            }
+
+            if (workspaces.Tags != null && workspaces.Tags.Count > 0)
+            {
+                var tagsList = string.Join(", ", workspaces.Tags.Select(t => $"\"{t}\""));
+                sb.AppendLine($"{context.Indent}tags = [{tagsList}]");
+            }
+
+            if (!string.IsNullOrWhiteSpace(workspaces.Project))
+            {
+                sb.AppendLine($"{context.Indent}project = \"{workspaces.Project}\"");
+            }
+        }
+
+        sb.AppendLine($"{context.Indent}}}");
     }
 
     private T? GetProperty<T>(string key) where T : class
@@ -204,20 +262,4 @@ public class TerraformCloudBlock : TerraformConstruct
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => throw new NotSupportedException("Cloud blocks cannot be referenced in expressions.");
-}
-
-/// <summary>
-/// Represents workspace configuration for Terraform Cloud.
-/// </summary>
-public class CloudWorkspaceConfig
-{
-    /// <summary>
-    /// Gets or sets the workspace name.
-    /// </summary>
-    public string? Name { get; set; }
-
-    /// <summary>
-    /// Gets or sets the workspace tags.
-    /// </summary>
-    public List<string>? Tags { get; set; }
 }

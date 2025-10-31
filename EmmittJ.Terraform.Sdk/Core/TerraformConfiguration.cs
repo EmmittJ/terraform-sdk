@@ -74,7 +74,10 @@ public class TerraformConfiguration(string name = "main")
         if (_terraform != null)
         {
             sb.Append(_terraform.ToHcl(context));
-            sb.AppendLine();
+            if (_constructs.Count > 0)
+            {
+                sb.AppendLine();
+            }
         }
 
         // Render all constructs
