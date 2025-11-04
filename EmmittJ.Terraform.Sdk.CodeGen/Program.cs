@@ -35,11 +35,29 @@ class Program
                 Name = "aws",
                 Namespace = "EmmittJ.Terraform.Sdk.Providers.Aws",
                 FolderPath = "", // Will be created dynamically
-                Version = "~> 5.0"
+                Version = "~> 6.0"
             },
-            // Add more providers as needed
-            // new ProviderConfig { Name = "azurerm", Namespace = "EmmittJ.Terraform.Sdk.Providers.Azure", Version = "~> 3.0" },
-            // new ProviderConfig { Name = "google", Namespace = "EmmittJ.Terraform.Sdk.Providers.Google", Version = "~> 5.0" },
+            new ProviderConfig
+            {
+                Name = "azurerm",
+                Namespace = "EmmittJ.Terraform.Sdk.Providers.Azurerm",
+                FolderPath = "",
+                Version = "~> 4.0"
+            },
+            new ProviderConfig
+            {
+                Name = "azuread",
+                Namespace = "EmmittJ.Terraform.Sdk.Providers.Azuread",
+                FolderPath = "",
+                Version = "~> 3.0"
+            },
+            new ProviderConfig
+            {
+                Name = "google",
+                Namespace = "EmmittJ.Terraform.Sdk.Providers.Google",
+                FolderPath = "",
+                Version = "~> 7.0"
+            },
         };
 
         foreach (var provider in providers)
