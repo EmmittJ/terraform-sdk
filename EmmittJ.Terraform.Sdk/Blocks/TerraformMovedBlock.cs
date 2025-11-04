@@ -25,7 +25,7 @@ public class TerraformMovedBlock : TerraformConstruct
     protected override string BlockType => "moved";
 
     /// <inheritdoc/>
-    protected override string[] Labels => Array.Empty<string>();
+    protected override string[] BlockLabels => Array.Empty<string>();
 
     /// <summary>
     /// Creates a new moved block with the specified from and to addresses.

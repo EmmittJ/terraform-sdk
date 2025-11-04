@@ -20,7 +20,7 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
     protected override string BlockType => "module";
 
     /// <inheritdoc/>
-    protected override string[] Labels => [Name];
+    protected override string[] BlockLabels => [ConstructName];
 
     /// <summary>
     /// Gets or sets the source of the module.
@@ -63,7 +63,7 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
         if (!_declaredOutputs.Contains(outputName))
         {
             throw new TerraformConfigurationException(
-                $"Output '{outputName}' has not been declared for module '{Name}'. " +
+                $"Output '{outputName}' has not been declared for module '{ConstructName}'. " +
                 $"Use DeclareOutput(\"{outputName}\") to declare it first, or check for typos in the output name.",
                 this,
                 outputName);
@@ -80,5 +80,5 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"module.{Name}");
+        => TerraformExpression.Identifier($"module.{ConstructName}");
 }

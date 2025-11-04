@@ -297,7 +297,7 @@ public class TerraformCloudBlock : TerraformConstruct
     protected override string BlockType => "cloud";
 
     /// <inheritdoc/>
-    protected override string[] Labels => Array.Empty<string>();
+    protected override string[] BlockLabels => Array.Empty<string>();
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()

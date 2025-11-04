@@ -14,7 +14,7 @@ public class TerraformVariable(string name) : TerraformConstruct
     protected override string BlockType => "variable";
 
     /// <inheritdoc/>
-    protected override string[] Labels => [Name];
+    protected override string[] BlockLabels => [Name];
 
     /// <summary>
     /// Gets or sets the description of the variable.

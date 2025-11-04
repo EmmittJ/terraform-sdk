@@ -77,7 +77,7 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
         if (!_declaredOutputs.Contains(attributeName))
         {
             throw new TerraformConfigurationException(
-                $"Attribute '{attributeName}' has not been declared as an output for {GetConstructTypeLabel()} '{Type}.{Name}'. " +
+                $"Attribute '{attributeName}' has not been declared as an output for {GetConstructTypeLabel()} '{Type}.{ConstructName}'. " +
                 $"Use DeclareOutput(\"{attributeName}\") to declare it first, or check for typos in the attribute name.",
                 this,
                 attributeName);

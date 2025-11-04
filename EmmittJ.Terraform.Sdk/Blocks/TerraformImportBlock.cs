@@ -57,7 +57,7 @@ public class TerraformImportBlock : TerraformConstruct
     protected override string BlockType => "import";
 
     /// <inheritdoc/>
-    protected override string[] Labels => [];
+    protected override string[] BlockLabels => [];
 
     /// <summary>
     /// Creates a new Terraform import block.

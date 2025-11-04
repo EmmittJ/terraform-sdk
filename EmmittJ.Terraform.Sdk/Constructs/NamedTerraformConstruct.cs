@@ -7,11 +7,11 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// Initializes a new instance of the <see cref="NamedTerraformConstruct"/> class.
 /// </remarks>
-/// <param name="name">The name of the construct.</param>
-public abstract class NamedTerraformConstruct(string name) : TerraformConstruct
+/// <param name="constructName">The name of the construct.</param>
+public abstract class NamedTerraformConstruct(string constructName) : TerraformConstruct
 {
     /// <summary>
     /// Gets the name of this construct.
     /// </summary>
-    public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
+    public string ConstructName { get; } = constructName ?? throw new ArgumentNullException(nameof(constructName));
 }

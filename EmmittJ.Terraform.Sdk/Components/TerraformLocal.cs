@@ -9,7 +9,7 @@ public class TerraformLocal : TerraformConstruct
     protected override string BlockType => "locals";
 
     /// <inheritdoc/>
-    protected override string[] Labels => Array.Empty<string>();
+    protected override string[] BlockLabels => Array.Empty<string>();
 
     /// <summary>
     /// Gets a reference to a local value.

@@ -14,7 +14,7 @@ public class TerraformOutput(string name) : TerraformConstruct
     protected override string BlockType => "output";
 
     /// <inheritdoc/>
-    protected override string[] Labels => [Name];
+    protected override string[] BlockLabels => [Name];
 
     /// <summary>
     /// Gets or sets the output value.
@@ -80,7 +80,7 @@ public class TerraformOutput(string name) : TerraformConstruct
         var sb = new System.Text.StringBuilder();
 
         sb.Append($"{context.Indent}{BlockType}");
-        foreach (var identifier in Labels)
+        foreach (var identifier in BlockLabels)
         {
             sb.Append($" \"{identifier}\"");
         }

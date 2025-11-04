@@ -36,7 +36,7 @@ public class TerraformCheckBlock : TerraformConstruct
     protected override string BlockType => "check";
 
     /// <inheritdoc/>
-    protected override string[] Labels => [Name];
+    protected override string[] BlockLabels => [Name];
 
     /// <summary>
     /// Creates a new Terraform check block.
@@ -152,7 +152,7 @@ public class TerraformAssertBlock : TerraformConstruct
     protected override string BlockType => "assert";
 
     /// <inheritdoc/>
-    protected override string[] Labels => [];
+    protected override string[] BlockLabels => [];
 
     /// <summary>
     /// Creates a new assert block.

@@ -9,7 +9,7 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
     protected override string BlockType => "provider";
 
     /// <inheritdoc/>
-    protected override string[] Labels => [Name];
+    protected override string[] BlockLabels => [ConstructName];
 
     /// <summary>
     /// Gets or sets the alias for this provider instance.
@@ -22,5 +22,5 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier(Alias?.Value != null ? $"{Name}.{Alias.Value}" : Name);
+        => TerraformExpression.Identifier(Alias?.Value != null ? $"{ConstructName}.{Alias.Value}" : ConstructName);
 }

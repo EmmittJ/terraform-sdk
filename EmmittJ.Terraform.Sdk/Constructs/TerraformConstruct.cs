@@ -19,7 +19,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// For resources/data sources: [type, name]
     /// For providers/modules/outputs/variables: [name]
     /// </summary>
-    protected abstract string[] Labels { get; }
+    protected abstract string[] BlockLabels { get; }
 
     /// <summary>
     /// Gets additional properties to write before the main properties dictionary.
@@ -103,7 +103,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
 
         // Build block header: blockType "identifier1" "identifier2" {
         sb.Append($"{context.Indent}{BlockType}");
-        foreach (var identifier in Labels)
+        foreach (var identifier in BlockLabels)
         {
             sb.Append($" \"{identifier}\"");
         }
