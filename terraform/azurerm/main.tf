@@ -9,7 +9,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  
+
   # Skip authentication for schema generation only
   skip_provider_registration = true
 }

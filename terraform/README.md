@@ -5,6 +5,7 @@ This folder contains Terraform configurations for generating provider schemas us
 ## Purpose
 
 These configurations are used to:
+
 1. Lock provider versions for consistent code generation
 2. Generate provider schemas using `terraform providers schema -json`
 3. Serve as the source of truth for which providers and versions to support
@@ -51,6 +52,7 @@ Current provider versions:
 ## Usage in Code Generation
 
 The code generator will:
+
 1. Read these configurations to determine target providers
 2. Run `terraform init` and `terraform providers schema -json` automatically
 3. Parse the resulting schema to generate C# classes

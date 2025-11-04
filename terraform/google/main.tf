@@ -10,7 +10,7 @@ terraform {
 provider "google" {
   project = "schema-generation-project"
   region  = "us-central1"
-  
+
   # Skip authentication for schema generation only
   credentials = "fake-credentials.json"
 }

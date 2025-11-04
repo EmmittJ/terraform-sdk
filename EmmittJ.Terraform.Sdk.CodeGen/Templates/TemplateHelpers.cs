@@ -1,0 +1,62 @@
+using EmmittJ.Terraform.Sdk.CodeGen.Models;
+
+namespace EmmittJ.Terraform.Sdk.CodeGen.Templates;
+
+public static class TemplateHelpers
+{
+    public static string EscapeXmlDoc(string? text)
+    {
+        if (string.IsNullOrEmpty(text))
+            return string.Empty;
+
+        return text
+            .Replace("&", "&amp;")
+            .Replace("<", "&lt;")
+            .Replace(">", "&gt;")
+            .Replace("\"", "&quot;")
+            .Replace("\n", "\n    /// ");
+    }
+
+    public static string GetPropertyWrapper(PropertyModel property)
+    {
+        // Remove nullable from the type for the wrapper
+        var baseType = property.CSharpType.TrimEnd('?');
+        return $"TerraformLiteralProperty<{baseType}>";
+    }
+
+    public static string GetSetterValue(PropertyModel property)
+    {
+        var baseType = property.CSharpType.TrimEnd('?');
+
+        if (property.IsCollection)
+        {
+            return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value)";
+        }
+
+        // For value types that are nullable
+        if (property.CSharpType.EndsWith("?") && !property.CSharpType.Contains("string"))
+        {
+            return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value.Value)";
+        }
+
+        return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value)";
+    }
+
+    public static object PreparePropertyForTemplate(PropertyModel property)
+    {
+        return new
+        {
+            property.Name,
+            property.TerraformName,
+            property.CSharpType,
+            Description = EscapeXmlDoc(property.Description),
+            property.IsRequired,
+            property.IsOptional,
+            property.IsComputed,
+            property.IsSensitive,
+            property.IsDeprecated,
+            PropertyWrapper = GetPropertyWrapper(property),
+            SetterValue = GetSetterValue(property)
+        };
+    }
+}

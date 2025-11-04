@@ -1,0 +1,47 @@
+using EmmittJ.Terraform.Sdk.Resources;
+using EmmittJ.Terraform.Sdk.Context;
+
+namespace {{Namespace}};
+
+/// <summary>
+/// {{Description}}
+/// </summary>
+{{#IsDeprecated}}
+[Obsolete("This resource is deprecated.")]
+{{/IsDeprecated}}
+public class {{ClassName}} : TerraformResource
+{
+    public {{ClassName}}(string name) : base("{{TerraformType}}", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+{{#OutputAttributes}}
+        DeclareOutput("{{TerraformName}}");
+{{/OutputAttributes}}
+    }
+
+{{#Properties}}
+    /// <summary>
+    /// {{Description}}
+    /// </summary>
+{{#IsDeprecated}}
+    [Obsolete("This property is deprecated.")]
+{{/IsDeprecated}}
+    public {{CSharpType}} {{Name}}
+    {
+        get => GetProperty<{{PropertyWrapper}}>("{{TerraformName}}")?.Value;
+        set => WithPropertyInternal("{{TerraformName}}", {{SetterValue}});
+    }
+
+{{/Properties}}
+{{#OutputAttributes}}
+    /// <summary>
+    /// {{Description}}
+    /// </summary>
+    public TerraformExpression {{Name}} => this["{{TerraformName}}"];
+
+{{/OutputAttributes}}
+}
