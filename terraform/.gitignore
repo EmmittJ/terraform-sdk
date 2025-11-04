@@ -1,0 +1,15 @@
+# Terraform files
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+
+# Generated schema files (will be generated during build)
+schema.json
+*-schema.json
+
+# Credentials (should never be committed)
+*.credentials
+*.credentials.json
+fake-credentials.json
