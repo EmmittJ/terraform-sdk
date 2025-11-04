@@ -40,14 +40,14 @@ class Program
             new ProviderConfig
             {
                 Name = "azurerm",
-                Namespace = "EmmittJ.Terraform.Sdk.Providers.Azurerm",
+                Namespace = "EmmittJ.Terraform.Sdk.Providers.AzureRM",
                 FolderPath = "",
                 Version = "~> 4.0"
             },
             new ProviderConfig
             {
                 Name = "azuread",
-                Namespace = "EmmittJ.Terraform.Sdk.Providers.Azuread",
+                Namespace = "EmmittJ.Terraform.Sdk.Providers.AzureAD",
                 FolderPath = "",
                 Version = "~> 3.0"
             },
@@ -120,7 +120,7 @@ class Program
         var dataSources = parser.ParseDataSources(providerSchema, config.Name);
 
         // Step 5: Generate code
-        var outputFolder = Path.Combine(workspaceRoot, $"EmmittJ.Terraform.Sdk.Providers.{ToPascalCase(config.Name)}");
+        var outputFolder = Path.Combine(workspaceRoot, config.Namespace);
         if (Directory.Exists(outputFolder))
         {
             Directory.Delete(outputFolder, recursive: true);
