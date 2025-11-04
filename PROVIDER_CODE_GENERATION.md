@@ -115,30 +115,21 @@ Create a C# tool that:
 
 ### Phase 3: Code Generation
 
-Generate C# classes using one of these approaches:
+Generate C# classes using the following approach:
 
-#### Option A: Source Generators (Recommended)
-
-- Use C# Source Generators to generate code at compile time
-- Read schema files embedded as additional files
-- Pros: Compile-time generation, no pre-build step, IntelliSense support
-- Cons: More complex to implement
-
-#### Option B: T4 Templates
-
-- Use T4 Text Templates to generate code
-- Run as part of the build process
-- Pros: Mature technology, good tooling
-- Cons: Requires Visual Studio or msbuild, less flexible
-
-#### Option C: Standalone Code Generator
+#### Standalone Code Generator
 
 - Create a standalone CLI tool that generates source files
 - Run manually or as a pre-build step
 - Pros: Simple, explicit, easy to debug
 - Cons: Requires manual execution, generated files in source control
 
-**Recommendation**: Start with Option C for simplicity, migrate to Option A for better developer experience.
+#### Source Generators (Future)
+
+- Use C# Source Generators to generate code at compile time
+- Read schema files embedded as additional files
+- Pros: Compile-time generation, no pre-build step, IntelliSense support
+- Cons: More complex to implement
 
 ### Phase 4: Generated Class Structure
 
@@ -248,44 +239,44 @@ public class AwsAmiDataSource : TerraformDataSource
 
 ## Implementation Plan
 
-### Step 1: Create Schema Parser (1-2 days)
+### Step 1: Create Schema Parser ✅ (COMPLETED)
 
-- Create `EmmittJ.Terraform.Sdk.CodeGen` project
-- Implement JSON schema parser
-- Build in-memory model of provider schema
-- Handle type resolution and nested structures
-- Read provider configurations from `terraform/` folder
+- ✅ Create `EmmittJ.Terraform.Sdk.CodeGen` project
+- ✅ Implement JSON schema parser
+- ✅ Build in-memory model of provider schema
+- ✅ Handle type resolution and nested structures
+- ✅ Read provider configurations from `terraform/` folder
 
-### Step 2: Implement Code Generator (2-3 days)
+### Step 2: Implement Code Generator (IN PROGRESS)
 
-- Create template engine (using Scriban or Liquid)
-- Automate schema extraction (`terraform init` and `terraform providers schema -json`)
-- Generate resource classes
-- Generate data source classes
-- Generate nested block classes
-- Handle special cases (computed attributes, sensitive values)
+- ✅ Create template engine (using Mustache via Stubble.Core)
+- ⏳ Automate schema extraction (`terraform init` and `terraform providers schema -json`)
+- ✅ Generate resource classes (template ready)
+- ✅ Generate data source classes (template ready)
+- ⏳ Generate nested block classes
+- ⏳ Handle special cases (computed attributes, sensitive values)
 
-### Step 3: Generate Core Providers (1-2 days)
+### Step 3: Generate Core Providers (NOT STARTED)
 
-- AWS: ~300 resources
-- Azure (azurerm): ~900 resources
-- GCP (google): ~200 resources
+- ⏳ AWS: ~300 resources
+- ⏳ Azure (azurerm): ~900 resources
+- ⏳ GCP (google): ~200 resources
 
 **Strategy**: Start with a subset of commonly used resources, expand incrementally.
 
-### Step 4: Testing & Validation (2-3 days)
+### Step 4: Testing & Validation (NOT STARTED)
 
-- Create integration tests
-- Verify generated code compiles
-- Test against Terraform CLI (`terraform validate`)
-- Compare generated HCL with expected output
+- ⏳ Create integration tests
+- ⏳ Verify generated code compiles
+- ⏳ Test against Terraform CLI (`terraform validate`)
+- ⏳ Compare generated HCL with expected output
 
-### Step 5: Documentation & Packaging (1-2 days)
+### Step 5: Documentation & Packaging (NOT STARTED)
 
-- Generate XML documentation from schema descriptions
-- Create NuGet packages per provider
-- Write usage guides
-- Create samples
+- ⏳ Generate XML documentation from schema descriptions
+- ⏳ Create NuGet packages per provider
+- ⏳ Write usage guides
+- ⏳ Create samples
 
 ## Provider Package Structure
 
