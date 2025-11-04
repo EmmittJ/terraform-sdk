@@ -1,8 +1,8 @@
 using System.Text.Json;
-using EmmittJ.Terraform.Sdk.CodeGen.Models;
-using EmmittJ.Terraform.Sdk.CodeGen.Schema;
+using EmmittJ.Terraform.Sdk.AppHost.Models;
+using EmmittJ.Terraform.Sdk.AppHost.Schema;
 
-namespace EmmittJ.Terraform.Sdk.CodeGen.Parsers;
+namespace EmmittJ.Terraform.Sdk.AppHost.Parsers;
 
 public class SchemaParser
 {

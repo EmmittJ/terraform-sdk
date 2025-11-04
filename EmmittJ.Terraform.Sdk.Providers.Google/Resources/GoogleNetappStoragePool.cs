@@ -217,6 +217,17 @@ public class GoogleNetappStoragePool : TerraformResource
     }
 
     /// <summary>
+    /// Type of the storage pool.
+    /// This field is used to control whether the pool supports FILE based volumes only or UNIFIED (both FILE and BLOCK) volumes.
+    /// If not specified during creation, it defaults to FILE. Possible values: [&amp;quot;STORAGE_POOL_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;UNIFIED&amp;quot;]
+    /// </summary>
+    public string? Type
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
+        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
     /// Specifies the active zone for regional Flex pools. &#39;zone&#39; and &#39;replica_zone&#39; values can be swapped to initiate a
     /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
     /// If you want to create a zonal Flex pool, specify a zone name for &#39;location&#39; and omit &#39;zone&#39;.

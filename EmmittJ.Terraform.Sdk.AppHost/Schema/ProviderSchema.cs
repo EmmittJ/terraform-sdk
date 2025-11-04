@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace EmmittJ.Terraform.Sdk.CodeGen.Schema;
+namespace EmmittJ.Terraform.Sdk.AppHost.Schema;
 
 public class ProviderSchemaRoot
 {

@@ -241,11 +241,11 @@ public class AwsAmiDataSource : TerraformDataSource
 
 ### Step 1: Create Schema Parser ✅ (COMPLETED)
 
-- ✅ Create `EmmittJ.Terraform.Sdk.CodeGen` project
+- ✅ Create `EmmittJ.Terraform.Sdk.AppHost` project with Aspire integration
 - ✅ Implement JSON schema parser
 - ✅ Build in-memory model of provider schema
 - ✅ Handle type resolution and nested structures
-- ✅ Read provider configurations from `terraform/` folder
+- ✅ Read provider configurations and generate via pipeline
 
 ### Step 2: Implement Code Generator (IN PROGRESS)
 

@@ -1,4 +1,4 @@
-namespace EmmittJ.Terraform.Sdk.CodeGen.Models;
+namespace EmmittJ.Terraform.Sdk.AppHost.Models;
 
 public class ProviderConfig
 {

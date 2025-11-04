@@ -174,7 +174,7 @@ public class GoogleAlloydbClusterDataSource : TerraformDataSource
     public TerraformExpression Etag => this["etag"];
 
     /// <summary>
-    /// Initial user to setup during cluster creation.
+    /// Initial user to setup during cluster creation. This must be set for all new Clusters.
     /// </summary>
     public TerraformExpression InitialUser => this["initial_user"];
 

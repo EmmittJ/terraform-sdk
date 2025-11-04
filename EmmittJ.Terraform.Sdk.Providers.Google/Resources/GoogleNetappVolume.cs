@@ -143,7 +143,7 @@ public class GoogleNetappVolume : TerraformResource
     }
 
     /// <summary>
-    /// The protocol of the volume. Allowed combinations are &#39;[&#39;NFSV3&#39;]&#39;, &#39;[&#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;]&#39;, &#39;[&#39;NFSV3&#39;, &#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;, &#39;NFSV3&#39;]&#39; and &#39;[&#39;SMB&#39;, &#39;NFSV4&#39;]&#39;. Possible values: [&amp;quot;NFSV3&amp;quot;, &amp;quot;NFSV4&amp;quot;, &amp;quot;SMB&amp;quot;]
+    /// The protocol of the volume. Allowed combinations are &#39;[&#39;NFSV3&#39;]&#39;, &#39;[&#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;]&#39;, &#39;[&#39;NFSV3&#39;, &#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;, &#39;NFSV3&#39;]&#39; and &#39;[&#39;SMB&#39;, &#39;NFSV4&#39;]&#39;. Possible values: [&amp;quot;NFSV3&amp;quot;, &amp;quot;NFSV4&amp;quot;, &amp;quot;SMB&amp;quot;, &amp;quot;ISCSI&amp;quot;]
     /// </summary>
     public List<string>? Protocols
     {

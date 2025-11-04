@@ -1,8 +1,8 @@
 using Stubble.Core;
 using Stubble.Core.Builders;
-using EmmittJ.Terraform.Sdk.CodeGen.Models;
+using EmmittJ.Terraform.Sdk.AppHost.Models;
 
-namespace EmmittJ.Terraform.Sdk.CodeGen.Templates;
+namespace EmmittJ.Terraform.Sdk.AppHost.Templates;
 
 public class ResourceTemplate
 {

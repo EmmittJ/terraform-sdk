@@ -18,6 +18,7 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
         this.DeclareOutput("creation_timestamp");
         this.DeclareOutput("description");
         this.DeclareOutput("grpc_health_check");
+        this.DeclareOutput("grpc_tls_health_check");
         this.DeclareOutput("healthy_threshold");
         this.DeclareOutput("http2_health_check");
         this.DeclareOutput("http_health_check");
@@ -86,6 +87,11 @@ public class GoogleComputeHealthCheckDataSource : TerraformDataSource
     /// A nested object resource.
     /// </summary>
     public TerraformExpression GrpcHealthCheck => this["grpc_health_check"];
+
+    /// <summary>
+    /// A nested object resource.
+    /// </summary>
+    public TerraformExpression GrpcTlsHealthCheck => this["grpc_tls_health_check"];
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many

@@ -3,11 +3,11 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
-/// Manages a google_network_management_vpc_flow_logs_config resource.
+/// Manages a google_network_management_organization_vpc_flow_logs_config resource.
 /// </summary>
-public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
+public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformResource
 {
-    public GoogleNetworkManagementVpcFlowLogsConfig(string name) : base("google_network_management_vpc_flow_logs_config", name)
+    public GoogleNetworkManagementOrganizationVpcFlowLogsConfig(string name) : base("google_network_management_organization_vpc_flow_logs_config", name)
     {
         InitializeOutputs();
     }
@@ -17,19 +17,32 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
         this.DeclareOutput("create_time");
         this.DeclareOutput("effective_labels");
         this.DeclareOutput("name");
-        this.DeclareOutput("target_resource_state");
         this.DeclareOutput("terraform_labels");
         this.DeclareOutput("update_time");
     }
 
     /// <summary>
     /// Optional. The aggregation interval for the logs. Default value is
-    /// INTERVAL_5_SEC.   Possible values:  AGGREGATION_INTERVAL_UNSPECIFIED INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
+    /// INTERVAL_5_SEC.   Possible values: INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
     /// </summary>
     public string? AggregationInterval
     {
         get => GetProperty<TerraformLiteralProperty<string>>("aggregation_interval")?.Value;
         set => this.WithProperty("aggregation_interval", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Determines whether to include cross project annotations in the logs.
+    /// This field is available only for organization configurations. If not
+    /// specified in org configs will be set to CROSS_PROJECT_METADATA_ENABLED.
+    /// Possible values:
+    /// CROSS_PROJECT_METADATA_ENABLED
+    /// CROSS_PROJECT_METADATA_DISABLED Possible values: [&amp;quot;CROSS_PROJECT_METADATA_ENABLED&amp;quot;, &amp;quot;CROSS_PROJECT_METADATA_DISABLED&amp;quot;]
+    /// </summary>
+    public string? CrossProjectMetadata
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("cross_project_metadata")?.Value;
+        set => this.WithProperty("cross_project_metadata", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -55,7 +68,7 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// Optional. The value of the field must be in (0, 1]. The sampling rate
     /// of VPC Flow Logs where 1.0 means all collected logs are reported. Setting the
     /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
-    /// the state field instead. Default value is 1.0.
+    /// the state field instead. Default value is 1.0
     /// </summary>
     public double? FlowSampling
     {
@@ -73,16 +86,7 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     }
 
     /// <summary>
-    /// Traffic will be logged from the Interconnect Attachment. Format: projects/{project_id}/regions/{region}/interconnectAttachments/{name}
-    /// </summary>
-    public string? InterconnectAttachment
-    {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_attachment")?.Value;
-        set => this.WithProperty("interconnect_attachment", value == null ? null : new TerraformLiteralProperty<string>(value));
-    }
-
-    /// <summary>
-    /// Optional. Resource labels to represent user-provided metadata.
+    /// Optional. Resource labels to represent the user-provided metadata.
     /// 
     /// 
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
@@ -127,41 +131,23 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     }
 
     /// <summary>
-    /// Traffic will be logged from VMs, VPN tunnels and Interconnect Attachments within the network. Format: projects/{project_id}/global/networks/{name}
+    /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public string? Network
+    public string? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
-    }
-
-    /// <summary>
-    /// The project attribute.
-    /// </summary>
-    public string? Project
-    {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization")?.Value;
+        set => this.WithProperty("organization", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// Optional. The state of the VPC Flow Log configuration. Default value
     /// is ENABLED. When creating a new configuration, it must be enabled.
-    /// Possible values: STATE_UNSPECIFIED ENABLED DISABLED
+    /// Possible values: ENABLED DISABLED
     /// </summary>
     public string? State
     {
         get => GetProperty<TerraformLiteralProperty<string>>("state")?.Value;
         set => this.WithProperty("state", value == null ? null : new TerraformLiteralProperty<string>(value));
-    }
-
-    /// <summary>
-    /// Traffic will be logged from VMs within the subnetwork. Format: projects/{project_id}/regions/{region}/subnetworks/{name}
-    /// </summary>
-    public string? Subnet
-    {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet")?.Value;
-        set => this.WithProperty("subnet", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -171,15 +157,6 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     {
         get => GetProperty<TerraformLiteralProperty<string>>("vpc_flow_logs_config_id")?.Value;
         set => this.WithProperty("vpc_flow_logs_config_id", value == null ? null : new TerraformLiteralProperty<string>(value));
-    }
-
-    /// <summary>
-    /// Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name}
-    /// </summary>
-    public string? VpnTunnel
-    {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_tunnel")?.Value;
-        set => this.WithProperty("vpn_tunnel", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -193,19 +170,9 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     public TerraformExpression EffectiveLabels => this["effective_labels"];
 
     /// <summary>
-    /// Identifier. Unique name of the configuration using the form:     &#39;projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}&#39;
+    /// Identifier. Unique name of the configuration using the form:     &#39;organizations/{org_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}&#39;
     /// </summary>
     public TerraformExpression Name => this["name"];
-
-    /// <summary>
-    /// Describes the state of the configured target resource for diagnostic
-    /// purposes.
-    /// Possible values:
-    /// TARGET_RESOURCE_STATE_UNSPECIFIED
-    /// TARGET_RESOURCE_EXISTS
-    /// TARGET_RESOURCE_DOES_NOT_EXIST
-    /// </summary>
-    public TerraformExpression TargetResourceState => this["target_resource_state"];
 
     /// <summary>
     /// The combination of labels configured directly on the resource

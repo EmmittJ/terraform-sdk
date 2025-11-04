@@ -3,34 +3,39 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Google;
 
 /// <summary>
-/// Manages a google_eventarc_channel resource.
+/// Manages a google_netapp_host_group resource.
 /// </summary>
-public class GoogleEventarcChannel : TerraformResource
+public class GoogleNetappHostGroup : TerraformResource
 {
-    public GoogleEventarcChannel(string name) : base("google_eventarc_channel", name)
+    public GoogleNetappHostGroup(string name) : base("google_netapp_host_group", name)
     {
         InitializeOutputs();
     }
 
     private void InitializeOutputs()
     {
-        this.DeclareOutput("activation_token");
         this.DeclareOutput("create_time");
         this.DeclareOutput("effective_labels");
-        this.DeclareOutput("pubsub_topic");
         this.DeclareOutput("state");
         this.DeclareOutput("terraform_labels");
-        this.DeclareOutput("uid");
-        this.DeclareOutput("update_time");
     }
 
     /// <summary>
-    /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern &#39;projects/*/locations/*/keyRings/*/cryptoKeys/*&#39;.
+    /// An optional description of this resource.
     /// </summary>
-    public string? CryptoKeyName
+    public string? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_name")?.Value;
-        set => this.WithProperty("crypto_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
+        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The list of hosts associated with the host group
+    /// </summary>
+    public List<string>? Hosts
+    {
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("hosts")?.Value;
+        set => this.WithProperty("hosts", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     /// <summary>
@@ -43,7 +48,8 @@ public class GoogleEventarcChannel : TerraformResource
     }
 
     /// <summary>
-    /// User-defined labels for the channel.
+    /// Labels as key value pairs. Example: &#39;{ &amp;quot;owner&amp;quot;: &amp;quot;Bob&amp;quot;, &amp;quot;department&amp;quot;: &amp;quot;finance&amp;quot;, &amp;quot;purpose&amp;quot;: &amp;quot;testing&amp;quot; }&#39;.
+    /// 
     /// 
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
@@ -55,7 +61,7 @@ public class GoogleEventarcChannel : TerraformResource
     }
 
     /// <summary>
-    /// The location for the resource
+    /// Location (region) of the Host Group.
     /// </summary>
     public string? Location
     {
@@ -64,12 +70,23 @@ public class GoogleEventarcChannel : TerraformResource
     }
 
     /// <summary>
-    /// The resource name of the channel. Must be unique within the location on the project.
+    /// The resource name of the Host Group. Needs to be unique per location.
     /// </summary>
     public string? Name
     {
         get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
         set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The OS type of the host group. It indicates the type of operating system
+    /// used by all of the hosts in the HostGroup. All hosts in a HostGroup must be
+    /// of the same OS type. This can be set only when creating a HostGroup. Possible values: [&amp;quot;LINUX&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;ESXI&amp;quot;]
+    /// </summary>
+    public string? OsType
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("os_type")?.Value;
+        set => this.WithProperty("os_type", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -82,21 +99,16 @@ public class GoogleEventarcChannel : TerraformResource
     }
 
     /// <summary>
-    /// The name of the event provider (e.g. Eventarc SaaS partner) associated with the channel. This provider will be granted permissions to publish events to the channel. Format: &#39;projects/{project}/locations/{location}/providers/{provider_id}&#39;.
+    /// Type of the host group. Possible values: [&amp;quot;ISCSI_INITIATOR&amp;quot;]
     /// </summary>
-    public string? ThirdPartyProvider
+    public string? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("third_party_provider")?.Value;
-        set => this.WithProperty("third_party_provider", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
+        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
-    /// The activation token for the channel. The token must be used by the provider to register the channel for publishing.
-    /// </summary>
-    public TerraformExpression ActivationToken => this["activation_token"];
-
-    /// <summary>
-    /// The creation time.
+    /// Create time of the host group. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format. Examples: &amp;quot;2023-06-22T09:13:01.617Z&amp;quot;.
     /// </summary>
     public TerraformExpression CreateTime => this["create_time"];
 
@@ -106,12 +118,7 @@ public class GoogleEventarcChannel : TerraformResource
     public TerraformExpression EffectiveLabels => this["effective_labels"];
 
     /// <summary>
-    /// The name of the Pub/Sub topic created and managed by Eventarc system as a transport for the event delivery. Format: &#39;projects/{project}/topics/{topic_id}&#39;.
-    /// </summary>
-    public TerraformExpression PubsubTopic => this["pubsub_topic"];
-
-    /// <summary>
-    /// The state of a Channel.
+    /// The state of the Host Group.
     /// </summary>
     public TerraformExpression State => this["state"];
 
@@ -120,15 +127,5 @@ public class GoogleEventarcChannel : TerraformResource
     ///  and default labels configured on the provider.
     /// </summary>
     public TerraformExpression TerraformLabels => this["terraform_labels"];
-
-    /// <summary>
-    /// Server assigned unique identifier for the channel. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
-    /// </summary>
-    public TerraformExpression Uid => this["uid"];
-
-    /// <summary>
-    /// The last-modified time.
-    /// </summary>
-    public TerraformExpression UpdateTime => this["update_time"];
 
 }

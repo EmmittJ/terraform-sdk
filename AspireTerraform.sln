@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk", "Em
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.Tests", "EmmittJ.Terraform.Sdk.Tests\EmmittJ.Terraform.Sdk.Tests.csproj", "{BF06E7EE-0770-4DA3-9568-C833A7229B05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.CodeGen", "EmmittJ.Terraform.Sdk.CodeGen\EmmittJ.Terraform.Sdk.CodeGen.csproj", "{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.AppHost", "EmmittJ.Terraform.Sdk.AppHost\EmmittJ.Terraform.Sdk.AppHost.csproj", "{400AC2DA-A46C-417B-B1A1-F580490E29FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,18 +43,18 @@ Global
 		{BF06E7EE-0770-4DA3-9568-C833A7229B05}.Release|x64.Build.0 = Release|Any CPU
 		{BF06E7EE-0770-4DA3-9568-C833A7229B05}.Release|x86.ActiveCfg = Release|Any CPU
 		{BF06E7EE-0770-4DA3-9568-C833A7229B05}.Release|x86.Build.0 = Release|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Debug|x64.Build.0 = Debug|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Debug|x86.Build.0 = Debug|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Release|x64.ActiveCfg = Release|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Release|x64.Build.0 = Release|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Release|x86.ActiveCfg = Release|Any CPU
-		{02AD20BD-82CD-4EA0-9AD5-81F8C7299FDF}.Release|x86.Build.0 = Release|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Debug|x64.Build.0 = Debug|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Debug|x86.Build.0 = Debug|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Release|x64.ActiveCfg = Release|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Release|x64.Build.0 = Release|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Release|x86.ActiveCfg = Release|Any CPU
+		{400AC2DA-A46C-417B-B1A1-F580490E29FF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
