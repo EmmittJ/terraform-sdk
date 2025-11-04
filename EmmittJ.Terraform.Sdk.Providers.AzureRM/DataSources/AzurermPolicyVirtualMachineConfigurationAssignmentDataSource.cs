@@ -1,0 +1,91 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+/// <summary>
+/// Retrieves information about a azurerm_policy_virtual_machine_configuration_assignment.
+/// </summary>
+public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : TerraformDataSource
+{
+    public AzurermPolicyVirtualMachineConfigurationAssignmentDataSource(string name) : base("azurerm_policy_virtual_machine_configuration_assignment", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("assignment_hash");
+        this.DeclareOutput("compliance_status");
+        this.DeclareOutput("content_hash");
+        this.DeclareOutput("content_uri");
+        this.DeclareOutput("last_compliance_status_checked");
+        this.DeclareOutput("latest_report_id");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    public string? ResourceGroupName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
+        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The virtual_machine_name attribute.
+    /// </summary>
+    public string? VirtualMachineName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_name")?.Value;
+        set => this.WithProperty("virtual_machine_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The assignment_hash attribute.
+    /// </summary>
+    public TerraformExpression AssignmentHash => this["assignment_hash"];
+
+    /// <summary>
+    /// The compliance_status attribute.
+    /// </summary>
+    public TerraformExpression ComplianceStatus => this["compliance_status"];
+
+    /// <summary>
+    /// The content_hash attribute.
+    /// </summary>
+    public TerraformExpression ContentHash => this["content_hash"];
+
+    /// <summary>
+    /// The content_uri attribute.
+    /// </summary>
+    public TerraformExpression ContentUri => this["content_uri"];
+
+    /// <summary>
+    /// The last_compliance_status_checked attribute.
+    /// </summary>
+    public TerraformExpression LastComplianceStatusChecked => this["last_compliance_status_checked"];
+
+    /// <summary>
+    /// The latest_report_id attribute.
+    /// </summary>
+    public TerraformExpression LatestReportId => this["latest_report_id"];
+
+}

@@ -1,0 +1,243 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Retrieves information about a google_cloudbuild_trigger.
+/// </summary>
+public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
+{
+    public GoogleCloudbuildTriggerDataSource(string name) : base("google_cloudbuild_trigger", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("approval_config");
+        this.DeclareOutput("bitbucket_server_trigger_config");
+        this.DeclareOutput("build");
+        this.DeclareOutput("create_time");
+        this.DeclareOutput("description");
+        this.DeclareOutput("developer_connect_event_config");
+        this.DeclareOutput("disabled");
+        this.DeclareOutput("filename");
+        this.DeclareOutput("filter");
+        this.DeclareOutput("git_file_source");
+        this.DeclareOutput("github");
+        this.DeclareOutput("ignored_files");
+        this.DeclareOutput("include_build_logs");
+        this.DeclareOutput("included_files");
+        this.DeclareOutput("name");
+        this.DeclareOutput("pubsub_config");
+        this.DeclareOutput("repository_event_config");
+        this.DeclareOutput("service_account");
+        this.DeclareOutput("source_to_build");
+        this.DeclareOutput("substitutions");
+        this.DeclareOutput("tags");
+        this.DeclareOutput("trigger_template");
+        this.DeclareOutput("webhook_config");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
+    /// If not specified, &amp;quot;global&amp;quot; is used.
+    /// </summary>
+    public string? Location
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
+        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public string? Project
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
+        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The unique identifier for the trigger.
+    /// </summary>
+    public string? TriggerId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("trigger_id")?.Value;
+        set => this.WithProperty("trigger_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Configuration for manual approval to start a build invocation of this BuildTrigger.
+    /// Builds created by this trigger will require approval before they execute.
+    /// Any user with a Cloud Build Approver role for the project can approve a build.
+    /// </summary>
+    public TerraformExpression ApprovalConfig => this["approval_config"];
+
+    /// <summary>
+    /// BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received.
+    /// </summary>
+    public TerraformExpression BitbucketServerTriggerConfig => this["bitbucket_server_trigger_config"];
+
+    /// <summary>
+    /// Contents of the build template. Either a filename or build template must be provided.
+    /// </summary>
+    public TerraformExpression Build => this["build"];
+
+    /// <summary>
+    /// Time when the trigger was created.
+    /// </summary>
+    public TerraformExpression CreateTime => this["create_time"];
+
+    /// <summary>
+    /// Human-readable description of the trigger.
+    /// </summary>
+    public TerraformExpression Description => this["description"];
+
+    /// <summary>
+    /// Configuration for triggers that respond to Developer Connect events.
+    /// </summary>
+    public TerraformExpression DeveloperConnectEventConfig => this["developer_connect_event_config"];
+
+    /// <summary>
+    /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
+    /// </summary>
+    public TerraformExpression Disabled => this["disabled"];
+
+    /// <summary>
+    /// Path, from the source root, to a file whose contents is used for the template.
+    /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
+    /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
+    /// </summary>
+    public TerraformExpression Filename => this["filename"];
+
+    /// <summary>
+    /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
+    /// </summary>
+    public TerraformExpression Filter => this["filter"];
+
+    /// <summary>
+    /// The file source describing the local or remote Build template.
+    /// </summary>
+    public TerraformExpression GitFileSource => this["git_file_source"];
+
+    /// <summary>
+    /// Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
+    /// 
+    /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; or &#39;webhook_config&#39; must be provided.
+    /// </summary>
+    public TerraformExpression Github => this["github"];
+
+    /// <summary>
+    /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
+    /// extended with support for &#39;**&#39;.
+    /// 
+    /// If ignoredFiles and changed files are both empty, then they are not
+    /// used to determine whether or not to trigger a build.
+    /// 
+    /// If ignoredFiles is not empty, then we ignore any files that match any
+    /// of the ignored_file globs. If the change has no files that are outside
+    /// of the ignoredFiles globs, then we do not trigger a build.
+    /// </summary>
+    public TerraformExpression IgnoredFiles => this["ignored_files"];
+
+    /// <summary>
+    /// Build logs will be sent back to GitHub as part of the checkrun
+    /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
+    /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
+    /// </summary>
+    public TerraformExpression IncludeBuildLogs => this["include_build_logs"];
+
+    /// <summary>
+    /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
+    /// extended with support for &#39;**&#39;.
+    /// 
+    /// If any of the files altered in the commit pass the ignoredFiles filter
+    /// and includedFiles is empty, then as far as this filter is concerned, we
+    /// should trigger the build.
+    /// 
+    /// If any of the files altered in the commit pass the ignoredFiles filter
+    /// and includedFiles is not empty, then we make sure that at least one of
+    /// those files matches a includedFiles glob. If not, then we do not trigger
+    /// a build.
+    /// </summary>
+    public TerraformExpression IncludedFiles => this["included_files"];
+
+    /// <summary>
+    /// Name of the trigger. Must be unique within the project.
+    /// </summary>
+    public TerraformExpression Name => this["name"];
+
+    /// <summary>
+    /// PubsubConfig describes the configuration of a trigger that creates
+    /// a build whenever a Pub/Sub message is published.
+    /// 
+    /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
+    /// </summary>
+    public TerraformExpression PubsubConfig => this["pubsub_config"];
+
+    /// <summary>
+    /// The configuration of a trigger that creates a build whenever an event from Repo API is received.
+    /// </summary>
+    public TerraformExpression RepositoryEventConfig => this["repository_event_config"];
+
+    /// <summary>
+    /// The service account used for all user-controlled operations including
+    /// triggers.patch, triggers.run, builds.create, and builds.cancel.
+    /// 
+    /// If no service account is set, then the standard Cloud Build service account
+    /// ([PROJECT_NUM]@system.gserviceaccount.com) will be used instead.
+    /// 
+    /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
+    /// </summary>
+    public TerraformExpression ServiceAccount => this["service_account"];
+
+    /// <summary>
+    /// The repo and ref of the repository from which to build.
+    /// This field is used only for those triggers that do not respond to SCM events.
+    /// Triggers that respond to such events build source at whatever commit caused the event.
+    /// This field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.
+    /// 
+    /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
+    /// </summary>
+    public TerraformExpression SourceToBuild => this["source_to_build"];
+
+    /// <summary>
+    /// Substitutions data for Build resource.
+    /// </summary>
+    public TerraformExpression Substitutions => this["substitutions"];
+
+    /// <summary>
+    /// Tags for annotation of a BuildTrigger
+    /// </summary>
+    public TerraformExpression Tags => this["tags"];
+
+    /// <summary>
+    /// Template describing the types of source changes to trigger a build.
+    /// 
+    /// Branch and tag names in trigger templates are interpreted as regular
+    /// expressions. Any branch or tag change that matches that regular
+    /// expression will trigger a build.
+    /// 
+    /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39;, &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
+    /// </summary>
+    public TerraformExpression TriggerTemplate => this["trigger_template"];
+
+    /// <summary>
+    /// WebhookConfig describes the configuration of a trigger that creates
+    /// a build whenever a webhook is sent to a trigger&#39;s webhook URL.
+    /// 
+    /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
+    /// </summary>
+    public TerraformExpression WebhookConfig => this["webhook_config"];
+
+}

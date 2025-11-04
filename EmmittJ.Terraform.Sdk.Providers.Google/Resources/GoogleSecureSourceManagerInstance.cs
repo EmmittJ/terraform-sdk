@@ -1,0 +1,142 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Manages a google_secure_source_manager_instance resource.
+/// </summary>
+public class GoogleSecureSourceManagerInstance : TerraformResource
+{
+    public GoogleSecureSourceManagerInstance(string name) : base("google_secure_source_manager_instance", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("create_time");
+        this.DeclareOutput("effective_labels");
+        this.DeclareOutput("host_config");
+        this.DeclareOutput("name");
+        this.DeclareOutput("state");
+        this.DeclareOutput("state_note");
+        this.DeclareOutput("terraform_labels");
+        this.DeclareOutput("update_time");
+    }
+
+    /// <summary>
+    /// The deletion policy for the instance. Setting &#39;ABANDON&#39; allows the resource
+    /// to be abandoned, rather than deleted. Setting &#39;DELETE&#39; deletes the resource
+    /// and all its contents. Setting &#39;PREVENT&#39; prevents the resource from accidental
+    /// deletion by erroring out during plan.
+    /// Default is &#39;PREVENT&#39;.  Possible values are:
+    ///   * DELETE
+    ///   * PREVENT
+    ///   * ABANDON
+    /// </summary>
+    public string? DeletionPolicy
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
+        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name for the Instance.
+    /// </summary>
+    public string? InstanceId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_id")?.Value;
+        set => this.WithProperty("instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Customer-managed encryption key name, in the format projects/*/locations/*/keyRings/*/cryptoKeys/*.
+    /// </summary>
+    public string? KmsKey
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key")?.Value;
+        set => this.WithProperty("kms_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Labels as key value pairs.
+    /// 
+    /// 
+    /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+    /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
+    /// </summary>
+    public Dictionary<string, string>? Labels
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
+        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The location for the Instance.
+    /// </summary>
+    public string? Location
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
+        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public string? Project
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
+        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Time the Instance was created in UTC.
+    /// </summary>
+    public TerraformExpression CreateTime => this["create_time"];
+
+    /// <summary>
+    /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
+    /// </summary>
+    public TerraformExpression EffectiveLabels => this["effective_labels"];
+
+    /// <summary>
+    /// A list of hostnames for this instance.
+    /// </summary>
+    public TerraformExpression HostConfig => this["host_config"];
+
+    /// <summary>
+    /// The resource name for the Instance.
+    /// </summary>
+    public TerraformExpression Name => this["name"];
+
+    /// <summary>
+    /// The current state of the Instance.
+    /// </summary>
+    public TerraformExpression State => this["state"];
+
+    /// <summary>
+    /// Provides information about the current instance state.
+    /// </summary>
+    public TerraformExpression StateNote => this["state_note"];
+
+    /// <summary>
+    /// The combination of labels configured directly on the resource
+    ///  and default labels configured on the provider.
+    /// </summary>
+    public TerraformExpression TerraformLabels => this["terraform_labels"];
+
+    /// <summary>
+    /// Time the Instance was updated in UTC.
+    /// </summary>
+    public TerraformExpression UpdateTime => this["update_time"];
+
+}

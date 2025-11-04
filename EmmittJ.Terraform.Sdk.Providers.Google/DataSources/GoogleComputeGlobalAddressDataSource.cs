@@ -1,0 +1,106 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Retrieves information about a google_compute_global_address.
+/// </summary>
+public class GoogleComputeGlobalAddressDataSource : TerraformDataSource
+{
+    public GoogleComputeGlobalAddressDataSource(string name) : base("google_compute_global_address", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("address");
+        this.DeclareOutput("address_type");
+        this.DeclareOutput("network");
+        this.DeclareOutput("network_tier");
+        this.DeclareOutput("prefix_length");
+        this.DeclareOutput("purpose");
+        this.DeclareOutput("self_link");
+        this.DeclareOutput("status");
+        this.DeclareOutput("subnetwork");
+        this.DeclareOutput("users");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public string? Project
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
+        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The address attribute.
+    /// </summary>
+    public TerraformExpression Address => this["address"];
+
+    /// <summary>
+    /// The address_type attribute.
+    /// </summary>
+    public TerraformExpression AddressType => this["address_type"];
+
+    /// <summary>
+    /// The network attribute.
+    /// </summary>
+    public TerraformExpression Network => this["network"];
+
+    /// <summary>
+    /// The network_tier attribute.
+    /// </summary>
+    public TerraformExpression NetworkTier => this["network_tier"];
+
+    /// <summary>
+    /// The prefix_length attribute.
+    /// </summary>
+    public TerraformExpression PrefixLength => this["prefix_length"];
+
+    /// <summary>
+    /// The purpose attribute.
+    /// </summary>
+    public TerraformExpression Purpose => this["purpose"];
+
+    /// <summary>
+    /// The self_link attribute.
+    /// </summary>
+    public TerraformExpression SelfLink => this["self_link"];
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformExpression Status => this["status"];
+
+    /// <summary>
+    /// The subnetwork attribute.
+    /// </summary>
+    public TerraformExpression Subnetwork => this["subnetwork"];
+
+    /// <summary>
+    /// The users attribute.
+    /// </summary>
+    public TerraformExpression Users => this["users"];
+
+}

@@ -1,0 +1,94 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+/// <summary>
+/// Retrieves information about a azurerm_maintenance_configuration.
+/// </summary>
+public class AzurermMaintenanceConfigurationDataSource : TerraformDataSource
+{
+    public AzurermMaintenanceConfigurationDataSource(string name) : base("azurerm_maintenance_configuration", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("in_guest_user_patch_mode");
+        this.DeclareOutput("install_patches");
+        this.DeclareOutput("location");
+        this.DeclareOutput("properties");
+        this.DeclareOutput("scope");
+        this.DeclareOutput("tags");
+        this.DeclareOutput("visibility");
+        this.DeclareOutput("window");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    public string? ResourceGroupName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
+        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The in_guest_user_patch_mode attribute.
+    /// </summary>
+    public TerraformExpression InGuestUserPatchMode => this["in_guest_user_patch_mode"];
+
+    /// <summary>
+    /// The install_patches attribute.
+    /// </summary>
+    public TerraformExpression InstallPatches => this["install_patches"];
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformExpression Location => this["location"];
+
+    /// <summary>
+    /// The properties attribute.
+    /// </summary>
+    public TerraformExpression Properties => this["properties"];
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    public TerraformExpression Scope => this["scope"];
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformExpression Tags => this["tags"];
+
+    /// <summary>
+    /// The visibility attribute.
+    /// </summary>
+    public TerraformExpression Visibility => this["visibility"];
+
+    /// <summary>
+    /// The window attribute.
+    /// </summary>
+    public TerraformExpression Window => this["window"];
+
+}

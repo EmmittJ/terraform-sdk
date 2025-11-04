@@ -1,0 +1,176 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Manages a google_vertex_ai_endpoint resource.
+/// </summary>
+public class GoogleVertexAiEndpoint : TerraformResource
+{
+    public GoogleVertexAiEndpoint(string name) : base("google_vertex_ai_endpoint", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("create_time");
+        this.DeclareOutput("dedicated_endpoint_dns");
+        this.DeclareOutput("deployed_models");
+        this.DeclareOutput("effective_labels");
+        this.DeclareOutput("etag");
+        this.DeclareOutput("model_deployment_monitoring_job");
+        this.DeclareOutput("terraform_labels");
+        this.DeclareOutput("update_time");
+    }
+
+    /// <summary>
+    /// If true, the endpoint will be exposed through a dedicated DNS [Endpoint.dedicated_endpoint_dns]. Your request to the dedicated DNS will be isolated from other users&#39; traffic and will have better performance and reliability. Note: Once you enabled dedicated endpoint, you won&#39;t be able to send request to the shared DNS {region}-aiplatform.googleapis.com. The limitation will be removed soon.
+    /// </summary>
+    public bool? DedicatedEndpointEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("dedicated_endpoint_enabled")?.Value;
+        set => this.WithProperty("dedicated_endpoint_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// The description of the Endpoint.
+    /// </summary>
+    public string? Description
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
+        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Required. The display name of the Endpoint. The name can be up to 128 characters long and can consist of any UTF-8 characters.
+    /// </summary>
+    public string? DisplayName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
+        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The labels with user-defined metadata to organize your Endpoints. Label keys and values can be no longer than 64 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. See https://goo.gl/xmQnxf for more information and examples of labels.
+    /// 
+    /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+    /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
+    /// </summary>
+    public Dictionary<string, string>? Labels
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
+        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The location for the resource
+    /// </summary>
+    public string? Location
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
+        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The resource name of the Endpoint. The name must be numeric with no leading zeros and can be at most 10 digits.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The full name of the Google Compute Engine [network](https://cloud.google.com//compute/docs/networks-and-firewalls#networks) to which the Endpoint should be peered. Private services access must already be configured for the network. If left unspecified, the Endpoint is not peered with any network. Only one of the fields, network or enable_private_service_connect, can be set. [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert): &#39;projects/{project}/global/networks/{network}&#39;. Where &#39;{project}&#39; is a project number, as in &#39;12345&#39;, and &#39;{network}&#39; is network name. Only one of the fields, &#39;network&#39; or &#39;privateServiceConnectConfig&#39;, can be set.
+    /// </summary>
+    public string? Network
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
+        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public string? Project
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
+        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The region for the resource
+    /// </summary>
+    public string? Region
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
+        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// A map from a DeployedModel&#39;s id to the percentage of this Endpoint&#39;s traffic that should be forwarded to that DeployedModel.
+    /// If a DeployedModel&#39;s id is not listed in this map, then it receives no traffic.
+    /// The traffic percentage values must add up to 100, or map must be empty if the Endpoint is to not accept any traffic at a moment. See
+    /// the &#39;deployModel&#39; [example](https://cloud.google.com/vertex-ai/docs/general/deployment#deploy_a_model_to_an_endpoint) and
+    /// [documentation](https://cloud.google.com/vertex-ai/docs/reference/rest/v1beta1/projects.locations.endpoints/deployModel) for more information.
+    /// 
+    /// ~&amp;gt; **Note:** To set the map to empty, set &#39;&amp;quot;{}&amp;quot;&#39;, apply, and then remove the field from your config.
+    /// </summary>
+    public string? TrafficSplit
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("traffic_split")?.Value;
+        set => this.WithProperty("traffic_split", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Output only. Timestamp when this Endpoint was created.
+    /// </summary>
+    public TerraformExpression CreateTime => this["create_time"];
+
+    /// <summary>
+    /// Output only. DNS of the dedicated endpoint. Will only be populated if dedicatedEndpointEnabled is true. Format: &#39;https://{endpointId}.{region}-{projectNumber}.prediction.vertexai.goog&#39;.
+    /// </summary>
+    public TerraformExpression DedicatedEndpointDns => this["dedicated_endpoint_dns"];
+
+    /// <summary>
+    /// Output only. The models deployed in this Endpoint. To add or remove DeployedModels use EndpointService.DeployModel and EndpointService.UndeployModel respectively. Models can also be deployed and undeployed using the [Cloud Console](https://console.cloud.google.com/vertex-ai/).
+    /// </summary>
+    public TerraformExpression DeployedModels => this["deployed_models"];
+
+    /// <summary>
+    /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
+    /// </summary>
+    public TerraformExpression EffectiveLabels => this["effective_labels"];
+
+    /// <summary>
+    /// Used to perform consistent read-modify-write updates. If not set, a blind &amp;quot;overwrite&amp;quot; update happens.
+    /// </summary>
+    public TerraformExpression Etag => this["etag"];
+
+    /// <summary>
+    /// Output only. Resource name of the Model Monitoring job associated with this Endpoint if monitoring is enabled by CreateModelDeploymentMonitoringJob. Format: &#39;projects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}&#39;
+    /// </summary>
+    public TerraformExpression ModelDeploymentMonitoringJob => this["model_deployment_monitoring_job"];
+
+    /// <summary>
+    /// The combination of labels configured directly on the resource
+    ///  and default labels configured on the provider.
+    /// </summary>
+    public TerraformExpression TerraformLabels => this["terraform_labels"];
+
+    /// <summary>
+    /// Output only. Timestamp when this Endpoint was last updated.
+    /// </summary>
+    public TerraformExpression UpdateTime => this["update_time"];
+
+}

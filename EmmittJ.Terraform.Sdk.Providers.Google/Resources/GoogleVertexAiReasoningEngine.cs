@@ -1,0 +1,85 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Manages a google_vertex_ai_reasoning_engine resource.
+/// </summary>
+public class GoogleVertexAiReasoningEngine : TerraformResource
+{
+    public GoogleVertexAiReasoningEngine(string name) : base("google_vertex_ai_reasoning_engine", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("create_time");
+        this.DeclareOutput("name");
+        this.DeclareOutput("update_time");
+    }
+
+    /// <summary>
+    /// The description of the ReasoningEngine.
+    /// </summary>
+    public string? Description
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
+        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The display name of the ReasoningEngine.
+    /// </summary>
+    public string? DisplayName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
+        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public string? Project
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
+        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The region of the reasoning engine. eg us-central1
+    /// </summary>
+    public string? Region
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
+        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
+    /// with nanosecond resolution and up to nine fractional digits.
+    /// </summary>
+    public TerraformExpression CreateTime => this["create_time"];
+
+    /// <summary>
+    /// The generated name of the ReasoningEngine, in the format
+    /// &#39;projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}&#39;
+    /// </summary>
+    public TerraformExpression Name => this["name"];
+
+    /// <summary>
+    /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
+    /// with nanosecond resolution and up to nine fractional digits.
+    /// </summary>
+    public TerraformExpression UpdateTime => this["update_time"];
+
+}

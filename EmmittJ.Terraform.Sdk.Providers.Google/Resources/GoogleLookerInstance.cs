@@ -1,0 +1,197 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Manages a google_looker_instance resource.
+/// </summary>
+public class GoogleLookerInstance : TerraformResource
+{
+    public GoogleLookerInstance(string name) : base("google_looker_instance", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("create_time");
+        this.DeclareOutput("egress_public_ip");
+        this.DeclareOutput("ingress_private_ip");
+        this.DeclareOutput("ingress_public_ip");
+        this.DeclareOutput("looker_uri");
+        this.DeclareOutput("looker_version");
+        this.DeclareOutput("update_time");
+    }
+
+    /// <summary>
+    /// Network name in the consumer project in the format of: projects/{project}/global/networks/{network}
+    /// Note that the consumer network may be in a different GCP project than the consumer
+    /// project that is hosting the Looker Instance.
+    /// </summary>
+    public string? ConsumerNetwork
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("consumer_network")?.Value;
+        set => this.WithProperty("consumer_network", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Policy to determine if the cluster should be deleted forcefully.
+    /// If setting deletion_policy = &amp;quot;FORCE&amp;quot;, the Looker instance will be deleted regardless
+    /// of its nested resources. If set to &amp;quot;DEFAULT&amp;quot;, Looker instances that still have
+    /// nested resources will return an error. Possible values: DEFAULT, FORCE
+    /// </summary>
+    public string? DeletionPolicy
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
+        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// FIPS 140-2 Encryption enablement for Looker (Google Cloud Core).
+    /// </summary>
+    public bool? FipsEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("fips_enabled")?.Value;
+        set => this.WithProperty("fips_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// Gemini enablement for Looker (Google Cloud Core).
+    /// </summary>
+    public bool? GeminiEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("gemini_enabled")?.Value;
+        set => this.WithProperty("gemini_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The ID of the instance or a fully qualified identifier for the instance.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Platform editions for a Looker instance. Each edition maps to a set of instance features, like its size. Must be one of these values:
+    /// - LOOKER_CORE_TRIAL: trial instance (Currently Unavailable)
+    /// - LOOKER_CORE_STANDARD: pay as you go standard instance (Currently Unavailable)
+    /// - LOOKER_CORE_STANDARD_ANNUAL: subscription standard instance
+    /// - LOOKER_CORE_ENTERPRISE_ANNUAL: subscription enterprise instance
+    /// - LOOKER_CORE_EMBED_ANNUAL: subscription embed instance
+    /// - LOOKER_CORE_NONPROD_STANDARD_ANNUAL: nonprod subscription standard instance
+    /// - LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL: nonprod subscription enterprise instance
+    /// - LOOKER_CORE_NONPROD_EMBED_ANNUAL: nonprod subscription embed instance
+    /// - LOOKER_CORE_TRIAL_STANDARD: A standard trial edition of Looker (Google Cloud core) product.
+    /// - LOOKER_CORE_TRIAL_ENTERPRISE: An enterprise trial edition of Looker (Google Cloud core) product.
+    /// - LOOKER_CORE_TRIAL_EMBED: An embed trial edition of Looker (Google Cloud core) product. Default value: &amp;quot;LOOKER_CORE_TRIAL&amp;quot; Possible values: [&amp;quot;LOOKER_CORE_TRIAL&amp;quot;, &amp;quot;LOOKER_CORE_STANDARD&amp;quot;, &amp;quot;LOOKER_CORE_STANDARD_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_ENTERPRISE_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_EMBED_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_STANDARD_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_EMBED_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_STANDARD&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_ENTERPRISE&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_EMBED&amp;quot;]
+    /// </summary>
+    public string? PlatformEdition
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("platform_edition")?.Value;
+        set => this.WithProperty("platform_edition", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Whether private IP is enabled on the Looker instance.
+    /// </summary>
+    public bool? PrivateIpEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("private_ip_enabled")?.Value;
+        set => this.WithProperty("private_ip_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public string? Project
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
+        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Whether Public Service Connect (PSC) is enabled on the Looker instance
+    /// </summary>
+    public bool? PscEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("psc_enabled")?.Value;
+        set => this.WithProperty("psc_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// Whether public IP is enabled on the Looker instance.
+    /// </summary>
+    public bool? PublicIpEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_ip_enabled")?.Value;
+        set => this.WithProperty("public_ip_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// The name of the Looker region of the instance.
+    /// </summary>
+    public string? Region
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
+        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Name of a reserved IP address range within the consumer network, to be used for
+    /// private service access connection. User may or may not specify this in a request.
+    /// </summary>
+    public string? ReservedRange
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("reserved_range")?.Value;
+        set => this.WithProperty("reserved_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The time the instance was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
+    /// accurate to nanoseconds.
+    /// </summary>
+    public TerraformExpression CreateTime => this["create_time"];
+
+    /// <summary>
+    /// Public Egress IP (IPv4).
+    /// </summary>
+    public TerraformExpression EgressPublicIp => this["egress_public_ip"];
+
+    /// <summary>
+    /// Private Ingress IP (IPv4).
+    /// </summary>
+    public TerraformExpression IngressPrivateIp => this["ingress_private_ip"];
+
+    /// <summary>
+    /// Public Ingress IP (IPv4).
+    /// </summary>
+    public TerraformExpression IngressPublicIp => this["ingress_public_ip"];
+
+    /// <summary>
+    /// Looker instance URI which can be used to access the Looker Instance UI.
+    /// </summary>
+    public TerraformExpression LookerUri => this["looker_uri"];
+
+    /// <summary>
+    /// The Looker version that the instance is using.
+    /// </summary>
+    public TerraformExpression LookerVersion => this["looker_version"];
+
+    /// <summary>
+    /// The time the instance was updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
+    /// accurate to nanoseconds.
+    /// </summary>
+    public TerraformExpression UpdateTime => this["update_time"];
+
+}

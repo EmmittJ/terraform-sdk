@@ -1,0 +1,94 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+/// <summary>
+/// Retrieves information about a azurerm_eventgrid_system_topic.
+/// </summary>
+public class AzurermEventgridSystemTopicDataSource : TerraformDataSource
+{
+    public AzurermEventgridSystemTopicDataSource(string name) : base("azurerm_eventgrid_system_topic", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("identity");
+        this.DeclareOutput("location");
+        this.DeclareOutput("metric_arm_resource_id");
+        this.DeclareOutput("metric_resource_id");
+        this.DeclareOutput("source_arm_resource_id");
+        this.DeclareOutput("source_resource_id");
+        this.DeclareOutput("tags");
+        this.DeclareOutput("topic_type");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    public string? ResourceGroupName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
+        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformExpression Identity => this["identity"];
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformExpression Location => this["location"];
+
+    /// <summary>
+    /// The metric_arm_resource_id attribute.
+    /// </summary>
+    public TerraformExpression MetricArmResourceId => this["metric_arm_resource_id"];
+
+    /// <summary>
+    /// The metric_resource_id attribute.
+    /// </summary>
+    public TerraformExpression MetricResourceId => this["metric_resource_id"];
+
+    /// <summary>
+    /// The source_arm_resource_id attribute.
+    /// </summary>
+    public TerraformExpression SourceArmResourceId => this["source_arm_resource_id"];
+
+    /// <summary>
+    /// The source_resource_id attribute.
+    /// </summary>
+    public TerraformExpression SourceResourceId => this["source_resource_id"];
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformExpression Tags => this["tags"];
+
+    /// <summary>
+    /// The topic_type attribute.
+    /// </summary>
+    public TerraformExpression TopicType => this["topic_type"];
+
+}

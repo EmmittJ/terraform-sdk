@@ -1,0 +1,112 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Manages a google_service_account_key resource.
+/// </summary>
+public class GoogleServiceAccountKey : TerraformResource
+{
+    public GoogleServiceAccountKey(string name) : base("google_service_account_key", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("name");
+        this.DeclareOutput("private_key");
+        this.DeclareOutput("public_key");
+        this.DeclareOutput("valid_after");
+        this.DeclareOutput("valid_before");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Arbitrary map of values that, when changed, will trigger recreation of resource.
+    /// </summary>
+    public Dictionary<string, string>? Keepers
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("keepers")?.Value;
+        set => this.WithProperty("keepers", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The algorithm used to generate the key, used only on create. KEY_ALG_RSA_2048 is the default algorithm. Valid values are: &amp;quot;KEY_ALG_RSA_1024&amp;quot;, &amp;quot;KEY_ALG_RSA_2048&amp;quot;.
+    /// </summary>
+    public string? KeyAlgorithm
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("key_algorithm")?.Value;
+        set => this.WithProperty("key_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The private_key_type attribute.
+    /// </summary>
+    public string? PrivateKeyType
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("private_key_type")?.Value;
+        set => this.WithProperty("private_key_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// A field that allows clients to upload their own public key. If set, use this public key data to create a service account key for given service account. Please note, the expected format for this field is a base64 encoded X509_PEM.
+    /// </summary>
+    public string? PublicKeyData
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("public_key_data")?.Value;
+        set => this.WithProperty("public_key_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The public_key_type attribute.
+    /// </summary>
+    public string? PublicKeyType
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("public_key_type")?.Value;
+        set => this.WithProperty("public_key_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The ID of the parent service account of the key. This can be a string in the format {ACCOUNT} or projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}, where {ACCOUNT} is the email address or unique id of the service account. If the {ACCOUNT} syntax is used, the project will be inferred from the provider&#39;s configuration.
+    /// </summary>
+    public string? ServiceAccountId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id")?.Value;
+        set => this.WithProperty("service_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name used for this key pair
+    /// </summary>
+    public TerraformExpression Name => this["name"];
+
+    /// <summary>
+    /// The private key in JSON format, base64 encoded. This is what you normally get as a file when creating service account keys through the CLI or web console. This is only populated when creating a new key.
+    /// </summary>
+    public TerraformExpression PrivateKey => this["private_key"];
+
+    /// <summary>
+    /// The public key, base64 encoded
+    /// </summary>
+    public TerraformExpression PublicKey => this["public_key"];
+
+    /// <summary>
+    /// The key can be used after this timestamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
+    /// </summary>
+    public TerraformExpression ValidAfter => this["valid_after"];
+
+    /// <summary>
+    /// The key can be used before this timestamp. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds. Example: &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
+    /// </summary>
+    public TerraformExpression ValidBefore => this["valid_before"];
+
+}

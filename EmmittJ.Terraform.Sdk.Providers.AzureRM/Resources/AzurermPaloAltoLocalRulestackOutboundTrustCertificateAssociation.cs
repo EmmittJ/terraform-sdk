@@ -1,0 +1,37 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+/// <summary>
+/// Manages a azurerm_palo_alto_local_rulestack_outbound_trust_certificate_association resource.
+/// </summary>
+public class AzurermPaloAltoLocalRulestackOutboundTrustCertificateAssociation : TerraformResource
+{
+    public AzurermPaloAltoLocalRulestackOutboundTrustCertificateAssociation(string name) : base("azurerm_palo_alto_local_rulestack_outbound_trust_certificate_association", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+    }
+
+    /// <summary>
+    /// The certificate_id attribute.
+    /// </summary>
+    public string? CertificateId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_id")?.Value;
+        set => this.WithProperty("certificate_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+}

@@ -1,0 +1,43 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_ssm_patch_baselines.
+/// </summary>
+public class AwsSsmPatchBaselinesDataSource : TerraformDataSource
+{
+    public AwsSsmPatchBaselinesDataSource(string name) : base("aws_ssm_patch_baselines", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("baseline_identities");
+    }
+
+    /// <summary>
+    /// The default_baselines attribute.
+    /// </summary>
+    public bool? DefaultBaselines
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("default_baselines")?.Value;
+        set => this.WithProperty("default_baselines", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public string? Region
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
+        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The baseline_identities attribute.
+    /// </summary>
+    public TerraformExpression BaselineIdentities => this["baseline_identities"];
+
+}

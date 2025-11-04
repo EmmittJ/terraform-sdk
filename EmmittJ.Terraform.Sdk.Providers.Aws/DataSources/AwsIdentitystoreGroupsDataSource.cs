@@ -1,0 +1,43 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_identitystore_groups.
+/// </summary>
+public class AwsIdentitystoreGroupsDataSource : TerraformDataSource
+{
+    public AwsIdentitystoreGroupsDataSource(string name) : base("aws_identitystore_groups", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("groups");
+    }
+
+    /// <summary>
+    /// The identity_store_id attribute.
+    /// </summary>
+    public string? IdentityStoreId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_store_id")?.Value;
+        set => this.WithProperty("identity_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public string? Region
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
+        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The groups attribute.
+    /// </summary>
+    public TerraformExpression Groups => this["groups"];
+
+}

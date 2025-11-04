@@ -1,0 +1,94 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+/// <summary>
+/// Retrieves information about a azurerm_application_insights.
+/// </summary>
+public class AzurermApplicationInsightsDataSource : TerraformDataSource
+{
+    public AzurermApplicationInsightsDataSource(string name) : base("azurerm_application_insights", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("app_id");
+        this.DeclareOutput("application_type");
+        this.DeclareOutput("connection_string");
+        this.DeclareOutput("instrumentation_key");
+        this.DeclareOutput("location");
+        this.DeclareOutput("retention_in_days");
+        this.DeclareOutput("tags");
+        this.DeclareOutput("workspace_id");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    public string? ResourceGroupName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
+        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The app_id attribute.
+    /// </summary>
+    public TerraformExpression AppId => this["app_id"];
+
+    /// <summary>
+    /// The application_type attribute.
+    /// </summary>
+    public TerraformExpression ApplicationType => this["application_type"];
+
+    /// <summary>
+    /// The connection_string attribute.
+    /// </summary>
+    public TerraformExpression ConnectionString => this["connection_string"];
+
+    /// <summary>
+    /// The instrumentation_key attribute.
+    /// </summary>
+    public TerraformExpression InstrumentationKey => this["instrumentation_key"];
+
+    /// <summary>
+    /// The location attribute.
+    /// </summary>
+    public TerraformExpression Location => this["location"];
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    public TerraformExpression RetentionInDays => this["retention_in_days"];
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformExpression Tags => this["tags"];
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    public TerraformExpression WorkspaceId => this["workspace_id"];
+
+}

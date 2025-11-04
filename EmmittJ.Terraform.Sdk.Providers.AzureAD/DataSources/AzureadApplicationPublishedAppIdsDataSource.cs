@@ -1,0 +1,34 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
+
+/// <summary>
+/// Retrieves information about a azuread_application_published_app_ids.
+/// </summary>
+public class AzureadApplicationPublishedAppIdsDataSource : TerraformDataSource
+{
+    public AzureadApplicationPublishedAppIdsDataSource(string name) : base("azuread_application_published_app_ids", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("result");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// A mapping of application names and application IDs
+    /// </summary>
+    public TerraformExpression Result => this["result"];
+
+}

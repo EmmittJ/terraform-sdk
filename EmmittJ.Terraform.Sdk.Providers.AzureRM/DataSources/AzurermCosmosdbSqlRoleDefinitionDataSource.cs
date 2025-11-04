@@ -1,0 +1,79 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
+
+/// <summary>
+/// Retrieves information about a azurerm_cosmosdb_sql_role_definition.
+/// </summary>
+public class AzurermCosmosdbSqlRoleDefinitionDataSource : TerraformDataSource
+{
+    public AzurermCosmosdbSqlRoleDefinitionDataSource(string name) : base("azurerm_cosmosdb_sql_role_definition", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("assignable_scopes");
+        this.DeclareOutput("name");
+        this.DeclareOutput("permissions");
+        this.DeclareOutput("type");
+    }
+
+    /// <summary>
+    /// The account_name attribute.
+    /// </summary>
+    public string? AccountName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("account_name")?.Value;
+        set => this.WithProperty("account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The resource_group_name attribute.
+    /// </summary>
+    public string? ResourceGroupName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
+        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The role_definition_id attribute.
+    /// </summary>
+    public string? RoleDefinitionId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id")?.Value;
+        set => this.WithProperty("role_definition_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The assignable_scopes attribute.
+    /// </summary>
+    public TerraformExpression AssignableScopes => this["assignable_scopes"];
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformExpression Name => this["name"];
+
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    public TerraformExpression Permissions => this["permissions"];
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformExpression Type => this["type"];
+
+}

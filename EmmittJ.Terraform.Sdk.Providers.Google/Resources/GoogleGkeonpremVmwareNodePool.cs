@@ -1,0 +1,160 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Manages a google_gkeonprem_vmware_node_pool resource.
+/// </summary>
+public class GoogleGkeonpremVmwareNodePool : TerraformResource
+{
+    public GoogleGkeonpremVmwareNodePool(string name) : base("google_gkeonprem_vmware_node_pool", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("create_time");
+        this.DeclareOutput("delete_time");
+        this.DeclareOutput("effective_annotations");
+        this.DeclareOutput("etag");
+        this.DeclareOutput("reconciling");
+        this.DeclareOutput("state");
+        this.DeclareOutput("status");
+        this.DeclareOutput("uid");
+        this.DeclareOutput("update_time");
+    }
+
+    /// <summary>
+    /// Annotations on the node Pool.
+    /// This field has the same restrictions as Kubernetes annotations.
+    /// The total size of all keys and values combined is limited to 256k.
+    /// Key can have 2 segments: prefix (optional) and name (required),
+    /// separated by a slash (/).
+    /// Prefix must be a DNS subdomain.
+    /// Name must be 63 characters or less, begin and end with alphanumerics,
+    /// with dashes (-), underscores (_), dots (.), and alphanumerics between.
+    /// 
+    /// 
+    /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
+    /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
+    /// </summary>
+    public Dictionary<string, string>? Annotations
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
+        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The display name for the node pool.
+    /// </summary>
+    public string? DisplayName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
+        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The location of the resource.
+    /// </summary>
+    public string? Location
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
+        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The vmware node pool name.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// Anthos version for the node pool. Defaults to the user cluster version.
+    /// </summary>
+    public string? OnPremVersion
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("on_prem_version")?.Value;
+        set => this.WithProperty("on_prem_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public string? Project
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
+        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The cluster this node pool belongs to.
+    /// </summary>
+    public string? VmwareCluster
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("vmware_cluster")?.Value;
+        set => this.WithProperty("vmware_cluster", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The time the cluster was created, in RFC3339 text format.
+    /// </summary>
+    public TerraformExpression CreateTime => this["create_time"];
+
+    /// <summary>
+    /// The time the cluster was deleted, in RFC3339 text format.
+    /// </summary>
+    public TerraformExpression DeleteTime => this["delete_time"];
+
+    /// <summary>
+    /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
+    /// </summary>
+    public TerraformExpression EffectiveAnnotations => this["effective_annotations"];
+
+    /// <summary>
+    /// This checksum is computed by the server based on the value of other
+    /// fields, and may be sent on update and delete requests to ensure the
+    /// client has an up-to-date value before proceeding.
+    /// Allows clients to perform consistent read-modify-writes
+    /// through optimistic concurrency control.
+    /// </summary>
+    public TerraformExpression Etag => this["etag"];
+
+    /// <summary>
+    /// If set, there are currently changes in flight to the node pool.
+    /// </summary>
+    public TerraformExpression Reconciling => this["reconciling"];
+
+    /// <summary>
+    /// The current state of this cluster.
+    /// </summary>
+    public TerraformExpression State => this["state"];
+
+    /// <summary>
+    /// ResourceStatus representing detailed cluster state.
+    /// </summary>
+    public TerraformExpression Status => this["status"];
+
+    /// <summary>
+    /// The unique identifier of the node pool.
+    /// </summary>
+    public TerraformExpression Uid => this["uid"];
+
+    /// <summary>
+    /// The time the cluster was last updated, in RFC3339 text format.
+    /// </summary>
+    public TerraformExpression UpdateTime => this["update_time"];
+
+}
