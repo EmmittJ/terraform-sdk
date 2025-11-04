@@ -147,6 +147,20 @@ public abstract class TerraformExpression : ITerraformResolvable<string>
     public static TerraformExpression Conditional(TerraformExpression condition, TerraformExpression trueValue, TerraformExpression falseValue)
         => new ConditionalExpression(condition, trueValue, falseValue);
 
+    /// <summary>
+    /// Creates a splat expression that returns all elements.
+    /// Example: Splat(Identifier("var.list")) produces "var.list[*]"
+    /// </summary>
+    public static TerraformExpression Splat(TerraformExpression source)
+        => new SplatExpression(source);
+
+    /// <summary>
+    /// Creates a splat expression that accesses an attribute on all elements.
+    /// Example: Splat(Identifier("aws_instance.example"), "id") produces "aws_instance.example[*].id"
+    /// </summary>
+    public static TerraformExpression Splat(TerraformExpression source, string attribute)
+        => new SplatExpression(source, attribute);
+
     // Implicit conversions from common types
     public static implicit operator TerraformExpression(string value) => Literal(value);
     public static implicit operator TerraformExpression(int value) => Literal(value);

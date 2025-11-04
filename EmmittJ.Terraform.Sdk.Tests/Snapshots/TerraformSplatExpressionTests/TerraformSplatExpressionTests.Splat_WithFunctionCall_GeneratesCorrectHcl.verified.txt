@@ -1,0 +1,3 @@
+﻿output "joined_ids" {
+  value = join(",", aws_instance.web[*].id)
+}

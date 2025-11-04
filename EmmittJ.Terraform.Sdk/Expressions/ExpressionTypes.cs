@@ -463,6 +463,58 @@ internal class ConditionalExpression(TerraformExpression condition, TerraformExp
 }
 
 /// <summary>
+/// Splat expression for accessing attributes across all elements in a list.
+/// Supports both full splat ([*]) and attribute splat ([*].attribute) operations.
+/// Examples: aws_instance.example[*].id, var.list[*]
+/// </summary>
+internal class SplatExpression : TerraformExpression
+{
+    private readonly TerraformExpression _source;
+    private readonly string? _attribute;
+
+    /// <summary>
+    /// Creates a splat expression that returns all elements.
+    /// Example: var.list[*]
+    /// </summary>
+    public SplatExpression(TerraformExpression source)
+    {
+        _source = source ?? throw new ArgumentNullException(nameof(source));
+        _attribute = null;
+    }
+
+    /// <summary>
+    /// Creates a splat expression that accesses an attribute on all elements.
+    /// Example: aws_instance.example[*].id
+    /// </summary>
+    public SplatExpression(TerraformExpression source, string attribute)
+    {
+        _source = source ?? throw new ArgumentNullException(nameof(source));
+        _attribute = attribute ?? throw new ArgumentNullException(nameof(attribute));
+    }
+
+    public override string Resolve(ITerraformContext? context = null)
+    {
+        var baseExpr = $"{_source.ToHcl(context)}[*]";
+        return _attribute != null ? $"{baseExpr}.{_attribute}" : baseExpr;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is SplatExpression other
+            && Equals(_source, other._source)
+            && string.Equals(_attribute, other._attribute, StringComparison.Ordinal);
+    }
+
+    public override int GetHashCode()
+        => HashCode.Combine(_source, _attribute is null ? 0 : StringComparer.Ordinal.GetHashCode(_attribute));
+}
+
+/// <summary>
 /// Extension methods for building expressions.
 /// </summary>
 public static class TerraformExpressionExtensions
@@ -478,4 +530,18 @@ public static class TerraformExpressionExtensions
     /// </summary>
     public static TerraformExpression Call(string functionName, params TerraformExpression[] arguments)
         => new FunctionCallExpression(functionName, arguments);
+
+    /// <summary>
+    /// Creates a splat expression that returns all elements.
+    /// Example: Identifier("var.list").Splat() produces "var.list[*]"
+    /// </summary>
+    public static TerraformExpression Splat(this TerraformExpression source)
+        => new SplatExpression(source);
+
+    /// <summary>
+    /// Creates a splat expression that accesses an attribute on all elements.
+    /// Example: Identifier("aws_instance.example").Splat("id") produces "aws_instance.example[*].id"
+    /// </summary>
+    public static TerraformExpression Splat(this TerraformExpression source, string attribute)
+        => new SplatExpression(source, attribute);
 }

@@ -1,0 +1,13 @@
+﻿output "web_ids" {
+  value = aws_instance.web[*].id
+}
+
+
+output "app_ips" {
+  value = aws_instance.app[*].private_ip
+}
+
+
+output "db_arns" {
+  value = aws_db_instance.main[*].arn
+}
