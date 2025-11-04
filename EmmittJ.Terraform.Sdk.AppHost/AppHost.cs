@@ -3,10 +3,8 @@ using EmmittJ.Terraform.Sdk.AppHost;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Enable Terraform code generation pipeline
-builder.AddTerraformCodeGenPipeline();
-
 // Add Terraform provider code generation resources
+// Pipeline steps are automatically attached via WithPipelineStepFactory in AddTerraformProvider
 var aws = builder.AddTerraformProvider("aws", "~> 6.0")
     .WithNamespace("EmmittJ.Terraform.Sdk.Providers.Aws");
 
