@@ -37,12 +37,13 @@ public static class TemplateHelpers
             return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value)";
         }
 
-        // For value types that are nullable
-        if (property.CSharpType.EndsWith("?") && !property.CSharpType.Contains("string"))
+        // For nullable value types (bool?, double?, int?, etc.)
+        if (property.IsValueType && property.CSharpType.EndsWith("?"))
         {
             return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value.Value)";
         }
 
+        // For reference types (string?, List<>, Dictionary<>, etc.)
         return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value)";
     }
 

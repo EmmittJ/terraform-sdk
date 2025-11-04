@@ -32,6 +32,7 @@ public class PropertyModel
     public bool IsSensitive { get; set; }
     public bool IsDeprecated { get; set; }
     public bool IsCollection { get; set; }
+    public bool IsValueType { get; set; }
 }
 
 public class BlockTypeModel

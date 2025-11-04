@@ -108,7 +108,9 @@ public class SchemaParser
     private PropertyModel ParseAttribute(string name, SchemaAttribute attr)
     {
         var csharpType = MapTerraformTypeToCSharp(attr.Type);
-        var isCollection = csharpType.Contains("List<") || csharpType.Contains("Dictionary<");
+        var isCollection = csharpType.Contains("List<") || csharpType.Contains("Dictionary<") || csharpType.Contains("HashSet<");
+        var baseType = csharpType.TrimEnd('?');
+        var isValueType = baseType == "bool" || baseType == "double" || baseType == "int" || baseType == "long" || baseType == "float";
 
         return new PropertyModel
         {
@@ -121,7 +123,8 @@ public class SchemaParser
             IsComputed = attr.Computed,
             IsSensitive = attr.Sensitive,
             IsDeprecated = attr.Deprecated,
-            IsCollection = isCollection
+            IsCollection = isCollection,
+            IsValueType = isValueType
         };
     }
 

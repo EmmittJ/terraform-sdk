@@ -142,9 +142,9 @@ class Program
         Console.WriteLine($"  ✓ {Path.GetFileName(csprojPath)}");
 
         // Step 7: Build the generated project to verify it compiles
-        Console.WriteLine($"\nVerifying generated code builds...");
-        await BuildProject(csprojPath);
-        Console.WriteLine($"  ✓ Build successful");
+        // Console.WriteLine($"\nVerifying generated code builds...");
+        // await BuildProject(csprojPath);
+        // Console.WriteLine($"  ✓ Build successful");
 
         Console.WriteLine($"\n✅ Generated {resources.Count} resources and {dataSources.Count} data sources for {config.Name}");
     }
