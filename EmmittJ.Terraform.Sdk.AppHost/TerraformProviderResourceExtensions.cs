@@ -368,17 +368,6 @@ public static class TerraformProviderResourceExtensions
 
         return null;
     }
-
-    private static string ToPascalCase(string input)
-    {
-        if (string.IsNullOrEmpty(input))
-        {
-            return input;
-        }
-
-        var words = input.Split('_', StringSplitOptions.RemoveEmptyEntries);
-        return string.Concat(words.Select(w => char.ToUpperInvariant(w[0]) + w[1..]));
-    }
 }
 
 /// <summary>
