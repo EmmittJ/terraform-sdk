@@ -7,9 +7,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// Initializes a new instance of the <see cref="TerraformProvisionableConstruct"/> class.
 /// </remarks>
-/// <param name="type">The type of the construct (e.g., "aws_vpc").</param>
-/// <param name="name">The name of the construct.</param>
-public abstract class TerraformProvisionableConstruct(string type, string name) : NamedTerraformConstruct(name)
+/// <param name="constructType">The type of the construct (e.g., "aws_vpc").</param>
+/// <param name="constructName">The name of the construct.</param>
+public abstract class TerraformProvisionableConstruct(string constructType, string constructName) : NamedTerraformConstruct(constructName)
 {
     private readonly HashSet<string> _declaredOutputs = [];
     private TerraformProperty? _count;
@@ -18,7 +18,7 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     /// <summary>
     /// Gets the type of this construct (e.g., "aws_vpc", "azurerm_resource_group").
     /// </summary>
-    public string Type { get; } = type ?? throw new ArgumentNullException(nameof(type));
+    public string ConstructType { get; } = constructType ?? throw new ArgumentNullException(nameof(constructType));
 
     /// <summary>
     /// Gets or sets the count meta-argument.
@@ -77,7 +77,7 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
         if (!_declaredOutputs.Contains(attributeName))
         {
             throw new TerraformConfigurationException(
-                $"Attribute '{attributeName}' has not been declared as an output for {GetConstructTypeLabel()} '{Type}.{ConstructName}'. " +
+                $"Attribute '{attributeName}' has not been declared as an output for {GetConstructTypeLabel()} '{ConstructType}.{ConstructName}'. " +
                 $"Use DeclareOutput(\"{attributeName}\") to declare it first, or check for typos in the attribute name.",
                 this,
                 attributeName);

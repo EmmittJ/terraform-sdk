@@ -57,7 +57,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// <summary>
     /// Gets the properties dictionary for subclasses to use in HCL generation.
     /// </summary>
-    protected IReadOnlyDictionary<string, TerraformProperty> Properties => _properties;
+    protected IReadOnlyDictionary<string, TerraformProperty> BlockProperties => _properties;
 
     /// <summary>
     /// Writes properties to HCL with proper formatting.

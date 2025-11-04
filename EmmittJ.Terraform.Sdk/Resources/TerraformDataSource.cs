@@ -9,14 +9,14 @@ public class TerraformDataSource(string type, string name) : TerraformProvisiona
     protected override string BlockType => "data";
 
     /// <inheritdoc/>
-    protected override string[] BlockLabels => [Type, ConstructName];
+    protected override string[] BlockLabels => [ConstructType, ConstructName];
 
     /// <inheritdoc/>
     protected override string GetConstructTypeLabel() => "data source";
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"data.{Type}.{ConstructName}");
+        => TerraformExpression.Identifier($"data.{ConstructType}.{ConstructName}");
 
     /// <inheritdoc/>
     protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)

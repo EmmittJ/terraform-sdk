@@ -18,7 +18,7 @@ public class TerraformLocal : TerraformConstruct
     {
         get
         {
-            if (!Properties.ContainsKey(name))
+            if (!BlockProperties.ContainsKey(name))
             {
                 throw new TerraformConfigurationException(
                     $"Local value '{name}' has not been defined. " +

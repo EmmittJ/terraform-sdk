@@ -43,16 +43,6 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
     }
 
     /// <summary>
-    /// Declares an output from this module that can be referenced.
-    /// </summary>
-    /// <param name="outputName">The name of the module output.</param>
-    public void DeclareOutput(string outputName)
-    {
-        ArgumentException.ThrowIfNullOrWhiteSpace(outputName);
-        _declaredOutputs.Add(outputName);
-    }
-
-    /// <summary>
     /// Gets a reference to a module output.
     /// The output must be declared first using DeclareOutput().
     /// </summary>

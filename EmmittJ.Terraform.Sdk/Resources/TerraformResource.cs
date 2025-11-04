@@ -9,14 +9,14 @@ public class TerraformResource(string type, string name) : TerraformProvisionabl
     protected override string BlockType => "resource";
 
     /// <inheritdoc/>
-    protected override string[] BlockLabels => [Type, ConstructName];
+    protected override string[] BlockLabels => [ConstructType, ConstructName];
 
     /// <inheritdoc/>
     protected override string GetConstructTypeLabel() => "resource";
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier($"{Type}.{ConstructName}");
+        => TerraformExpression.Identifier($"{ConstructType}.{ConstructName}");
 
     /// <inheritdoc/>
     protected override void WriteAdditionalProperties(System.Text.StringBuilder sb, ITerraformContext context)
