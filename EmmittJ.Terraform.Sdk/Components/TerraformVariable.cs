@@ -22,7 +22,7 @@ public class TerraformVariable(string name) : TerraformConstruct
     public TerraformLiteralProperty<string>? Description
     {
         get => GetProperty<TerraformLiteralProperty<string>>("description");
-        set => WithPropertyInternal("description", value, priority: 0);  // description first
+        set => this.WithProperty("description", value, priority: 0);  // description first
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ public class TerraformVariable(string name) : TerraformConstruct
     public TerraformProperty? Default
     {
         get => GetProperty<TerraformProperty>("default");
-        set => WithPropertyInternal("default", value, priority: 2);  // default after type
+        set => this.WithProperty("default", value, priority: 2);  // default after type
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ public class TerraformVariable(string name) : TerraformConstruct
     public TerraformTypeProperty? Type
     {
         get => GetProperty<TerraformTypeProperty>("type");
-        set => WithPropertyInternal("type", value, priority: 1);  // type second
+        set => this.WithProperty("type", value, priority: 1);  // type second
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ public class TerraformVariable(string name) : TerraformConstruct
     public TerraformLiteralProperty<bool>? Sensitive
     {
         get => GetProperty<TerraformLiteralProperty<bool>>("sensitive");
-        set => WithPropertyInternal("sensitive", value, priority: 3);  // sensitive last
+        set => this.WithProperty("sensitive", value, priority: 3);  // sensitive last
     }
 
     /// <inheritdoc/>

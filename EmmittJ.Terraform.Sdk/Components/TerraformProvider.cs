@@ -17,7 +17,7 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
     public TerraformLiteralProperty<string>? Alias
     {
         get => GetProperty<TerraformLiteralProperty<string>>("alias");
-        set => WithPropertyInternal("alias", value);
+        set => this.WithProperty("alias", value);
     }
 
     /// <inheritdoc/>

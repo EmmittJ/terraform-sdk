@@ -49,7 +49,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// <summary>
     /// Gets a property value (for derived classes).
     /// </summary>
-    internal T? GetProperty<T>(string key) where T : class
+    protected T? GetProperty<T>(string key) where T : class
     {
         return _properties.Get<T>(key);
     }

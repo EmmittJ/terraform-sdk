@@ -9,7 +9,7 @@ public static class TerraformConstructExtensions
     /// <summary>
     /// Fluent builder method with type-safe return - returns T instead of TerraformConstruct.
     /// </summary>
-    public static T WithProperty<T>(this T construct, string key, TerraformProperty value)
+    public static T WithProperty<T>(this T construct, string key, TerraformProperty? value)
         where T : TerraformConstruct
     {
         construct
@@ -21,7 +21,7 @@ public static class TerraformConstructExtensions
     /// Fluent builder method with type-safe return and priority support.
     /// Lower priority values render first in HCL output.
     /// </summary>
-    public static T WithProperty<T>(this T construct, string key, TerraformProperty value, int priority)
+    public static T WithProperty<T>(this T construct, string key, TerraformProperty? value, int priority)
         where T : TerraformConstruct
     {
         construct

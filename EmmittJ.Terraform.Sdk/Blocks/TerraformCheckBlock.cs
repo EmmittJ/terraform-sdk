@@ -136,7 +136,7 @@ public class TerraformAssertBlock : TerraformConstruct
     public TerraformProperty? Condition
     {
         get => GetProperty<TerraformProperty>("condition");
-        set => WithPropertyInternal("condition", value, priority: 0);
+        set => this.WithProperty("condition", value, priority: 0);
     }
 
     /// <summary>
@@ -145,7 +145,7 @@ public class TerraformAssertBlock : TerraformConstruct
     public TerraformLiteralProperty<string>? ErrorMessage
     {
         get => GetProperty<TerraformLiteralProperty<string>>("error_message");
-        set => WithPropertyInternal("error_message", value, priority: 1);
+        set => this.WithProperty("error_message", value, priority: 1);
     }
 
     /// <inheritdoc/>

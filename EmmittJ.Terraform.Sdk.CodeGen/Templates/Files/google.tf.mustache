@@ -1,0 +1,13 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "{{{Version}}}"
+    }
+  }
+}
+
+provider "google" {
+  project = "schema-generation-project"
+  region  = "us-central1"
+}

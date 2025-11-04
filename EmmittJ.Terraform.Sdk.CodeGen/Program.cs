@@ -70,8 +70,8 @@ class Program
 
         Console.WriteLine($"Using working directory: {workingDir}");
 
-        // Generate Terraform configuration
-        var terraformConfig = GenerateTerraformConfig(config);
+        // Generate Terraform configuration from template
+        var terraformConfig = await GenerateTerraformConfig(config, templatePath);
         var configPath = Path.Combine(workingDir, "main.tf");
         await File.WriteAllTextAsync(configPath, terraformConfig);
         Console.WriteLine($"Generated Terraform config");
@@ -116,7 +116,7 @@ class Program
 
         Console.WriteLine($"\nGenerating resources to: {resourcesFolder}");
         var resourceTemplate = new ResourceTemplate(templatePath);
-        foreach (var resource in resources.Take(10)) // Start with first 10 for testing
+        foreach (var resource in resources)
         {
             var code = resourceTemplate.Generate(resource, config.Namespace);
             var filePath = Path.Combine(resourcesFolder, $"{resource.ClassName}.cs");
@@ -126,7 +126,7 @@ class Program
 
         Console.WriteLine($"\nGenerating data sources to: {dataSourcesFolder}");
         var dataSourceTemplate = new DataSourceTemplate(templatePath);
-        foreach (var dataSource in dataSources.Take(10)) // Start with first 10 for testing
+        foreach (var dataSource in dataSources)
         {
             var code = dataSourceTemplate.Generate(dataSource, config.Namespace);
             var filePath = Path.Combine(dataSourcesFolder, $"{dataSource.ClassName}.cs");
@@ -134,60 +134,32 @@ class Program
             Console.WriteLine($"  ✓ {dataSource.ClassName}");
         }
 
-        Console.WriteLine($"\n✅ Generated {Math.Min(10, resources.Count)} resources and {Math.Min(10, dataSources.Count)} data sources for {config.Name}");
+        // Step 6: Generate .csproj file
+        Console.WriteLine($"\nGenerating project file...");
+        var csprojContent = await GenerateCsprojFile(templatePath);
+        var csprojPath = Path.Combine(outputFolder, $"EmmittJ.Terraform.Sdk.Providers.{ToPascalCase(config.Name)}.csproj");
+        await File.WriteAllTextAsync(csprojPath, csprojContent);
+        Console.WriteLine($"  ✓ {Path.GetFileName(csprojPath)}");
+
+        // Step 7: Build the generated project to verify it compiles
+        Console.WriteLine($"\nVerifying generated code builds...");
+        await BuildProject(csprojPath);
+        Console.WriteLine($"  ✓ Build successful");
+
+        Console.WriteLine($"\n✅ Generated {resources.Count} resources and {dataSources.Count} data sources for {config.Name}");
     }
 
-    static string GenerateTerraformConfig(ProviderConfig config)
+    static async Task<string> GenerateTerraformConfig(ProviderConfig config, string templatePath)
     {
-        return config.Name switch
+        var templateFile = Path.Combine(templatePath, $"{config.Name}.tf.mustache");
+        if (!File.Exists(templateFile))
         {
-            "aws" => $@"terraform {{
-  required_providers {{
-    aws = {{
-      source  = ""hashicorp/aws""
-      version = ""{config.Version}""
-    }}
-  }}
-}}
+            throw new FileNotFoundException($"Terraform template not found: {templateFile}");
+        }
 
-provider ""aws"" {{
-  region = ""us-east-1""
-  
-  # Skip credentials for schema generation only
-  skip_credentials_validation = true
-  skip_requesting_account_id  = true
-  skip_metadata_api_check     = true
-}}
-",
-            "azurerm" => $@"terraform {{
-  required_providers {{
-    azurerm = {{
-      source  = ""hashicorp/azurerm""
-      version = ""{config.Version}""
-    }}
-  }}
-}}
-
-provider ""azurerm"" {{
-  features {{}}
-}}
-",
-            "google" => $@"terraform {{
-  required_providers {{
-    google = {{
-      source  = ""hashicorp/google""
-      version = ""{config.Version}""
-    }}
-  }}
-}}
-
-provider ""google"" {{
-  project = ""schema-generation-project""
-  region  = ""us-central1""
-}}
-",
-            _ => throw new NotSupportedException($"Provider {config.Name} is not supported")
-        };
+        var template = await File.ReadAllTextAsync(templateFile);
+        var stubble = new Stubble.Core.Builders.StubbleBuilder().Build();
+        return stubble.Render(template, new { config.Version });
     }
 
     static async Task GenerateSchema(string providerFolder, string outputPath)
@@ -202,6 +174,11 @@ provider ""google"" {{
 
         await File.WriteAllTextAsync(outputPath, schemaJson);
         Console.WriteLine($"  ✓ Schema saved to: {outputPath}");
+    }
+
+    static async Task BuildProject(string csprojPath)
+    {
+        await RunCommand("dotnet", $"build \"{csprojPath}\" --configuration Release --nologo --verbosity quiet", Path.GetDirectoryName(csprojPath)!);
     }
 
     static async Task RunCommand(string command, string arguments, string workingDirectory)
@@ -272,6 +249,19 @@ provider ""google"" {{
         }
 
         return null;
+    }
+
+    static async Task<string> GenerateCsprojFile(string templatePath)
+    {
+        var templateFile = Path.Combine(templatePath, "Provider.csproj.mustache");
+        if (!File.Exists(templateFile))
+        {
+            throw new FileNotFoundException($"Project template not found: {templateFile}");
+        }
+
+        var template = await File.ReadAllTextAsync(templateFile);
+        var stubble = new Stubble.Core.Builders.StubbleBuilder().Build();
+        return stubble.Render(template, new { }); // No variables needed currently, but ready for future expansion
     }
 
     static string ToPascalCase(string name)

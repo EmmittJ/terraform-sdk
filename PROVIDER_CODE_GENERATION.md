@@ -153,7 +153,7 @@ public class AwsInstance : TerraformResource
     public string? Ami
     {
         get => GetProperty<TerraformLiteralProperty<string>>("ami")?.Value;
-        set => WithPropertyInternal("ami", value == null ? null : new TerraformLiteralProperty<string>(value));
+        set => this.WithProperty("ami", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -162,7 +162,7 @@ public class AwsInstance : TerraformResource
     public string? InstanceType
     {
         get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => WithPropertyInternal("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        set => this.WithPropertynstance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -171,7 +171,7 @@ public class AwsInstance : TerraformResource
     public List<string>? SecurityGroups
     {
         get => GetProperty<TerraformLiteralProperty<List<string>>>("security_groups")?.Value;
-        set => WithPropertyInternal("security_groups", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        set => this.WithPropertyecurity_groups", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     // Output attributes
@@ -211,7 +211,7 @@ public class AwsAmiDataSource : TerraformDataSource
     public bool? MostRecent
     {
         get => GetProperty<TerraformLiteralProperty<bool>>("most_recent")?.Value;
-        set => WithPropertyInternal("most_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        set => this.WithPropertyost_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>
@@ -220,7 +220,7 @@ public class AwsAmiDataSource : TerraformDataSource
     public List<string>? Owners
     {
         get => GetProperty<TerraformLiteralProperty<List<string>>>("owners")?.Value;
-        set => WithPropertyInternal("owners", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        set => this.WithPropertywners", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     // Output attributes

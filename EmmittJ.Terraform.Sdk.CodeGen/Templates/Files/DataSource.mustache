@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace {{Namespace}};
 
@@ -33,7 +32,7 @@ public class {{ClassName}} : TerraformDataSource
     public {{{CSharpType}}} {{Name}}
     {
         get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}")?.Value;
-        set => WithPropertyInternal("{{TerraformName}}", {{{SetterValue}}});
+        set => this.WithProperty("{{TerraformName}}", {{{SetterValue}}});
     }
 
 {{/Properties}}
