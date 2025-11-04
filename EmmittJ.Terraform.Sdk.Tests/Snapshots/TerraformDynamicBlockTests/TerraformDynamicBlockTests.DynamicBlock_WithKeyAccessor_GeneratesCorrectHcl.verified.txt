@@ -1,0 +1,12 @@
+﻿resource "aws_instance" "example" {
+
+  dynamic "ebs_block_device" {
+    for_each = var.ebs_volumes
+    content {
+      device_name = ebs_block_device.key
+      volume_size = ebs_block_device.value.size
+      volume_type = ebs_block_device.value.type
+    }
+  }  ami = "ami-12345678"
+  instance_type = "t2.micro"
+}

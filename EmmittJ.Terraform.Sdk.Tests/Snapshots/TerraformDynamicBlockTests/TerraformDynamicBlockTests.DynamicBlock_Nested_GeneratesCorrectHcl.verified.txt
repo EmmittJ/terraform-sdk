@@ -1,0 +1,12 @@
+﻿resource "aws_launch_template" "example" {
+
+  dynamic "network_interfaces" {
+    for_each = var.network_interfaces
+    content {
+      device_index = network_interfaces.value.device_index
+      associate_public_ip_address = network_interfaces.value.public_ip
+      subnet_id = network_interfaces.value.subnet_id
+    }
+  }  image_id = "ami-12345678"
+  name = "example-template"
+}

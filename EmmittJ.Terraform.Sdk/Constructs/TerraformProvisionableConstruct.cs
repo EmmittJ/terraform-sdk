@@ -56,6 +56,12 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
     public TerraformLifecycleConfig? Lifecycle { get; set; }
 
     /// <summary>
+    /// Gets the list of dynamic blocks for this resource.
+    /// Dynamic blocks generate nested blocks conditionally based on a collection.
+    /// </summary>
+    public List<TerraformDynamicBlock> DynamicBlocks { get; } = new();
+
+    /// <summary>
     /// Declares an output attribute for this construct.
     /// </summary>
     public void DeclareOutputInternal(string attributeName)
@@ -129,6 +135,13 @@ public abstract class TerraformProvisionableConstruct(string type, string name) 
         if (Lifecycle != null && Lifecycle.HasConfiguration())
         {
             sb.Append(Lifecycle.ToBlockExpression().ToHcl(context));
+        }
+
+        // Dynamic blocks
+        foreach (var dynamicBlock in DynamicBlocks)
+        {
+            sb.AppendLine();
+            sb.Append(dynamicBlock.Resolve(context));
         }
     }
 }

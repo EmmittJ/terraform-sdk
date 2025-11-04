@@ -1,0 +1,12 @@
+﻿resource "aws_security_group" "example" {
+
+  dynamic "ingress" {
+    for_each = var.ingress_rules
+    content {
+      from_port = ingress.value.from
+      to_port = ingress.value.to
+      protocol = "tcp"
+      cidr_blocks = ingress.value.cidrs
+    }
+  }  name = "example-sg"
+}

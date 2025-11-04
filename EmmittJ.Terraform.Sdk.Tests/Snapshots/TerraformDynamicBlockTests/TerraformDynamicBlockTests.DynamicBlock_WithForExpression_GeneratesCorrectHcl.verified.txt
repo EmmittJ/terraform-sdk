@@ -1,0 +1,11 @@
+﻿resource "aws_security_group" "example" {
+
+  dynamic "ingress" {
+    for_each = [for rule in var.all_rules : rule if rule.enabled == true]
+    content {
+      from_port = ingress.value.from_port
+      to_port = ingress.value.to_port
+      protocol = ingress.value.protocol
+    }
+  }  name = "filtered-sg"
+}
