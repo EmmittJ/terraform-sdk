@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -22,8 +21,8 @@ public class AwsAcmpcaCertificateAuthorityCertificate : TerraformResource
     /// </summary>
     public string? Certificate
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("certificate")?.Value;
-        set => WithPropertyInternal("certificate", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate")?.Value;
+        set => this.WithProperty("certificate", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -31,8 +30,8 @@ public class AwsAcmpcaCertificateAuthorityCertificate : TerraformResource
     /// </summary>
     public string? CertificateAuthorityArn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("certificate_authority_arn")?.Value;
-        set => WithPropertyInternal("certificate_authority_arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn")?.Value;
+        set => this.WithProperty("certificate_authority_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -40,8 +39,8 @@ public class AwsAcmpcaCertificateAuthorityCertificate : TerraformResource
     /// </summary>
     public string? CertificateChain
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("certificate_chain")?.Value;
-        set => WithPropertyInternal("certificate_chain", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_chain")?.Value;
+        set => this.WithProperty("certificate_chain", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -49,8 +48,8 @@ public class AwsAcmpcaCertificateAuthorityCertificate : TerraformResource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
 }

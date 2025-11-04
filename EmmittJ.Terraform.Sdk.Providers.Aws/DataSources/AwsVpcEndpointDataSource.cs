@@ -1,0 +1,154 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_vpc_endpoint.
+/// </summary>
+public class AwsVpcEndpointDataSource : TerraformDataSource
+{
+    public AwsVpcEndpointDataSource(string name) : base("aws_vpc_endpoint", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("arn");
+        this.DeclareOutput("cidr_blocks");
+        this.DeclareOutput("dns_entry");
+        this.DeclareOutput("dns_options");
+        this.DeclareOutput("ip_address_type");
+        this.DeclareOutput("network_interface_ids");
+        this.DeclareOutput("owner_id");
+        this.DeclareOutput("policy");
+        this.DeclareOutput("prefix_list_id");
+        this.DeclareOutput("private_dns_enabled");
+        this.DeclareOutput("requester_managed");
+        this.DeclareOutput("route_table_ids");
+        this.DeclareOutput("security_group_ids");
+        this.DeclareOutput("subnet_ids");
+        this.DeclareOutput("vpc_endpoint_type");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The service_name attribute.
+    /// </summary>
+    public string? ServiceName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("service_name")?.Value;
+        set => this.WithProperty("service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public string? State
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("state")?.Value;
+        set => this.WithProperty("state", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, string>? Tags
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The vpc_id attribute.
+    /// </summary>
+    public string? VpcId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
+        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+    /// <summary>
+    /// The cidr_blocks attribute.
+    /// </summary>
+    public TerraformExpression CidrBlocks => this["cidr_blocks"];
+
+    /// <summary>
+    /// The dns_entry attribute.
+    /// </summary>
+    public TerraformExpression DnsEntry => this["dns_entry"];
+
+    /// <summary>
+    /// The dns_options attribute.
+    /// </summary>
+    public TerraformExpression DnsOptions => this["dns_options"];
+
+    /// <summary>
+    /// The ip_address_type attribute.
+    /// </summary>
+    public TerraformExpression IpAddressType => this["ip_address_type"];
+
+    /// <summary>
+    /// The network_interface_ids attribute.
+    /// </summary>
+    public TerraformExpression NetworkInterfaceIds => this["network_interface_ids"];
+
+    /// <summary>
+    /// The owner_id attribute.
+    /// </summary>
+    public TerraformExpression OwnerId => this["owner_id"];
+
+    /// <summary>
+    /// The policy attribute.
+    /// </summary>
+    public TerraformExpression Policy => this["policy"];
+
+    /// <summary>
+    /// The prefix_list_id attribute.
+    /// </summary>
+    public TerraformExpression PrefixListId => this["prefix_list_id"];
+
+    /// <summary>
+    /// The private_dns_enabled attribute.
+    /// </summary>
+    public TerraformExpression PrivateDnsEnabled => this["private_dns_enabled"];
+
+    /// <summary>
+    /// The requester_managed attribute.
+    /// </summary>
+    public TerraformExpression RequesterManaged => this["requester_managed"];
+
+    /// <summary>
+    /// The route_table_ids attribute.
+    /// </summary>
+    public TerraformExpression RouteTableIds => this["route_table_ids"];
+
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    public TerraformExpression SecurityGroupIds => this["security_group_ids"];
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    public TerraformExpression SubnetIds => this["subnet_ids"];
+
+    /// <summary>
+    /// The vpc_endpoint_type attribute.
+    /// </summary>
+    public TerraformExpression VpcEndpointType => this["vpc_endpoint_type"];
+
+}

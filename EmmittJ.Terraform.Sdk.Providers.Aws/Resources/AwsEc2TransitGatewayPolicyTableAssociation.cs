@@ -1,0 +1,58 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_ec2_transit_gateway_policy_table_association resource.
+/// </summary>
+public class AwsEc2TransitGatewayPolicyTableAssociation : TerraformResource
+{
+    public AwsEc2TransitGatewayPolicyTableAssociation(string name) : base("aws_ec2_transit_gateway_policy_table_association", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("resource_id");
+        this.DeclareOutput("resource_type");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The transit_gateway_attachment_id attribute.
+    /// </summary>
+    public string? TransitGatewayAttachmentId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id")?.Value;
+        set => this.WithProperty("transit_gateway_attachment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The transit_gateway_policy_table_id attribute.
+    /// </summary>
+    public string? TransitGatewayPolicyTableId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_policy_table_id")?.Value;
+        set => this.WithProperty("transit_gateway_policy_table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The resource_id attribute.
+    /// </summary>
+    public TerraformExpression ResourceId => this["resource_id"];
+
+    /// <summary>
+    /// The resource_type attribute.
+    /// </summary>
+    public TerraformExpression ResourceType => this["resource_type"];
+
+}

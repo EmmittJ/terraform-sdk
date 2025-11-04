@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,13 +14,13 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("arn");
-        DeclareOutput("certificate");
-        DeclareOutput("certificate_chain");
-        DeclareOutput("certificate_signing_request");
-        DeclareOutput("not_after");
-        DeclareOutput("not_before");
-        DeclareOutput("serial");
+        this.DeclareOutput("arn");
+        this.DeclareOutput("certificate");
+        this.DeclareOutput("certificate_chain");
+        this.DeclareOutput("certificate_signing_request");
+        this.DeclareOutput("not_after");
+        this.DeclareOutput("not_before");
+        this.DeclareOutput("serial");
     }
 
     /// <summary>
@@ -29,8 +28,8 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     public bool? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty&lt;bool&gt;>("enabled")?.Value;
-        set => WithPropertyInternal("enabled", value == null ? null : new TerraformLiteralProperty&lt;bool&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
+        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>
@@ -38,8 +37,8 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -47,8 +46,8 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     public string? KeyStorageSecurityStandard
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("key_storage_security_standard")?.Value;
-        set => WithPropertyInternal("key_storage_security_standard", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_storage_security_standard")?.Value;
+        set => this.WithProperty("key_storage_security_standard", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -56,26 +55,26 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     public double? PermanentDeletionTimeInDays
     {
-        get => GetProperty<TerraformLiteralProperty&lt;double&gt;>("permanent_deletion_time_in_days")?.Value;
-        set => WithPropertyInternal("permanent_deletion_time_in_days", value == null ? null : new TerraformLiteralProperty&lt;double&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("permanent_deletion_time_in_days")?.Value;
+        set => this.WithProperty("permanent_deletion_time_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? TagsAll
+    public Dictionary<string, string>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags_all")?.Value;
-        set => WithPropertyInternal("tags_all", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
+        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>
@@ -83,8 +82,8 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     public string? Type
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("type")?.Value;
-        set => WithPropertyInternal("type", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
+        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -92,8 +91,8 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// </summary>
     public string? UsageMode
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("usage_mode")?.Value;
-        set => WithPropertyInternal("usage_mode", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("usage_mode")?.Value;
+        set => this.WithProperty("usage_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>

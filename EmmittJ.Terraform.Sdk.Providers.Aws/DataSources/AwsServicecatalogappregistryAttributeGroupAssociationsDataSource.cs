@@ -1,0 +1,43 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_servicecatalogappregistry_attribute_group_associations.
+/// </summary>
+public class AwsServicecatalogappregistryAttributeGroupAssociationsDataSource : TerraformDataSource
+{
+    public AwsServicecatalogappregistryAttributeGroupAssociationsDataSource(string name) : base("aws_servicecatalogappregistry_attribute_group_associations", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("attribute_group_ids");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The attribute_group_ids attribute.
+    /// </summary>
+    public TerraformExpression AttributeGroupIds => this["attribute_group_ids"];
+
+}

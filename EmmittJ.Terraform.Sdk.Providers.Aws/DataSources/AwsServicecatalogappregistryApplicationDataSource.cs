@@ -1,0 +1,58 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_servicecatalogappregistry_application.
+/// </summary>
+public class AwsServicecatalogappregistryApplicationDataSource : TerraformDataSource
+{
+    public AwsServicecatalogappregistryApplicationDataSource(string name) : base("aws_servicecatalogappregistry_application", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("application_tag");
+        this.DeclareOutput("arn");
+        this.DeclareOutput("description");
+        this.DeclareOutput("name");
+        this.DeclareOutput("tags");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The application_tag attribute.
+    /// </summary>
+    public TerraformExpression ApplicationTag => this["application_tag"];
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformExpression Description => this["description"];
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformExpression Name => this["name"];
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformExpression Tags => this["tags"];
+
+}

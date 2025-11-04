@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,9 +14,9 @@ public class AwsAcmpcaCertificate : TerraformResource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("arn");
-        DeclareOutput("certificate");
-        DeclareOutput("certificate_chain");
+        this.DeclareOutput("arn");
+        this.DeclareOutput("certificate");
+        this.DeclareOutput("certificate_chain");
     }
 
     /// <summary>
@@ -25,8 +24,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// </summary>
     public string? ApiPassthrough
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("api_passthrough")?.Value;
-        set => WithPropertyInternal("api_passthrough", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_passthrough")?.Value;
+        set => this.WithProperty("api_passthrough", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -34,8 +33,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// </summary>
     public string? CertificateAuthorityArn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("certificate_authority_arn")?.Value;
-        set => WithPropertyInternal("certificate_authority_arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn")?.Value;
+        set => this.WithProperty("certificate_authority_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -43,8 +42,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// </summary>
     public string? CertificateSigningRequest
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("certificate_signing_request")?.Value;
-        set => WithPropertyInternal("certificate_signing_request", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_signing_request")?.Value;
+        set => this.WithProperty("certificate_signing_request", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -52,8 +51,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -61,8 +60,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// </summary>
     public string? SigningAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("signing_algorithm")?.Value;
-        set => WithPropertyInternal("signing_algorithm", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("signing_algorithm")?.Value;
+        set => this.WithProperty("signing_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -70,8 +69,8 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// </summary>
     public string? TemplateArn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("template_arn")?.Value;
-        set => WithPropertyInternal("template_arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_arn")?.Value;
+        set => this.WithProperty("template_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,16 +14,16 @@ public class AwsAmiIdsDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("ids");
+        this.DeclareOutput("ids");
     }
 
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public List&lt;string&gt;? ExecutableUsers
+    public List<string>? ExecutableUsers
     {
-        get => GetProperty<TerraformLiteralProperty&lt;List&lt;string&gt;&gt;>("executable_users")?.Value;
-        set => WithPropertyInternal("executable_users", value == null ? null : new TerraformLiteralProperty&lt;List&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("executable_users")?.Value;
+        set => this.WithProperty("executable_users", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     /// <summary>
@@ -32,8 +31,8 @@ public class AwsAmiIdsDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -41,8 +40,8 @@ public class AwsAmiIdsDataSource : TerraformDataSource
     /// </summary>
     public bool? IncludeDeprecated
     {
-        get => GetProperty<TerraformLiteralProperty&lt;bool&gt;>("include_deprecated")?.Value;
-        set => WithPropertyInternal("include_deprecated", value == null ? null : new TerraformLiteralProperty&lt;bool&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_deprecated")?.Value;
+        set => this.WithProperty("include_deprecated", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>
@@ -50,17 +49,17 @@ public class AwsAmiIdsDataSource : TerraformDataSource
     /// </summary>
     public string? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("name_regex")?.Value;
-        set => WithPropertyInternal("name_regex", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_regex")?.Value;
+        set => this.WithProperty("name_regex", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public List&lt;string&gt;? Owners
+    public List<string>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty&lt;List&lt;string&gt;&gt;>("owners")?.Value;
-        set => WithPropertyInternal("owners", value == null ? null : new TerraformLiteralProperty&lt;List&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("owners")?.Value;
+        set => this.WithProperty("owners", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     /// <summary>
@@ -68,8 +67,8 @@ public class AwsAmiIdsDataSource : TerraformDataSource
     /// </summary>
     public bool? SortAscending
     {
-        get => GetProperty<TerraformLiteralProperty&lt;bool&gt;>("sort_ascending")?.Value;
-        set => WithPropertyInternal("sort_ascending", value == null ? null : new TerraformLiteralProperty&lt;bool&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sort_ascending")?.Value;
+        set => this.WithProperty("sort_ascending", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>

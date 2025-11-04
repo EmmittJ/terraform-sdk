@@ -1,0 +1,109 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_quicksight_analysis.
+/// </summary>
+public class AwsQuicksightAnalysisDataSource : TerraformDataSource
+{
+    public AwsQuicksightAnalysisDataSource(string name) : base("aws_quicksight_analysis", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("arn");
+        this.DeclareOutput("created_time");
+        this.DeclareOutput("definition");
+        this.DeclareOutput("last_published_time");
+        this.DeclareOutput("last_updated_time");
+        this.DeclareOutput("name");
+        this.DeclareOutput("permissions");
+        this.DeclareOutput("status");
+        this.DeclareOutput("theme_arn");
+    }
+
+    /// <summary>
+    /// The analysis_id attribute.
+    /// </summary>
+    public string? AnalysisId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("analysis_id")?.Value;
+        set => this.WithProperty("analysis_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The aws_account_id attribute.
+    /// </summary>
+    public string? AwsAccountId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id")?.Value;
+        set => this.WithProperty("aws_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, string>? Tags
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+    /// <summary>
+    /// The created_time attribute.
+    /// </summary>
+    public TerraformExpression CreatedTime => this["created_time"];
+
+    /// <summary>
+    /// The definition attribute.
+    /// </summary>
+    public TerraformExpression Definition => this["definition"];
+
+    /// <summary>
+    /// The last_published_time attribute.
+    /// </summary>
+    public TerraformExpression LastPublishedTime => this["last_published_time"];
+
+    /// <summary>
+    /// The last_updated_time attribute.
+    /// </summary>
+    public TerraformExpression LastUpdatedTime => this["last_updated_time"];
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformExpression Name => this["name"];
+
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    public TerraformExpression Permissions => this["permissions"];
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformExpression Status => this["status"];
+
+    /// <summary>
+    /// The theme_arn attribute.
+    /// </summary>
+    public TerraformExpression ThemeArn => this["theme_arn"];
+
+}

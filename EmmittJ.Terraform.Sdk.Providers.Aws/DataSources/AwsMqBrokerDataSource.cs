@@ -1,0 +1,163 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_mq_broker.
+/// </summary>
+public class AwsMqBrokerDataSource : TerraformDataSource
+{
+    public AwsMqBrokerDataSource(string name) : base("aws_mq_broker", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("arn");
+        this.DeclareOutput("authentication_strategy");
+        this.DeclareOutput("auto_minor_version_upgrade");
+        this.DeclareOutput("configuration");
+        this.DeclareOutput("deployment_mode");
+        this.DeclareOutput("encryption_options");
+        this.DeclareOutput("engine_type");
+        this.DeclareOutput("engine_version");
+        this.DeclareOutput("host_instance_type");
+        this.DeclareOutput("instances");
+        this.DeclareOutput("ldap_server_metadata");
+        this.DeclareOutput("logs");
+        this.DeclareOutput("maintenance_window_start_time");
+        this.DeclareOutput("publicly_accessible");
+        this.DeclareOutput("security_groups");
+        this.DeclareOutput("storage_type");
+        this.DeclareOutput("subnet_ids");
+        this.DeclareOutput("user");
+    }
+
+    /// <summary>
+    /// The broker_id attribute.
+    /// </summary>
+    public string? BrokerId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("broker_id")?.Value;
+        set => this.WithProperty("broker_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The broker_name attribute.
+    /// </summary>
+    public string? BrokerName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("broker_name")?.Value;
+        set => this.WithProperty("broker_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, string>? Tags
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+    /// <summary>
+    /// The authentication_strategy attribute.
+    /// </summary>
+    public TerraformExpression AuthenticationStrategy => this["authentication_strategy"];
+
+    /// <summary>
+    /// The auto_minor_version_upgrade attribute.
+    /// </summary>
+    public TerraformExpression AutoMinorVersionUpgrade => this["auto_minor_version_upgrade"];
+
+    /// <summary>
+    /// The configuration attribute.
+    /// </summary>
+    public TerraformExpression Configuration => this["configuration"];
+
+    /// <summary>
+    /// The deployment_mode attribute.
+    /// </summary>
+    public TerraformExpression DeploymentMode => this["deployment_mode"];
+
+    /// <summary>
+    /// The encryption_options attribute.
+    /// </summary>
+    public TerraformExpression EncryptionOptions => this["encryption_options"];
+
+    /// <summary>
+    /// The engine_type attribute.
+    /// </summary>
+    public TerraformExpression EngineType => this["engine_type"];
+
+    /// <summary>
+    /// The engine_version attribute.
+    /// </summary>
+    public TerraformExpression EngineVersion => this["engine_version"];
+
+    /// <summary>
+    /// The host_instance_type attribute.
+    /// </summary>
+    public TerraformExpression HostInstanceType => this["host_instance_type"];
+
+    /// <summary>
+    /// The instances attribute.
+    /// </summary>
+    public TerraformExpression Instances => this["instances"];
+
+    /// <summary>
+    /// The ldap_server_metadata attribute.
+    /// </summary>
+    public TerraformExpression LdapServerMetadata => this["ldap_server_metadata"];
+
+    /// <summary>
+    /// The logs attribute.
+    /// </summary>
+    public TerraformExpression Logs => this["logs"];
+
+    /// <summary>
+    /// The maintenance_window_start_time attribute.
+    /// </summary>
+    public TerraformExpression MaintenanceWindowStartTime => this["maintenance_window_start_time"];
+
+    /// <summary>
+    /// The publicly_accessible attribute.
+    /// </summary>
+    public TerraformExpression PubliclyAccessible => this["publicly_accessible"];
+
+    /// <summary>
+    /// The security_groups attribute.
+    /// </summary>
+    public TerraformExpression SecurityGroups => this["security_groups"];
+
+    /// <summary>
+    /// The storage_type attribute.
+    /// </summary>
+    public TerraformExpression StorageType => this["storage_type"];
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    public TerraformExpression SubnetIds => this["subnet_ids"];
+
+    /// <summary>
+    /// The user attribute.
+    /// </summary>
+    public TerraformExpression User => this["user"];
+
+}

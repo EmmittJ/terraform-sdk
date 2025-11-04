@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,14 +14,14 @@ public class AwsApiGatewayApiKeyDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("arn");
-        DeclareOutput("created_date");
-        DeclareOutput("customer_id");
-        DeclareOutput("description");
-        DeclareOutput("enabled");
-        DeclareOutput("last_updated_date");
-        DeclareOutput("name");
-        DeclareOutput("value");
+        this.DeclareOutput("arn");
+        this.DeclareOutput("created_date");
+        this.DeclareOutput("customer_id");
+        this.DeclareOutput("description");
+        this.DeclareOutput("enabled");
+        this.DeclareOutput("last_updated_date");
+        this.DeclareOutput("name");
+        this.DeclareOutput("value");
     }
 
     /// <summary>
@@ -30,17 +29,17 @@ public class AwsApiGatewayApiKeyDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>

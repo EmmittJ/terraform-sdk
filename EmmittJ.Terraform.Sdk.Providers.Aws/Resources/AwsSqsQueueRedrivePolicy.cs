@@ -1,0 +1,46 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_sqs_queue_redrive_policy resource.
+/// </summary>
+public class AwsSqsQueueRedrivePolicy : TerraformResource
+{
+    public AwsSqsQueueRedrivePolicy(string name) : base("aws_sqs_queue_redrive_policy", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The queue_url attribute.
+    /// </summary>
+    public string? QueueUrl
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("queue_url")?.Value;
+        set => this.WithProperty("queue_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The redrive_policy attribute.
+    /// </summary>
+    public string? RedrivePolicy
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("redrive_policy")?.Value;
+        set => this.WithProperty("redrive_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+}

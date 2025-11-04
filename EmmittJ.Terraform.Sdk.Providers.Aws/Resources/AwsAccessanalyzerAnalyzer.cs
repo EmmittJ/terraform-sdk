@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,7 +14,7 @@ public class AwsAccessanalyzerAnalyzer : TerraformResource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("arn");
+        this.DeclareOutput("arn");
     }
 
     /// <summary>
@@ -23,8 +22,8 @@ public class AwsAccessanalyzerAnalyzer : TerraformResource
     /// </summary>
     public string? AnalyzerName
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("analyzer_name")?.Value;
-        set => WithPropertyInternal("analyzer_name", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("analyzer_name")?.Value;
+        set => this.WithProperty("analyzer_name", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -32,26 +31,26 @@ public class AwsAccessanalyzerAnalyzer : TerraformResource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? TagsAll
+    public Dictionary<string, string>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags_all")?.Value;
-        set => WithPropertyInternal("tags_all", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
+        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>
@@ -59,8 +58,8 @@ public class AwsAccessanalyzerAnalyzer : TerraformResource
     /// </summary>
     public string? Type
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("type")?.Value;
-        set => WithPropertyInternal("type", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
+        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>

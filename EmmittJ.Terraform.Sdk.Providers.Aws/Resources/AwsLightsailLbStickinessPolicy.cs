@@ -1,0 +1,55 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_lightsail_lb_stickiness_policy resource.
+/// </summary>
+public class AwsLightsailLbStickinessPolicy : TerraformResource
+{
+    public AwsLightsailLbStickinessPolicy(string name) : base("aws_lightsail_lb_stickiness_policy", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+    }
+
+    /// <summary>
+    /// The cookie_duration attribute.
+    /// </summary>
+    public double? CookieDuration
+    {
+        get => GetProperty<TerraformLiteralProperty<double>>("cookie_duration")?.Value;
+        set => this.WithProperty("cookie_duration", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public bool? Enabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
+        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The lb_name attribute.
+    /// </summary>
+    public string? LbName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("lb_name")?.Value;
+        set => this.WithProperty("lb_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+}

@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,7 +14,7 @@ public class AwsAccountRegion : TerraformResource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("opt_status");
+        this.DeclareOutput("opt_status");
     }
 
     /// <summary>
@@ -23,8 +22,8 @@ public class AwsAccountRegion : TerraformResource
     /// </summary>
     public string? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("account_id")?.Value;
-        set => WithPropertyInternal("account_id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_id")?.Value;
+        set => this.WithProperty("account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -32,8 +31,8 @@ public class AwsAccountRegion : TerraformResource
     /// </summary>
     public bool? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty&lt;bool&gt;>("enabled")?.Value;
-        set => WithPropertyInternal("enabled", value == null ? null : new TerraformLiteralProperty&lt;bool&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
+        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>
@@ -41,8 +40,8 @@ public class AwsAccountRegion : TerraformResource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -50,8 +49,8 @@ public class AwsAccountRegion : TerraformResource
     /// </summary>
     public string? RegionName
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("region_name")?.Value;
-        set => WithPropertyInternal("region_name", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region_name")?.Value;
+        set => this.WithProperty("region_name", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,17 +14,17 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("certificate");
-        DeclareOutput("certificate_chain");
-        DeclareOutput("certificate_signing_request");
-        DeclareOutput("key_storage_security_standard");
-        DeclareOutput("not_after");
-        DeclareOutput("not_before");
-        DeclareOutput("revocation_configuration");
-        DeclareOutput("serial");
-        DeclareOutput("status");
-        DeclareOutput("type");
-        DeclareOutput("usage_mode");
+        this.DeclareOutput("certificate");
+        this.DeclareOutput("certificate_chain");
+        this.DeclareOutput("certificate_signing_request");
+        this.DeclareOutput("key_storage_security_standard");
+        this.DeclareOutput("not_after");
+        this.DeclareOutput("not_before");
+        this.DeclareOutput("revocation_configuration");
+        this.DeclareOutput("serial");
+        this.DeclareOutput("status");
+        this.DeclareOutput("type");
+        this.DeclareOutput("usage_mode");
     }
 
     /// <summary>
@@ -33,8 +32,8 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
     /// </summary>
     public string? Arn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("arn")?.Value;
-        set => WithPropertyInternal("arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("arn")?.Value;
+        set => this.WithProperty("arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -42,17 +41,17 @@ public class AwsAcmpcaCertificateAuthorityDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,23 +14,23 @@ public class AwsAlbTargetGroupDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("arn_suffix");
-        DeclareOutput("connection_termination");
-        DeclareOutput("deregistration_delay");
-        DeclareOutput("health_check");
-        DeclareOutput("lambda_multi_value_headers_enabled");
-        DeclareOutput("load_balancer_arns");
-        DeclareOutput("load_balancing_algorithm_type");
-        DeclareOutput("load_balancing_cross_zone_enabled");
-        DeclareOutput("port");
-        DeclareOutput("preserve_client_ip");
-        DeclareOutput("protocol");
-        DeclareOutput("protocol_version");
-        DeclareOutput("proxy_protocol_v2");
-        DeclareOutput("slow_start");
-        DeclareOutput("stickiness");
-        DeclareOutput("target_type");
-        DeclareOutput("vpc_id");
+        this.DeclareOutput("arn_suffix");
+        this.DeclareOutput("connection_termination");
+        this.DeclareOutput("deregistration_delay");
+        this.DeclareOutput("health_check");
+        this.DeclareOutput("lambda_multi_value_headers_enabled");
+        this.DeclareOutput("load_balancer_arns");
+        this.DeclareOutput("load_balancing_algorithm_type");
+        this.DeclareOutput("load_balancing_cross_zone_enabled");
+        this.DeclareOutput("port");
+        this.DeclareOutput("preserve_client_ip");
+        this.DeclareOutput("protocol");
+        this.DeclareOutput("protocol_version");
+        this.DeclareOutput("proxy_protocol_v2");
+        this.DeclareOutput("slow_start");
+        this.DeclareOutput("stickiness");
+        this.DeclareOutput("target_type");
+        this.DeclareOutput("vpc_id");
     }
 
     /// <summary>
@@ -39,8 +38,8 @@ public class AwsAlbTargetGroupDataSource : TerraformDataSource
     /// </summary>
     public string? Arn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("arn")?.Value;
-        set => WithPropertyInternal("arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("arn")?.Value;
+        set => this.WithProperty("arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -48,8 +47,8 @@ public class AwsAlbTargetGroupDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -57,8 +56,8 @@ public class AwsAlbTargetGroupDataSource : TerraformDataSource
     /// </summary>
     public string? LoadBalancingAnomalyMitigation
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("load_balancing_anomaly_mitigation")?.Value;
-        set => WithPropertyInternal("load_balancing_anomaly_mitigation", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_anomaly_mitigation")?.Value;
+        set => this.WithProperty("load_balancing_anomaly_mitigation", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -66,17 +65,17 @@ public class AwsAlbTargetGroupDataSource : TerraformDataSource
     /// </summary>
     public string? Name
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("name")?.Value;
-        set => WithPropertyInternal("name", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>

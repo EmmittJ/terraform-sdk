@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,18 +14,18 @@ public class AwsAccountPrimaryContactDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("address_line_1");
-        DeclareOutput("address_line_2");
-        DeclareOutput("address_line_3");
-        DeclareOutput("city");
-        DeclareOutput("company_name");
-        DeclareOutput("country_code");
-        DeclareOutput("district_or_county");
-        DeclareOutput("full_name");
-        DeclareOutput("phone_number");
-        DeclareOutput("postal_code");
-        DeclareOutput("state_or_region");
-        DeclareOutput("website_url");
+        this.DeclareOutput("address_line_1");
+        this.DeclareOutput("address_line_2");
+        this.DeclareOutput("address_line_3");
+        this.DeclareOutput("city");
+        this.DeclareOutput("company_name");
+        this.DeclareOutput("country_code");
+        this.DeclareOutput("district_or_county");
+        this.DeclareOutput("full_name");
+        this.DeclareOutput("phone_number");
+        this.DeclareOutput("postal_code");
+        this.DeclareOutput("state_or_region");
+        this.DeclareOutput("website_url");
     }
 
     /// <summary>
@@ -34,8 +33,8 @@ public class AwsAccountPrimaryContactDataSource : TerraformDataSource
     /// </summary>
     public string? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("account_id")?.Value;
-        set => WithPropertyInternal("account_id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_id")?.Value;
+        set => this.WithProperty("account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>

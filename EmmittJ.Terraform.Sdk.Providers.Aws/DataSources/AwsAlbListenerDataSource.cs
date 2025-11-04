@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,12 +14,12 @@ public class AwsAlbListenerDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("alpn_policy");
-        DeclareOutput("certificate_arn");
-        DeclareOutput("default_action");
-        DeclareOutput("mutual_authentication");
-        DeclareOutput("protocol");
-        DeclareOutput("ssl_policy");
+        this.DeclareOutput("alpn_policy");
+        this.DeclareOutput("certificate_arn");
+        this.DeclareOutput("default_action");
+        this.DeclareOutput("mutual_authentication");
+        this.DeclareOutput("protocol");
+        this.DeclareOutput("ssl_policy");
     }
 
     /// <summary>
@@ -28,8 +27,8 @@ public class AwsAlbListenerDataSource : TerraformDataSource
     /// </summary>
     public string? Arn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("arn")?.Value;
-        set => WithPropertyInternal("arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("arn")?.Value;
+        set => this.WithProperty("arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -37,8 +36,8 @@ public class AwsAlbListenerDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -46,8 +45,8 @@ public class AwsAlbListenerDataSource : TerraformDataSource
     /// </summary>
     public string? LoadBalancerArn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("load_balancer_arn")?.Value;
-        set => WithPropertyInternal("load_balancer_arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancer_arn")?.Value;
+        set => this.WithProperty("load_balancer_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -55,17 +54,17 @@ public class AwsAlbListenerDataSource : TerraformDataSource
     /// </summary>
     public double? Port
     {
-        get => GetProperty<TerraformLiteralProperty&lt;double&gt;>("port")?.Value;
-        set => WithPropertyInternal("port", value == null ? null : new TerraformLiteralProperty&lt;double&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
+        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>

@@ -1,0 +1,73 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_efs_access_point resource.
+/// </summary>
+public class AwsEfsAccessPoint : TerraformResource
+{
+    public AwsEfsAccessPoint(string name) : base("aws_efs_access_point", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("arn");
+        this.DeclareOutput("file_system_arn");
+        this.DeclareOutput("owner_id");
+    }
+
+    /// <summary>
+    /// The file_system_id attribute.
+    /// </summary>
+    public string? FileSystemId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("file_system_id")?.Value;
+        set => this.WithProperty("file_system_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, string>? Tags
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public Dictionary<string, string>? TagsAll
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
+        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+    /// <summary>
+    /// The file_system_arn attribute.
+    /// </summary>
+    public TerraformExpression FileSystemArn => this["file_system_arn"];
+
+    /// <summary>
+    /// The owner_id attribute.
+    /// </summary>
+    public TerraformExpression OwnerId => this["owner_id"];
+
+}

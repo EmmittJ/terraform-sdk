@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -22,8 +21,8 @@ public class AwsAcmCertificateValidation : TerraformResource
     /// </summary>
     public string? CertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("certificate_arn")?.Value;
-        set => WithPropertyInternal("certificate_arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_arn")?.Value;
+        set => this.WithProperty("certificate_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -31,17 +30,17 @@ public class AwsAcmCertificateValidation : TerraformResource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The validation_record_fqdns attribute.
     /// </summary>
-    public HashSet&lt;string&gt;? ValidationRecordFqdns
+    public HashSet<string>? ValidationRecordFqdns
     {
-        get => GetProperty<TerraformLiteralProperty&lt;HashSet&lt;string&gt;&gt;>("validation_record_fqdns")?.Value;
-        set => WithPropertyInternal("validation_record_fqdns", value == null ? null : new TerraformLiteralProperty&lt;HashSet&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("validation_record_fqdns")?.Value;
+        set => this.WithProperty("validation_record_fqdns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
     }
 
 }

@@ -1,0 +1,46 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_config_configuration_recorder_status resource.
+/// </summary>
+public class AwsConfigConfigurationRecorderStatus : TerraformResource
+{
+    public AwsConfigConfigurationRecorderStatus(string name) : base("aws_config_configuration_recorder_status", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The is_enabled attribute.
+    /// </summary>
+    public bool? IsEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("is_enabled")?.Value;
+        set => this.WithProperty("is_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+}

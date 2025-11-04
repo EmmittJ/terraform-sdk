@@ -1,0 +1,76 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_memorydb_snapshot.
+/// </summary>
+public class AwsMemorydbSnapshotDataSource : TerraformDataSource
+{
+    public AwsMemorydbSnapshotDataSource(string name) : base("aws_memorydb_snapshot", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("arn");
+        this.DeclareOutput("cluster_configuration");
+        this.DeclareOutput("cluster_name");
+        this.DeclareOutput("kms_key_arn");
+        this.DeclareOutput("source");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, string>? Tags
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+    /// <summary>
+    /// The cluster_configuration attribute.
+    /// </summary>
+    public TerraformExpression ClusterConfiguration => this["cluster_configuration"];
+
+    /// <summary>
+    /// The cluster_name attribute.
+    /// </summary>
+    public TerraformExpression ClusterName => this["cluster_name"];
+
+    /// <summary>
+    /// The kms_key_arn attribute.
+    /// </summary>
+    public TerraformExpression KmsKeyArn => this["kms_key_arn"];
+
+    /// <summary>
+    /// The source attribute.
+    /// </summary>
+    public TerraformExpression Source => this["source"];
+
+}

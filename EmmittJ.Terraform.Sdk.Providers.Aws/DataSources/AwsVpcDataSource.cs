@@ -1,0 +1,133 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_vpc.
+/// </summary>
+public class AwsVpcDataSource : TerraformDataSource
+{
+    public AwsVpcDataSource(string name) : base("aws_vpc", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("arn");
+        this.DeclareOutput("cidr_block_associations");
+        this.DeclareOutput("enable_dns_hostnames");
+        this.DeclareOutput("enable_dns_support");
+        this.DeclareOutput("enable_network_address_usage_metrics");
+        this.DeclareOutput("instance_tenancy");
+        this.DeclareOutput("ipv6_association_id");
+        this.DeclareOutput("ipv6_cidr_block");
+        this.DeclareOutput("main_route_table_id");
+        this.DeclareOutput("owner_id");
+    }
+
+    /// <summary>
+    /// The cidr_block attribute.
+    /// </summary>
+    public string? CidrBlock
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block")?.Value;
+        set => this.WithProperty("cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The default attribute.
+    /// </summary>
+    public bool? Default
+    {
+        get => GetProperty<TerraformLiteralProperty<bool>>("default")?.Value;
+        set => this.WithProperty("default", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+    }
+
+    /// <summary>
+    /// The dhcp_options_id attribute.
+    /// </summary>
+    public string? DhcpOptionsId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("dhcp_options_id")?.Value;
+        set => this.WithProperty("dhcp_options_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public string? State
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("state")?.Value;
+        set => this.WithProperty("state", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, string>? Tags
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+    /// <summary>
+    /// The cidr_block_associations attribute.
+    /// </summary>
+    public TerraformExpression CidrBlockAssociations => this["cidr_block_associations"];
+
+    /// <summary>
+    /// The enable_dns_hostnames attribute.
+    /// </summary>
+    public TerraformExpression EnableDnsHostnames => this["enable_dns_hostnames"];
+
+    /// <summary>
+    /// The enable_dns_support attribute.
+    /// </summary>
+    public TerraformExpression EnableDnsSupport => this["enable_dns_support"];
+
+    /// <summary>
+    /// The enable_network_address_usage_metrics attribute.
+    /// </summary>
+    public TerraformExpression EnableNetworkAddressUsageMetrics => this["enable_network_address_usage_metrics"];
+
+    /// <summary>
+    /// The instance_tenancy attribute.
+    /// </summary>
+    public TerraformExpression InstanceTenancy => this["instance_tenancy"];
+
+    /// <summary>
+    /// The ipv6_association_id attribute.
+    /// </summary>
+    public TerraformExpression Ipv6AssociationId => this["ipv6_association_id"];
+
+    /// <summary>
+    /// The ipv6_cidr_block attribute.
+    /// </summary>
+    public TerraformExpression Ipv6CidrBlock => this["ipv6_cidr_block"];
+
+    /// <summary>
+    /// The main_route_table_id attribute.
+    /// </summary>
+    public TerraformExpression MainRouteTableId => this["main_route_table_id"];
+
+    /// <summary>
+    /// The owner_id attribute.
+    /// </summary>
+    public TerraformExpression OwnerId => this["owner_id"];
+
+}

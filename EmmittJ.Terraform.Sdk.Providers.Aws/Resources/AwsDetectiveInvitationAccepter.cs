@@ -1,0 +1,37 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_detective_invitation_accepter resource.
+/// </summary>
+public class AwsDetectiveInvitationAccepter : TerraformResource
+{
+    public AwsDetectiveInvitationAccepter(string name) : base("aws_detective_invitation_accepter", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+    }
+
+    /// <summary>
+    /// The graph_arn attribute.
+    /// </summary>
+    public string? GraphArn
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("graph_arn")?.Value;
+        set => this.WithProperty("graph_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+}

@@ -1,0 +1,52 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_securityhub_insight resource.
+/// </summary>
+public class AwsSecurityhubInsight : TerraformResource
+{
+    public AwsSecurityhubInsight(string name) : base("aws_securityhub_insight", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("arn");
+    }
+
+    /// <summary>
+    /// The group_by_attribute attribute.
+    /// </summary>
+    public string? GroupByAttribute
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("group_by_attribute")?.Value;
+        set => this.WithProperty("group_by_attribute", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public string? Name
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformExpression Arn => this["arn"];
+
+}

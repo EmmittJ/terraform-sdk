@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,47 +14,47 @@ public class AwsAmiDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("architecture");
-        DeclareOutput("arn");
-        DeclareOutput("block_device_mappings");
-        DeclareOutput("boot_mode");
-        DeclareOutput("creation_date");
-        DeclareOutput("deprecation_time");
-        DeclareOutput("description");
-        DeclareOutput("ena_support");
-        DeclareOutput("hypervisor");
-        DeclareOutput("image_id");
-        DeclareOutput("image_location");
-        DeclareOutput("image_owner_alias");
-        DeclareOutput("image_type");
-        DeclareOutput("imds_support");
-        DeclareOutput("kernel_id");
-        DeclareOutput("last_launched_time");
-        DeclareOutput("name");
-        DeclareOutput("owner_id");
-        DeclareOutput("platform");
-        DeclareOutput("platform_details");
-        DeclareOutput("product_codes");
-        DeclareOutput("public");
-        DeclareOutput("ramdisk_id");
-        DeclareOutput("root_device_name");
-        DeclareOutput("root_device_type");
-        DeclareOutput("root_snapshot_id");
-        DeclareOutput("sriov_net_support");
-        DeclareOutput("state");
-        DeclareOutput("state_reason");
-        DeclareOutput("tpm_support");
-        DeclareOutput("usage_operation");
-        DeclareOutput("virtualization_type");
+        this.DeclareOutput("architecture");
+        this.DeclareOutput("arn");
+        this.DeclareOutput("block_device_mappings");
+        this.DeclareOutput("boot_mode");
+        this.DeclareOutput("creation_date");
+        this.DeclareOutput("deprecation_time");
+        this.DeclareOutput("description");
+        this.DeclareOutput("ena_support");
+        this.DeclareOutput("hypervisor");
+        this.DeclareOutput("image_id");
+        this.DeclareOutput("image_location");
+        this.DeclareOutput("image_owner_alias");
+        this.DeclareOutput("image_type");
+        this.DeclareOutput("imds_support");
+        this.DeclareOutput("kernel_id");
+        this.DeclareOutput("last_launched_time");
+        this.DeclareOutput("name");
+        this.DeclareOutput("owner_id");
+        this.DeclareOutput("platform");
+        this.DeclareOutput("platform_details");
+        this.DeclareOutput("product_codes");
+        this.DeclareOutput("public");
+        this.DeclareOutput("ramdisk_id");
+        this.DeclareOutput("root_device_name");
+        this.DeclareOutput("root_device_type");
+        this.DeclareOutput("root_snapshot_id");
+        this.DeclareOutput("sriov_net_support");
+        this.DeclareOutput("state");
+        this.DeclareOutput("state_reason");
+        this.DeclareOutput("tpm_support");
+        this.DeclareOutput("usage_operation");
+        this.DeclareOutput("virtualization_type");
     }
 
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public List&lt;string&gt;? ExecutableUsers
+    public List<string>? ExecutableUsers
     {
-        get => GetProperty<TerraformLiteralProperty&lt;List&lt;string&gt;&gt;>("executable_users")?.Value;
-        set => WithPropertyInternal("executable_users", value == null ? null : new TerraformLiteralProperty&lt;List&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("executable_users")?.Value;
+        set => this.WithProperty("executable_users", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     /// <summary>
@@ -63,8 +62,8 @@ public class AwsAmiDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -72,8 +71,8 @@ public class AwsAmiDataSource : TerraformDataSource
     /// </summary>
     public bool? IncludeDeprecated
     {
-        get => GetProperty<TerraformLiteralProperty&lt;bool&gt;>("include_deprecated")?.Value;
-        set => WithPropertyInternal("include_deprecated", value == null ? null : new TerraformLiteralProperty&lt;bool&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_deprecated")?.Value;
+        set => this.WithProperty("include_deprecated", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>
@@ -81,8 +80,8 @@ public class AwsAmiDataSource : TerraformDataSource
     /// </summary>
     public bool? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty&lt;bool&gt;>("most_recent")?.Value;
-        set => WithPropertyInternal("most_recent", value == null ? null : new TerraformLiteralProperty&lt;bool&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent")?.Value;
+        set => this.WithProperty("most_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>
@@ -90,26 +89,26 @@ public class AwsAmiDataSource : TerraformDataSource
     /// </summary>
     public string? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("name_regex")?.Value;
-        set => WithPropertyInternal("name_regex", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_regex")?.Value;
+        set => this.WithProperty("name_regex", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public List&lt;string&gt;? Owners
+    public List<string>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty&lt;List&lt;string&gt;&gt;>("owners")?.Value;
-        set => WithPropertyInternal("owners", value == null ? null : new TerraformLiteralProperty&lt;List&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("owners")?.Value;
+        set => this.WithProperty("owners", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>
@@ -117,8 +116,8 @@ public class AwsAmiDataSource : TerraformDataSource
     /// </summary>
     public string? UefiData
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("uefi_data")?.Value;
-        set => WithPropertyInternal("uefi_data", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("uefi_data")?.Value;
+        set => this.WithProperty("uefi_data", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>

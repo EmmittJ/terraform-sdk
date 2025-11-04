@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -22,8 +21,8 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     /// </summary>
     public string? AnalyzerName
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("analyzer_name")?.Value;
-        set => WithPropertyInternal("analyzer_name", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("analyzer_name")?.Value;
+        set => this.WithProperty("analyzer_name", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -31,8 +30,8 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -40,8 +39,8 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     /// </summary>
     public string? RuleName
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("rule_name")?.Value;
-        set => WithPropertyInternal("rule_name", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_name")?.Value;
+        set => this.WithProperty("rule_name", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
 }

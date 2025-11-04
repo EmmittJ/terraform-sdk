@@ -1,0 +1,46 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_lightsail_lb_certificate_attachment resource.
+/// </summary>
+public class AwsLightsailLbCertificateAttachment : TerraformResource
+{
+    public AwsLightsailLbCertificateAttachment(string name) : base("aws_lightsail_lb_certificate_attachment", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+    }
+
+    /// <summary>
+    /// The certificate_name attribute.
+    /// </summary>
+    public string? CertificateName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_name")?.Value;
+        set => this.WithProperty("certificate_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The lb_name attribute.
+    /// </summary>
+    public string? LbName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("lb_name")?.Value;
+        set => this.WithProperty("lb_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+}

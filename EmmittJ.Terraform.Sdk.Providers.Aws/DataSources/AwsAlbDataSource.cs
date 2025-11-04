@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,35 +14,35 @@ public class AwsAlbDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("access_logs");
-        DeclareOutput("arn_suffix");
-        DeclareOutput("client_keep_alive");
-        DeclareOutput("connection_logs");
-        DeclareOutput("customer_owned_ipv4_pool");
-        DeclareOutput("desync_mitigation_mode");
-        DeclareOutput("dns_name");
-        DeclareOutput("dns_record_client_routing_policy");
-        DeclareOutput("drop_invalid_header_fields");
-        DeclareOutput("enable_cross_zone_load_balancing");
-        DeclareOutput("enable_deletion_protection");
-        DeclareOutput("enable_http2");
-        DeclareOutput("enable_tls_version_and_cipher_suite_headers");
-        DeclareOutput("enable_waf_fail_open");
-        DeclareOutput("enable_xff_client_port");
-        DeclareOutput("enable_zonal_shift");
-        DeclareOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
-        DeclareOutput("idle_timeout");
-        DeclareOutput("internal");
-        DeclareOutput("ip_address_type");
-        DeclareOutput("ipam_pools");
-        DeclareOutput("load_balancer_type");
-        DeclareOutput("preserve_host_header");
-        DeclareOutput("security_groups");
-        DeclareOutput("subnet_mapping");
-        DeclareOutput("subnets");
-        DeclareOutput("vpc_id");
-        DeclareOutput("xff_header_processing_mode");
-        DeclareOutput("zone_id");
+        this.DeclareOutput("access_logs");
+        this.DeclareOutput("arn_suffix");
+        this.DeclareOutput("client_keep_alive");
+        this.DeclareOutput("connection_logs");
+        this.DeclareOutput("customer_owned_ipv4_pool");
+        this.DeclareOutput("desync_mitigation_mode");
+        this.DeclareOutput("dns_name");
+        this.DeclareOutput("dns_record_client_routing_policy");
+        this.DeclareOutput("drop_invalid_header_fields");
+        this.DeclareOutput("enable_cross_zone_load_balancing");
+        this.DeclareOutput("enable_deletion_protection");
+        this.DeclareOutput("enable_http2");
+        this.DeclareOutput("enable_tls_version_and_cipher_suite_headers");
+        this.DeclareOutput("enable_waf_fail_open");
+        this.DeclareOutput("enable_xff_client_port");
+        this.DeclareOutput("enable_zonal_shift");
+        this.DeclareOutput("enforce_security_group_inbound_rules_on_private_link_traffic");
+        this.DeclareOutput("idle_timeout");
+        this.DeclareOutput("internal");
+        this.DeclareOutput("ip_address_type");
+        this.DeclareOutput("ipam_pools");
+        this.DeclareOutput("load_balancer_type");
+        this.DeclareOutput("preserve_host_header");
+        this.DeclareOutput("security_groups");
+        this.DeclareOutput("subnet_mapping");
+        this.DeclareOutput("subnets");
+        this.DeclareOutput("vpc_id");
+        this.DeclareOutput("xff_header_processing_mode");
+        this.DeclareOutput("zone_id");
     }
 
     /// <summary>
@@ -51,8 +50,8 @@ public class AwsAlbDataSource : TerraformDataSource
     /// </summary>
     public string? Arn
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("arn")?.Value;
-        set => WithPropertyInternal("arn", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("arn")?.Value;
+        set => this.WithProperty("arn", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -60,8 +59,8 @@ public class AwsAlbDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -69,17 +68,17 @@ public class AwsAlbDataSource : TerraformDataSource
     /// </summary>
     public string? Name
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("name")?.Value;
-        set => WithPropertyInternal("name", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
+        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>

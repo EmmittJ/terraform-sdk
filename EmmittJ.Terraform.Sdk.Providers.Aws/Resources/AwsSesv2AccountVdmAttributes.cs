@@ -1,0 +1,37 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_sesv2_account_vdm_attributes resource.
+/// </summary>
+public class AwsSesv2AccountVdmAttributes : TerraformResource
+{
+    public AwsSesv2AccountVdmAttributes(string name) : base("aws_sesv2_account_vdm_attributes", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The vdm_enabled attribute.
+    /// </summary>
+    public string? VdmEnabled
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("vdm_enabled")?.Value;
+        set => this.WithProperty("vdm_enabled", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+}

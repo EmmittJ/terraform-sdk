@@ -1,5 +1,4 @@
-using EmmittJ.Terraform.Sdk.Resources;
-using EmmittJ.Terraform.Sdk.Context;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 
@@ -15,10 +14,10 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
 
     private void InitializeOutputs()
     {
-        DeclareOutput("arn");
-        DeclareOutput("certificate");
-        DeclareOutput("certificate_chain");
-        DeclareOutput("status");
+        this.DeclareOutput("arn");
+        this.DeclareOutput("certificate");
+        this.DeclareOutput("certificate_chain");
+        this.DeclareOutput("status");
     }
 
     /// <summary>
@@ -26,8 +25,8 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
     /// </summary>
     public string? Domain
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("domain")?.Value;
-        set => WithPropertyInternal("domain", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain")?.Value;
+        set => this.WithProperty("domain", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
@@ -35,17 +34,17 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
     /// </summary>
     public string? Id
     {
-        get => GetProperty<TerraformLiteralProperty&lt;string&gt;>("id")?.Value;
-        set => WithPropertyInternal("id", value == null ? null : new TerraformLiteralProperty&lt;string&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
     }
 
     /// <summary>
     /// The key_types attribute.
     /// </summary>
-    public HashSet&lt;string&gt;? KeyTypes
+    public HashSet<string>? KeyTypes
     {
-        get => GetProperty<TerraformLiteralProperty&lt;HashSet&lt;string&gt;&gt;>("key_types")?.Value;
-        set => WithPropertyInternal("key_types", value == null ? null : new TerraformLiteralProperty&lt;HashSet&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_types")?.Value;
+        set => this.WithProperty("key_types", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
     }
 
     /// <summary>
@@ -53,35 +52,35 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
     /// </summary>
     public bool? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty&lt;bool&gt;>("most_recent")?.Value;
-        set => WithPropertyInternal("most_recent", value == null ? null : new TerraformLiteralProperty&lt;bool&gt;(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent")?.Value;
+        set => this.WithProperty("most_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
     }
 
     /// <summary>
     /// The statuses attribute.
     /// </summary>
-    public List&lt;string&gt;? Statuses
+    public List<string>? Statuses
     {
-        get => GetProperty<TerraformLiteralProperty&lt;List&lt;string&gt;&gt;>("statuses")?.Value;
-        set => WithPropertyInternal("statuses", value == null ? null : new TerraformLiteralProperty&lt;List&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("statuses")?.Value;
+        set => this.WithProperty("statuses", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary&lt;string, string&gt;? Tags
+    public Dictionary<string, string>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;>("tags")?.Value;
-        set => WithPropertyInternal("tags", value == null ? null : new TerraformLiteralProperty&lt;Dictionary&lt;string, string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
     }
 
     /// <summary>
     /// The types attribute.
     /// </summary>
-    public List&lt;string&gt;? Types
+    public List<string>? Types
     {
-        get => GetProperty<TerraformLiteralProperty&lt;List&lt;string&gt;&gt;>("types")?.Value;
-        set => WithPropertyInternal("types", value == null ? null : new TerraformLiteralProperty&lt;List&lt;string&gt;&gt;(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("types")?.Value;
+        set => this.WithProperty("types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
     }
 
     /// <summary>

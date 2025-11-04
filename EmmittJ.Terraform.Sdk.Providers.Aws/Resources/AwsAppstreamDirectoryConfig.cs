@@ -1,0 +1,52 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Manages a aws_appstream_directory_config resource.
+/// </summary>
+public class AwsAppstreamDirectoryConfig : TerraformResource
+{
+    public AwsAppstreamDirectoryConfig(string name) : base("aws_appstream_directory_config", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("created_time");
+    }
+
+    /// <summary>
+    /// The directory_name attribute.
+    /// </summary>
+    public string? DirectoryName
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("directory_name")?.Value;
+        set => this.WithProperty("directory_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The organizational_unit_distinguished_names attribute.
+    /// </summary>
+    public HashSet<string>? OrganizationalUnitDistinguishedNames
+    {
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("organizational_unit_distinguished_names")?.Value;
+        set => this.WithProperty("organizational_unit_distinguished_names", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+    }
+
+    /// <summary>
+    /// The created_time attribute.
+    /// </summary>
+    public TerraformExpression CreatedTime => this["created_time"];
+
+}

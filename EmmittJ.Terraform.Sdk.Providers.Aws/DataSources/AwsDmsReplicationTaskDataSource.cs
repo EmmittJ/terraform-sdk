@@ -1,0 +1,112 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Retrieves information about a aws_dms_replication_task.
+/// </summary>
+public class AwsDmsReplicationTaskDataSource : TerraformDataSource
+{
+    public AwsDmsReplicationTaskDataSource(string name) : base("aws_dms_replication_task", name)
+    {
+        InitializeOutputs();
+    }
+
+    private void InitializeOutputs()
+    {
+        this.DeclareOutput("cdc_start_position");
+        this.DeclareOutput("cdc_start_time");
+        this.DeclareOutput("migration_type");
+        this.DeclareOutput("replication_instance_arn");
+        this.DeclareOutput("replication_task_arn");
+        this.DeclareOutput("replication_task_settings");
+        this.DeclareOutput("source_endpoint_arn");
+        this.DeclareOutput("start_replication_task");
+        this.DeclareOutput("status");
+        this.DeclareOutput("table_mappings");
+        this.DeclareOutput("target_endpoint_arn");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public string? Id
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
+        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The replication_task_id attribute.
+    /// </summary>
+    public string? ReplicationTaskId
+    {
+        get => GetProperty<TerraformLiteralProperty<string>>("replication_task_id")?.Value;
+        set => this.WithProperty("replication_task_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public Dictionary<string, string>? Tags
+    {
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
+        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+    }
+
+    /// <summary>
+    /// The cdc_start_position attribute.
+    /// </summary>
+    public TerraformExpression CdcStartPosition => this["cdc_start_position"];
+
+    /// <summary>
+    /// The cdc_start_time attribute.
+    /// </summary>
+    public TerraformExpression CdcStartTime => this["cdc_start_time"];
+
+    /// <summary>
+    /// The migration_type attribute.
+    /// </summary>
+    public TerraformExpression MigrationType => this["migration_type"];
+
+    /// <summary>
+    /// The replication_instance_arn attribute.
+    /// </summary>
+    public TerraformExpression ReplicationInstanceArn => this["replication_instance_arn"];
+
+    /// <summary>
+    /// The replication_task_arn attribute.
+    /// </summary>
+    public TerraformExpression ReplicationTaskArn => this["replication_task_arn"];
+
+    /// <summary>
+    /// The replication_task_settings attribute.
+    /// </summary>
+    public TerraformExpression ReplicationTaskSettings => this["replication_task_settings"];
+
+    /// <summary>
+    /// The source_endpoint_arn attribute.
+    /// </summary>
+    public TerraformExpression SourceEndpointArn => this["source_endpoint_arn"];
+
+    /// <summary>
+    /// The start_replication_task attribute.
+    /// </summary>
+    public TerraformExpression StartReplicationTask => this["start_replication_task"];
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformExpression Status => this["status"];
+
+    /// <summary>
+    /// The table_mappings attribute.
+    /// </summary>
+    public TerraformExpression TableMappings => this["table_mappings"];
+
+    /// <summary>
+    /// The target_endpoint_arn attribute.
+    /// </summary>
+    public TerraformExpression TargetEndpointArn => this["target_endpoint_arn"];
+
+}
