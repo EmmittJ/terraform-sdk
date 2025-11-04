@@ -113,7 +113,7 @@ public sealed class TerraformCodeGenPipelineHook : IDistributedApplicationEventi
             var dataSources = parser.ParseDataSources(providerSchema, provider.ProviderName);
             await parseTask.CompleteAsync("Schema parsed", CompletionState.Completed, stepContext.CancellationToken);
 
-            // Step 4: Generate code files
+            // Step 4: Set up output folder structure
             var outputFolder = provider.OutputFolder ?? Path.Combine(workspaceRoot, provider.Namespace);
             if (Directory.Exists(outputFolder))
             {
@@ -126,37 +126,41 @@ public sealed class TerraformCodeGenPipelineHook : IDistributedApplicationEventi
             Directory.CreateDirectory(resourcesFolder);
             Directory.CreateDirectory(dataSourcesFolder);
 
-            // Generate resources
-            var resourceGenTask = await step.CreateTaskAsync($"Generating {resources.Count} resource classes", stepContext.CancellationToken);
+            // Step 5: Generate .csproj file first
+            var csprojTask = await step.CreateTaskAsync($"Generating project file", stepContext.CancellationToken);
+            var csprojContent = await GenerateCsprojFileAsync(templatePath, stepContext.CancellationToken);
+            var csprojPath = Path.Combine(outputFolder, $"{provider.Namespace}.csproj");
+            await File.WriteAllTextAsync(csprojPath, csprojContent, stepContext.CancellationToken);
+            logger.LogInformation("Generated project file: {CsprojPath}", csprojPath);
+            await csprojTask.CompleteAsync("Project file generated", CompletionState.Completed, stepContext.CancellationToken);
+
+            // Step 6: Generate resources and data sources in parallel
+            var codeGenTask = await step.CreateTaskAsync($"Generating {resources.Count + dataSources.Count} classes", stepContext.CancellationToken);
+
             var resourceTemplate = new ResourceTemplate(templatePath);
-            foreach (var resource in resources)
+            var dataSourceTemplate = new DataSourceTemplate(templatePath);
+
+            // Generate resources in parallel
+            var resourceGenerationTasks = resources.Select(async resource =>
             {
                 var code = resourceTemplate.Generate(resource, provider.Namespace);
                 var filePath = Path.Combine(resourcesFolder, $"{resource.ClassName}.cs");
                 await File.WriteAllTextAsync(filePath, code, stepContext.CancellationToken);
-            }
-            logger.LogInformation("Generated {Count} resources to {Folder}", resources.Count, resourcesFolder);
-            await resourceGenTask.CompleteAsync($"{resources.Count} resources generated", CompletionState.Completed, stepContext.CancellationToken);
+            });
 
-            // Generate data sources
-            var dataSourceGenTask = await step.CreateTaskAsync($"Generating {dataSources.Count} data source classes", stepContext.CancellationToken);
-            var dataSourceTemplate = new DataSourceTemplate(templatePath);
-            foreach (var dataSource in dataSources)
+            // Generate data sources in parallel
+            var dataSourceGenerationTasks = dataSources.Select(async dataSource =>
             {
                 var code = dataSourceTemplate.Generate(dataSource, provider.Namespace);
                 var filePath = Path.Combine(dataSourcesFolder, $"{dataSource.ClassName}.cs");
                 await File.WriteAllTextAsync(filePath, code, stepContext.CancellationToken);
-            }
-            logger.LogInformation("Generated {Count} data sources to {Folder}", dataSources.Count, dataSourcesFolder);
-            await dataSourceGenTask.CompleteAsync($"{dataSources.Count} data sources generated", CompletionState.Completed, stepContext.CancellationToken);
+            });
 
-            // Step 5: Generate .csproj file
-            var csprojTask = await step.CreateTaskAsync($"Generating project file", stepContext.CancellationToken);
-            var csprojContent = await GenerateCsprojFileAsync(templatePath, stepContext.CancellationToken);
-            var csprojPath = Path.Combine(outputFolder, $"EmmittJ.Terraform.Sdk.Providers.{ToPascalCase(provider.ProviderName)}.csproj");
-            await File.WriteAllTextAsync(csprojPath, csprojContent, stepContext.CancellationToken);
-            logger.LogInformation("Generated project file: {CsprojPath}", csprojPath);
-            await csprojTask.CompleteAsync("Project file generated", CompletionState.Completed, stepContext.CancellationToken);
+            // Wait for all generations to complete
+            await Task.WhenAll(resourceGenerationTasks.Concat(dataSourceGenerationTasks));
+
+            logger.LogInformation("Generated {ResourceCount} resources and {DataSourceCount} data sources", resources.Count, dataSources.Count);
+            await codeGenTask.CompleteAsync($"{resources.Count + dataSources.Count} classes generated", CompletionState.Completed, stepContext.CancellationToken);
 
             logger.LogInformation("✅ Code generation completed for {ProviderName}: {ResourceCount} resources, {DataSourceCount} data sources",
                 provider.ProviderName,
