@@ -22,11 +22,9 @@ class Program
             return 1;
         }
 
-        var terraformFolder = Path.Combine(workspaceRoot, "terraform");
         var templatePath = Path.Combine(AppContext.BaseDirectory, "Templates", "Files");
 
         Console.WriteLine($"Workspace root: {workspaceRoot}");
-        Console.WriteLine($"Terraform folder: {terraformFolder}");
         Console.WriteLine($"Template path: {templatePath}\n");
 
         // Define providers to generate
@@ -36,18 +34,18 @@ class Program
             {
                 Name = "aws",
                 Namespace = "EmmittJ.Terraform.Sdk.Providers.Aws",
-                FolderPath = Path.Combine(terraformFolder, "aws"),
-                Version = "5.0"
+                FolderPath = "", // Will be created dynamically
+                Version = "~> 5.0"
             },
             // Add more providers as needed
-            // new ProviderConfig { Name = "azurerm", ... },
-            // new ProviderConfig { Name = "google", ... },
+            // new ProviderConfig { Name = "azurerm", Namespace = "EmmittJ.Terraform.Sdk.Providers.Azure", Version = "~> 3.0" },
+            // new ProviderConfig { Name = "google", Namespace = "EmmittJ.Terraform.Sdk.Providers.Google", Version = "~> 5.0" },
         };
 
         foreach (var provider in providers)
         {
             Console.WriteLine($"\n--- Processing Provider: {provider.Name} ---");
-            
+
             try
             {
                 await ProcessProvider(provider, templatePath, workspaceRoot);
@@ -66,20 +64,24 @@ class Program
 
     static async Task ProcessProvider(ProviderConfig config, string templatePath, string workspaceRoot)
     {
-        // Step 1: Check if schema exists, if not, generate it
-        var schemaPath = Path.Combine(config.FolderPath, "schema.json");
-        
-        if (!File.Exists(schemaPath))
-        {
-            Console.WriteLine($"Schema not found, generating from Terraform...");
-            await GenerateSchema(config.FolderPath, schemaPath);
-        }
-        else
-        {
-            Console.WriteLine($"Using existing schema: {schemaPath}");
-        }
+        // Step 1: Create working Terraform directory
+        var workingDir = Path.Combine(Directory.GetCurrentDirectory(), ".terraform-codegen", config.Name);
+        Directory.CreateDirectory(workingDir);
 
-        // Step 2: Parse the schema
+        Console.WriteLine($"Using working directory: {workingDir}");
+
+        // Generate Terraform configuration
+        var terraformConfig = GenerateTerraformConfig(config);
+        var configPath = Path.Combine(workingDir, "main.tf");
+        await File.WriteAllTextAsync(configPath, terraformConfig);
+        Console.WriteLine($"Generated Terraform config");
+
+        // Step 2: Generate schema
+        var schemaPath = Path.Combine(workingDir, "schema.json");
+        Console.WriteLine($"Generating schema from Terraform...");
+        await GenerateSchema(workingDir, schemaPath);
+
+        // Step 3: Parse the schema
         Console.WriteLine("Parsing schema...");
         var schemaJson = await File.ReadAllTextAsync(schemaPath);
         var parser = new SchemaParser();
@@ -95,12 +97,16 @@ class Program
         Console.WriteLine($"Found {providerSchema.ResourceSchemas.Count} resources");
         Console.WriteLine($"Found {providerSchema.DataSourceSchemas.Count} data sources");
 
-        // Step 3: Parse resources and data sources
+        // Step 4: Parse resources and data sources
         var resources = parser.ParseResources(providerSchema, config.Name);
         var dataSources = parser.ParseDataSources(providerSchema, config.Name);
 
-        // Step 4: Generate code
+        // Step 5: Generate code
         var outputFolder = Path.Combine(workspaceRoot, $"EmmittJ.Terraform.Sdk.Providers.{ToPascalCase(config.Name)}");
+        if (Directory.Exists(outputFolder))
+        {
+            Directory.Delete(outputFolder, recursive: true);
+        }
         Directory.CreateDirectory(outputFolder);
 
         var resourcesFolder = Path.Combine(outputFolder, "Resources");
@@ -131,6 +137,59 @@ class Program
         Console.WriteLine($"\n✅ Generated {Math.Min(10, resources.Count)} resources and {Math.Min(10, dataSources.Count)} data sources for {config.Name}");
     }
 
+    static string GenerateTerraformConfig(ProviderConfig config)
+    {
+        return config.Name switch
+        {
+            "aws" => $@"terraform {{
+  required_providers {{
+    aws = {{
+      source  = ""hashicorp/aws""
+      version = ""{config.Version}""
+    }}
+  }}
+}}
+
+provider ""aws"" {{
+  region = ""us-east-1""
+  
+  # Skip credentials for schema generation only
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  skip_metadata_api_check     = true
+}}
+",
+            "azurerm" => $@"terraform {{
+  required_providers {{
+    azurerm = {{
+      source  = ""hashicorp/azurerm""
+      version = ""{config.Version}""
+    }}
+  }}
+}}
+
+provider ""azurerm"" {{
+  features {{}}
+}}
+",
+            "google" => $@"terraform {{
+  required_providers {{
+    google = {{
+      source  = ""hashicorp/google""
+      version = ""{config.Version}""
+    }}
+  }}
+}}
+
+provider ""google"" {{
+  project = ""schema-generation-project""
+  region  = ""us-central1""
+}}
+",
+            _ => throw new NotSupportedException($"Provider {config.Name} is not supported")
+        };
+    }
+
     static async Task GenerateSchema(string providerFolder, string outputPath)
     {
         // Run terraform init
@@ -140,7 +199,7 @@ class Program
         // Run terraform providers schema
         Console.WriteLine("  Running: terraform providers schema -json");
         var schemaJson = await RunCommandWithOutput("terraform", "providers schema -json", providerFolder);
-        
+
         await File.WriteAllTextAsync(outputPath, schemaJson);
         Console.WriteLine($"  ✓ Schema saved to: {outputPath}");
     }
@@ -203,7 +262,7 @@ class Program
     static string? FindWorkspaceRoot()
     {
         var current = Directory.GetCurrentDirectory();
-        
+
         while (current != null)
         {
             if (File.Exists(Path.Combine(current, "AspireTerraform.sln")))

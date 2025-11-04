@@ -9,6 +9,8 @@ public static class TemplateHelpers
         if (string.IsNullOrEmpty(text))
             return string.Empty;
 
+        // Only escape XML special characters, not the whole string
+        // These appear in XML doc comments, not in code
         return text
             .Replace("&", "&amp;")
             .Replace("<", "&lt;")
@@ -20,12 +22,14 @@ public static class TemplateHelpers
     public static string GetPropertyWrapper(PropertyModel property)
     {
         // Remove nullable from the type for the wrapper
+        // This goes in actual C# code, so NO XML escaping
         var baseType = property.CSharpType.TrimEnd('?');
         return $"TerraformLiteralProperty<{baseType}>";
     }
 
     public static string GetSetterValue(PropertyModel property)
     {
+        // This goes in actual C# code, so NO XML escaping
         var baseType = property.CSharpType.TrimEnd('?');
 
         if (property.IsCollection)
@@ -49,14 +53,14 @@ public static class TemplateHelpers
             property.Name,
             property.TerraformName,
             property.CSharpType,
-            Description = EscapeXmlDoc(property.Description),
+            Description = EscapeXmlDoc(property.Description), // Only escape for XML doc comments
             property.IsRequired,
             property.IsOptional,
             property.IsComputed,
             property.IsSensitive,
             property.IsDeprecated,
-            PropertyWrapper = GetPropertyWrapper(property),
-            SetterValue = GetSetterValue(property)
+            PropertyWrapper = GetPropertyWrapper(property), // NOT escaped - goes in code
+            SetterValue = GetSetterValue(property) // NOT escaped - goes in code
         };
     }
 }

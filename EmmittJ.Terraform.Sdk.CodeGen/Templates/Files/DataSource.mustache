@@ -30,10 +30,10 @@ public class {{ClassName}} : TerraformDataSource
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
-    public {{CSharpType}} {{Name}}
+    public {{{CSharpType}}} {{Name}}
     {
-        get => GetProperty<{{PropertyWrapper}}>("{{TerraformName}}")?.Value;
-        set => WithPropertyInternal("{{TerraformName}}", {{SetterValue}});
+        get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}")?.Value;
+        set => WithPropertyInternal("{{TerraformName}}", {{{SetterValue}}});
     }
 
 {{/Properties}}
