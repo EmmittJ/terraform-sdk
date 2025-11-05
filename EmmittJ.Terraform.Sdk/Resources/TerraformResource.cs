@@ -12,9 +12,6 @@ public class TerraformResource(string type, string name) : TerraformProvisionabl
     protected override string[] BlockLabels => [ConstructType, ConstructName];
 
     /// <inheritdoc/>
-    protected override string GetConstructTypeLabel() => "resource";
-
-    /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"{ConstructType}.{ConstructName}");
 

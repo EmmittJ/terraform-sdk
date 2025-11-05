@@ -52,4 +52,14 @@ public static class TerraformConstructExtensions
             .WithPropertyInternal(propertyName, reference.AsReference(), priority);
         return construct;
     }
+
+    /// <summary>
+    /// Declares an output attribute for named constructs (resources, data sources, modules).
+    /// </summary>
+    public static T DeclareOutput<T>(this T construct, string attributeName)
+        where T : NamedTerraformConstruct
+    {
+        construct.DeclareOutputInternal(attributeName);
+        return construct;
+    }
 }
