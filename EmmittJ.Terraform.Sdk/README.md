@@ -59,7 +59,7 @@ See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documenta
 
 ### 3. **Infrastructure-Style Container**
 
-- **`TerraformConfiguration`**: Manages all constructs
+- **`TerraformStack`**: Manages all constructs
   - Similar to Azure.Provisioning's `Infrastructure`
   - Centralizes validation and compilation
   - Provides clean API for building configurations
@@ -516,7 +516,7 @@ string hcl = config.ToHcl();
 - [x] Polymorphic property system (`TerraformProperty`, `LiteralProperty<T>`, `ExpressionProperty`)
 - [x] `ITerraformConstruct` interface with polymorphic references
 - [x] `ITerraformResolvable<T>` two-pass resolution system
-- [x] `TerraformConfiguration` container with Prepare → Resolve phases
+- [x] `TerraformStack` container with Prepare → Resolve phases
 - [x] `TerraformContext` resolution context
 - [x] Type-safe property storage (`Dictionary<string, TerraformProperty>`)
 

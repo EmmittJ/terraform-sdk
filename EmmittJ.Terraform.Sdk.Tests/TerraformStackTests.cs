@@ -1,6 +1,6 @@
 namespace EmmittJ.Terraform.Sdk.Tests;
 
-public class TerraformConfigurationTests
+public class TerraformStackTests
 {
     [Fact]
     public Task Configuration_Empty()
