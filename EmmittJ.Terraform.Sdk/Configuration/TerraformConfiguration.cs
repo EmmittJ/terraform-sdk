@@ -216,8 +216,7 @@ public class TerraformConfiguration(string name = "main")
     /// </summary>
     private static string? TryGetConstructName(TerraformConstruct construct)
     {
-        var nameProperty = construct.GetType().GetProperty("Name");
-        return nameProperty?.GetValue(construct) as string;
+        return construct is NamedTerraformConstruct namedConstruct ? namedConstruct.ConstructName : null;
     }
 
     /// <summary>
