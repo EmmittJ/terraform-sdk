@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Sdk Name="Aspire.AppHost.Sdk" Version="13.1.0-preview.1.25552.3" />
+  <Sdk Name="Aspire.AppHost.Sdk" Version="13.1.0-preview.1.25554.12" />
   
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="13.1.0-preview.1.25552.3" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="13.1.0-preview.1.25554.12" />
     <PackageReference Include="Stubble.Core" Version="1.10.8" />
   </ItemGroup>
 
