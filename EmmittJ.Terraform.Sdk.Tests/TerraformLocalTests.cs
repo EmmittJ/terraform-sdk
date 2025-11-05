@@ -96,7 +96,7 @@ public class TerraformLocalTests
         var locals = new TerraformLocal();
         var hcl = locals.Resolve();
 
-        Assert.Equal("locals {\r\n}\r\n", hcl);
+        Assert.Equal($"locals {{{Environment.NewLine}}}{Environment.NewLine}", hcl);
     }
 
     [Fact]
