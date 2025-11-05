@@ -20,12 +20,12 @@ public class TerraformStack(string name = "main")
     /// This configures Terraform itself, including backend, required providers, and other settings.
     /// When set, it will be automatically added to the constructs list.
     /// </summary>
-    public TerraformConfigurationBlock? Terraform
+    public TerraformSettings? Terraform
     {
         get => _terraform;
         set => _terraform = value;
     }
-    private TerraformConfigurationBlock? _terraform;
+    private TerraformSettings? _terraform;
 
     /// <summary>
     /// Adds a construct (variable, resource, data source, etc.) to this configuration.

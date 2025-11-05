@@ -128,7 +128,7 @@ public class FromObjectTests
         // Arrange
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("s3")
                 {
@@ -151,3 +151,4 @@ public class FromObjectTests
         Assert.Contains("version = 5", hcl);
     }
 }
+

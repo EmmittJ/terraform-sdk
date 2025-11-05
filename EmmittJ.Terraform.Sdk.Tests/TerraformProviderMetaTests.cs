@@ -10,7 +10,7 @@ public class TerraformProviderMetaTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 ProviderMetas =
                 {
@@ -34,7 +34,7 @@ public class TerraformProviderMetaTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 ProviderMetas =
                 {
@@ -66,7 +66,7 @@ public class TerraformProviderMetaTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 ProviderMetas =
                 {
@@ -97,7 +97,7 @@ public class TerraformProviderMetaTests
 
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 ProviderMetas = { providerMeta }
             }
@@ -111,7 +111,7 @@ public class TerraformProviderMetaTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0",
                 RequiredProviders =
@@ -139,3 +139,4 @@ public class TerraformProviderMetaTests
         return Verify(config.ToHcl());
     }
 }
+

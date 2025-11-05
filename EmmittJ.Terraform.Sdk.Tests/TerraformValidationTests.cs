@@ -10,7 +10,7 @@ public class TerraformValidationTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -34,7 +34,7 @@ public class TerraformValidationTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -58,7 +58,7 @@ public class TerraformValidationTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("s3")
             }
@@ -75,7 +75,7 @@ public class TerraformValidationTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -103,7 +103,7 @@ public class TerraformValidationTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -127,7 +127,7 @@ public class TerraformValidationTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -151,7 +151,7 @@ public class TerraformValidationTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -182,3 +182,4 @@ public class TerraformValidationTests
         Assert.Empty(result.Errors);
     }
 }
+

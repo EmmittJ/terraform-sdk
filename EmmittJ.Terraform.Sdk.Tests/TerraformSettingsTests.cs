@@ -9,7 +9,7 @@ public class TerraformSettingsTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0"
             }
@@ -23,7 +23,7 @@ public class TerraformSettingsTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock()
+            Terraform = new TerraformSettings()
         };
 
         config.Terraform.RequiredProviders["aws"] = new ProviderRequirement
@@ -45,7 +45,7 @@ public class TerraformSettingsTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.5.0"
             }
@@ -67,7 +67,7 @@ public class TerraformSettingsTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0"
             }
@@ -93,4 +93,5 @@ public class TerraformSettingsTests
         return Verify(config.ToHcl());
     }
 }
+
 

@@ -9,7 +9,7 @@ public class TerraformCloudConfigTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -30,7 +30,7 @@ public class TerraformCloudConfigTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -51,7 +51,7 @@ public class TerraformCloudConfigTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
                 {
@@ -73,7 +73,7 @@ public class TerraformCloudConfigTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0",
                 Cloud = new TerraformCloudConfig
@@ -99,3 +99,4 @@ public class TerraformCloudConfigTests
         return Verify(config.ToHcl());
     }
 }
+

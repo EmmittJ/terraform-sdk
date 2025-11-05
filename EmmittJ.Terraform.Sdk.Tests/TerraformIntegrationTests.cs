@@ -117,7 +117,7 @@ public class TerraformIntegrationTests_Backend : TerraformIntegrationTestBase
         // Arrange
         var config = new TerraformStack("main")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("local")
                 {
@@ -143,7 +143,7 @@ public class TerraformIntegrationTests_Settings : TerraformIntegrationTestBase
         // Arrange
         var config = new TerraformStack("main")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0"
             }
@@ -215,7 +215,7 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
         // Arrange
         var config = new TerraformStack("main")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0",
                 Backend = new TerraformBackend("local")
@@ -258,6 +258,7 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
         await AssertTerraformValidatesAsync(config);
     }
 }
+
 
 
 

@@ -9,7 +9,7 @@ public class TerraformBackendTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("s3")
                 {
@@ -29,7 +29,7 @@ public class TerraformBackendTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("azurerm")
                 {
@@ -49,7 +49,7 @@ public class TerraformBackendTests
     {
         var config = new TerraformStack("test")
         {
-            Terraform = new TerraformConfigurationBlock
+            Terraform = new TerraformSettings
             {
                 RequiredVersion = ">=1.0",
                 Backend = new TerraformBackend("s3")
@@ -63,6 +63,7 @@ public class TerraformBackendTests
         return Verify(config.ToHcl());
     }
 }
+
 
 
 
