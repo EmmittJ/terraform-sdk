@@ -7,7 +7,7 @@ public class TerraformBackendTests
     [Fact]
     public Task Backend_S3_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -27,7 +27,7 @@ public class TerraformBackendTests
     [Fact]
     public Task Backend_Azurerm_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -47,7 +47,7 @@ public class TerraformBackendTests
     [Fact]
     public Task Backend_WithSettings_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {

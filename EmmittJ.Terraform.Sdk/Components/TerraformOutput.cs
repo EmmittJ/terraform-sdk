@@ -64,7 +64,7 @@ public class TerraformOutput(string name) : TerraformConstruct
     {
         if (Value == null)
         {
-            throw new TerraformConfigurationException(
+            throw new TerraformStackException(
                 $"Output '{Name}' must have a value set before it can be synthesized. " +
                 "Use the Value property to set the output value.",
                 this,

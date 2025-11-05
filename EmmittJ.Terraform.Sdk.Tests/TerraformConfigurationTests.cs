@@ -5,7 +5,7 @@ public class TerraformConfigurationTests
     [Fact]
     public Task Configuration_Empty()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
 
         return Verify(config.ToHcl());
     }
@@ -13,7 +13,7 @@ public class TerraformConfigurationTests
     [Fact]
     public Task Configuration_WithSingleVariable()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var variable = new TerraformVariable("region")
         {
             Default = "us-east-1"
@@ -26,7 +26,7 @@ public class TerraformConfigurationTests
     [Fact]
     public Task Configuration_WithSingleResource()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var resource = new TerraformResource("aws_vpc", "main")
             .WithProperty("cidr_block", "10.0.0.0/16");
         config.Add(resource);
@@ -37,7 +37,7 @@ public class TerraformConfigurationTests
     [Fact]
     public Task Configuration_OrganizesByType()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
 
         // Add in mixed order
         config.Add(new TerraformResource("aws_vpc", "main")
@@ -57,7 +57,7 @@ public class TerraformConfigurationTests
     [Fact]
     public void Configuration_Constructs_AreAccessible()
     {
-        var config = new TerraformConfiguration("my-config");
+        var config = new TerraformStack("my-config");
         var variable = new TerraformVariable("test");
         config.Add(variable);
 

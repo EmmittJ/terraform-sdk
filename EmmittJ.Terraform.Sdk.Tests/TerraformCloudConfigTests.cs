@@ -7,7 +7,7 @@ public class TerraformCloudConfigTests
     [Fact]
     public Task CloudConfig_WithOrganizationAndWorkspaceName_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -28,7 +28,7 @@ public class TerraformCloudConfigTests
     [Fact]
     public Task CloudConfig_WithWorkspaceTags_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -49,7 +49,7 @@ public class TerraformCloudConfigTests
     [Fact]
     public Task CloudConfig_WithTerraformEnterprise_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -71,7 +71,7 @@ public class TerraformCloudConfigTests
     [Fact]
     public Task CloudConfig_WithAllOptions_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {

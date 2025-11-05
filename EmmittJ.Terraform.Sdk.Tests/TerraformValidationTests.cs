@@ -8,7 +8,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_CloudAndBackendBothSet_ReturnsError()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -32,7 +32,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_OnlyCloudSet_IsValid()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -56,7 +56,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_OnlyBackendSet_IsValid()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -73,7 +73,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesNameAndTagsBothSet_ReturnsError()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -101,7 +101,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesOnlyNameSet_IsValid()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -125,7 +125,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesOnlyTagsSet_IsValid()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -149,7 +149,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesWithEmptyTags_IsValid()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -174,7 +174,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_NoTerraformBlock_IsValid()
     {
-        var config = new TerraformConfiguration("test");
+        var config = new TerraformStack("test");
 
         var result = config.Validate();
 

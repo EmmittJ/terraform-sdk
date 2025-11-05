@@ -1,10 +1,11 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Container for Terraform constructs, similar to Infrastructure in Azure.Provisioning.
-/// Manages variables, resources, data sources, and builds the final Terraform configuration.
+/// Represents a deployable Terraform stack containing related infrastructure constructs.
+/// Similar to Infrastructure in Azure.Provisioning or Stack in AWS CDK/Pulumi.
+/// Manages variables, resources, data sources, and generates Terraform HCL configuration.
 /// </summary>
-public class TerraformConfiguration(string name = "main")
+public class TerraformStack(string name = "main")
 {
     private readonly List<TerraformConstruct> _constructs = [];
     private readonly string _name = name;

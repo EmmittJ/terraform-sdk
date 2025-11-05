@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Creates a new context for the given scope.
 /// </remarks>
 /// <param name="scope">The configuration scope.</param>
-public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
+public class TerraformContext(TerraformStack scope) : ITerraformContext
 {
     /// <summary>
     /// Creates a temporary context for testing or one-off resolution.
@@ -37,7 +37,7 @@ public class TerraformContext(TerraformConfiguration scope) : ITerraformContext
     private readonly DependencyGraph _dependencyGraph = new();
 
     /// <inheritdoc/>
-    public TerraformConfiguration Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
+    public TerraformStack Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
 
     /// <inheritdoc/>
     public int IndentLevel => _indentLevel;

@@ -93,14 +93,14 @@ public class TerraformOutputTests
     {
         var output = new TerraformOutput("test");
 
-        var ex = Assert.Throws<TerraformConfigurationException>(() => output.Resolve());
+        var ex = Assert.Throws<TerraformStackException>(() => output.Resolve());
         Assert.Contains("must have a value set", ex.Message);
     }
 
     [Fact]
     public Task Output_InConfiguration_GeneratesHcl()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
         var output = new TerraformOutput("vpc_id")
         {
             Value = "vpc-12345",

@@ -49,7 +49,7 @@ public class TerraformLocalTests
     {
         var locals = new TerraformLocal();
 
-        var ex = Assert.Throws<TerraformConfigurationException>(() => locals["undefined"]);
+        var ex = Assert.Throws<TerraformStackException>(() => locals["undefined"]);
         Assert.Contains("has not been defined", ex.Message);
     }
 
@@ -70,7 +70,7 @@ public class TerraformLocalTests
     [Fact]
     public Task Local_InConfiguration_GeneratesHcl()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
         var locals = new TerraformLocal()
             .WithProperty("project_name", "my-app")
             .WithProperty("environment", "staging");
@@ -102,7 +102,7 @@ public class TerraformLocalTests
     [Fact]
     public Task Local_UsingReferenceInResource_GeneratesHcl()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         var locals = new TerraformLocal()
             .WithProperty("region", "us-east-1");

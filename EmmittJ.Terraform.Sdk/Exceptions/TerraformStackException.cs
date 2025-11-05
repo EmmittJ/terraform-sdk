@@ -1,9 +1,9 @@
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
-/// Exception thrown when there's an error in Terraform configuration construction.
+/// Exception thrown when there's an error in Terraform stack construction.
 /// </summary>
-public sealed class TerraformConfigurationException : TerraformException
+public sealed class TerraformStackException : TerraformException
 {
     /// <summary>
     /// Gets the property name associated with this exception, if any.
@@ -16,44 +16,44 @@ public sealed class TerraformConfigurationException : TerraformException
     public string? PropertyPath { get; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformConfigurationException"/> class.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class.
     /// </summary>
     /// <param name="message">The error message.</param>
-    public TerraformConfigurationException(string message)
+    public TerraformStackException(string message)
         : base(message)
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformConfigurationException"/> class with construct context.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with construct context.
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
-    public TerraformConfigurationException(string message, TerraformConstruct construct)
+    public TerraformStackException(string message, TerraformConstruct construct)
         : base(message, construct)
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformConfigurationException"/> class with construct and property context.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with construct and property context.
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="propertyName">The property name where the error occurred.</param>
-    public TerraformConfigurationException(string message, TerraformConstruct construct, string propertyName)
+    public TerraformStackException(string message, TerraformConstruct construct, string propertyName)
         : base(message, construct)
     {
         PropertyName = propertyName;
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformConfigurationException"/> class with full context.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with full context.
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="propertyName">The property name where the error occurred.</param>
     /// <param name="propertyPath">The full property path for nested errors.</param>
-    public TerraformConfigurationException(
+    public TerraformStackException(
         string message,
         TerraformConstruct construct,
         string propertyName,
@@ -65,22 +65,22 @@ public sealed class TerraformConfigurationException : TerraformException
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformConfigurationException"/> class with an inner exception.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with an inner exception.
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="innerException">The inner exception.</param>
-    public TerraformConfigurationException(string message, Exception innerException)
+    public TerraformStackException(string message, Exception innerException)
         : base(message, innerException)
     {
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformConfigurationException"/> class with construct and inner exception.
+    /// Initializes a new instance of the <see cref="TerraformStackException"/> class with construct and inner exception.
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <param name="construct">The construct associated with this exception.</param>
     /// <param name="innerException">The inner exception.</param>
-    public TerraformConfigurationException(string message, TerraformConstruct construct, Exception innerException)
+    public TerraformStackException(string message, TerraformConstruct construct, Exception innerException)
         : base(message, construct, innerException)
     {
     }

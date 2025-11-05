@@ -9,7 +9,7 @@ public interface ITerraformContext
     /// <summary>
     /// Gets the current configuration scope.
     /// </summary>
-    TerraformConfiguration Scope { get; }
+    TerraformStack Scope { get; }
 
     /// <summary>
     /// Gets the dependency graph being built during the Prepare phase.

@@ -68,7 +68,7 @@ public class TerraformModuleTests
             Source = "terraform-aws-modules/vpc/aws"
         };
 
-        var ex = Assert.Throws<TerraformConfigurationException>(() => module["vpc_id"]);
+        var ex = Assert.Throws<TerraformStackException>(() => module["vpc_id"]);
         Assert.Contains("has not been declared", ex.Message);
         Assert.Contains("DeclareOutput", ex.Message);
     }
@@ -76,7 +76,7 @@ public class TerraformModuleTests
     [Fact]
     public void Module_CanBeUsedInConfiguration()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         var vpcModule = new TerraformModule("vpc")
         {
@@ -137,7 +137,7 @@ public class TerraformModuleTests
         vpcModule.WithProperty("region", region.AsReference());
         vpcModule.WithProperty("cidr", "10.0.0.0/16");
 
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
         config.Add(region);
         config.Add(vpcModule);
 

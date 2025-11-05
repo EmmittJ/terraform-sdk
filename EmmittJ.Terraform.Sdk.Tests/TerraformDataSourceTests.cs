@@ -94,7 +94,7 @@ public class TerraformDataSourceTests
     {
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu");
 
-        var ex = Assert.Throws<TerraformConfigurationException>(() => dataSource["id"]);
+        var ex = Assert.Throws<TerraformStackException>(() => dataSource["id"]);
         Assert.Contains("has not been declared as an output", ex.Message);
     }
 
@@ -127,7 +127,7 @@ public class TerraformDataSourceTests
     [Fact]
     public Task DataSource_InConfiguration_GeneratesHcl()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu")
             .WithProperty("most_recent", true)
             .DeclareOutput("id");

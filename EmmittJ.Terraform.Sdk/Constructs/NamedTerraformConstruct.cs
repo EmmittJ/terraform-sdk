@@ -32,7 +32,7 @@ public abstract class NamedTerraformConstruct(string constructName) : TerraformC
     {
         if (!_declaredOutputs.Contains(attributeName))
         {
-            throw new TerraformConfigurationException(
+            throw new TerraformStackException(
                 $"Attribute '{attributeName}' has not been declared as an output for {BlockType} '{ConstructName}'. " +
                 $"Use DeclareOutput(\"{attributeName}\") to declare it first, or check for typos in the attribute name.",
                 this,

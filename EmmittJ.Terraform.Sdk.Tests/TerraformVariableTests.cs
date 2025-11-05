@@ -5,7 +5,7 @@ public class TerraformVariableTests
     [Fact]
     public Task Variable_MinimalDeclaration()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var variable = new TerraformVariable("test_var");
         config.Add(variable);
 
@@ -15,7 +15,7 @@ public class TerraformVariableTests
     [Fact]
     public Task Variable_WithDescription()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var variable = new TerraformVariable("test_var")
         {
             Description = "A test variable for demonstration"
@@ -28,7 +28,7 @@ public class TerraformVariableTests
     [Fact]
     public Task Variable_WithType()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var variable = new TerraformVariable("test_var")
         {
             Type = "string"
@@ -41,7 +41,7 @@ public class TerraformVariableTests
     [Fact]
     public Task Variable_WithDefault()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var variable = new TerraformVariable("test_var")
         {
             Default = "default_value"
@@ -54,7 +54,7 @@ public class TerraformVariableTests
     [Fact]
     public Task Variable_WithSensitive()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var variable = new TerraformVariable("password")
         {
             Type = "string",
@@ -68,7 +68,7 @@ public class TerraformVariableTests
     [Fact]
     public Task Variable_Complete()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var variable = new TerraformVariable("aws_region")
         {
             Description = "AWS region to deploy resources",
@@ -103,7 +103,7 @@ public class TerraformVariableTests
     [Fact]
     public Task MultipleVariables_OrderedCorrectly()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
 
         var region = new TerraformVariable("region")
         {

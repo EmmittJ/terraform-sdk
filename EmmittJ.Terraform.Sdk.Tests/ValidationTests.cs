@@ -5,7 +5,7 @@ public class ValidationTests
     [Fact]
     public void Validate_EmptyConfiguration_Succeeds()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         var result = config.Validate();
 
@@ -16,7 +16,7 @@ public class ValidationTests
     [Fact]
     public void Validate_DetectsCircularDependency()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         // Create two resources that depend on each other in a cycle
         var resourceA = new TerraformResource("null_resource", "a");
@@ -51,7 +51,7 @@ public class ValidationTests
     public void TerraformObject_PreparesCalled_RecordsDependencies()
     {
         // This test verifies that TerraformObject.Prepare() is actually recording dependencies
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
         var context = new TerraformContext(config);
 
         var resourceA = new TerraformResource("null_resource", "a");
@@ -83,7 +83,7 @@ public class ValidationTests
     [Fact]
     public void Validate_DetectsDuplicateNames()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         var vpc1 = new TerraformResource("aws_vpc", "main");
         var vpc2 = new TerraformResource("aws_vpc", "main");
@@ -100,7 +100,7 @@ public class ValidationTests
     [Fact]
     public void Validate_AllowsSameNameForDifferentTypes()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         var resource = new TerraformResource("aws_vpc", "main");
         var data = new TerraformDataSource("aws_vpc", "main");
@@ -174,7 +174,7 @@ public class ValidationTests
     [Fact]
     public void Validate_HandlesComplexDependencyChain()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         var vpc = new TerraformResource("aws_vpc", "main");
         vpc.DeclareOutput("id");

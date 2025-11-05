@@ -71,7 +71,7 @@ See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documenta
 using EmmittJ.Terraform.Sdk;
 
 // Create a configuration
-var config = new TerraformConfiguration("main");
+var config = new TerraformStack("main");
 
 // Define a local value using fluent API
 var locals = new TerraformLocal()
@@ -112,7 +112,7 @@ The SDK now includes comprehensive support for Terraform's configuration blocks 
 
 ```csharp
 // Configure S3 backend
-var config = new TerraformConfiguration("main")
+var config = new TerraformStack("main")
 {
     Backend = new TerraformBackend { Type = "s3" }
 };
@@ -122,7 +122,7 @@ config.Backend.Config["region"] = "us-east-1";
 config.Backend.Config["encrypt"] = true;
 
 // Configure Azure backend
-var config = new TerraformConfiguration("main")
+var config = new TerraformStack("main")
 {
     Backend = new TerraformBackend { Type = "azurerm" }
 };
@@ -135,7 +135,7 @@ config.Backend.Config["key"] = "prod.terraform.tfstate";
 
 ```csharp
 // Configure Terraform version and providers
-var config = new TerraformConfiguration("main")
+var config = new TerraformStack("main")
 {
     Settings = new TerraformSettings
     {
@@ -221,7 +221,7 @@ instance.Lifecycle.Postconditions.Add(new LifecycleCheck
 
 ```csharp
 // Build a complete Terraform configuration
-var config = new TerraformConfiguration("main")
+var config = new TerraformStack("main")
 {
     Settings = new TerraformSettings { RequiredVersion = ">= 1.0" },
     Backend = new TerraformBackend { Type = "s3" }
@@ -345,7 +345,7 @@ EmmittJ.Terraform.Sdk/
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ TerraformConfiguration (Core/)                      │
+│ TerraformStack (Core/)                      │
 │ - Container for all constructs                     │
 │ - Two-pass resolution (Prepare → Resolve)          │
 │ - Validates and compiles to HCL                    │
@@ -486,7 +486,7 @@ string hcl = doc.ToHcl();
 ### New (Typed)
 
 ```csharp
-var config = new TerraformConfiguration();
+var config = new TerraformStack();
 
 var vpc = new TerraformResource("aws_vpc", "main");
 vpc.Set<string>("cidr_block", "10.0.0.0/16");
@@ -549,7 +549,7 @@ string hcl = config.ToHcl();
 
 #### Error Handling
 
-- [x] Custom exception hierarchy (`TerraformException`, `TerraformConfigurationException`, `TerraformValidationException`)
+- [x] Custom exception hierarchy (`TerraformException`, `TerraformStackException`, `TerraformValidationException`)
 - [x] `ValidationResult` and `ValidationError` types
 
 #### Infrastructure

@@ -10,9 +10,9 @@ public static class QuickStartExample
     /// Creates a complete AWS VPC example with variables, provider, and resources.
     /// Demonstrates: variables, resources, references, outputs, and Terraform functions.
     /// </summary>
-    public static TerraformConfiguration CreateAwsVpcExample()
+    public static TerraformStack CreateAwsVpcExample()
     {
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
 
         // Define variables
         var awsRegion = new TerraformVariable("aws_region")
@@ -138,9 +138,9 @@ public static class QuickStartExample
     /// <summary>
     /// Simple example demonstrating basic features.
     /// </summary>
-    public static TerraformConfiguration CreateSimpleExample()
+    public static TerraformStack CreateSimpleExample()
     {
-        var config = new TerraformConfiguration("simple");
+        var config = new TerraformStack("simple");
 
         // Variable
         var region = new TerraformVariable("region")
@@ -174,9 +174,9 @@ public static class QuickStartExample
     /// <summary>
     /// Demonstrates Terraform functions.
     /// </summary>
-    public static TerraformConfiguration CreateFunctionExample()
+    public static TerraformStack CreateFunctionExample()
     {
-        var config = new TerraformConfiguration("functions");
+        var config = new TerraformStack("functions");
 
         // Using Tf helper functions
         var locals = new TerraformLocal()

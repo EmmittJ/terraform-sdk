@@ -127,7 +127,7 @@ public class DependencyGraphTests
         graph.AddDependency(a, b);
         graph.AddDependency(b, a);
 
-        Assert.Throws<TerraformConfigurationException>(() => graph.TopologicalSort());
+        Assert.Throws<TerraformStackException>(() => graph.TopologicalSort());
     }
 
     [Fact]

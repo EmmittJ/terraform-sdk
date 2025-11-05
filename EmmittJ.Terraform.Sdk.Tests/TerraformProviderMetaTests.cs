@@ -8,7 +8,7 @@ public class TerraformProviderMetaTests
     [Fact]
     public Task ProviderMeta_WithSingleProvider_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -32,7 +32,7 @@ public class TerraformProviderMetaTests
     [Fact]
     public Task ProviderMeta_WithMultipleProviders_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -64,7 +64,7 @@ public class TerraformProviderMetaTests
     [Fact]
     public Task ProviderMeta_WithVariousDataTypes_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -95,7 +95,7 @@ public class TerraformProviderMetaTests
             .WithMetadata("version", "1.5.0")
             .WithMetadata("tracked", true);
 
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -109,7 +109,7 @@ public class TerraformProviderMetaTests
     [Fact]
     public Task ProviderMeta_WithCompleteConfiguration_GeneratesHcl()
     {
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {

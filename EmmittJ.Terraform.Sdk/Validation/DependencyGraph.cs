@@ -146,14 +146,14 @@ public sealed class DependencyGraph
     /// Returns constructs in dependency order (dependencies before dependents).
     /// </summary>
     /// <returns>Topologically sorted constructs.</returns>
-    /// <exception cref="TerraformConfigurationException">Thrown if the graph contains cycles.</exception>
+    /// <exception cref="TerraformStackException">Thrown if the graph contains cycles.</exception>
     public IReadOnlyList<TerraformConstruct> TopologicalSort()
     {
         if (HasCycles())
         {
             var cycles = FindCycles();
             var cycleDescription = string.Join(", ", cycles.First().Select(GetConstructName));
-            throw new TerraformConfigurationException(
+            throw new TerraformStackException(
                 $"Cannot perform topological sort: circular dependency detected: {cycleDescription}");
         }
 

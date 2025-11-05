@@ -126,7 +126,7 @@ public class FromObjectTests
     public void TerraformObjectExpression_WithDictionaryOfObject_RendersCorrectly()
     {
         // Arrange
-        var config = new TerraformConfiguration("test")
+        var config = new TerraformStack("test")
         {
             Terraform = new TerraformConfigurationBlock
             {

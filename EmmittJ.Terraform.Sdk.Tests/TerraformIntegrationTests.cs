@@ -32,7 +32,7 @@ public abstract class TerraformIntegrationTestBase : IDisposable
         }
     }
 
-    protected async Task AssertTerraformValidatesAsync(TerraformConfiguration config)
+    protected async Task AssertTerraformValidatesAsync(TerraformStack config)
     {
         // Write HCL to file
         var hcl = config.ToHcl();
@@ -98,7 +98,7 @@ public class TerraformIntegrationTests_SimpleResource : TerraformIntegrationTest
     public async Task SimpleResource_PassesTerraformValidate()
     {
         // Arrange
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         config.Add(new TerraformResource("aws_instance", "web")
             .WithProperty("ami", "ami-12345678")
             .WithProperty("instance_type", "t2.micro"));
@@ -115,7 +115,7 @@ public class TerraformIntegrationTests_Backend : TerraformIntegrationTestBase
     public async Task ResourceWithBackend_PassesTerraformValidate()
     {
         // Arrange
-        var config = new TerraformConfiguration("main")
+        var config = new TerraformStack("main")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -141,7 +141,7 @@ public class TerraformIntegrationTests_Settings : TerraformIntegrationTestBase
     public async Task ResourceWithSettings_PassesTerraformValidate()
     {
         // Arrange
-        var config = new TerraformConfiguration("main")
+        var config = new TerraformStack("main")
         {
             Terraform = new TerraformConfigurationBlock
             {
@@ -170,7 +170,7 @@ public class TerraformIntegrationTests_Lifecycle : TerraformIntegrationTestBase
     public async Task ResourceWithLifecycle_PassesTerraformValidate()
     {
         // Arrange
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var resource = new TerraformResource("aws_instance", "web")
         {
             Lifecycle = new TerraformLifecycleConfig
@@ -196,7 +196,7 @@ public class TerraformIntegrationTests_DataSource : TerraformIntegrationTestBase
     public async Task DataSource_PassesTerraformValidate()
     {
         // Arrange
-        var config = new TerraformConfiguration("main");
+        var config = new TerraformStack("main");
         var dataSource = new TerraformDataSource("aws_ami", "ubuntu");
         dataSource.WithProperty("most_recent", true);
         config.Add(dataSource);
@@ -213,7 +213,7 @@ public class TerraformIntegrationTests_Complex : TerraformIntegrationTestBase
     public async Task ComplexConfiguration_PassesTerraformValidate()
     {
         // Arrange
-        var config = new TerraformConfiguration("main")
+        var config = new TerraformStack("main")
         {
             Terraform = new TerraformConfigurationBlock
             {

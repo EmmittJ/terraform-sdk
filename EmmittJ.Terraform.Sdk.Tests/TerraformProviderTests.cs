@@ -89,7 +89,7 @@ public class TerraformProviderTests
     [Fact]
     public Task Provider_InConfiguration_GeneratesHcl()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
         var provider = new TerraformProvider("aws")
             .WithProperty("region", "us-east-1");
 
@@ -101,7 +101,7 @@ public class TerraformProviderTests
     [Fact]
     public Task Provider_MultipleAliases_GeneratesHcl()
     {
-        var config = new TerraformConfiguration();
+        var config = new TerraformStack();
 
         var eastProvider = new TerraformProvider("aws")
         {
