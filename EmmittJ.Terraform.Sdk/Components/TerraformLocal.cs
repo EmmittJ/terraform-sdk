@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 public class TerraformLocal : TerraformConstruct
 {
     /// <inheritdoc/>
-    protected override string BlockType => "locals";
+    public override string BlockType => "locals";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => Array.Empty<string>();

@@ -294,7 +294,7 @@ public class ProviderRequirement
 public class TerraformCloudBlock : TerraformConstruct
 {
     /// <inheritdoc/>
-    protected override string BlockType => "cloud";
+    public override string BlockType => "cloud";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => Array.Empty<string>();

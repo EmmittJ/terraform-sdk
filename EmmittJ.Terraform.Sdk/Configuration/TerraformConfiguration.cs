@@ -166,19 +166,17 @@ public class TerraformConfiguration(string name = "main")
 
         // Check for duplicate names
         var nameGroups = _constructs
-            .Select(c => new { Construct = c, Name = TryGetConstructName(c), Type = c.GetType() })
-            .Where(x => x.Name != null)
-            .GroupBy(x => new { x.Type, x.Name })
+            .OfType<NamedTerraformConstruct>()
+            .GroupBy(c => new { c.BlockType, c.ConstructName })
             .Where(g => g.Count() > 1);
 
         foreach (var group in nameGroups)
         {
-            var typeName = group.Key.Type.Name;
             errors.Add(new ValidationError(
-                $"Duplicate {typeName} name: '{group.Key.Name}'",
+                $"Duplicate {group.Key.BlockType} name: '{group.Key.ConstructName}'",
                 ValidationSeverity.Error,
-                group.First().Construct,
-                "Name"));
+                group.First(),
+                "ConstructName"));
         }
 
         // Validate reference targets exist within the configuration
@@ -206,17 +204,11 @@ public class TerraformConfiguration(string name = "main")
     /// </summary>
     private static string GetConstructName(TerraformConstruct construct)
     {
-        var type = construct.GetType().Name;
-        var name = TryGetConstructName(construct);
-        return name != null ? $"{type}({name})" : type;
-    }
-
-    /// <summary>
-    /// Tries to get the name property from a construct.
-    /// </summary>
-    private static string? TryGetConstructName(TerraformConstruct construct)
-    {
-        return construct is NamedTerraformConstruct namedConstruct ? namedConstruct.ConstructName : null;
+        if (construct is NamedTerraformConstruct namedConstruct)
+        {
+            return $"{namedConstruct.BlockType}.{namedConstruct.ConstructName}";
+        }
+        return construct.BlockType;
     }
 
     /// <summary>

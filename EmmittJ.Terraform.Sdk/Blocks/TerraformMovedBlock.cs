@@ -22,7 +22,7 @@ public class TerraformMovedBlock : TerraformConstruct
     public string To { get; }
 
     /// <inheritdoc/>
-    protected override string BlockType => "moved";
+    public override string BlockType => "moved";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => Array.Empty<string>();

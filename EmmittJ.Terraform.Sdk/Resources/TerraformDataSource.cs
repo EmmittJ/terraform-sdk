@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 public class TerraformDataSource(string type, string name) : TerraformProvisionableConstruct(type, name)
 {
     /// <inheritdoc/>
-    protected override string BlockType => "data";
+    public override string BlockType => "data";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => [ConstructType, ConstructName];

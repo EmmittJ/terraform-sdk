@@ -166,7 +166,7 @@ public class ValidationTests
         var formatted = error.GetFormattedMessage();
 
         Assert.Contains("Test error", formatted);
-        Assert.Contains("TerraformResource", formatted);
+        Assert.Contains("resource", formatted);
         Assert.Contains("main", formatted);
         Assert.Contains("cidr_block", formatted);
     }

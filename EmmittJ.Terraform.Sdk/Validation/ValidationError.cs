@@ -53,9 +53,9 @@ public sealed class ValidationError
 
         if (Construct != null)
         {
-            parts.Add($"Construct: {Construct.GetType().Name}");
+            parts.Add($"Construct: {Construct.BlockType}");
 
-            // Try to get the name if it's a NamedTerraformConstruct
+            // Add the name if it's a NamedTerraformConstruct
             if (Construct is NamedTerraformConstruct namedConstruct)
             {
                 parts.Add($"Name: {namedConstruct.ConstructName}");

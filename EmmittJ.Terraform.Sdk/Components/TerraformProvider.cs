@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk;
 public class TerraformProvider(string name) : NamedTerraformConstruct(name)
 {
     /// <inheritdoc/>
-    protected override string BlockType => "provider";
+    public override string BlockType => "provider";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => [ConstructName];

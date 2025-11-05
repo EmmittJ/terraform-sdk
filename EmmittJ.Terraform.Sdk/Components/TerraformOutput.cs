@@ -11,7 +11,7 @@ public class TerraformOutput(string name) : TerraformConstruct
     public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
 
     /// <inheritdoc/>
-    protected override string BlockType => "output";
+    public override string BlockType => "output";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => [Name];

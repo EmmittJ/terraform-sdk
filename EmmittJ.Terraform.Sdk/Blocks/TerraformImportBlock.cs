@@ -54,7 +54,7 @@ public class TerraformImportBlock : TerraformConstruct
     public string? Provider { get; }
 
     /// <inheritdoc/>
-    protected override string BlockType => "import";
+    public override string BlockType => "import";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => [];

@@ -12,7 +12,7 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     /// <summary>
     /// Gets the block type (e.g., "resource", "data", "provider", "output", "variable", "module").
     /// </summary>
-    protected abstract string BlockType { get; }
+    public abstract string BlockType { get; }
 
     /// <summary>
     /// Gets the primary label(s) for this construct in HCL.

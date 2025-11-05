@@ -15,7 +15,7 @@ public class TerraformModule : NamedTerraformConstruct, ITerraformResolvable<str
     }
 
     /// <inheritdoc/>
-    protected override string BlockType => "module";
+    public override string BlockType => "module";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => [ConstructName];

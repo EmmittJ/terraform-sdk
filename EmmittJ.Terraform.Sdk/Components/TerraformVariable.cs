@@ -11,7 +11,7 @@ public class TerraformVariable(string name) : TerraformConstruct
     public string Name { get; } = name ?? throw new ArgumentNullException(nameof(name));
 
     /// <inheritdoc/>
-    protected override string BlockType => "variable";
+    public override string BlockType => "variable";
 
     /// <inheritdoc/>
     protected override string[] BlockLabels => [Name];
