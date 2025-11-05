@@ -55,15 +55,10 @@ public sealed class ValidationError
         {
             parts.Add($"Construct: {Construct.GetType().Name}");
 
-            // Try to get the name if it's a common construct type
-            var nameProperty = Construct.GetType().GetProperty("Name");
-            if (nameProperty != null)
+            // Try to get the name if it's a NamedTerraformConstruct
+            if (Construct is NamedTerraformConstruct namedConstruct)
             {
-                var name = nameProperty.GetValue(Construct);
-                if (name != null)
-                {
-                    parts.Add($"Name: {name}");
-                }
+                parts.Add($"Name: {namedConstruct.ConstructName}");
             }
         }
 
