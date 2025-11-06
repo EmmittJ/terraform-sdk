@@ -13,50 +13,43 @@ namespace EmmittJ.Aspire.Hosting.Terraform.Tests;
 public class TerraformBuilderExtensionsTests
 {
     [Fact]
-    public void AddTerraformStack_CreatesStackResourceWithCorrectName()
+    public void PublishAsTerraformStack_CreatesStackResourceWithCorrectName()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
         // Act
-        var stackBuilder = container.AddTerraformStack("network");
-
-        // Assert
-        Assert.NotNull(stackBuilder);
-        Assert.Equal("myapp-network", stackBuilder.Resource.Name);
-    }
-
-    [Fact]
-    public void AddTerraformStack_AssociatesWithParentResource()
-    {
-        // Arrange
-        var builder = DistributedApplication.CreateBuilder();
-        var container = builder.AddContainer("myapp", "image");
-
-        // Act
-        var stackBuilder = container.AddTerraformStack("infra");
-
-        // Assert
-        Assert.Same(container.Resource, stackBuilder.Resource.Parent);
-    }
-
-    [Fact]
-    public void WithTerraformStack_ReturnsParentBuilder()
-    {
-        // Arrange
-        var builder = DistributedApplication.CreateBuilder();
-        var container = builder.AddContainer("myapp", "image");
-
-        // Act
-        var result = container.WithTerraformStack("network");
+        var result = container.PublishAsTerraformStack("network");
 
         // Assert
         Assert.Same(container, result);
+
+        using var app = builder.Build();
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        var stackResource = model.Resources.OfType<TerraformStackResource>().Single();
+        Assert.Equal("myapp-network", stackResource.Name);
     }
 
     [Fact]
-    public void AddTerraformStack_ConfiguresStackWhenActionProvided()
+    public void PublishAsTerraformStack_AssociatesWithParentResource()
+    {
+        // Arrange
+        var builder = DistributedApplication.CreateBuilder();
+        var container = builder.AddContainer("myapp", "image");
+
+        // Act
+        container.PublishAsTerraformStack("infra");
+
+        // Assert
+        using var app = builder.Build();
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        var stackResource = model.Resources.OfType<TerraformStackResource>().Single();
+        Assert.Same(container.Resource, stackResource.Parent);
+    }
+
+    [Fact]
+    public void PublishAsTerraformStack_ConfiguresStackWhenActionProvided()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
@@ -64,7 +57,7 @@ public class TerraformBuilderExtensionsTests
         var configured = false;
 
         // Act
-        var stackBuilder = container.AddTerraformStack("test", stack =>
+        container.PublishAsTerraformStack("test", stack =>
         {
             configured = true;
             Assert.Equal("test", stack.Name);
@@ -75,46 +68,46 @@ public class TerraformBuilderExtensionsTests
     }
 
     [Fact]
-    public void AddTerraformStack_ThrowsWhenBuilderIsNull()
+    public void PublishAsTerraformStack_ThrowsWhenBuilderIsNull()
     {
         // Arrange
         IResourceBuilder<IResource>? builder = null;
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => builder!.AddTerraformStack("test"));
+        Assert.Throws<ArgumentNullException>(() => builder!.PublishAsTerraformStack("test"));
     }
 
     [Fact]
-    public void AddTerraformStack_ThrowsWhenStackNameIsNull()
+    public void PublishAsTerraformStack_ThrowsWhenStackNameIsNull()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => container.AddTerraformStack(null!));
+        Assert.Throws<ArgumentNullException>(() => container.PublishAsTerraformStack(null!));
     }
 
     [Fact]
-    public void AddTerraformStack_ThrowsWhenStackNameIsEmpty()
+    public void PublishAsTerraformStack_ThrowsWhenStackNameIsEmpty()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => container.AddTerraformStack(string.Empty));
+        Assert.Throws<ArgumentException>(() => container.PublishAsTerraformStack(string.Empty));
     }
 
     [Fact]
-    public void AddTerraformStack_RegistersEventingSubscriber()
+    public void PublishAsTerraformStack_RegistersEventingSubscriber()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
         // Act
-        container.AddTerraformStack("test");
+        container.PublishAsTerraformStack("test");
 
         using var app = builder.Build();
         var services = app.Services;
@@ -125,76 +118,7 @@ public class TerraformBuilderExtensionsTests
     }
 
     [Fact]
-    public void WithTerraformStack_ConfiguresStackWhenActionProvided()
-    {
-        // Arrange
-        var builder = DistributedApplication.CreateBuilder();
-        var container = builder.AddContainer("myapp", "image");
-        var configured = false;
-
-        // Act
-        container.WithTerraformStack("test", stack =>
-        {
-            configured = true;
-            Assert.Equal("test", stack.Name);
-        });
-
-        // Assert
-        Assert.True(configured);
-    }
-
-    [Fact]
-    public void WithTerraformStack_ThrowsWhenBuilderIsNull()
-    {
-        // Arrange
-        IResourceBuilder<IResource>? builder = null;
-
-        // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => builder!.WithTerraformStack("test"));
-    }
-
-    [Fact]
-    public void WithTerraformStack_ThrowsWhenStackNameIsNull()
-    {
-        // Arrange
-        var builder = DistributedApplication.CreateBuilder();
-        var container = builder.AddContainer("myapp", "image");
-
-        // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => container.WithTerraformStack(null!));
-    }
-
-    [Fact]
-    public void WithTerraformStack_ThrowsWhenStackNameIsEmpty()
-    {
-        // Arrange
-        var builder = DistributedApplication.CreateBuilder();
-        var container = builder.AddContainer("myapp", "image");
-
-        // Act & Assert
-        Assert.Throws<ArgumentException>(() => container.WithTerraformStack(string.Empty));
-    }
-
-    [Fact]
-    public void WithTerraformStack_RegistersEventingSubscriber()
-    {
-        // Arrange
-        var builder = DistributedApplication.CreateBuilder();
-        var container = builder.AddContainer("myapp", "image");
-
-        // Act
-        container.WithTerraformStack("test");
-
-        using var app = builder.Build();
-        var services = app.Services;
-
-        // Assert - verify the eventing subscriber is registered
-        var subscribers = services.GetServices<IDistributedApplicationEventingSubscriber>();
-        Assert.Contains(subscribers, s => s is TerraformEventingSubscriber);
-    }
-
-    [Fact]
-    public void WithTerraformStack_AllowsChaining()
+    public void PublishAsTerraformStack_AllowsChaining()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
@@ -202,30 +126,33 @@ public class TerraformBuilderExtensionsTests
 
         // Act
         var result = container
-            .WithTerraformStack("network")
-            .WithTerraformStack("security");
+            .PublishAsTerraformStack("network")
+            .PublishAsTerraformStack("security");
 
         // Assert
         Assert.Same(container, result);
     }
 
     [Fact]
-    public void AddTerraformStack_AllowsMultipleStacksOnSameResource()
+    public void PublishAsTerraformStack_AllowsMultipleStacksOnSameResource()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
         // Act
-        var networkStack = container.AddTerraformStack("network");
-        var securityStack = container.AddTerraformStack("security");
+        container.PublishAsTerraformStack("network");
+        container.PublishAsTerraformStack("security");
 
         // Assert
-        Assert.NotSame(networkStack.Resource, securityStack.Resource);
-        Assert.Equal("myapp-network", networkStack.Resource.Name);
-        Assert.Equal("myapp-security", securityStack.Resource.Name);
-        Assert.Same(container.Resource, networkStack.Resource.Parent);
-        Assert.Same(container.Resource, securityStack.Resource.Parent);
+        using var app = builder.Build();
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        var terraformStacks = model.Resources.OfType<TerraformStackResource>().ToList();
+        Assert.Equal(2, terraformStacks.Count);
+        Assert.Equal("myapp-network", terraformStacks[0].Name);
+        Assert.Equal("myapp-security", terraformStacks[1].Name);
+        Assert.Same(container.Resource, terraformStacks[0].Parent);
+        Assert.Same(container.Resource, terraformStacks[1].Parent);
     }
 
     [Fact]
@@ -292,14 +219,14 @@ public class TerraformBuilderExtensionsTests
     }
 
     [Fact]
-    public void AddTerraformStack_StackContainsConfiguredResources()
+    public void PublishAsTerraformStack_StackContainsConfiguredResources()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
         // Act
-        var stackBuilder = container.AddTerraformStack("test", stack =>
+        container.PublishAsTerraformStack("test", stack =>
         {
             var variable = new TerraformVariable("test_var")
             {
@@ -310,13 +237,16 @@ public class TerraformBuilderExtensionsTests
         });
 
         // Assert
-        var variables = stackBuilder.Resource.Stack.Constructs.OfType<TerraformVariable>();
+        using var app = builder.Build();
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        var stackResource = model.Resources.OfType<TerraformStackResource>().Single();
+        var variables = stackResource.Stack.Constructs.OfType<TerraformVariable>();
         Assert.Single(variables);
         Assert.Equal("test_var", variables.First().Name);
     }
 
     [Fact]
-    public void WithTerraformStack_CanChainWithOtherBuilderMethods()
+    public void PublishAsTerraformStack_CanChainWithOtherBuilderMethods()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
@@ -324,8 +254,8 @@ public class TerraformBuilderExtensionsTests
         // Act
         var container = builder.AddContainer("myapp", "image")
             .WithTerraformConfiguration(config => config.OutputDirectory = "/tmp/tf")
-            .WithTerraformStack("network")
-            .WithTerraformStack("security");
+            .PublishAsTerraformStack("network")
+            .PublishAsTerraformStack("security");
 
         // Assert
         Assert.NotNull(container);
@@ -338,14 +268,14 @@ public class TerraformBuilderExtensionsTests
     }
 
     [Fact]
-    public void AddAndWithTerraformStack_CanBeUsedTogether()
+    public void PublishAsTerraformStack_CanBeCalledMultipleTimes()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
-        // Act - Use AddTerraformStack when you need the stack reference
-        var stackBuilder = container.AddTerraformStack("network", stack =>
+        // Act
+        container.PublishAsTerraformStack("network", stack =>
         {
             var variable = new TerraformVariable("vpc_cidr")
             {
@@ -355,16 +285,14 @@ public class TerraformBuilderExtensionsTests
             stack.Add(variable);
         });
 
-        // And use WithTerraformStack when you want to chain on the parent
-        container.WithTerraformStack("security");
+        container.PublishAsTerraformStack("security");
 
         // Assert
-        Assert.Equal("myapp-network", stackBuilder.Resource.Name);
-        Assert.Single(stackBuilder.Resource.Stack.Constructs);
-
         using var app = builder.Build();
         var model = app.Services.GetRequiredService<DistributedApplicationModel>();
         var terraformStacks = model.Resources.OfType<TerraformStackResource>().ToList();
         Assert.Equal(2, terraformStacks.Count);
+        Assert.Equal("myapp-network", terraformStacks[0].Name);
+        Assert.Single(terraformStacks[0].Stack.Constructs);
     }
 }

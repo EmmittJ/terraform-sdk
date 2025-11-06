@@ -20,7 +20,7 @@ public class TerraformEventingSubscriberTests
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
-        container.WithTerraformStack("valid", stack =>
+        container.PublishAsTerraformStack("valid", stack =>
         {
             var variable = new TerraformVariable("test_var")
             {
@@ -45,7 +45,7 @@ public class TerraformEventingSubscriberTests
         var container = builder.AddContainer("myapp", "image");
 
         // Create a stack that will fail validation
-        container.WithTerraformStack("invalid", stack =>
+        container.PublishAsTerraformStack("invalid", stack =>
         {
             // Add constructs that would fail validation
             var variable = new TerraformVariable("invalid-var-name-with-dashes")
@@ -84,7 +84,7 @@ public class TerraformEventingSubscriberTests
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
-        container.WithTerraformStack("network", stack =>
+        container.PublishAsTerraformStack("network", stack =>
         {
             var vpcCidr = new TerraformVariable("vpc_cidr")
             {
@@ -94,7 +94,7 @@ public class TerraformEventingSubscriberTests
             stack.Add(vpcCidr);
         });
 
-        container.WithTerraformStack("security", stack =>
+        container.PublishAsTerraformStack("security", stack =>
         {
             var allowedIps = new TerraformVariable("allowed_ips")
             {
@@ -138,7 +138,7 @@ public class TerraformEventingSubscriberTests
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
-        container.AddTerraformStack("test");
+        container.PublishAsTerraformStack("test");
 
         // Act
         using var app = builder.Build();
@@ -154,14 +154,16 @@ public class TerraformEventingSubscriberTests
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
-        var stackBuilder = container.AddTerraformStack("test-stack");
+        container.PublishAsTerraformStack("test-stack");
 
         // Act
         using var app = builder.Build();
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        var stackResource = model.Resources.OfType<TerraformStackResource>().Single();
 
         // Assert
-        Assert.NotNull(stackBuilder.Resource.Name);
-        Assert.NotEmpty(stackBuilder.Resource.Name);
+        Assert.NotNull(stackResource.Name);
+        Assert.NotEmpty(stackResource.Name);
     }
 
     [Fact]
@@ -170,14 +172,16 @@ public class TerraformEventingSubscriberTests
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
-        var stackBuilder = container.AddTerraformStack("test");
+        container.PublishAsTerraformStack("test");
 
         // Act
         using var app = builder.Build();
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        var stackResource = model.Resources.OfType<TerraformStackResource>().Single();
 
         // Assert
-        Assert.NotNull(stackBuilder.Resource.Parent);
-        Assert.Same(container.Resource, stackBuilder.Resource.Parent);
+        Assert.NotNull(stackResource.Parent);
+        Assert.Same(container.Resource, stackResource.Parent);
     }
 
     [Fact]
@@ -186,12 +190,14 @@ public class TerraformEventingSubscriberTests
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
-        var stackBuilder = container.AddTerraformStack("test");
+        container.PublishAsTerraformStack("test");
 
         // Act
         using var app = builder.Build();
+        var model = app.Services.GetRequiredService<DistributedApplicationModel>();
+        var stackResource = model.Resources.OfType<TerraformStackResource>().Single();
 
         // Assert
-        Assert.NotNull(stackBuilder.Resource.Stack);
+        Assert.NotNull(stackResource.Stack);
     }
 }

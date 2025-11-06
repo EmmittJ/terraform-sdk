@@ -30,7 +30,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .WithTerraformStack("network", stack =>
+                .PublishAsTerraformStack("network", stack =>
                 {
                     var vpc = new TerraformVariable("vpc_cidr")
                     {
@@ -74,9 +74,9 @@ public class TerraformPipelineIntegrationTests
                 DisableDashboard = true
             });
 
-            var container = builder.AddContainer("myapp", "image");
-            container
-                .AddTerraformStack("infrastructure", stack =>
+            builder.AddContainer("myapp", "image")
+                .WithTerraformConfiguration(config => config.OutputDirectory = customOutput)
+                .PublishAsTerraformStack("infrastructure", stack =>
                 {
                     var region = new TerraformVariable("region")
                     {
@@ -84,8 +84,7 @@ public class TerraformPipelineIntegrationTests
                         Default = "us-east-1"
                     };
                     stack.Add(region);
-                })
-                .WithTerraformConfiguration(config => config.OutputDirectory = customOutput);
+                });
 
             using var app = builder.Build();
 
@@ -120,12 +119,12 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .WithTerraformStack("network", stack =>
+                .PublishAsTerraformStack("network", stack =>
                 {
                     var vpc = new TerraformVariable("vpc_cidr") { Type = "string", Default = "10.0.0.0/16" };
                     stack.Add(vpc);
                 })
-                .WithTerraformStack("security", stack =>
+                .PublishAsTerraformStack("security", stack =>
                 {
                     var allowSsh = new TerraformVariable("allow_ssh") { Type = "bool", Default = "true" };
                     stack.Add(allowSsh);
@@ -166,12 +165,12 @@ public class TerraformPipelineIntegrationTests
 
             var container = builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputDirectory = parentOutputDir)
-                .WithTerraformStack("stack1", stack =>
+                .PublishAsTerraformStack("stack1", stack =>
                 {
                     var var1 = new TerraformVariable("var1") { Type = "string" };
                     stack.Add(var1);
                 })
-                .WithTerraformStack("stack2", stack =>
+                .PublishAsTerraformStack("stack2", stack =>
                 {
                     var var2 = new TerraformVariable("var2") { Type = "string" };
                     stack.Add(var2);
@@ -210,7 +209,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .WithTerraformStack("complex", stack =>
+                .PublishAsTerraformStack("complex", stack =>
                 {
                     // Add multiple types of constructs
                     var stringVar = new TerraformVariable("environment")
@@ -236,52 +235,6 @@ public class TerraformPipelineIntegrationTests
                     stack.Add(numberVar);
                     stack.Add(boolVar);
                 });
-
-            using var app = builder.Build();
-
-            // Act
-            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
-            await app.StartAsync(cts.Token);
-            await app.WaitForShutdownAsync(cts.Token);
-
-            // Assert - Verify the entire output directory structure
-            await VerifyDirectory(tempDir);
-        }
-        finally
-        {
-            if (Directory.Exists(tempDir))
-            {
-                Directory.Delete(tempDir, recursive: true);
-            }
-        }
-    }
-
-    [Fact]
-    public async Task TerraformStack_StackOverridesParentConfiguration()
-    {
-        // Arrange
-        var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
-        var parentOutput = Path.Combine(tempDir, "parent");
-        var stackOutput = Path.Combine(tempDir, "stack-specific");
-        try
-        {
-            var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
-            {
-                Args = GetPublishArgs(tempDir),
-                DisableDashboard = true
-            });
-
-            var container = builder.AddContainer("myapp", "image")
-                .WithTerraformConfiguration(config => config.OutputDirectory = parentOutput);
-
-            // This stack should override the parent configuration
-            container
-                .AddTerraformStack("override", stack =>
-                {
-                    var variable = new TerraformVariable("test") { Type = "string" };
-                    stack.Add(variable);
-                })
-                .WithTerraformConfiguration(config => config.OutputDirectory = stackOutput);
 
             using var app = builder.Build();
 

@@ -19,16 +19,16 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 public static class TerraformBuilderExtensions
 {
     /// <summary>
-    /// Adds a Terraform stack as a child resource of the specified parent resource.
-    /// The stack will be registered as a separate resource in the application model.
+    /// Publishes a resource as a Terraform stack, generating Terraform HCL configuration.
+    /// The stack will be registered as a separate resource in the application model and can be configured with providers, resources, etc.
     /// </summary>
     /// <typeparam name="T">The parent resource type.</typeparam>
     /// <param name="builder">The parent resource builder.</param>
     /// <param name="stackName">The name of the Terraform stack (will be used as part of the resource name).</param>
     /// <param name="configureStack">Optional action to configure the Terraform stack with providers, resources, etc.</param>
-    /// <returns>A resource builder for the newly created <see cref="TerraformStackResource"/>.</returns>
+    /// <returns>The parent resource builder for chaining.</returns>
     /// <exception cref="ArgumentNullException">Thrown when <paramref name="builder"/> or <paramref name="stackName"/> is null.</exception>
-    public static IResourceBuilder<TerraformStackResource> AddTerraformStack<T>(
+    public static IResourceBuilder<T> PublishAsTerraformStack<T>(
         this IResourceBuilder<T> builder,
         string stackName,
         Action<TerraformStack>? configureStack = null)
@@ -55,26 +55,6 @@ public static class TerraformBuilderExtensions
         // Create Aspire parameters for Terraform variables
         ProcessTerraformVariables(stackBuilder);
 
-        return stackBuilder;
-    }
-
-    /// <summary>
-    /// Adds a Terraform stack as a child resource of the specified parent resource.
-    /// Returns the parent builder to allow method chaining.
-    /// </summary>
-    /// <typeparam name="T">The parent resource type.</typeparam>
-    /// <param name="builder">The parent resource builder.</param>
-    /// <param name="stackName">The name of the Terraform stack (will be used as part of the resource name).</param>
-    /// <param name="configureStack">Optional action to configure the Terraform stack with providers, resources, etc.</param>
-    /// <returns>The parent resource builder for chaining.</returns>
-    /// <exception cref="ArgumentNullException">Thrown when <paramref name="builder"/> or <paramref name="stackName"/> is null.</exception>
-    public static IResourceBuilder<T> WithTerraformStack<T>(
-        this IResourceBuilder<T> builder,
-        string stackName,
-        Action<TerraformStack>? configureStack = null)
-        where T : IResource
-    {
-        AddTerraformStack(builder, stackName, configureStack);
         return builder;
     }
 
@@ -212,42 +192,20 @@ public static class TerraformBuilderExtensions
 
     private static string GetWorkingDirectory(TerraformStackResource stackResource, PipelineStepContext stepContext)
     {
-        // First, check if the stack resource has its own TerraformConfigurationAnnotation (most specific)
-        var stackAnnotation = stackResource.Annotations
-            .OfType<TerraformConfigurationAnnotation>()
-            .FirstOrDefault();
+        // Get the base output path from pipeline options (CLI --output-path) or default to current directory
+        var pipelineOptions = stepContext.Services.GetService<IOptions<PipelineOptions>>();
+        var baseOutputPath = pipelineOptions?.Value.OutputPath ?? Directory.GetCurrentDirectory();
 
-        if (stackAnnotation?.OutputDirectory is not null)
-        {
-            // Stack-specific output directory takes precedence
-            return stackAnnotation.OutputDirectory;
-        }
-
-        // Second, check if the parent resource has a TerraformConfigurationAnnotation
+        // Get the parent resource's TerraformConfigurationAnnotation for relative path
         var parentAnnotation = stackResource.Parent.Annotations
             .OfType<TerraformConfigurationAnnotation>()
             .FirstOrDefault();
 
-        if (parentAnnotation?.OutputDirectory is not null)
-        {
-            // Parent's output directory - append stack name as subdirectory
-            return Path.Combine(parentAnnotation.OutputDirectory, stackResource.Stack.Name);
-        }
+        // If parent has a custom output directory, use it; otherwise default to parent resource name
+        var relativePath = parentAnnotation?.OutputDirectory ?? stackResource.Parent.Name;
 
-        // Third, check if PipelineOptions specifies an output path (similar to how Aspire's AzureBicepResource works)
-        // This is typically set when publishing with --output-path
-        var pipelineOptions = stepContext.Services.GetService<IOptions<PipelineOptions>>();
-
-        if (pipelineOptions?.Value.OutputPath is not null)
-        {
-            // User explicitly provided an output path via CLI - append stack name as subdirectory
-            return Path.Combine(pipelineOptions.Value.OutputPath, stackResource.Stack.Name);
-        }
-
-        // Default to a temporary directory (similar to Aspire's approach with Directory.CreateTempSubdirectory("aspire"))
-        // In run mode, this allows the files to be inspected
-        // In publish mode without --output-path, this keeps generated files separate
-        return Path.Combine(Directory.GetCurrentDirectory(), ".terraform", stackResource.Stack.Name);
+        // Combine: base output path + relative path (all stacks for this resource go to same directory)
+        return Path.Combine(baseOutputPath, relativePath);
     }
 
     private static void ProcessTerraformVariables(IResourceBuilder<TerraformStackResource> stackBuilder)
