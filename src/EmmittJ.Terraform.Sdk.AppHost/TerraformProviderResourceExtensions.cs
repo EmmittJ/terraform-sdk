@@ -37,7 +37,7 @@ public static class TerraformProviderResourceExtensions
         var resource = new TerraformProviderResource(name, name, version);
         return builder.AddResource(resource)
             .WithAnnotation(new TerraformProviderAnnotation())
-            .WithPipelineStepFactory(context => CreateProviderPipelineStep(resource, context));
+            .WithPipelineStepFactory(context => CreateProviderPipelineSteps(resource, context));
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ public static class TerraformProviderResourceExtensions
         var resource = new TerraformProviderResource(name, providerName, version);
         return builder.AddResource(resource)
             .WithAnnotation(new TerraformProviderAnnotation())
-            .WithPipelineStepFactory(context => CreateProviderPipelineStep(resource, context));
+            .WithPipelineStepFactory(context => CreateProviderPipelineSteps(resource, context));
     }
 
     /// <summary>
@@ -133,107 +133,136 @@ public static class TerraformProviderResourceExtensions
         return builder;
     }
 
-    private static PipelineStep CreateProviderPipelineStep(TerraformProviderResource provider, PipelineStepFactoryContext context)
+    private static List<PipelineStep> CreateProviderPipelineSteps(TerraformProviderResource provider, PipelineStepFactoryContext context)
     {
-        var step = new PipelineStep
+        // Schema generation step (must run first)
+        var schemaStep = new PipelineStep
         {
-            Name = $"codegen-{provider.Name}",
+            Name = $"schema-{provider.Name}",
             Resource = provider,
-            Action = async stepContext => await ExecuteCodeGenAsync(provider, stepContext),
-            Tags = { "codegen", "terraform" }
+            Action = async stepContext => await GenerateSchemaStepAsync(provider, stepContext),
+            Tags = { "codegen", "terraform", "schema" }
         };
 
-        // This step should run as part of the publish phase
-        step.RequiredBy(WellKnownPipelineSteps.Publish);
+        // Project file step (can run after schema)
+        var projectStep = new PipelineStep
+        {
+            Name = $"project-{provider.Name}",
+            Resource = provider,
+            Action = async stepContext => await GenerateProjectFileStepAsync(provider, stepContext),
+            Tags = { "codegen", "terraform", "project" }
+        };
+        projectStep.DependsOn(schemaStep);
 
-        return step;
+        // Provider class step (can run after schema, in parallel with project/resources/datasources)
+        var providerClassStep = new PipelineStep
+        {
+            Name = $"provider-class-{provider.Name}",
+            Resource = provider,
+            Action = async stepContext => await GenerateProviderClassStepAsync(provider, stepContext),
+            Tags = { "codegen", "terraform", "provider" }
+        };
+        providerClassStep.DependsOn(schemaStep);
+
+        // Resources step (can run after schema, in parallel with project/provider/datasources)
+        var resourcesStep = new PipelineStep
+        {
+            Name = $"resources-{provider.Name}",
+            Resource = provider,
+            Action = async stepContext => await GenerateResourcesStepAsync(provider, stepContext),
+            Tags = { "codegen", "terraform", "resources" }
+        };
+        resourcesStep.DependsOn(schemaStep);
+
+        // Data sources step (can run after schema, in parallel with project/provider/resources)
+        var dataSourcesStep = new PipelineStep
+        {
+            Name = $"datasources-{provider.Name}",
+            Resource = provider,
+            Action = async stepContext => await GenerateDataSourcesStepAsync(provider, stepContext),
+            Tags = { "codegen", "terraform", "datasources" }
+        };
+        dataSourcesStep.DependsOn(schemaStep);
+
+        // All steps should be required by publish
+        schemaStep.RequiredBy(WellKnownPipelineSteps.Publish);
+        projectStep.RequiredBy(WellKnownPipelineSteps.Publish);
+        providerClassStep.RequiredBy(WellKnownPipelineSteps.Publish);
+        resourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
+        dataSourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
+
+        return [schemaStep, projectStep, providerClassStep, resourcesStep, dataSourcesStep];
     }
 
-    private static async Task ExecuteCodeGenAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
+    private static async Task GenerateSchemaStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
     {
         var logger = stepContext.Logger;
         var step = stepContext.ReportingStep;
 
-        var initTask = await step.CreateTaskAsync($"Initializing {provider.ProviderName}", stepContext.CancellationToken);
+        var initTask = await step.CreateTaskAsync($"Generating schema for {provider.ProviderName}", stepContext.CancellationToken);
         try
         {
-            logger.LogInformation("Starting code generation for provider: {ProviderName}", provider.ProviderName);
-
-            // Get the AppHost directory from configuration (set by Aspire)
-            var configuration = stepContext.Services.GetRequiredService<IConfiguration>();
-            var appHostDirectory = configuration["AppHost:Directory"]
-                ?? throw new InvalidOperationException("AppHost:Directory not found in configuration");
-
-            // Go one level up from AppHost directory to get the repository root
-            var repositoryRoot = Directory.GetParent(appHostDirectory)?.FullName
-                ?? throw new InvalidOperationException("Could not determine repository root from AppHost directory");
-
-            var templatePath = provider.TemplatePath ?? Path.Combine(AppContext.BaseDirectory, "Templates", "Files");
-            var workingDir = provider.WorkingDirectory ?? Path.Combine(Directory.GetCurrentDirectory(), ".terraform-codegen", provider.ProviderName);
-
-            logger.LogInformation("AppHost directory: {AppHostDirectory}", appHostDirectory);
-            logger.LogInformation("Repository root: {RepositoryRoot}", repositoryRoot);
-            logger.LogInformation("Template path: {TemplatePath}", templatePath);
-            logger.LogInformation("Working directory: {WorkingDirectory}", workingDir);
-
-            await initTask.CompleteAsync("Initialized", CompletionState.Completed, stepContext.CancellationToken);
+            var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
 
             // Step 1: Generate Terraform configuration
-            var configTask = await step.CreateTaskAsync($"Generating Terraform configuration", stepContext.CancellationToken);
             Directory.CreateDirectory(workingDir);
-
             var terraformConfig = await GenerateTerraformConfigAsync(provider, templatePath, stepContext.CancellationToken);
             var configPath = Path.Combine(workingDir, "main.tf");
             await File.WriteAllTextAsync(configPath, terraformConfig, stepContext.CancellationToken);
-            logger.LogInformation("Generated Terraform config at {ConfigPath}", configPath);
-            await configTask.CompleteAsync("Configuration generated", CompletionState.Completed, stepContext.CancellationToken);
 
             // Step 2: Generate schema
-            var schemaTask = await step.CreateTaskAsync($"Generating provider schema", stepContext.CancellationToken);
             var schemaPath = Path.Combine(workingDir, "schema.json");
             await GenerateSchemaAsync(workingDir, schemaPath, logger, stepContext.CancellationToken);
-            await schemaTask.CompleteAsync("Schema generated", CompletionState.Completed, stepContext.CancellationToken);
 
-            // Step 3: Parse the schema
-            var parseTask = await step.CreateTaskAsync($"Parsing schema", stepContext.CancellationToken);
-            var schemaJson = await File.ReadAllTextAsync(schemaPath, stepContext.CancellationToken);
-            var parser = new SchemaParser();
-            var schemaRoot = parser.ParseSchema(schemaJson);
+            await initTask.CompleteAsync("Schema generated", CompletionState.Completed, stepContext.CancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "❌ Error generating schema for provider {ProviderName}", provider.ProviderName);
+            await initTask.FailAsync(ex.Message, stepContext.CancellationToken);
+            throw;
+        }
+    }
 
-            var providerSchema = schemaRoot.ProviderSchemas.Values.FirstOrDefault()
-                ?? throw new InvalidOperationException($"No provider schema found in {schemaPath}");
+    private static async Task GenerateProjectFileStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
+    {
+        var logger = stepContext.Logger;
+        var step = stepContext.ReportingStep;
 
-            logger.LogInformation("Found {ResourceCount} resources and {DataSourceCount} data sources",
-                providerSchema.ResourceSchemas.Count,
-                providerSchema.DataSourceSchemas.Count);
-
-            var resources = parser.ParseResources(providerSchema, provider.ProviderName);
-            var dataSources = parser.ParseDataSources(providerSchema, provider.ProviderName);
-            await parseTask.CompleteAsync("Schema parsed", CompletionState.Completed, stepContext.CancellationToken);
-
-            // Step 4: Set up output folder structure
+        var task = await step.CreateTaskAsync($"Generating project file", stepContext.CancellationToken);
+        try
+        {
+            var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
             var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
-            if (Directory.Exists(outputFolder))
-            {
-                Directory.Delete(outputFolder, recursive: true);
-            }
+
             Directory.CreateDirectory(outputFolder);
 
-            var resourcesFolder = Path.Combine(outputFolder, "Resources");
-            var dataSourcesFolder = Path.Combine(outputFolder, "DataSources");
-            Directory.CreateDirectory(resourcesFolder);
-            Directory.CreateDirectory(dataSourcesFolder);
-
-            // Step 5: Generate .csproj file first
-            var csprojTask = await step.CreateTaskAsync($"Generating project file", stepContext.CancellationToken);
             var csprojContent = await GenerateCsprojFileAsync(templatePath, stepContext.CancellationToken);
             var csprojPath = Path.Combine(outputFolder, $"{provider.Namespace}.csproj");
             await File.WriteAllTextAsync(csprojPath, csprojContent, stepContext.CancellationToken);
-            logger.LogInformation("Generated project file: {CsprojPath}", csprojPath);
-            await csprojTask.CompleteAsync("Project file generated", CompletionState.Completed, stepContext.CancellationToken);
 
-            // Step 6: Generate provider class
-            var providerClassTask = await step.CreateTaskAsync($"Generating provider class", stepContext.CancellationToken);
+            logger.LogInformation("Generated project file: {CsprojPath}", csprojPath);
+            await task.CompleteAsync("Project file generated", CompletionState.Completed, stepContext.CancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "❌ Error generating project file for {ProviderName}", provider.ProviderName);
+            await task.FailAsync(ex.Message, stepContext.CancellationToken);
+            throw;
+        }
+    }
+
+    private static async Task GenerateProviderClassStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
+    {
+        var logger = stepContext.Logger;
+        var step = stepContext.ReportingStep;
+
+        var task = await step.CreateTaskAsync($"Generating provider class", stepContext.CancellationToken);
+        try
+        {
+            var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
+            var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
+
             var providerTemplate = new ProviderTemplate(templatePath);
             var providerConfig = new Models.ProviderConfig
             {
@@ -246,16 +275,43 @@ public static class TerraformProviderResourceExtensions
             var providerClassName = GetProviderClassName(provider.Namespace);
             var providerClassPath = Path.Combine(outputFolder, $"{providerClassName}.cs");
             await File.WriteAllTextAsync(providerClassPath, providerCode, stepContext.CancellationToken);
-            logger.LogInformation("Generated provider class: {ProviderClassPath}", providerClassPath);
-            await providerClassTask.CompleteAsync("Provider class generated", CompletionState.Completed, stepContext.CancellationToken);
 
-            // Step 7: Generate resources and data sources in parallel
-            var codeGenTask = await step.CreateTaskAsync($"Generating {resources.Count + dataSources.Count} classes", stepContext.CancellationToken);
+            logger.LogInformation("Generated provider class: {ProviderClassPath}", providerClassPath);
+            await task.CompleteAsync("Provider class generated", CompletionState.Completed, stepContext.CancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "❌ Error generating provider class for {ProviderName}", provider.ProviderName);
+            await task.FailAsync(ex.Message, stepContext.CancellationToken);
+            throw;
+        }
+    }
+
+    private static async Task GenerateResourcesStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
+    {
+        var logger = stepContext.Logger;
+        var step = stepContext.ReportingStep;
+
+        var task = await step.CreateTaskAsync($"Generating resources", stepContext.CancellationToken);
+        try
+        {
+            var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
+            var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
+
+            // Parse schema
+            var schemaPath = Path.Combine(workingDir, "schema.json");
+            var schemaJson = await File.ReadAllTextAsync(schemaPath, stepContext.CancellationToken);
+            var parser = new SchemaParser();
+            var schemaRoot = parser.ParseSchema(schemaJson);
+            var providerSchema = schemaRoot.ProviderSchemas.Values.FirstOrDefault()
+                ?? throw new InvalidOperationException($"No provider schema found in {schemaPath}");
+
+            var resources = parser.ParseResources(providerSchema, provider.ProviderName);
+
+            var resourcesFolder = Path.Combine(outputFolder, "Resources");
+            Directory.CreateDirectory(resourcesFolder);
 
             var resourceTemplate = new ResourceTemplate(templatePath);
-            var dataSourceTemplate = new DataSourceTemplate(templatePath);
-
-            // Generate resources in parallel
             var resourceGenerationTasks = resources.Select(async resource =>
             {
                 var code = resourceTemplate.Generate(resource, provider.Namespace);
@@ -263,7 +319,44 @@ public static class TerraformProviderResourceExtensions
                 await File.WriteAllTextAsync(filePath, code, stepContext.CancellationToken);
             });
 
-            // Generate data sources in parallel
+            await Task.WhenAll(resourceGenerationTasks);
+
+            logger.LogInformation("Generated {ResourceCount} resources", resources.Count);
+            await task.CompleteAsync($"{resources.Count} resources generated", CompletionState.Completed, stepContext.CancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "❌ Error generating resources for {ProviderName}", provider.ProviderName);
+            await task.FailAsync(ex.Message, stepContext.CancellationToken);
+            throw;
+        }
+    }
+
+    private static async Task GenerateDataSourcesStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
+    {
+        var logger = stepContext.Logger;
+        var step = stepContext.ReportingStep;
+
+        var task = await step.CreateTaskAsync($"Generating data sources", stepContext.CancellationToken);
+        try
+        {
+            var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
+            var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
+
+            // Parse schema
+            var schemaPath = Path.Combine(workingDir, "schema.json");
+            var schemaJson = await File.ReadAllTextAsync(schemaPath, stepContext.CancellationToken);
+            var parser = new SchemaParser();
+            var schemaRoot = parser.ParseSchema(schemaJson);
+            var providerSchema = schemaRoot.ProviderSchemas.Values.FirstOrDefault()
+                ?? throw new InvalidOperationException($"No provider schema found in {schemaPath}");
+
+            var dataSources = parser.ParseDataSources(providerSchema, provider.ProviderName);
+
+            var dataSourcesFolder = Path.Combine(outputFolder, "DataSources");
+            Directory.CreateDirectory(dataSourcesFolder);
+
+            var dataSourceTemplate = new DataSourceTemplate(templatePath);
             var dataSourceGenerationTasks = dataSources.Select(async dataSource =>
             {
                 var code = dataSourceTemplate.Generate(dataSource, provider.Namespace);
@@ -271,23 +364,34 @@ public static class TerraformProviderResourceExtensions
                 await File.WriteAllTextAsync(filePath, code, stepContext.CancellationToken);
             });
 
-            // Wait for all generations to complete
-            await Task.WhenAll(resourceGenerationTasks.Concat(dataSourceGenerationTasks));
+            await Task.WhenAll(dataSourceGenerationTasks);
 
-            logger.LogInformation("Generated {ResourceCount} resources and {DataSourceCount} data sources", resources.Count, dataSources.Count);
-            await codeGenTask.CompleteAsync($"{resources.Count + dataSources.Count} classes generated", CompletionState.Completed, stepContext.CancellationToken);
-
-            logger.LogInformation("✅ Code generation completed for {ProviderName}: {ResourceCount} resources, {DataSourceCount} data sources",
-                provider.ProviderName,
-                resources.Count,
-                dataSources.Count);
+            logger.LogInformation("Generated {DataSourceCount} data sources", dataSources.Count);
+            await task.CompleteAsync($"{dataSources.Count} data sources generated", CompletionState.Completed, stepContext.CancellationToken);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "❌ Error generating code for provider {ProviderName}", provider.ProviderName);
-            await initTask.FailAsync(ex.Message, stepContext.CancellationToken);
+            logger.LogError(ex, "❌ Error generating data sources for {ProviderName}", provider.ProviderName);
+            await task.FailAsync(ex.Message, stepContext.CancellationToken);
             throw;
         }
+    }
+
+    private static (string repositoryRoot, string templatePath, string workingDir) GetProviderPaths(
+        TerraformProviderResource provider,
+        PipelineStepContext stepContext)
+    {
+        var configuration = stepContext.Services.GetRequiredService<IConfiguration>();
+        var appHostDirectory = configuration["AppHost:Directory"]
+            ?? throw new InvalidOperationException("AppHost:Directory not found in configuration");
+
+        var repositoryRoot = Directory.GetParent(appHostDirectory)?.FullName
+            ?? throw new InvalidOperationException("Could not determine repository root from AppHost directory");
+
+        var templatePath = provider.TemplatePath ?? Path.Combine(AppContext.BaseDirectory, "Templates", "Files");
+        var workingDir = provider.WorkingDirectory ?? Path.Combine(Directory.GetCurrentDirectory(), ".terraform-codegen", provider.ProviderName);
+
+        return (repositoryRoot, templatePath, workingDir);
     }
 
     private static async Task<string> GenerateTerraformConfigAsync(TerraformProviderResource provider, string templatePath, CancellationToken cancellationToken)
