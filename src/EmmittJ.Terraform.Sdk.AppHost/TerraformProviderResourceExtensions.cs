@@ -5,6 +5,8 @@ using Aspire.Hosting.Pipelines;
 using EmmittJ.Terraform.Sdk.AppHost.Parsers;
 using EmmittJ.Terraform.Sdk.AppHost.Resources;
 using EmmittJ.Terraform.Sdk.AppHost.Templates;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 #pragma warning disable ASPIREPIPELINES001
@@ -157,17 +159,20 @@ public static class TerraformProviderResourceExtensions
         {
             logger.LogInformation("Starting code generation for provider: {ProviderName}", provider.ProviderName);
 
-            // Determine paths
-            var workspaceRoot = FindWorkspaceRoot();
-            if (workspaceRoot is null)
-            {
-                throw new InvalidOperationException("Could not find workspace root (looking for AspireTerraform.sln)");
-            }
+            // Get the AppHost directory from configuration (set by Aspire)
+            var configuration = stepContext.Services.GetRequiredService<IConfiguration>();
+            var appHostDirectory = configuration["AppHost:Directory"]
+                ?? throw new InvalidOperationException("AppHost:Directory not found in configuration");
+
+            // Go one level up from AppHost directory to get the repository root
+            var repositoryRoot = Directory.GetParent(appHostDirectory)?.FullName
+                ?? throw new InvalidOperationException("Could not determine repository root from AppHost directory");
 
             var templatePath = provider.TemplatePath ?? Path.Combine(AppContext.BaseDirectory, "Templates", "Files");
             var workingDir = provider.WorkingDirectory ?? Path.Combine(Directory.GetCurrentDirectory(), ".terraform-codegen", provider.ProviderName);
 
-            logger.LogInformation("Workspace root: {WorkspaceRoot}", workspaceRoot);
+            logger.LogInformation("AppHost directory: {AppHostDirectory}", appHostDirectory);
+            logger.LogInformation("Repository root: {RepositoryRoot}", repositoryRoot);
             logger.LogInformation("Template path: {TemplatePath}", templatePath);
             logger.LogInformation("Working directory: {WorkingDirectory}", workingDir);
 
@@ -207,7 +212,7 @@ public static class TerraformProviderResourceExtensions
             await parseTask.CompleteAsync("Schema parsed", CompletionState.Completed, stepContext.CancellationToken);
 
             // Step 4: Set up output folder structure
-            var outputFolder = provider.OutputFolder ?? Path.Combine(workspaceRoot, provider.Namespace);
+            var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
             if (Directory.Exists(outputFolder))
             {
                 Directory.Delete(outputFolder, recursive: true);
@@ -227,7 +232,24 @@ public static class TerraformProviderResourceExtensions
             logger.LogInformation("Generated project file: {CsprojPath}", csprojPath);
             await csprojTask.CompleteAsync("Project file generated", CompletionState.Completed, stepContext.CancellationToken);
 
-            // Step 6: Generate resources and data sources in parallel
+            // Step 6: Generate provider class
+            var providerClassTask = await step.CreateTaskAsync($"Generating provider class", stepContext.CancellationToken);
+            var providerTemplate = new ProviderTemplate(templatePath);
+            var providerConfig = new Models.ProviderConfig
+            {
+                Name = provider.ProviderName,
+                Namespace = provider.Namespace,
+                FolderPath = outputFolder,
+                Version = provider.Version
+            };
+            var providerCode = providerTemplate.Generate(providerConfig);
+            var providerClassName = GetProviderClassName(provider.Namespace);
+            var providerClassPath = Path.Combine(outputFolder, $"{providerClassName}.cs");
+            await File.WriteAllTextAsync(providerClassPath, providerCode, stepContext.CancellationToken);
+            logger.LogInformation("Generated provider class: {ProviderClassPath}", providerClassPath);
+            await providerClassTask.CompleteAsync("Provider class generated", CompletionState.Completed, stepContext.CancellationToken);
+
+            // Step 7: Generate resources and data sources in parallel
             var codeGenTask = await step.CreateTaskAsync($"Generating {resources.Count + dataSources.Count} classes", stepContext.CancellationToken);
 
             var resourceTemplate = new ResourceTemplate(templatePath);
@@ -352,20 +374,14 @@ public static class TerraformProviderResourceExtensions
         return output;
     }
 
-    private static string? FindWorkspaceRoot()
+    private static string GetProviderClassName(string namespaceName)
     {
-        var currentDir = Directory.GetCurrentDirectory();
-        while (currentDir is not null)
-        {
-            if (File.Exists(Path.Combine(currentDir, "AspireTerraform.sln")))
-            {
-                return currentDir;
-            }
+        // Extract the last segment of the namespace and append "Provider"
+        // e.g., "EmmittJ.Terraform.Sdk.Providers.Aws" -> "AwsProvider"
+        // e.g., "EmmittJ.Terraform.Sdk.Providers.AzureRM" -> "AzureRMProvider"
 
-            currentDir = Directory.GetParent(currentDir)?.FullName;
-        }
-
-        return null;
+        var lastSegment = namespaceName.Split('.').Last();
+        return $"{lastSegment}Provider";
     }
 }
 

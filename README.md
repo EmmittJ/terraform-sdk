@@ -40,12 +40,30 @@ Console.WriteLine(hcl);
 ## Project Structure
 
 - **EmmittJ.Terraform.Sdk** - Core SDK library with base types and HCL generation
-- **EmmittJ.Terraform.Sdk.Providers.\*** - Provider-specific resource definitions
-  - `Providers.Aws` - AWS provider resources
-  - `Providers.AzureRM` - Azure Resource Manager provider
-  - `Providers.AzureAD` - Azure Active Directory provider
-  - `Providers.Google` - Google Cloud Platform provider
+- **EmmittJ.Terraform.Sdk.Providers.\*** - Provider-specific resource definitions (auto-generated)
+  - `Providers.Aws` - AWS provider resources and `AwsProvider` class
+  - `Providers.AzureRM` - Azure Resource Manager provider and `AzureRMProvider` class
+  - `Providers.AzureAD` - Azure Active Directory provider and `AzureADProvider` class
+  - `Providers.Google` - Google Cloud Platform provider and `GoogleProvider` class
+- **EmmittJ.Terraform.Sdk.AppHost** - Code generation using .NET Aspire
 - **EmmittJ.Aspire.Hosting.Terraform** - Integration with .NET Aspire for hosting scenarios
+
+## Code Generation
+
+The provider libraries are auto-generated from Terraform provider schemas using the AppHost project. To regenerate the provider code:
+
+```bash
+# From the repository root
+aspire publish
+```
+
+This will generate:
+
+- Provider classes (e.g., `AwsProvider`, `AzureRMProvider`)
+- Resource classes for all Terraform resources
+- Data source classes for all Terraform data sources
+
+For more information, see [AppHost README](./src/EmmittJ.Terraform.Sdk.AppHost/README.md).
 
 ## Documentation Pages
 

@@ -26,18 +26,31 @@ This project uses .NET Aspire's distributed application model and pipeline syste
 
 ### Running Code Generation
 
+To generate provider code, use the `aspire publish` command:
+
 ```powershell
-cd EmmittJ.Terraform.Sdk.AppHost
-# Run the AppHost
-dotnet run --project EmmittJ.Terraform.Sdk.AppHost
+# From the repository root
+aspire publish
+
+# Or specify the project explicitly
+aspire publish --project src\EmmittJ.Terraform.Sdk.AppHost\EmmittJ.Terraform.Sdk.AppHost.csproj
 ```
 
 This will:
 
-1. Start the Aspire Dashboard (typically at http://localhost:15000)
-2. Execute the code generation pipeline for all configured providers
-3. Show real-time progress in the dashboard
-4. Generate code to the configured output folders
+1. Execute the code generation pipeline for all configured providers
+2. Generate the provider class (e.g., `AwsProvider`, `AzureRMProvider`, `AzureADProvider`, `GoogleProvider`)
+3. Generate all resource classes in the `Resources/` folder
+4. Generate all data source classes in the `DataSources/` folder
+5. Generate the `.csproj` file for each provider
+6. Output generated code to the configured output folders
+
+**Note:** You can also use `dotnet run` to start the Aspire Dashboard for real-time monitoring:
+
+```powershell
+# For interactive dashboard (requires HTTPS or ASPIRE_ALLOW_UNSECURED_TRANSPORT=true)
+dotnet run --project src\EmmittJ.Terraform.Sdk.AppHost\EmmittJ.Terraform.Sdk.AppHost.csproj
+```
 
 ### Configuring Providers
 
@@ -70,11 +83,41 @@ For each provider, the pipeline executes these steps:
 2. **Generate Terraform Config** - Create `main.tf` from template
 3. **Generate Schema** - Run `terraform init` and `terraform providers schema`
 4. **Parse Schema** - Extract resources and data sources from JSON schema
-5. **Generate Resources** - Create C# resource classes
-6. **Generate Data Sources** - Create C# data source classes
-7. **Generate Project File** - Create `.csproj` file
+5. **Generate Project File** - Create `.csproj` file
+6. **Generate Provider Class** - Create the provider class (e.g., `AwsProvider.cs`, `AzureRMProvider.cs`)
+7. **Generate Resources** - Create C# resource classes in parallel
+8. **Generate Data Sources** - Create C# data source classes in parallel
 
 Each step is tracked independently in the Aspire Dashboard with success/failure status.
+
+### Generated Provider Classes
+
+The code generation automatically creates a provider class for each configured provider:
+
+- **AWS** → `AwsProvider` in `EmmittJ.Terraform.Sdk.Providers.Aws`
+- **Azure RM** → `AzureRMProvider` in `EmmittJ.Terraform.Sdk.Providers.AzureRM`
+- **Azure AD** → `AzureADProvider` in `EmmittJ.Terraform.Sdk.Providers.AzureAD`
+- **Google** → `GoogleProvider` in `EmmittJ.Terraform.Sdk.Providers.Google`
+
+These classes inherit from `TerraformProvider` and can be used in your Terraform stacks:
+
+```csharp
+using EmmittJ.Terraform.Sdk;
+using EmmittJ.Terraform.Sdk.Providers.Aws;
+
+var stack = new TerraformStack();
+
+// Add the AWS provider
+var awsProvider = new AwsProvider();
+stack.Add(awsProvider);
+
+// Or with a custom alias
+var awsUsWest = new AwsProvider("aws_us_west")
+{
+    Alias = "us-west-2"
+};
+stack.Add(awsUsWest);
+```
 
 ## Benefits of Aspire Integration
 
