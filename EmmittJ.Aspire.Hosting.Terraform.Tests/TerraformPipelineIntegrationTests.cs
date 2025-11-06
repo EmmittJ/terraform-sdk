@@ -29,17 +29,17 @@ public class TerraformPipelineIntegrationTests
                 DisableDashboard = true
             });
 
-            var container = builder.AddContainer("myapp", "image");
-            container.AddTerraformStack("network", stack =>
-            {
-                var vpc = new TerraformVariable("vpc_cidr")
+            var container = builder.AddContainer("myapp", "image")
+                .WithTerraformStack("network", stack =>
                 {
-                    Type = "string",
-                    Default = "10.0.0.0/16",
-                    Description = "VPC CIDR block"
-                };
-                stack.Add(vpc);
-            });
+                    var vpc = new TerraformVariable("vpc_cidr")
+                    {
+                        Type = "string",
+                        Default = "10.0.0.0/16",
+                        Description = "VPC CIDR block"
+                    };
+                    stack.Add(vpc);
+                });
 
             using var app = builder.Build();
 
@@ -75,17 +75,17 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image");
-            var stackBuilder = container.AddTerraformStack("infrastructure", stack =>
-            {
-                var region = new TerraformVariable("region")
+            container
+                .AddTerraformStack("infrastructure", stack =>
                 {
-                    Type = "string",
-                    Default = "us-east-1"
-                };
-                stack.Add(region);
-            });
-
-            stackBuilder.WithTerraformConfiguration(config => config.OutputDirectory = customOutput);
+                    var region = new TerraformVariable("region")
+                    {
+                        Type = "string",
+                        Default = "us-east-1"
+                    };
+                    stack.Add(region);
+                })
+                .WithTerraformConfiguration(config => config.OutputDirectory = customOutput);
 
             using var app = builder.Build();
 
@@ -119,19 +119,17 @@ public class TerraformPipelineIntegrationTests
                 DisableDashboard = true
             });
 
-            var container = builder.AddContainer("myapp", "image");
-
-            container.AddTerraformStack("network", stack =>
-            {
-                var vpc = new TerraformVariable("vpc_cidr") { Type = "string", Default = "10.0.0.0/16" };
-                stack.Add(vpc);
-            });
-
-            container.AddTerraformStack("security", stack =>
-            {
-                var allowSsh = new TerraformVariable("allow_ssh") { Type = "bool", Default = "true" };
-                stack.Add(allowSsh);
-            });
+            var container = builder.AddContainer("myapp", "image")
+                .WithTerraformStack("network", stack =>
+                {
+                    var vpc = new TerraformVariable("vpc_cidr") { Type = "string", Default = "10.0.0.0/16" };
+                    stack.Add(vpc);
+                })
+                .WithTerraformStack("security", stack =>
+                {
+                    var allowSsh = new TerraformVariable("allow_ssh") { Type = "bool", Default = "true" };
+                    stack.Add(allowSsh);
+                });
 
             using var app = builder.Build();
 
@@ -166,20 +164,18 @@ public class TerraformPipelineIntegrationTests
                 DisableDashboard = true
             });
 
-            var container = builder.AddContainer("myapp", "image");
-            container.WithTerraformConfiguration(config => config.OutputDirectory = parentOutputDir);
-
-            container.AddTerraformStack("stack1", stack =>
-            {
-                var var1 = new TerraformVariable("var1") { Type = "string" };
-                stack.Add(var1);
-            });
-
-            container.AddTerraformStack("stack2", stack =>
-            {
-                var var2 = new TerraformVariable("var2") { Type = "string" };
-                stack.Add(var2);
-            });
+            var container = builder.AddContainer("myapp", "image")
+                .WithTerraformConfiguration(config => config.OutputDirectory = parentOutputDir)
+                .WithTerraformStack("stack1", stack =>
+                {
+                    var var1 = new TerraformVariable("var1") { Type = "string" };
+                    stack.Add(var1);
+                })
+                .WithTerraformStack("stack2", stack =>
+                {
+                    var var2 = new TerraformVariable("var2") { Type = "string" };
+                    stack.Add(var2);
+                });
 
             using var app = builder.Build();
 
@@ -213,33 +209,33 @@ public class TerraformPipelineIntegrationTests
                 DisableDashboard = true
             });
 
-            var container = builder.AddContainer("myapp", "image");
-            container.AddTerraformStack("complex", stack =>
-            {
-                // Add multiple types of constructs
-                var stringVar = new TerraformVariable("environment")
+            var container = builder.AddContainer("myapp", "image")
+                .WithTerraformStack("complex", stack =>
                 {
-                    Type = "string",
-                    Default = "development",
-                    Description = "Environment name"
-                };
+                    // Add multiple types of constructs
+                    var stringVar = new TerraformVariable("environment")
+                    {
+                        Type = "string",
+                        Default = "development",
+                        Description = "Environment name"
+                    };
 
-                var numberVar = new TerraformVariable("instance_count")
-                {
-                    Type = "number",
-                    Default = "3"
-                };
+                    var numberVar = new TerraformVariable("instance_count")
+                    {
+                        Type = "number",
+                        Default = "3"
+                    };
 
-                var boolVar = new TerraformVariable("enable_monitoring")
-                {
-                    Type = "bool",
-                    Default = "true"
-                };
+                    var boolVar = new TerraformVariable("enable_monitoring")
+                    {
+                        Type = "bool",
+                        Default = "true"
+                    };
 
-                stack.Add(stringVar);
-                stack.Add(numberVar);
-                stack.Add(boolVar);
-            });
+                    stack.Add(stringVar);
+                    stack.Add(numberVar);
+                    stack.Add(boolVar);
+                });
 
             using var app = builder.Build();
 
@@ -275,16 +271,17 @@ public class TerraformPipelineIntegrationTests
                 DisableDashboard = true
             });
 
-            var container = builder.AddContainer("myapp", "image");
-            container.WithTerraformConfiguration(config => config.OutputDirectory = parentOutput);
+            var container = builder.AddContainer("myapp", "image")
+                .WithTerraformConfiguration(config => config.OutputDirectory = parentOutput);
 
             // This stack should override the parent configuration
-            var stackBuilder = container.AddTerraformStack("override", stack =>
-            {
-                var variable = new TerraformVariable("test") { Type = "string" };
-                stack.Add(variable);
-            });
-            stackBuilder.WithTerraformConfiguration(config => config.OutputDirectory = stackOutput);
+            container
+                .AddTerraformStack("override", stack =>
+                {
+                    var variable = new TerraformVariable("test") { Type = "string" };
+                    stack.Add(variable);
+                })
+                .WithTerraformConfiguration(config => config.OutputDirectory = stackOutput);
 
             using var app = builder.Build();
 
