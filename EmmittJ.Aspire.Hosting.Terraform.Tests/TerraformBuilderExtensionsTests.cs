@@ -229,7 +229,7 @@ public class TerraformBuilderExtensionsTests
     }
 
     [Fact]
-    public void WithTerraformWorkingDirectory_SetsWorkingDirectory()
+    public void WithTerraformConfiguration_SetsOutputDirectory()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
@@ -237,7 +237,7 @@ public class TerraformBuilderExtensionsTests
         var workingDir = "/tmp/terraform";
 
         // Act
-        container.WithTerraformWorkingDirectory(workingDir);
+        container.WithTerraformConfiguration(config => config.OutputDirectory = workingDir);
 
         // Assert
         var annotation = container.Resource.Annotations
@@ -245,11 +245,11 @@ public class TerraformBuilderExtensionsTests
             .FirstOrDefault();
 
         Assert.NotNull(annotation);
-        Assert.Equal(workingDir, annotation.WorkingDirectory);
+        Assert.Equal(workingDir, annotation.OutputDirectory);
     }
 
     [Fact]
-    public void WithTerraformWorkingDirectory_UpdatesExistingAnnotation()
+    public void WithTerraformConfiguration_UpdatesExistingAnnotation()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
@@ -258,8 +258,8 @@ public class TerraformBuilderExtensionsTests
         var secondDir = "/tmp/second";
 
         // Act
-        container.WithTerraformWorkingDirectory(firstDir);
-        container.WithTerraformWorkingDirectory(secondDir);
+        container.WithTerraformConfiguration(config => config.OutputDirectory = firstDir);
+        container.WithTerraformConfiguration(config => config.OutputDirectory = secondDir);
 
         // Assert
         var annotations = container.Resource.Annotations
@@ -267,39 +267,28 @@ public class TerraformBuilderExtensionsTests
             .ToList();
 
         Assert.Single(annotations);
-        Assert.Equal(secondDir, annotations[0].WorkingDirectory);
+        Assert.Equal(secondDir, annotations[0].OutputDirectory);
     }
 
     [Fact]
-    public void WithTerraformWorkingDirectory_ThrowsWhenBuilderIsNull()
+    public void WithTerraformConfiguration_ThrowsWhenBuilderIsNull()
     {
         // Arrange
         IResourceBuilder<IResource>? builder = null;
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => builder!.WithTerraformWorkingDirectory("/tmp"));
+        Assert.Throws<ArgumentNullException>(() => builder!.WithTerraformConfiguration(config => config.OutputDirectory = "/tmp"));
     }
 
     [Fact]
-    public void WithTerraformWorkingDirectory_ThrowsWhenDirectoryIsNull()
+    public void WithTerraformConfiguration_ThrowsWhenConfigureActionIsNull()
     {
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var container = builder.AddContainer("myapp", "image");
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => container.WithTerraformWorkingDirectory(null!));
-    }
-
-    [Fact]
-    public void WithTerraformWorkingDirectory_ThrowsWhenDirectoryIsEmpty()
-    {
-        // Arrange
-        var builder = DistributedApplication.CreateBuilder();
-        var container = builder.AddContainer("myapp", "image");
-
-        // Act & Assert
-        Assert.Throws<ArgumentException>(() => container.WithTerraformWorkingDirectory(string.Empty));
+        Assert.Throws<ArgumentNullException>(() => container.WithTerraformConfiguration(null!));
     }
 
     [Fact]
@@ -334,7 +323,7 @@ public class TerraformBuilderExtensionsTests
 
         // Act
         var container = builder.AddContainer("myapp", "image")
-            .WithTerraformWorkingDirectory("/tmp/tf")
+            .WithTerraformConfiguration(config => config.OutputDirectory = "/tmp/tf")
             .WithTerraformStack("network")
             .WithTerraformStack("security");
 
@@ -345,7 +334,7 @@ public class TerraformBuilderExtensionsTests
             .OfType<TerraformConfigurationAnnotation>()
             .FirstOrDefault();
         Assert.NotNull(annotation);
-        Assert.Equal("/tmp/tf", annotation.WorkingDirectory);
+        Assert.Equal("/tmp/tf", annotation.OutputDirectory);
     }
 
     [Fact]

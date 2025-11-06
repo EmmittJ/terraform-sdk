@@ -211,13 +211,4 @@ public class TerraformStack(string name = "main")
         }
         return construct.BlockType;
     }
-
-    /// <summary>
-    /// Writes the configuration to a file.
-    /// </summary>
-    public void WriteToFile(string filePath)
-    {
-        var hcl = ToHcl();
-        File.WriteAllText(filePath, hcl);
-    }
 }

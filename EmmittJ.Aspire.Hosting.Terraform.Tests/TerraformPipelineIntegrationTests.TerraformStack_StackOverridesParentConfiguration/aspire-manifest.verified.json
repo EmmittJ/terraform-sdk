@@ -1,0 +1,21 @@
+﻿{
+  "$schema": "https://json.schemastore.org/aspire-8.0.json",
+  "resources": {
+    "myapp": {
+      "type": "container.v0",
+      "image": "image:latest"
+    },
+    "myapp-override": {
+      "error": "This resource does not support generation in the manifest."
+    },
+    "myapp-override-test": {
+      "type": "parameter.v0",
+      "value": "{myapp-override-test.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

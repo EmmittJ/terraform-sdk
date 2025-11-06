@@ -485,3 +485,7 @@ $RECYCLE.BIN/
 
 # Terraform Code Generation output
 .terraform-codegen/
+
+# Verify Snapshots
+*.received.*
+*.received/

@@ -1,0 +1,4 @@
+variable "test" {
+  type = string
+}
+

@@ -1,0 +1,307 @@
+// Licensed under the MIT License.
+
+using Aspire.Hosting;
+using EmmittJ.Terraform.Sdk;
+using Microsoft.Extensions.Hosting;
+using Xunit;
+
+namespace EmmittJ.Aspire.Hosting.Terraform.Tests;
+
+/// <summary>
+/// Integration tests that actually execute the pipeline and verify file generation.
+/// Uses Verify for snapshot testing of generated Terraform files.
+/// </summary>
+public class TerraformPipelineIntegrationTests
+{
+    private static string[] GetPublishArgs(string outputPath) =>
+        ["--operation", "publish", "--output-path", outputPath, "--non-interactive"];
+
+    [Fact]
+    public async Task TerraformStack_GeneratesFileInDefaultLocation()
+    {
+        // Arrange
+        var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
+        try
+        {
+            var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
+            {
+                Args = GetPublishArgs(tempDir),
+                DisableDashboard = true
+            });
+
+            var container = builder.AddContainer("myapp", "image");
+            container.AddTerraformStack("network", stack =>
+            {
+                var vpc = new TerraformVariable("vpc_cidr")
+                {
+                    Type = "string",
+                    Default = "10.0.0.0/16",
+                    Description = "VPC CIDR block"
+                };
+                stack.Add(vpc);
+            });
+
+            using var app = builder.Build();
+
+            // Act - Execute the publish pipeline
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            await app.StartAsync(cts.Token);
+            await app.WaitForShutdownAsync(cts.Token);
+
+            // Assert - Verify the entire output directory structure
+            await VerifyDirectory(tempDir);
+        }
+        finally
+        {
+            if (Directory.Exists(tempDir))
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+    }
+
+    [Fact]
+    public async Task TerraformStack_WithOutputDirectory_GeneratesFileInSpecifiedLocation()
+    {
+        // Arrange
+        var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
+        var customOutput = Path.Combine(tempDir, "custom-terraform");
+        try
+        {
+            var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
+            {
+                Args = GetPublishArgs(tempDir),
+                DisableDashboard = true
+            });
+
+            var container = builder.AddContainer("myapp", "image");
+            var stackBuilder = container.AddTerraformStack("infrastructure", stack =>
+            {
+                var region = new TerraformVariable("region")
+                {
+                    Type = "string",
+                    Default = "us-east-1"
+                };
+                stack.Add(region);
+            });
+
+            stackBuilder.WithTerraformConfiguration(config => config.OutputDirectory = customOutput);
+
+            using var app = builder.Build();
+
+            // Act
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            await app.StartAsync(cts.Token);
+            await app.WaitForShutdownAsync(cts.Token);
+
+            // Assert - Verify the entire output directory structure
+            await VerifyDirectory(tempDir);
+        }
+        finally
+        {
+            if (Directory.Exists(tempDir))
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+    }
+
+    [Fact]
+    public async Task MultipleStacks_GenerateSeparateFiles()
+    {
+        // Arrange
+        var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
+        try
+        {
+            var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
+            {
+                Args = GetPublishArgs(tempDir),
+                DisableDashboard = true
+            });
+
+            var container = builder.AddContainer("myapp", "image");
+
+            container.AddTerraformStack("network", stack =>
+            {
+                var vpc = new TerraformVariable("vpc_cidr") { Type = "string", Default = "10.0.0.0/16" };
+                stack.Add(vpc);
+            });
+
+            container.AddTerraformStack("security", stack =>
+            {
+                var allowSsh = new TerraformVariable("allow_ssh") { Type = "bool", Default = "true" };
+                stack.Add(allowSsh);
+            });
+
+            using var app = builder.Build();
+
+            // Act
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            await app.StartAsync(cts.Token);
+            await app.WaitForShutdownAsync(cts.Token);
+
+            // Assert - Verify the entire output directory structure
+            await VerifyDirectory(tempDir);
+        }
+        finally
+        {
+            if (Directory.Exists(tempDir))
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+    }
+
+    [Fact]
+    public async Task TerraformStack_WithParentConfiguration_UsesParentDirectory()
+    {
+        // Arrange
+        var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
+        var parentOutputDir = Path.Combine(tempDir, "parent-terraform");
+        try
+        {
+            var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
+            {
+                Args = GetPublishArgs(tempDir),
+                DisableDashboard = true
+            });
+
+            var container = builder.AddContainer("myapp", "image");
+            container.WithTerraformConfiguration(config => config.OutputDirectory = parentOutputDir);
+
+            container.AddTerraformStack("stack1", stack =>
+            {
+                var var1 = new TerraformVariable("var1") { Type = "string" };
+                stack.Add(var1);
+            });
+
+            container.AddTerraformStack("stack2", stack =>
+            {
+                var var2 = new TerraformVariable("var2") { Type = "string" };
+                stack.Add(var2);
+            });
+
+            using var app = builder.Build();
+
+            // Act
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            await app.StartAsync(cts.Token);
+            await app.WaitForShutdownAsync(cts.Token);
+
+            // Assert - Verify the entire output directory structure
+            await VerifyDirectory(tempDir);
+        }
+        finally
+        {
+            if (Directory.Exists(tempDir))
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+    }
+
+    [Fact]
+    public async Task TerraformStack_WithComplexConfiguration_GeneratesValidHCL()
+    {
+        // Arrange
+        var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
+        try
+        {
+            var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
+            {
+                Args = GetPublishArgs(tempDir),
+                DisableDashboard = true
+            });
+
+            var container = builder.AddContainer("myapp", "image");
+            container.AddTerraformStack("complex", stack =>
+            {
+                // Add multiple types of constructs
+                var stringVar = new TerraformVariable("environment")
+                {
+                    Type = "string",
+                    Default = "development",
+                    Description = "Environment name"
+                };
+
+                var numberVar = new TerraformVariable("instance_count")
+                {
+                    Type = "number",
+                    Default = "3"
+                };
+
+                var boolVar = new TerraformVariable("enable_monitoring")
+                {
+                    Type = "bool",
+                    Default = "true"
+                };
+
+                stack.Add(stringVar);
+                stack.Add(numberVar);
+                stack.Add(boolVar);
+            });
+
+            using var app = builder.Build();
+
+            // Act
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            await app.StartAsync(cts.Token);
+            await app.WaitForShutdownAsync(cts.Token);
+
+            // Assert - Verify the entire output directory structure
+            await VerifyDirectory(tempDir);
+        }
+        finally
+        {
+            if (Directory.Exists(tempDir))
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+    }
+
+    [Fact]
+    public async Task TerraformStack_StackOverridesParentConfiguration()
+    {
+        // Arrange
+        var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
+        var parentOutput = Path.Combine(tempDir, "parent");
+        var stackOutput = Path.Combine(tempDir, "stack-specific");
+        try
+        {
+            var builder = DistributedApplication.CreateBuilder(new DistributedApplicationOptions
+            {
+                Args = GetPublishArgs(tempDir),
+                DisableDashboard = true
+            });
+
+            var container = builder.AddContainer("myapp", "image");
+            container.WithTerraformConfiguration(config => config.OutputDirectory = parentOutput);
+
+            // This stack should override the parent configuration
+            var stackBuilder = container.AddTerraformStack("override", stack =>
+            {
+                var variable = new TerraformVariable("test") { Type = "string" };
+                stack.Add(variable);
+            });
+            stackBuilder.WithTerraformConfiguration(config => config.OutputDirectory = stackOutput);
+
+            using var app = builder.Build();
+
+            // Act
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            await app.StartAsync(cts.Token);
+            await app.WaitForShutdownAsync(cts.Token);
+
+            // Assert - Verify the entire output directory structure
+            await VerifyDirectory(tempDir);
+        }
+        finally
+        {
+            if (Directory.Exists(tempDir))
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+    }
+}

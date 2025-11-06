@@ -1,0 +1,21 @@
+﻿{
+  "$schema": "https://json.schemastore.org/aspire-8.0.json",
+  "resources": {
+    "myapp": {
+      "type": "container.v0",
+      "image": "image:latest"
+    },
+    "myapp-network": {
+      "error": "This resource does not support generation in the manifest."
+    },
+    "myapp-network-vpc-cidr": {
+      "type": "parameter.v0",
+      "value": "{myapp-network-vpc-cidr.inputs.value}",
+      "inputs": {
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
