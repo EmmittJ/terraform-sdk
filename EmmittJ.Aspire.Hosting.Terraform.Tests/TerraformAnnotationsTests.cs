@@ -18,44 +18,44 @@ public class TerraformAnnotationsTests
     }
 
     [Fact]
-    public void TerraformConfigurationAnnotation_OutputDirectoryIsNullByDefault()
+    public void TerraformConfigurationAnnotation_OutputPathIsNullByDefault()
     {
         // Arrange & Act
         var annotation = new TerraformConfigurationAnnotation();
 
         // Assert
-        Assert.Null(annotation.OutputDirectory);
+        Assert.Null(annotation.OutputPath);
     }
 
     [Fact]
-    public void TerraformConfigurationAnnotation_CanSetOutputDirectory()
+    public void TerraformConfigurationAnnotation_CanSetOutputPath()
     {
         // Arrange
         var annotation = new TerraformConfigurationAnnotation();
-        var directory = "/path/to/terraform";
+        var path = "/path/to/terraform";
 
         // Act
-        annotation.OutputDirectory = directory;
+        annotation.OutputPath = path;
 
         // Assert
-        Assert.Equal(directory, annotation.OutputDirectory);
+        Assert.Equal(path, annotation.OutputPath);
     }
 
     [Fact]
-    public void TerraformConfigurationAnnotation_CanUpdateOutputDirectory()
+    public void TerraformConfigurationAnnotation_CanUpdateOutputPath()
     {
         // Arrange
         var annotation = new TerraformConfigurationAnnotation
         {
-            OutputDirectory = "/first/path"
+            OutputPath = "/first/path"
         };
-        var newDirectory = "/second/path";
+        var newPath = "/second/path";
 
         // Act
-        annotation.OutputDirectory = newDirectory;
+        annotation.OutputPath = newPath;
 
         // Assert
-        Assert.Equal(newDirectory, annotation.OutputDirectory);
+        Assert.Equal(newPath, annotation.OutputPath);
     }
 
     [Fact]
@@ -66,7 +66,7 @@ public class TerraformAnnotationsTests
         var resource = builder.AddContainer("test", "image").Resource;
         var annotation = new TerraformConfigurationAnnotation
         {
-            OutputDirectory = "/test"
+            OutputPath = "/test"
         };
 
         // Act
@@ -76,7 +76,7 @@ public class TerraformAnnotationsTests
         Assert.Contains(annotation, resource.Annotations);
         var retrieved = resource.Annotations.OfType<TerraformConfigurationAnnotation>().FirstOrDefault();
         Assert.NotNull(retrieved);
-        Assert.Equal("/test", retrieved.OutputDirectory);
+        Assert.Equal("/test", retrieved.OutputPath);
     }
 
     [Fact]
@@ -85,8 +85,8 @@ public class TerraformAnnotationsTests
         // Arrange
         var builder = DistributedApplication.CreateBuilder();
         var resource = builder.AddContainer("test", "image").Resource;
-        var annotation1 = new TerraformConfigurationAnnotation { OutputDirectory = "/first" };
-        var annotation2 = new TerraformConfigurationAnnotation { OutputDirectory = "/second" };
+        var annotation1 = new TerraformConfigurationAnnotation { OutputPath = "/first" };
+        var annotation2 = new TerraformConfigurationAnnotation { OutputPath = "/second" };
 
         // Act
         resource.Annotations.Add(annotation1);

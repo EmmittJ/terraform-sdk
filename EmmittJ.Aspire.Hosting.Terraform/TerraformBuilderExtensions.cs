@@ -201,8 +201,8 @@ public static class TerraformBuilderExtensions
             .OfType<TerraformConfigurationAnnotation>()
             .FirstOrDefault();
 
-        // If parent has a custom output directory, use it; otherwise default to parent resource name
-        var relativePath = parentAnnotation?.OutputDirectory ?? stackResource.Parent.Name;
+        // If parent has a custom output path, use it; otherwise default to parent resource name
+        var relativePath = parentAnnotation?.OutputPath ?? stackResource.Parent.Name;
 
         // Combine: base output path + relative path (all stacks for this resource go to same directory)
         return Path.Combine(baseOutputPath, relativePath);

@@ -75,7 +75,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             builder.AddContainer("myapp", "image")
-                .WithTerraformConfiguration(config => config.OutputDirectory = customOutput)
+                .WithTerraformConfiguration(config => config.OutputPath = customOutput)
                 .PublishAsTerraformStack("infrastructure", stack =>
                 {
                     var region = new TerraformVariable("region")
@@ -164,7 +164,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .WithTerraformConfiguration(config => config.OutputDirectory = parentOutputDir)
+                .WithTerraformConfiguration(config => config.OutputPath = parentOutputDir)
                 .PublishAsTerraformStack("stack1", stack =>
                 {
                     var var1 = new TerraformVariable("var1") { Type = "string" };

@@ -164,7 +164,7 @@ public class TerraformBuilderExtensionsTests
         var workingDir = "/tmp/terraform";
 
         // Act
-        container.WithTerraformConfiguration(config => config.OutputDirectory = workingDir);
+        container.WithTerraformConfiguration(config => config.OutputPath = workingDir);
 
         // Assert
         var annotation = container.Resource.Annotations
@@ -172,7 +172,7 @@ public class TerraformBuilderExtensionsTests
             .FirstOrDefault();
 
         Assert.NotNull(annotation);
-        Assert.Equal(workingDir, annotation.OutputDirectory);
+        Assert.Equal(workingDir, annotation.OutputPath);
     }
 
     [Fact]
@@ -185,8 +185,8 @@ public class TerraformBuilderExtensionsTests
         var secondDir = "/tmp/second";
 
         // Act
-        container.WithTerraformConfiguration(config => config.OutputDirectory = firstDir);
-        container.WithTerraformConfiguration(config => config.OutputDirectory = secondDir);
+        container.WithTerraformConfiguration(config => config.OutputPath = firstDir);
+        container.WithTerraformConfiguration(config => config.OutputPath = secondDir);
 
         // Assert
         var annotations = container.Resource.Annotations
@@ -194,7 +194,7 @@ public class TerraformBuilderExtensionsTests
             .ToList();
 
         Assert.Single(annotations);
-        Assert.Equal(secondDir, annotations[0].OutputDirectory);
+        Assert.Equal(secondDir, annotations[0].OutputPath);
     }
 
     [Fact]
@@ -204,7 +204,7 @@ public class TerraformBuilderExtensionsTests
         IResourceBuilder<IResource>? builder = null;
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => builder!.WithTerraformConfiguration(config => config.OutputDirectory = "/tmp"));
+        Assert.Throws<ArgumentNullException>(() => builder!.WithTerraformConfiguration(config => config.OutputPath = "/tmp"));
     }
 
     [Fact]
@@ -253,7 +253,7 @@ public class TerraformBuilderExtensionsTests
 
         // Act
         var container = builder.AddContainer("myapp", "image")
-            .WithTerraformConfiguration(config => config.OutputDirectory = "/tmp/tf")
+            .WithTerraformConfiguration(config => config.OutputPath = "/tmp/tf")
             .PublishAsTerraformStack("network")
             .PublishAsTerraformStack("security");
 
@@ -264,7 +264,7 @@ public class TerraformBuilderExtensionsTests
             .OfType<TerraformConfigurationAnnotation>()
             .FirstOrDefault();
         Assert.NotNull(annotation);
-        Assert.Equal("/tmp/tf", annotation.OutputDirectory);
+        Assert.Equal("/tmp/tf", annotation.OutputPath);
     }
 
     [Fact]
