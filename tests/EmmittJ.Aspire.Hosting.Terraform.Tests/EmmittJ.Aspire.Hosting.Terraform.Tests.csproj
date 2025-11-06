@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EmmittJ.Aspire.Hosting.Terraform\EmmittJ.Aspire.Hosting.Terraform.csproj" />
+    <ProjectReference Include="..\..\src\EmmittJ.Terraform.Sdk\EmmittJ.Terraform.Sdk.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Testing" />
+  </ItemGroup>
+
+</Project>

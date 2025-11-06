@@ -69,14 +69,14 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
         => new TerraformExpressionProperty(values);
 
     /// <summary>
-    /// Implicit conversion from List<string> to ExpressionProperty (list).
+    /// Implicit conversion from List&lt;string&gt; to ExpressionProperty (list).
     /// </summary>
     public static implicit operator TerraformProperty(List<string> values)
         => new TerraformExpressionProperty(TerraformExpression.List(values.Select(TerraformExpression.Literal).ToArray()));
 
     /// <summary>
-    /// Implicit conversion from Dictionary<string, string> to ExpressionProperty (object/map).
-    /// This enables cleaner map literals: .WithProperty("tags", new Dictionary<string, string> { ["Name"] = "value" })
+    /// Implicit conversion from Dictionary&lt;string, string&gt; to ExpressionProperty (object/map).
+    /// This enables cleaner map literals: .WithProperty("tags", new Dictionary&lt;string, string&gt; { ["Name"] = "value" })
     /// </summary>
     public static implicit operator TerraformProperty(Dictionary<string, string> values)
     {
@@ -89,7 +89,7 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
     }
 
     /// <summary>
-    /// Implicit conversion from Dictionary<string, object> to ExpressionProperty (object/map).
+    /// Implicit conversion from Dictionary&lt;string, object&gt; to ExpressionProperty (object/map).
     /// This enables cleaner map literals with mixed types.
     /// </summary>
     public static implicit operator TerraformProperty(Dictionary<string, object> values)
@@ -137,7 +137,7 @@ public sealed class TerraformLiteralProperty<T> : TerraformProperty
     }
 
     /// <summary>
-    /// Implicit conversion from T to TerraformLiteralProperty<T>.
+    /// Implicit conversion from T to TerraformLiteralProperty&lt;T&gt;.
     /// </summary>
     public static implicit operator TerraformLiteralProperty<T>(T value)
         => new TerraformLiteralProperty<T>(value);

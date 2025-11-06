@@ -1,0 +1,28 @@
+<Project>
+
+  <!-- Import parent Directory.Build.props -->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <PropertyGroup>
+    <!-- Test projects are not packable -->
+    <IsPackable>false</IsPackable>
+
+    <!-- Test projects don't need documentation -->
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Common test dependencies (versions managed in Directory.Packages.props) -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="Verify.Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Global usings for test projects -->
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+</Project>

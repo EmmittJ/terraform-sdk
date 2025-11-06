@@ -54,7 +54,7 @@ public class CloudWorkspaceConfig
     /// Gets or sets workspace tags for matching multiple workspaces.
     /// Mutually exclusive with Name.
     /// New workspaces created from the working directory inherit these tags.
-    /// For Terraform < 1.10 or TFE < v202411-1, use simple string tags.
+    /// For Terraform &lt; 1.10 or TFE &lt; v202411-1, use simple string tags.
     /// For newer versions, can be key-value pairs using object syntax.
     /// </summary>
     public List<string>? Tags { get; set; }

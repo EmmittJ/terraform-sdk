@@ -1,0 +1,23 @@
+<Project>
+
+  <!-- Import parent Directory.Build.props -->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <PropertyGroup>
+    <!-- Source projects are packable by default -->
+    <IsPackable>true</IsPackable>
+
+    <!-- Generate documentation files -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Suppress documentation warnings for now -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <!-- Enable nullable reference types -->
+    <Nullable>enable</Nullable>
+
+    <!-- Product name -->
+    <Product>EmmittJ Terraform SDK</Product>
+  </PropertyGroup>
+
+</Project>

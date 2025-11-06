@@ -21,7 +21,6 @@ public static class TerraformProviderResourceExtensions
     /// </summary>
     /// <param name="builder">The distributed application builder.</param>
     /// <param name="name">The name of the resource (used for identification in the dashboard).</param>
-    /// <param name="providerName">The Terraform provider name (e.g., "aws", "azurerm").</param>
     /// <param name="version">The version constraint for the provider (e.g., "~> 6.0").</param>
     /// <returns>A resource builder for the Terraform provider.</returns>
     public static IResourceBuilder<TerraformProviderResource> AddTerraformProvider(

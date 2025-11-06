@@ -375,7 +375,6 @@ public static class Tf
         }
 
         /// <summary>
-        /// <summary>
         /// Calls a Terraform function by name with the given arguments.
         /// This is an escape hatch for functions not explicitly supported.
         /// </summary>
