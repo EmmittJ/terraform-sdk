@@ -64,9 +64,11 @@ internal sealed class TerraformEventingSubscriber(
             var validationResult = stack.Validate();
             if (!validationResult.IsValid)
             {
-                var errors = string.Join(Environment.NewLine, validationResult.Errors.Select(e => $"  • {e.Message}"));
-                logger.LogError("❌ Terraform validation failed for {StackName}:{NewLine}{Errors}",
-                    stack.Name, Environment.NewLine, errors);
+                logger.LogError("❌ Terraform validation failed for {StackName}:", stack.Name);
+                foreach (var error in validationResult.Errors)
+                {
+                    logger.LogError("  • {ErrorMessage}", error.Message);
+                }
                 throw new InvalidOperationException(
                     $"Terraform stack validation failed for '{stack.Name}' with {validationResult.Errors.Count} error(s).");
             }
