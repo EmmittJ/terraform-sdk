@@ -23,19 +23,19 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -47,19 +47,19 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -67,10 +67,10 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     /// the BackendService. The protocol field in the BackendService
     /// must be set to GRPC.
     /// </summary>
-    public string? UrlMap
+    public TerraformLiteralProperty<string>? UrlMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_map")?.Value;
-        set => this.WithProperty("url_map", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url_map");
+        set => this.WithProperty("url_map", value);
     }
 
     /// <summary>
@@ -85,10 +85,10 @@ public class GoogleComputeTargetGrpcProxy : TerraformResource
     /// must not use &amp;quot;xds:///&amp;quot; scheme in the target URI of the service
     /// it is connecting to
     /// </summary>
-    public bool? ValidateForProxyless
+    public TerraformLiteralProperty<bool>? ValidateForProxyless
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("validate_for_proxyless")?.Value;
-        set => this.WithProperty("validate_for_proxyless", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("validate_for_proxyless");
+        set => this.WithProperty("validate_for_proxyless", value);
     }
 
     /// <summary>

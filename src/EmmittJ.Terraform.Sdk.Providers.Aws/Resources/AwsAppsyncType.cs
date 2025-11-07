@@ -22,46 +22,46 @@ public class AwsAppsyncType : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public string? ApiId
+    public TerraformLiteralProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id")?.Value;
-        set => this.WithProperty("api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The definition attribute.
     /// </summary>
-    public string? Definition
+    public TerraformLiteralProperty<string>? Definition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("definition")?.Value;
-        set => this.WithProperty("definition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("definition");
+        set => this.WithProperty("definition", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public string? Format
+    public TerraformLiteralProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format")?.Value;
-        set => this.WithProperty("format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

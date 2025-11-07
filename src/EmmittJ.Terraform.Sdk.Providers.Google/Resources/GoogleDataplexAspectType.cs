@@ -26,10 +26,10 @@ public class GoogleDataplexAspectType : TerraformResource
     /// <summary>
     /// The aspect type id of the aspect type.
     /// </summary>
-    public string? AspectTypeId
+    public TerraformLiteralProperty<string>? AspectTypeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aspect_type_id")?.Value;
-        set => this.WithProperty("aspect_type_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aspect_type_id");
+        set => this.WithProperty("aspect_type_id", value);
     }
 
     /// <summary>
@@ -38,37 +38,37 @@ public class GoogleDataplexAspectType : TerraformResource
     /// while &#39;METADATA_AND_DATA&#39; indicates data derived content.
     /// &amp;lt;br&amp;gt;&amp;lt;br&amp;gt; Possible values: [&amp;quot;DATA_CLASSIFICATION_UNSPECIFIED&amp;quot;, &amp;quot;METADATA_AND_DATA&amp;quot;]
     /// </summary>
-    public string? DataClassification
+    public TerraformLiteralProperty<string>? DataClassification
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_classification")?.Value;
-        set => this.WithProperty("data_classification", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_classification");
+        set => this.WithProperty("data_classification", value);
     }
 
     /// <summary>
     /// Description of the AspectType.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// User friendly display name.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -78,37 +78,37 @@ public class GoogleDataplexAspectType : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location where aspect type will be created in.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// MetadataTemplate of the Aspect.
     /// </summary>
-    public string? MetadataTemplate
+    public TerraformLiteralProperty<string>? MetadataTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata_template")?.Value;
-        set => this.WithProperty("metadata_template", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("metadata_template");
+        set => this.WithProperty("metadata_template", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

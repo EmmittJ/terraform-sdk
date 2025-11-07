@@ -19,46 +19,46 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public string? ManagedInstanceId
+    public TerraformLiteralProperty<string>? ManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id")?.Value;
-        set => this.WithProperty("managed_instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id");
+        set => this.WithProperty("managed_instance_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
-    public double? ShortTermRetentionDays
+    public TerraformLiteralProperty<double>? ShortTermRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("short_term_retention_days")?.Value;
-        set => this.WithProperty("short_term_retention_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("short_term_retention_days");
+        set => this.WithProperty("short_term_retention_days", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

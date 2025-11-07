@@ -24,55 +24,55 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
     /// <summary>
     /// The Certificate Private Key as a base64 encoded PFX or PEM.
     /// </summary>
-    public string? CertificateBlobBase64
+    public TerraformLiteralProperty<string>? CertificateBlobBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_blob_base64")?.Value;
-        set => this.WithProperty("certificate_blob_base64", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_blob_base64");
+        set => this.WithProperty("certificate_blob_base64", value);
     }
 
     /// <summary>
     /// The password for the Certificate.
     /// </summary>
-    public string? CertificatePassword
+    public TerraformLiteralProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_password")?.Value;
-        set => this.WithProperty("certificate_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_password");
+        set => this.WithProperty("certificate_password", value);
     }
 
     /// <summary>
     /// The Container App Managed Environment ID to configure this Certificate on.
     /// </summary>
-    public string? ContainerAppEnvironmentId
+    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id")?.Value;
-        set => this.WithProperty("container_app_environment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Container Apps Environment Certificate.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

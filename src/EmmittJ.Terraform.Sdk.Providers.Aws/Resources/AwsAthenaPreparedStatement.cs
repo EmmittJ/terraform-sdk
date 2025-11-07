@@ -19,55 +19,55 @@ public class AwsAthenaPreparedStatement : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_statement attribute.
     /// </summary>
-    public string? QueryStatement
+    public TerraformLiteralProperty<string>? QueryStatement
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_statement")?.Value;
-        set => this.WithProperty("query_statement", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query_statement");
+        set => this.WithProperty("query_statement", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
-    public string? Workgroup
+    public TerraformLiteralProperty<string>? Workgroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup")?.Value;
-        set => this.WithProperty("workgroup", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workgroup");
+        set => this.WithProperty("workgroup", value);
     }
 
 }

@@ -19,28 +19,28 @@ public class AzureadApplicationFallbackPublicClient : TerraformResource
     /// <summary>
     /// The resource ID of the application to which the fallback public client setting should be applied
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// Specifies explicitly whether the application is a public client. Appropriate for apps using token grant flows that don&#39;t use a redirect URI
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

@@ -19,82 +19,82 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     /// <summary>
     /// The category attribute.
     /// </summary>
-    public string? Category
+    public TerraformLiteralProperty<string>? Category
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("category")?.Value;
-        set => this.WithProperty("category", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("category");
+        set => this.WithProperty("category", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The function_alias attribute.
     /// </summary>
-    public string? FunctionAlias
+    public TerraformLiteralProperty<string>? FunctionAlias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_alias")?.Value;
-        set => this.WithProperty("function_alias", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_alias");
+        set => this.WithProperty("function_alias", value);
     }
 
     /// <summary>
     /// The function_parameters attribute.
     /// </summary>
-    public List<string>? FunctionParameters
+    public TerraformLiteralProperty<List<string>>? FunctionParameters
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("function_parameters")?.Value;
-        set => this.WithProperty("function_parameters", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("function_parameters");
+        set => this.WithProperty("function_parameters", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public string? LogAnalyticsWorkspaceId
+    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id")?.Value;
-        set => this.WithProperty("log_analytics_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public string? Query
+    public TerraformLiteralProperty<string>? Query
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query")?.Value;
-        set => this.WithProperty("query", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query");
+        set => this.WithProperty("query", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

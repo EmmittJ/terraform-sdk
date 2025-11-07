@@ -24,19 +24,19 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// sslCertificates and certificateManagerCertificates can&#39;t be defined together.
     /// Accepted format is &#39;//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificates/{resourceName}&#39; or just the self_link &#39;projects/{project}/locations/{location}/certificates/{resourceName}&#39;
     /// </summary>
-    public List<string>? CertificateManagerCertificates
+    public TerraformLiteralProperty<List<string>>? CertificateManagerCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificate_manager_certificates")?.Value;
-        set => this.WithProperty("certificate_manager_certificates", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificate_manager_certificates");
+        set => this.WithProperty("certificate_manager_certificates", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -46,19 +46,19 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// HTTP(S) load balancer, the minimum allowed value is 5 seconds and the
     /// maximum allowed value is 600 seconds.
     /// </summary>
-    public double? HttpKeepAliveTimeoutSec
+    public TerraformLiteralProperty<double>? HttpKeepAliveTimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec")?.Value;
-        set => this.WithProperty("http_keep_alive_timeout_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec");
+        set => this.WithProperty("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -70,29 +70,29 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The Region in which the created target https proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -111,10 +111,10 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// receive a resourceInUseByAnotherResource error. Use lifecycle.create_before_destroy
     /// within the ServerTlsPolicy resource to avoid this.
     /// </summary>
-    public string? ServerTlsPolicy
+    public TerraformLiteralProperty<string>? ServerTlsPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy")?.Value;
-        set => this.WithProperty("server_tls_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy");
+        set => this.WithProperty("server_tls_policy", value);
     }
 
     /// <summary>
@@ -122,10 +122,10 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// At least one SSL certificate must be specified. Currently, you may specify up to 15 SSL certificates.
     /// sslCertificates do not apply when the load balancing scheme is set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public List<string>? SslCertificates
+    public TerraformLiteralProperty<List<string>>? SslCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ssl_certificates")?.Value;
-        set => this.WithProperty("ssl_certificates", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("ssl_certificates");
+        set => this.WithProperty("ssl_certificates", value);
     }
 
     /// <summary>
@@ -133,20 +133,20 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// the TargetHttpsProxy resource. If not set, the TargetHttpsProxy
     /// resource will not have any SSL policy configured.
     /// </summary>
-    public string? SslPolicy
+    public TerraformLiteralProperty<string>? SslPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy")?.Value;
-        set => this.WithProperty("ssl_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy");
+        set => this.WithProperty("ssl_policy", value);
     }
 
     /// <summary>
     /// A reference to the RegionUrlMap resource that defines the mapping from URL
     /// to the RegionBackendService.
     /// </summary>
-    public string? UrlMap
+    public TerraformLiteralProperty<string>? UrlMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_map")?.Value;
-        set => this.WithProperty("url_map", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url_map");
+        set => this.WithProperty("url_map", value);
     }
 
     /// <summary>

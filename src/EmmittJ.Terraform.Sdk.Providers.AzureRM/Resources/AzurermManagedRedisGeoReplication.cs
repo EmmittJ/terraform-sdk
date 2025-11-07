@@ -19,28 +19,28 @@ public class AzurermManagedRedisGeoReplication : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The linked_managed_redis_ids attribute.
     /// </summary>
-    public HashSet<string>? LinkedManagedRedisIds
+    public TerraformLiteralProperty<HashSet<string>>? LinkedManagedRedisIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("linked_managed_redis_ids")?.Value;
-        set => this.WithProperty("linked_managed_redis_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("linked_managed_redis_ids");
+        set => this.WithProperty("linked_managed_redis_ids", value);
     }
 
     /// <summary>
     /// The managed_redis_id attribute.
     /// </summary>
-    public string? ManagedRedisId
+    public TerraformLiteralProperty<string>? ManagedRedisId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_redis_id")?.Value;
-        set => this.WithProperty("managed_redis_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_redis_id");
+        set => this.WithProperty("managed_redis_id", value);
     }
 
 }

@@ -21,73 +21,73 @@ public class AzurermAppServiceSourceControl : TerraformResource
     /// <summary>
     /// The ID of the Windows or Linux Web App.
     /// </summary>
-    public string? AppId
+    public TerraformLiteralProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id")?.Value;
-        set => this.WithProperty("app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The branch name to use for deployments.
     /// </summary>
-    public string? Branch
+    public TerraformLiteralProperty<string>? Branch
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch")?.Value;
-        set => this.WithProperty("branch", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("branch");
+        set => this.WithProperty("branch", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The URL for the repository.
     /// </summary>
-    public string? RepoUrl
+    public TerraformLiteralProperty<string>? RepoUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repo_url")?.Value;
-        set => this.WithProperty("repo_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repo_url");
+        set => this.WithProperty("repo_url", value);
     }
 
     /// <summary>
     /// Should the Deployment Rollback be enabled? Defaults to `false`.
     /// </summary>
-    public bool? RollbackEnabled
+    public TerraformLiteralProperty<bool>? RollbackEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("rollback_enabled")?.Value;
-        set => this.WithProperty("rollback_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("rollback_enabled");
+        set => this.WithProperty("rollback_enabled", value);
     }
 
     /// <summary>
     /// Should the App use local Git configuration.
     /// </summary>
-    public bool? UseLocalGit
+    public TerraformLiteralProperty<bool>? UseLocalGit
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_local_git")?.Value;
-        set => this.WithProperty("use_local_git", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("use_local_git");
+        set => this.WithProperty("use_local_git", value);
     }
 
     /// <summary>
     /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`.
     /// </summary>
-    public bool? UseManualIntegration
+    public TerraformLiteralProperty<bool>? UseManualIntegration
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_manual_integration")?.Value;
-        set => this.WithProperty("use_manual_integration", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("use_manual_integration");
+        set => this.WithProperty("use_manual_integration", value);
     }
 
     /// <summary>
     /// The repository specified is Mercurial. Defaults to `false`.
     /// </summary>
-    public bool? UseMercurial
+    public TerraformLiteralProperty<bool>? UseMercurial
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_mercurial")?.Value;
-        set => this.WithProperty("use_mercurial", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("use_mercurial");
+        set => this.WithProperty("use_mercurial", value);
     }
 
     /// <summary>

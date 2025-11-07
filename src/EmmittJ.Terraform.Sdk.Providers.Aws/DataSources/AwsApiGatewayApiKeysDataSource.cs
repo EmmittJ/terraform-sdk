@@ -21,28 +21,28 @@ public class AwsApiGatewayApiKeysDataSource : TerraformDataSource
     /// <summary>
     /// The customer_id attribute.
     /// </summary>
-    public string? CustomerId
+    public TerraformLiteralProperty<string>? CustomerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_id")?.Value;
-        set => this.WithProperty("customer_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_id");
+        set => this.WithProperty("customer_id", value);
     }
 
     /// <summary>
     /// The include_values attribute.
     /// </summary>
-    public bool? IncludeValues
+    public TerraformLiteralProperty<bool>? IncludeValues
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_values")?.Value;
-        set => this.WithProperty("include_values", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_values");
+        set => this.WithProperty("include_values", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

@@ -19,55 +19,55 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    public double? AnalyticalStorageTtl
+    public TerraformLiteralProperty<double>? AnalyticalStorageTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("analytical_storage_ttl")?.Value;
-        set => this.WithProperty("analytical_storage_ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("analytical_storage_ttl");
+        set => this.WithProperty("analytical_storage_ttl", value);
     }
 
     /// <summary>
     /// The cassandra_keyspace_id attribute.
     /// </summary>
-    public string? CassandraKeyspaceId
+    public TerraformLiteralProperty<string>? CassandraKeyspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cassandra_keyspace_id")?.Value;
-        set => this.WithProperty("cassandra_keyspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cassandra_keyspace_id");
+        set => this.WithProperty("cassandra_keyspace_id", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public double? DefaultTtl
+    public TerraformLiteralProperty<double>? DefaultTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_ttl")?.Value;
-        set => this.WithProperty("default_ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("default_ttl");
+        set => this.WithProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public double? Throughput
+    public TerraformLiteralProperty<double>? Throughput
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("throughput")?.Value;
-        set => this.WithProperty("throughput", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("throughput");
+        set => this.WithProperty("throughput", value);
     }
 
 }

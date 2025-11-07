@@ -19,19 +19,19 @@ public class AwsIamSecurityTokenServicePreferences : TerraformResource
     /// <summary>
     /// The global_endpoint_token_version attribute.
     /// </summary>
-    public string? GlobalEndpointTokenVersion
+    public TerraformLiteralProperty<string>? GlobalEndpointTokenVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_endpoint_token_version")?.Value;
-        set => this.WithProperty("global_endpoint_token_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_endpoint_token_version");
+        set => this.WithProperty("global_endpoint_token_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

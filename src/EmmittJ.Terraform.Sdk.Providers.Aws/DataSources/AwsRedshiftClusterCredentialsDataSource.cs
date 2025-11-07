@@ -21,73 +21,73 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
     /// <summary>
     /// The auto_create attribute.
     /// </summary>
-    public bool? AutoCreate
+    public TerraformLiteralProperty<bool>? AutoCreate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_create")?.Value;
-        set => this.WithProperty("auto_create", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_create");
+        set => this.WithProperty("auto_create", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public string? ClusterIdentifier
+    public TerraformLiteralProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier")?.Value;
-        set => this.WithProperty("cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_groups attribute.
     /// </summary>
-    public HashSet<string>? DbGroups
+    public TerraformLiteralProperty<HashSet<string>>? DbGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("db_groups")?.Value;
-        set => this.WithProperty("db_groups", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("db_groups");
+        set => this.WithProperty("db_groups", value);
     }
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public string? DbName
+    public TerraformLiteralProperty<string>? DbName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_name")?.Value;
-        set => this.WithProperty("db_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_name");
+        set => this.WithProperty("db_name", value);
     }
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
-    public string? DbUser
+    public TerraformLiteralProperty<string>? DbUser
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_user")?.Value;
-        set => this.WithProperty("db_user", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_user");
+        set => this.WithProperty("db_user", value);
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public double? DurationSeconds
+    public TerraformLiteralProperty<double>? DurationSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_seconds")?.Value;
-        set => this.WithProperty("duration_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("duration_seconds");
+        set => this.WithProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

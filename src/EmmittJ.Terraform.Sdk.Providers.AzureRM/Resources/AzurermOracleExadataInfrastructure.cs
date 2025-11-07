@@ -19,118 +19,118 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     /// <summary>
     /// The compute_count attribute.
     /// </summary>
-    public double? ComputeCount
+    public TerraformLiteralProperty<double>? ComputeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("compute_count")?.Value;
-        set => this.WithProperty("compute_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("compute_count");
+        set => this.WithProperty("compute_count", value);
     }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    public List<string>? CustomerContacts
+    public TerraformLiteralProperty<List<string>>? CustomerContacts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("customer_contacts")?.Value;
-        set => this.WithProperty("customer_contacts", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("customer_contacts");
+        set => this.WithProperty("customer_contacts", value);
     }
 
     /// <summary>
     /// The database_server_type attribute.
     /// </summary>
-    public string? DatabaseServerType
+    public TerraformLiteralProperty<string>? DatabaseServerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_server_type")?.Value;
-        set => this.WithProperty("database_server_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_server_type");
+        set => this.WithProperty("database_server_type", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shape attribute.
     /// </summary>
-    public string? Shape
+    public TerraformLiteralProperty<string>? Shape
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shape")?.Value;
-        set => this.WithProperty("shape", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shape");
+        set => this.WithProperty("shape", value);
     }
 
     /// <summary>
     /// The storage_count attribute.
     /// </summary>
-    public double? StorageCount
+    public TerraformLiteralProperty<double>? StorageCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_count")?.Value;
-        set => this.WithProperty("storage_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("storage_count");
+        set => this.WithProperty("storage_count", value);
     }
 
     /// <summary>
     /// The storage_server_type attribute.
     /// </summary>
-    public string? StorageServerType
+    public TerraformLiteralProperty<string>? StorageServerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_server_type")?.Value;
-        set => this.WithProperty("storage_server_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_server_type");
+        set => this.WithProperty("storage_server_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<string>? Zones
+    public TerraformLiteralProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones")?.Value;
-        set => this.WithProperty("zones", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        set => this.WithProperty("zones", value);
     }
 
 }

@@ -28,55 +28,55 @@ public class GoogleCloudbuildv2Connection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Immutable. The resource name of the connection.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

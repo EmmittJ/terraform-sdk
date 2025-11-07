@@ -19,28 +19,28 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
     /// <summary>
     /// The deployment_name attribute.
     /// </summary>
-    public string? DeploymentName
+    public TerraformLiteralProperty<string>? DeploymentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_name")?.Value;
-        set => this.WithProperty("deployment_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_name");
+        set => this.WithProperty("deployment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public string? SpringCloudAppId
+    public TerraformLiteralProperty<string>? SpringCloudAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id")?.Value;
-        set => this.WithProperty("spring_cloud_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id");
+        set => this.WithProperty("spring_cloud_app_id", value);
     }
 
 }

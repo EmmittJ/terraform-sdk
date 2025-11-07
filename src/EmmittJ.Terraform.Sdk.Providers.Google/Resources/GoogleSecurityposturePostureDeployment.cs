@@ -28,65 +28,65 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// <summary>
     /// Description of the posture deployment.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the resource, eg. global&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The parent of the resource, an organization. Format should be &#39;organizations/{organization_id}&#39;.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// ID of the posture deployment.
     /// </summary>
-    public string? PostureDeploymentId
+    public TerraformLiteralProperty<string>? PostureDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("posture_deployment_id")?.Value;
-        set => this.WithProperty("posture_deployment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("posture_deployment_id");
+        set => this.WithProperty("posture_deployment_id", value);
     }
 
     /// <summary>
     /// Relative name of the posture which needs to be deployed. It should be in the format:
     ///   organizations/{organization_id}/locations/{location}/postures/{posture_id}
     /// </summary>
-    public string? PostureId
+    public TerraformLiteralProperty<string>? PostureId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("posture_id")?.Value;
-        set => this.WithProperty("posture_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("posture_id");
+        set => this.WithProperty("posture_id", value);
     }
 
     /// <summary>
     /// Revision_id the posture which needs to be deployed.
     /// </summary>
-    public string? PostureRevisionId
+    public TerraformLiteralProperty<string>? PostureRevisionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("posture_revision_id")?.Value;
-        set => this.WithProperty("posture_revision_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("posture_revision_id");
+        set => this.WithProperty("posture_revision_id", value);
     }
 
     /// <summary>
@@ -95,10 +95,10 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// folders/{folder_number},
     /// organizations/{organization_id}
     /// </summary>
-    public string? TargetResource
+    public TerraformLiteralProperty<string>? TargetResource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource")?.Value;
-        set => this.WithProperty("target_resource", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_resource");
+        set => this.WithProperty("target_resource", value);
     }
 
     /// <summary>

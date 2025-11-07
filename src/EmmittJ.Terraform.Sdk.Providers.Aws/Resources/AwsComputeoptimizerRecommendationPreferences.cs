@@ -20,55 +20,55 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     /// <summary>
     /// The enhanced_infrastructure_metrics attribute.
     /// </summary>
-    public string? EnhancedInfrastructureMetrics
+    public TerraformLiteralProperty<string>? EnhancedInfrastructureMetrics
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enhanced_infrastructure_metrics")?.Value;
-        set => this.WithProperty("enhanced_infrastructure_metrics", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enhanced_infrastructure_metrics");
+        set => this.WithProperty("enhanced_infrastructure_metrics", value);
     }
 
     /// <summary>
     /// The inferred_workload_types attribute.
     /// </summary>
-    public string? InferredWorkloadTypes
+    public TerraformLiteralProperty<string>? InferredWorkloadTypes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("inferred_workload_types")?.Value;
-        set => this.WithProperty("inferred_workload_types", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("inferred_workload_types");
+        set => this.WithProperty("inferred_workload_types", value);
     }
 
     /// <summary>
     /// The look_back_period attribute.
     /// </summary>
-    public string? LookBackPeriod
+    public TerraformLiteralProperty<string>? LookBackPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("look_back_period")?.Value;
-        set => this.WithProperty("look_back_period", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("look_back_period");
+        set => this.WithProperty("look_back_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public string? ResourceType
+    public TerraformLiteralProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type")?.Value;
-        set => this.WithProperty("resource_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        set => this.WithProperty("resource_type", value);
     }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public string? SavingsEstimationMode
+    public TerraformLiteralProperty<string>? SavingsEstimationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("savings_estimation_mode")?.Value;
-        set => this.WithProperty("savings_estimation_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("savings_estimation_mode");
+        set => this.WithProperty("savings_estimation_mode", value);
     }
 
     /// <summary>

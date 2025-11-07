@@ -25,118 +25,118 @@ public class AwsImagebuilderImagePipeline : TerraformResource
     /// <summary>
     /// The container_recipe_arn attribute.
     /// </summary>
-    public string? ContainerRecipeArn
+    public TerraformLiteralProperty<string>? ContainerRecipeArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_recipe_arn")?.Value;
-        set => this.WithProperty("container_recipe_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_recipe_arn");
+        set => this.WithProperty("container_recipe_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The distribution_configuration_arn attribute.
     /// </summary>
-    public string? DistributionConfigurationArn
+    public TerraformLiteralProperty<string>? DistributionConfigurationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("distribution_configuration_arn")?.Value;
-        set => this.WithProperty("distribution_configuration_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("distribution_configuration_arn");
+        set => this.WithProperty("distribution_configuration_arn", value);
     }
 
     /// <summary>
     /// The enhanced_image_metadata_enabled attribute.
     /// </summary>
-    public bool? EnhancedImageMetadataEnabled
+    public TerraformLiteralProperty<bool>? EnhancedImageMetadataEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enhanced_image_metadata_enabled")?.Value;
-        set => this.WithProperty("enhanced_image_metadata_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enhanced_image_metadata_enabled");
+        set => this.WithProperty("enhanced_image_metadata_enabled", value);
     }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    public string? ExecutionRole
+    public TerraformLiteralProperty<string>? ExecutionRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role")?.Value;
-        set => this.WithProperty("execution_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("execution_role");
+        set => this.WithProperty("execution_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_recipe_arn attribute.
     /// </summary>
-    public string? ImageRecipeArn
+    public TerraformLiteralProperty<string>? ImageRecipeArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_recipe_arn")?.Value;
-        set => this.WithProperty("image_recipe_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("image_recipe_arn");
+        set => this.WithProperty("image_recipe_arn", value);
     }
 
     /// <summary>
     /// The infrastructure_configuration_arn attribute.
     /// </summary>
-    public string? InfrastructureConfigurationArn
+    public TerraformLiteralProperty<string>? InfrastructureConfigurationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("infrastructure_configuration_arn")?.Value;
-        set => this.WithProperty("infrastructure_configuration_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("infrastructure_configuration_arn");
+        set => this.WithProperty("infrastructure_configuration_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

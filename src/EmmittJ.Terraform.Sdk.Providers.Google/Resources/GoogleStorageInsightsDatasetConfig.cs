@@ -25,37 +25,37 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// <summary>
     /// The user-defined ID of the DatasetConfig
     /// </summary>
-    public string? DatasetConfigId
+    public TerraformLiteralProperty<string>? DatasetConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_config_id")?.Value;
-        set => this.WithProperty("dataset_config_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset_config_id");
+        set => this.WithProperty("dataset_config_id", value);
     }
 
     /// <summary>
     /// An optional user-provided description for the dataset configuration with a maximum length of 256 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If set to true, the request includes all the newly created buckets in the dataset that meet the inclusion and exclusion rules.
     /// </summary>
-    public bool? IncludeNewlyCreatedBuckets
+    public TerraformLiteralProperty<bool>? IncludeNewlyCreatedBuckets
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_newly_created_buckets")?.Value;
-        set => this.WithProperty("include_newly_created_buckets", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_newly_created_buckets");
+        set => this.WithProperty("include_newly_created_buckets", value);
     }
 
     /// <summary>
@@ -65,56 +65,56 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// -&amp;gt; **Note** A dataset config resource can only be destroyed once it is unlinked,
     /// so users must set this field to false to unlink the dataset and destroy the dataset config resource.
     /// </summary>
-    public bool? LinkDataset
+    public TerraformLiteralProperty<bool>? LinkDataset
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("link_dataset")?.Value;
-        set => this.WithProperty("link_dataset", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("link_dataset");
+        set => this.WithProperty("link_dataset", value);
     }
 
     /// <summary>
     /// The location of the DatasetConfig.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Organization resource ID that the source projects should belong to.
     /// Projects that do not belong to the provided organization are not considered when creating the dataset.
     /// </summary>
-    public string? OrganizationNumber
+    public TerraformLiteralProperty<string>? OrganizationNumber
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization_number")?.Value;
-        set => this.WithProperty("organization_number", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization_number");
+        set => this.WithProperty("organization_number", value);
     }
 
     /// <summary>
     /// Defines the options for providing a source organization for the DatasetConfig.
     /// </summary>
-    public bool? OrganizationScope
+    public TerraformLiteralProperty<bool>? OrganizationScope
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("organization_scope")?.Value;
-        set => this.WithProperty("organization_scope", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("organization_scope");
+        set => this.WithProperty("organization_scope", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Number of days of history that must be retained.
     /// </summary>
-    public double? RetentionPeriodDays
+    public TerraformLiteralProperty<double>? RetentionPeriodDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_period_days")?.Value;
-        set => this.WithProperty("retention_period_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("retention_period_days");
+        set => this.WithProperty("retention_period_days", value);
     }
 
     /// <summary>

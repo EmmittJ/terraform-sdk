@@ -20,56 +20,56 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// <summary>
     /// The datadog_monitor_id attribute.
     /// </summary>
-    public string? DatadogMonitorId
+    public TerraformLiteralProperty<string>? DatadogMonitorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("datadog_monitor_id")?.Value;
-        set => this.WithProperty("datadog_monitor_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("datadog_monitor_id");
+        set => this.WithProperty("datadog_monitor_id", value);
     }
 
     /// <summary>
     /// The enterprise_application_id attribute.
     /// </summary>
-    public string? EnterpriseApplicationId
+    public TerraformLiteralProperty<string>? EnterpriseApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enterprise_application_id")?.Value;
-        set => this.WithProperty("enterprise_application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enterprise_application_id");
+        set => this.WithProperty("enterprise_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The single_sign_on attribute.
     /// </summary>
-    public string? SingleSignOn
+    public TerraformLiteralProperty<string>? SingleSignOn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("single_sign_on")?.Value;
-        set => this.WithProperty("single_sign_on", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("single_sign_on");
+        set => this.WithProperty("single_sign_on", value);
     }
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? SingleSignOnEnabled
+    public TerraformLiteralProperty<string>? SingleSignOnEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("single_sign_on_enabled")?.Value;
-        set => this.WithProperty("single_sign_on_enabled", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("single_sign_on_enabled");
+        set => this.WithProperty("single_sign_on_enabled", value);
     }
 
     /// <summary>

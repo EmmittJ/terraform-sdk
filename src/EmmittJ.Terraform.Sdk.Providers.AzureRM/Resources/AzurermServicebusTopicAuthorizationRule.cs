@@ -25,55 +25,55 @@ public class AzurermServicebusTopicAuthorizationRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    public bool? Listen
+    public TerraformLiteralProperty<bool>? Listen
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("listen")?.Value;
-        set => this.WithProperty("listen", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("listen");
+        set => this.WithProperty("listen", value);
     }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    public bool? Manage
+    public TerraformLiteralProperty<bool>? Manage
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("manage")?.Value;
-        set => this.WithProperty("manage", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("manage");
+        set => this.WithProperty("manage", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
-    public bool? Send
+    public TerraformLiteralProperty<bool>? Send
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("send")?.Value;
-        set => this.WithProperty("send", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("send");
+        set => this.WithProperty("send", value);
     }
 
     /// <summary>
     /// The topic_id attribute.
     /// </summary>
-    public string? TopicId
+    public TerraformLiteralProperty<string>? TopicId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic_id")?.Value;
-        set => this.WithProperty("topic_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("topic_id");
+        set => this.WithProperty("topic_id", value);
     }
 
     /// <summary>

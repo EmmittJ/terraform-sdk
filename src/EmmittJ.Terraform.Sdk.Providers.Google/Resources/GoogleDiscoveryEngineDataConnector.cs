@@ -32,10 +32,10 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// <summary>
     /// Indicates whether full syncs are paused for this connector
     /// </summary>
-    public bool? AutoRunDisabled
+    public TerraformLiteralProperty<bool>? AutoRunDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_run_disabled")?.Value;
-        set => this.WithProperty("auto_run_disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_run_disabled");
+        set => this.WithProperty("auto_run_disabled", value);
     }
 
     /// <summary>
@@ -43,10 +43,10 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// Should be human readable, used to display collections in the Console
     /// Dashboard. UTF-8 encoded string with limit of 1024 characters.
     /// </summary>
-    public string? CollectionDisplayName
+    public TerraformLiteralProperty<string>? CollectionDisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection_display_name")?.Value;
-        set => this.WithProperty("collection_display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collection_display_name");
+        set => this.WithProperty("collection_display_name", value);
     }
 
     /// <summary>
@@ -58,10 +58,10 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// standard with a length limit of 63 characters. Otherwise, an
     /// INVALID_ARGUMENT error is returned.
     /// </summary>
-    public string? CollectionId
+    public TerraformLiteralProperty<string>? CollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection_id")?.Value;
-        set => this.WithProperty("collection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collection_id");
+        set => this.WithProperty("collection_id", value);
     }
 
     /// <summary>
@@ -69,29 +69,29 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// &#39;DATA_INGESTION&#39;, &#39;ACTIONS&#39;, &#39;FEDERATED&#39;
     /// &#39;EUA&#39;, &#39;FEDERATED_AND_EUA&#39;.
     /// </summary>
-    public List<string>? ConnectorModes
+    public TerraformLiteralProperty<List<string>>? ConnectorModes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("connector_modes")?.Value;
-        set => this.WithProperty("connector_modes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("connector_modes");
+        set => this.WithProperty("connector_modes", value);
     }
 
     /// <summary>
     /// The name of the data source.
     /// Supported values: &#39;salesforce&#39;, &#39;jira&#39;, &#39;confluence&#39;, &#39;bigquery&#39;.
     /// </summary>
-    public string? DataSource
+    public TerraformLiteralProperty<string>? DataSource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_source")?.Value;
-        set => this.WithProperty("data_source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_source");
+        set => this.WithProperty("data_source", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -102,28 +102,28 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// set to the same value as the incremental refresh interval, incremental
     /// sync will be disabled.
     /// </summary>
-    public string? IncrementalRefreshInterval
+    public TerraformLiteralProperty<string>? IncrementalRefreshInterval
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("incremental_refresh_interval")?.Value;
-        set => this.WithProperty("incremental_refresh_interval", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("incremental_refresh_interval");
+        set => this.WithProperty("incremental_refresh_interval", value);
     }
 
     /// <summary>
     /// Indicates whether incremental syncs are paused for this connector.
     /// </summary>
-    public bool? IncrementalSyncDisabled
+    public TerraformLiteralProperty<bool>? IncrementalSyncDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("incremental_sync_disabled")?.Value;
-        set => this.WithProperty("incremental_sync_disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("incremental_sync_disabled");
+        set => this.WithProperty("incremental_sync_disabled", value);
     }
 
     /// <summary>
     /// Params needed to access the source in the format of json string.
     /// </summary>
-    public string? JsonParams
+    public TerraformLiteralProperty<string>? JsonParams
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("json_params")?.Value;
-        set => this.WithProperty("json_params", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("json_params");
+        set => this.WithProperty("json_params", value);
     }
 
     /// <summary>
@@ -133,38 +133,38 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// If this field is set and processed successfully, the DataStores created by
     /// this connector will be protected by the KMS key.
     /// </summary>
-    public string? KmsKeyName
+    public TerraformLiteralProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name")?.Value;
-        set => this.WithProperty("kms_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name");
+        set => this.WithProperty("kms_key_name", value);
     }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Params needed to access the source in the format of String-to-String (Key, Value) pairs.
     /// </summary>
-    public Dictionary<string, string>? Params
+    public TerraformLiteralProperty<Dictionary<string, string>>? Params
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("params")?.Value;
-        set => this.WithProperty("params", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("params");
+        set => this.WithProperty("params", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -174,29 +174,29 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// set to the same value as the incremental refresh interval, incremental
     /// sync will be disabled.
     /// </summary>
-    public string? RefreshInterval
+    public TerraformLiteralProperty<string>? RefreshInterval
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("refresh_interval")?.Value;
-        set => this.WithProperty("refresh_interval", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("refresh_interval");
+        set => this.WithProperty("refresh_interval", value);
     }
 
     /// <summary>
     /// Whether customer has enabled static IP addresses for this connector.
     /// </summary>
-    public bool? StaticIpEnabled
+    public TerraformLiteralProperty<bool>? StaticIpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("static_ip_enabled")?.Value;
-        set => this.WithProperty("static_ip_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("static_ip_enabled");
+        set => this.WithProperty("static_ip_enabled", value);
     }
 
     /// <summary>
     /// The data synchronization mode supported by the data connector. The possible value can be:
     /// &#39;PERIODIC&#39;, &#39;STREAMING&#39;.
     /// </summary>
-    public string? SyncMode
+    public TerraformLiteralProperty<string>? SyncMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sync_mode")?.Value;
-        set => this.WithProperty("sync_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sync_mode");
+        set => this.WithProperty("sync_mode", value);
     }
 
     /// <summary>

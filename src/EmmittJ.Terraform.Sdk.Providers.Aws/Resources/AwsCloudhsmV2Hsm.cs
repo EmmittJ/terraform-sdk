@@ -22,55 +22,55 @@ public class AwsCloudhsmV2Hsm : TerraformResource
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public string? ClusterId
+    public TerraformLiteralProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id")?.Value;
-        set => this.WithProperty("cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public string? IpAddress
+    public TerraformLiteralProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address")?.Value;
-        set => this.WithProperty("ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public string? SubnetId
+    public TerraformLiteralProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id")?.Value;
-        set => this.WithProperty("subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>

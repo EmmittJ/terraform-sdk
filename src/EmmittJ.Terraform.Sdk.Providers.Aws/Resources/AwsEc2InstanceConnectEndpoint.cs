@@ -28,46 +28,46 @@ public class AwsEc2InstanceConnectEndpoint : TerraformResource
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
-    public bool? PreserveClientIp
+    public TerraformLiteralProperty<bool>? PreserveClientIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("preserve_client_ip")?.Value;
-        set => this.WithProperty("preserve_client_ip", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("preserve_client_ip");
+        set => this.WithProperty("preserve_client_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids")?.Value;
-        set => this.WithProperty("security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public string? SubnetId
+    public TerraformLiteralProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id")?.Value;
-        set => this.WithProperty("subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

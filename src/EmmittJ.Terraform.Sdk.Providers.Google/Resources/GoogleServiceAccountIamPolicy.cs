@@ -20,28 +20,28 @@ public class GoogleServiceAccountIamPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public string? PolicyData
+    public TerraformLiteralProperty<string>? PolicyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_data")?.Value;
-        set => this.WithProperty("policy_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_data");
+        set => this.WithProperty("policy_data", value);
     }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
-    public string? ServiceAccountId
+    public TerraformLiteralProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id")?.Value;
-        set => this.WithProperty("service_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id");
+        set => this.WithProperty("service_account_id", value);
     }
 
     /// <summary>

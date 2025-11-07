@@ -28,73 +28,73 @@ public class AwsRdsExportTask : TerraformResource
     /// <summary>
     /// The export_only attribute.
     /// </summary>
-    public List<string>? ExportOnly
+    public TerraformLiteralProperty<List<string>>? ExportOnly
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("export_only")?.Value;
-        set => this.WithProperty("export_only", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("export_only");
+        set => this.WithProperty("export_only", value);
     }
 
     /// <summary>
     /// The export_task_identifier attribute.
     /// </summary>
-    public string? ExportTaskIdentifier
+    public TerraformLiteralProperty<string>? ExportTaskIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("export_task_identifier")?.Value;
-        set => this.WithProperty("export_task_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("export_task_identifier");
+        set => this.WithProperty("export_task_identifier", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public string? IamRoleArn
+    public TerraformLiteralProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn")?.Value;
-        set => this.WithProperty("iam_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
-    public string? S3BucketName
+    public TerraformLiteralProperty<string>? S3BucketName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket_name")?.Value;
-        set => this.WithProperty("s3_bucket_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket_name");
+        set => this.WithProperty("s3_bucket_name", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public string? S3Prefix
+    public TerraformLiteralProperty<string>? S3Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_prefix")?.Value;
-        set => this.WithProperty("s3_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_prefix");
+        set => this.WithProperty("s3_prefix", value);
     }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public string? SourceArn
+    public TerraformLiteralProperty<string>? SourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_arn")?.Value;
-        set => this.WithProperty("source_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_arn");
+        set => this.WithProperty("source_arn", value);
     }
 
     /// <summary>

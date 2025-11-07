@@ -23,55 +23,55 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     /// <summary>
     /// The account attribute.
     /// </summary>
-    public string? Account
+    public TerraformLiteralProperty<string>? Account
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account")?.Value;
-        set => this.WithProperty("account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account");
+        set => this.WithProperty("account", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public string? ClusterIdentifier
+    public TerraformLiteralProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier")?.Value;
-        set => this.WithProperty("cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public bool? ForceDelete
+    public TerraformLiteralProperty<bool>? ForceDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete")?.Value;
-        set => this.WithProperty("force_delete", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete");
+        set => this.WithProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The vpc_ids attribute.
     /// </summary>
-    public HashSet<string>? VpcIds
+    public TerraformLiteralProperty<HashSet<string>>? VpcIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_ids")?.Value;
-        set => this.WithProperty("vpc_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_ids");
+        set => this.WithProperty("vpc_ids", value);
     }
 
     /// <summary>

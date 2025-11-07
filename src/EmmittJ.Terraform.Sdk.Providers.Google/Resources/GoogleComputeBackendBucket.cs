@@ -21,66 +21,66 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// <summary>
     /// Cloud Storage bucket name.
     /// </summary>
-    public string? BucketName
+    public TerraformLiteralProperty<string>? BucketName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket_name")?.Value;
-        set => this.WithProperty("bucket_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket_name");
+        set => this.WithProperty("bucket_name", value);
     }
 
     /// <summary>
     /// Compress text responses using Brotli or gzip compression, based on the client&#39;s Accept-Encoding header. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public string? CompressionMode
+    public TerraformLiteralProperty<string>? CompressionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compression_mode")?.Value;
-        set => this.WithProperty("compression_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compression_mode");
+        set => this.WithProperty("compression_mode", value);
     }
 
     /// <summary>
     /// Headers that the HTTP/S load balancer should add to proxied responses.
     /// </summary>
-    public List<string>? CustomResponseHeaders
+    public TerraformLiteralProperty<List<string>>? CustomResponseHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("custom_response_headers")?.Value;
-        set => this.WithProperty("custom_response_headers", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("custom_response_headers");
+        set => this.WithProperty("custom_response_headers", value);
     }
 
     /// <summary>
     /// An optional textual description of the resource; provided by the
     /// client when the resource is created.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The security policy associated with this backend bucket.
     /// </summary>
-    public string? EdgeSecurityPolicy
+    public TerraformLiteralProperty<string>? EdgeSecurityPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_security_policy")?.Value;
-        set => this.WithProperty("edge_security_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("edge_security_policy");
+        set => this.WithProperty("edge_security_policy", value);
     }
 
     /// <summary>
     /// If true, enable Cloud CDN for this BackendBucket.
     /// Note: This cannot be set to true when loadBalancingScheme is set to INTERNAL_MANAGED.
     /// </summary>
-    public bool? EnableCdn
+    public TerraformLiteralProperty<bool>? EnableCdn
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_cdn")?.Value;
-        set => this.WithProperty("enable_cdn", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_cdn");
+        set => this.WithProperty("enable_cdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -88,10 +88,10 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// If loadBalancingScheme is not specified, the backend bucket can be used by classic global external load balancers, or global application external load balancers, or both.
     /// Important: CDN cannot be enabled (enableCdn cannot be set to true) when loadBalancingScheme is set to INTERNAL_MANAGED. Possible values: [&amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
-    public string? LoadBalancingScheme
+    public TerraformLiteralProperty<string>? LoadBalancingScheme
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme")?.Value;
-        set => this.WithProperty("load_balancing_scheme", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme");
+        set => this.WithProperty("load_balancing_scheme", value);
     }
 
     /// <summary>
@@ -103,19 +103,19 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

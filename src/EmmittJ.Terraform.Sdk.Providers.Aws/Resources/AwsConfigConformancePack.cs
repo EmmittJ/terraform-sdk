@@ -20,64 +20,64 @@ public class AwsConfigConformancePack : TerraformResource
     /// <summary>
     /// The delivery_s3_bucket attribute.
     /// </summary>
-    public string? DeliveryS3Bucket
+    public TerraformLiteralProperty<string>? DeliveryS3Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_s3_bucket")?.Value;
-        set => this.WithProperty("delivery_s3_bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_s3_bucket");
+        set => this.WithProperty("delivery_s3_bucket", value);
     }
 
     /// <summary>
     /// The delivery_s3_key_prefix attribute.
     /// </summary>
-    public string? DeliveryS3KeyPrefix
+    public TerraformLiteralProperty<string>? DeliveryS3KeyPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_s3_key_prefix")?.Value;
-        set => this.WithProperty("delivery_s3_key_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_s3_key_prefix");
+        set => this.WithProperty("delivery_s3_key_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public string? TemplateBody
+    public TerraformLiteralProperty<string>? TemplateBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_body")?.Value;
-        set => this.WithProperty("template_body", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_body");
+        set => this.WithProperty("template_body", value);
     }
 
     /// <summary>
     /// The template_s3_uri attribute.
     /// </summary>
-    public string? TemplateS3Uri
+    public TerraformLiteralProperty<string>? TemplateS3Uri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_s3_uri")?.Value;
-        set => this.WithProperty("template_s3_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_s3_uri");
+        set => this.WithProperty("template_s3_uri", value);
     }
 
     /// <summary>

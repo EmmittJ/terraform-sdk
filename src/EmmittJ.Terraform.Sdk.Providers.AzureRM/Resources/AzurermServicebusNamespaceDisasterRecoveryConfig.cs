@@ -23,46 +23,46 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     /// <summary>
     /// The alias_authorization_rule_id attribute.
     /// </summary>
-    public string? AliasAuthorizationRuleId
+    public TerraformLiteralProperty<string>? AliasAuthorizationRuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias_authorization_rule_id")?.Value;
-        set => this.WithProperty("alias_authorization_rule_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alias_authorization_rule_id");
+        set => this.WithProperty("alias_authorization_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partner_namespace_id attribute.
     /// </summary>
-    public string? PartnerNamespaceId
+    public TerraformLiteralProperty<string>? PartnerNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partner_namespace_id")?.Value;
-        set => this.WithProperty("partner_namespace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("partner_namespace_id");
+        set => this.WithProperty("partner_namespace_id", value);
     }
 
     /// <summary>
     /// The primary_namespace_id attribute.
     /// </summary>
-    public string? PrimaryNamespaceId
+    public TerraformLiteralProperty<string>? PrimaryNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_namespace_id")?.Value;
-        set => this.WithProperty("primary_namespace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("primary_namespace_id");
+        set => this.WithProperty("primary_namespace_id", value);
     }
 
     /// <summary>

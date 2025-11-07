@@ -23,37 +23,37 @@ public class AzurermNetworkServiceTagsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The location_filter attribute.
     /// </summary>
-    public string? LocationFilter
+    public TerraformLiteralProperty<string>? LocationFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_filter")?.Value;
-        set => this.WithProperty("location_filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location_filter");
+        set => this.WithProperty("location_filter", value);
     }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
     /// <summary>

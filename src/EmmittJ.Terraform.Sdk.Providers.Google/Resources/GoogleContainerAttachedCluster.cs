@@ -38,29 +38,29 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Policy to determine what flags to send on delete. Possible values: DELETE, DELETE_IGNORE_ERRORS
     /// </summary>
-    public string? DeletionPolicy
+    public TerraformLiteralProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
-        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// A human readable description of this attached cluster. Cannot be longer
     /// than 255 UTF-8 encoded bytes.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -68,55 +68,55 @@ public class GoogleContainerAttachedCluster : TerraformResource
     /// &amp;quot;eks&amp;quot;, &amp;quot;aks&amp;quot;, &amp;quot;generic&amp;quot;. The generic distribution provides the ability to register
     /// or migrate any CNCF conformant cluster.
     /// </summary>
-    public string? Distribution
+    public TerraformLiteralProperty<string>? Distribution
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("distribution")?.Value;
-        set => this.WithProperty("distribution", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("distribution");
+        set => this.WithProperty("distribution", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of this resource.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The platform version for the cluster (e.g. &#39;1.23.0-gke.1&#39;).
     /// </summary>
-    public string? PlatformVersion
+    public TerraformLiteralProperty<string>? PlatformVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform_version")?.Value;
-        set => this.WithProperty("platform_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("platform_version");
+        set => this.WithProperty("platform_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

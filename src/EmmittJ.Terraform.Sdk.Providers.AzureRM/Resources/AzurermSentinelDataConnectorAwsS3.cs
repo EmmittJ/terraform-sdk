@@ -19,55 +19,55 @@ public class AzurermSentinelDataConnectorAwsS3 : TerraformResource
     /// <summary>
     /// The aws_role_arn attribute.
     /// </summary>
-    public string? AwsRoleArn
+    public TerraformLiteralProperty<string>? AwsRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_role_arn")?.Value;
-        set => this.WithProperty("aws_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_role_arn");
+        set => this.WithProperty("aws_role_arn", value);
     }
 
     /// <summary>
     /// The destination_table attribute.
     /// </summary>
-    public string? DestinationTable
+    public TerraformLiteralProperty<string>? DestinationTable
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_table")?.Value;
-        set => this.WithProperty("destination_table", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_table");
+        set => this.WithProperty("destination_table", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public string? LogAnalyticsWorkspaceId
+    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id")?.Value;
-        set => this.WithProperty("log_analytics_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sqs_urls attribute.
     /// </summary>
-    public List<string>? SqsUrls
+    public TerraformLiteralProperty<List<string>>? SqsUrls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("sqs_urls")?.Value;
-        set => this.WithProperty("sqs_urls", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("sqs_urls");
+        set => this.WithProperty("sqs_urls", value);
     }
 
 }

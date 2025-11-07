@@ -19,19 +19,19 @@ public class AzurermContainerRegistryTaskScheduleRunNow : TerraformResource
     /// <summary>
     /// The container_registry_task_id attribute.
     /// </summary>
-    public string? ContainerRegistryTaskId
+    public TerraformLiteralProperty<string>? ContainerRegistryTaskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_task_id")?.Value;
-        set => this.WithProperty("container_registry_task_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_task_id");
+        set => this.WithProperty("container_registry_task_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

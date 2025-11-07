@@ -20,46 +20,46 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     /// <summary>
     /// An expiration time in microseconds since epoch.
     /// </summary>
-    public string? ExpirationTimeUsec
+    public TerraformLiteralProperty<string>? ExpirationTimeUsec
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_time_usec")?.Value;
-        set => this.WithProperty("expiration_time_usec", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expiration_time_usec");
+        set => this.WithProperty("expiration_time_usec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Public key text in SSH format, defined by RFC4253 section 6.6.
     /// </summary>
-    public string? Key
+    public TerraformLiteralProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key")?.Value;
-        set => this.WithProperty("key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The project ID of the Google Cloud Platform project.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The user email.
     /// </summary>
-    public string? User
+    public TerraformLiteralProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user")?.Value;
-        set => this.WithProperty("user", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        set => this.WithProperty("user", value);
     }
 
     /// <summary>

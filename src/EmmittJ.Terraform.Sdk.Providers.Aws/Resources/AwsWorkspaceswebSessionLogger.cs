@@ -22,46 +22,46 @@ public class AwsWorkspaceswebSessionLogger : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalEncryptionContext
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context")?.Value;
-        set => this.WithProperty("additional_encryption_context", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context");
+        set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public string? CustomerManagedKey
+    public TerraformLiteralProperty<string>? CustomerManagedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key")?.Value;
-        set => this.WithProperty("customer_managed_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key");
+        set => this.WithProperty("customer_managed_key", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

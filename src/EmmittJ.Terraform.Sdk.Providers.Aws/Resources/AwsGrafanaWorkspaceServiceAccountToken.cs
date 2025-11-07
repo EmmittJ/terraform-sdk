@@ -24,46 +24,46 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The seconds_to_live attribute.
     /// </summary>
-    public double? SecondsToLive
+    public TerraformLiteralProperty<double>? SecondsToLive
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("seconds_to_live")?.Value;
-        set => this.WithProperty("seconds_to_live", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("seconds_to_live");
+        set => this.WithProperty("seconds_to_live", value);
     }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
-    public string? ServiceAccountId
+    public TerraformLiteralProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id")?.Value;
-        set => this.WithProperty("service_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id");
+        set => this.WithProperty("service_account_id", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
     /// <summary>

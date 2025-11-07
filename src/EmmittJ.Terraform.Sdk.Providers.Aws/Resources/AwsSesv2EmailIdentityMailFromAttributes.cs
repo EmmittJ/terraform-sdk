@@ -19,46 +19,46 @@ public class AwsSesv2EmailIdentityMailFromAttributes : TerraformResource
     /// <summary>
     /// The behavior_on_mx_failure attribute.
     /// </summary>
-    public string? BehaviorOnMxFailure
+    public TerraformLiteralProperty<string>? BehaviorOnMxFailure
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("behavior_on_mx_failure")?.Value;
-        set => this.WithProperty("behavior_on_mx_failure", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("behavior_on_mx_failure");
+        set => this.WithProperty("behavior_on_mx_failure", value);
     }
 
     /// <summary>
     /// The email_identity attribute.
     /// </summary>
-    public string? EmailIdentity
+    public TerraformLiteralProperty<string>? EmailIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_identity")?.Value;
-        set => this.WithProperty("email_identity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email_identity");
+        set => this.WithProperty("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mail_from_domain attribute.
     /// </summary>
-    public string? MailFromDomain
+    public TerraformLiteralProperty<string>? MailFromDomain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mail_from_domain")?.Value;
-        set => this.WithProperty("mail_from_domain", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mail_from_domain");
+        set => this.WithProperty("mail_from_domain", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

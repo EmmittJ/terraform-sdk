@@ -19,127 +19,127 @@ public class AzurermCdnFrontdoorRoute : TerraformResource
     /// <summary>
     /// The cdn_frontdoor_custom_domain_ids attribute.
     /// </summary>
-    public HashSet<string>? CdnFrontdoorCustomDomainIds
+    public TerraformLiteralProperty<HashSet<string>>? CdnFrontdoorCustomDomainIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cdn_frontdoor_custom_domain_ids")?.Value;
-        set => this.WithProperty("cdn_frontdoor_custom_domain_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cdn_frontdoor_custom_domain_ids");
+        set => this.WithProperty("cdn_frontdoor_custom_domain_ids", value);
     }
 
     /// <summary>
     /// The cdn_frontdoor_endpoint_id attribute.
     /// </summary>
-    public string? CdnFrontdoorEndpointId
+    public TerraformLiteralProperty<string>? CdnFrontdoorEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_endpoint_id")?.Value;
-        set => this.WithProperty("cdn_frontdoor_endpoint_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_endpoint_id");
+        set => this.WithProperty("cdn_frontdoor_endpoint_id", value);
     }
 
     /// <summary>
     /// The cdn_frontdoor_origin_group_id attribute.
     /// </summary>
-    public string? CdnFrontdoorOriginGroupId
+    public TerraformLiteralProperty<string>? CdnFrontdoorOriginGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_origin_group_id")?.Value;
-        set => this.WithProperty("cdn_frontdoor_origin_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_origin_group_id");
+        set => this.WithProperty("cdn_frontdoor_origin_group_id", value);
     }
 
     /// <summary>
     /// The cdn_frontdoor_origin_ids attribute.
     /// </summary>
-    public List<string>? CdnFrontdoorOriginIds
+    public TerraformLiteralProperty<List<string>>? CdnFrontdoorOriginIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("cdn_frontdoor_origin_ids")?.Value;
-        set => this.WithProperty("cdn_frontdoor_origin_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("cdn_frontdoor_origin_ids");
+        set => this.WithProperty("cdn_frontdoor_origin_ids", value);
     }
 
     /// <summary>
     /// The cdn_frontdoor_origin_path attribute.
     /// </summary>
-    public string? CdnFrontdoorOriginPath
+    public TerraformLiteralProperty<string>? CdnFrontdoorOriginPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_origin_path")?.Value;
-        set => this.WithProperty("cdn_frontdoor_origin_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_origin_path");
+        set => this.WithProperty("cdn_frontdoor_origin_path", value);
     }
 
     /// <summary>
     /// The cdn_frontdoor_rule_set_ids attribute.
     /// </summary>
-    public HashSet<string>? CdnFrontdoorRuleSetIds
+    public TerraformLiteralProperty<HashSet<string>>? CdnFrontdoorRuleSetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cdn_frontdoor_rule_set_ids")?.Value;
-        set => this.WithProperty("cdn_frontdoor_rule_set_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cdn_frontdoor_rule_set_ids");
+        set => this.WithProperty("cdn_frontdoor_rule_set_ids", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The forwarding_protocol attribute.
     /// </summary>
-    public string? ForwardingProtocol
+    public TerraformLiteralProperty<string>? ForwardingProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("forwarding_protocol")?.Value;
-        set => this.WithProperty("forwarding_protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("forwarding_protocol");
+        set => this.WithProperty("forwarding_protocol", value);
     }
 
     /// <summary>
     /// The https_redirect_enabled attribute.
     /// </summary>
-    public bool? HttpsRedirectEnabled
+    public TerraformLiteralProperty<bool>? HttpsRedirectEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_redirect_enabled")?.Value;
-        set => this.WithProperty("https_redirect_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("https_redirect_enabled");
+        set => this.WithProperty("https_redirect_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The link_to_default_domain attribute.
     /// </summary>
-    public bool? LinkToDefaultDomain
+    public TerraformLiteralProperty<bool>? LinkToDefaultDomain
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("link_to_default_domain")?.Value;
-        set => this.WithProperty("link_to_default_domain", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("link_to_default_domain");
+        set => this.WithProperty("link_to_default_domain", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The patterns_to_match attribute.
     /// </summary>
-    public List<string>? PatternsToMatch
+    public TerraformLiteralProperty<List<string>>? PatternsToMatch
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("patterns_to_match")?.Value;
-        set => this.WithProperty("patterns_to_match", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("patterns_to_match");
+        set => this.WithProperty("patterns_to_match", value);
     }
 
     /// <summary>
     /// The supported_protocols attribute.
     /// </summary>
-    public HashSet<string>? SupportedProtocols
+    public TerraformLiteralProperty<HashSet<string>>? SupportedProtocols
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("supported_protocols")?.Value;
-        set => this.WithProperty("supported_protocols", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("supported_protocols");
+        set => this.WithProperty("supported_protocols", value);
     }
 
 }

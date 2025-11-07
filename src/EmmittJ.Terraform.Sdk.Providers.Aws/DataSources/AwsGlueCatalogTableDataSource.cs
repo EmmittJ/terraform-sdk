@@ -31,64 +31,64 @@ public class AwsGlueCatalogTableDataSource : TerraformDataSource
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public string? CatalogId
+    public TerraformLiteralProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id")?.Value;
-        set => this.WithProperty("catalog_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public string? DatabaseName
+    public TerraformLiteralProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name")?.Value;
-        set => this.WithProperty("database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_as_of_time attribute.
     /// </summary>
-    public string? QueryAsOfTime
+    public TerraformLiteralProperty<string>? QueryAsOfTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_as_of_time")?.Value;
-        set => this.WithProperty("query_as_of_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query_as_of_time");
+        set => this.WithProperty("query_as_of_time", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The transaction_id attribute.
     /// </summary>
-    public double? TransactionId
+    public TerraformLiteralProperty<double>? TransactionId
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("transaction_id")?.Value;
-        set => this.WithProperty("transaction_id", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("transaction_id");
+        set => this.WithProperty("transaction_id", value);
     }
 
     /// <summary>

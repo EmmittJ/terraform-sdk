@@ -19,100 +19,100 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// <summary>
     /// The application_group_id attribute.
     /// </summary>
-    public string? ApplicationGroupId
+    public TerraformLiteralProperty<string>? ApplicationGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_group_id")?.Value;
-        set => this.WithProperty("application_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_group_id");
+        set => this.WithProperty("application_group_id", value);
     }
 
     /// <summary>
     /// The command_line_argument_policy attribute.
     /// </summary>
-    public string? CommandLineArgumentPolicy
+    public TerraformLiteralProperty<string>? CommandLineArgumentPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("command_line_argument_policy")?.Value;
-        set => this.WithProperty("command_line_argument_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("command_line_argument_policy");
+        set => this.WithProperty("command_line_argument_policy", value);
     }
 
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    public string? CommandLineArguments
+    public TerraformLiteralProperty<string>? CommandLineArguments
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("command_line_arguments")?.Value;
-        set => this.WithProperty("command_line_arguments", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("command_line_arguments");
+        set => this.WithProperty("command_line_arguments", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public string? FriendlyName
+    public TerraformLiteralProperty<string>? FriendlyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name")?.Value;
-        set => this.WithProperty("friendly_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name");
+        set => this.WithProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The icon_index attribute.
     /// </summary>
-    public double? IconIndex
+    public TerraformLiteralProperty<double>? IconIndex
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("icon_index")?.Value;
-        set => this.WithProperty("icon_index", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("icon_index");
+        set => this.WithProperty("icon_index", value);
     }
 
     /// <summary>
     /// The icon_path attribute.
     /// </summary>
-    public string? IconPath
+    public TerraformLiteralProperty<string>? IconPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("icon_path")?.Value;
-        set => this.WithProperty("icon_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("icon_path");
+        set => this.WithProperty("icon_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public string? Path
+    public TerraformLiteralProperty<string>? Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path")?.Value;
-        set => this.WithProperty("path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("path");
+        set => this.WithProperty("path", value);
     }
 
     /// <summary>
     /// The show_in_portal attribute.
     /// </summary>
-    public bool? ShowInPortal
+    public TerraformLiteralProperty<bool>? ShowInPortal
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("show_in_portal")?.Value;
-        set => this.WithProperty("show_in_portal", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("show_in_portal");
+        set => this.WithProperty("show_in_portal", value);
     }
 
 }

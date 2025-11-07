@@ -21,28 +21,28 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     /// The Apigee environment group associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/envgroups/{{envgroup_name}}&#39;.
     /// </summary>
-    public string? EnvgroupId
+    public TerraformLiteralProperty<string>? EnvgroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("envgroup_id")?.Value;
-        set => this.WithProperty("envgroup_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("envgroup_id");
+        set => this.WithProperty("envgroup_id", value);
     }
 
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
-    public string? Environment
+    public TerraformLiteralProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment")?.Value;
-        set => this.WithProperty("environment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

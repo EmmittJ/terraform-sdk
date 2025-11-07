@@ -20,55 +20,55 @@ public class AwsIamOpenidConnectProvider : TerraformResource
     /// <summary>
     /// The client_id_list attribute.
     /// </summary>
-    public HashSet<string>? ClientIdList
+    public TerraformLiteralProperty<HashSet<string>>? ClientIdList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("client_id_list")?.Value;
-        set => this.WithProperty("client_id_list", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("client_id_list");
+        set => this.WithProperty("client_id_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The thumbprint_list attribute.
     /// </summary>
-    public List<string>? ThumbprintList
+    public TerraformLiteralProperty<List<string>>? ThumbprintList
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("thumbprint_list")?.Value;
-        set => this.WithProperty("thumbprint_list", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("thumbprint_list");
+        set => this.WithProperty("thumbprint_list", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public string? Url
+    public TerraformLiteralProperty<string>? Url
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url")?.Value;
-        set => this.WithProperty("url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url");
+        set => this.WithProperty("url", value);
     }
 
     /// <summary>

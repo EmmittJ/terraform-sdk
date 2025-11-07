@@ -32,82 +32,82 @@ public class AwsDbClusterSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public string? DbClusterIdentifier
+    public TerraformLiteralProperty<string>? DbClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier")?.Value;
-        set => this.WithProperty("db_cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier");
+        set => this.WithProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_cluster_snapshot_identifier attribute.
     /// </summary>
-    public string? DbClusterSnapshotIdentifier
+    public TerraformLiteralProperty<string>? DbClusterSnapshotIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_snapshot_identifier")?.Value;
-        set => this.WithProperty("db_cluster_snapshot_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_snapshot_identifier");
+        set => this.WithProperty("db_cluster_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_public attribute.
     /// </summary>
-    public bool? IncludePublic
+    public TerraformLiteralProperty<bool>? IncludePublic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_public")?.Value;
-        set => this.WithProperty("include_public", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_public");
+        set => this.WithProperty("include_public", value);
     }
 
     /// <summary>
     /// The include_shared attribute.
     /// </summary>
-    public bool? IncludeShared
+    public TerraformLiteralProperty<bool>? IncludeShared
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_shared")?.Value;
-        set => this.WithProperty("include_shared", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_shared");
+        set => this.WithProperty("include_shared", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public bool? MostRecent
+    public TerraformLiteralProperty<bool>? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent")?.Value;
-        set => this.WithProperty("most_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent");
+        set => this.WithProperty("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The snapshot_type attribute.
     /// </summary>
-    public string? SnapshotType
+    public TerraformLiteralProperty<string>? SnapshotType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_type")?.Value;
-        set => this.WithProperty("snapshot_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_type");
+        set => this.WithProperty("snapshot_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -20,127 +20,127 @@ public class AwsCurReportDefinition : TerraformResource
     /// <summary>
     /// The additional_artifacts attribute.
     /// </summary>
-    public HashSet<string>? AdditionalArtifacts
+    public TerraformLiteralProperty<HashSet<string>>? AdditionalArtifacts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_artifacts")?.Value;
-        set => this.WithProperty("additional_artifacts", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_artifacts");
+        set => this.WithProperty("additional_artifacts", value);
     }
 
     /// <summary>
     /// The additional_schema_elements attribute.
     /// </summary>
-    public HashSet<string>? AdditionalSchemaElements
+    public TerraformLiteralProperty<HashSet<string>>? AdditionalSchemaElements
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_schema_elements")?.Value;
-        set => this.WithProperty("additional_schema_elements", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_schema_elements");
+        set => this.WithProperty("additional_schema_elements", value);
     }
 
     /// <summary>
     /// The compression attribute.
     /// </summary>
-    public string? Compression
+    public TerraformLiteralProperty<string>? Compression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compression")?.Value;
-        set => this.WithProperty("compression", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compression");
+        set => this.WithProperty("compression", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public string? Format
+    public TerraformLiteralProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format")?.Value;
-        set => this.WithProperty("format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The refresh_closed_reports attribute.
     /// </summary>
-    public bool? RefreshClosedReports
+    public TerraformLiteralProperty<bool>? RefreshClosedReports
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("refresh_closed_reports")?.Value;
-        set => this.WithProperty("refresh_closed_reports", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("refresh_closed_reports");
+        set => this.WithProperty("refresh_closed_reports", value);
     }
 
     /// <summary>
     /// The report_name attribute.
     /// </summary>
-    public string? ReportName
+    public TerraformLiteralProperty<string>? ReportName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("report_name")?.Value;
-        set => this.WithProperty("report_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("report_name");
+        set => this.WithProperty("report_name", value);
     }
 
     /// <summary>
     /// The report_versioning attribute.
     /// </summary>
-    public string? ReportVersioning
+    public TerraformLiteralProperty<string>? ReportVersioning
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("report_versioning")?.Value;
-        set => this.WithProperty("report_versioning", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("report_versioning");
+        set => this.WithProperty("report_versioning", value);
     }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public string? S3Bucket
+    public TerraformLiteralProperty<string>? S3Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket")?.Value;
-        set => this.WithProperty("s3_bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket");
+        set => this.WithProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public string? S3Prefix
+    public TerraformLiteralProperty<string>? S3Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_prefix")?.Value;
-        set => this.WithProperty("s3_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_prefix");
+        set => this.WithProperty("s3_prefix", value);
     }
 
     /// <summary>
     /// The s3_region attribute.
     /// </summary>
-    public string? S3Region
+    public TerraformLiteralProperty<string>? S3Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_region")?.Value;
-        set => this.WithProperty("s3_region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_region");
+        set => this.WithProperty("s3_region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
-    public string? TimeUnit
+    public TerraformLiteralProperty<string>? TimeUnit
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_unit")?.Value;
-        set => this.WithProperty("time_unit", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("time_unit");
+        set => this.WithProperty("time_unit", value);
     }
 
     /// <summary>

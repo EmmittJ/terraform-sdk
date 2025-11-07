@@ -25,37 +25,37 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     /// A reference to the BackupPlan from which Backups may be used
     /// as the source for Restores created via this RestorePlan.
     /// </summary>
-    public string? BackupPlan
+    public TerraformLiteralProperty<string>? BackupPlan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_plan")?.Value;
-        set => this.WithProperty("backup_plan", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backup_plan");
+        set => this.WithProperty("backup_plan", value);
     }
 
     /// <summary>
     /// The source cluster from which Restores will be created via this RestorePlan.
     /// </summary>
-    public string? Cluster
+    public TerraformLiteralProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster")?.Value;
-        set => this.WithProperty("cluster", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// User specified descriptive string for this RestorePlan.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -67,37 +67,37 @@ public class GoogleGkeBackupRestorePlan : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The region of the Restore Plan.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The full name of the BackupPlan Resource.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

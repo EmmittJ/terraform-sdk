@@ -24,82 +24,82 @@ public class GoogleSecureSourceManagerHook : TerraformResource
     /// Determines if the hook disabled or not.
     /// Set to true to stop sending traffic.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The events that trigger hook on. Possible values: [&amp;quot;PUSH&amp;quot;, &amp;quot;PULL_REQUEST&amp;quot;]
     /// </summary>
-    public List<string>? Events
+    public TerraformLiteralProperty<List<string>>? Events
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("events")?.Value;
-        set => this.WithProperty("events", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("events");
+        set => this.WithProperty("events", value);
     }
 
     /// <summary>
     /// The ID for the Hook.
     /// </summary>
-    public string? HookId
+    public TerraformLiteralProperty<string>? HookId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hook_id")?.Value;
-        set => this.WithProperty("hook_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hook_id");
+        set => this.WithProperty("hook_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the Repository.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The ID for the Repository.
     /// </summary>
-    public string? RepositoryId
+    public TerraformLiteralProperty<string>? RepositoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_id")?.Value;
-        set => this.WithProperty("repository_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repository_id");
+        set => this.WithProperty("repository_id", value);
     }
 
     /// <summary>
     /// The sensitive query string to be appended to the target URI.
     /// </summary>
-    public string? SensitiveQueryString
+    public TerraformLiteralProperty<string>? SensitiveQueryString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sensitive_query_string")?.Value;
-        set => this.WithProperty("sensitive_query_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sensitive_query_string");
+        set => this.WithProperty("sensitive_query_string", value);
     }
 
     /// <summary>
     /// The target URI to which the payloads will be delivered.
     /// </summary>
-    public string? TargetUri
+    public TerraformLiteralProperty<string>? TargetUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_uri")?.Value;
-        set => this.WithProperty("target_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_uri");
+        set => this.WithProperty("target_uri", value);
     }
 
     /// <summary>

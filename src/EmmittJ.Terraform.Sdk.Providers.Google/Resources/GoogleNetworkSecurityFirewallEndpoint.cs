@@ -27,19 +27,19 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     /// <summary>
     /// Project to bill on endpoint uptime usage.
     /// </summary>
-    public string? BillingProjectId
+    public TerraformLiteralProperty<string>? BillingProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_project_id")?.Value;
-        set => this.WithProperty("billing_project_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("billing_project_id");
+        set => this.WithProperty("billing_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -49,38 +49,38 @@ public class GoogleNetworkSecurityFirewallEndpoint : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location (zone) of the firewall endpoint.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the firewall endpoint resource.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name of the parent this firewall endpoint belongs to.
     /// Format: organizations/{organization_id}.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>

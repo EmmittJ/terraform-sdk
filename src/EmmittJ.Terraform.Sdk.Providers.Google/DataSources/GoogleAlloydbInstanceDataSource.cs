@@ -46,46 +46,46 @@ public class GoogleAlloydbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The ID of the alloydb cluster that the instance belongs to.&#39;alloydb_cluster_id&#39;
     /// </summary>
-    public string? ClusterId
+    public TerraformLiteralProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id")?.Value;
-        set => this.WithProperty("cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the alloydb instance.
     /// </summary>
-    public string? InstanceId
+    public TerraformLiteralProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id")?.Value;
-        set => this.WithProperty("instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The canonical ID for the location. For example: &amp;quot;us-east1&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

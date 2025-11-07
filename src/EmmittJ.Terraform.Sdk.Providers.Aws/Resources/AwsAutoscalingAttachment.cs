@@ -19,46 +19,46 @@ public class AwsAutoscalingAttachment : TerraformResource
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
-    public string? AutoscalingGroupName
+    public TerraformLiteralProperty<string>? AutoscalingGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_group_name")?.Value;
-        set => this.WithProperty("autoscaling_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_group_name");
+        set => this.WithProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The elb attribute.
     /// </summary>
-    public string? Elb
+    public TerraformLiteralProperty<string>? Elb
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("elb")?.Value;
-        set => this.WithProperty("elb", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("elb");
+        set => this.WithProperty("elb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lb_target_group_arn attribute.
     /// </summary>
-    public string? LbTargetGroupArn
+    public TerraformLiteralProperty<string>? LbTargetGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lb_target_group_arn")?.Value;
-        set => this.WithProperty("lb_target_group_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lb_target_group_arn");
+        set => this.WithProperty("lb_target_group_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

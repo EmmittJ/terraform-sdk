@@ -20,19 +20,19 @@ public class AwsShieldApplicationLayerAutomaticResponse : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public string? Action
+    public TerraformLiteralProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action")?.Value;
-        set => this.WithProperty("action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public string? ResourceArn
+    public TerraformLiteralProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn")?.Value;
-        set => this.WithProperty("resource_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        set => this.WithProperty("resource_arn", value);
     }
 
     /// <summary>

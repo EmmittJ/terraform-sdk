@@ -39,19 +39,19 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// For production use, it is recommended to keep this parameter false to avoid accidental volume
     /// deletion. Handle with care. Default is false.
     /// </summary>
-    public bool? DeleteDestinationVolume
+    public TerraformLiteralProperty<bool>? DeleteDestinationVolume
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_destination_volume")?.Value;
-        set => this.WithProperty("delete_destination_volume", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("delete_destination_volume");
+        set => this.WithProperty("delete_destination_volume", value);
     }
 
     /// <summary>
     /// An description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -60,19 +60,19 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// to stop anyway. All data transferred to the destination will be discarded and content of destination
     /// volume will remain at the state of the last successful update. Default is false.
     /// </summary>
-    public bool? ForceStopping
+    public TerraformLiteralProperty<bool>? ForceStopping
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_stopping")?.Value;
-        set => this.WithProperty("force_stopping", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_stopping");
+        set => this.WithProperty("force_stopping", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -82,37 +82,37 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of region for this resource. The resource needs to be created in the region of the destination volume.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the replication. Needs to be unique per location.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -121,28 +121,28 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// Set to true to enable/resume the mirror. WARNING: Resuming a mirror overwrites any changes
     /// done to the destination volume with the content of the source volume.
     /// </summary>
-    public bool? ReplicationEnabled
+    public TerraformLiteralProperty<bool>? ReplicationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("replication_enabled")?.Value;
-        set => this.WithProperty("replication_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("replication_enabled");
+        set => this.WithProperty("replication_enabled", value);
     }
 
     /// <summary>
     /// Specifies the replication interval. Possible values: [&amp;quot;EVERY_10_MINUTES&amp;quot;, &amp;quot;HOURLY&amp;quot;, &amp;quot;DAILY&amp;quot;]
     /// </summary>
-    public string? ReplicationSchedule
+    public TerraformLiteralProperty<string>? ReplicationSchedule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_schedule")?.Value;
-        set => this.WithProperty("replication_schedule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("replication_schedule");
+        set => this.WithProperty("replication_schedule", value);
     }
 
     /// <summary>
     /// The name of the existing source volume.
     /// </summary>
-    public string? VolumeName
+    public TerraformLiteralProperty<string>? VolumeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_name")?.Value;
-        set => this.WithProperty("volume_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("volume_name");
+        set => this.WithProperty("volume_name", value);
     }
 
     /// <summary>
@@ -150,10 +150,10 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// for mirror_state to reach MIRRORED. If you want Terraform to wait for the mirror to finish on
     /// create/stop/resume operations, set this parameter to true. Default is false.
     /// </summary>
-    public bool? WaitForMirror
+    public TerraformLiteralProperty<bool>? WaitForMirror
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_mirror")?.Value;
-        set => this.WithProperty("wait_for_mirror", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_mirror");
+        set => this.WithProperty("wait_for_mirror", value);
     }
 
     /// <summary>

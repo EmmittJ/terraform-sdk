@@ -38,10 +38,10 @@ public class GoogleNetappVolume : TerraformResource
     /// <summary>
     /// Capacity of the volume (in GiB).
     /// </summary>
-    public string? CapacityGib
+    public TerraformLiteralProperty<string>? CapacityGib
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_gib")?.Value;
-        set => this.WithProperty("capacity_gib", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("capacity_gib");
+        set => this.WithProperty("capacity_gib", value);
     }
 
     /// <summary>
@@ -50,37 +50,37 @@ public class GoogleNetappVolume : TerraformResource
     /// Setting this parameter to FORCE will delete volumes including nested snapshots.
     /// Possible values: DEFAULT, FORCE.
     /// </summary>
-    public string? DeletionPolicy
+    public TerraformLiteralProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
-        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Flag indicating if the volume is a kerberos volume or not, export policy rules control kerberos security modes (krb5, krb5i, krb5p).
     /// </summary>
-    public bool? KerberosEnabled
+    public TerraformLiteralProperty<bool>? KerberosEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("kerberos_enabled")?.Value;
-        set => this.WithProperty("kerberos_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("kerberos_enabled");
+        set => this.WithProperty("kerberos_enabled", value);
     }
 
     /// <summary>
@@ -90,138 +90,138 @@ public class GoogleNetappVolume : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Optional. Flag indicating if the volume will be a large capacity volume or a regular volume.
     /// </summary>
-    public bool? LargeCapacity
+    public TerraformLiteralProperty<bool>? LargeCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("large_capacity")?.Value;
-        set => this.WithProperty("large_capacity", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("large_capacity");
+        set => this.WithProperty("large_capacity", value);
     }
 
     /// <summary>
     /// Name of the pool location. Usually a region name, expect for some STANDARD service level pools which require a zone name.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Optional. Flag indicating if the volume will have an IP address per node for volumes supporting multiple IP endpoints.
     /// Only the volume with largeCapacity will be allowed to have multiple endpoints.
     /// </summary>
-    public bool? MultipleEndpoints
+    public TerraformLiteralProperty<bool>? MultipleEndpoints
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("multiple_endpoints")?.Value;
-        set => this.WithProperty("multiple_endpoints", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("multiple_endpoints");
+        set => this.WithProperty("multiple_endpoints", value);
     }
 
     /// <summary>
     /// The name of the volume. Needs to be unique per location.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The protocol of the volume. Allowed combinations are &#39;[&#39;NFSV3&#39;]&#39;, &#39;[&#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;]&#39;, &#39;[&#39;NFSV3&#39;, &#39;NFSV4&#39;]&#39;, &#39;[&#39;SMB&#39;, &#39;NFSV3&#39;]&#39; and &#39;[&#39;SMB&#39;, &#39;NFSV4&#39;]&#39;. Possible values: [&amp;quot;NFSV3&amp;quot;, &amp;quot;NFSV4&amp;quot;, &amp;quot;SMB&amp;quot;, &amp;quot;ISCSI&amp;quot;]
     /// </summary>
-    public List<string>? Protocols
+    public TerraformLiteralProperty<List<string>>? Protocols
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("protocols")?.Value;
-        set => this.WithProperty("protocols", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("protocols");
+        set => this.WithProperty("protocols", value);
     }
 
     /// <summary>
     /// List of actions that are restricted on this volume. Possible values: [&amp;quot;DELETE&amp;quot;]
     /// </summary>
-    public List<string>? RestrictedActions
+    public TerraformLiteralProperty<List<string>>? RestrictedActions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("restricted_actions")?.Value;
-        set => this.WithProperty("restricted_actions", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("restricted_actions");
+        set => this.WithProperty("restricted_actions", value);
     }
 
     /// <summary>
     /// Security Style of the Volume. Use UNIX to use UNIX or NFSV4 ACLs for file permissions.
     /// Use NTFS to use NTFS ACLs for file permissions. Can only be set for volumes which use SMB together with NFS as protocol. Possible values: [&amp;quot;NTFS&amp;quot;, &amp;quot;UNIX&amp;quot;]
     /// </summary>
-    public string? SecurityStyle
+    public TerraformLiteralProperty<string>? SecurityStyle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_style")?.Value;
-        set => this.WithProperty("security_style", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_style");
+        set => this.WithProperty("security_style", value);
     }
 
     /// <summary>
     /// Share name (SMB) or export path (NFS) of the volume. Needs to be unique per location.
     /// </summary>
-    public string? ShareName
+    public TerraformLiteralProperty<string>? ShareName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("share_name")?.Value;
-        set => this.WithProperty("share_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("share_name");
+        set => this.WithProperty("share_name", value);
     }
 
     /// <summary>
     /// Settings for volumes with SMB access. Possible values: [&amp;quot;ENCRYPT_DATA&amp;quot;, &amp;quot;BROWSABLE&amp;quot;, &amp;quot;CHANGE_NOTIFY&amp;quot;, &amp;quot;NON_BROWSABLE&amp;quot;, &amp;quot;OPLOCKS&amp;quot;, &amp;quot;SHOW_SNAPSHOT&amp;quot;, &amp;quot;SHOW_PREVIOUS_VERSIONS&amp;quot;, &amp;quot;ACCESS_BASED_ENUMERATION&amp;quot;, &amp;quot;CONTINUOUSLY_AVAILABLE&amp;quot;]
     /// </summary>
-    public List<string>? SmbSettings
+    public TerraformLiteralProperty<List<string>>? SmbSettings
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("smb_settings")?.Value;
-        set => this.WithProperty("smb_settings", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("smb_settings");
+        set => this.WithProperty("smb_settings", value);
     }
 
     /// <summary>
     /// If enabled, a NFS volume will contain a read-only .snapshot directory which provides access to each of the volume&#39;s snapshots. Will enable &amp;quot;Previous Versions&amp;quot; support for SMB.
     /// </summary>
-    public bool? SnapshotDirectory
+    public TerraformLiteralProperty<bool>? SnapshotDirectory
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("snapshot_directory")?.Value;
-        set => this.WithProperty("snapshot_directory", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("snapshot_directory");
+        set => this.WithProperty("snapshot_directory", value);
     }
 
     /// <summary>
     /// Name of the storage pool to create the volume in. Pool needs enough spare capacity to accommodate the volume.
     /// </summary>
-    public string? StoragePool
+    public TerraformLiteralProperty<string>? StoragePool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_pool")?.Value;
-        set => this.WithProperty("storage_pool", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_pool");
+        set => this.WithProperty("storage_pool", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public double? ThroughputMibps
+    public TerraformLiteralProperty<double>? ThroughputMibps
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("throughput_mibps")?.Value;
-        set => this.WithProperty("throughput_mibps", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("throughput_mibps");
+        set => this.WithProperty("throughput_mibps", value);
     }
 
     /// <summary>
     /// Unix permission the mount point will be created with. Default is 0770. Applicable for UNIX security style volumes only.
     /// </summary>
-    public string? UnixPermissions
+    public TerraformLiteralProperty<string>? UnixPermissions
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("unix_permissions")?.Value;
-        set => this.WithProperty("unix_permissions", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("unix_permissions");
+        set => this.WithProperty("unix_permissions", value);
     }
 
     /// <summary>

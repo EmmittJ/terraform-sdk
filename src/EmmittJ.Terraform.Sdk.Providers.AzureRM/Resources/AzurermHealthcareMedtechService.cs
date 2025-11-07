@@ -19,82 +19,82 @@ public class AzurermHealthcareMedtechService : TerraformResource
     /// <summary>
     /// The device_mapping_json attribute.
     /// </summary>
-    public string? DeviceMappingJson
+    public TerraformLiteralProperty<string>? DeviceMappingJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("device_mapping_json")?.Value;
-        set => this.WithProperty("device_mapping_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("device_mapping_json");
+        set => this.WithProperty("device_mapping_json", value);
     }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    public string? EventhubConsumerGroupName
+    public TerraformLiteralProperty<string>? EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name")?.Value;
-        set => this.WithProperty("eventhub_consumer_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name");
+        set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    public string? EventhubName
+    public TerraformLiteralProperty<string>? EventhubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name")?.Value;
-        set => this.WithProperty("eventhub_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name");
+        set => this.WithProperty("eventhub_name", value);
     }
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
     /// </summary>
-    public string? EventhubNamespaceName
+    public TerraformLiteralProperty<string>? EventhubNamespaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_name")?.Value;
-        set => this.WithProperty("eventhub_namespace_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_name");
+        set => this.WithProperty("eventhub_namespace_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
 }

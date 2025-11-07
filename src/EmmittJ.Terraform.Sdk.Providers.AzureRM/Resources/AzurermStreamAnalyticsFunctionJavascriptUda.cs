@@ -19,37 +19,37 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
-    public string? Script
+    public TerraformLiteralProperty<string>? Script
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("script")?.Value;
-        set => this.WithProperty("script", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("script");
+        set => this.WithProperty("script", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
-    public string? StreamAnalyticsJobId
+    public TerraformLiteralProperty<string>? StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id")?.Value;
-        set => this.WithProperty("stream_analytics_job_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id");
+        set => this.WithProperty("stream_analytics_job_id", value);
     }
 
 }

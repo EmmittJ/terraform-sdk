@@ -27,389 +27,389 @@ public class AwsRedshiftCluster : TerraformResource
     /// <summary>
     /// The allow_version_upgrade attribute.
     /// </summary>
-    public bool? AllowVersionUpgrade
+    public TerraformLiteralProperty<bool>? AllowVersionUpgrade
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_version_upgrade")?.Value;
-        set => this.WithProperty("allow_version_upgrade", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_version_upgrade");
+        set => this.WithProperty("allow_version_upgrade", value);
     }
 
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public bool? ApplyImmediately
+    public TerraformLiteralProperty<bool>? ApplyImmediately
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("apply_immediately")?.Value;
-        set => this.WithProperty("apply_immediately", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("apply_immediately");
+        set => this.WithProperty("apply_immediately", value);
     }
 
     /// <summary>
     /// The aqua_configuration_status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? AquaConfigurationStatus
+    public TerraformLiteralProperty<string>? AquaConfigurationStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aqua_configuration_status")?.Value;
-        set => this.WithProperty("aqua_configuration_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aqua_configuration_status");
+        set => this.WithProperty("aqua_configuration_status", value);
     }
 
     /// <summary>
     /// The automated_snapshot_retention_period attribute.
     /// </summary>
-    public double? AutomatedSnapshotRetentionPeriod
+    public TerraformLiteralProperty<double>? AutomatedSnapshotRetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("automated_snapshot_retention_period")?.Value;
-        set => this.WithProperty("automated_snapshot_retention_period", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("automated_snapshot_retention_period");
+        set => this.WithProperty("automated_snapshot_retention_period", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The availability_zone_relocation_enabled attribute.
     /// </summary>
-    public bool? AvailabilityZoneRelocationEnabled
+    public TerraformLiteralProperty<bool>? AvailabilityZoneRelocationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("availability_zone_relocation_enabled")?.Value;
-        set => this.WithProperty("availability_zone_relocation_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("availability_zone_relocation_enabled");
+        set => this.WithProperty("availability_zone_relocation_enabled", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public string? ClusterIdentifier
+    public TerraformLiteralProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier")?.Value;
-        set => this.WithProperty("cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The cluster_parameter_group_name attribute.
     /// </summary>
-    public string? ClusterParameterGroupName
+    public TerraformLiteralProperty<string>? ClusterParameterGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_parameter_group_name")?.Value;
-        set => this.WithProperty("cluster_parameter_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_parameter_group_name");
+        set => this.WithProperty("cluster_parameter_group_name", value);
     }
 
     /// <summary>
     /// The cluster_subnet_group_name attribute.
     /// </summary>
-    public string? ClusterSubnetGroupName
+    public TerraformLiteralProperty<string>? ClusterSubnetGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_subnet_group_name")?.Value;
-        set => this.WithProperty("cluster_subnet_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_subnet_group_name");
+        set => this.WithProperty("cluster_subnet_group_name", value);
     }
 
     /// <summary>
     /// The cluster_type attribute.
     /// </summary>
-    public string? ClusterType
+    public TerraformLiteralProperty<string>? ClusterType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_type")?.Value;
-        set => this.WithProperty("cluster_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_type");
+        set => this.WithProperty("cluster_type", value);
     }
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
-    public string? ClusterVersion
+    public TerraformLiteralProperty<string>? ClusterVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_version")?.Value;
-        set => this.WithProperty("cluster_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_version");
+        set => this.WithProperty("cluster_version", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public string? DatabaseName
+    public TerraformLiteralProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name")?.Value;
-        set => this.WithProperty("database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
-    public string? DefaultIamRoleArn
+    public TerraformLiteralProperty<string>? DefaultIamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_iam_role_arn")?.Value;
-        set => this.WithProperty("default_iam_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_iam_role_arn");
+        set => this.WithProperty("default_iam_role_arn", value);
     }
 
     /// <summary>
     /// The elastic_ip attribute.
     /// </summary>
-    public string? ElasticIp
+    public TerraformLiteralProperty<string>? ElasticIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("elastic_ip")?.Value;
-        set => this.WithProperty("elastic_ip", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("elastic_ip");
+        set => this.WithProperty("elastic_ip", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public string? Encrypted
+    public TerraformLiteralProperty<string>? Encrypted
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encrypted")?.Value;
-        set => this.WithProperty("encrypted", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encrypted");
+        set => this.WithProperty("encrypted", value);
     }
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
-    public bool? EnhancedVpcRouting
+    public TerraformLiteralProperty<bool>? EnhancedVpcRouting
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enhanced_vpc_routing")?.Value;
-        set => this.WithProperty("enhanced_vpc_routing", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enhanced_vpc_routing");
+        set => this.WithProperty("enhanced_vpc_routing", value);
     }
 
     /// <summary>
     /// The final_snapshot_identifier attribute.
     /// </summary>
-    public string? FinalSnapshotIdentifier
+    public TerraformLiteralProperty<string>? FinalSnapshotIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("final_snapshot_identifier")?.Value;
-        set => this.WithProperty("final_snapshot_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("final_snapshot_identifier");
+        set => this.WithProperty("final_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The iam_roles attribute.
     /// </summary>
-    public HashSet<string>? IamRoles
+    public TerraformLiteralProperty<HashSet<string>>? IamRoles
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("iam_roles")?.Value;
-        set => this.WithProperty("iam_roles", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("iam_roles");
+        set => this.WithProperty("iam_roles", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The maintenance_track_name attribute.
     /// </summary>
-    public string? MaintenanceTrackName
+    public TerraformLiteralProperty<string>? MaintenanceTrackName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_track_name")?.Value;
-        set => this.WithProperty("maintenance_track_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_track_name");
+        set => this.WithProperty("maintenance_track_name", value);
     }
 
     /// <summary>
     /// The manage_master_password attribute.
     /// </summary>
-    public bool? ManageMasterPassword
+    public TerraformLiteralProperty<bool>? ManageMasterPassword
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("manage_master_password")?.Value;
-        set => this.WithProperty("manage_master_password", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("manage_master_password");
+        set => this.WithProperty("manage_master_password", value);
     }
 
     /// <summary>
     /// The manual_snapshot_retention_period attribute.
     /// </summary>
-    public double? ManualSnapshotRetentionPeriod
+    public TerraformLiteralProperty<double>? ManualSnapshotRetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("manual_snapshot_retention_period")?.Value;
-        set => this.WithProperty("manual_snapshot_retention_period", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("manual_snapshot_retention_period");
+        set => this.WithProperty("manual_snapshot_retention_period", value);
     }
 
     /// <summary>
     /// The master_password attribute.
     /// </summary>
-    public string? MasterPassword
+    public TerraformLiteralProperty<string>? MasterPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_password")?.Value;
-        set => this.WithProperty("master_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_password");
+        set => this.WithProperty("master_password", value);
     }
 
     /// <summary>
     /// The master_password_secret_kms_key_id attribute.
     /// </summary>
-    public string? MasterPasswordSecretKmsKeyId
+    public TerraformLiteralProperty<string>? MasterPasswordSecretKmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_password_secret_kms_key_id")?.Value;
-        set => this.WithProperty("master_password_secret_kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_password_secret_kms_key_id");
+        set => this.WithProperty("master_password_secret_kms_key_id", value);
     }
 
     /// <summary>
     /// The master_password_wo attribute.
     /// </summary>
-    public string? MasterPasswordWo
+    public TerraformLiteralProperty<string>? MasterPasswordWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_password_wo")?.Value;
-        set => this.WithProperty("master_password_wo", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_password_wo");
+        set => this.WithProperty("master_password_wo", value);
     }
 
     /// <summary>
     /// The master_password_wo_version attribute.
     /// </summary>
-    public double? MasterPasswordWoVersion
+    public TerraformLiteralProperty<double>? MasterPasswordWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("master_password_wo_version")?.Value;
-        set => this.WithProperty("master_password_wo_version", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("master_password_wo_version");
+        set => this.WithProperty("master_password_wo_version", value);
     }
 
     /// <summary>
     /// The master_username attribute.
     /// </summary>
-    public string? MasterUsername
+    public TerraformLiteralProperty<string>? MasterUsername
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_username")?.Value;
-        set => this.WithProperty("master_username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_username");
+        set => this.WithProperty("master_username", value);
     }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public bool? MultiAz
+    public TerraformLiteralProperty<bool>? MultiAz
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("multi_az")?.Value;
-        set => this.WithProperty("multi_az", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("multi_az");
+        set => this.WithProperty("multi_az", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public string? NodeType
+    public TerraformLiteralProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type")?.Value;
-        set => this.WithProperty("node_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
-    public double? NumberOfNodes
+    public TerraformLiteralProperty<double>? NumberOfNodes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("number_of_nodes")?.Value;
-        set => this.WithProperty("number_of_nodes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("number_of_nodes");
+        set => this.WithProperty("number_of_nodes", value);
     }
 
     /// <summary>
     /// The owner_account attribute.
     /// </summary>
-    public string? OwnerAccount
+    public TerraformLiteralProperty<string>? OwnerAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner_account")?.Value;
-        set => this.WithProperty("owner_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("owner_account");
+        set => this.WithProperty("owner_account", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public string? PreferredMaintenanceWindow
+    public TerraformLiteralProperty<string>? PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window")?.Value;
-        set => this.WithProperty("preferred_maintenance_window", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window");
+        set => this.WithProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public bool? PubliclyAccessible
+    public TerraformLiteralProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible")?.Value;
-        set => this.WithProperty("publicly_accessible", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The skip_final_snapshot attribute.
     /// </summary>
-    public bool? SkipFinalSnapshot
+    public TerraformLiteralProperty<bool>? SkipFinalSnapshot
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_snapshot")?.Value;
-        set => this.WithProperty("skip_final_snapshot", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_snapshot");
+        set => this.WithProperty("skip_final_snapshot", value);
     }
 
     /// <summary>
     /// The snapshot_arn attribute.
     /// </summary>
-    public string? SnapshotArn
+    public TerraformLiteralProperty<string>? SnapshotArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_arn")?.Value;
-        set => this.WithProperty("snapshot_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_arn");
+        set => this.WithProperty("snapshot_arn", value);
     }
 
     /// <summary>
     /// The snapshot_cluster_identifier attribute.
     /// </summary>
-    public string? SnapshotClusterIdentifier
+    public TerraformLiteralProperty<string>? SnapshotClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_cluster_identifier")?.Value;
-        set => this.WithProperty("snapshot_cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_cluster_identifier");
+        set => this.WithProperty("snapshot_cluster_identifier", value);
     }
 
     /// <summary>
     /// The snapshot_identifier attribute.
     /// </summary>
-    public string? SnapshotIdentifier
+    public TerraformLiteralProperty<string>? SnapshotIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_identifier")?.Value;
-        set => this.WithProperty("snapshot_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_identifier");
+        set => this.WithProperty("snapshot_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? VpcSecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids")?.Value;
-        set => this.WithProperty("vpc_security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids");
+        set => this.WithProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>

@@ -19,55 +19,55 @@ public class AzurermLogAnalyticsWorkspaceTable : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    public string? Plan
+    public TerraformLiteralProperty<string>? Plan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan")?.Value;
-        set => this.WithProperty("plan", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plan");
+        set => this.WithProperty("plan", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public double? RetentionInDays
+    public TerraformLiteralProperty<double>? RetentionInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_in_days")?.Value;
-        set => this.WithProperty("retention_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("retention_in_days");
+        set => this.WithProperty("retention_in_days", value);
     }
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
-    public double? TotalRetentionInDays
+    public TerraformLiteralProperty<double>? TotalRetentionInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("total_retention_in_days")?.Value;
-        set => this.WithProperty("total_retention_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("total_retention_in_days");
+        set => this.WithProperty("total_retention_in_days", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
 }

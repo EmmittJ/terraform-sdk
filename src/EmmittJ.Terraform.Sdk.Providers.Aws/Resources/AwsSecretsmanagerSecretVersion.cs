@@ -22,73 +22,73 @@ public class AwsSecretsmanagerSecretVersion : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The secret_binary attribute.
     /// </summary>
-    public string? SecretBinary
+    public TerraformLiteralProperty<string>? SecretBinary
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_binary")?.Value;
-        set => this.WithProperty("secret_binary", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secret_binary");
+        set => this.WithProperty("secret_binary", value);
     }
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
-    public string? SecretId
+    public TerraformLiteralProperty<string>? SecretId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_id")?.Value;
-        set => this.WithProperty("secret_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secret_id");
+        set => this.WithProperty("secret_id", value);
     }
 
     /// <summary>
     /// The secret_string attribute.
     /// </summary>
-    public string? SecretString
+    public TerraformLiteralProperty<string>? SecretString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_string")?.Value;
-        set => this.WithProperty("secret_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secret_string");
+        set => this.WithProperty("secret_string", value);
     }
 
     /// <summary>
     /// The secret_string_wo attribute.
     /// </summary>
-    public string? SecretStringWo
+    public TerraformLiteralProperty<string>? SecretStringWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_string_wo")?.Value;
-        set => this.WithProperty("secret_string_wo", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secret_string_wo");
+        set => this.WithProperty("secret_string_wo", value);
     }
 
     /// <summary>
     /// The secret_string_wo_version attribute.
     /// </summary>
-    public double? SecretStringWoVersion
+    public TerraformLiteralProperty<double>? SecretStringWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("secret_string_wo_version")?.Value;
-        set => this.WithProperty("secret_string_wo_version", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("secret_string_wo_version");
+        set => this.WithProperty("secret_string_wo_version", value);
     }
 
     /// <summary>
     /// The version_stages attribute.
     /// </summary>
-    public HashSet<string>? VersionStages
+    public TerraformLiteralProperty<HashSet<string>>? VersionStages
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("version_stages")?.Value;
-        set => this.WithProperty("version_stages", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("version_stages");
+        set => this.WithProperty("version_stages", value);
     }
 
     /// <summary>

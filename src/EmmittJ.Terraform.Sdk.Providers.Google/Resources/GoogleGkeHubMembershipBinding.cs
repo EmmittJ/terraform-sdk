@@ -27,10 +27,10 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -40,56 +40,56 @@ public class GoogleGkeHubMembershipBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location of the membership
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The client-provided identifier of the membership binding.
     /// </summary>
-    public string? MembershipBindingId
+    public TerraformLiteralProperty<string>? MembershipBindingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("membership_binding_id")?.Value;
-        set => this.WithProperty("membership_binding_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("membership_binding_id");
+        set => this.WithProperty("membership_binding_id", value);
     }
 
     /// <summary>
     /// Id of the membership
     /// </summary>
-    public string? MembershipId
+    public TerraformLiteralProperty<string>? MembershipId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("membership_id")?.Value;
-        set => this.WithProperty("membership_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("membership_id");
+        set => this.WithProperty("membership_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A Workspace resource name in the format
     /// &#39;projects/*/locations/*/scopes/*&#39;.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>

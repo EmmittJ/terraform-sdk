@@ -19,73 +19,73 @@ public class AwsS3BucketPublicAccessBlock : TerraformResource
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
-    public bool? BlockPublicAcls
+    public TerraformLiteralProperty<bool>? BlockPublicAcls
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_acls")?.Value;
-        set => this.WithProperty("block_public_acls", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_acls");
+        set => this.WithProperty("block_public_acls", value);
     }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    public bool? BlockPublicPolicy
+    public TerraformLiteralProperty<bool>? BlockPublicPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_policy")?.Value;
-        set => this.WithProperty("block_public_policy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_policy");
+        set => this.WithProperty("block_public_policy", value);
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
-    public bool? IgnorePublicAcls
+    public TerraformLiteralProperty<bool>? IgnorePublicAcls
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_public_acls")?.Value;
-        set => this.WithProperty("ignore_public_acls", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_public_acls");
+        set => this.WithProperty("ignore_public_acls", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
-    public bool? RestrictPublicBuckets
+    public TerraformLiteralProperty<bool>? RestrictPublicBuckets
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("restrict_public_buckets")?.Value;
-        set => this.WithProperty("restrict_public_buckets", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("restrict_public_buckets");
+        set => this.WithProperty("restrict_public_buckets", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public bool? SkipDestroy
+    public TerraformLiteralProperty<bool>? SkipDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy")?.Value;
-        set => this.WithProperty("skip_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy");
+        set => this.WithProperty("skip_destroy", value);
     }
 
 }

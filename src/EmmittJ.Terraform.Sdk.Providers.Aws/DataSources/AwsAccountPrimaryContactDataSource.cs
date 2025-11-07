@@ -31,10 +31,10 @@ public class AwsAccountPrimaryContactDataSource : TerraformDataSource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public string? AccountId
+    public TerraformLiteralProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id")?.Value;
-        set => this.WithProperty("account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        set => this.WithProperty("account_id", value);
     }
 
     /// <summary>

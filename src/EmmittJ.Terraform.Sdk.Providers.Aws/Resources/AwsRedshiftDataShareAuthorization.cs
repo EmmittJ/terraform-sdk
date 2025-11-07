@@ -22,37 +22,37 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
     /// <summary>
     /// The allow_writes attribute.
     /// </summary>
-    public bool? AllowWrites
+    public TerraformLiteralProperty<bool>? AllowWrites
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_writes")?.Value;
-        set => this.WithProperty("allow_writes", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_writes");
+        set => this.WithProperty("allow_writes", value);
     }
 
     /// <summary>
     /// The consumer_identifier attribute.
     /// </summary>
-    public string? ConsumerIdentifier
+    public TerraformLiteralProperty<string>? ConsumerIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consumer_identifier")?.Value;
-        set => this.WithProperty("consumer_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("consumer_identifier");
+        set => this.WithProperty("consumer_identifier", value);
     }
 
     /// <summary>
     /// The data_share_arn attribute.
     /// </summary>
-    public string? DataShareArn
+    public TerraformLiteralProperty<string>? DataShareArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_share_arn")?.Value;
-        set => this.WithProperty("data_share_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_share_arn");
+        set => this.WithProperty("data_share_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

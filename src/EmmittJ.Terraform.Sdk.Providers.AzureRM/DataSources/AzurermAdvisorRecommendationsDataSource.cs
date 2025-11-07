@@ -20,28 +20,28 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
     /// <summary>
     /// The filter_by_category attribute.
     /// </summary>
-    public HashSet<string>? FilterByCategory
+    public TerraformLiteralProperty<HashSet<string>>? FilterByCategory
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filter_by_category")?.Value;
-        set => this.WithProperty("filter_by_category", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filter_by_category");
+        set => this.WithProperty("filter_by_category", value);
     }
 
     /// <summary>
     /// The filter_by_resource_groups attribute.
     /// </summary>
-    public HashSet<string>? FilterByResourceGroups
+    public TerraformLiteralProperty<HashSet<string>>? FilterByResourceGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filter_by_resource_groups")?.Value;
-        set => this.WithProperty("filter_by_resource_groups", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filter_by_resource_groups");
+        set => this.WithProperty("filter_by_resource_groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

@@ -20,37 +20,37 @@ public class AwsGlobalacceleratorListener : TerraformResource
     /// <summary>
     /// The accelerator_arn attribute.
     /// </summary>
-    public string? AcceleratorArn
+    public TerraformLiteralProperty<string>? AcceleratorArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("accelerator_arn")?.Value;
-        set => this.WithProperty("accelerator_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("accelerator_arn");
+        set => this.WithProperty("accelerator_arn", value);
     }
 
     /// <summary>
     /// The client_affinity attribute.
     /// </summary>
-    public string? ClientAffinity
+    public TerraformLiteralProperty<string>? ClientAffinity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_affinity")?.Value;
-        set => this.WithProperty("client_affinity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_affinity");
+        set => this.WithProperty("client_affinity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>

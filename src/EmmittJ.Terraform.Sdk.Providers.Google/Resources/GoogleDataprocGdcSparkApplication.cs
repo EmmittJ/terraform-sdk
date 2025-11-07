@@ -34,46 +34,46 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// An ApplicationEnvironment from which to inherit configuration properties.
     /// </summary>
-    public string? ApplicationEnvironment
+    public TerraformLiteralProperty<string>? ApplicationEnvironment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_environment")?.Value;
-        set => this.WithProperty("application_environment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_environment");
+        set => this.WithProperty("application_environment", value);
     }
 
     /// <summary>
     /// List of container image uris for additional file dependencies. Dependent files are sequentially copied from each image. If a file with the same name exists in 2 images then the file from later image is used.
     /// </summary>
-    public List<string>? DependencyImages
+    public TerraformLiteralProperty<List<string>>? DependencyImages
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("dependency_images")?.Value;
-        set => this.WithProperty("dependency_images", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("dependency_images");
+        set => this.WithProperty("dependency_images", value);
     }
 
     /// <summary>
     /// User-provided human-readable name to be used in user interfaces.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -82,73 +82,73 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the spark application.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The Kubernetes namespace in which to create the application. This namespace must already exist on the cluster.
     /// </summary>
-    public string? Namespace
+    public TerraformLiteralProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace")?.Value;
-        set => this.WithProperty("namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// application-specific properties.
     /// </summary>
-    public Dictionary<string, string>? Properties
+    public TerraformLiteralProperty<Dictionary<string, string>>? Properties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties")?.Value;
-        set => this.WithProperty("properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties");
+        set => this.WithProperty("properties", value);
     }
 
     /// <summary>
     /// The id of the service instance to which this spark application belongs.
     /// </summary>
-    public string? Serviceinstance
+    public TerraformLiteralProperty<string>? Serviceinstance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("serviceinstance")?.Value;
-        set => this.WithProperty("serviceinstance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("serviceinstance");
+        set => this.WithProperty("serviceinstance", value);
     }
 
     /// <summary>
     /// The id of the application
     /// </summary>
-    public string? SparkApplicationId
+    public TerraformLiteralProperty<string>? SparkApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spark_application_id")?.Value;
-        set => this.WithProperty("spark_application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spark_application_id");
+        set => this.WithProperty("spark_application_id", value);
     }
 
     /// <summary>
     /// The Dataproc version of this application.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

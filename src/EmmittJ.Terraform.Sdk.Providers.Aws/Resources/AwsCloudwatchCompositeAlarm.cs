@@ -20,100 +20,100 @@ public class AwsCloudwatchCompositeAlarm : TerraformResource
     /// <summary>
     /// The actions_enabled attribute.
     /// </summary>
-    public bool? ActionsEnabled
+    public TerraformLiteralProperty<bool>? ActionsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("actions_enabled")?.Value;
-        set => this.WithProperty("actions_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("actions_enabled");
+        set => this.WithProperty("actions_enabled", value);
     }
 
     /// <summary>
     /// The alarm_actions attribute.
     /// </summary>
-    public HashSet<string>? AlarmActions
+    public TerraformLiteralProperty<HashSet<string>>? AlarmActions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("alarm_actions")?.Value;
-        set => this.WithProperty("alarm_actions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("alarm_actions");
+        set => this.WithProperty("alarm_actions", value);
     }
 
     /// <summary>
     /// The alarm_description attribute.
     /// </summary>
-    public string? AlarmDescription
+    public TerraformLiteralProperty<string>? AlarmDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alarm_description")?.Value;
-        set => this.WithProperty("alarm_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alarm_description");
+        set => this.WithProperty("alarm_description", value);
     }
 
     /// <summary>
     /// The alarm_name attribute.
     /// </summary>
-    public string? AlarmName
+    public TerraformLiteralProperty<string>? AlarmName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alarm_name")?.Value;
-        set => this.WithProperty("alarm_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alarm_name");
+        set => this.WithProperty("alarm_name", value);
     }
 
     /// <summary>
     /// The alarm_rule attribute.
     /// </summary>
-    public string? AlarmRule
+    public TerraformLiteralProperty<string>? AlarmRule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alarm_rule")?.Value;
-        set => this.WithProperty("alarm_rule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alarm_rule");
+        set => this.WithProperty("alarm_rule", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The insufficient_data_actions attribute.
     /// </summary>
-    public HashSet<string>? InsufficientDataActions
+    public TerraformLiteralProperty<HashSet<string>>? InsufficientDataActions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("insufficient_data_actions")?.Value;
-        set => this.WithProperty("insufficient_data_actions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("insufficient_data_actions");
+        set => this.WithProperty("insufficient_data_actions", value);
     }
 
     /// <summary>
     /// The ok_actions attribute.
     /// </summary>
-    public HashSet<string>? OkActions
+    public TerraformLiteralProperty<HashSet<string>>? OkActions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("ok_actions")?.Value;
-        set => this.WithProperty("ok_actions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("ok_actions");
+        set => this.WithProperty("ok_actions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

@@ -20,28 +20,28 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformResource
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public string? EndpointGroupRegion
+    public TerraformLiteralProperty<string>? EndpointGroupRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_group_region")?.Value;
-        set => this.WithProperty("endpoint_group_region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_group_region");
+        set => this.WithProperty("endpoint_group_region", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public string? ListenerArn
+    public TerraformLiteralProperty<string>? ListenerArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("listener_arn")?.Value;
-        set => this.WithProperty("listener_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("listener_arn");
+        set => this.WithProperty("listener_arn", value);
     }
 
     /// <summary>

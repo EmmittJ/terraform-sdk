@@ -20,55 +20,55 @@ public class GoogleCloudfunctionsFunctionIamBinding : TerraformResource
     /// <summary>
     /// The cloud_function attribute.
     /// </summary>
-    public string? CloudFunction
+    public TerraformLiteralProperty<string>? CloudFunction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_function")?.Value;
-        set => this.WithProperty("cloud_function", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloud_function");
+        set => this.WithProperty("cloud_function", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public HashSet<string>? Members
+    public TerraformLiteralProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members")?.Value;
-        set => this.WithProperty("members", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>

@@ -20,28 +20,28 @@ public class AwsRoute53CidrLocation : TerraformResource
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
-    public HashSet<string>? CidrBlocks
+    public TerraformLiteralProperty<HashSet<string>>? CidrBlocks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cidr_blocks")?.Value;
-        set => this.WithProperty("cidr_blocks", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cidr_blocks");
+        set => this.WithProperty("cidr_blocks", value);
     }
 
     /// <summary>
     /// The cidr_collection_id attribute.
     /// </summary>
-    public string? CidrCollectionId
+    public TerraformLiteralProperty<string>? CidrCollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_collection_id")?.Value;
-        set => this.WithProperty("cidr_collection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr_collection_id");
+        set => this.WithProperty("cidr_collection_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

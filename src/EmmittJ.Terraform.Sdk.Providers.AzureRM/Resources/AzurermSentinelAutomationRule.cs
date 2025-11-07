@@ -19,91 +19,91 @@ public class AzurermSentinelAutomationRule : TerraformResource
     /// <summary>
     /// The condition_json attribute.
     /// </summary>
-    public string? ConditionJson
+    public TerraformLiteralProperty<string>? ConditionJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition_json")?.Value;
-        set => this.WithProperty("condition_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("condition_json");
+        set => this.WithProperty("condition_json", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
-    public string? Expiration
+    public TerraformLiteralProperty<string>? Expiration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration")?.Value;
-        set => this.WithProperty("expiration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expiration");
+        set => this.WithProperty("expiration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public string? LogAnalyticsWorkspaceId
+    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id")?.Value;
-        set => this.WithProperty("log_analytics_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public double? Order
+    public TerraformLiteralProperty<double>? Order
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("order")?.Value;
-        set => this.WithProperty("order", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("order");
+        set => this.WithProperty("order", value);
     }
 
     /// <summary>
     /// The triggers_on attribute.
     /// </summary>
-    public string? TriggersOn
+    public TerraformLiteralProperty<string>? TriggersOn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("triggers_on")?.Value;
-        set => this.WithProperty("triggers_on", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("triggers_on");
+        set => this.WithProperty("triggers_on", value);
     }
 
     /// <summary>
     /// The triggers_when attribute.
     /// </summary>
-    public string? TriggersWhen
+    public TerraformLiteralProperty<string>? TriggersWhen
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("triggers_when")?.Value;
-        set => this.WithProperty("triggers_when", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("triggers_when");
+        set => this.WithProperty("triggers_when", value);
     }
 
 }

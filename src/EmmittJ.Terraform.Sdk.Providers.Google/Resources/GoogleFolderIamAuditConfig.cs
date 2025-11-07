@@ -20,28 +20,28 @@ public class GoogleFolderIamAuditConfig : TerraformResource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public string? Folder
+    public TerraformLiteralProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder")?.Value;
-        set => this.WithProperty("folder", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Service which will be enabled for audit logging. The special value allServices covers all services.
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
     /// <summary>

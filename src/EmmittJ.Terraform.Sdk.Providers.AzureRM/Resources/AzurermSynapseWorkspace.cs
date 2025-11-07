@@ -20,154 +20,154 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// <summary>
     /// The azuread_authentication_only attribute.
     /// </summary>
-    public bool? AzureadAuthenticationOnly
+    public TerraformLiteralProperty<bool>? AzureadAuthenticationOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("azuread_authentication_only")?.Value;
-        set => this.WithProperty("azuread_authentication_only", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("azuread_authentication_only");
+        set => this.WithProperty("azuread_authentication_only", value);
     }
 
     /// <summary>
     /// The compute_subnet_id attribute.
     /// </summary>
-    public string? ComputeSubnetId
+    public TerraformLiteralProperty<string>? ComputeSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_subnet_id")?.Value;
-        set => this.WithProperty("compute_subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compute_subnet_id");
+        set => this.WithProperty("compute_subnet_id", value);
     }
 
     /// <summary>
     /// The data_exfiltration_protection_enabled attribute.
     /// </summary>
-    public bool? DataExfiltrationProtectionEnabled
+    public TerraformLiteralProperty<bool>? DataExfiltrationProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("data_exfiltration_protection_enabled")?.Value;
-        set => this.WithProperty("data_exfiltration_protection_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("data_exfiltration_protection_enabled");
+        set => this.WithProperty("data_exfiltration_protection_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The linking_allowed_for_aad_tenant_ids attribute.
     /// </summary>
-    public List<string>? LinkingAllowedForAadTenantIds
+    public TerraformLiteralProperty<List<string>>? LinkingAllowedForAadTenantIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("linking_allowed_for_aad_tenant_ids")?.Value;
-        set => this.WithProperty("linking_allowed_for_aad_tenant_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("linking_allowed_for_aad_tenant_ids");
+        set => this.WithProperty("linking_allowed_for_aad_tenant_ids", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public string? ManagedResourceGroupName
+    public TerraformLiteralProperty<string>? ManagedResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group_name")?.Value;
-        set => this.WithProperty("managed_resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group_name");
+        set => this.WithProperty("managed_resource_group_name", value);
     }
 
     /// <summary>
     /// The managed_virtual_network_enabled attribute.
     /// </summary>
-    public bool? ManagedVirtualNetworkEnabled
+    public TerraformLiteralProperty<bool>? ManagedVirtualNetworkEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("managed_virtual_network_enabled")?.Value;
-        set => this.WithProperty("managed_virtual_network_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("managed_virtual_network_enabled");
+        set => this.WithProperty("managed_virtual_network_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public bool? PublicNetworkAccessEnabled
+    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled")?.Value;
-        set => this.WithProperty("public_network_access_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The purview_id attribute.
     /// </summary>
-    public string? PurviewId
+    public TerraformLiteralProperty<string>? PurviewId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("purview_id")?.Value;
-        set => this.WithProperty("purview_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("purview_id");
+        set => this.WithProperty("purview_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sql_administrator_login attribute.
     /// </summary>
-    public string? SqlAdministratorLogin
+    public TerraformLiteralProperty<string>? SqlAdministratorLogin
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_administrator_login")?.Value;
-        set => this.WithProperty("sql_administrator_login", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sql_administrator_login");
+        set => this.WithProperty("sql_administrator_login", value);
     }
 
     /// <summary>
     /// The sql_administrator_login_password attribute.
     /// </summary>
-    public string? SqlAdministratorLoginPassword
+    public TerraformLiteralProperty<string>? SqlAdministratorLoginPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_administrator_login_password")?.Value;
-        set => this.WithProperty("sql_administrator_login_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sql_administrator_login_password");
+        set => this.WithProperty("sql_administrator_login_password", value);
     }
 
     /// <summary>
     /// The sql_identity_control_enabled attribute.
     /// </summary>
-    public bool? SqlIdentityControlEnabled
+    public TerraformLiteralProperty<bool>? SqlIdentityControlEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sql_identity_control_enabled")?.Value;
-        set => this.WithProperty("sql_identity_control_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sql_identity_control_enabled");
+        set => this.WithProperty("sql_identity_control_enabled", value);
     }
 
     /// <summary>
     /// The storage_data_lake_gen2_filesystem_id attribute.
     /// </summary>
-    public string? StorageDataLakeGen2FilesystemId
+    public TerraformLiteralProperty<string>? StorageDataLakeGen2FilesystemId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_data_lake_gen2_filesystem_id")?.Value;
-        set => this.WithProperty("storage_data_lake_gen2_filesystem_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_data_lake_gen2_filesystem_id");
+        set => this.WithProperty("storage_data_lake_gen2_filesystem_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

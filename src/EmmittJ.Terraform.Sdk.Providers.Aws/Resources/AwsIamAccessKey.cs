@@ -25,37 +25,37 @@ public class AwsIamAccessKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    public string? PgpKey
+    public TerraformLiteralProperty<string>? PgpKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pgp_key")?.Value;
-        set => this.WithProperty("pgp_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pgp_key");
+        set => this.WithProperty("pgp_key", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public string? User
+    public TerraformLiteralProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user")?.Value;
-        set => this.WithProperty("user", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        set => this.WithProperty("user", value);
     }
 
     /// <summary>

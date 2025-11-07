@@ -23,73 +23,73 @@ public class AwsRdsShardGroup : TerraformResource
     /// <summary>
     /// The compute_redundancy attribute.
     /// </summary>
-    public double? ComputeRedundancy
+    public TerraformLiteralProperty<double>? ComputeRedundancy
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("compute_redundancy")?.Value;
-        set => this.WithProperty("compute_redundancy", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("compute_redundancy");
+        set => this.WithProperty("compute_redundancy", value);
     }
 
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public string? DbClusterIdentifier
+    public TerraformLiteralProperty<string>? DbClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier")?.Value;
-        set => this.WithProperty("db_cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier");
+        set => this.WithProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_shard_group_identifier attribute.
     /// </summary>
-    public string? DbShardGroupIdentifier
+    public TerraformLiteralProperty<string>? DbShardGroupIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_shard_group_identifier")?.Value;
-        set => this.WithProperty("db_shard_group_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_shard_group_identifier");
+        set => this.WithProperty("db_shard_group_identifier", value);
     }
 
     /// <summary>
     /// The max_acu attribute.
     /// </summary>
-    public double? MaxAcu
+    public TerraformLiteralProperty<double>? MaxAcu
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_acu")?.Value;
-        set => this.WithProperty("max_acu", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_acu");
+        set => this.WithProperty("max_acu", value);
     }
 
     /// <summary>
     /// The min_acu attribute.
     /// </summary>
-    public double? MinAcu
+    public TerraformLiteralProperty<double>? MinAcu
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_acu")?.Value;
-        set => this.WithProperty("min_acu", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_acu");
+        set => this.WithProperty("min_acu", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public bool? PubliclyAccessible
+    public TerraformLiteralProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible")?.Value;
-        set => this.WithProperty("publicly_accessible", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

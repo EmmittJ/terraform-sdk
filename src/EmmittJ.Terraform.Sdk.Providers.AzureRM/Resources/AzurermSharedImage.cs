@@ -19,244 +19,244 @@ public class AzurermSharedImage : TerraformResource
     /// <summary>
     /// The accelerated_network_support_enabled attribute.
     /// </summary>
-    public bool? AcceleratedNetworkSupportEnabled
+    public TerraformLiteralProperty<bool>? AcceleratedNetworkSupportEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("accelerated_network_support_enabled")?.Value;
-        set => this.WithProperty("accelerated_network_support_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("accelerated_network_support_enabled");
+        set => this.WithProperty("accelerated_network_support_enabled", value);
     }
 
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    public string? Architecture
+    public TerraformLiteralProperty<string>? Architecture
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("architecture")?.Value;
-        set => this.WithProperty("architecture", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("architecture");
+        set => this.WithProperty("architecture", value);
     }
 
     /// <summary>
     /// The confidential_vm_enabled attribute.
     /// </summary>
-    public bool? ConfidentialVmEnabled
+    public TerraformLiteralProperty<bool>? ConfidentialVmEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("confidential_vm_enabled")?.Value;
-        set => this.WithProperty("confidential_vm_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("confidential_vm_enabled");
+        set => this.WithProperty("confidential_vm_enabled", value);
     }
 
     /// <summary>
     /// The confidential_vm_supported attribute.
     /// </summary>
-    public bool? ConfidentialVmSupported
+    public TerraformLiteralProperty<bool>? ConfidentialVmSupported
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("confidential_vm_supported")?.Value;
-        set => this.WithProperty("confidential_vm_supported", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("confidential_vm_supported");
+        set => this.WithProperty("confidential_vm_supported", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The disk_controller_type_nvme_enabled attribute.
     /// </summary>
-    public bool? DiskControllerTypeNvmeEnabled
+    public TerraformLiteralProperty<bool>? DiskControllerTypeNvmeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disk_controller_type_nvme_enabled")?.Value;
-        set => this.WithProperty("disk_controller_type_nvme_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disk_controller_type_nvme_enabled");
+        set => this.WithProperty("disk_controller_type_nvme_enabled", value);
     }
 
     /// <summary>
     /// The disk_types_not_allowed attribute.
     /// </summary>
-    public HashSet<string>? DiskTypesNotAllowed
+    public TerraformLiteralProperty<HashSet<string>>? DiskTypesNotAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("disk_types_not_allowed")?.Value;
-        set => this.WithProperty("disk_types_not_allowed", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("disk_types_not_allowed");
+        set => this.WithProperty("disk_types_not_allowed", value);
     }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    public string? EndOfLifeDate
+    public TerraformLiteralProperty<string>? EndOfLifeDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_of_life_date")?.Value;
-        set => this.WithProperty("end_of_life_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_of_life_date");
+        set => this.WithProperty("end_of_life_date", value);
     }
 
     /// <summary>
     /// The eula attribute.
     /// </summary>
-    public string? Eula
+    public TerraformLiteralProperty<string>? Eula
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eula")?.Value;
-        set => this.WithProperty("eula", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eula");
+        set => this.WithProperty("eula", value);
     }
 
     /// <summary>
     /// The gallery_name attribute.
     /// </summary>
-    public string? GalleryName
+    public TerraformLiteralProperty<string>? GalleryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gallery_name")?.Value;
-        set => this.WithProperty("gallery_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gallery_name");
+        set => this.WithProperty("gallery_name", value);
     }
 
     /// <summary>
     /// The hibernation_enabled attribute.
     /// </summary>
-    public bool? HibernationEnabled
+    public TerraformLiteralProperty<bool>? HibernationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("hibernation_enabled")?.Value;
-        set => this.WithProperty("hibernation_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("hibernation_enabled");
+        set => this.WithProperty("hibernation_enabled", value);
     }
 
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    public string? HyperVGeneration
+    public TerraformLiteralProperty<string>? HyperVGeneration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hyper_v_generation")?.Value;
-        set => this.WithProperty("hyper_v_generation", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hyper_v_generation");
+        set => this.WithProperty("hyper_v_generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The max_recommended_memory_in_gb attribute.
     /// </summary>
-    public double? MaxRecommendedMemoryInGb
+    public TerraformLiteralProperty<double>? MaxRecommendedMemoryInGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_recommended_memory_in_gb")?.Value;
-        set => this.WithProperty("max_recommended_memory_in_gb", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_recommended_memory_in_gb");
+        set => this.WithProperty("max_recommended_memory_in_gb", value);
     }
 
     /// <summary>
     /// The max_recommended_vcpu_count attribute.
     /// </summary>
-    public double? MaxRecommendedVcpuCount
+    public TerraformLiteralProperty<double>? MaxRecommendedVcpuCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_recommended_vcpu_count")?.Value;
-        set => this.WithProperty("max_recommended_vcpu_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_recommended_vcpu_count");
+        set => this.WithProperty("max_recommended_vcpu_count", value);
     }
 
     /// <summary>
     /// The min_recommended_memory_in_gb attribute.
     /// </summary>
-    public double? MinRecommendedMemoryInGb
+    public TerraformLiteralProperty<double>? MinRecommendedMemoryInGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_recommended_memory_in_gb")?.Value;
-        set => this.WithProperty("min_recommended_memory_in_gb", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_recommended_memory_in_gb");
+        set => this.WithProperty("min_recommended_memory_in_gb", value);
     }
 
     /// <summary>
     /// The min_recommended_vcpu_count attribute.
     /// </summary>
-    public double? MinRecommendedVcpuCount
+    public TerraformLiteralProperty<double>? MinRecommendedVcpuCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_recommended_vcpu_count")?.Value;
-        set => this.WithProperty("min_recommended_vcpu_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_recommended_vcpu_count");
+        set => this.WithProperty("min_recommended_vcpu_count", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public string? OsType
+    public TerraformLiteralProperty<string>? OsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("os_type")?.Value;
-        set => this.WithProperty("os_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("os_type");
+        set => this.WithProperty("os_type", value);
     }
 
     /// <summary>
     /// The privacy_statement_uri attribute.
     /// </summary>
-    public string? PrivacyStatementUri
+    public TerraformLiteralProperty<string>? PrivacyStatementUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("privacy_statement_uri")?.Value;
-        set => this.WithProperty("privacy_statement_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("privacy_statement_uri");
+        set => this.WithProperty("privacy_statement_uri", value);
     }
 
     /// <summary>
     /// The release_note_uri attribute.
     /// </summary>
-    public string? ReleaseNoteUri
+    public TerraformLiteralProperty<string>? ReleaseNoteUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_note_uri")?.Value;
-        set => this.WithProperty("release_note_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("release_note_uri");
+        set => this.WithProperty("release_note_uri", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The specialized attribute.
     /// </summary>
-    public bool? Specialized
+    public TerraformLiteralProperty<bool>? Specialized
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("specialized")?.Value;
-        set => this.WithProperty("specialized", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("specialized");
+        set => this.WithProperty("specialized", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The trusted_launch_enabled attribute.
     /// </summary>
-    public bool? TrustedLaunchEnabled
+    public TerraformLiteralProperty<bool>? TrustedLaunchEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("trusted_launch_enabled")?.Value;
-        set => this.WithProperty("trusted_launch_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("trusted_launch_enabled");
+        set => this.WithProperty("trusted_launch_enabled", value);
     }
 
     /// <summary>
     /// The trusted_launch_supported attribute.
     /// </summary>
-    public bool? TrustedLaunchSupported
+    public TerraformLiteralProperty<bool>? TrustedLaunchSupported
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("trusted_launch_supported")?.Value;
-        set => this.WithProperty("trusted_launch_supported", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("trusted_launch_supported");
+        set => this.WithProperty("trusted_launch_supported", value);
     }
 
 }

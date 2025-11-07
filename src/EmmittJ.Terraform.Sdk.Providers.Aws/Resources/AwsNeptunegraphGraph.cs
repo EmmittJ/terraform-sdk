@@ -23,10 +23,10 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// <summary>
     /// A value that indicates whether the graph has deletion protection enabled. The graph can&#39;t be deleted when deletion protection is enabled.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -36,37 +36,37 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
     /// 								followed by a combination of Stack Name and a UUID.
     /// </summary>
-    public string? GraphName
+    public TerraformLiteralProperty<string>? GraphName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("graph_name")?.Value;
-        set => this.WithProperty("graph_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("graph_name");
+        set => this.WithProperty("graph_name", value);
     }
 
     /// <summary>
     /// Allows user to specify name prefix and have remainder of name automatically generated.
     /// </summary>
-    public string? GraphNamePrefix
+    public TerraformLiteralProperty<string>? GraphNamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("graph_name_prefix")?.Value;
-        set => this.WithProperty("graph_name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("graph_name_prefix");
+        set => this.WithProperty("graph_name_prefix", value);
     }
 
     /// <summary>
     /// Specifies a KMS key to use to encrypt data in the new graph.  Value must be ARN of KMS Key.
     /// </summary>
-    public string? KmsKeyIdentifier
+    public TerraformLiteralProperty<string>? KmsKeyIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_identifier")?.Value;
-        set => this.WithProperty("kms_key_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_identifier");
+        set => this.WithProperty("kms_key_identifier", value);
     }
 
     /// <summary>
     /// The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
     /// </summary>
-    public double? ProvisionedMemory
+    public TerraformLiteralProperty<double>? ProvisionedMemory
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_memory")?.Value;
-        set => this.WithProperty("provisioned_memory", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_memory");
+        set => this.WithProperty("provisioned_memory", value);
     }
 
     /// <summary>
@@ -77,37 +77,37 @@ public class AwsNeptunegraphGraph : TerraformResource
     /// 								to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private 
     /// 								IP address that is reachable from the VPC.
     /// </summary>
-    public bool? PublicConnectivity
+    public TerraformLiteralProperty<bool>? PublicConnectivity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_connectivity")?.Value;
-        set => this.WithProperty("public_connectivity", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_connectivity");
+        set => this.WithProperty("public_connectivity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The number of replicas in other AZs.  Value must be between 0 and 2.
     /// </summary>
-    public double? ReplicaCount
+    public TerraformLiteralProperty<double>? ReplicaCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replica_count")?.Value;
-        set => this.WithProperty("replica_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("replica_count");
+        set => this.WithProperty("replica_count", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

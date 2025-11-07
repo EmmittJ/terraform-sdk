@@ -21,91 +21,91 @@ public class AwsEmrInstanceGroup : TerraformResource
     /// <summary>
     /// The autoscaling_policy attribute.
     /// </summary>
-    public string? AutoscalingPolicy
+    public TerraformLiteralProperty<string>? AutoscalingPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_policy")?.Value;
-        set => this.WithProperty("autoscaling_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_policy");
+        set => this.WithProperty("autoscaling_policy", value);
     }
 
     /// <summary>
     /// The bid_price attribute.
     /// </summary>
-    public string? BidPrice
+    public TerraformLiteralProperty<string>? BidPrice
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bid_price")?.Value;
-        set => this.WithProperty("bid_price", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bid_price");
+        set => this.WithProperty("bid_price", value);
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public string? ClusterId
+    public TerraformLiteralProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id")?.Value;
-        set => this.WithProperty("cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The configurations_json attribute.
     /// </summary>
-    public string? ConfigurationsJson
+    public TerraformLiteralProperty<string>? ConfigurationsJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configurations_json")?.Value;
-        set => this.WithProperty("configurations_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("configurations_json");
+        set => this.WithProperty("configurations_json", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public bool? EbsOptimized
+    public TerraformLiteralProperty<bool>? EbsOptimized
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ebs_optimized")?.Value;
-        set => this.WithProperty("ebs_optimized", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ebs_optimized");
+        set => this.WithProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public double? InstanceCount
+    public TerraformLiteralProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count")?.Value;
-        set => this.WithProperty("instance_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

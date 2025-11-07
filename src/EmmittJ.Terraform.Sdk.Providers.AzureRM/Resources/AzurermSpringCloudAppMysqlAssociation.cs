@@ -19,64 +19,64 @@ public class AzurermSpringCloudAppMysqlAssociation : TerraformResource
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public string? DatabaseName
+    public TerraformLiteralProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name")?.Value;
-        set => this.WithProperty("database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mysql_server_id attribute.
     /// </summary>
-    public string? MysqlServerId
+    public TerraformLiteralProperty<string>? MysqlServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mysql_server_id")?.Value;
-        set => this.WithProperty("mysql_server_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mysql_server_id");
+        set => this.WithProperty("mysql_server_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public string? Password
+    public TerraformLiteralProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password")?.Value;
-        set => this.WithProperty("password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public string? SpringCloudAppId
+    public TerraformLiteralProperty<string>? SpringCloudAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id")?.Value;
-        set => this.WithProperty("spring_cloud_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id");
+        set => this.WithProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public string? Username
+    public TerraformLiteralProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username")?.Value;
-        set => this.WithProperty("username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        set => this.WithProperty("username", value);
     }
 
 }

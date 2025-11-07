@@ -20,82 +20,82 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public string? ContentMd5
+    public TerraformLiteralProperty<string>? ContentMd5
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_md5")?.Value;
-        set => this.WithProperty("content_md5", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_md5");
+        set => this.WithProperty("content_md5", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public string? ContentType
+    public TerraformLiteralProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type")?.Value;
-        set => this.WithProperty("content_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The credentials attribute.
     /// </summary>
-    public string? Credentials
+    public TerraformLiteralProperty<string>? Credentials
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("credentials")?.Value;
-        set => this.WithProperty("credentials", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("credentials");
+        set => this.WithProperty("credentials", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public string? Duration
+    public TerraformLiteralProperty<string>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("duration")?.Value;
-        set => this.WithProperty("duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("duration");
+        set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The extension_headers attribute.
     /// </summary>
-    public Dictionary<string, string>? ExtensionHeaders
+    public TerraformLiteralProperty<Dictionary<string, string>>? ExtensionHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("extension_headers")?.Value;
-        set => this.WithProperty("extension_headers", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("extension_headers");
+        set => this.WithProperty("extension_headers", value);
     }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public string? HttpMethod
+    public TerraformLiteralProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_method")?.Value;
-        set => this.WithProperty("http_method", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("http_method");
+        set => this.WithProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public string? Path
+    public TerraformLiteralProperty<string>? Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path")?.Value;
-        set => this.WithProperty("path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("path");
+        set => this.WithProperty("path", value);
     }
 
     /// <summary>

@@ -19,37 +19,37 @@ public class AzurermSpringCloudGatewayCustomDomain : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_gateway_id attribute.
     /// </summary>
-    public string? SpringCloudGatewayId
+    public TerraformLiteralProperty<string>? SpringCloudGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_gateway_id")?.Value;
-        set => this.WithProperty("spring_cloud_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_gateway_id");
+        set => this.WithProperty("spring_cloud_gateway_id", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public string? Thumbprint
+    public TerraformLiteralProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint")?.Value;
-        set => this.WithProperty("thumbprint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint");
+        set => this.WithProperty("thumbprint", value);
     }
 
 }

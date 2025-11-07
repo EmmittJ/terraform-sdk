@@ -22,280 +22,280 @@ public class AwsSnsTopic : TerraformResource
     /// <summary>
     /// The application_failure_feedback_role_arn attribute.
     /// </summary>
-    public string? ApplicationFailureFeedbackRoleArn
+    public TerraformLiteralProperty<string>? ApplicationFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_failure_feedback_role_arn")?.Value;
-        set => this.WithProperty("application_failure_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_failure_feedback_role_arn");
+        set => this.WithProperty("application_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The application_success_feedback_role_arn attribute.
     /// </summary>
-    public string? ApplicationSuccessFeedbackRoleArn
+    public TerraformLiteralProperty<string>? ApplicationSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_success_feedback_role_arn")?.Value;
-        set => this.WithProperty("application_success_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_success_feedback_role_arn");
+        set => this.WithProperty("application_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The application_success_feedback_sample_rate attribute.
     /// </summary>
-    public double? ApplicationSuccessFeedbackSampleRate
+    public TerraformLiteralProperty<double>? ApplicationSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("application_success_feedback_sample_rate")?.Value;
-        set => this.WithProperty("application_success_feedback_sample_rate", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("application_success_feedback_sample_rate");
+        set => this.WithProperty("application_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The archive_policy attribute.
     /// </summary>
-    public string? ArchivePolicy
+    public TerraformLiteralProperty<string>? ArchivePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("archive_policy")?.Value;
-        set => this.WithProperty("archive_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("archive_policy");
+        set => this.WithProperty("archive_policy", value);
     }
 
     /// <summary>
     /// The content_based_deduplication attribute.
     /// </summary>
-    public bool? ContentBasedDeduplication
+    public TerraformLiteralProperty<bool>? ContentBasedDeduplication
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("content_based_deduplication")?.Value;
-        set => this.WithProperty("content_based_deduplication", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("content_based_deduplication");
+        set => this.WithProperty("content_based_deduplication", value);
     }
 
     /// <summary>
     /// The delivery_policy attribute.
     /// </summary>
-    public string? DeliveryPolicy
+    public TerraformLiteralProperty<string>? DeliveryPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_policy")?.Value;
-        set => this.WithProperty("delivery_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_policy");
+        set => this.WithProperty("delivery_policy", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The fifo_throughput_scope attribute.
     /// </summary>
-    public string? FifoThroughputScope
+    public TerraformLiteralProperty<string>? FifoThroughputScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fifo_throughput_scope")?.Value;
-        set => this.WithProperty("fifo_throughput_scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("fifo_throughput_scope");
+        set => this.WithProperty("fifo_throughput_scope", value);
     }
 
     /// <summary>
     /// The fifo_topic attribute.
     /// </summary>
-    public bool? FifoTopic
+    public TerraformLiteralProperty<bool>? FifoTopic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fifo_topic")?.Value;
-        set => this.WithProperty("fifo_topic", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("fifo_topic");
+        set => this.WithProperty("fifo_topic", value);
     }
 
     /// <summary>
     /// The firehose_failure_feedback_role_arn attribute.
     /// </summary>
-    public string? FirehoseFailureFeedbackRoleArn
+    public TerraformLiteralProperty<string>? FirehoseFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firehose_failure_feedback_role_arn")?.Value;
-        set => this.WithProperty("firehose_failure_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firehose_failure_feedback_role_arn");
+        set => this.WithProperty("firehose_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The firehose_success_feedback_role_arn attribute.
     /// </summary>
-    public string? FirehoseSuccessFeedbackRoleArn
+    public TerraformLiteralProperty<string>? FirehoseSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firehose_success_feedback_role_arn")?.Value;
-        set => this.WithProperty("firehose_success_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firehose_success_feedback_role_arn");
+        set => this.WithProperty("firehose_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The firehose_success_feedback_sample_rate attribute.
     /// </summary>
-    public double? FirehoseSuccessFeedbackSampleRate
+    public TerraformLiteralProperty<double>? FirehoseSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("firehose_success_feedback_sample_rate")?.Value;
-        set => this.WithProperty("firehose_success_feedback_sample_rate", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("firehose_success_feedback_sample_rate");
+        set => this.WithProperty("firehose_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The http_failure_feedback_role_arn attribute.
     /// </summary>
-    public string? HttpFailureFeedbackRoleArn
+    public TerraformLiteralProperty<string>? HttpFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_failure_feedback_role_arn")?.Value;
-        set => this.WithProperty("http_failure_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("http_failure_feedback_role_arn");
+        set => this.WithProperty("http_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The http_success_feedback_role_arn attribute.
     /// </summary>
-    public string? HttpSuccessFeedbackRoleArn
+    public TerraformLiteralProperty<string>? HttpSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_success_feedback_role_arn")?.Value;
-        set => this.WithProperty("http_success_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("http_success_feedback_role_arn");
+        set => this.WithProperty("http_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The http_success_feedback_sample_rate attribute.
     /// </summary>
-    public double? HttpSuccessFeedbackSampleRate
+    public TerraformLiteralProperty<double>? HttpSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_success_feedback_sample_rate")?.Value;
-        set => this.WithProperty("http_success_feedback_sample_rate", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("http_success_feedback_sample_rate");
+        set => this.WithProperty("http_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_master_key_id attribute.
     /// </summary>
-    public string? KmsMasterKeyId
+    public TerraformLiteralProperty<string>? KmsMasterKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_master_key_id")?.Value;
-        set => this.WithProperty("kms_master_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_master_key_id");
+        set => this.WithProperty("kms_master_key_id", value);
     }
 
     /// <summary>
     /// The lambda_failure_feedback_role_arn attribute.
     /// </summary>
-    public string? LambdaFailureFeedbackRoleArn
+    public TerraformLiteralProperty<string>? LambdaFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lambda_failure_feedback_role_arn")?.Value;
-        set => this.WithProperty("lambda_failure_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lambda_failure_feedback_role_arn");
+        set => this.WithProperty("lambda_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The lambda_success_feedback_role_arn attribute.
     /// </summary>
-    public string? LambdaSuccessFeedbackRoleArn
+    public TerraformLiteralProperty<string>? LambdaSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lambda_success_feedback_role_arn")?.Value;
-        set => this.WithProperty("lambda_success_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lambda_success_feedback_role_arn");
+        set => this.WithProperty("lambda_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The lambda_success_feedback_sample_rate attribute.
     /// </summary>
-    public double? LambdaSuccessFeedbackSampleRate
+    public TerraformLiteralProperty<double>? LambdaSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("lambda_success_feedback_sample_rate")?.Value;
-        set => this.WithProperty("lambda_success_feedback_sample_rate", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("lambda_success_feedback_sample_rate");
+        set => this.WithProperty("lambda_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public string? Policy
+    public TerraformLiteralProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy")?.Value;
-        set => this.WithProperty("policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The signature_version attribute.
     /// </summary>
-    public double? SignatureVersion
+    public TerraformLiteralProperty<double>? SignatureVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("signature_version")?.Value;
-        set => this.WithProperty("signature_version", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("signature_version");
+        set => this.WithProperty("signature_version", value);
     }
 
     /// <summary>
     /// The sqs_failure_feedback_role_arn attribute.
     /// </summary>
-    public string? SqsFailureFeedbackRoleArn
+    public TerraformLiteralProperty<string>? SqsFailureFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sqs_failure_feedback_role_arn")?.Value;
-        set => this.WithProperty("sqs_failure_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sqs_failure_feedback_role_arn");
+        set => this.WithProperty("sqs_failure_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The sqs_success_feedback_role_arn attribute.
     /// </summary>
-    public string? SqsSuccessFeedbackRoleArn
+    public TerraformLiteralProperty<string>? SqsSuccessFeedbackRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sqs_success_feedback_role_arn")?.Value;
-        set => this.WithProperty("sqs_success_feedback_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sqs_success_feedback_role_arn");
+        set => this.WithProperty("sqs_success_feedback_role_arn", value);
     }
 
     /// <summary>
     /// The sqs_success_feedback_sample_rate attribute.
     /// </summary>
-    public double? SqsSuccessFeedbackSampleRate
+    public TerraformLiteralProperty<double>? SqsSuccessFeedbackSampleRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sqs_success_feedback_sample_rate")?.Value;
-        set => this.WithProperty("sqs_success_feedback_sample_rate", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("sqs_success_feedback_sample_rate");
+        set => this.WithProperty("sqs_success_feedback_sample_rate", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tracing_config attribute.
     /// </summary>
-    public string? TracingConfig
+    public TerraformLiteralProperty<string>? TracingConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tracing_config")?.Value;
-        set => this.WithProperty("tracing_config", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tracing_config");
+        set => this.WithProperty("tracing_config", value);
     }
 
     /// <summary>

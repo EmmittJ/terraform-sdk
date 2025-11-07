@@ -19,55 +19,55 @@ public class AzurermDataFactoryCredentialUserManagedIdentity : TerraformResource
     /// <summary>
     /// (Optional) List of string annotations.
     /// </summary>
-    public List<string>? Annotations
+    public TerraformLiteralProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The resource ID of the parent Data Factory
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// (Optional) Short text description
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource ID of the User Assigned Managed Identity
     /// </summary>
-    public string? IdentityId
+    public TerraformLiteralProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_id")?.Value;
-        set => this.WithProperty("identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_id");
+        set => this.WithProperty("identity_id", value);
     }
 
     /// <summary>
     /// The desired name of the credential resource
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

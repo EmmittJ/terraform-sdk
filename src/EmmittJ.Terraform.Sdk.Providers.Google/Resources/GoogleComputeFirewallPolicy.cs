@@ -26,28 +26,28 @@ public class GoogleComputeFirewallPolicy : TerraformResource
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent of the firewall policy.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
@@ -55,10 +55,10 @@ public class GoogleComputeFirewallPolicy : TerraformResource
     /// This field is not applicable to network firewall policies. This name must be set on creation and cannot be changed. The name must be 1-63 characters long, and comply with RFC1035.
     /// Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public string? ShortName
+    public TerraformLiteralProperty<string>? ShortName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_name")?.Value;
-        set => this.WithProperty("short_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("short_name");
+        set => this.WithProperty("short_name", value);
     }
 
     /// <summary>

@@ -26,136 +26,136 @@ public class AwsApiGatewayDomainName : TerraformResource
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public string? CertificateArn
+    public TerraformLiteralProperty<string>? CertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_arn")?.Value;
-        set => this.WithProperty("certificate_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_arn");
+        set => this.WithProperty("certificate_arn", value);
     }
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    public string? CertificateBody
+    public TerraformLiteralProperty<string>? CertificateBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_body")?.Value;
-        set => this.WithProperty("certificate_body", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_body");
+        set => this.WithProperty("certificate_body", value);
     }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public string? CertificateChain
+    public TerraformLiteralProperty<string>? CertificateChain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_chain")?.Value;
-        set => this.WithProperty("certificate_chain", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_chain");
+        set => this.WithProperty("certificate_chain", value);
     }
 
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public string? CertificateName
+    public TerraformLiteralProperty<string>? CertificateName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_name")?.Value;
-        set => this.WithProperty("certificate_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_name");
+        set => this.WithProperty("certificate_name", value);
     }
 
     /// <summary>
     /// The certificate_private_key attribute.
     /// </summary>
-    public string? CertificatePrivateKey
+    public TerraformLiteralProperty<string>? CertificatePrivateKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_private_key")?.Value;
-        set => this.WithProperty("certificate_private_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_private_key");
+        set => this.WithProperty("certificate_private_key", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public string? DomainName
+    public TerraformLiteralProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name")?.Value;
-        set => this.WithProperty("domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ownership_verification_certificate_arn attribute.
     /// </summary>
-    public string? OwnershipVerificationCertificateArn
+    public TerraformLiteralProperty<string>? OwnershipVerificationCertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ownership_verification_certificate_arn")?.Value;
-        set => this.WithProperty("ownership_verification_certificate_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ownership_verification_certificate_arn");
+        set => this.WithProperty("ownership_verification_certificate_arn", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public string? Policy
+    public TerraformLiteralProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy")?.Value;
-        set => this.WithProperty("policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The regional_certificate_arn attribute.
     /// </summary>
-    public string? RegionalCertificateArn
+    public TerraformLiteralProperty<string>? RegionalCertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("regional_certificate_arn")?.Value;
-        set => this.WithProperty("regional_certificate_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("regional_certificate_arn");
+        set => this.WithProperty("regional_certificate_arn", value);
     }
 
     /// <summary>
     /// The regional_certificate_name attribute.
     /// </summary>
-    public string? RegionalCertificateName
+    public TerraformLiteralProperty<string>? RegionalCertificateName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("regional_certificate_name")?.Value;
-        set => this.WithProperty("regional_certificate_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("regional_certificate_name");
+        set => this.WithProperty("regional_certificate_name", value);
     }
 
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
-    public string? SecurityPolicy
+    public TerraformLiteralProperty<string>? SecurityPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_policy")?.Value;
-        set => this.WithProperty("security_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_policy");
+        set => this.WithProperty("security_policy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

@@ -21,38 +21,38 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// The name of the instance partition&#39;s configuration (similar to a region) which
     /// defines the geographic placement and replication of data in this instance partition.
     /// </summary>
-    public string? Config
+    public TerraformLiteralProperty<string>? Config
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config")?.Value;
-        set => this.WithProperty("config", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config");
+        set => this.WithProperty("config", value);
     }
 
     /// <summary>
     /// The descriptive name for this instance partition as it appears in UIs.
     /// Must be unique per project and between 4 and 30 characters in length.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance to create the instance partition in.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
@@ -60,10 +60,10 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// the instance partition is created. The name must be between 2 and 64 characters
     /// and match the regular expression [a-z][a-z0-9\\-]{0,61}[a-z0-9].
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -71,29 +71,29 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// 1000 processing units. Exactly one of either node_count or processing_units
     /// must be present.
     /// </summary>
-    public double? NodeCount
+    public TerraformLiteralProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("node_count")?.Value;
-        set => this.WithProperty("node_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("node_count");
+        set => this.WithProperty("node_count", value);
     }
 
     /// <summary>
     /// The number of processing units allocated to this instance partition.
     /// Exactly one of either node_count or processing_units must be present.
     /// </summary>
-    public double? ProcessingUnits
+    public TerraformLiteralProperty<double>? ProcessingUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("processing_units")?.Value;
-        set => this.WithProperty("processing_units", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("processing_units");
+        set => this.WithProperty("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

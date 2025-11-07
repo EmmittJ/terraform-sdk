@@ -20,28 +20,28 @@ public class AwsVpcSecurityGroupVpcAssociation : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public string? SecurityGroupId
+    public TerraformLiteralProperty<string>? SecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_group_id")?.Value;
-        set => this.WithProperty("security_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_group_id");
+        set => this.WithProperty("security_group_id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>

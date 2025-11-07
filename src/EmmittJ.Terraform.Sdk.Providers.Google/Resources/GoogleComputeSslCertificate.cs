@@ -25,28 +25,28 @@ public class GoogleComputeSslCertificate : TerraformResource
     /// The certificate chain must be no greater than 5 certs long.
     /// The chain must include at least one intermediate cert.
     /// </summary>
-    public string? Certificate
+    public TerraformLiteralProperty<string>? Certificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate")?.Value;
-        set => this.WithProperty("certificate", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate");
+        set => this.WithProperty("certificate", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -60,37 +60,37 @@ public class GoogleComputeSslCertificate : TerraformResource
     /// 
     /// These are in the same namespace as the managed SSL certificates.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Creates a unique name beginning with the specified prefix. Conflicts with name.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The write-only private key in PEM format.
     /// </summary>
-    public string? PrivateKey
+    public TerraformLiteralProperty<string>? PrivateKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_key")?.Value;
-        set => this.WithProperty("private_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("private_key");
+        set => this.WithProperty("private_key", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

@@ -26,46 +26,46 @@ public class AwsSecurityhubStandardsControl : TerraformResource
     /// <summary>
     /// The control_status attribute.
     /// </summary>
-    public string? ControlStatus
+    public TerraformLiteralProperty<string>? ControlStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_status")?.Value;
-        set => this.WithProperty("control_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("control_status");
+        set => this.WithProperty("control_status", value);
     }
 
     /// <summary>
     /// The disabled_reason attribute.
     /// </summary>
-    public string? DisabledReason
+    public TerraformLiteralProperty<string>? DisabledReason
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disabled_reason")?.Value;
-        set => this.WithProperty("disabled_reason", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("disabled_reason");
+        set => this.WithProperty("disabled_reason", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The standards_control_arn attribute.
     /// </summary>
-    public string? StandardsControlArn
+    public TerraformLiteralProperty<string>? StandardsControlArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("standards_control_arn")?.Value;
-        set => this.WithProperty("standards_control_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("standards_control_arn");
+        set => this.WithProperty("standards_control_arn", value);
     }
 
     /// <summary>

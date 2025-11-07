@@ -24,73 +24,73 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public string? ClusterName
+    public TerraformLiteralProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name")?.Value;
-        set => this.WithProperty("cluster_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The disable_session_tags attribute.
     /// </summary>
-    public bool? DisableSessionTags
+    public TerraformLiteralProperty<bool>? DisableSessionTags
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_session_tags")?.Value;
-        set => this.WithProperty("disable_session_tags", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_session_tags");
+        set => this.WithProperty("disable_session_tags", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public string? Namespace
+    public TerraformLiteralProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace")?.Value;
-        set => this.WithProperty("namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The service_account attribute.
     /// </summary>
-    public string? ServiceAccount
+    public TerraformLiteralProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account")?.Value;
-        set => this.WithProperty("service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        set => this.WithProperty("service_account", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The target_role_arn attribute.
     /// </summary>
-    public string? TargetRoleArn
+    public TerraformLiteralProperty<string>? TargetRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_role_arn")?.Value;
-        set => this.WithProperty("target_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_role_arn");
+        set => this.WithProperty("target_role_arn", value);
     }
 
     /// <summary>

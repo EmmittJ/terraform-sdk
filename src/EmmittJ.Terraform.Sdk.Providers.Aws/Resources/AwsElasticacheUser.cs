@@ -20,91 +20,91 @@ public class AwsElasticacheUser : TerraformResource
     /// <summary>
     /// The access_string attribute.
     /// </summary>
-    public string? AccessString
+    public TerraformLiteralProperty<string>? AccessString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_string")?.Value;
-        set => this.WithProperty("access_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_string");
+        set => this.WithProperty("access_string", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public string? Engine
+    public TerraformLiteralProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine")?.Value;
-        set => this.WithProperty("engine", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The no_password_required attribute.
     /// </summary>
-    public bool? NoPasswordRequired
+    public TerraformLiteralProperty<bool>? NoPasswordRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("no_password_required")?.Value;
-        set => this.WithProperty("no_password_required", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("no_password_required");
+        set => this.WithProperty("no_password_required", value);
     }
 
     /// <summary>
     /// The passwords attribute.
     /// </summary>
-    public HashSet<string>? Passwords
+    public TerraformLiteralProperty<HashSet<string>>? Passwords
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("passwords")?.Value;
-        set => this.WithProperty("passwords", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("passwords");
+        set => this.WithProperty("passwords", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public string? UserId
+    public TerraformLiteralProperty<string>? UserId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_id")?.Value;
-        set => this.WithProperty("user_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_id");
+        set => this.WithProperty("user_id", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public string? UserName
+    public TerraformLiteralProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name")?.Value;
-        set => this.WithProperty("user_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        set => this.WithProperty("user_name", value);
     }
 
     /// <summary>

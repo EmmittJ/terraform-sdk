@@ -19,37 +19,37 @@ public class AwsDsqlClusterPeering : TerraformResource
     /// <summary>
     /// The clusters attribute.
     /// </summary>
-    public HashSet<string>? Clusters
+    public TerraformLiteralProperty<HashSet<string>>? Clusters
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("clusters")?.Value;
-        set => this.WithProperty("clusters", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("clusters");
+        set => this.WithProperty("clusters", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public string? Identifier
+    public TerraformLiteralProperty<string>? Identifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier")?.Value;
-        set => this.WithProperty("identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identifier");
+        set => this.WithProperty("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The witness_region attribute.
     /// </summary>
-    public string? WitnessRegion
+    public TerraformLiteralProperty<string>? WitnessRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("witness_region")?.Value;
-        set => this.WithProperty("witness_region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("witness_region");
+        set => this.WithProperty("witness_region", value);
     }
 
 }

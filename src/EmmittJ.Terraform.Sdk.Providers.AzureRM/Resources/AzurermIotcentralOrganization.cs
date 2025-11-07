@@ -19,46 +19,46 @@ public class AzurermIotcentralOrganization : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iotcentral_application_id attribute.
     /// </summary>
-    public string? IotcentralApplicationId
+    public TerraformLiteralProperty<string>? IotcentralApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iotcentral_application_id")?.Value;
-        set => this.WithProperty("iotcentral_application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iotcentral_application_id");
+        set => this.WithProperty("iotcentral_application_id", value);
     }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public string? OrganizationId
+    public TerraformLiteralProperty<string>? OrganizationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization_id")?.Value;
-        set => this.WithProperty("organization_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization_id");
+        set => this.WithProperty("organization_id", value);
     }
 
     /// <summary>
     /// The parent_organization_id attribute.
     /// </summary>
-    public string? ParentOrganizationId
+    public TerraformLiteralProperty<string>? ParentOrganizationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_organization_id")?.Value;
-        set => this.WithProperty("parent_organization_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_organization_id");
+        set => this.WithProperty("parent_organization_id", value);
     }
 
 }

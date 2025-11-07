@@ -19,82 +19,82 @@ public class AzurermStreamAnalyticsOutputCosmosdb : TerraformResource
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public string? AuthenticationMode
+    public TerraformLiteralProperty<string>? AuthenticationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_mode")?.Value;
-        set => this.WithProperty("authentication_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authentication_mode");
+        set => this.WithProperty("authentication_mode", value);
     }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public string? ContainerName
+    public TerraformLiteralProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name")?.Value;
-        set => this.WithProperty("container_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_account_key attribute.
     /// </summary>
-    public string? CosmosdbAccountKey
+    public TerraformLiteralProperty<string>? CosmosdbAccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_account_key")?.Value;
-        set => this.WithProperty("cosmosdb_account_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_account_key");
+        set => this.WithProperty("cosmosdb_account_key", value);
     }
 
     /// <summary>
     /// The cosmosdb_sql_database_id attribute.
     /// </summary>
-    public string? CosmosdbSqlDatabaseId
+    public TerraformLiteralProperty<string>? CosmosdbSqlDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_sql_database_id")?.Value;
-        set => this.WithProperty("cosmosdb_sql_database_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_sql_database_id");
+        set => this.WithProperty("cosmosdb_sql_database_id", value);
     }
 
     /// <summary>
     /// The document_id attribute.
     /// </summary>
-    public string? DocumentId
+    public TerraformLiteralProperty<string>? DocumentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("document_id")?.Value;
-        set => this.WithProperty("document_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("document_id");
+        set => this.WithProperty("document_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public string? PartitionKey
+    public TerraformLiteralProperty<string>? PartitionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partition_key")?.Value;
-        set => this.WithProperty("partition_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("partition_key");
+        set => this.WithProperty("partition_key", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
-    public string? StreamAnalyticsJobId
+    public TerraformLiteralProperty<string>? StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id")?.Value;
-        set => this.WithProperty("stream_analytics_job_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id");
+        set => this.WithProperty("stream_analytics_job_id", value);
     }
 
 }

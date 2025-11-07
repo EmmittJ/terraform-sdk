@@ -21,64 +21,64 @@ public class GoogleComputeInstanceGuestAttributesDataSource : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The query_path attribute.
     /// </summary>
-    public string? QueryPath
+    public TerraformLiteralProperty<string>? QueryPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_path")?.Value;
-        set => this.WithProperty("query_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query_path");
+        set => this.WithProperty("query_path", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The variable_key attribute.
     /// </summary>
-    public string? VariableKey
+    public TerraformLiteralProperty<string>? VariableKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("variable_key")?.Value;
-        set => this.WithProperty("variable_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("variable_key");
+        set => this.WithProperty("variable_key", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public string? Zone
+    public TerraformLiteralProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone")?.Value;
-        set => this.WithProperty("zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        set => this.WithProperty("zone", value);
     }
 
     /// <summary>

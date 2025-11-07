@@ -19,109 +19,109 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    public string? EnclaveType
+    public TerraformLiteralProperty<string>? EnclaveType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enclave_type")?.Value;
-        set => this.WithProperty("enclave_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enclave_type");
+        set => this.WithProperty("enclave_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public string? LicenseType
+    public TerraformLiteralProperty<string>? LicenseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_type")?.Value;
-        set => this.WithProperty("license_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_type");
+        set => this.WithProperty("license_type", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
-    public string? MaintenanceConfigurationName
+    public TerraformLiteralProperty<string>? MaintenanceConfigurationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_name")?.Value;
-        set => this.WithProperty("maintenance_configuration_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_name");
+        set => this.WithProperty("maintenance_configuration_name", value);
     }
 
     /// <summary>
     /// The max_size_bytes attribute.
     /// </summary>
-    public double? MaxSizeBytes
+    public TerraformLiteralProperty<double>? MaxSizeBytes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_size_bytes")?.Value;
-        set => this.WithProperty("max_size_bytes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_size_bytes");
+        set => this.WithProperty("max_size_bytes", value);
     }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    public double? MaxSizeGb
+    public TerraformLiteralProperty<double>? MaxSizeGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_size_gb")?.Value;
-        set => this.WithProperty("max_size_gb", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_size_gb");
+        set => this.WithProperty("max_size_gb", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public string? ServerName
+    public TerraformLiteralProperty<string>? ServerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_name")?.Value;
-        set => this.WithProperty("server_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_name");
+        set => this.WithProperty("server_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public bool? ZoneRedundant
+    public TerraformLiteralProperty<bool>? ZoneRedundant
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundant")?.Value;
-        set => this.WithProperty("zone_redundant", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundant");
+        set => this.WithProperty("zone_redundant", value);
     }
 
 }

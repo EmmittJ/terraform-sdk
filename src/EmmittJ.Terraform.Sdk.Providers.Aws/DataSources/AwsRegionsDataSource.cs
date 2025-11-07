@@ -20,19 +20,19 @@ public class AwsRegionsDataSource : TerraformDataSource
     /// <summary>
     /// The all_regions attribute.
     /// </summary>
-    public bool? AllRegions
+    public TerraformLiteralProperty<bool>? AllRegions
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("all_regions")?.Value;
-        set => this.WithProperty("all_regions", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("all_regions");
+        set => this.WithProperty("all_regions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

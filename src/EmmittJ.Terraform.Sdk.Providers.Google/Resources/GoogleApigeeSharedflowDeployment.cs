@@ -19,55 +19,55 @@ public class GoogleApigeeSharedflowDeployment : TerraformResource
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
-    public string? Environment
+    public TerraformLiteralProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment")?.Value;
-        set => this.WithProperty("environment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// Revision of the Sharedflow to be deployed.
     /// </summary>
-    public string? Revision
+    public TerraformLiteralProperty<string>? Revision
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revision")?.Value;
-        set => this.WithProperty("revision", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("revision");
+        set => this.WithProperty("revision", value);
     }
 
     /// <summary>
     /// The service account represents the identity of the deployed proxy, and determines what permissions it has. The format must be {ACCOUNT_ID}@{PROJECT}.iam.gserviceaccount.com.
     /// </summary>
-    public string? ServiceAccount
+    public TerraformLiteralProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account")?.Value;
-        set => this.WithProperty("service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        set => this.WithProperty("service_account", value);
     }
 
     /// <summary>
     /// Id of the Sharedflow to be deployed.
     /// </summary>
-    public string? SharedflowId
+    public TerraformLiteralProperty<string>? SharedflowId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sharedflow_id")?.Value;
-        set => this.WithProperty("sharedflow_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sharedflow_id");
+        set => this.WithProperty("sharedflow_id", value);
     }
 
 }

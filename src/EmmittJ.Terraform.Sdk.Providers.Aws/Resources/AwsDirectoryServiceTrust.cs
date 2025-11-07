@@ -25,82 +25,82 @@ public class AwsDirectoryServiceTrust : TerraformResource
     /// <summary>
     /// The conditional_forwarder_ip_addrs attribute.
     /// </summary>
-    public HashSet<string>? ConditionalForwarderIpAddrs
+    public TerraformLiteralProperty<HashSet<string>>? ConditionalForwarderIpAddrs
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("conditional_forwarder_ip_addrs")?.Value;
-        set => this.WithProperty("conditional_forwarder_ip_addrs", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("conditional_forwarder_ip_addrs");
+        set => this.WithProperty("conditional_forwarder_ip_addrs", value);
     }
 
     /// <summary>
     /// The delete_associated_conditional_forwarder attribute.
     /// </summary>
-    public bool? DeleteAssociatedConditionalForwarder
+    public TerraformLiteralProperty<bool>? DeleteAssociatedConditionalForwarder
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_associated_conditional_forwarder")?.Value;
-        set => this.WithProperty("delete_associated_conditional_forwarder", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("delete_associated_conditional_forwarder");
+        set => this.WithProperty("delete_associated_conditional_forwarder", value);
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public string? DirectoryId
+    public TerraformLiteralProperty<string>? DirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_id")?.Value;
-        set => this.WithProperty("directory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("directory_id");
+        set => this.WithProperty("directory_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The remote_domain_name attribute.
     /// </summary>
-    public string? RemoteDomainName
+    public TerraformLiteralProperty<string>? RemoteDomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_domain_name")?.Value;
-        set => this.WithProperty("remote_domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remote_domain_name");
+        set => this.WithProperty("remote_domain_name", value);
     }
 
     /// <summary>
     /// The selective_auth attribute.
     /// </summary>
-    public string? SelectiveAuth
+    public TerraformLiteralProperty<string>? SelectiveAuth
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("selective_auth")?.Value;
-        set => this.WithProperty("selective_auth", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("selective_auth");
+        set => this.WithProperty("selective_auth", value);
     }
 
     /// <summary>
     /// The trust_direction attribute.
     /// </summary>
-    public string? TrustDirection
+    public TerraformLiteralProperty<string>? TrustDirection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trust_direction")?.Value;
-        set => this.WithProperty("trust_direction", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("trust_direction");
+        set => this.WithProperty("trust_direction", value);
     }
 
     /// <summary>
     /// The trust_password attribute.
     /// </summary>
-    public string? TrustPassword
+    public TerraformLiteralProperty<string>? TrustPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trust_password")?.Value;
-        set => this.WithProperty("trust_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("trust_password");
+        set => this.WithProperty("trust_password", value);
     }
 
     /// <summary>
     /// The trust_type attribute.
     /// </summary>
-    public string? TrustType
+    public TerraformLiteralProperty<string>? TrustType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trust_type")?.Value;
-        set => this.WithProperty("trust_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("trust_type");
+        set => this.WithProperty("trust_type", value);
     }
 
     /// <summary>

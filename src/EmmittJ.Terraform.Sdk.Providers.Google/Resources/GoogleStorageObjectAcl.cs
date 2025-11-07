@@ -19,46 +19,46 @@ public class GoogleStorageObjectAcl : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object attribute.
     /// </summary>
-    public string? Object
+    public TerraformLiteralProperty<string>? Object
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object")?.Value;
-        set => this.WithProperty("object", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object");
+        set => this.WithProperty("object", value);
     }
 
     /// <summary>
     /// The predefined_acl attribute.
     /// </summary>
-    public string? PredefinedAcl
+    public TerraformLiteralProperty<string>? PredefinedAcl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("predefined_acl")?.Value;
-        set => this.WithProperty("predefined_acl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("predefined_acl");
+        set => this.WithProperty("predefined_acl", value);
     }
 
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
-    public HashSet<string>? RoleEntity
+    public TerraformLiteralProperty<HashSet<string>>? RoleEntity
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_entity")?.Value;
-        set => this.WithProperty("role_entity", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_entity");
+        set => this.WithProperty("role_entity", value);
     }
 
 }

@@ -19,28 +19,28 @@ public class AwsShieldProtectionHealthCheckAssociation : TerraformResource
     /// <summary>
     /// The health_check_arn attribute.
     /// </summary>
-    public string? HealthCheckArn
+    public TerraformLiteralProperty<string>? HealthCheckArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("health_check_arn")?.Value;
-        set => this.WithProperty("health_check_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("health_check_arn");
+        set => this.WithProperty("health_check_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The shield_protection_id attribute.
     /// </summary>
-    public string? ShieldProtectionId
+    public TerraformLiteralProperty<string>? ShieldProtectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shield_protection_id")?.Value;
-        set => this.WithProperty("shield_protection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shield_protection_id");
+        set => this.WithProperty("shield_protection_id", value);
     }
 
 }

@@ -22,64 +22,64 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     /// <summary>
     /// The delivery_destination_arn attribute.
     /// </summary>
-    public string? DeliveryDestinationArn
+    public TerraformLiteralProperty<string>? DeliveryDestinationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_destination_arn")?.Value;
-        set => this.WithProperty("delivery_destination_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_destination_arn");
+        set => this.WithProperty("delivery_destination_arn", value);
     }
 
     /// <summary>
     /// The delivery_source_name attribute.
     /// </summary>
-    public string? DeliverySourceName
+    public TerraformLiteralProperty<string>? DeliverySourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_source_name")?.Value;
-        set => this.WithProperty("delivery_source_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_source_name");
+        set => this.WithProperty("delivery_source_name", value);
     }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    public string? FieldDelimiter
+    public TerraformLiteralProperty<string>? FieldDelimiter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("field_delimiter")?.Value;
-        set => this.WithProperty("field_delimiter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("field_delimiter");
+        set => this.WithProperty("field_delimiter", value);
     }
 
     /// <summary>
     /// The record_fields attribute.
     /// </summary>
-    public List<string>? RecordFields
+    public TerraformLiteralProperty<List<string>>? RecordFields
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("record_fields")?.Value;
-        set => this.WithProperty("record_fields", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("record_fields");
+        set => this.WithProperty("record_fields", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_delivery_configuration attribute.
     /// </summary>
-    public List<object>? S3DeliveryConfiguration
+    public TerraformLiteralProperty<List<object>>? S3DeliveryConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("s3_delivery_configuration")?.Value;
-        set => this.WithProperty("s3_delivery_configuration", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("s3_delivery_configuration");
+        set => this.WithProperty("s3_delivery_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

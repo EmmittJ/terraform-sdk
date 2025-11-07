@@ -23,37 +23,37 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// <summary>
     /// This field specifies the URL of AuthorizationPolicy resource that applies authorization policies to the inbound traffic at the matched endpoints.
     /// </summary>
-    public string? AuthorizationPolicy
+    public TerraformLiteralProperty<string>? AuthorizationPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_policy")?.Value;
-        set => this.WithProperty("authorization_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorization_policy");
+        set => this.WithProperty("authorization_policy", value);
     }
 
     /// <summary>
     /// A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy can be set to specify the authentication for traffic from the proxy to the actual endpoints.
     /// </summary>
-    public string? ClientTlsPolicy
+    public TerraformLiteralProperty<string>? ClientTlsPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_tls_policy")?.Value;
-        set => this.WithProperty("client_tls_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_tls_policy");
+        set => this.WithProperty("client_tls_policy", value);
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -62,46 +62,46 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of the EndpointPolicy resource.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is used to determine the authentication policy to be applied to terminate the inbound traffic at the identified backends.
     /// </summary>
-    public string? ServerTlsPolicy
+    public TerraformLiteralProperty<string>? ServerTlsPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy")?.Value;
-        set => this.WithProperty("server_tls_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy");
+        set => this.WithProperty("server_tls_policy", value);
     }
 
     /// <summary>
     /// The type of endpoint policy. This is primarily used to validate the configuration. Possible values: [&amp;quot;SIDECAR_PROXY&amp;quot;, &amp;quot;GRPC_SERVER&amp;quot;]
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

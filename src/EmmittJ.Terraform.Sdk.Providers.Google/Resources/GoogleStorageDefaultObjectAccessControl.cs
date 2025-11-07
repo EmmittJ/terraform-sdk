@@ -24,10 +24,10 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     /// <summary>
     /// The name of the bucket.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
@@ -41,37 +41,37 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     ///   * allUsers
     ///   * allAuthenticatedUsers
     /// </summary>
-    public string? Entity
+    public TerraformLiteralProperty<string>? Entity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entity")?.Value;
-        set => this.WithProperty("entity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("entity");
+        set => this.WithProperty("entity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the object, if applied to an object.
     /// </summary>
-    public string? Object
+    public TerraformLiteralProperty<string>? Object
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object")?.Value;
-        set => this.WithProperty("object", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object");
+        set => this.WithProperty("object", value);
     }
 
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;]
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>

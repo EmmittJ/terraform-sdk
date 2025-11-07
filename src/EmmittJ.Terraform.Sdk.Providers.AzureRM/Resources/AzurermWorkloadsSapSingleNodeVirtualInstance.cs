@@ -19,100 +19,100 @@ public class AzurermWorkloadsSapSingleNodeVirtualInstance : TerraformResource
     /// <summary>
     /// The app_location attribute.
     /// </summary>
-    public string? AppLocation
+    public TerraformLiteralProperty<string>? AppLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_location")?.Value;
-        set => this.WithProperty("app_location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_location");
+        set => this.WithProperty("app_location", value);
     }
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
-    public string? Environment
+    public TerraformLiteralProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment")?.Value;
-        set => this.WithProperty("environment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public string? ManagedResourceGroupName
+    public TerraformLiteralProperty<string>? ManagedResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group_name")?.Value;
-        set => this.WithProperty("managed_resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group_name");
+        set => this.WithProperty("managed_resource_group_name", value);
     }
 
     /// <summary>
     /// The managed_resources_network_access_type attribute.
     /// </summary>
-    public string? ManagedResourcesNetworkAccessType
+    public TerraformLiteralProperty<string>? ManagedResourcesNetworkAccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_resources_network_access_type")?.Value;
-        set => this.WithProperty("managed_resources_network_access_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_resources_network_access_type");
+        set => this.WithProperty("managed_resources_network_access_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sap_fqdn attribute.
     /// </summary>
-    public string? SapFqdn
+    public TerraformLiteralProperty<string>? SapFqdn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sap_fqdn")?.Value;
-        set => this.WithProperty("sap_fqdn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sap_fqdn");
+        set => this.WithProperty("sap_fqdn", value);
     }
 
     /// <summary>
     /// The sap_product attribute.
     /// </summary>
-    public string? SapProduct
+    public TerraformLiteralProperty<string>? SapProduct
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sap_product")?.Value;
-        set => this.WithProperty("sap_product", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sap_product");
+        set => this.WithProperty("sap_product", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

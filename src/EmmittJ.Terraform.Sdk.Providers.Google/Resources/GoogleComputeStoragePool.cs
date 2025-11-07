@@ -27,10 +27,10 @@ public class GoogleComputeStoragePool : TerraformResource
     /// <summary>
     /// Provisioning type of the byte capacity of the pool. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public string? CapacityProvisioningType
+    public TerraformLiteralProperty<string>? CapacityProvisioningType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_provisioning_type")?.Value;
-        set => this.WithProperty("capacity_provisioning_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("capacity_provisioning_type");
+        set => this.WithProperty("capacity_provisioning_type", value);
     }
 
     /// <summary>
@@ -39,19 +39,19 @@ public class GoogleComputeStoragePool : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the StoragePool will fail.
     /// When the field is set to false, deleting the StoragePool is allowed.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// A description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -61,10 +61,10 @@ public class GoogleComputeStoragePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -76,58 +76,58 @@ public class GoogleComputeStoragePool : TerraformResource
     /// and all following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Provisioning type of the performance-related parameters of the pool, such as throughput and IOPS. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    public string? PerformanceProvisioningType
+    public TerraformLiteralProperty<string>? PerformanceProvisioningType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("performance_provisioning_type")?.Value;
-        set => this.WithProperty("performance_provisioning_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("performance_provisioning_type");
+        set => this.WithProperty("performance_provisioning_type", value);
     }
 
     /// <summary>
     /// Size, in GiB, of the storage pool. For more information about the size limits,
     /// see https://cloud.google.com/compute/docs/disks/storage-pools.
     /// </summary>
-    public string? PoolProvisionedCapacityGb
+    public TerraformLiteralProperty<string>? PoolProvisionedCapacityGb
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool_provisioned_capacity_gb")?.Value;
-        set => this.WithProperty("pool_provisioned_capacity_gb", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool_provisioned_capacity_gb");
+        set => this.WithProperty("pool_provisioned_capacity_gb", value);
     }
 
     /// <summary>
     /// Provisioned IOPS of the storage pool.
     /// Only relevant if the storage pool type is &#39;hyperdisk-balanced&#39;.
     /// </summary>
-    public string? PoolProvisionedIops
+    public TerraformLiteralProperty<string>? PoolProvisionedIops
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool_provisioned_iops")?.Value;
-        set => this.WithProperty("pool_provisioned_iops", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool_provisioned_iops");
+        set => this.WithProperty("pool_provisioned_iops", value);
     }
 
     /// <summary>
     /// Provisioned throughput, in MB/s, of the storage pool.
     /// Only relevant if the storage pool type is &#39;hyperdisk-balanced&#39; or &#39;hyperdisk-throughput&#39;.
     /// </summary>
-    public string? PoolProvisionedThroughput
+    public TerraformLiteralProperty<string>? PoolProvisionedThroughput
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool_provisioned_throughput")?.Value;
-        set => this.WithProperty("pool_provisioned_throughput", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool_provisioned_throughput");
+        set => this.WithProperty("pool_provisioned_throughput", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -137,19 +137,19 @@ public class GoogleComputeStoragePool : TerraformResource
     /// * &#39;https://www.googleapis.com/compute/v1/projects/{project_id}/zones/{zone}/storagePoolTypes/hyperdisk-balanced&#39;
     /// * &#39;hyperdisk-throughput&#39;
     /// </summary>
-    public string? StoragePoolType
+    public TerraformLiteralProperty<string>? StoragePoolType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_pool_type")?.Value;
-        set => this.WithProperty("storage_pool_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_pool_type");
+        set => this.WithProperty("storage_pool_type", value);
     }
 
     /// <summary>
     /// A reference to the zone where the storage pool resides.
     /// </summary>
-    public string? Zone
+    public TerraformLiteralProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone")?.Value;
-        set => this.WithProperty("zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        set => this.WithProperty("zone", value);
     }
 
     /// <summary>

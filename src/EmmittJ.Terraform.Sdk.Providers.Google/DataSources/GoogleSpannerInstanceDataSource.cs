@@ -35,29 +35,29 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// In order to obtain a valid list please consult the
     /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
     /// </summary>
-    public string? Config
+    public TerraformLiteralProperty<string>? Config
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config")?.Value;
-        set => this.WithProperty("config", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config");
+        set => this.WithProperty("config", value);
     }
 
     /// <summary>
     /// The descriptive name for this instance as it appears in UIs. Must be
     /// unique per project and between 4 and 30 characters in length.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -66,19 +66,19 @@ public class GoogleSpannerInstanceDataSource : TerraformDataSource
     /// in length.
     /// If not provided, a random string starting with &#39;tf-&#39; will be selected.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

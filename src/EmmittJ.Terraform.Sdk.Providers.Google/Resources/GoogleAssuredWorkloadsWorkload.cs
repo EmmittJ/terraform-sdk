@@ -29,46 +29,46 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// <summary>
     /// Optional. Input only. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF`.
     /// </summary>
-    public string? BillingAccount
+    public TerraformLiteralProperty<string>? BillingAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account")?.Value;
-        set => this.WithProperty("billing_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("billing_account");
+        set => this.WithProperty("billing_account", value);
     }
 
     /// <summary>
     /// Required. Immutable. Compliance Regime associated with this workload. Possible values: COMPLIANCE_REGIME_UNSPECIFIED, IL4, CJIS, FEDRAMP_HIGH, FEDRAMP_MODERATE, US_REGIONAL_ACCESS, HIPAA, HITRUST, EU_REGIONS_AND_SUPPORT, CA_REGIONS_AND_SUPPORT, ITAR, AU_REGIONS_AND_US_SUPPORT, ASSURED_WORKLOADS_FOR_PARTNERS, ISR_REGIONS, ISR_REGIONS_AND_SUPPORT, CA_PROTECTED_B, IL5, IL2, JP_REGIONS_AND_SUPPORT, KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS, REGIONAL_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT, IRS_1075
     /// </summary>
-    public string? ComplianceRegime
+    public TerraformLiteralProperty<string>? ComplianceRegime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compliance_regime")?.Value;
-        set => this.WithProperty("compliance_regime", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compliance_regime");
+        set => this.WithProperty("compliance_regime", value);
     }
 
     /// <summary>
     /// Required. The user-assigned display name of the Workload. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, and spaces. Example: My Workload
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Optional. Indicates the sovereignty status of the given workload. Currently meant to be used by Europe/Canada customers.
     /// </summary>
-    public bool? EnableSovereignControls
+    public TerraformLiteralProperty<bool>? EnableSovereignControls
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_sovereign_controls")?.Value;
-        set => this.WithProperty("enable_sovereign_controls", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_sovereign_controls");
+        set => this.WithProperty("enable_sovereign_controls", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -77,64 +77,64 @@ public class GoogleAssuredWorkloadsWorkload : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The organization for the resource
     /// </summary>
-    public string? Organization
+    public TerraformLiteralProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization")?.Value;
-        set => this.WithProperty("organization", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        set => this.WithProperty("organization", value);
     }
 
     /// <summary>
     /// Optional. Partner regime associated with this workload. Possible values: PARTNER_UNSPECIFIED, LOCAL_CONTROLS_BY_S3NS, SOVEREIGN_CONTROLS_BY_T_SYSTEMS, SOVEREIGN_CONTROLS_BY_SIA_MINSAIT, SOVEREIGN_CONTROLS_BY_PSN, SOVEREIGN_CONTROLS_BY_CNTXT, SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM
     /// </summary>
-    public string? Partner
+    public TerraformLiteralProperty<string>? Partner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partner")?.Value;
-        set => this.WithProperty("partner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("partner");
+        set => this.WithProperty("partner", value);
     }
 
     /// <summary>
     /// Optional. Input only. Billing account necessary for purchasing services from Sovereign Partners. This field is required for creating SIA/PSN/CNTXT partner workloads. The caller should have &#39;billing.resourceAssociations.create&#39; IAM permission on this billing-account. The format of this string is billingAccounts/AAAAAA-BBBBBB-CCCCCC.
     /// </summary>
-    public string? PartnerServicesBillingAccount
+    public TerraformLiteralProperty<string>? PartnerServicesBillingAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partner_services_billing_account")?.Value;
-        set => this.WithProperty("partner_services_billing_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("partner_services_billing_account");
+        set => this.WithProperty("partner_services_billing_account", value);
     }
 
     /// <summary>
     /// Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/{folder_id}
     /// </summary>
-    public string? ProvisionedResourcesParent
+    public TerraformLiteralProperty<string>? ProvisionedResourcesParent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provisioned_resources_parent")?.Value;
-        set => this.WithProperty("provisioned_resources_parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provisioned_resources_parent");
+        set => this.WithProperty("provisioned_resources_parent", value);
     }
 
     /// <summary>
     /// Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload.
     /// </summary>
-    public bool? ViolationNotificationsEnabled
+    public TerraformLiteralProperty<bool>? ViolationNotificationsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("violation_notifications_enabled")?.Value;
-        set => this.WithProperty("violation_notifications_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("violation_notifications_enabled");
+        set => this.WithProperty("violation_notifications_enabled", value);
     }
 
     /// <summary>

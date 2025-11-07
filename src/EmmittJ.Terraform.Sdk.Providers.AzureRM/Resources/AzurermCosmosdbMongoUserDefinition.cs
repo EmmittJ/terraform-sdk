@@ -19,46 +19,46 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     /// <summary>
     /// The cosmos_mongo_database_id attribute.
     /// </summary>
-    public string? CosmosMongoDatabaseId
+    public TerraformLiteralProperty<string>? CosmosMongoDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmos_mongo_database_id")?.Value;
-        set => this.WithProperty("cosmos_mongo_database_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmos_mongo_database_id");
+        set => this.WithProperty("cosmos_mongo_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The inherited_role_names attribute.
     /// </summary>
-    public List<string>? InheritedRoleNames
+    public TerraformLiteralProperty<List<string>>? InheritedRoleNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("inherited_role_names")?.Value;
-        set => this.WithProperty("inherited_role_names", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("inherited_role_names");
+        set => this.WithProperty("inherited_role_names", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public string? Password
+    public TerraformLiteralProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password")?.Value;
-        set => this.WithProperty("password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public string? Username
+    public TerraformLiteralProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username")?.Value;
-        set => this.WithProperty("username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        set => this.WithProperty("username", value);
     }
 
 }

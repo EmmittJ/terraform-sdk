@@ -21,73 +21,73 @@ public class AwsCloudformationStackInstances : TerraformResource
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public HashSet<string>? Accounts
+    public TerraformLiteralProperty<HashSet<string>>? Accounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("accounts")?.Value;
-        set => this.WithProperty("accounts", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("accounts");
+        set => this.WithProperty("accounts", value);
     }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    public string? CallAs
+    public TerraformLiteralProperty<string>? CallAs
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("call_as")?.Value;
-        set => this.WithProperty("call_as", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("call_as");
+        set => this.WithProperty("call_as", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parameter_overrides attribute.
     /// </summary>
-    public Dictionary<string, string>? ParameterOverrides
+    public TerraformLiteralProperty<Dictionary<string, string>>? ParameterOverrides
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameter_overrides")?.Value;
-        set => this.WithProperty("parameter_overrides", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameter_overrides");
+        set => this.WithProperty("parameter_overrides", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public HashSet<string>? Regions
+    public TerraformLiteralProperty<HashSet<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions")?.Value;
-        set => this.WithProperty("regions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions");
+        set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The retain_stacks attribute.
     /// </summary>
-    public bool? RetainStacks
+    public TerraformLiteralProperty<bool>? RetainStacks
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("retain_stacks")?.Value;
-        set => this.WithProperty("retain_stacks", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("retain_stacks");
+        set => this.WithProperty("retain_stacks", value);
     }
 
     /// <summary>
     /// The stack_set_name attribute.
     /// </summary>
-    public string? StackSetName
+    public TerraformLiteralProperty<string>? StackSetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_set_name")?.Value;
-        set => this.WithProperty("stack_set_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stack_set_name");
+        set => this.WithProperty("stack_set_name", value);
     }
 
     /// <summary>

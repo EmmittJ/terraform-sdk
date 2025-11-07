@@ -27,118 +27,118 @@ public class AzurermAppService : TerraformResource
     /// <summary>
     /// The app_service_plan_id attribute.
     /// </summary>
-    public string? AppServicePlanId
+    public TerraformLiteralProperty<string>? AppServicePlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_plan_id")?.Value;
-        set => this.WithProperty("app_service_plan_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_service_plan_id");
+        set => this.WithProperty("app_service_plan_id", value);
     }
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    public Dictionary<string, string>? AppSettings
+    public TerraformLiteralProperty<Dictionary<string, string>>? AppSettings
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("app_settings")?.Value;
-        set => this.WithProperty("app_settings", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("app_settings");
+        set => this.WithProperty("app_settings", value);
     }
 
     /// <summary>
     /// The client_affinity_enabled attribute.
     /// </summary>
-    public bool? ClientAffinityEnabled
+    public TerraformLiteralProperty<bool>? ClientAffinityEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("client_affinity_enabled")?.Value;
-        set => this.WithProperty("client_affinity_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("client_affinity_enabled");
+        set => this.WithProperty("client_affinity_enabled", value);
     }
 
     /// <summary>
     /// The client_cert_enabled attribute.
     /// </summary>
-    public bool? ClientCertEnabled
+    public TerraformLiteralProperty<bool>? ClientCertEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("client_cert_enabled")?.Value;
-        set => this.WithProperty("client_cert_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("client_cert_enabled");
+        set => this.WithProperty("client_cert_enabled", value);
     }
 
     /// <summary>
     /// The client_cert_mode attribute.
     /// </summary>
-    public string? ClientCertMode
+    public TerraformLiteralProperty<string>? ClientCertMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_cert_mode")?.Value;
-        set => this.WithProperty("client_cert_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_cert_mode");
+        set => this.WithProperty("client_cert_mode", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public bool? HttpsOnly
+    public TerraformLiteralProperty<bool>? HttpsOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_only")?.Value;
-        set => this.WithProperty("https_only", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("https_only");
+        set => this.WithProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_reference_identity_id attribute.
     /// </summary>
-    public string? KeyVaultReferenceIdentityId
+    public TerraformLiteralProperty<string>? KeyVaultReferenceIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_reference_identity_id")?.Value;
-        set => this.WithProperty("key_vault_reference_identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_reference_identity_id");
+        set => this.WithProperty("key_vault_reference_identity_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

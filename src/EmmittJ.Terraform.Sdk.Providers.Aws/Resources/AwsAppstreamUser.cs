@@ -21,73 +21,73 @@ public class AwsAppstreamUser : TerraformResource
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public string? AuthenticationType
+    public TerraformLiteralProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type")?.Value;
-        set => this.WithProperty("authentication_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public string? FirstName
+    public TerraformLiteralProperty<string>? FirstName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("first_name")?.Value;
-        set => this.WithProperty("first_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("first_name");
+        set => this.WithProperty("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public string? LastName
+    public TerraformLiteralProperty<string>? LastName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("last_name")?.Value;
-        set => this.WithProperty("last_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("last_name");
+        set => this.WithProperty("last_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The send_email_notification attribute.
     /// </summary>
-    public bool? SendEmailNotification
+    public TerraformLiteralProperty<bool>? SendEmailNotification
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("send_email_notification")?.Value;
-        set => this.WithProperty("send_email_notification", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("send_email_notification");
+        set => this.WithProperty("send_email_notification", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public string? UserName
+    public TerraformLiteralProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name")?.Value;
-        set => this.WithProperty("user_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        set => this.WithProperty("user_name", value);
     }
 
     /// <summary>

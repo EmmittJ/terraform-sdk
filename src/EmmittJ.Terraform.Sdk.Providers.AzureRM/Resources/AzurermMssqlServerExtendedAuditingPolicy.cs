@@ -19,100 +19,100 @@ public class AzurermMssqlServerExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The audit_actions_and_groups attribute.
     /// </summary>
-    public List<string>? AuditActionsAndGroups
+    public TerraformLiteralProperty<List<string>>? AuditActionsAndGroups
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("audit_actions_and_groups")?.Value;
-        set => this.WithProperty("audit_actions_and_groups", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("audit_actions_and_groups");
+        set => this.WithProperty("audit_actions_and_groups", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_monitoring_enabled attribute.
     /// </summary>
-    public bool? LogMonitoringEnabled
+    public TerraformLiteralProperty<bool>? LogMonitoringEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_monitoring_enabled")?.Value;
-        set => this.WithProperty("log_monitoring_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("log_monitoring_enabled");
+        set => this.WithProperty("log_monitoring_enabled", value);
     }
 
     /// <summary>
     /// The predicate_expression attribute.
     /// </summary>
-    public string? PredicateExpression
+    public TerraformLiteralProperty<string>? PredicateExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("predicate_expression")?.Value;
-        set => this.WithProperty("predicate_expression", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("predicate_expression");
+        set => this.WithProperty("predicate_expression", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public double? RetentionInDays
+    public TerraformLiteralProperty<double>? RetentionInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_in_days")?.Value;
-        set => this.WithProperty("retention_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("retention_in_days");
+        set => this.WithProperty("retention_in_days", value);
     }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public string? ServerId
+    public TerraformLiteralProperty<string>? ServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_id")?.Value;
-        set => this.WithProperty("server_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_id");
+        set => this.WithProperty("server_id", value);
     }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    public string? StorageAccountAccessKey
+    public TerraformLiteralProperty<string>? StorageAccountAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_access_key")?.Value;
-        set => this.WithProperty("storage_account_access_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_access_key");
+        set => this.WithProperty("storage_account_access_key", value);
     }
 
     /// <summary>
     /// The storage_account_access_key_is_secondary attribute.
     /// </summary>
-    public bool? StorageAccountAccessKeyIsSecondary
+    public TerraformLiteralProperty<bool>? StorageAccountAccessKeyIsSecondary
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("storage_account_access_key_is_secondary")?.Value;
-        set => this.WithProperty("storage_account_access_key_is_secondary", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("storage_account_access_key_is_secondary");
+        set => this.WithProperty("storage_account_access_key_is_secondary", value);
     }
 
     /// <summary>
     /// The storage_account_subscription_id attribute.
     /// </summary>
-    public string? StorageAccountSubscriptionId
+    public TerraformLiteralProperty<string>? StorageAccountSubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_subscription_id")?.Value;
-        set => this.WithProperty("storage_account_subscription_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_subscription_id");
+        set => this.WithProperty("storage_account_subscription_id", value);
     }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
-    public string? StorageEndpoint
+    public TerraformLiteralProperty<string>? StorageEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_endpoint")?.Value;
-        set => this.WithProperty("storage_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_endpoint");
+        set => this.WithProperty("storage_endpoint", value);
     }
 
 }

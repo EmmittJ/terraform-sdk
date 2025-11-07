@@ -20,55 +20,55 @@ public class AwsVpcNetworkPerformanceMetricSubscription : TerraformResource
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public string? Destination
+    public TerraformLiteralProperty<string>? Destination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination")?.Value;
-        set => this.WithProperty("destination", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination");
+        set => this.WithProperty("destination", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metric attribute.
     /// </summary>
-    public string? Metric
+    public TerraformLiteralProperty<string>? Metric
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metric")?.Value;
-        set => this.WithProperty("metric", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("metric");
+        set => this.WithProperty("metric", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public string? Source
+    public TerraformLiteralProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source")?.Value;
-        set => this.WithProperty("source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// The statistic attribute.
     /// </summary>
-    public string? Statistic
+    public TerraformLiteralProperty<string>? Statistic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("statistic")?.Value;
-        set => this.WithProperty("statistic", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("statistic");
+        set => this.WithProperty("statistic", value);
     }
 
     /// <summary>

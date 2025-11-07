@@ -22,37 +22,37 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public string? Encoding
+    public TerraformLiteralProperty<string>? Encoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encoding")?.Value;
-        set => this.WithProperty("encoding", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encoding");
+        set => this.WithProperty("encoding", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ssh_public_key_id attribute.
     /// </summary>
-    public string? SshPublicKeyId
+    public TerraformLiteralProperty<string>? SshPublicKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssh_public_key_id")?.Value;
-        set => this.WithProperty("ssh_public_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ssh_public_key_id");
+        set => this.WithProperty("ssh_public_key_id", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public string? Username
+    public TerraformLiteralProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username")?.Value;
-        set => this.WithProperty("username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        set => this.WithProperty("username", value);
     }
 
     /// <summary>

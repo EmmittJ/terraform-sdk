@@ -25,19 +25,19 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// Empty active_key_version indicates that a Google-managed key should be used for signing.
     /// This property will be ignored if set by an ancestor of the resource, and new non-empty values may not be set.
     /// </summary>
-    public string? ActiveKeyVersion
+    public TerraformLiteralProperty<string>? ActiveKeyVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("active_key_version")?.Value;
-        set => this.WithProperty("active_key_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("active_key_version");
+        set => this.WithProperty("active_key_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -45,29 +45,29 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    public HashSet<string>? NotificationEmails
+    public TerraformLiteralProperty<HashSet<string>>? NotificationEmails
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("notification_emails")?.Value;
-        set => this.WithProperty("notification_emails", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("notification_emails");
+        set => this.WithProperty("notification_emails", value);
     }
 
     /// <summary>
     /// Project id.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// ID of the project of the access approval settings.
     /// </summary>
-    public string? ProjectId
+    public TerraformLiteralProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_id")?.Value;
-        set => this.WithProperty("project_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project_id");
+        set => this.WithProperty("project_id", value);
     }
 
     /// <summary>

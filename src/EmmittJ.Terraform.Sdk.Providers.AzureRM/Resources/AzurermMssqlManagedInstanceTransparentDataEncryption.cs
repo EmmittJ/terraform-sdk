@@ -19,46 +19,46 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryption : TerraformRes
     /// <summary>
     /// The auto_rotation_enabled attribute.
     /// </summary>
-    public bool? AutoRotationEnabled
+    public TerraformLiteralProperty<bool>? AutoRotationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_rotation_enabled")?.Value;
-        set => this.WithProperty("auto_rotation_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_rotation_enabled");
+        set => this.WithProperty("auto_rotation_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public string? KeyVaultKeyId
+    public TerraformLiteralProperty<string>? KeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_key_id")?.Value;
-        set => this.WithProperty("key_vault_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_key_id");
+        set => this.WithProperty("key_vault_key_id", value);
     }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public string? ManagedHsmKeyId
+    public TerraformLiteralProperty<string>? ManagedHsmKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_key_id")?.Value;
-        set => this.WithProperty("managed_hsm_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_key_id");
+        set => this.WithProperty("managed_hsm_key_id", value);
     }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public string? ManagedInstanceId
+    public TerraformLiteralProperty<string>? ManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id")?.Value;
-        set => this.WithProperty("managed_instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id");
+        set => this.WithProperty("managed_instance_id", value);
     }
 
 }

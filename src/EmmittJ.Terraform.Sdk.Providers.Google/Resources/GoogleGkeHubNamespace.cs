@@ -27,10 +27,10 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -40,10 +40,10 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -53,46 +53,46 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// resource) take precedence over Namespace-level labels if they share
     /// a key. Keys and values must be Kubernetes-conformant.
     /// </summary>
-    public Dictionary<string, string>? NamespaceLabels
+    public TerraformLiteralProperty<Dictionary<string, string>>? NamespaceLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("namespace_labels")?.Value;
-        set => this.WithProperty("namespace_labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("namespace_labels");
+        set => this.WithProperty("namespace_labels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the Scope instance.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// Id of the scope
     /// </summary>
-    public string? ScopeId
+    public TerraformLiteralProperty<string>? ScopeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_id")?.Value;
-        set => this.WithProperty("scope_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope_id");
+        set => this.WithProperty("scope_id", value);
     }
 
     /// <summary>
     /// The client-provided identifier of the namespace.
     /// </summary>
-    public string? ScopeNamespaceId
+    public TerraformLiteralProperty<string>? ScopeNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_namespace_id")?.Value;
-        set => this.WithProperty("scope_namespace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope_namespace_id");
+        set => this.WithProperty("scope_namespace_id", value);
     }
 
     /// <summary>

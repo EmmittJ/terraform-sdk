@@ -21,28 +21,28 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     /// <summary>
     /// ID of the group to which this policy is assigned
     /// </summary>
-    public string? GroupId
+    public TerraformLiteralProperty<string>? GroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_id")?.Value;
-        set => this.WithProperty("group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group_id");
+        set => this.WithProperty("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the role of this policy to the group
     /// </summary>
-    public string? RoleId
+    public TerraformLiteralProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id")?.Value;
-        set => this.WithProperty("role_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        set => this.WithProperty("role_id", value);
     }
 
     /// <summary>

@@ -26,38 +26,38 @@ public class GoogleComputeFirewallPolicyWithRules : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent of this FirewallPolicy in the Cloud Resource Hierarchy.
     /// Format: organizations/{organization_id} or folders/{folder_id}
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// A textual name of the security policy.
     /// </summary>
-    public string? ShortName
+    public TerraformLiteralProperty<string>? ShortName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_name")?.Value;
-        set => this.WithProperty("short_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("short_name");
+        set => this.WithProperty("short_name", value);
     }
 
     /// <summary>

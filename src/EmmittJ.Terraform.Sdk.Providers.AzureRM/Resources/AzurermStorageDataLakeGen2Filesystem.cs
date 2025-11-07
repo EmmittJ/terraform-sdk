@@ -19,64 +19,64 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public string? DefaultEncryptionScope
+    public TerraformLiteralProperty<string>? DefaultEncryptionScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_encryption_scope")?.Value;
-        set => this.WithProperty("default_encryption_scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_encryption_scope");
+        set => this.WithProperty("default_encryption_scope", value);
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public string? Group
+    public TerraformLiteralProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group")?.Value;
-        set => this.WithProperty("group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public string? Owner
+    public TerraformLiteralProperty<string>? Owner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner")?.Value;
-        set => this.WithProperty("owner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("owner");
+        set => this.WithProperty("owner", value);
     }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, string>? Properties
+    public TerraformLiteralProperty<Dictionary<string, string>>? Properties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties")?.Value;
-        set => this.WithProperty("properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties");
+        set => this.WithProperty("properties", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public string? StorageAccountId
+    public TerraformLiteralProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id")?.Value;
-        set => this.WithProperty("storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        set => this.WithProperty("storage_account_id", value);
     }
 
 }

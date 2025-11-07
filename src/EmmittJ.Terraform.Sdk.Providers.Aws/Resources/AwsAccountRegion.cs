@@ -20,37 +20,37 @@ public class AwsAccountRegion : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public string? AccountId
+    public TerraformLiteralProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id")?.Value;
-        set => this.WithProperty("account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The region_name attribute.
     /// </summary>
-    public string? RegionName
+    public TerraformLiteralProperty<string>? RegionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region_name")?.Value;
-        set => this.WithProperty("region_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region_name");
+        set => this.WithProperty("region_name", value);
     }
 
     /// <summary>

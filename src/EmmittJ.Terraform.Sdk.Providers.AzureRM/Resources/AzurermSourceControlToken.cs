@@ -19,37 +19,37 @@ public class AzurermSourceControlToken : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    public string? Token
+    public TerraformLiteralProperty<string>? Token
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token")?.Value;
-        set => this.WithProperty("token", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("token");
+        set => this.WithProperty("token", value);
     }
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
-    public string? TokenSecret
+    public TerraformLiteralProperty<string>? TokenSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_secret")?.Value;
-        set => this.WithProperty("token_secret", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("token_secret");
+        set => this.WithProperty("token_secret", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
 }

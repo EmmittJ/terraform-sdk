@@ -22,19 +22,19 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// 
     /// This can only be specified when network_endpoint_type of the NEG is INTERNET_FQDN_PORT.
     /// </summary>
-    public string? Fqdn
+    public TerraformLiteralProperty<string>? Fqdn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fqdn")?.Value;
-        set => this.WithProperty("fqdn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("fqdn");
+        set => this.WithProperty("fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -42,46 +42,46 @@ public class GoogleComputeRegionNetworkEndpoint : TerraformResource
     /// 
     /// This can only be specified when network_endpoint_type of the NEG is INTERNET_IP_PORT.
     /// </summary>
-    public string? IpAddress
+    public TerraformLiteralProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address")?.Value;
-        set => this.WithProperty("ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// Port number of network endpoint.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Region where the containing network endpoint group is located.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The network endpoint group this endpoint is part of.
     /// </summary>
-    public string? RegionNetworkEndpointGroup
+    public TerraformLiteralProperty<string>? RegionNetworkEndpointGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region_network_endpoint_group")?.Value;
-        set => this.WithProperty("region_network_endpoint_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region_network_endpoint_group");
+        set => this.WithProperty("region_network_endpoint_group", value);
     }
 
     /// <summary>

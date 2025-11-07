@@ -21,64 +21,64 @@ public class AwsCeCostCategory : TerraformResource
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    public string? DefaultValue
+    public TerraformLiteralProperty<string>? DefaultValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_value")?.Value;
-        set => this.WithProperty("default_value", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_value");
+        set => this.WithProperty("default_value", value);
     }
 
     /// <summary>
     /// The effective_start attribute.
     /// </summary>
-    public string? EffectiveStart
+    public TerraformLiteralProperty<string>? EffectiveStart
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("effective_start")?.Value;
-        set => this.WithProperty("effective_start", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("effective_start");
+        set => this.WithProperty("effective_start", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The rule_version attribute.
     /// </summary>
-    public string? RuleVersion
+    public TerraformLiteralProperty<string>? RuleVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_version")?.Value;
-        set => this.WithProperty("rule_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_version");
+        set => this.WithProperty("rule_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

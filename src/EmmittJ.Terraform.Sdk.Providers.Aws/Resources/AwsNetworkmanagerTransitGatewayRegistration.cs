@@ -19,28 +19,28 @@ public class AwsNetworkmanagerTransitGatewayRegistration : TerraformResource
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
-    public string? GlobalNetworkId
+    public TerraformLiteralProperty<string>? GlobalNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_network_id")?.Value;
-        set => this.WithProperty("global_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_network_id");
+        set => this.WithProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The transit_gateway_arn attribute.
     /// </summary>
-    public string? TransitGatewayArn
+    public TerraformLiteralProperty<string>? TransitGatewayArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_arn")?.Value;
-        set => this.WithProperty("transit_gateway_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_arn");
+        set => this.WithProperty("transit_gateway_arn", value);
     }
 
 }

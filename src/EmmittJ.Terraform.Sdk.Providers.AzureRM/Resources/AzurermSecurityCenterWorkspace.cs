@@ -19,28 +19,28 @@ public class AzurermSecurityCenterWorkspace : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
 }

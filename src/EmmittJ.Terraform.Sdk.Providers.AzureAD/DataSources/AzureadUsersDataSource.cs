@@ -20,73 +20,73 @@ public class AzureadUsersDataSource : TerraformDataSource
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public List<string>? EmployeeIds
+    public TerraformLiteralProperty<List<string>>? EmployeeIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("employee_ids")?.Value;
-        set => this.WithProperty("employee_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("employee_ids");
+        set => this.WithProperty("employee_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Ignore missing users and return users that were found. The data source will still fail if no users are found
     /// </summary>
-    public bool? IgnoreMissing
+    public TerraformLiteralProperty<bool>? IgnoreMissing
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_missing")?.Value;
-        set => this.WithProperty("ignore_missing", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_missing");
+        set => this.WithProperty("ignore_missing", value);
     }
 
     /// <summary>
     /// The email aliases of the users
     /// </summary>
-    public List<string>? MailNicknames
+    public TerraformLiteralProperty<List<string>>? MailNicknames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("mail_nicknames")?.Value;
-        set => this.WithProperty("mail_nicknames", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("mail_nicknames");
+        set => this.WithProperty("mail_nicknames", value);
     }
 
     /// <summary>
     /// The SMTP address of the users
     /// </summary>
-    public List<string>? Mails
+    public TerraformLiteralProperty<List<string>>? Mails
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("mails")?.Value;
-        set => this.WithProperty("mails", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("mails");
+        set => this.WithProperty("mails", value);
     }
 
     /// <summary>
     /// The object IDs of the users
     /// </summary>
-    public List<string>? ObjectIds
+    public TerraformLiteralProperty<List<string>>? ObjectIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("object_ids")?.Value;
-        set => this.WithProperty("object_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("object_ids");
+        set => this.WithProperty("object_ids", value);
     }
 
     /// <summary>
     /// Fetch all users with no filter and return all that were found. The data source will still fail if no users are found.
     /// </summary>
-    public bool? ReturnAll
+    public TerraformLiteralProperty<bool>? ReturnAll
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("return_all")?.Value;
-        set => this.WithProperty("return_all", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("return_all");
+        set => this.WithProperty("return_all", value);
     }
 
     /// <summary>
     /// The user principal names (UPNs) of the users
     /// </summary>
-    public List<string>? UserPrincipalNames
+    public TerraformLiteralProperty<List<string>>? UserPrincipalNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("user_principal_names")?.Value;
-        set => this.WithProperty("user_principal_names", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("user_principal_names");
+        set => this.WithProperty("user_principal_names", value);
     }
 
     /// <summary>

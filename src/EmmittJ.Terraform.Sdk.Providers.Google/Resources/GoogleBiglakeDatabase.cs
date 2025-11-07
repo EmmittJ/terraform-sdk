@@ -23,37 +23,37 @@ public class GoogleBiglakeDatabase : TerraformResource
     /// <summary>
     /// The parent catalog.
     /// </summary>
-    public string? Catalog
+    public TerraformLiteralProperty<string>? Catalog
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog")?.Value;
-        set => this.WithProperty("catalog", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("catalog");
+        set => this.WithProperty("catalog", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the database.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The database type.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

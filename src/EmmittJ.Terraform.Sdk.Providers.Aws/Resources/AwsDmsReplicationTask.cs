@@ -21,136 +21,136 @@ public class AwsDmsReplicationTask : TerraformResource
     /// <summary>
     /// The cdc_start_position attribute.
     /// </summary>
-    public string? CdcStartPosition
+    public TerraformLiteralProperty<string>? CdcStartPosition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdc_start_position")?.Value;
-        set => this.WithProperty("cdc_start_position", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cdc_start_position");
+        set => this.WithProperty("cdc_start_position", value);
     }
 
     /// <summary>
     /// The cdc_start_time attribute.
     /// </summary>
-    public string? CdcStartTime
+    public TerraformLiteralProperty<string>? CdcStartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdc_start_time")?.Value;
-        set => this.WithProperty("cdc_start_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cdc_start_time");
+        set => this.WithProperty("cdc_start_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The migration_type attribute.
     /// </summary>
-    public string? MigrationType
+    public TerraformLiteralProperty<string>? MigrationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("migration_type")?.Value;
-        set => this.WithProperty("migration_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("migration_type");
+        set => this.WithProperty("migration_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replication_instance_arn attribute.
     /// </summary>
-    public string? ReplicationInstanceArn
+    public TerraformLiteralProperty<string>? ReplicationInstanceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_instance_arn")?.Value;
-        set => this.WithProperty("replication_instance_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("replication_instance_arn");
+        set => this.WithProperty("replication_instance_arn", value);
     }
 
     /// <summary>
     /// The replication_task_id attribute.
     /// </summary>
-    public string? ReplicationTaskId
+    public TerraformLiteralProperty<string>? ReplicationTaskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_task_id")?.Value;
-        set => this.WithProperty("replication_task_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("replication_task_id");
+        set => this.WithProperty("replication_task_id", value);
     }
 
     /// <summary>
     /// The replication_task_settings attribute.
     /// </summary>
-    public string? ReplicationTaskSettings
+    public TerraformLiteralProperty<string>? ReplicationTaskSettings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_task_settings")?.Value;
-        set => this.WithProperty("replication_task_settings", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("replication_task_settings");
+        set => this.WithProperty("replication_task_settings", value);
     }
 
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
-    public string? ResourceIdentifier
+    public TerraformLiteralProperty<string>? ResourceIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_identifier")?.Value;
-        set => this.WithProperty("resource_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_identifier");
+        set => this.WithProperty("resource_identifier", value);
     }
 
     /// <summary>
     /// The source_endpoint_arn attribute.
     /// </summary>
-    public string? SourceEndpointArn
+    public TerraformLiteralProperty<string>? SourceEndpointArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_endpoint_arn")?.Value;
-        set => this.WithProperty("source_endpoint_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_endpoint_arn");
+        set => this.WithProperty("source_endpoint_arn", value);
     }
 
     /// <summary>
     /// The start_replication_task attribute.
     /// </summary>
-    public bool? StartReplicationTask
+    public TerraformLiteralProperty<bool>? StartReplicationTask
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("start_replication_task")?.Value;
-        set => this.WithProperty("start_replication_task", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("start_replication_task");
+        set => this.WithProperty("start_replication_task", value);
     }
 
     /// <summary>
     /// The table_mappings attribute.
     /// </summary>
-    public string? TableMappings
+    public TerraformLiteralProperty<string>? TableMappings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_mappings")?.Value;
-        set => this.WithProperty("table_mappings", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table_mappings");
+        set => this.WithProperty("table_mappings", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_endpoint_arn attribute.
     /// </summary>
-    public string? TargetEndpointArn
+    public TerraformLiteralProperty<string>? TargetEndpointArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_endpoint_arn")?.Value;
-        set => this.WithProperty("target_endpoint_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_endpoint_arn");
+        set => this.WithProperty("target_endpoint_arn", value);
     }
 
     /// <summary>

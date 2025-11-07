@@ -20,28 +20,28 @@ public class GoogleAccessContextManagerIngressPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
-    public string? IngressPolicyName
+    public TerraformLiteralProperty<string>? IngressPolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ingress_policy_name")?.Value;
-        set => this.WithProperty("ingress_policy_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ingress_policy_name");
+        set => this.WithProperty("ingress_policy_name", value);
     }
 
     /// <summary>
     /// A GCP resource that is inside of the service perimeter.
     /// </summary>
-    public string? Resource
+    public TerraformLiteralProperty<string>? Resource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource")?.Value;
-        set => this.WithProperty("resource", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource");
+        set => this.WithProperty("resource", value);
     }
 
     /// <summary>

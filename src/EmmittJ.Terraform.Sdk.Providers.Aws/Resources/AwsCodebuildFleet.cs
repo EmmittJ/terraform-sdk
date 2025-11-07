@@ -24,91 +24,91 @@ public class AwsCodebuildFleet : TerraformResource
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
-    public double? BaseCapacity
+    public TerraformLiteralProperty<double>? BaseCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("base_capacity")?.Value;
-        set => this.WithProperty("base_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("base_capacity");
+        set => this.WithProperty("base_capacity", value);
     }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public string? ComputeType
+    public TerraformLiteralProperty<string>? ComputeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_type")?.Value;
-        set => this.WithProperty("compute_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compute_type");
+        set => this.WithProperty("compute_type", value);
     }
 
     /// <summary>
     /// The environment_type attribute.
     /// </summary>
-    public string? EnvironmentType
+    public TerraformLiteralProperty<string>? EnvironmentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_type")?.Value;
-        set => this.WithProperty("environment_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment_type");
+        set => this.WithProperty("environment_type", value);
     }
 
     /// <summary>
     /// The fleet_service_role attribute.
     /// </summary>
-    public string? FleetServiceRole
+    public TerraformLiteralProperty<string>? FleetServiceRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fleet_service_role")?.Value;
-        set => this.WithProperty("fleet_service_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("fleet_service_role");
+        set => this.WithProperty("fleet_service_role", value);
     }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public string? ImageId
+    public TerraformLiteralProperty<string>? ImageId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_id")?.Value;
-        set => this.WithProperty("image_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("image_id");
+        set => this.WithProperty("image_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
-    public string? OverflowBehavior
+    public TerraformLiteralProperty<string>? OverflowBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("overflow_behavior")?.Value;
-        set => this.WithProperty("overflow_behavior", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("overflow_behavior");
+        set => this.WithProperty("overflow_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

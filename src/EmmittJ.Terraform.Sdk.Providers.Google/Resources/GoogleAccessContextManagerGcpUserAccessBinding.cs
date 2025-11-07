@@ -20,37 +20,37 @@ public class GoogleAccessContextManagerGcpUserAccessBinding : TerraformResource
     /// <summary>
     /// Optional. Access level that a user must have to be granted access. Only one access level is supported, not multiple. This repeated field must have exactly one element. Example: &amp;quot;accessPolicies/9522/accessLevels/device_trusted&amp;quot;
     /// </summary>
-    public List<string>? AccessLevels
+    public TerraformLiteralProperty<List<string>>? AccessLevels
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("access_levels")?.Value;
-        set => this.WithProperty("access_levels", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("access_levels");
+        set => this.WithProperty("access_levels", value);
     }
 
     /// <summary>
     /// Required. Immutable. Google Group id whose members are subject to this binding&#39;s restrictions. See &amp;quot;id&amp;quot; in the G Suite Directory API&#39;s Groups resource. If a group&#39;s email address/alias is changed, this resource will continue to point at the changed group. This field does not accept group email addresses or aliases. Example: &amp;quot;01d520gv4vjcrht&amp;quot;
     /// </summary>
-    public string? GroupKey
+    public TerraformLiteralProperty<string>? GroupKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_key")?.Value;
-        set => this.WithProperty("group_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group_key");
+        set => this.WithProperty("group_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Required. ID of the parent organization.
     /// </summary>
-    public string? OrganizationId
+    public TerraformLiteralProperty<string>? OrganizationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization_id")?.Value;
-        set => this.WithProperty("organization_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization_id");
+        set => this.WithProperty("organization_id", value);
     }
 
     /// <summary>

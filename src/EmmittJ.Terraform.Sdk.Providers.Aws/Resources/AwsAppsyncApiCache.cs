@@ -19,73 +19,73 @@ public class AwsAppsyncApiCache : TerraformResource
     /// <summary>
     /// The api_caching_behavior attribute.
     /// </summary>
-    public string? ApiCachingBehavior
+    public TerraformLiteralProperty<string>? ApiCachingBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_caching_behavior")?.Value;
-        set => this.WithProperty("api_caching_behavior", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_caching_behavior");
+        set => this.WithProperty("api_caching_behavior", value);
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public string? ApiId
+    public TerraformLiteralProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id")?.Value;
-        set => this.WithProperty("api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The at_rest_encryption_enabled attribute.
     /// </summary>
-    public bool? AtRestEncryptionEnabled
+    public TerraformLiteralProperty<bool>? AtRestEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("at_rest_encryption_enabled")?.Value;
-        set => this.WithProperty("at_rest_encryption_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("at_rest_encryption_enabled");
+        set => this.WithProperty("at_rest_encryption_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    public bool? TransitEncryptionEnabled
+    public TerraformLiteralProperty<bool>? TransitEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("transit_encryption_enabled")?.Value;
-        set => this.WithProperty("transit_encryption_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("transit_encryption_enabled");
+        set => this.WithProperty("transit_encryption_enabled", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public double? Ttl
+    public TerraformLiteralProperty<double>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ttl")?.Value;
-        set => this.WithProperty("ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("ttl");
+        set => this.WithProperty("ttl", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
 }

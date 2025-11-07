@@ -20,19 +20,19 @@ public class AzureadDirectoryObjectDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the Directory Object
     /// </summary>
-    public string? ObjectId
+    public TerraformLiteralProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id")?.Value;
-        set => this.WithProperty("object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        set => this.WithProperty("object_id", value);
     }
 
     /// <summary>

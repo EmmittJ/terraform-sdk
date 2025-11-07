@@ -21,37 +21,37 @@ public class AwsDynamodbResourcePolicy : TerraformResource
     /// <summary>
     /// The confirm_remove_self_resource_access attribute.
     /// </summary>
-    public bool? ConfirmRemoveSelfResourceAccess
+    public TerraformLiteralProperty<bool>? ConfirmRemoveSelfResourceAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("confirm_remove_self_resource_access")?.Value;
-        set => this.WithProperty("confirm_remove_self_resource_access", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("confirm_remove_self_resource_access");
+        set => this.WithProperty("confirm_remove_self_resource_access", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public string? Policy
+    public TerraformLiteralProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy")?.Value;
-        set => this.WithProperty("policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public string? ResourceArn
+    public TerraformLiteralProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn")?.Value;
-        set => this.WithProperty("resource_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        set => this.WithProperty("resource_arn", value);
     }
 
     /// <summary>

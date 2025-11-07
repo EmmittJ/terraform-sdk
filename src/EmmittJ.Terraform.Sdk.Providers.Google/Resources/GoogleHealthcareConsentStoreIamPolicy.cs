@@ -20,37 +20,37 @@ public class GoogleHealthcareConsentStoreIamPolicy : TerraformResource
     /// <summary>
     /// The consent_store_id attribute.
     /// </summary>
-    public string? ConsentStoreId
+    public TerraformLiteralProperty<string>? ConsentStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consent_store_id")?.Value;
-        set => this.WithProperty("consent_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("consent_store_id");
+        set => this.WithProperty("consent_store_id", value);
     }
 
     /// <summary>
     /// The dataset attribute.
     /// </summary>
-    public string? Dataset
+    public TerraformLiteralProperty<string>? Dataset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset")?.Value;
-        set => this.WithProperty("dataset", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset");
+        set => this.WithProperty("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public string? PolicyData
+    public TerraformLiteralProperty<string>? PolicyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_data")?.Value;
-        set => this.WithProperty("policy_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_data");
+        set => this.WithProperty("policy_data", value);
     }
 
     /// <summary>

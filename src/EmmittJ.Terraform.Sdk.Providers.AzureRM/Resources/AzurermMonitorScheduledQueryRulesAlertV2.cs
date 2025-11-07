@@ -22,163 +22,163 @@ public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
     /// <summary>
     /// The auto_mitigation_enabled attribute.
     /// </summary>
-    public bool? AutoMitigationEnabled
+    public TerraformLiteralProperty<bool>? AutoMitigationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_mitigation_enabled")?.Value;
-        set => this.WithProperty("auto_mitigation_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_mitigation_enabled");
+        set => this.WithProperty("auto_mitigation_enabled", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The evaluation_frequency attribute.
     /// </summary>
-    public string? EvaluationFrequency
+    public TerraformLiteralProperty<string>? EvaluationFrequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("evaluation_frequency")?.Value;
-        set => this.WithProperty("evaluation_frequency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("evaluation_frequency");
+        set => this.WithProperty("evaluation_frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The mute_actions_after_alert_duration attribute.
     /// </summary>
-    public string? MuteActionsAfterAlertDuration
+    public TerraformLiteralProperty<string>? MuteActionsAfterAlertDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mute_actions_after_alert_duration")?.Value;
-        set => this.WithProperty("mute_actions_after_alert_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mute_actions_after_alert_duration");
+        set => this.WithProperty("mute_actions_after_alert_duration", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_time_range_override attribute.
     /// </summary>
-    public string? QueryTimeRangeOverride
+    public TerraformLiteralProperty<string>? QueryTimeRangeOverride
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_time_range_override")?.Value;
-        set => this.WithProperty("query_time_range_override", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query_time_range_override");
+        set => this.WithProperty("query_time_range_override", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public List<string>? Scopes
+    public TerraformLiteralProperty<List<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes")?.Value;
-        set => this.WithProperty("scopes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes");
+        set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public double? Severity
+    public TerraformLiteralProperty<double>? Severity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("severity")?.Value;
-        set => this.WithProperty("severity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("severity");
+        set => this.WithProperty("severity", value);
     }
 
     /// <summary>
     /// The skip_query_validation attribute.
     /// </summary>
-    public bool? SkipQueryValidation
+    public TerraformLiteralProperty<bool>? SkipQueryValidation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_query_validation")?.Value;
-        set => this.WithProperty("skip_query_validation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_query_validation");
+        set => this.WithProperty("skip_query_validation", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The target_resource_types attribute.
     /// </summary>
-    public List<string>? TargetResourceTypes
+    public TerraformLiteralProperty<List<string>>? TargetResourceTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_resource_types")?.Value;
-        set => this.WithProperty("target_resource_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_resource_types");
+        set => this.WithProperty("target_resource_types", value);
     }
 
     /// <summary>
     /// The window_duration attribute.
     /// </summary>
-    public string? WindowDuration
+    public TerraformLiteralProperty<string>? WindowDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("window_duration")?.Value;
-        set => this.WithProperty("window_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("window_duration");
+        set => this.WithProperty("window_duration", value);
     }
 
     /// <summary>
     /// The workspace_alerts_storage_enabled attribute.
     /// </summary>
-    public bool? WorkspaceAlertsStorageEnabled
+    public TerraformLiteralProperty<bool>? WorkspaceAlertsStorageEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("workspace_alerts_storage_enabled")?.Value;
-        set => this.WithProperty("workspace_alerts_storage_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("workspace_alerts_storage_enabled");
+        set => this.WithProperty("workspace_alerts_storage_enabled", value);
     }
 
     /// <summary>

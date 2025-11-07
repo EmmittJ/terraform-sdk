@@ -22,91 +22,91 @@ public class AwsWorkspacesWorkspace : TerraformResource
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public string? BundleId
+    public TerraformLiteralProperty<string>? BundleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bundle_id")?.Value;
-        set => this.WithProperty("bundle_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bundle_id");
+        set => this.WithProperty("bundle_id", value);
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public string? DirectoryId
+    public TerraformLiteralProperty<string>? DirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_id")?.Value;
-        set => this.WithProperty("directory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("directory_id");
+        set => this.WithProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The root_volume_encryption_enabled attribute.
     /// </summary>
-    public bool? RootVolumeEncryptionEnabled
+    public TerraformLiteralProperty<bool>? RootVolumeEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("root_volume_encryption_enabled")?.Value;
-        set => this.WithProperty("root_volume_encryption_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("root_volume_encryption_enabled");
+        set => this.WithProperty("root_volume_encryption_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public string? UserName
+    public TerraformLiteralProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name")?.Value;
-        set => this.WithProperty("user_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        set => this.WithProperty("user_name", value);
     }
 
     /// <summary>
     /// The user_volume_encryption_enabled attribute.
     /// </summary>
-    public bool? UserVolumeEncryptionEnabled
+    public TerraformLiteralProperty<bool>? UserVolumeEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("user_volume_encryption_enabled")?.Value;
-        set => this.WithProperty("user_volume_encryption_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("user_volume_encryption_enabled");
+        set => this.WithProperty("user_volume_encryption_enabled", value);
     }
 
     /// <summary>
     /// The volume_encryption_key attribute.
     /// </summary>
-    public string? VolumeEncryptionKey
+    public TerraformLiteralProperty<string>? VolumeEncryptionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_encryption_key")?.Value;
-        set => this.WithProperty("volume_encryption_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("volume_encryption_key");
+        set => this.WithProperty("volume_encryption_key", value);
     }
 
     /// <summary>

@@ -20,55 +20,55 @@ public class AwsNetworkmanagerLinksDataSource : TerraformDataSource
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
-    public string? GlobalNetworkId
+    public TerraformLiteralProperty<string>? GlobalNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_network_id")?.Value;
-        set => this.WithProperty("global_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_network_id");
+        set => this.WithProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public string? ProviderName
+    public TerraformLiteralProperty<string>? ProviderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_name")?.Value;
-        set => this.WithProperty("provider_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provider_name");
+        set => this.WithProperty("provider_name", value);
     }
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
-    public string? SiteId
+    public TerraformLiteralProperty<string>? SiteId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("site_id")?.Value;
-        set => this.WithProperty("site_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("site_id");
+        set => this.WithProperty("site_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

@@ -19,74 +19,74 @@ public class AzurermPolicySetDefinition : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? ManagementGroupId
+    public TerraformLiteralProperty<string>? ManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id")?.Value;
-        set => this.WithProperty("management_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id");
+        set => this.WithProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public string? Metadata
+    public TerraformLiteralProperty<string>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata")?.Value;
-        set => this.WithProperty("metadata", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("metadata");
+        set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public string? Parameters
+    public TerraformLiteralProperty<string>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameters")?.Value;
-        set => this.WithProperty("parameters", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public string? PolicyType
+    public TerraformLiteralProperty<string>? PolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_type")?.Value;
-        set => this.WithProperty("policy_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_type");
+        set => this.WithProperty("policy_type", value);
     }
 
 }

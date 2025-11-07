@@ -34,19 +34,19 @@ public class AwsOdbNetwork : TerraformResource
     /// <summary>
     /// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
     /// </summary>
-    public string? AvailabilityZoneId
+    public TerraformLiteralProperty<string>? AvailabilityZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_id")?.Value;
-        set => this.WithProperty("availability_zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_id");
+        set => this.WithProperty("availability_zone_id", value);
     }
 
     /// <summary>
@@ -61,10 +61,10 @@ public class AwsOdbNetwork : TerraformResource
     /// 	   - 224.0.0.0 - 239.255.255.255
     /// 	   - 240.0.0.0 - 255.255.255.255
     /// </summary>
-    public string? BackupSubnetCidr
+    public TerraformLiteralProperty<string>? BackupSubnetCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_subnet_cidr")?.Value;
-        set => this.WithProperty("backup_subnet_cidr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backup_subnet_cidr");
+        set => this.WithProperty("backup_subnet_cidr", value);
     }
 
     /// <summary>
@@ -79,91 +79,91 @@ public class AwsOdbNetwork : TerraformResource
     ///    	- 224.0.0.0 - 239.255.255.255
     ///    	- 240.0.0.0 - 255.255.255.255
     /// </summary>
-    public string? ClientSubnetCidr
+    public TerraformLiteralProperty<string>? ClientSubnetCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_subnet_cidr")?.Value;
-        set => this.WithProperty("client_subnet_cidr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_subnet_cidr");
+        set => this.WithProperty("client_subnet_cidr", value);
     }
 
     /// <summary>
     /// The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can&#39;t be given.
     /// </summary>
-    public string? CustomDomainName
+    public TerraformLiteralProperty<string>? CustomDomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_domain_name")?.Value;
-        set => this.WithProperty("custom_domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_domain_name");
+        set => this.WithProperty("custom_domain_name", value);
     }
 
     /// <summary>
     /// The default DNS prefix for the network resource. Changing this will force terraform to create new resource.
     /// </summary>
-    public string? DefaultDnsPrefix
+    public TerraformLiteralProperty<string>? DefaultDnsPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_dns_prefix")?.Value;
-        set => this.WithProperty("default_dns_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_dns_prefix");
+        set => this.WithProperty("default_dns_prefix", value);
     }
 
     /// <summary>
     /// If set to true deletes associated OCI resources. Default false.
     /// </summary>
-    public bool? DeleteAssociatedResources
+    public TerraformLiteralProperty<bool>? DeleteAssociatedResources
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_associated_resources")?.Value;
-        set => this.WithProperty("delete_associated_resources", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("delete_associated_resources");
+        set => this.WithProperty("delete_associated_resources", value);
     }
 
     /// <summary>
     /// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// Specifies the configuration for Amazon S3 access from the ODB network.
     /// </summary>
-    public string? S3Access
+    public TerraformLiteralProperty<string>? S3Access
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_access")?.Value;
-        set => this.WithProperty("s3_access", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_access");
+        set => this.WithProperty("s3_access", value);
     }
 
     /// <summary>
     /// Specifies the endpoint policy for Amazon S3 access from the ODB network.
     /// </summary>
-    public string? S3PolicyDocument
+    public TerraformLiteralProperty<string>? S3PolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_policy_document")?.Value;
-        set => this.WithProperty("s3_policy_document", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_policy_document");
+        set => this.WithProperty("s3_policy_document", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// Specifies the configuration for Zero-ETL access from the ODB network.
     /// </summary>
-    public string? ZeroEtlAccess
+    public TerraformLiteralProperty<string>? ZeroEtlAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zero_etl_access")?.Value;
-        set => this.WithProperty("zero_etl_access", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zero_etl_access");
+        set => this.WithProperty("zero_etl_access", value);
     }
 
     /// <summary>

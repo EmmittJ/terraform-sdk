@@ -20,46 +20,46 @@ public class AwsRoute53ResolverFirewallRulesDataSource : TerraformDataSource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public string? Action
+    public TerraformLiteralProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action")?.Value;
-        set => this.WithProperty("action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The firewall_rule_group_id attribute.
     /// </summary>
-    public string? FirewallRuleGroupId
+    public TerraformLiteralProperty<string>? FirewallRuleGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_rule_group_id")?.Value;
-        set => this.WithProperty("firewall_rule_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_rule_group_id");
+        set => this.WithProperty("firewall_rule_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

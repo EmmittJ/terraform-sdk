@@ -34,55 +34,55 @@ public class GoogleComputeImageDataSource : TerraformDataSource
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public string? Family
+    public TerraformLiteralProperty<string>? Family
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("family")?.Value;
-        set => this.WithProperty("family", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("family");
+        set => this.WithProperty("family", value);
     }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public bool? MostRecent
+    public TerraformLiteralProperty<bool>? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent")?.Value;
-        set => this.WithProperty("most_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent");
+        set => this.WithProperty("most_recent", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

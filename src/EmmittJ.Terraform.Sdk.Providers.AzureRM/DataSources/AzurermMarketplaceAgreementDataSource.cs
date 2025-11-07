@@ -22,37 +22,37 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    public string? Offer
+    public TerraformLiteralProperty<string>? Offer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("offer")?.Value;
-        set => this.WithProperty("offer", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("offer");
+        set => this.WithProperty("offer", value);
     }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    public string? Plan
+    public TerraformLiteralProperty<string>? Plan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan")?.Value;
-        set => this.WithProperty("plan", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plan");
+        set => this.WithProperty("plan", value);
     }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public string? Publisher
+    public TerraformLiteralProperty<string>? Publisher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("publisher")?.Value;
-        set => this.WithProperty("publisher", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("publisher");
+        set => this.WithProperty("publisher", value);
     }
 
     /// <summary>

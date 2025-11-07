@@ -20,37 +20,37 @@ public class AzurermPublicMaintenanceConfigurationsDataSource : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The recur_every attribute.
     /// </summary>
-    public string? RecurEvery
+    public TerraformLiteralProperty<string>? RecurEvery
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recur_every")?.Value;
-        set => this.WithProperty("recur_every", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("recur_every");
+        set => this.WithProperty("recur_every", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>

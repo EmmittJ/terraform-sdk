@@ -20,91 +20,91 @@ public class AwsRoute53Record : TerraformResource
     /// <summary>
     /// The allow_overwrite attribute.
     /// </summary>
-    public bool? AllowOverwrite
+    public TerraformLiteralProperty<bool>? AllowOverwrite
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_overwrite")?.Value;
-        set => this.WithProperty("allow_overwrite", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_overwrite");
+        set => this.WithProperty("allow_overwrite", value);
     }
 
     /// <summary>
     /// The health_check_id attribute.
     /// </summary>
-    public string? HealthCheckId
+    public TerraformLiteralProperty<string>? HealthCheckId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("health_check_id")?.Value;
-        set => this.WithProperty("health_check_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("health_check_id");
+        set => this.WithProperty("health_check_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The multivalue_answer_routing_policy attribute.
     /// </summary>
-    public bool? MultivalueAnswerRoutingPolicy
+    public TerraformLiteralProperty<bool>? MultivalueAnswerRoutingPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("multivalue_answer_routing_policy")?.Value;
-        set => this.WithProperty("multivalue_answer_routing_policy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("multivalue_answer_routing_policy");
+        set => this.WithProperty("multivalue_answer_routing_policy", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The records attribute.
     /// </summary>
-    public HashSet<string>? Records
+    public TerraformLiteralProperty<HashSet<string>>? Records
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("records")?.Value;
-        set => this.WithProperty("records", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("records");
+        set => this.WithProperty("records", value);
     }
 
     /// <summary>
     /// The set_identifier attribute.
     /// </summary>
-    public string? SetIdentifier
+    public TerraformLiteralProperty<string>? SetIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("set_identifier")?.Value;
-        set => this.WithProperty("set_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("set_identifier");
+        set => this.WithProperty("set_identifier", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public double? Ttl
+    public TerraformLiteralProperty<double>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ttl")?.Value;
-        set => this.WithProperty("ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("ttl");
+        set => this.WithProperty("ttl", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public string? ZoneId
+    public TerraformLiteralProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id")?.Value;
-        set => this.WithProperty("zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        set => this.WithProperty("zone_id", value);
     }
 
     /// <summary>

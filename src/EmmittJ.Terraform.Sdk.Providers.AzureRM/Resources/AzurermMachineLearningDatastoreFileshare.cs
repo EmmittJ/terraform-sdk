@@ -20,82 +20,82 @@ public class AzurermMachineLearningDatastoreFileshare : TerraformResource
     /// <summary>
     /// The account_key attribute.
     /// </summary>
-    public string? AccountKey
+    public TerraformLiteralProperty<string>? AccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_key")?.Value;
-        set => this.WithProperty("account_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_key");
+        set => this.WithProperty("account_key", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The service_data_identity attribute.
     /// </summary>
-    public string? ServiceDataIdentity
+    public TerraformLiteralProperty<string>? ServiceDataIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_data_identity")?.Value;
-        set => this.WithProperty("service_data_identity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_data_identity");
+        set => this.WithProperty("service_data_identity", value);
     }
 
     /// <summary>
     /// The shared_access_signature attribute.
     /// </summary>
-    public string? SharedAccessSignature
+    public TerraformLiteralProperty<string>? SharedAccessSignature
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_signature")?.Value;
-        set => this.WithProperty("shared_access_signature", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_signature");
+        set => this.WithProperty("shared_access_signature", value);
     }
 
     /// <summary>
     /// The storage_fileshare_id attribute.
     /// </summary>
-    public string? StorageFileshareId
+    public TerraformLiteralProperty<string>? StorageFileshareId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_fileshare_id")?.Value;
-        set => this.WithProperty("storage_fileshare_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_fileshare_id");
+        set => this.WithProperty("storage_fileshare_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
     /// <summary>

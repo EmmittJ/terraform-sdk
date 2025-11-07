@@ -22,37 +22,37 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public string? PlanId
+    public TerraformLiteralProperty<string>? PlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan_id")?.Value;
-        set => this.WithProperty("plan_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plan_id");
+        set => this.WithProperty("plan_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The selection_id attribute.
     /// </summary>
-    public string? SelectionId
+    public TerraformLiteralProperty<string>? SelectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("selection_id")?.Value;
-        set => this.WithProperty("selection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("selection_id");
+        set => this.WithProperty("selection_id", value);
     }
 
     /// <summary>

@@ -24,64 +24,64 @@ public class AwsLexIntent : TerraformResource
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    public bool? CreateVersion
+    public TerraformLiteralProperty<bool>? CreateVersion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_version")?.Value;
-        set => this.WithProperty("create_version", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("create_version");
+        set => this.WithProperty("create_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_intent_signature attribute.
     /// </summary>
-    public string? ParentIntentSignature
+    public TerraformLiteralProperty<string>? ParentIntentSignature
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_intent_signature")?.Value;
-        set => this.WithProperty("parent_intent_signature", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_intent_signature");
+        set => this.WithProperty("parent_intent_signature", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The sample_utterances attribute.
     /// </summary>
-    public HashSet<string>? SampleUtterances
+    public TerraformLiteralProperty<HashSet<string>>? SampleUtterances
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("sample_utterances")?.Value;
-        set => this.WithProperty("sample_utterances", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("sample_utterances");
+        set => this.WithProperty("sample_utterances", value);
     }
 
     /// <summary>

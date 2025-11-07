@@ -25,136 +25,136 @@ public class AwsBedrockagentAgent : TerraformResource
     /// <summary>
     /// The agent_collaboration attribute.
     /// </summary>
-    public string? AgentCollaboration
+    public TerraformLiteralProperty<string>? AgentCollaboration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_collaboration")?.Value;
-        set => this.WithProperty("agent_collaboration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_collaboration");
+        set => this.WithProperty("agent_collaboration", value);
     }
 
     /// <summary>
     /// The agent_name attribute.
     /// </summary>
-    public string? AgentName
+    public TerraformLiteralProperty<string>? AgentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_name")?.Value;
-        set => this.WithProperty("agent_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_name");
+        set => this.WithProperty("agent_name", value);
     }
 
     /// <summary>
     /// The agent_resource_role_arn attribute.
     /// </summary>
-    public string? AgentResourceRoleArn
+    public TerraformLiteralProperty<string>? AgentResourceRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_resource_role_arn")?.Value;
-        set => this.WithProperty("agent_resource_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_resource_role_arn");
+        set => this.WithProperty("agent_resource_role_arn", value);
     }
 
     /// <summary>
     /// The customer_encryption_key_arn attribute.
     /// </summary>
-    public string? CustomerEncryptionKeyArn
+    public TerraformLiteralProperty<string>? CustomerEncryptionKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_encryption_key_arn")?.Value;
-        set => this.WithProperty("customer_encryption_key_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_encryption_key_arn");
+        set => this.WithProperty("customer_encryption_key_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The foundation_model attribute.
     /// </summary>
-    public string? FoundationModel
+    public TerraformLiteralProperty<string>? FoundationModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("foundation_model")?.Value;
-        set => this.WithProperty("foundation_model", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("foundation_model");
+        set => this.WithProperty("foundation_model", value);
     }
 
     /// <summary>
     /// The guardrail_configuration attribute.
     /// </summary>
-    public List<object>? GuardrailConfiguration
+    public TerraformLiteralProperty<List<object>>? GuardrailConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("guardrail_configuration")?.Value;
-        set => this.WithProperty("guardrail_configuration", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("guardrail_configuration");
+        set => this.WithProperty("guardrail_configuration", value);
     }
 
     /// <summary>
     /// The idle_session_ttl_in_seconds attribute.
     /// </summary>
-    public double? IdleSessionTtlInSeconds
+    public TerraformLiteralProperty<double>? IdleSessionTtlInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_session_ttl_in_seconds")?.Value;
-        set => this.WithProperty("idle_session_ttl_in_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("idle_session_ttl_in_seconds");
+        set => this.WithProperty("idle_session_ttl_in_seconds", value);
     }
 
     /// <summary>
     /// The instruction attribute.
     /// </summary>
-    public string? Instruction
+    public TerraformLiteralProperty<string>? Instruction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instruction")?.Value;
-        set => this.WithProperty("instruction", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instruction");
+        set => this.WithProperty("instruction", value);
     }
 
     /// <summary>
     /// The memory_configuration attribute.
     /// </summary>
-    public List<object>? MemoryConfiguration
+    public TerraformLiteralProperty<List<object>>? MemoryConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("memory_configuration")?.Value;
-        set => this.WithProperty("memory_configuration", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("memory_configuration");
+        set => this.WithProperty("memory_configuration", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public bool? PrepareAgent
+    public TerraformLiteralProperty<bool>? PrepareAgent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("prepare_agent")?.Value;
-        set => this.WithProperty("prepare_agent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("prepare_agent");
+        set => this.WithProperty("prepare_agent", value);
     }
 
     /// <summary>
     /// The prompt_override_configuration attribute.
     /// </summary>
-    public List<object>? PromptOverrideConfiguration
+    public TerraformLiteralProperty<List<object>>? PromptOverrideConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("prompt_override_configuration")?.Value;
-        set => this.WithProperty("prompt_override_configuration", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("prompt_override_configuration");
+        set => this.WithProperty("prompt_override_configuration", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The skip_resource_in_use_check attribute.
     /// </summary>
-    public bool? SkipResourceInUseCheck
+    public TerraformLiteralProperty<bool>? SkipResourceInUseCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_resource_in_use_check")?.Value;
-        set => this.WithProperty("skip_resource_in_use_check", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_resource_in_use_check");
+        set => this.WithProperty("skip_resource_in_use_check", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

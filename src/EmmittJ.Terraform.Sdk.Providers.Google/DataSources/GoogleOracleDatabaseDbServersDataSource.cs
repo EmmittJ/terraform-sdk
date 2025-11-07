@@ -20,37 +20,37 @@ public class GoogleOracleDatabaseDbServersDataSource : TerraformDataSource
     /// <summary>
     /// exadata
     /// </summary>
-    public string? CloudExadataInfrastructure
+    public TerraformLiteralProperty<string>? CloudExadataInfrastructure
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_exadata_infrastructure")?.Value;
-        set => this.WithProperty("cloud_exadata_infrastructure", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloud_exadata_infrastructure");
+        set => this.WithProperty("cloud_exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// location
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the project in which the dataset is located. If it is not provided, the provider project is used.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

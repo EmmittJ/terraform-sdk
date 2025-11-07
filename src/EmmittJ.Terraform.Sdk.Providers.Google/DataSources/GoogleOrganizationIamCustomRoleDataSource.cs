@@ -25,28 +25,28 @@ public class GoogleOrganizationIamCustomRoleDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The numeric ID of the organization in which you want to create a custom role.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// The role id to use for this role.
     /// </summary>
-    public string? RoleId
+    public TerraformLiteralProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id")?.Value;
-        set => this.WithProperty("role_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        set => this.WithProperty("role_id", value);
     }
 
     /// <summary>

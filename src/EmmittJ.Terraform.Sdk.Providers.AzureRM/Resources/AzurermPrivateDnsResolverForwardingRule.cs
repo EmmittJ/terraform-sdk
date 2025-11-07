@@ -19,55 +19,55 @@ public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
     /// <summary>
     /// The dns_forwarding_ruleset_id attribute.
     /// </summary>
-    public string? DnsForwardingRulesetId
+    public TerraformLiteralProperty<string>? DnsForwardingRulesetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_forwarding_ruleset_id")?.Value;
-        set => this.WithProperty("dns_forwarding_ruleset_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_forwarding_ruleset_id");
+        set => this.WithProperty("dns_forwarding_ruleset_id", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public string? DomainName
+    public TerraformLiteralProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name")?.Value;
-        set => this.WithProperty("domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, string>? Metadata
+    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata")?.Value;
-        set => this.WithProperty("metadata", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

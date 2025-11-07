@@ -21,29 +21,29 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     /// The default port used if the port number is not specified in the
     /// network endpoint.
     /// </summary>
-    public double? DefaultPort
+    public TerraformLiteralProperty<double>? DefaultPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_port")?.Value;
-        set => this.WithProperty("default_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("default_port");
+        set => this.WithProperty("default_port", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -55,28 +55,28 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Possible values: [&amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;]
     /// </summary>
-    public string? NetworkEndpointType
+    public TerraformLiteralProperty<string>? NetworkEndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_endpoint_type")?.Value;
-        set => this.WithProperty("network_endpoint_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_endpoint_type");
+        set => this.WithProperty("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

@@ -20,55 +20,55 @@ public class AzurermRoleDefinition : TerraformResource
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    public List<string>? AssignableScopes
+    public TerraformLiteralProperty<List<string>>? AssignableScopes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("assignable_scopes")?.Value;
-        set => this.WithProperty("assignable_scopes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("assignable_scopes");
+        set => this.WithProperty("assignable_scopes", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public string? RoleDefinitionId
+    public TerraformLiteralProperty<string>? RoleDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id")?.Value;
-        set => this.WithProperty("role_definition_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id");
+        set => this.WithProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>

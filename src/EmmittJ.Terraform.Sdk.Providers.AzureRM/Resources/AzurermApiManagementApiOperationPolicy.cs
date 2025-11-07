@@ -19,64 +19,64 @@ public class AzurermApiManagementApiOperationPolicy : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public string? ApiManagementName
+    public TerraformLiteralProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name")?.Value;
-        set => this.WithProperty("api_management_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
-    public string? ApiName
+    public TerraformLiteralProperty<string>? ApiName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_name")?.Value;
-        set => this.WithProperty("api_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_name");
+        set => this.WithProperty("api_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
-    public string? OperationId
+    public TerraformLiteralProperty<string>? OperationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operation_id")?.Value;
-        set => this.WithProperty("operation_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("operation_id");
+        set => this.WithProperty("operation_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public string? XmlContent
+    public TerraformLiteralProperty<string>? XmlContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_content")?.Value;
-        set => this.WithProperty("xml_content", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("xml_content");
+        set => this.WithProperty("xml_content", value);
     }
 
     /// <summary>
     /// The xml_link attribute.
     /// </summary>
-    public string? XmlLink
+    public TerraformLiteralProperty<string>? XmlLink
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_link")?.Value;
-        set => this.WithProperty("xml_link", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("xml_link");
+        set => this.WithProperty("xml_link", value);
     }
 
 }

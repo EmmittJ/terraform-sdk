@@ -19,28 +19,28 @@ public class AwsS3BucketMetadataConfiguration : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public string? ExpectedBucketOwner
+    public TerraformLiteralProperty<string>? ExpectedBucketOwner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expected_bucket_owner")?.Value;
-        set => this.WithProperty("expected_bucket_owner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expected_bucket_owner");
+        set => this.WithProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

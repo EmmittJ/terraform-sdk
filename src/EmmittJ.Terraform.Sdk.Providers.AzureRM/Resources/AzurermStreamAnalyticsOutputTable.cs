@@ -19,100 +19,100 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public double? BatchSize
+    public TerraformLiteralProperty<double>? BatchSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_size")?.Value;
-        set => this.WithProperty("batch_size", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("batch_size");
+        set => this.WithProperty("batch_size", value);
     }
 
     /// <summary>
     /// The columns_to_remove attribute.
     /// </summary>
-    public List<string>? ColumnsToRemove
+    public TerraformLiteralProperty<List<string>>? ColumnsToRemove
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("columns_to_remove")?.Value;
-        set => this.WithProperty("columns_to_remove", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("columns_to_remove");
+        set => this.WithProperty("columns_to_remove", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public string? PartitionKey
+    public TerraformLiteralProperty<string>? PartitionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partition_key")?.Value;
-        set => this.WithProperty("partition_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("partition_key");
+        set => this.WithProperty("partition_key", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The row_key attribute.
     /// </summary>
-    public string? RowKey
+    public TerraformLiteralProperty<string>? RowKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("row_key")?.Value;
-        set => this.WithProperty("row_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("row_key");
+        set => this.WithProperty("row_key", value);
     }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public string? StorageAccountKey
+    public TerraformLiteralProperty<string>? StorageAccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key")?.Value;
-        set => this.WithProperty("storage_account_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key");
+        set => this.WithProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public string? StorageAccountName
+    public TerraformLiteralProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name")?.Value;
-        set => this.WithProperty("storage_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        set => this.WithProperty("storage_account_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public string? StreamAnalyticsJobName
+    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name")?.Value;
-        set => this.WithProperty("stream_analytics_job_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        set => this.WithProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public string? Table
+    public TerraformLiteralProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table")?.Value;
-        set => this.WithProperty("table", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        set => this.WithProperty("table", value);
     }
 
 }

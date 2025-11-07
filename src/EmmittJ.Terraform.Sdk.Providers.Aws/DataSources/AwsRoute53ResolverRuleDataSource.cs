@@ -22,73 +22,73 @@ public class AwsRoute53ResolverRuleDataSource : TerraformDataSource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public string? DomainName
+    public TerraformLiteralProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name")?.Value;
-        set => this.WithProperty("domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resolver_endpoint_id attribute.
     /// </summary>
-    public string? ResolverEndpointId
+    public TerraformLiteralProperty<string>? ResolverEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resolver_endpoint_id")?.Value;
-        set => this.WithProperty("resolver_endpoint_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resolver_endpoint_id");
+        set => this.WithProperty("resolver_endpoint_id", value);
     }
 
     /// <summary>
     /// The resolver_rule_id attribute.
     /// </summary>
-    public string? ResolverRuleId
+    public TerraformLiteralProperty<string>? ResolverRuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resolver_rule_id")?.Value;
-        set => this.WithProperty("resolver_rule_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resolver_rule_id");
+        set => this.WithProperty("resolver_rule_id", value);
     }
 
     /// <summary>
     /// The rule_type attribute.
     /// </summary>
-    public string? RuleType
+    public TerraformLiteralProperty<string>? RuleType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_type")?.Value;
-        set => this.WithProperty("rule_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_type");
+        set => this.WithProperty("rule_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -24,73 +24,73 @@ public class AwsNetworkmanagerCoreNetwork : TerraformResource
     /// <summary>
     /// The base_policy_document attribute.
     /// </summary>
-    public string? BasePolicyDocument
+    public TerraformLiteralProperty<string>? BasePolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("base_policy_document")?.Value;
-        set => this.WithProperty("base_policy_document", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("base_policy_document");
+        set => this.WithProperty("base_policy_document", value);
     }
 
     /// <summary>
     /// The base_policy_regions attribute.
     /// </summary>
-    public HashSet<string>? BasePolicyRegions
+    public TerraformLiteralProperty<HashSet<string>>? BasePolicyRegions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("base_policy_regions")?.Value;
-        set => this.WithProperty("base_policy_regions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("base_policy_regions");
+        set => this.WithProperty("base_policy_regions", value);
     }
 
     /// <summary>
     /// The create_base_policy attribute.
     /// </summary>
-    public bool? CreateBasePolicy
+    public TerraformLiteralProperty<bool>? CreateBasePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_base_policy")?.Value;
-        set => this.WithProperty("create_base_policy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("create_base_policy");
+        set => this.WithProperty("create_base_policy", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
-    public string? GlobalNetworkId
+    public TerraformLiteralProperty<string>? GlobalNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_network_id")?.Value;
-        set => this.WithProperty("global_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_network_id");
+        set => this.WithProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

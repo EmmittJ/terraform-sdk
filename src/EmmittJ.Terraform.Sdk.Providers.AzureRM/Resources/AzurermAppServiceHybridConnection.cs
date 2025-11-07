@@ -25,64 +25,64 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
-    public string? AppServiceName
+    public TerraformLiteralProperty<string>? AppServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_name")?.Value;
-        set => this.WithProperty("app_service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_service_name");
+        set => this.WithProperty("app_service_name", value);
     }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    public string? Hostname
+    public TerraformLiteralProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname")?.Value;
-        set => this.WithProperty("hostname", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The relay_id attribute.
     /// </summary>
-    public string? RelayId
+    public TerraformLiteralProperty<string>? RelayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relay_id")?.Value;
-        set => this.WithProperty("relay_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("relay_id");
+        set => this.WithProperty("relay_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The send_key_name attribute.
     /// </summary>
-    public string? SendKeyName
+    public TerraformLiteralProperty<string>? SendKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("send_key_name")?.Value;
-        set => this.WithProperty("send_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("send_key_name");
+        set => this.WithProperty("send_key_name", value);
     }
 
     /// <summary>

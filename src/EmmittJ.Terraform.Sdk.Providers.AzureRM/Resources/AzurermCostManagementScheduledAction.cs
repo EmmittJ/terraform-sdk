@@ -19,136 +19,136 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     /// <summary>
     /// The day_of_month attribute.
     /// </summary>
-    public double? DayOfMonth
+    public TerraformLiteralProperty<double>? DayOfMonth
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("day_of_month")?.Value;
-        set => this.WithProperty("day_of_month", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("day_of_month");
+        set => this.WithProperty("day_of_month", value);
     }
 
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public List<string>? DaysOfWeek
+    public TerraformLiteralProperty<List<string>>? DaysOfWeek
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("days_of_week")?.Value;
-        set => this.WithProperty("days_of_week", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("days_of_week");
+        set => this.WithProperty("days_of_week", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The email_address_sender attribute.
     /// </summary>
-    public string? EmailAddressSender
+    public TerraformLiteralProperty<string>? EmailAddressSender
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_address_sender")?.Value;
-        set => this.WithProperty("email_address_sender", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email_address_sender");
+        set => this.WithProperty("email_address_sender", value);
     }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
-    public List<string>? EmailAddresses
+    public TerraformLiteralProperty<List<string>>? EmailAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("email_addresses")?.Value;
-        set => this.WithProperty("email_addresses", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("email_addresses");
+        set => this.WithProperty("email_addresses", value);
     }
 
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
-    public string? EmailSubject
+    public TerraformLiteralProperty<string>? EmailSubject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_subject")?.Value;
-        set => this.WithProperty("email_subject", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email_subject");
+        set => this.WithProperty("email_subject", value);
     }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public string? EndDate
+    public TerraformLiteralProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date")?.Value;
-        set => this.WithProperty("end_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        set => this.WithProperty("end_date", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public string? Frequency
+    public TerraformLiteralProperty<string>? Frequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frequency")?.Value;
-        set => this.WithProperty("frequency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("frequency");
+        set => this.WithProperty("frequency", value);
     }
 
     /// <summary>
     /// The hour_of_day attribute.
     /// </summary>
-    public double? HourOfDay
+    public TerraformLiteralProperty<double>? HourOfDay
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("hour_of_day")?.Value;
-        set => this.WithProperty("hour_of_day", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("hour_of_day");
+        set => this.WithProperty("hour_of_day", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public string? Message
+    public TerraformLiteralProperty<string>? Message
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message")?.Value;
-        set => this.WithProperty("message", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("message");
+        set => this.WithProperty("message", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public string? StartDate
+    public TerraformLiteralProperty<string>? StartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_date")?.Value;
-        set => this.WithProperty("start_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_date");
+        set => this.WithProperty("start_date", value);
     }
 
     /// <summary>
     /// The view_id attribute.
     /// </summary>
-    public string? ViewId
+    public TerraformLiteralProperty<string>? ViewId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("view_id")?.Value;
-        set => this.WithProperty("view_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("view_id");
+        set => this.WithProperty("view_id", value);
     }
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    public List<string>? WeeksOfMonth
+    public TerraformLiteralProperty<List<string>>? WeeksOfMonth
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("weeks_of_month")?.Value;
-        set => this.WithProperty("weeks_of_month", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("weeks_of_month");
+        set => this.WithProperty("weeks_of_month", value);
     }
 
 }

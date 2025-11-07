@@ -19,64 +19,64 @@ public class AwsApigatewayv2Model : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public string? ApiId
+    public TerraformLiteralProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id")?.Value;
-        set => this.WithProperty("api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public string? ContentType
+    public TerraformLiteralProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type")?.Value;
-        set => this.WithProperty("content_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public string? Schema
+    public TerraformLiteralProperty<string>? Schema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema")?.Value;
-        set => this.WithProperty("schema", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("schema");
+        set => this.WithProperty("schema", value);
     }
 
 }

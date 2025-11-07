@@ -21,55 +21,55 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// <summary>
     /// Connector config as keys/values. The keys of the map are connector property names, for example: &#39;connector.class&#39;, &#39;tasks.max&#39;, &#39;key.converter&#39;.
     /// </summary>
-    public Dictionary<string, string>? Configs
+    public TerraformLiteralProperty<Dictionary<string, string>>? Configs
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("configs")?.Value;
-        set => this.WithProperty("configs", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("configs");
+        set => this.WithProperty("configs", value);
     }
 
     /// <summary>
     /// The connect cluster name.
     /// </summary>
-    public string? ConnectCluster
+    public TerraformLiteralProperty<string>? ConnectCluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connect_cluster")?.Value;
-        set => this.WithProperty("connect_cluster", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connect_cluster");
+        set => this.WithProperty("connect_cluster", value);
     }
 
     /// <summary>
     /// The ID to use for the connector, which will become the final component of the connector&#39;s name. This value is structured like: &#39;my-connector-id&#39;.
     /// </summary>
-    public string? ConnectorId
+    public TerraformLiteralProperty<string>? ConnectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connector_id")?.Value;
-        set => this.WithProperty("connector_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connector_id");
+        set => this.WithProperty("connector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// ID of the location of the Kafka Connect resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

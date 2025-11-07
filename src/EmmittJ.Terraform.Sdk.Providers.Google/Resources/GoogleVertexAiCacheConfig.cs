@@ -20,28 +20,28 @@ public class GoogleVertexAiCacheConfig : TerraformResource
     /// <summary>
     /// If set to true, disables GenAI caching. Otherwise caching is enabled.
     /// </summary>
-    public bool? DisableCache
+    public TerraformLiteralProperty<bool>? DisableCache
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_cache")?.Value;
-        set => this.WithProperty("disable_cache", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_cache");
+        set => this.WithProperty("disable_cache", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

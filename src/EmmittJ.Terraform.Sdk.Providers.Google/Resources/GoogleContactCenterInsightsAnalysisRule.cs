@@ -23,10 +23,10 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// If true, apply this rule to conversations. Otherwise, this rule is
     /// inactive and saved as a draft.
     /// </summary>
-    public bool? Active
+    public TerraformLiteralProperty<bool>? Active
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("active")?.Value;
-        set => this.WithProperty("active", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("active");
+        set => this.WithProperty("active", value);
     }
 
     /// <summary>
@@ -35,10 +35,10 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// are sampled in a determenestic way. The original runtime_percentage &amp;amp;
     /// upload percentage will be replaced by defining filters on the conversation.
     /// </summary>
-    public double? AnalysisPercentage
+    public TerraformLiteralProperty<double>? AnalysisPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("analysis_percentage")?.Value;
-        set => this.WithProperty("analysis_percentage", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("analysis_percentage");
+        set => this.WithProperty("analysis_percentage", value);
     }
 
     /// <summary>
@@ -48,46 +48,46 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// Refer to https://cloud.google.com/contact-center/insights/docs/filtering
     /// for details.
     /// </summary>
-    public string? ConversationFilter
+    public TerraformLiteralProperty<string>? ConversationFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("conversation_filter")?.Value;
-        set => this.WithProperty("conversation_filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("conversation_filter");
+        set => this.WithProperty("conversation_filter", value);
     }
 
     /// <summary>
     /// Display Name of the analysis rule.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location of the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

@@ -24,19 +24,19 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     /// <summary>
     /// Required. Id of the Code Repository Index.
     /// </summary>
-    public string? CodeRepositoryIndex
+    public TerraformLiteralProperty<string>? CodeRepositoryIndex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("code_repository_index")?.Value;
-        set => this.WithProperty("code_repository_index", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("code_repository_index");
+        set => this.WithProperty("code_repository_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -45,37 +45,37 @@ public class GoogleGeminiRepositoryGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the Code Repository Index, for example &#39;us-central1&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Required. Id of the Repository Group.
     /// </summary>
-    public string? RepositoryGroupId
+    public TerraformLiteralProperty<string>? RepositoryGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_group_id")?.Value;
-        set => this.WithProperty("repository_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repository_group_id");
+        set => this.WithProperty("repository_group_id", value);
     }
 
     /// <summary>

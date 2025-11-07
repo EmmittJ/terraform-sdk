@@ -20,37 +20,37 @@ public class GoogleTagsTagValueIamMember : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public string? Member
+    public TerraformLiteralProperty<string>? Member
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member")?.Value;
-        set => this.WithProperty("member", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("member");
+        set => this.WithProperty("member", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>
     /// The tag_value attribute.
     /// </summary>
-    public string? TagValue
+    public TerraformLiteralProperty<string>? TagValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_value")?.Value;
-        set => this.WithProperty("tag_value", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tag_value");
+        set => this.WithProperty("tag_value", value);
     }
 
     /// <summary>

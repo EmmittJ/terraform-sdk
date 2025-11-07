@@ -21,55 +21,55 @@ public class AwsM2Deployment : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The application_version attribute.
     /// </summary>
-    public double? ApplicationVersion
+    public TerraformLiteralProperty<double>? ApplicationVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("application_version")?.Value;
-        set => this.WithProperty("application_version", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("application_version");
+        set => this.WithProperty("application_version", value);
     }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public string? EnvironmentId
+    public TerraformLiteralProperty<string>? EnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_id")?.Value;
-        set => this.WithProperty("environment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment_id");
+        set => this.WithProperty("environment_id", value);
     }
 
     /// <summary>
     /// The force_stop attribute.
     /// </summary>
-    public bool? ForceStop
+    public TerraformLiteralProperty<bool>? ForceStop
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_stop")?.Value;
-        set => this.WithProperty("force_stop", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_stop");
+        set => this.WithProperty("force_stop", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
-    public bool? Start
+    public TerraformLiteralProperty<bool>? Start
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("start")?.Value;
-        set => this.WithProperty("start", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("start");
+        set => this.WithProperty("start", value);
     }
 
     /// <summary>

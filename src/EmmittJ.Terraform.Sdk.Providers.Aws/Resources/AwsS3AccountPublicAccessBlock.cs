@@ -19,55 +19,55 @@ public class AwsS3AccountPublicAccessBlock : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public string? AccountId
+    public TerraformLiteralProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id")?.Value;
-        set => this.WithProperty("account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
-    public bool? BlockPublicAcls
+    public TerraformLiteralProperty<bool>? BlockPublicAcls
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_acls")?.Value;
-        set => this.WithProperty("block_public_acls", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_acls");
+        set => this.WithProperty("block_public_acls", value);
     }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    public bool? BlockPublicPolicy
+    public TerraformLiteralProperty<bool>? BlockPublicPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_policy")?.Value;
-        set => this.WithProperty("block_public_policy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_policy");
+        set => this.WithProperty("block_public_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
-    public bool? IgnorePublicAcls
+    public TerraformLiteralProperty<bool>? IgnorePublicAcls
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_public_acls")?.Value;
-        set => this.WithProperty("ignore_public_acls", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_public_acls");
+        set => this.WithProperty("ignore_public_acls", value);
     }
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
-    public bool? RestrictPublicBuckets
+    public TerraformLiteralProperty<bool>? RestrictPublicBuckets
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("restrict_public_buckets")?.Value;
-        set => this.WithProperty("restrict_public_buckets", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("restrict_public_buckets");
+        set => this.WithProperty("restrict_public_buckets", value);
     }
 
 }

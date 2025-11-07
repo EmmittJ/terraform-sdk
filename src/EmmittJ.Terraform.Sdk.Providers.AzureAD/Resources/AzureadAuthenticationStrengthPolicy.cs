@@ -19,37 +19,37 @@ public class AzureadAuthenticationStrengthPolicy : TerraformResource
     /// <summary>
     /// The allowed MFA methods for this policy
     /// </summary>
-    public HashSet<string>? AllowedCombinations
+    public TerraformLiteralProperty<HashSet<string>>? AllowedCombinations
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_combinations")?.Value;
-        set => this.WithProperty("allowed_combinations", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_combinations");
+        set => this.WithProperty("allowed_combinations", value);
     }
 
     /// <summary>
     /// The description for the authentication strength policy
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name for the authentication strength policy
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

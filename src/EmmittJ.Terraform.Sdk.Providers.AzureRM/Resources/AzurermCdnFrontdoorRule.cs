@@ -20,46 +20,46 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     /// <summary>
     /// The behavior_on_match attribute.
     /// </summary>
-    public string? BehaviorOnMatch
+    public TerraformLiteralProperty<string>? BehaviorOnMatch
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("behavior_on_match")?.Value;
-        set => this.WithProperty("behavior_on_match", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("behavior_on_match");
+        set => this.WithProperty("behavior_on_match", value);
     }
 
     /// <summary>
     /// The cdn_frontdoor_rule_set_id attribute.
     /// </summary>
-    public string? CdnFrontdoorRuleSetId
+    public TerraformLiteralProperty<string>? CdnFrontdoorRuleSetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_rule_set_id")?.Value;
-        set => this.WithProperty("cdn_frontdoor_rule_set_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_rule_set_id");
+        set => this.WithProperty("cdn_frontdoor_rule_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public double? Order
+    public TerraformLiteralProperty<double>? Order
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("order")?.Value;
-        set => this.WithProperty("order", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("order");
+        set => this.WithProperty("order", value);
     }
 
     /// <summary>

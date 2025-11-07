@@ -20,28 +20,28 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public string? Database
+    public TerraformLiteralProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database")?.Value;
-        set => this.WithProperty("database", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -50,10 +50,10 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// 
     /// You can set this to a value up to 14 weeks.
     /// </summary>
-    public string? Retention
+    public TerraformLiteralProperty<string>? Retention
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retention")?.Value;
-        set => this.WithProperty("retention", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("retention");
+        set => this.WithProperty("retention", value);
     }
 
     /// <summary>

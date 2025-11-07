@@ -22,127 +22,127 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
-    public double? BaseCapacity
+    public TerraformLiteralProperty<double>? BaseCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("base_capacity")?.Value;
-        set => this.WithProperty("base_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("base_capacity");
+        set => this.WithProperty("base_capacity", value);
     }
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
-    public bool? EnhancedVpcRouting
+    public TerraformLiteralProperty<bool>? EnhancedVpcRouting
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enhanced_vpc_routing")?.Value;
-        set => this.WithProperty("enhanced_vpc_routing", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enhanced_vpc_routing");
+        set => this.WithProperty("enhanced_vpc_routing", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public double? MaxCapacity
+    public TerraformLiteralProperty<double>? MaxCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_capacity")?.Value;
-        set => this.WithProperty("max_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_capacity");
+        set => this.WithProperty("max_capacity", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    public string? NamespaceName
+    public TerraformLiteralProperty<string>? NamespaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace_name")?.Value;
-        set => this.WithProperty("namespace_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace_name");
+        set => this.WithProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public bool? PubliclyAccessible
+    public TerraformLiteralProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible")?.Value;
-        set => this.WithProperty("publicly_accessible", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids")?.Value;
-        set => this.WithProperty("security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<string>? SubnetIds
+    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids")?.Value;
-        set => this.WithProperty("subnet_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The track_name attribute.
     /// </summary>
-    public string? TrackName
+    public TerraformLiteralProperty<string>? TrackName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("track_name")?.Value;
-        set => this.WithProperty("track_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("track_name");
+        set => this.WithProperty("track_name", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public string? WorkgroupName
+    public TerraformLiteralProperty<string>? WorkgroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name")?.Value;
-        set => this.WithProperty("workgroup_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name");
+        set => this.WithProperty("workgroup_name", value);
     }
 
     /// <summary>

@@ -20,118 +20,118 @@ public class AzurermCosmosdbCassandraDatacenter : TerraformResource
     /// <summary>
     /// The availability_zones_enabled attribute.
     /// </summary>
-    public bool? AvailabilityZonesEnabled
+    public TerraformLiteralProperty<bool>? AvailabilityZonesEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("availability_zones_enabled")?.Value;
-        set => this.WithProperty("availability_zones_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("availability_zones_enabled");
+        set => this.WithProperty("availability_zones_enabled", value);
     }
 
     /// <summary>
     /// The backup_storage_customer_key_uri attribute.
     /// </summary>
-    public string? BackupStorageCustomerKeyUri
+    public TerraformLiteralProperty<string>? BackupStorageCustomerKeyUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_storage_customer_key_uri")?.Value;
-        set => this.WithProperty("backup_storage_customer_key_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backup_storage_customer_key_uri");
+        set => this.WithProperty("backup_storage_customer_key_uri", value);
     }
 
     /// <summary>
     /// The base64_encoded_yaml_fragment attribute.
     /// </summary>
-    public string? Base64EncodedYamlFragment
+    public TerraformLiteralProperty<string>? Base64EncodedYamlFragment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("base64_encoded_yaml_fragment")?.Value;
-        set => this.WithProperty("base64_encoded_yaml_fragment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("base64_encoded_yaml_fragment");
+        set => this.WithProperty("base64_encoded_yaml_fragment", value);
     }
 
     /// <summary>
     /// The cassandra_cluster_id attribute.
     /// </summary>
-    public string? CassandraClusterId
+    public TerraformLiteralProperty<string>? CassandraClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cassandra_cluster_id")?.Value;
-        set => this.WithProperty("cassandra_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cassandra_cluster_id");
+        set => this.WithProperty("cassandra_cluster_id", value);
     }
 
     /// <summary>
     /// The delegated_management_subnet_id attribute.
     /// </summary>
-    public string? DelegatedManagementSubnetId
+    public TerraformLiteralProperty<string>? DelegatedManagementSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delegated_management_subnet_id")?.Value;
-        set => this.WithProperty("delegated_management_subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delegated_management_subnet_id");
+        set => this.WithProperty("delegated_management_subnet_id", value);
     }
 
     /// <summary>
     /// The disk_count attribute.
     /// </summary>
-    public double? DiskCount
+    public TerraformLiteralProperty<double>? DiskCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("disk_count")?.Value;
-        set => this.WithProperty("disk_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("disk_count");
+        set => this.WithProperty("disk_count", value);
     }
 
     /// <summary>
     /// The disk_sku attribute.
     /// </summary>
-    public string? DiskSku
+    public TerraformLiteralProperty<string>? DiskSku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_sku")?.Value;
-        set => this.WithProperty("disk_sku", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("disk_sku");
+        set => this.WithProperty("disk_sku", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_disk_customer_key_uri attribute.
     /// </summary>
-    public string? ManagedDiskCustomerKeyUri
+    public TerraformLiteralProperty<string>? ManagedDiskCustomerKeyUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_disk_customer_key_uri")?.Value;
-        set => this.WithProperty("managed_disk_customer_key_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_disk_customer_key_uri");
+        set => this.WithProperty("managed_disk_customer_key_uri", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public double? NodeCount
+    public TerraformLiteralProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("node_count")?.Value;
-        set => this.WithProperty("node_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("node_count");
+        set => this.WithProperty("node_count", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public string? SkuName
+    public TerraformLiteralProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name")?.Value;
-        set => this.WithProperty("sku_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>

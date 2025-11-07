@@ -23,73 +23,73 @@ public class AzurermIothubSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The device_connect attribute.
     /// </summary>
-    public bool? DeviceConnect
+    public TerraformLiteralProperty<bool>? DeviceConnect
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("device_connect")?.Value;
-        set => this.WithProperty("device_connect", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("device_connect");
+        set => this.WithProperty("device_connect", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_name attribute.
     /// </summary>
-    public string? IothubName
+    public TerraformLiteralProperty<string>? IothubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_name")?.Value;
-        set => this.WithProperty("iothub_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iothub_name");
+        set => this.WithProperty("iothub_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The registry_read attribute.
     /// </summary>
-    public bool? RegistryRead
+    public TerraformLiteralProperty<bool>? RegistryRead
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registry_read")?.Value;
-        set => this.WithProperty("registry_read", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("registry_read");
+        set => this.WithProperty("registry_read", value);
     }
 
     /// <summary>
     /// The registry_write attribute.
     /// </summary>
-    public bool? RegistryWrite
+    public TerraformLiteralProperty<bool>? RegistryWrite
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registry_write")?.Value;
-        set => this.WithProperty("registry_write", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("registry_write");
+        set => this.WithProperty("registry_write", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_connect attribute.
     /// </summary>
-    public bool? ServiceConnect
+    public TerraformLiteralProperty<bool>? ServiceConnect
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("service_connect")?.Value;
-        set => this.WithProperty("service_connect", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("service_connect");
+        set => this.WithProperty("service_connect", value);
     }
 
     /// <summary>

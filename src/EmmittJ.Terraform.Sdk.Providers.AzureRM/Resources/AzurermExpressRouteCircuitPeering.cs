@@ -23,100 +23,100 @@ public class AzurermExpressRouteCircuitPeering : TerraformResource
     /// <summary>
     /// The express_route_circuit_name attribute.
     /// </summary>
-    public string? ExpressRouteCircuitName
+    public TerraformLiteralProperty<string>? ExpressRouteCircuitName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("express_route_circuit_name")?.Value;
-        set => this.WithProperty("express_route_circuit_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("express_route_circuit_name");
+        set => this.WithProperty("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv4_enabled attribute.
     /// </summary>
-    public bool? Ipv4Enabled
+    public TerraformLiteralProperty<bool>? Ipv4Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ipv4_enabled")?.Value;
-        set => this.WithProperty("ipv4_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ipv4_enabled");
+        set => this.WithProperty("ipv4_enabled", value);
     }
 
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
-    public double? PeerAsn
+    public TerraformLiteralProperty<double>? PeerAsn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("peer_asn")?.Value;
-        set => this.WithProperty("peer_asn", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("peer_asn");
+        set => this.WithProperty("peer_asn", value);
     }
 
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
-    public string? PeeringType
+    public TerraformLiteralProperty<string>? PeeringType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering_type")?.Value;
-        set => this.WithProperty("peering_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("peering_type");
+        set => this.WithProperty("peering_type", value);
     }
 
     /// <summary>
     /// The primary_peer_address_prefix attribute.
     /// </summary>
-    public string? PrimaryPeerAddressPrefix
+    public TerraformLiteralProperty<string>? PrimaryPeerAddressPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_peer_address_prefix")?.Value;
-        set => this.WithProperty("primary_peer_address_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("primary_peer_address_prefix");
+        set => this.WithProperty("primary_peer_address_prefix", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The route_filter_id attribute.
     /// </summary>
-    public string? RouteFilterId
+    public TerraformLiteralProperty<string>? RouteFilterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_filter_id")?.Value;
-        set => this.WithProperty("route_filter_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("route_filter_id");
+        set => this.WithProperty("route_filter_id", value);
     }
 
     /// <summary>
     /// The secondary_peer_address_prefix attribute.
     /// </summary>
-    public string? SecondaryPeerAddressPrefix
+    public TerraformLiteralProperty<string>? SecondaryPeerAddressPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secondary_peer_address_prefix")?.Value;
-        set => this.WithProperty("secondary_peer_address_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secondary_peer_address_prefix");
+        set => this.WithProperty("secondary_peer_address_prefix", value);
     }
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
-    public string? SharedKey
+    public TerraformLiteralProperty<string>? SharedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_key")?.Value;
-        set => this.WithProperty("shared_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shared_key");
+        set => this.WithProperty("shared_key", value);
     }
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
-    public double? VlanId
+    public TerraformLiteralProperty<double>? VlanId
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vlan_id")?.Value;
-        set => this.WithProperty("vlan_id", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("vlan_id");
+        set => this.WithProperty("vlan_id", value);
     }
 
     /// <summary>

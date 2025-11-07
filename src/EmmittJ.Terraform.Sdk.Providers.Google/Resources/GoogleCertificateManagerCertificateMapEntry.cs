@@ -26,19 +26,19 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// There can be defined up to fifteen certificates in each Certificate Map Entry.
     /// Each certificate must match pattern projects/*/locations/*/certificates/*.
     /// </summary>
-    public List<string>? Certificates
+    public TerraformLiteralProperty<List<string>>? Certificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificates")?.Value;
-        set => this.WithProperty("certificates", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificates");
+        set => this.WithProperty("certificates", value);
     }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -46,19 +46,19 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// for a set of hostnames with common suffix. Used as Server Name Indication (SNI) for
     /// selecting a proper certificate.
     /// </summary>
-    public string? Hostname
+    public TerraformLiteralProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname")?.Value;
-        set => this.WithProperty("hostname", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -70,28 +70,28 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// A map entry that is inputted into the certificate map
     /// </summary>
-    public string? Map
+    public TerraformLiteralProperty<string>? Map
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("map")?.Value;
-        set => this.WithProperty("map", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("map");
+        set => this.WithProperty("map", value);
     }
 
     /// <summary>
     /// A predefined matcher for particular cases, other than SNI selection
     /// </summary>
-    public string? Matcher
+    public TerraformLiteralProperty<string>? Matcher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("matcher")?.Value;
-        set => this.WithProperty("matcher", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("matcher");
+        set => this.WithProperty("matcher", value);
     }
 
     /// <summary>
@@ -99,19 +99,19 @@ public class GoogleCertificateManagerCertificateMapEntry : TerraformResource
     /// names must be unique globally and match pattern
     /// &#39;projects/*/locations/*/certificateMaps/*/certificateMapEntries/*&#39;
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

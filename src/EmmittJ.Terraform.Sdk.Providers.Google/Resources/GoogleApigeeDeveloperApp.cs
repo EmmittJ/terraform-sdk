@@ -24,29 +24,29 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// <summary>
     /// List of API products associated with the developer app.
     /// </summary>
-    public HashSet<string>? ApiProducts
+    public TerraformLiteralProperty<HashSet<string>>? ApiProducts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("api_products")?.Value;
-        set => this.WithProperty("api_products", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("api_products");
+        set => this.WithProperty("api_products", value);
     }
 
     /// <summary>
     /// Developer app family.
     /// </summary>
-    public string? AppFamily
+    public TerraformLiteralProperty<string>? AppFamily
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_family")?.Value;
-        set => this.WithProperty("app_family", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_family");
+        set => this.WithProperty("app_family", value);
     }
 
     /// <summary>
     /// Callback URL used by OAuth 2.0 authorization servers to communicate
     /// authorization codes back to developer apps.
     /// </summary>
-    public string? CallbackUrl
+    public TerraformLiteralProperty<string>? CallbackUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("callback_url")?.Value;
-        set => this.WithProperty("callback_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("callback_url");
+        set => this.WithProperty("callback_url", value);
     }
 
     /// <summary>
@@ -54,19 +54,19 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// This value is used to uniquely identify the developer in Apigee hybrid.
     /// Note that the email address has to be in lowercase only.
     /// </summary>
-    public string? DeveloperEmail
+    public TerraformLiteralProperty<string>? DeveloperEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("developer_email")?.Value;
-        set => this.WithProperty("developer_email", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("developer_email");
+        set => this.WithProperty("developer_email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -74,29 +74,29 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// for the developer app. If not set or left to the default value of -1,
     /// the API key never expires. The expiration time can&#39;t be updated after it is set.
     /// </summary>
-    public string? KeyExpiresIn
+    public TerraformLiteralProperty<string>? KeyExpiresIn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_expires_in")?.Value;
-        set => this.WithProperty("key_expires_in", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_expires_in");
+        set => this.WithProperty("key_expires_in", value);
     }
 
     /// <summary>
     /// Name of the developer app.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
@@ -104,19 +104,19 @@ public class GoogleApigeeDeveloperApp : TerraformResource
     /// The specified scopes must already exist for the API product that
     /// you associate with the developer app.
     /// </summary>
-    public HashSet<string>? Scopes
+    public TerraformLiteralProperty<HashSet<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scopes")?.Value;
-        set => this.WithProperty("scopes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scopes");
+        set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// Status of the credential. Valid values include approved or revoked.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>

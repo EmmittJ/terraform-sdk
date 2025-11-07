@@ -19,10 +19,10 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// <summary>
     /// The name of the column family.
     /// </summary>
-    public string? ColumnFamily
+    public TerraformLiteralProperty<string>? ColumnFamily
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("column_family")?.Value;
-        set => this.WithProperty("column_family", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("column_family");
+        set => this.WithProperty("column_family", value);
     }
 
     /// <summary>
@@ -30,28 +30,28 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// 				to be abandoned rather than deleted. This is useful for GC policy as it cannot be deleted
     /// 				in a replicated instance. Possible values are: &amp;quot;ABANDON&amp;quot;.
     /// </summary>
-    public string? DeletionPolicy
+    public TerraformLiteralProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
-        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// Serialized JSON string for garbage collection policy. Conflicts with &amp;quot;mode&amp;quot;, &amp;quot;max_age&amp;quot; and &amp;quot;max_version&amp;quot;.
     /// </summary>
-    public string? GcRules
+    public TerraformLiteralProperty<string>? GcRules
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gc_rules")?.Value;
-        set => this.WithProperty("gc_rules", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gc_rules");
+        set => this.WithProperty("gc_rules", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -60,46 +60,46 @@ public class GoogleBigtableGcPolicy : TerraformResource
     /// 				inconsistent for a longer period of time, before using this make sure you understand
     /// 				the risks listed at https://cloud.google.com/bigtable/docs/garbage-collection#increasing
     /// </summary>
-    public bool? IgnoreWarnings
+    public TerraformLiteralProperty<bool>? IgnoreWarnings
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_warnings")?.Value;
-        set => this.WithProperty("ignore_warnings", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_warnings");
+        set => this.WithProperty("ignore_warnings", value);
     }
 
     /// <summary>
     /// The name of the Bigtable instance.
     /// </summary>
-    public string? InstanceName
+    public TerraformLiteralProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name")?.Value;
-        set => this.WithProperty("instance_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// NOTE: &#39;gc_rules&#39; is more flexible, and should be preferred over this field for new resources. This field may be deprecated in the future. If multiple policies are set, you should choose between UNION OR INTERSECTION.
     /// </summary>
-    public string? Mode
+    public TerraformLiteralProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode")?.Value;
-        set => this.WithProperty("mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the table.
     /// </summary>
-    public string? Table
+    public TerraformLiteralProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table")?.Value;
-        set => this.WithProperty("table", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        set => this.WithProperty("table", value);
     }
 
 }

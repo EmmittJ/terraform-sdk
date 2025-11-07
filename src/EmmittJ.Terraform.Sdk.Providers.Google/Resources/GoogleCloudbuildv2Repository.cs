@@ -26,64 +26,64 @@ public class GoogleCloudbuildv2Repository : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of the repository.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The connection for the resource
     /// </summary>
-    public string? ParentConnection
+    public TerraformLiteralProperty<string>? ParentConnection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_connection")?.Value;
-        set => this.WithProperty("parent_connection", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_connection");
+        set => this.WithProperty("parent_connection", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Required. Git Clone HTTPS URI.
     /// </summary>
-    public string? RemoteUri
+    public TerraformLiteralProperty<string>? RemoteUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_uri")?.Value;
-        set => this.WithProperty("remote_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remote_uri");
+        set => this.WithProperty("remote_uri", value);
     }
 
     /// <summary>

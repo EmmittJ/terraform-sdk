@@ -19,100 +19,100 @@ public class AzurermDevCenterProjectPool : TerraformResource
     /// <summary>
     /// The dev_box_definition_name attribute.
     /// </summary>
-    public string? DevBoxDefinitionName
+    public TerraformLiteralProperty<string>? DevBoxDefinitionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dev_box_definition_name")?.Value;
-        set => this.WithProperty("dev_box_definition_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dev_box_definition_name");
+        set => this.WithProperty("dev_box_definition_name", value);
     }
 
     /// <summary>
     /// The dev_center_attached_network_name attribute.
     /// </summary>
-    public string? DevCenterAttachedNetworkName
+    public TerraformLiteralProperty<string>? DevCenterAttachedNetworkName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_attached_network_name")?.Value;
-        set => this.WithProperty("dev_center_attached_network_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_attached_network_name");
+        set => this.WithProperty("dev_center_attached_network_name", value);
     }
 
     /// <summary>
     /// The dev_center_project_id attribute.
     /// </summary>
-    public string? DevCenterProjectId
+    public TerraformLiteralProperty<string>? DevCenterProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_project_id")?.Value;
-        set => this.WithProperty("dev_center_project_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_project_id");
+        set => this.WithProperty("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_administrator_enabled attribute.
     /// </summary>
-    public bool? LocalAdministratorEnabled
+    public TerraformLiteralProperty<bool>? LocalAdministratorEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_administrator_enabled")?.Value;
-        set => this.WithProperty("local_administrator_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("local_administrator_enabled");
+        set => this.WithProperty("local_administrator_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_virtual_network_regions attribute.
     /// </summary>
-    public List<string>? ManagedVirtualNetworkRegions
+    public TerraformLiteralProperty<List<string>>? ManagedVirtualNetworkRegions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("managed_virtual_network_regions")?.Value;
-        set => this.WithProperty("managed_virtual_network_regions", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("managed_virtual_network_regions");
+        set => this.WithProperty("managed_virtual_network_regions", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
-    public bool? SingleSignOnEnabled
+    public TerraformLiteralProperty<bool>? SingleSignOnEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("single_sign_on_enabled")?.Value;
-        set => this.WithProperty("single_sign_on_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("single_sign_on_enabled");
+        set => this.WithProperty("single_sign_on_enabled", value);
     }
 
     /// <summary>
     /// The stop_on_disconnect_grace_period_minutes attribute.
     /// </summary>
-    public double? StopOnDisconnectGracePeriodMinutes
+    public TerraformLiteralProperty<double>? StopOnDisconnectGracePeriodMinutes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("stop_on_disconnect_grace_period_minutes")?.Value;
-        set => this.WithProperty("stop_on_disconnect_grace_period_minutes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("stop_on_disconnect_grace_period_minutes");
+        set => this.WithProperty("stop_on_disconnect_grace_period_minutes", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

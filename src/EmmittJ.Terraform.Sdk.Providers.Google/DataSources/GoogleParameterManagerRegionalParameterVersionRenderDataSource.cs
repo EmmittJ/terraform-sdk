@@ -23,46 +23,46 @@ public class GoogleParameterManagerRegionalParameterVersionRenderDataSource : Te
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
-    public string? Parameter
+    public TerraformLiteralProperty<string>? Parameter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter")?.Value;
-        set => this.WithProperty("parameter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameter");
+        set => this.WithProperty("parameter", value);
     }
 
     /// <summary>
     /// The parameter_version_id attribute.
     /// </summary>
-    public string? ParameterVersionId
+    public TerraformLiteralProperty<string>? ParameterVersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_version_id")?.Value;
-        set => this.WithProperty("parameter_version_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameter_version_id");
+        set => this.WithProperty("parameter_version_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

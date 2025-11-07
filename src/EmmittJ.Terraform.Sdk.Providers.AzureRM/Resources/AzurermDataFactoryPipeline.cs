@@ -19,100 +19,100 @@ public class AzurermDataFactoryPipeline : TerraformResource
     /// <summary>
     /// The activities_json attribute.
     /// </summary>
-    public string? ActivitiesJson
+    public TerraformLiteralProperty<string>? ActivitiesJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("activities_json")?.Value;
-        set => this.WithProperty("activities_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("activities_json");
+        set => this.WithProperty("activities_json", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<string>? Annotations
+    public TerraformLiteralProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The concurrency attribute.
     /// </summary>
-    public double? Concurrency
+    public TerraformLiteralProperty<double>? Concurrency
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("concurrency")?.Value;
-        set => this.WithProperty("concurrency", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("concurrency");
+        set => this.WithProperty("concurrency", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public string? Folder
+    public TerraformLiteralProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder")?.Value;
-        set => this.WithProperty("folder", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The moniter_metrics_after_duration attribute.
     /// </summary>
-    public string? MoniterMetricsAfterDuration
+    public TerraformLiteralProperty<string>? MoniterMetricsAfterDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("moniter_metrics_after_duration")?.Value;
-        set => this.WithProperty("moniter_metrics_after_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("moniter_metrics_after_duration");
+        set => this.WithProperty("moniter_metrics_after_duration", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, string>? Parameters
+    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters")?.Value;
-        set => this.WithProperty("parameters", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
-    public Dictionary<string, string>? Variables
+    public TerraformLiteralProperty<Dictionary<string, string>>? Variables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("variables")?.Value;
-        set => this.WithProperty("variables", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("variables");
+        set => this.WithProperty("variables", value);
     }
 
 }

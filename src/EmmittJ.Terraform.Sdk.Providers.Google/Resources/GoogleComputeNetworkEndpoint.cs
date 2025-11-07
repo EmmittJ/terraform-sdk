@@ -19,10 +19,10 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -30,10 +30,10 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// This is required for network endpoints of type GCE_VM_IP_PORT.
     /// The instance must be in the same zone of network endpoint group.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
@@ -41,19 +41,19 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// to a VM in GCE (either the primary IP or as part of an aliased IP
     /// range).
     /// </summary>
-    public string? IpAddress
+    public TerraformLiteralProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address")?.Value;
-        set => this.WithProperty("ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// The network endpoint group this endpoint is part of.
     /// </summary>
-    public string? NetworkEndpointGroup
+    public TerraformLiteralProperty<string>? NetworkEndpointGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_endpoint_group")?.Value;
-        set => this.WithProperty("network_endpoint_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_endpoint_group");
+        set => this.WithProperty("network_endpoint_group", value);
     }
 
     /// <summary>
@@ -61,28 +61,28 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// **Note** &#39;port&#39; is required unless the Network Endpoint Group is created
     /// with the type of &#39;GCE_VM_IP&#39;
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Zone where the containing network endpoint group is located.
     /// </summary>
-    public string? Zone
+    public TerraformLiteralProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone")?.Value;
-        set => this.WithProperty("zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        set => this.WithProperty("zone", value);
     }
 
 }

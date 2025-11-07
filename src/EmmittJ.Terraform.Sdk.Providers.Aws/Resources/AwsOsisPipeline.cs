@@ -23,55 +23,55 @@ public class AwsOsisPipeline : TerraformResource
     /// <summary>
     /// The max_units attribute.
     /// </summary>
-    public double? MaxUnits
+    public TerraformLiteralProperty<double>? MaxUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_units")?.Value;
-        set => this.WithProperty("max_units", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_units");
+        set => this.WithProperty("max_units", value);
     }
 
     /// <summary>
     /// The min_units attribute.
     /// </summary>
-    public double? MinUnits
+    public TerraformLiteralProperty<double>? MinUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_units")?.Value;
-        set => this.WithProperty("min_units", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_units");
+        set => this.WithProperty("min_units", value);
     }
 
     /// <summary>
     /// The pipeline_configuration_body attribute.
     /// </summary>
-    public string? PipelineConfigurationBody
+    public TerraformLiteralProperty<string>? PipelineConfigurationBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pipeline_configuration_body")?.Value;
-        set => this.WithProperty("pipeline_configuration_body", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pipeline_configuration_body");
+        set => this.WithProperty("pipeline_configuration_body", value);
     }
 
     /// <summary>
     /// The pipeline_name attribute.
     /// </summary>
-    public string? PipelineName
+    public TerraformLiteralProperty<string>? PipelineName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pipeline_name")?.Value;
-        set => this.WithProperty("pipeline_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pipeline_name");
+        set => this.WithProperty("pipeline_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -22,19 +22,19 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// Description of the ServicePerimeter and its use. Does not affect
     /// behavior.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -42,20 +42,20 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// begin with a letter and only include alphanumeric and &#39;_&#39;.
     /// Format: accessPolicies/{policy_id}/servicePerimeters/{short_name}
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The AccessPolicy this ServicePerimeter lives in.
     /// Format: accessPolicies/{policy_id}
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
@@ -76,19 +76,19 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// with a common perimeter, but should not be able to share data among
     /// themselves. Default value: &amp;quot;PERIMETER_TYPE_REGULAR&amp;quot; Possible values: [&amp;quot;PERIMETER_TYPE_REGULAR&amp;quot;, &amp;quot;PERIMETER_TYPE_BRIDGE&amp;quot;]
     /// </summary>
-    public string? PerimeterType
+    public TerraformLiteralProperty<string>? PerimeterType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("perimeter_type")?.Value;
-        set => this.WithProperty("perimeter_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("perimeter_type");
+        set => this.WithProperty("perimeter_type", value);
     }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
     /// </summary>
-    public string? Title
+    public TerraformLiteralProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title")?.Value;
-        set => this.WithProperty("title", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        set => this.WithProperty("title", value);
     }
 
     /// <summary>
@@ -102,10 +102,10 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// between currently enforced and suggested restrictions. useExplicitDryRunSpec must
     /// bet set to True if any of the fields in the spec are set to non-default values.
     /// </summary>
-    public bool? UseExplicitDryRunSpec
+    public TerraformLiteralProperty<bool>? UseExplicitDryRunSpec
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_explicit_dry_run_spec")?.Value;
-        set => this.WithProperty("use_explicit_dry_run_spec", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("use_explicit_dry_run_spec");
+        set => this.WithProperty("use_explicit_dry_run_spec", value);
     }
 
     /// <summary>

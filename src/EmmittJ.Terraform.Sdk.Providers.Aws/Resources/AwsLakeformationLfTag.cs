@@ -19,46 +19,46 @@ public class AwsLakeformationLfTag : TerraformResource
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public string? CatalogId
+    public TerraformLiteralProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id")?.Value;
-        set => this.WithProperty("catalog_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public string? Key
+    public TerraformLiteralProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key")?.Value;
-        set => this.WithProperty("key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public HashSet<string>? Values
+    public TerraformLiteralProperty<HashSet<string>>? Values
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("values")?.Value;
-        set => this.WithProperty("values", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("values");
+        set => this.WithProperty("values", value);
     }
 
 }

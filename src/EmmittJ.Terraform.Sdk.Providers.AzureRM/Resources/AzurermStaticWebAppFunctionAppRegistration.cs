@@ -19,28 +19,28 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     /// <summary>
     /// The function_app_id attribute.
     /// </summary>
-    public string? FunctionAppId
+    public TerraformLiteralProperty<string>? FunctionAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id")?.Value;
-        set => this.WithProperty("function_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id");
+        set => this.WithProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The static_web_app_id attribute.
     /// </summary>
-    public string? StaticWebAppId
+    public TerraformLiteralProperty<string>? StaticWebAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("static_web_app_id")?.Value;
-        set => this.WithProperty("static_web_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("static_web_app_id");
+        set => this.WithProperty("static_web_app_id", value);
     }
 
 }

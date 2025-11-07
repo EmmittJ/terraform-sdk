@@ -35,10 +35,10 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
@@ -46,48 +46,48 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id)
     /// associated with the backend.
     /// </summary>
-    public string? AppId
+    public TerraformLiteralProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id")?.Value;
-        set => this.WithProperty("app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// Id of the backend. Also used as the service ID for Cloud Run, and as part
     /// of the default domain name.
     /// </summary>
-    public string? BackendId
+    public TerraformLiteralProperty<string>? BackendId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend_id")?.Value;
-        set => this.WithProperty("backend_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backend_id");
+        set => this.WithProperty("backend_id", value);
     }
 
     /// <summary>
     /// Human-readable name. 63 character limit.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The environment name of the backend, used to load environment variables
     /// from environment specific configuration.
     /// </summary>
-    public string? Environment
+    public TerraformLiteralProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment")?.Value;
-        set => this.WithProperty("environment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -97,28 +97,28 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The canonical IDs of a Google Cloud location such as &amp;quot;us-east1&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -126,10 +126,10 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// Should have the role roles/firebaseapphosting.computeRunner
     /// or equivalent permissions.
     /// </summary>
-    public string? ServiceAccount
+    public TerraformLiteralProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account")?.Value;
-        set => this.WithProperty("service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        set => this.WithProperty("service_account", value);
     }
 
     /// <summary>
@@ -137,10 +137,10 @@ public class GoogleFirebaseAppHostingBackend : TerraformResource
     /// either be contained to a single region (REGIONAL_STRICT) or allowed to use
     /// App Hosting&#39;s global-replicated serving infrastructure (GLOBAL_ACCESS). Possible values: [&amp;quot;REGIONAL_STRICT&amp;quot;, &amp;quot;GLOBAL_ACCESS&amp;quot;]
     /// </summary>
-    public string? ServingLocality
+    public TerraformLiteralProperty<string>? ServingLocality
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("serving_locality")?.Value;
-        set => this.WithProperty("serving_locality", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("serving_locality");
+        set => this.WithProperty("serving_locality", value);
     }
 
     /// <summary>

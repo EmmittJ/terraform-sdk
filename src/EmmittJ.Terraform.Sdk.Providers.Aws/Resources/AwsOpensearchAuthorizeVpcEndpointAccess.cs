@@ -20,28 +20,28 @@ public class AwsOpensearchAuthorizeVpcEndpointAccess : TerraformResource
     /// <summary>
     /// The account attribute.
     /// </summary>
-    public string? Account
+    public TerraformLiteralProperty<string>? Account
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account")?.Value;
-        set => this.WithProperty("account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account");
+        set => this.WithProperty("account", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public string? DomainName
+    public TerraformLiteralProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name")?.Value;
-        set => this.WithProperty("domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

@@ -19,109 +19,109 @@ public class AzurermNetappPool : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public string? AccountName
+    public TerraformLiteralProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name")?.Value;
-        set => this.WithProperty("account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The cool_access_enabled attribute.
     /// </summary>
-    public bool? CoolAccessEnabled
+    public TerraformLiteralProperty<bool>? CoolAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cool_access_enabled")?.Value;
-        set => this.WithProperty("cool_access_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("cool_access_enabled");
+        set => this.WithProperty("cool_access_enabled", value);
     }
 
     /// <summary>
     /// The custom_throughput_mibps attribute.
     /// </summary>
-    public double? CustomThroughputMibps
+    public TerraformLiteralProperty<double>? CustomThroughputMibps
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("custom_throughput_mibps")?.Value;
-        set => this.WithProperty("custom_throughput_mibps", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("custom_throughput_mibps");
+        set => this.WithProperty("custom_throughput_mibps", value);
     }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public string? EncryptionType
+    public TerraformLiteralProperty<string>? EncryptionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption_type")?.Value;
-        set => this.WithProperty("encryption_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encryption_type");
+        set => this.WithProperty("encryption_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The qos_type attribute.
     /// </summary>
-    public string? QosType
+    public TerraformLiteralProperty<string>? QosType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("qos_type")?.Value;
-        set => this.WithProperty("qos_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("qos_type");
+        set => this.WithProperty("qos_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_level attribute.
     /// </summary>
-    public string? ServiceLevel
+    public TerraformLiteralProperty<string>? ServiceLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_level")?.Value;
-        set => this.WithProperty("service_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_level");
+        set => this.WithProperty("service_level", value);
     }
 
     /// <summary>
     /// The size_in_tb attribute.
     /// </summary>
-    public double? SizeInTb
+    public TerraformLiteralProperty<double>? SizeInTb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("size_in_tb")?.Value;
-        set => this.WithProperty("size_in_tb", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("size_in_tb");
+        set => this.WithProperty("size_in_tb", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

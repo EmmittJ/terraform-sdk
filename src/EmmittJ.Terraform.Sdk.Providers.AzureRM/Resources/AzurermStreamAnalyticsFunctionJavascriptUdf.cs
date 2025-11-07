@@ -19,46 +19,46 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdf : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
-    public string? Script
+    public TerraformLiteralProperty<string>? Script
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("script")?.Value;
-        set => this.WithProperty("script", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("script");
+        set => this.WithProperty("script", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public string? StreamAnalyticsJobName
+    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name")?.Value;
-        set => this.WithProperty("stream_analytics_job_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        set => this.WithProperty("stream_analytics_job_name", value);
     }
 
 }

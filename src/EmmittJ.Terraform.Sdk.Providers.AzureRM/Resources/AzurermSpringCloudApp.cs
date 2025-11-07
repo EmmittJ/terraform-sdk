@@ -21,82 +21,82 @@ public class AzurermSpringCloudApp : TerraformResource
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    public string? AddonJson
+    public TerraformLiteralProperty<string>? AddonJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("addon_json")?.Value;
-        set => this.WithProperty("addon_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("addon_json");
+        set => this.WithProperty("addon_json", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public bool? HttpsOnly
+    public TerraformLiteralProperty<bool>? HttpsOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_only")?.Value;
-        set => this.WithProperty("https_only", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("https_only");
+        set => this.WithProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_public attribute.
     /// </summary>
-    public bool? IsPublic
+    public TerraformLiteralProperty<bool>? IsPublic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_public")?.Value;
-        set => this.WithProperty("is_public", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("is_public");
+        set => this.WithProperty("is_public", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_endpoint_enabled attribute.
     /// </summary>
-    public bool? PublicEndpointEnabled
+    public TerraformLiteralProperty<bool>? PublicEndpointEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_endpoint_enabled")?.Value;
-        set => this.WithProperty("public_endpoint_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_endpoint_enabled");
+        set => this.WithProperty("public_endpoint_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public string? ServiceName
+    public TerraformLiteralProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name")?.Value;
-        set => this.WithProperty("service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public bool? TlsEnabled
+    public TerraformLiteralProperty<bool>? TlsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls_enabled")?.Value;
-        set => this.WithProperty("tls_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("tls_enabled");
+        set => this.WithProperty("tls_enabled", value);
     }
 
     /// <summary>

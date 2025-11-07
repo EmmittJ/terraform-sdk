@@ -20,37 +20,37 @@ public class AwsEbsSnapshotIdsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public List<string>? Owners
+    public TerraformLiteralProperty<List<string>>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("owners")?.Value;
-        set => this.WithProperty("owners", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("owners");
+        set => this.WithProperty("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The restorable_by_user_ids attribute.
     /// </summary>
-    public List<string>? RestorableByUserIds
+    public TerraformLiteralProperty<List<string>>? RestorableByUserIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("restorable_by_user_ids")?.Value;
-        set => this.WithProperty("restorable_by_user_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("restorable_by_user_ids");
+        set => this.WithProperty("restorable_by_user_ids", value);
     }
 
     /// <summary>

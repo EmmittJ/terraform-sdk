@@ -19,55 +19,55 @@ public class AwsEc2TransitGatewayRoute : TerraformResource
     /// <summary>
     /// The blackhole attribute.
     /// </summary>
-    public bool? Blackhole
+    public TerraformLiteralProperty<bool>? Blackhole
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("blackhole")?.Value;
-        set => this.WithProperty("blackhole", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("blackhole");
+        set => this.WithProperty("blackhole", value);
     }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public string? DestinationCidrBlock
+    public TerraformLiteralProperty<string>? DestinationCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_cidr_block")?.Value;
-        set => this.WithProperty("destination_cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_cidr_block");
+        set => this.WithProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
-    public string? TransitGatewayAttachmentId
+    public TerraformLiteralProperty<string>? TransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id")?.Value;
-        set => this.WithProperty("transit_gateway_attachment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id");
+        set => this.WithProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_route_table_id attribute.
     /// </summary>
-    public string? TransitGatewayRouteTableId
+    public TerraformLiteralProperty<string>? TransitGatewayRouteTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_route_table_id")?.Value;
-        set => this.WithProperty("transit_gateway_route_table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_route_table_id");
+        set => this.WithProperty("transit_gateway_route_table_id", value);
     }
 
 }

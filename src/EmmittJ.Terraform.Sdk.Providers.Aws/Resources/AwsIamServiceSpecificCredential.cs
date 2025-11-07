@@ -26,46 +26,46 @@ public class AwsIamServiceSpecificCredential : TerraformResource
     /// <summary>
     /// The credential_age_days attribute.
     /// </summary>
-    public double? CredentialAgeDays
+    public TerraformLiteralProperty<double>? CredentialAgeDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("credential_age_days")?.Value;
-        set => this.WithProperty("credential_age_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("credential_age_days");
+        set => this.WithProperty("credential_age_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public string? ServiceName
+    public TerraformLiteralProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name")?.Value;
-        set => this.WithProperty("service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public string? UserName
+    public TerraformLiteralProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name")?.Value;
-        set => this.WithProperty("user_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        set => this.WithProperty("user_name", value);
     }
 
     /// <summary>

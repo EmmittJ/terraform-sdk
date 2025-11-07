@@ -20,82 +20,82 @@ public class AzurermLbProbe : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    public double? IntervalInSeconds
+    public TerraformLiteralProperty<double>? IntervalInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("interval_in_seconds")?.Value;
-        set => this.WithProperty("interval_in_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("interval_in_seconds");
+        set => this.WithProperty("interval_in_seconds", value);
     }
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
-    public string? LoadbalancerId
+    public TerraformLiteralProperty<string>? LoadbalancerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("loadbalancer_id")?.Value;
-        set => this.WithProperty("loadbalancer_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("loadbalancer_id");
+        set => this.WithProperty("loadbalancer_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The number_of_probes attribute.
     /// </summary>
-    public double? NumberOfProbes
+    public TerraformLiteralProperty<double>? NumberOfProbes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("number_of_probes")?.Value;
-        set => this.WithProperty("number_of_probes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("number_of_probes");
+        set => this.WithProperty("number_of_probes", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The probe_threshold attribute.
     /// </summary>
-    public double? ProbeThreshold
+    public TerraformLiteralProperty<double>? ProbeThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("probe_threshold")?.Value;
-        set => this.WithProperty("probe_threshold", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("probe_threshold");
+        set => this.WithProperty("probe_threshold", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The request_path attribute.
     /// </summary>
-    public string? RequestPath
+    public TerraformLiteralProperty<string>? RequestPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_path")?.Value;
-        set => this.WithProperty("request_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("request_path");
+        set => this.WithProperty("request_path", value);
     }
 
     /// <summary>

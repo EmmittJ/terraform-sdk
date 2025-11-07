@@ -27,37 +27,37 @@ public class AwsOrganizationsOrganization : TerraformResource
     /// <summary>
     /// The aws_service_access_principals attribute.
     /// </summary>
-    public HashSet<string>? AwsServiceAccessPrincipals
+    public TerraformLiteralProperty<HashSet<string>>? AwsServiceAccessPrincipals
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("aws_service_access_principals")?.Value;
-        set => this.WithProperty("aws_service_access_principals", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("aws_service_access_principals");
+        set => this.WithProperty("aws_service_access_principals", value);
     }
 
     /// <summary>
     /// The enabled_policy_types attribute.
     /// </summary>
-    public HashSet<string>? EnabledPolicyTypes
+    public TerraformLiteralProperty<HashSet<string>>? EnabledPolicyTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("enabled_policy_types")?.Value;
-        set => this.WithProperty("enabled_policy_types", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("enabled_policy_types");
+        set => this.WithProperty("enabled_policy_types", value);
     }
 
     /// <summary>
     /// The feature_set attribute.
     /// </summary>
-    public string? FeatureSet
+    public TerraformLiteralProperty<string>? FeatureSet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("feature_set")?.Value;
-        set => this.WithProperty("feature_set", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("feature_set");
+        set => this.WithProperty("feature_set", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

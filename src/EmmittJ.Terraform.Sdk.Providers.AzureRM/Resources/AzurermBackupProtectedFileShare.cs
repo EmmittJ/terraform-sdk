@@ -19,55 +19,55 @@ public class AzurermBackupProtectedFileShare : TerraformResource
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    public string? BackupPolicyId
+    public TerraformLiteralProperty<string>? BackupPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_policy_id")?.Value;
-        set => this.WithProperty("backup_policy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backup_policy_id");
+        set => this.WithProperty("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
-    public string? RecoveryVaultName
+    public TerraformLiteralProperty<string>? RecoveryVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name")?.Value;
-        set => this.WithProperty("recovery_vault_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name");
+        set => this.WithProperty("recovery_vault_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_file_share_name attribute.
     /// </summary>
-    public string? SourceFileShareName
+    public TerraformLiteralProperty<string>? SourceFileShareName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_file_share_name")?.Value;
-        set => this.WithProperty("source_file_share_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_file_share_name");
+        set => this.WithProperty("source_file_share_name", value);
     }
 
     /// <summary>
     /// The source_storage_account_id attribute.
     /// </summary>
-    public string? SourceStorageAccountId
+    public TerraformLiteralProperty<string>? SourceStorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_storage_account_id")?.Value;
-        set => this.WithProperty("source_storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_storage_account_id");
+        set => this.WithProperty("source_storage_account_id", value);
     }
 
 }

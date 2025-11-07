@@ -20,55 +20,55 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     /// <summary>
     /// The DNS domain name suffix of the peered DNS domain.
     /// </summary>
-    public string? DnsSuffix
+    public TerraformLiteralProperty<string>? DnsSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_suffix")?.Value;
-        set => this.WithProperty("dns_suffix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_suffix");
+        set => this.WithProperty("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the peered DNS domain.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Network in the consumer project to peer with.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The ID of the project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the service to create a peered DNS domain for, e.g. servicenetworking.googleapis.com
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
     /// <summary>

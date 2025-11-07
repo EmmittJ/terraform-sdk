@@ -19,37 +19,37 @@ public class AzurermDataFactoryCustomerManagedKey : TerraformResource
     /// <summary>
     /// The customer_managed_key_id attribute.
     /// </summary>
-    public string? CustomerManagedKeyId
+    public TerraformLiteralProperty<string>? CustomerManagedKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key_id")?.Value;
-        set => this.WithProperty("customer_managed_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key_id");
+        set => this.WithProperty("customer_managed_key_id", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public string? UserAssignedIdentityId
+    public TerraformLiteralProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_assigned_identity_id")?.Value;
-        set => this.WithProperty("user_assigned_identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_assigned_identity_id");
+        set => this.WithProperty("user_assigned_identity_id", value);
     }
 
 }

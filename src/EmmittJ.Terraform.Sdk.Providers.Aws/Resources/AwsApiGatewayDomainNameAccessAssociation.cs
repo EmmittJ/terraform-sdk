@@ -22,46 +22,46 @@ public class AwsApiGatewayDomainNameAccessAssociation : TerraformResource
     /// <summary>
     /// The access_association_source attribute.
     /// </summary>
-    public string? AccessAssociationSource
+    public TerraformLiteralProperty<string>? AccessAssociationSource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_association_source")?.Value;
-        set => this.WithProperty("access_association_source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_association_source");
+        set => this.WithProperty("access_association_source", value);
     }
 
     /// <summary>
     /// The access_association_source_type attribute.
     /// </summary>
-    public string? AccessAssociationSourceType
+    public TerraformLiteralProperty<string>? AccessAssociationSourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_association_source_type")?.Value;
-        set => this.WithProperty("access_association_source_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_association_source_type");
+        set => this.WithProperty("access_association_source_type", value);
     }
 
     /// <summary>
     /// The domain_name_arn attribute.
     /// </summary>
-    public string? DomainNameArn
+    public TerraformLiteralProperty<string>? DomainNameArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name_arn")?.Value;
-        set => this.WithProperty("domain_name_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name_arn");
+        set => this.WithProperty("domain_name_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

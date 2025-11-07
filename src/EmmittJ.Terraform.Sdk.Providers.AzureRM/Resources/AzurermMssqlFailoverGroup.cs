@@ -19,55 +19,55 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// <summary>
     /// The databases attribute.
     /// </summary>
-    public HashSet<string>? Databases
+    public TerraformLiteralProperty<HashSet<string>>? Databases
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("databases")?.Value;
-        set => this.WithProperty("databases", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("databases");
+        set => this.WithProperty("databases", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
-    public bool? ReadonlyEndpointFailoverPolicyEnabled
+    public TerraformLiteralProperty<bool>? ReadonlyEndpointFailoverPolicyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("readonly_endpoint_failover_policy_enabled")?.Value;
-        set => this.WithProperty("readonly_endpoint_failover_policy_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("readonly_endpoint_failover_policy_enabled");
+        set => this.WithProperty("readonly_endpoint_failover_policy_enabled", value);
     }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public string? ServerId
+    public TerraformLiteralProperty<string>? ServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_id")?.Value;
-        set => this.WithProperty("server_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_id");
+        set => this.WithProperty("server_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

@@ -21,127 +21,127 @@ public class AwsAppsyncGraphqlApi : TerraformResource
     /// <summary>
     /// The api_type attribute.
     /// </summary>
-    public string? ApiType
+    public TerraformLiteralProperty<string>? ApiType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_type")?.Value;
-        set => this.WithProperty("api_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_type");
+        set => this.WithProperty("api_type", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public string? AuthenticationType
+    public TerraformLiteralProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type")?.Value;
-        set => this.WithProperty("authentication_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The introspection_config attribute.
     /// </summary>
-    public string? IntrospectionConfig
+    public TerraformLiteralProperty<string>? IntrospectionConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("introspection_config")?.Value;
-        set => this.WithProperty("introspection_config", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("introspection_config");
+        set => this.WithProperty("introspection_config", value);
     }
 
     /// <summary>
     /// The merged_api_execution_role_arn attribute.
     /// </summary>
-    public string? MergedApiExecutionRoleArn
+    public TerraformLiteralProperty<string>? MergedApiExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_execution_role_arn")?.Value;
-        set => this.WithProperty("merged_api_execution_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_execution_role_arn");
+        set => this.WithProperty("merged_api_execution_role_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_depth_limit attribute.
     /// </summary>
-    public double? QueryDepthLimit
+    public TerraformLiteralProperty<double>? QueryDepthLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("query_depth_limit")?.Value;
-        set => this.WithProperty("query_depth_limit", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("query_depth_limit");
+        set => this.WithProperty("query_depth_limit", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resolver_count_limit attribute.
     /// </summary>
-    public double? ResolverCountLimit
+    public TerraformLiteralProperty<double>? ResolverCountLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("resolver_count_limit")?.Value;
-        set => this.WithProperty("resolver_count_limit", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("resolver_count_limit");
+        set => this.WithProperty("resolver_count_limit", value);
     }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public string? Schema
+    public TerraformLiteralProperty<string>? Schema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema")?.Value;
-        set => this.WithProperty("schema", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("schema");
+        set => this.WithProperty("schema", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public string? Visibility
+    public TerraformLiteralProperty<string>? Visibility
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("visibility")?.Value;
-        set => this.WithProperty("visibility", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("visibility");
+        set => this.WithProperty("visibility", value);
     }
 
     /// <summary>
     /// The xray_enabled attribute.
     /// </summary>
-    public bool? XrayEnabled
+    public TerraformLiteralProperty<bool>? XrayEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("xray_enabled")?.Value;
-        set => this.WithProperty("xray_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("xray_enabled");
+        set => this.WithProperty("xray_enabled", value);
     }
 
     /// <summary>

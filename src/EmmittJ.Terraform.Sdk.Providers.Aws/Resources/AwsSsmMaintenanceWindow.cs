@@ -19,136 +19,136 @@ public class AwsSsmMaintenanceWindow : TerraformResource
     /// <summary>
     /// The allow_unassociated_targets attribute.
     /// </summary>
-    public bool? AllowUnassociatedTargets
+    public TerraformLiteralProperty<bool>? AllowUnassociatedTargets
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_unassociated_targets")?.Value;
-        set => this.WithProperty("allow_unassociated_targets", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_unassociated_targets");
+        set => this.WithProperty("allow_unassociated_targets", value);
     }
 
     /// <summary>
     /// The cutoff attribute.
     /// </summary>
-    public double? Cutoff
+    public TerraformLiteralProperty<double>? Cutoff
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cutoff")?.Value;
-        set => this.WithProperty("cutoff", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("cutoff");
+        set => this.WithProperty("cutoff", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public double? Duration
+    public TerraformLiteralProperty<double>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration")?.Value;
-        set => this.WithProperty("duration", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("duration");
+        set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public string? EndDate
+    public TerraformLiteralProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date")?.Value;
-        set => this.WithProperty("end_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        set => this.WithProperty("end_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public string? Schedule
+    public TerraformLiteralProperty<string>? Schedule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schedule")?.Value;
-        set => this.WithProperty("schedule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("schedule");
+        set => this.WithProperty("schedule", value);
     }
 
     /// <summary>
     /// The schedule_offset attribute.
     /// </summary>
-    public double? ScheduleOffset
+    public TerraformLiteralProperty<double>? ScheduleOffset
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("schedule_offset")?.Value;
-        set => this.WithProperty("schedule_offset", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("schedule_offset");
+        set => this.WithProperty("schedule_offset", value);
     }
 
     /// <summary>
     /// The schedule_timezone attribute.
     /// </summary>
-    public string? ScheduleTimezone
+    public TerraformLiteralProperty<string>? ScheduleTimezone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schedule_timezone")?.Value;
-        set => this.WithProperty("schedule_timezone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("schedule_timezone");
+        set => this.WithProperty("schedule_timezone", value);
     }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public string? StartDate
+    public TerraformLiteralProperty<string>? StartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_date")?.Value;
-        set => this.WithProperty("start_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_date");
+        set => this.WithProperty("start_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
 }

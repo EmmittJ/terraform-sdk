@@ -22,19 +22,19 @@ public class AwsVpcBlockPublicAccessOptions : TerraformResource
     /// <summary>
     /// The internet_gateway_block_mode attribute.
     /// </summary>
-    public string? InternetGatewayBlockMode
+    public TerraformLiteralProperty<string>? InternetGatewayBlockMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("internet_gateway_block_mode")?.Value;
-        set => this.WithProperty("internet_gateway_block_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("internet_gateway_block_mode");
+        set => this.WithProperty("internet_gateway_block_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

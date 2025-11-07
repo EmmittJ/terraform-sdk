@@ -23,46 +23,46 @@ public class GoogleParameterManagerParameterVersion : TerraformResource
     /// <summary>
     /// The current state of Parameter Version. This field is only applicable for updating Parameter Version.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Parameter Manager Parameter resource.
     /// </summary>
-    public string? Parameter
+    public TerraformLiteralProperty<string>? Parameter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter")?.Value;
-        set => this.WithProperty("parameter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameter");
+        set => this.WithProperty("parameter", value);
     }
 
     /// <summary>
     /// The Parameter data.
     /// </summary>
-    public string? ParameterData
+    public TerraformLiteralProperty<string>? ParameterData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_data")?.Value;
-        set => this.WithProperty("parameter_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameter_data");
+        set => this.WithProperty("parameter_data", value);
     }
 
     /// <summary>
     /// Version ID of the Parameter Version Resource. This must be unique within the Parameter.
     /// </summary>
-    public string? ParameterVersionId
+    public TerraformLiteralProperty<string>? ParameterVersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_version_id")?.Value;
-        set => this.WithProperty("parameter_version_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameter_version_id");
+        set => this.WithProperty("parameter_version_id", value);
     }
 
     /// <summary>

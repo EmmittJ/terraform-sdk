@@ -19,55 +19,55 @@ public class AzurermStorageContainerImmutabilityPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The immutability_period_in_days attribute.
     /// </summary>
-    public double? ImmutabilityPeriodInDays
+    public TerraformLiteralProperty<double>? ImmutabilityPeriodInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("immutability_period_in_days")?.Value;
-        set => this.WithProperty("immutability_period_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("immutability_period_in_days");
+        set => this.WithProperty("immutability_period_in_days", value);
     }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public bool? Locked
+    public TerraformLiteralProperty<bool>? Locked
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("locked")?.Value;
-        set => this.WithProperty("locked", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("locked");
+        set => this.WithProperty("locked", value);
     }
 
     /// <summary>
     /// The protected_append_writes_all_enabled attribute.
     /// </summary>
-    public bool? ProtectedAppendWritesAllEnabled
+    public TerraformLiteralProperty<bool>? ProtectedAppendWritesAllEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("protected_append_writes_all_enabled")?.Value;
-        set => this.WithProperty("protected_append_writes_all_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("protected_append_writes_all_enabled");
+        set => this.WithProperty("protected_append_writes_all_enabled", value);
     }
 
     /// <summary>
     /// The protected_append_writes_enabled attribute.
     /// </summary>
-    public bool? ProtectedAppendWritesEnabled
+    public TerraformLiteralProperty<bool>? ProtectedAppendWritesEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("protected_append_writes_enabled")?.Value;
-        set => this.WithProperty("protected_append_writes_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("protected_append_writes_enabled");
+        set => this.WithProperty("protected_append_writes_enabled", value);
     }
 
     /// <summary>
     /// The storage_container_resource_manager_id attribute.
     /// </summary>
-    public string? StorageContainerResourceManagerId
+    public TerraformLiteralProperty<string>? StorageContainerResourceManagerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_container_resource_manager_id")?.Value;
-        set => this.WithProperty("storage_container_resource_manager_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_container_resource_manager_id");
+        set => this.WithProperty("storage_container_resource_manager_id", value);
     }
 
 }

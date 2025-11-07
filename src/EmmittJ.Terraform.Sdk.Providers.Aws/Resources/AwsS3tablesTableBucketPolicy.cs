@@ -19,28 +19,28 @@ public class AwsS3tablesTableBucketPolicy : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_policy attribute.
     /// </summary>
-    public string? ResourcePolicy
+    public TerraformLiteralProperty<string>? ResourcePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_policy")?.Value;
-        set => this.WithProperty("resource_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_policy");
+        set => this.WithProperty("resource_policy", value);
     }
 
     /// <summary>
     /// The table_bucket_arn attribute.
     /// </summary>
-    public string? TableBucketArn
+    public TerraformLiteralProperty<string>? TableBucketArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_bucket_arn")?.Value;
-        set => this.WithProperty("table_bucket_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table_bucket_arn");
+        set => this.WithProperty("table_bucket_arn", value);
     }
 
 }

@@ -19,55 +19,55 @@ public class AzurermMysqlFlexibleDatabase : TerraformResource
     /// <summary>
     /// The charset attribute.
     /// </summary>
-    public string? Charset
+    public TerraformLiteralProperty<string>? Charset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("charset")?.Value;
-        set => this.WithProperty("charset", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("charset");
+        set => this.WithProperty("charset", value);
     }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public string? Collation
+    public TerraformLiteralProperty<string>? Collation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collation")?.Value;
-        set => this.WithProperty("collation", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collation");
+        set => this.WithProperty("collation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public string? ServerName
+    public TerraformLiteralProperty<string>? ServerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_name")?.Value;
-        set => this.WithProperty("server_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_name");
+        set => this.WithProperty("server_name", value);
     }
 
 }

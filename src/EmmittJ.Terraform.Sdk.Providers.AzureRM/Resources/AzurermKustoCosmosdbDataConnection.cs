@@ -19,82 +19,82 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// <summary>
     /// The cosmosdb_container_id attribute.
     /// </summary>
-    public string? CosmosdbContainerId
+    public TerraformLiteralProperty<string>? CosmosdbContainerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_container_id")?.Value;
-        set => this.WithProperty("cosmosdb_container_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_container_id");
+        set => this.WithProperty("cosmosdb_container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kusto_database_id attribute.
     /// </summary>
-    public string? KustoDatabaseId
+    public TerraformLiteralProperty<string>? KustoDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_database_id")?.Value;
-        set => this.WithProperty("kusto_database_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kusto_database_id");
+        set => this.WithProperty("kusto_database_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_identity_id attribute.
     /// </summary>
-    public string? ManagedIdentityId
+    public TerraformLiteralProperty<string>? ManagedIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_identity_id")?.Value;
-        set => this.WithProperty("managed_identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_identity_id");
+        set => this.WithProperty("managed_identity_id", value);
     }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    public string? MappingRuleName
+    public TerraformLiteralProperty<string>? MappingRuleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mapping_rule_name")?.Value;
-        set => this.WithProperty("mapping_rule_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mapping_rule_name");
+        set => this.WithProperty("mapping_rule_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The retrieval_start_date attribute.
     /// </summary>
-    public string? RetrievalStartDate
+    public TerraformLiteralProperty<string>? RetrievalStartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retrieval_start_date")?.Value;
-        set => this.WithProperty("retrieval_start_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("retrieval_start_date");
+        set => this.WithProperty("retrieval_start_date", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public string? TableName
+    public TerraformLiteralProperty<string>? TableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_name")?.Value;
-        set => this.WithProperty("table_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table_name");
+        set => this.WithProperty("table_name", value);
     }
 
 }

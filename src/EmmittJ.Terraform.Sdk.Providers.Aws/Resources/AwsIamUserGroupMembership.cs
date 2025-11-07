@@ -19,28 +19,28 @@ public class AwsIamUserGroupMembership : TerraformResource
     /// <summary>
     /// The groups attribute.
     /// </summary>
-    public HashSet<string>? Groups
+    public TerraformLiteralProperty<HashSet<string>>? Groups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("groups")?.Value;
-        set => this.WithProperty("groups", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("groups");
+        set => this.WithProperty("groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public string? User
+    public TerraformLiteralProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user")?.Value;
-        set => this.WithProperty("user", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        set => this.WithProperty("user", value);
     }
 
 }

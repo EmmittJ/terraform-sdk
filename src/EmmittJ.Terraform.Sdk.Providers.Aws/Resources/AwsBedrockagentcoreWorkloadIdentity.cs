@@ -20,28 +20,28 @@ public class AwsBedrockagentcoreWorkloadIdentity : TerraformResource
     /// <summary>
     /// The allowed_resource_oauth2_return_urls attribute.
     /// </summary>
-    public HashSet<string>? AllowedResourceOauth2ReturnUrls
+    public TerraformLiteralProperty<HashSet<string>>? AllowedResourceOauth2ReturnUrls
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_resource_oauth2_return_urls")?.Value;
-        set => this.WithProperty("allowed_resource_oauth2_return_urls", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_resource_oauth2_return_urls");
+        set => this.WithProperty("allowed_resource_oauth2_return_urls", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

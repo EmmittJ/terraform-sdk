@@ -22,30 +22,30 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     /// How often (in seconds) to send a health check. The default value is 5
     /// seconds.
     /// </summary>
-    public double? CheckIntervalSec
+    public TerraformLiteralProperty<double>? CheckIntervalSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("check_interval_sec")?.Value;
-        set => this.WithProperty("check_interval_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("check_interval_sec");
+        set => this.WithProperty("check_interval_sec", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
-    public double? HealthyThreshold
+    public TerraformLiteralProperty<double>? HealthyThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("healthy_threshold")?.Value;
-        set => this.WithProperty("healthy_threshold", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("healthy_threshold");
+        set => this.WithProperty("healthy_threshold", value);
     }
 
     /// <summary>
@@ -53,19 +53,19 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     /// left empty (default value), the public IP on behalf of which this
     /// health check is performed will be used.
     /// </summary>
-    public string? Host
+    public TerraformLiteralProperty<string>? Host
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host")?.Value;
-        set => this.WithProperty("host", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("host");
+        set => this.WithProperty("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -77,39 +77,39 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The TCP port number for the HTTPS health check request.
     /// The default value is 443.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The request path of the HTTPS health check request.
     /// The default value is /.
     /// </summary>
-    public string? RequestPath
+    public TerraformLiteralProperty<string>? RequestPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_path")?.Value;
-        set => this.WithProperty("request_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("request_path");
+        set => this.WithProperty("request_path", value);
     }
 
     /// <summary>
@@ -117,20 +117,20 @@ public class GoogleComputeHttpsHealthCheck : TerraformResource
     /// The default value is 5 seconds.  It is invalid for timeoutSec to have
     /// greater value than checkIntervalSec.
     /// </summary>
-    public double? TimeoutSec
+    public TerraformLiteralProperty<double>? TimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("timeout_sec")?.Value;
-        set => this.WithProperty("timeout_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("timeout_sec");
+        set => this.WithProperty("timeout_sec", value);
     }
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
-    public double? UnhealthyThreshold
+    public TerraformLiteralProperty<double>? UnhealthyThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("unhealthy_threshold")?.Value;
-        set => this.WithProperty("unhealthy_threshold", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("unhealthy_threshold");
+        set => this.WithProperty("unhealthy_threshold", value);
     }
 
     /// <summary>

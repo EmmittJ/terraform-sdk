@@ -22,37 +22,37 @@ public class AwsNetworkmonitorMonitor : TerraformResource
     /// <summary>
     /// The aggregation_period attribute.
     /// </summary>
-    public double? AggregationPeriod
+    public TerraformLiteralProperty<double>? AggregationPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("aggregation_period")?.Value;
-        set => this.WithProperty("aggregation_period", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("aggregation_period");
+        set => this.WithProperty("aggregation_period", value);
     }
 
     /// <summary>
     /// The monitor_name attribute.
     /// </summary>
-    public string? MonitorName
+    public TerraformLiteralProperty<string>? MonitorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("monitor_name")?.Value;
-        set => this.WithProperty("monitor_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("monitor_name");
+        set => this.WithProperty("monitor_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

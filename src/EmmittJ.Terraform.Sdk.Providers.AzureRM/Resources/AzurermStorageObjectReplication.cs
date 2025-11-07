@@ -21,28 +21,28 @@ public class AzurermStorageObjectReplication : TerraformResource
     /// <summary>
     /// The destination_storage_account_id attribute.
     /// </summary>
-    public string? DestinationStorageAccountId
+    public TerraformLiteralProperty<string>? DestinationStorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_storage_account_id")?.Value;
-        set => this.WithProperty("destination_storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_storage_account_id");
+        set => this.WithProperty("destination_storage_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The source_storage_account_id attribute.
     /// </summary>
-    public string? SourceStorageAccountId
+    public TerraformLiteralProperty<string>? SourceStorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_storage_account_id")?.Value;
-        set => this.WithProperty("source_storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_storage_account_id");
+        set => this.WithProperty("source_storage_account_id", value);
     }
 
     /// <summary>

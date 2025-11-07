@@ -22,163 +22,163 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// <summary>
     /// The client_cidr_block attribute.
     /// </summary>
-    public string? ClientCidrBlock
+    public TerraformLiteralProperty<string>? ClientCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_cidr_block")?.Value;
-        set => this.WithProperty("client_cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_cidr_block");
+        set => this.WithProperty("client_cidr_block", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The disconnect_on_session_timeout attribute.
     /// </summary>
-    public bool? DisconnectOnSessionTimeout
+    public TerraformLiteralProperty<bool>? DisconnectOnSessionTimeout
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disconnect_on_session_timeout")?.Value;
-        set => this.WithProperty("disconnect_on_session_timeout", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disconnect_on_session_timeout");
+        set => this.WithProperty("disconnect_on_session_timeout", value);
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<string>? DnsServers
+    public TerraformLiteralProperty<List<string>>? DnsServers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("dns_servers")?.Value;
-        set => this.WithProperty("dns_servers", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("dns_servers");
+        set => this.WithProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The endpoint_ip_address_type attribute.
     /// </summary>
-    public string? EndpointIpAddressType
+    public TerraformLiteralProperty<string>? EndpointIpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_ip_address_type")?.Value;
-        set => this.WithProperty("endpoint_ip_address_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_ip_address_type");
+        set => this.WithProperty("endpoint_ip_address_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids")?.Value;
-        set => this.WithProperty("security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The self_service_portal attribute.
     /// </summary>
-    public string? SelfServicePortal
+    public TerraformLiteralProperty<string>? SelfServicePortal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("self_service_portal")?.Value;
-        set => this.WithProperty("self_service_portal", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("self_service_portal");
+        set => this.WithProperty("self_service_portal", value);
     }
 
     /// <summary>
     /// The server_certificate_arn attribute.
     /// </summary>
-    public string? ServerCertificateArn
+    public TerraformLiteralProperty<string>? ServerCertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_certificate_arn")?.Value;
-        set => this.WithProperty("server_certificate_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_certificate_arn");
+        set => this.WithProperty("server_certificate_arn", value);
     }
 
     /// <summary>
     /// The session_timeout_hours attribute.
     /// </summary>
-    public double? SessionTimeoutHours
+    public TerraformLiteralProperty<double>? SessionTimeoutHours
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("session_timeout_hours")?.Value;
-        set => this.WithProperty("session_timeout_hours", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("session_timeout_hours");
+        set => this.WithProperty("session_timeout_hours", value);
     }
 
     /// <summary>
     /// The split_tunnel attribute.
     /// </summary>
-    public bool? SplitTunnel
+    public TerraformLiteralProperty<bool>? SplitTunnel
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("split_tunnel")?.Value;
-        set => this.WithProperty("split_tunnel", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("split_tunnel");
+        set => this.WithProperty("split_tunnel", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The traffic_ip_address_type attribute.
     /// </summary>
-    public string? TrafficIpAddressType
+    public TerraformLiteralProperty<string>? TrafficIpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_ip_address_type")?.Value;
-        set => this.WithProperty("traffic_ip_address_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("traffic_ip_address_type");
+        set => this.WithProperty("traffic_ip_address_type", value);
     }
 
     /// <summary>
     /// The transport_protocol attribute.
     /// </summary>
-    public string? TransportProtocol
+    public TerraformLiteralProperty<string>? TransportProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transport_protocol")?.Value;
-        set => this.WithProperty("transport_protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transport_protocol");
+        set => this.WithProperty("transport_protocol", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The vpn_port attribute.
     /// </summary>
-    public double? VpnPort
+    public TerraformLiteralProperty<double>? VpnPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vpn_port")?.Value;
-        set => this.WithProperty("vpn_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("vpn_port");
+        set => this.WithProperty("vpn_port", value);
     }
 
     /// <summary>

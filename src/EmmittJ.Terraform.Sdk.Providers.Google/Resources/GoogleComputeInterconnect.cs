@@ -37,10 +37,10 @@ public class GoogleComputeInterconnect : TerraformResource
     /// functional and can carry traffic. When set to false, no packets can be carried over the
     /// interconnect and no BGP routes are exchanged over it. By default, the status is set to true.
     /// </summary>
-    public bool? AdminEnabled
+    public TerraformLiteralProperty<bool>? AdminEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("admin_enabled")?.Value;
-        set => this.WithProperty("admin_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("admin_enabled");
+        set => this.WithProperty("admin_enabled", value);
     }
 
     /// <summary>
@@ -48,28 +48,28 @@ public class GoogleComputeInterconnect : TerraformResource
     /// crossconnect. This field is required for Dedicated and Partner Interconnect, should not be specified
     /// for cross-cloud interconnect.
     /// </summary>
-    public string? CustomerName
+    public TerraformLiteralProperty<string>? CustomerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_name")?.Value;
-        set => this.WithProperty("customer_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_name");
+        set => this.WithProperty("customer_name", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -78,10 +78,10 @@ public class GoogleComputeInterconnect : TerraformResource
     ///   - PARTNER: A partner-managed interconnection shared between customers though a partner.
     ///   - DEDICATED: A dedicated physical interconnection with the customer. Possible values: [&amp;quot;DEDICATED&amp;quot;, &amp;quot;PARTNER&amp;quot;, &amp;quot;IT_PRIVATE&amp;quot;]
     /// </summary>
-    public string? InterconnectType
+    public TerraformLiteralProperty<string>? InterconnectType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_type")?.Value;
-        set => this.WithProperty("interconnect_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_type");
+        set => this.WithProperty("interconnect_type", value);
     }
 
     /// <summary>
@@ -92,10 +92,10 @@ public class GoogleComputeInterconnect : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -105,30 +105,30 @@ public class GoogleComputeInterconnect : TerraformResource
     ///   - LINK_TYPE_ETHERNET_100G_LR: A 100G Ethernet with LR optics.
     ///   - LINK_TYPE_ETHERNET_400G_LR4: A 400G Ethernet with LR4 optics Possible values: [&amp;quot;LINK_TYPE_ETHERNET_10G_LR&amp;quot;, &amp;quot;LINK_TYPE_ETHERNET_100G_LR&amp;quot;, &amp;quot;LINK_TYPE_ETHERNET_400G_LR4&amp;quot;]
     /// </summary>
-    public string? LinkType
+    public TerraformLiteralProperty<string>? LinkType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("link_type")?.Value;
-        set => this.WithProperty("link_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("link_type");
+        set => this.WithProperty("link_type", value);
     }
 
     /// <summary>
     /// URL of the InterconnectLocation object that represents where this connection is to be provisioned.
     /// Specifies the location inside Google&#39;s Networks.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Enable or disable MACsec on this Interconnect connection.
     /// MACsec enablement fails if the MACsec object is not specified.
     /// </summary>
-    public bool? MacsecEnabled
+    public TerraformLiteralProperty<bool>? MacsecEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("macsec_enabled")?.Value;
-        set => this.WithProperty("macsec_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("macsec_enabled");
+        set => this.WithProperty("macsec_enabled", value);
     }
 
     /// <summary>
@@ -138,10 +138,10 @@ public class GoogleComputeInterconnect : TerraformResource
     /// character must be a lowercase letter, and all following characters must be a dash,
     /// lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -151,29 +151,29 @@ public class GoogleComputeInterconnect : TerraformResource
     /// This field is required for users who sign up for Cloud Interconnect using workforce identity
     /// federation.
     /// </summary>
-    public string? NocContactEmail
+    public TerraformLiteralProperty<string>? NocContactEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("noc_contact_email")?.Value;
-        set => this.WithProperty("noc_contact_email", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("noc_contact_email");
+        set => this.WithProperty("noc_contact_email", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Indicates that this is a Cross-Cloud Interconnect. This field specifies the location outside
     /// of Google&#39;s network that the interconnect is connected to.
     /// </summary>
-    public string? RemoteLocation
+    public TerraformLiteralProperty<string>? RemoteLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_location")?.Value;
-        set => this.WithProperty("remote_location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remote_location");
+        set => this.WithProperty("remote_location", value);
     }
 
     /// <summary>
@@ -183,19 +183,19 @@ public class GoogleComputeInterconnect : TerraformResource
     /// available). Note that MACSEC is still technically allowed for compatibility reasons, but it
     /// does not work with the API, and will be removed in an upcoming major version. Possible values: [&amp;quot;MACSEC&amp;quot;, &amp;quot;CROSS_SITE_NETWORK&amp;quot;, &amp;quot;IF_MACSEC&amp;quot;]
     /// </summary>
-    public List<string>? RequestedFeatures
+    public TerraformLiteralProperty<List<string>>? RequestedFeatures
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("requested_features")?.Value;
-        set => this.WithProperty("requested_features", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("requested_features");
+        set => this.WithProperty("requested_features", value);
     }
 
     /// <summary>
     /// Target number of physical links in the link bundle, as requested by the customer.
     /// </summary>
-    public double? RequestedLinkCount
+    public TerraformLiteralProperty<double>? RequestedLinkCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("requested_link_count")?.Value;
-        set => this.WithProperty("requested_link_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("requested_link_count");
+        set => this.WithProperty("requested_link_count", value);
     }
 
     /// <summary>

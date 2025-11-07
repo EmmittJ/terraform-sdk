@@ -20,109 +20,109 @@ public class AzurermLbNatPool : TerraformResource
     /// <summary>
     /// The backend_port attribute.
     /// </summary>
-    public double? BackendPort
+    public TerraformLiteralProperty<double>? BackendPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("backend_port")?.Value;
-        set => this.WithProperty("backend_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("backend_port");
+        set => this.WithProperty("backend_port", value);
     }
 
     /// <summary>
     /// The floating_ip_enabled attribute.
     /// </summary>
-    public bool? FloatingIpEnabled
+    public TerraformLiteralProperty<bool>? FloatingIpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("floating_ip_enabled")?.Value;
-        set => this.WithProperty("floating_ip_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("floating_ip_enabled");
+        set => this.WithProperty("floating_ip_enabled", value);
     }
 
     /// <summary>
     /// The frontend_ip_configuration_name attribute.
     /// </summary>
-    public string? FrontendIpConfigurationName
+    public TerraformLiteralProperty<string>? FrontendIpConfigurationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frontend_ip_configuration_name")?.Value;
-        set => this.WithProperty("frontend_ip_configuration_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("frontend_ip_configuration_name");
+        set => this.WithProperty("frontend_ip_configuration_name", value);
     }
 
     /// <summary>
     /// The frontend_port_end attribute.
     /// </summary>
-    public double? FrontendPortEnd
+    public TerraformLiteralProperty<double>? FrontendPortEnd
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("frontend_port_end")?.Value;
-        set => this.WithProperty("frontend_port_end", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("frontend_port_end");
+        set => this.WithProperty("frontend_port_end", value);
     }
 
     /// <summary>
     /// The frontend_port_start attribute.
     /// </summary>
-    public double? FrontendPortStart
+    public TerraformLiteralProperty<double>? FrontendPortStart
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("frontend_port_start")?.Value;
-        set => this.WithProperty("frontend_port_start", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("frontend_port_start");
+        set => this.WithProperty("frontend_port_start", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public double? IdleTimeoutInMinutes
+    public TerraformLiteralProperty<double>? IdleTimeoutInMinutes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_timeout_in_minutes")?.Value;
-        set => this.WithProperty("idle_timeout_in_minutes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("idle_timeout_in_minutes");
+        set => this.WithProperty("idle_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
-    public string? LoadbalancerId
+    public TerraformLiteralProperty<string>? LoadbalancerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("loadbalancer_id")?.Value;
-        set => this.WithProperty("loadbalancer_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("loadbalancer_id");
+        set => this.WithProperty("loadbalancer_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    public bool? TcpResetEnabled
+    public TerraformLiteralProperty<bool>? TcpResetEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tcp_reset_enabled")?.Value;
-        set => this.WithProperty("tcp_reset_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("tcp_reset_enabled");
+        set => this.WithProperty("tcp_reset_enabled", value);
     }
 
     /// <summary>

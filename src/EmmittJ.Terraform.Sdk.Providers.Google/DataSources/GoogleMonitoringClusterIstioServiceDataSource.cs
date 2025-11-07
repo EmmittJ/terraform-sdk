@@ -25,58 +25,58 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The name of the Kubernetes cluster in which this Istio service is defined. 
     ///                         Corresponds to the clusterName resource label in k8s_cluster resources.
     /// </summary>
-    public string? ClusterName
+    public TerraformLiteralProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name")?.Value;
-        set => this.WithProperty("cluster_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the Kubernetes cluster in which this Istio service is defined. 
     ///                         Corresponds to the location resource label in k8s_cluster resources.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the Istio service underlying this service. 
     ///                         Corresponds to the destination_service_name metric label in Istio metrics.
     /// </summary>
-    public string? ServiceName
+    public TerraformLiteralProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name")?.Value;
-        set => this.WithProperty("service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The namespace of the Istio service underlying this service. 
     ///                         Corresponds to the destination_service_namespace metric label in Istio metrics.
     /// </summary>
-    public string? ServiceNamespace
+    public TerraformLiteralProperty<string>? ServiceNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_namespace")?.Value;
-        set => this.WithProperty("service_namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_namespace");
+        set => this.WithProperty("service_namespace", value);
     }
 
     /// <summary>

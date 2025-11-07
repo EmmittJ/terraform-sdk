@@ -19,38 +19,38 @@ public class GoogleApigeeEnvgroup : TerraformResource
     /// <summary>
     /// Hostnames of the environment group.
     /// </summary>
-    public List<string>? Hostnames
+    public TerraformLiteralProperty<List<string>>? Hostnames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("hostnames")?.Value;
-        set => this.WithProperty("hostnames", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("hostnames");
+        set => this.WithProperty("hostnames", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource ID of the environment group.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee environment group,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
 }

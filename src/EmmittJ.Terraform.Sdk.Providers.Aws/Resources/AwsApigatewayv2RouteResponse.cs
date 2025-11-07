@@ -19,64 +19,64 @@ public class AwsApigatewayv2RouteResponse : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public string? ApiId
+    public TerraformLiteralProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id")?.Value;
-        set => this.WithProperty("api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The model_selection_expression attribute.
     /// </summary>
-    public string? ModelSelectionExpression
+    public TerraformLiteralProperty<string>? ModelSelectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("model_selection_expression")?.Value;
-        set => this.WithProperty("model_selection_expression", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("model_selection_expression");
+        set => this.WithProperty("model_selection_expression", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The response_models attribute.
     /// </summary>
-    public Dictionary<string, string>? ResponseModels
+    public TerraformLiteralProperty<Dictionary<string, string>>? ResponseModels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("response_models")?.Value;
-        set => this.WithProperty("response_models", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("response_models");
+        set => this.WithProperty("response_models", value);
     }
 
     /// <summary>
     /// The route_id attribute.
     /// </summary>
-    public string? RouteId
+    public TerraformLiteralProperty<string>? RouteId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_id")?.Value;
-        set => this.WithProperty("route_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("route_id");
+        set => this.WithProperty("route_id", value);
     }
 
     /// <summary>
     /// The route_response_key attribute.
     /// </summary>
-    public string? RouteResponseKey
+    public TerraformLiteralProperty<string>? RouteResponseKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_response_key")?.Value;
-        set => this.WithProperty("route_response_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("route_response_key");
+        set => this.WithProperty("route_response_key", value);
     }
 
 }

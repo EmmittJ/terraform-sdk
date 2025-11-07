@@ -21,19 +21,19 @@ public class GoogleComputeTargetInstance : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -44,10 +44,10 @@ public class GoogleComputeTargetInstance : TerraformResource
     /// the provider-default zone and the project will default to the
     /// provider-level project.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
@@ -59,38 +59,38 @@ public class GoogleComputeTargetInstance : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// NAT option controlling how IPs are NAT&#39;ed to the instance.
     /// Currently only NO_NAT (default value) is supported. Default value: &amp;quot;NO_NAT&amp;quot; Possible values: [&amp;quot;NO_NAT&amp;quot;]
     /// </summary>
-    public string? NatPolicy
+    public TerraformLiteralProperty<string>? NatPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nat_policy")?.Value;
-        set => this.WithProperty("nat_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("nat_policy");
+        set => this.WithProperty("nat_policy", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// URL of the zone where the target instance resides.
     /// </summary>
-    public string? Zone
+    public TerraformLiteralProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone")?.Value;
-        set => this.WithProperty("zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        set => this.WithProperty("zone", value);
     }
 
     /// <summary>

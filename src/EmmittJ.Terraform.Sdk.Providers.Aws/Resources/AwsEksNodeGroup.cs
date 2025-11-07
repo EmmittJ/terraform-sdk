@@ -22,154 +22,154 @@ public class AwsEksNodeGroup : TerraformResource
     /// <summary>
     /// The ami_type attribute.
     /// </summary>
-    public string? AmiType
+    public TerraformLiteralProperty<string>? AmiType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ami_type")?.Value;
-        set => this.WithProperty("ami_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ami_type");
+        set => this.WithProperty("ami_type", value);
     }
 
     /// <summary>
     /// The capacity_type attribute.
     /// </summary>
-    public string? CapacityType
+    public TerraformLiteralProperty<string>? CapacityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_type")?.Value;
-        set => this.WithProperty("capacity_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("capacity_type");
+        set => this.WithProperty("capacity_type", value);
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public string? ClusterName
+    public TerraformLiteralProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name")?.Value;
-        set => this.WithProperty("cluster_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The disk_size attribute.
     /// </summary>
-    public double? DiskSize
+    public TerraformLiteralProperty<double>? DiskSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("disk_size")?.Value;
-        set => this.WithProperty("disk_size", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("disk_size");
+        set => this.WithProperty("disk_size", value);
     }
 
     /// <summary>
     /// The force_update_version attribute.
     /// </summary>
-    public bool? ForceUpdateVersion
+    public TerraformLiteralProperty<bool>? ForceUpdateVersion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_update_version")?.Value;
-        set => this.WithProperty("force_update_version", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_update_version");
+        set => this.WithProperty("force_update_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public List<string>? InstanceTypes
+    public TerraformLiteralProperty<List<string>>? InstanceTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("instance_types")?.Value;
-        set => this.WithProperty("instance_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("instance_types");
+        set => this.WithProperty("instance_types", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The node_group_name attribute.
     /// </summary>
-    public string? NodeGroupName
+    public TerraformLiteralProperty<string>? NodeGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_group_name")?.Value;
-        set => this.WithProperty("node_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("node_group_name");
+        set => this.WithProperty("node_group_name", value);
     }
 
     /// <summary>
     /// The node_group_name_prefix attribute.
     /// </summary>
-    public string? NodeGroupNamePrefix
+    public TerraformLiteralProperty<string>? NodeGroupNamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_group_name_prefix")?.Value;
-        set => this.WithProperty("node_group_name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("node_group_name_prefix");
+        set => this.WithProperty("node_group_name_prefix", value);
     }
 
     /// <summary>
     /// The node_role_arn attribute.
     /// </summary>
-    public string? NodeRoleArn
+    public TerraformLiteralProperty<string>? NodeRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_role_arn")?.Value;
-        set => this.WithProperty("node_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("node_role_arn");
+        set => this.WithProperty("node_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The release_version attribute.
     /// </summary>
-    public string? ReleaseVersion
+    public TerraformLiteralProperty<string>? ReleaseVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_version")?.Value;
-        set => this.WithProperty("release_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("release_version");
+        set => this.WithProperty("release_version", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<string>? SubnetIds
+    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids")?.Value;
-        set => this.WithProperty("subnet_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

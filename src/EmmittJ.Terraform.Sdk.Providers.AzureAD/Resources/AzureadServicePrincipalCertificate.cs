@@ -19,83 +19,83 @@ public class AzureadServicePrincipalCertificate : TerraformResource
     /// <summary>
     /// Specifies the encoding used for the supplied certificate data
     /// </summary>
-    public string? Encoding
+    public TerraformLiteralProperty<string>? Encoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encoding")?.Value;
-        set => this.WithProperty("encoding", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encoding");
+        set => this.WithProperty("encoding", value);
     }
 
     /// <summary>
     /// The end date until which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public string? EndDate
+    public TerraformLiteralProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date")?.Value;
-        set => this.WithProperty("end_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        set => this.WithProperty("end_date", value);
     }
 
     /// <summary>
     /// A relative duration for which the certificate is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are &amp;quot;ns&amp;quot;, &amp;quot;us&amp;quot; (or &amp;quot;&#181;s&amp;quot;), &amp;quot;ms&amp;quot;, &amp;quot;s&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;h&amp;quot;
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? EndDateRelative
+    public TerraformLiteralProperty<string>? EndDateRelative
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date_relative")?.Value;
-        set => this.WithProperty("end_date_relative", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date_relative");
+        set => this.WithProperty("end_date_relative", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A UUID used to uniquely identify this certificate. If not specified a UUID will be automatically generated
     /// </summary>
-    public string? KeyId
+    public TerraformLiteralProperty<string>? KeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_id")?.Value;
-        set => this.WithProperty("key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_id");
+        set => this.WithProperty("key_id", value);
     }
 
     /// <summary>
     /// The object ID of the service principal for which this certificate should be created
     /// </summary>
-    public string? ServicePrincipalId
+    public TerraformLiteralProperty<string>? ServicePrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_id")?.Value;
-        set => this.WithProperty("service_principal_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_id");
+        set => this.WithProperty("service_principal_id", value);
     }
 
     /// <summary>
     /// The start date from which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public string? StartDate
+    public TerraformLiteralProperty<string>? StartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_date")?.Value;
-        set => this.WithProperty("start_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_date");
+        set => this.WithProperty("start_date", value);
     }
 
     /// <summary>
     /// The type of key/certificate
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The certificate data, which can be PEM encoded, base64 encoded DER or hexadecimal encoded DER
     /// </summary>
-    public string? Value
+    public TerraformLiteralProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value")?.Value;
-        set => this.WithProperty("value", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        set => this.WithProperty("value", value);
     }
 
 }

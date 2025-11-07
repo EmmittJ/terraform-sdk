@@ -21,64 +21,64 @@ public class AwsElastictranscoderPipeline : TerraformResource
     /// <summary>
     /// The aws_kms_key_arn attribute.
     /// </summary>
-    public string? AwsKmsKeyArn
+    public TerraformLiteralProperty<string>? AwsKmsKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_kms_key_arn")?.Value;
-        set => this.WithProperty("aws_kms_key_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_kms_key_arn");
+        set => this.WithProperty("aws_kms_key_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The input_bucket attribute.
     /// </summary>
-    public string? InputBucket
+    public TerraformLiteralProperty<string>? InputBucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("input_bucket")?.Value;
-        set => this.WithProperty("input_bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("input_bucket");
+        set => this.WithProperty("input_bucket", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The output_bucket attribute.
     /// </summary>
-    public string? OutputBucket
+    public TerraformLiteralProperty<string>? OutputBucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("output_bucket")?.Value;
-        set => this.WithProperty("output_bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("output_bucket");
+        set => this.WithProperty("output_bucket", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>

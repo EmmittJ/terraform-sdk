@@ -20,46 +20,46 @@ public class AwsSecurityhubAccount : TerraformResource
     /// <summary>
     /// The auto_enable_controls attribute.
     /// </summary>
-    public bool? AutoEnableControls
+    public TerraformLiteralProperty<bool>? AutoEnableControls
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_enable_controls")?.Value;
-        set => this.WithProperty("auto_enable_controls", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_enable_controls");
+        set => this.WithProperty("auto_enable_controls", value);
     }
 
     /// <summary>
     /// The control_finding_generator attribute.
     /// </summary>
-    public string? ControlFindingGenerator
+    public TerraformLiteralProperty<string>? ControlFindingGenerator
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_finding_generator")?.Value;
-        set => this.WithProperty("control_finding_generator", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("control_finding_generator");
+        set => this.WithProperty("control_finding_generator", value);
     }
 
     /// <summary>
     /// The enable_default_standards attribute.
     /// </summary>
-    public bool? EnableDefaultStandards
+    public TerraformLiteralProperty<bool>? EnableDefaultStandards
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_default_standards")?.Value;
-        set => this.WithProperty("enable_default_standards", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_default_standards");
+        set => this.WithProperty("enable_default_standards", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

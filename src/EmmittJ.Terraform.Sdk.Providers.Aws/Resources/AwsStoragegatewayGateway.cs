@@ -25,163 +25,163 @@ public class AwsStoragegatewayGateway : TerraformResource
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public string? ActivationKey
+    public TerraformLiteralProperty<string>? ActivationKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("activation_key")?.Value;
-        set => this.WithProperty("activation_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("activation_key");
+        set => this.WithProperty("activation_key", value);
     }
 
     /// <summary>
     /// The average_download_rate_limit_in_bits_per_sec attribute.
     /// </summary>
-    public double? AverageDownloadRateLimitInBitsPerSec
+    public TerraformLiteralProperty<double>? AverageDownloadRateLimitInBitsPerSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("average_download_rate_limit_in_bits_per_sec")?.Value;
-        set => this.WithProperty("average_download_rate_limit_in_bits_per_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("average_download_rate_limit_in_bits_per_sec");
+        set => this.WithProperty("average_download_rate_limit_in_bits_per_sec", value);
     }
 
     /// <summary>
     /// The average_upload_rate_limit_in_bits_per_sec attribute.
     /// </summary>
-    public double? AverageUploadRateLimitInBitsPerSec
+    public TerraformLiteralProperty<double>? AverageUploadRateLimitInBitsPerSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("average_upload_rate_limit_in_bits_per_sec")?.Value;
-        set => this.WithProperty("average_upload_rate_limit_in_bits_per_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("average_upload_rate_limit_in_bits_per_sec");
+        set => this.WithProperty("average_upload_rate_limit_in_bits_per_sec", value);
     }
 
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public string? CloudwatchLogGroupArn
+    public TerraformLiteralProperty<string>? CloudwatchLogGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_log_group_arn")?.Value;
-        set => this.WithProperty("cloudwatch_log_group_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_log_group_arn");
+        set => this.WithProperty("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
     /// The gateway_ip_address attribute.
     /// </summary>
-    public string? GatewayIpAddress
+    public TerraformLiteralProperty<string>? GatewayIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_ip_address")?.Value;
-        set => this.WithProperty("gateway_ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gateway_ip_address");
+        set => this.WithProperty("gateway_ip_address", value);
     }
 
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
-    public string? GatewayName
+    public TerraformLiteralProperty<string>? GatewayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_name")?.Value;
-        set => this.WithProperty("gateway_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gateway_name");
+        set => this.WithProperty("gateway_name", value);
     }
 
     /// <summary>
     /// The gateway_timezone attribute.
     /// </summary>
-    public string? GatewayTimezone
+    public TerraformLiteralProperty<string>? GatewayTimezone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_timezone")?.Value;
-        set => this.WithProperty("gateway_timezone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gateway_timezone");
+        set => this.WithProperty("gateway_timezone", value);
     }
 
     /// <summary>
     /// The gateway_type attribute.
     /// </summary>
-    public string? GatewayType
+    public TerraformLiteralProperty<string>? GatewayType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_type")?.Value;
-        set => this.WithProperty("gateway_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gateway_type");
+        set => this.WithProperty("gateway_type", value);
     }
 
     /// <summary>
     /// The gateway_vpc_endpoint attribute.
     /// </summary>
-    public string? GatewayVpcEndpoint
+    public TerraformLiteralProperty<string>? GatewayVpcEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_vpc_endpoint")?.Value;
-        set => this.WithProperty("gateway_vpc_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gateway_vpc_endpoint");
+        set => this.WithProperty("gateway_vpc_endpoint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The medium_changer_type attribute.
     /// </summary>
-    public string? MediumChangerType
+    public TerraformLiteralProperty<string>? MediumChangerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("medium_changer_type")?.Value;
-        set => this.WithProperty("medium_changer_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("medium_changer_type");
+        set => this.WithProperty("medium_changer_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The smb_file_share_visibility attribute.
     /// </summary>
-    public bool? SmbFileShareVisibility
+    public TerraformLiteralProperty<bool>? SmbFileShareVisibility
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("smb_file_share_visibility")?.Value;
-        set => this.WithProperty("smb_file_share_visibility", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("smb_file_share_visibility");
+        set => this.WithProperty("smb_file_share_visibility", value);
     }
 
     /// <summary>
     /// The smb_guest_password attribute.
     /// </summary>
-    public string? SmbGuestPassword
+    public TerraformLiteralProperty<string>? SmbGuestPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("smb_guest_password")?.Value;
-        set => this.WithProperty("smb_guest_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("smb_guest_password");
+        set => this.WithProperty("smb_guest_password", value);
     }
 
     /// <summary>
     /// The smb_security_strategy attribute.
     /// </summary>
-    public string? SmbSecurityStrategy
+    public TerraformLiteralProperty<string>? SmbSecurityStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("smb_security_strategy")?.Value;
-        set => this.WithProperty("smb_security_strategy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("smb_security_strategy");
+        set => this.WithProperty("smb_security_strategy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tape_drive_type attribute.
     /// </summary>
-    public string? TapeDriveType
+    public TerraformLiteralProperty<string>? TapeDriveType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tape_drive_type")?.Value;
-        set => this.WithProperty("tape_drive_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tape_drive_type");
+        set => this.WithProperty("tape_drive_type", value);
     }
 
     /// <summary>

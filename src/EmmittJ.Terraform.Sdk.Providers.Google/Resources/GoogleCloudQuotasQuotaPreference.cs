@@ -25,10 +25,10 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// 
     /// The Google account for the email address must have quota update permission for the project, folder or organization this quota preference is for.
     /// </summary>
-    public string? ContactEmail
+    public TerraformLiteralProperty<string>? ContactEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("contact_email")?.Value;
-        set => this.WithProperty("contact_email", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("contact_email");
+        set => this.WithProperty("contact_email", value);
     }
 
     /// <summary>
@@ -38,74 +38,74 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// 
     /// Example: &#39;{&amp;quot;provider&amp;quot;: &amp;quot;Foo Inc&amp;quot;}&#39; where &amp;quot;provider&amp;quot; is a service specific dimension.
     /// </summary>
-    public Dictionary<string, string>? Dimensions
+    public TerraformLiteralProperty<Dictionary<string, string>>? Dimensions
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("dimensions")?.Value;
-        set => this.WithProperty("dimensions", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("dimensions");
+        set => this.WithProperty("dimensions", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The list of quota safety checks to be ignored. Default value: &amp;quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&amp;quot;, &amp;quot;QUOTA_DECREASE_BELOW_USAGE&amp;quot;, &amp;quot;QUOTA_DECREASE_PERCENTAGE_TOO_HIGH&amp;quot;]
     /// </summary>
-    public string? IgnoreSafetyChecks
+    public TerraformLiteralProperty<string>? IgnoreSafetyChecks
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ignore_safety_checks")?.Value;
-        set => this.WithProperty("ignore_safety_checks", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ignore_safety_checks");
+        set => this.WithProperty("ignore_safety_checks", value);
     }
 
     /// <summary>
     /// The reason / justification for this quota preference.
     /// </summary>
-    public string? Justification
+    public TerraformLiteralProperty<string>? Justification
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("justification")?.Value;
-        set => this.WithProperty("justification", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("justification");
+        set => this.WithProperty("justification", value);
     }
 
     /// <summary>
     /// The resource name of the quota preference. Required except in the CREATE requests.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent of the quota preference. Allowed parents are &amp;quot;projects/[project-id / number]&amp;quot; or &amp;quot;folders/[folder-id / number]&amp;quot; or &amp;quot;organizations/[org-id / number]&amp;quot;.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The id of the quota to which the quota preference is applied. A quota id is unique in the service.
     /// Example: &#39;CPUS-per-project-region&#39;.
     /// </summary>
-    public string? QuotaId
+    public TerraformLiteralProperty<string>? QuotaId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quota_id")?.Value;
-        set => this.WithProperty("quota_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("quota_id");
+        set => this.WithProperty("quota_id", value);
     }
 
     /// <summary>
     /// The name of the service to which the quota preference is applied.
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
     /// <summary>

@@ -22,46 +22,46 @@ public class AwsControltowerBaseline : TerraformResource
     /// <summary>
     /// The baseline_identifier attribute.
     /// </summary>
-    public string? BaselineIdentifier
+    public TerraformLiteralProperty<string>? BaselineIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("baseline_identifier")?.Value;
-        set => this.WithProperty("baseline_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("baseline_identifier");
+        set => this.WithProperty("baseline_identifier", value);
     }
 
     /// <summary>
     /// The baseline_version attribute.
     /// </summary>
-    public string? BaselineVersion
+    public TerraformLiteralProperty<string>? BaselineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("baseline_version")?.Value;
-        set => this.WithProperty("baseline_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("baseline_version");
+        set => this.WithProperty("baseline_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The target_identifier attribute.
     /// </summary>
-    public string? TargetIdentifier
+    public TerraformLiteralProperty<string>? TargetIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_identifier")?.Value;
-        set => this.WithProperty("target_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_identifier");
+        set => this.WithProperty("target_identifier", value);
     }
 
     /// <summary>

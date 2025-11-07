@@ -20,28 +20,28 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The inventory_type attribute.
     /// </summary>
-    public string? InventoryType
+    public TerraformLiteralProperty<string>? InventoryType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("inventory_type")?.Value;
-        set => this.WithProperty("inventory_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("inventory_type");
+        set => this.WithProperty("inventory_type", value);
     }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_server_id attribute.
     /// </summary>
-    public string? SystemCenterVirtualMachineManagerServerId
+    public TerraformLiteralProperty<string>? SystemCenterVirtualMachineManagerServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("system_center_virtual_machine_manager_server_id")?.Value;
-        set => this.WithProperty("system_center_virtual_machine_manager_server_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("system_center_virtual_machine_manager_server_id");
+        set => this.WithProperty("system_center_virtual_machine_manager_server_id", value);
     }
 
     /// <summary>

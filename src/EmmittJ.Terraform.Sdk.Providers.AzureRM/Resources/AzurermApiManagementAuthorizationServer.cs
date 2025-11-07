@@ -19,172 +19,172 @@ public class AzurermApiManagementAuthorizationServer : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public string? ApiManagementName
+    public TerraformLiteralProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name")?.Value;
-        set => this.WithProperty("api_management_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The authorization_endpoint attribute.
     /// </summary>
-    public string? AuthorizationEndpoint
+    public TerraformLiteralProperty<string>? AuthorizationEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_endpoint")?.Value;
-        set => this.WithProperty("authorization_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorization_endpoint");
+        set => this.WithProperty("authorization_endpoint", value);
     }
 
     /// <summary>
     /// The authorization_methods attribute.
     /// </summary>
-    public HashSet<string>? AuthorizationMethods
+    public TerraformLiteralProperty<HashSet<string>>? AuthorizationMethods
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("authorization_methods")?.Value;
-        set => this.WithProperty("authorization_methods", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("authorization_methods");
+        set => this.WithProperty("authorization_methods", value);
     }
 
     /// <summary>
     /// The bearer_token_sending_methods attribute.
     /// </summary>
-    public HashSet<string>? BearerTokenSendingMethods
+    public TerraformLiteralProperty<HashSet<string>>? BearerTokenSendingMethods
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("bearer_token_sending_methods")?.Value;
-        set => this.WithProperty("bearer_token_sending_methods", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("bearer_token_sending_methods");
+        set => this.WithProperty("bearer_token_sending_methods", value);
     }
 
     /// <summary>
     /// The client_authentication_method attribute.
     /// </summary>
-    public HashSet<string>? ClientAuthenticationMethod
+    public TerraformLiteralProperty<HashSet<string>>? ClientAuthenticationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("client_authentication_method")?.Value;
-        set => this.WithProperty("client_authentication_method", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("client_authentication_method");
+        set => this.WithProperty("client_authentication_method", value);
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The client_registration_endpoint attribute.
     /// </summary>
-    public string? ClientRegistrationEndpoint
+    public TerraformLiteralProperty<string>? ClientRegistrationEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_registration_endpoint")?.Value;
-        set => this.WithProperty("client_registration_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_registration_endpoint");
+        set => this.WithProperty("client_registration_endpoint", value);
     }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public string? ClientSecret
+    public TerraformLiteralProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret")?.Value;
-        set => this.WithProperty("client_secret", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        set => this.WithProperty("client_secret", value);
     }
 
     /// <summary>
     /// The default_scope attribute.
     /// </summary>
-    public string? DefaultScope
+    public TerraformLiteralProperty<string>? DefaultScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_scope")?.Value;
-        set => this.WithProperty("default_scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_scope");
+        set => this.WithProperty("default_scope", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The grant_types attribute.
     /// </summary>
-    public HashSet<string>? GrantTypes
+    public TerraformLiteralProperty<HashSet<string>>? GrantTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("grant_types")?.Value;
-        set => this.WithProperty("grant_types", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("grant_types");
+        set => this.WithProperty("grant_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The resource_owner_password attribute.
     /// </summary>
-    public string? ResourceOwnerPassword
+    public TerraformLiteralProperty<string>? ResourceOwnerPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_owner_password")?.Value;
-        set => this.WithProperty("resource_owner_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_owner_password");
+        set => this.WithProperty("resource_owner_password", value);
     }
 
     /// <summary>
     /// The resource_owner_username attribute.
     /// </summary>
-    public string? ResourceOwnerUsername
+    public TerraformLiteralProperty<string>? ResourceOwnerUsername
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_owner_username")?.Value;
-        set => this.WithProperty("resource_owner_username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_owner_username");
+        set => this.WithProperty("resource_owner_username", value);
     }
 
     /// <summary>
     /// The support_state attribute.
     /// </summary>
-    public bool? SupportState
+    public TerraformLiteralProperty<bool>? SupportState
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("support_state")?.Value;
-        set => this.WithProperty("support_state", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("support_state");
+        set => this.WithProperty("support_state", value);
     }
 
     /// <summary>
     /// The token_endpoint attribute.
     /// </summary>
-    public string? TokenEndpoint
+    public TerraformLiteralProperty<string>? TokenEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_endpoint")?.Value;
-        set => this.WithProperty("token_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("token_endpoint");
+        set => this.WithProperty("token_endpoint", value);
     }
 
 }

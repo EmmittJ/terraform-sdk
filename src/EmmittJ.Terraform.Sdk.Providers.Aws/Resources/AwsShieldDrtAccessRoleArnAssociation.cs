@@ -20,10 +20,10 @@ public class AwsShieldDrtAccessRoleArnAssociation : TerraformResource
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>

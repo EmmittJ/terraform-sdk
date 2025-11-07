@@ -20,37 +20,37 @@ public class GoogleHealthcareFhirStoreIamMember : TerraformResource
     /// <summary>
     /// The fhir_store_id attribute.
     /// </summary>
-    public string? FhirStoreId
+    public TerraformLiteralProperty<string>? FhirStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fhir_store_id")?.Value;
-        set => this.WithProperty("fhir_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("fhir_store_id");
+        set => this.WithProperty("fhir_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public string? Member
+    public TerraformLiteralProperty<string>? Member
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member")?.Value;
-        set => this.WithProperty("member", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("member");
+        set => this.WithProperty("member", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>

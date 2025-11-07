@@ -21,154 +21,154 @@ public class AzurermMssqlServer : TerraformResource
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    public string? AdministratorLogin
+    public TerraformLiteralProperty<string>? AdministratorLogin
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrator_login")?.Value;
-        set => this.WithProperty("administrator_login", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("administrator_login");
+        set => this.WithProperty("administrator_login", value);
     }
 
     /// <summary>
     /// The administrator_login_password attribute.
     /// </summary>
-    public string? AdministratorLoginPassword
+    public TerraformLiteralProperty<string>? AdministratorLoginPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrator_login_password")?.Value;
-        set => this.WithProperty("administrator_login_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("administrator_login_password");
+        set => this.WithProperty("administrator_login_password", value);
     }
 
     /// <summary>
     /// The administrator_login_password_wo attribute.
     /// </summary>
-    public string? AdministratorLoginPasswordWo
+    public TerraformLiteralProperty<string>? AdministratorLoginPasswordWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrator_login_password_wo")?.Value;
-        set => this.WithProperty("administrator_login_password_wo", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("administrator_login_password_wo");
+        set => this.WithProperty("administrator_login_password_wo", value);
     }
 
     /// <summary>
     /// The administrator_login_password_wo_version attribute.
     /// </summary>
-    public double? AdministratorLoginPasswordWoVersion
+    public TerraformLiteralProperty<double>? AdministratorLoginPasswordWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("administrator_login_password_wo_version")?.Value;
-        set => this.WithProperty("administrator_login_password_wo_version", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("administrator_login_password_wo_version");
+        set => this.WithProperty("administrator_login_password_wo_version", value);
     }
 
     /// <summary>
     /// The connection_policy attribute.
     /// </summary>
-    public string? ConnectionPolicy
+    public TerraformLiteralProperty<string>? ConnectionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_policy")?.Value;
-        set => this.WithProperty("connection_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_policy");
+        set => this.WithProperty("connection_policy", value);
     }
 
     /// <summary>
     /// The express_vulnerability_assessment_enabled attribute.
     /// </summary>
-    public bool? ExpressVulnerabilityAssessmentEnabled
+    public TerraformLiteralProperty<bool>? ExpressVulnerabilityAssessmentEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("express_vulnerability_assessment_enabled")?.Value;
-        set => this.WithProperty("express_vulnerability_assessment_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("express_vulnerability_assessment_enabled");
+        set => this.WithProperty("express_vulnerability_assessment_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public string? MinimumTlsVersion
+    public TerraformLiteralProperty<string>? MinimumTlsVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("minimum_tls_version")?.Value;
-        set => this.WithProperty("minimum_tls_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("minimum_tls_version");
+        set => this.WithProperty("minimum_tls_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_restriction_enabled attribute.
     /// </summary>
-    public bool? OutboundNetworkRestrictionEnabled
+    public TerraformLiteralProperty<bool>? OutboundNetworkRestrictionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("outbound_network_restriction_enabled")?.Value;
-        set => this.WithProperty("outbound_network_restriction_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("outbound_network_restriction_enabled");
+        set => this.WithProperty("outbound_network_restriction_enabled", value);
     }
 
     /// <summary>
     /// The primary_user_assigned_identity_id attribute.
     /// </summary>
-    public string? PrimaryUserAssignedIdentityId
+    public TerraformLiteralProperty<string>? PrimaryUserAssignedIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_user_assigned_identity_id")?.Value;
-        set => this.WithProperty("primary_user_assigned_identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("primary_user_assigned_identity_id");
+        set => this.WithProperty("primary_user_assigned_identity_id", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public bool? PublicNetworkAccessEnabled
+    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled")?.Value;
-        set => this.WithProperty("public_network_access_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
-    public string? TransparentDataEncryptionKeyVaultKeyId
+    public TerraformLiteralProperty<string>? TransparentDataEncryptionKeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transparent_data_encryption_key_vault_key_id")?.Value;
-        set => this.WithProperty("transparent_data_encryption_key_vault_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transparent_data_encryption_key_vault_key_id");
+        set => this.WithProperty("transparent_data_encryption_key_vault_key_id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

@@ -24,37 +24,37 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// <summary>
     /// If set to &#39;true&#39;, the storage batch operation job will not be deleted and new job will be created.
     /// </summary>
-    public bool? DeleteProtection
+    public TerraformLiteralProperty<bool>? DeleteProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_protection")?.Value;
-        set => this.WithProperty("delete_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("delete_protection");
+        set => this.WithProperty("delete_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the job.
     /// </summary>
-    public string? JobId
+    public TerraformLiteralProperty<string>? JobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_id")?.Value;
-        set => this.WithProperty("job_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("job_id");
+        set => this.WithProperty("job_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

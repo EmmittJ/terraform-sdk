@@ -19,109 +19,109 @@ public class AzurermDataFactoryLinkedServiceCosmosdb : TerraformResource
     /// <summary>
     /// The account_endpoint attribute.
     /// </summary>
-    public string? AccountEndpoint
+    public TerraformLiteralProperty<string>? AccountEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_endpoint")?.Value;
-        set => this.WithProperty("account_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_endpoint");
+        set => this.WithProperty("account_endpoint", value);
     }
 
     /// <summary>
     /// The account_key attribute.
     /// </summary>
-    public string? AccountKey
+    public TerraformLiteralProperty<string>? AccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_key")?.Value;
-        set => this.WithProperty("account_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_key");
+        set => this.WithProperty("account_key", value);
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalProperties
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties")?.Value;
-        set => this.WithProperty("additional_properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties");
+        set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<string>? Annotations
+    public TerraformLiteralProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public string? ConnectionString
+    public TerraformLiteralProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string")?.Value;
-        set => this.WithProperty("connection_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public string? Database
+    public TerraformLiteralProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database")?.Value;
-        set => this.WithProperty("database", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    public string? IntegrationRuntimeName
+    public TerraformLiteralProperty<string>? IntegrationRuntimeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_runtime_name")?.Value;
-        set => this.WithProperty("integration_runtime_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("integration_runtime_name");
+        set => this.WithProperty("integration_runtime_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, string>? Parameters
+    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters")?.Value;
-        set => this.WithProperty("parameters", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
 }

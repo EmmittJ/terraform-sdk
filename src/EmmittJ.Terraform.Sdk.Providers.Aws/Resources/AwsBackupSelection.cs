@@ -19,64 +19,64 @@ public class AwsBackupSelection : TerraformResource
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public string? IamRoleArn
+    public TerraformLiteralProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn")?.Value;
-        set => this.WithProperty("iam_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
-    public HashSet<string>? NotResources
+    public TerraformLiteralProperty<HashSet<string>>? NotResources
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("not_resources")?.Value;
-        set => this.WithProperty("not_resources", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("not_resources");
+        set => this.WithProperty("not_resources", value);
     }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public string? PlanId
+    public TerraformLiteralProperty<string>? PlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan_id")?.Value;
-        set => this.WithProperty("plan_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plan_id");
+        set => this.WithProperty("plan_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    public HashSet<string>? Resources
+    public TerraformLiteralProperty<HashSet<string>>? Resources
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resources")?.Value;
-        set => this.WithProperty("resources", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resources");
+        set => this.WithProperty("resources", value);
     }
 
 }

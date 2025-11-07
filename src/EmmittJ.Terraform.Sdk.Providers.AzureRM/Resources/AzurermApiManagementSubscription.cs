@@ -19,109 +19,109 @@ public class AzurermApiManagementSubscription : TerraformResource
     /// <summary>
     /// The allow_tracing attribute.
     /// </summary>
-    public bool? AllowTracing
+    public TerraformLiteralProperty<bool>? AllowTracing
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_tracing")?.Value;
-        set => this.WithProperty("allow_tracing", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_tracing");
+        set => this.WithProperty("allow_tracing", value);
     }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public string? ApiId
+    public TerraformLiteralProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id")?.Value;
-        set => this.WithProperty("api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public string? ApiManagementName
+    public TerraformLiteralProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name")?.Value;
-        set => this.WithProperty("api_management_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public string? PrimaryKey
+    public TerraformLiteralProperty<string>? PrimaryKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_key")?.Value;
-        set => this.WithProperty("primary_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("primary_key");
+        set => this.WithProperty("primary_key", value);
     }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public string? ProductId
+    public TerraformLiteralProperty<string>? ProductId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_id")?.Value;
-        set => this.WithProperty("product_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("product_id");
+        set => this.WithProperty("product_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public string? SecondaryKey
+    public TerraformLiteralProperty<string>? SecondaryKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secondary_key")?.Value;
-        set => this.WithProperty("secondary_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secondary_key");
+        set => this.WithProperty("secondary_key", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public string? State
+    public TerraformLiteralProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state")?.Value;
-        set => this.WithProperty("state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public string? SubscriptionId
+    public TerraformLiteralProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id")?.Value;
-        set => this.WithProperty("subscription_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        set => this.WithProperty("subscription_id", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public string? UserId
+    public TerraformLiteralProperty<string>? UserId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_id")?.Value;
-        set => this.WithProperty("user_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_id");
+        set => this.WithProperty("user_id", value);
     }
 
 }

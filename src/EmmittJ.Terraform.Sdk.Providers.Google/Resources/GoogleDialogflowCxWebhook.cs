@@ -21,74 +21,74 @@ public class GoogleDialogflowCxWebhook : TerraformResource
     /// <summary>
     /// Indicates whether the webhook is disabled.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The human-readable name of the webhook, unique within the agent.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Deprecated. Indicates if automatic spell correction is enabled in detect intent requests.
     /// </summary>
-    public bool? EnableSpellCorrection
+    public TerraformLiteralProperty<bool>? EnableSpellCorrection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_spell_correction")?.Value;
-        set => this.WithProperty("enable_spell_correction", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_spell_correction");
+        set => this.WithProperty("enable_spell_correction", value);
     }
 
     /// <summary>
     /// Deprecated. Determines whether this agent should log conversation queries.
     /// </summary>
-    public bool? EnableStackdriverLogging
+    public TerraformLiteralProperty<bool>? EnableStackdriverLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_stackdriver_logging")?.Value;
-        set => this.WithProperty("enable_stackdriver_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_stackdriver_logging");
+        set => this.WithProperty("enable_stackdriver_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The agent to create a webhook for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Deprecated. Name of the SecuritySettings reference for the agent. Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/securitySettings/&amp;lt;Security Settings ID&amp;gt;.
     /// </summary>
-    public string? SecuritySettings
+    public TerraformLiteralProperty<string>? SecuritySettings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_settings")?.Value;
-        set => this.WithProperty("security_settings", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_settings");
+        set => this.WithProperty("security_settings", value);
     }
 
     /// <summary>
     /// Webhook execution timeout.
     /// </summary>
-    public string? Timeout
+    public TerraformLiteralProperty<string>? Timeout
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timeout")?.Value;
-        set => this.WithProperty("timeout", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timeout");
+        set => this.WithProperty("timeout", value);
     }
 
     /// <summary>

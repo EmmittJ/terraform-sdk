@@ -20,37 +20,37 @@ public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
     /// Desired VPC Service Controls state service producer VPC network, as
     /// described at the top of this page.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The network that the consumer is using to connect with services.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The id of the Google Cloud project containing the consumer network.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -58,10 +58,10 @@ public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
     /// producer&#39;s organization. For Google services that support this
     /// functionality, this value is &#39;servicenetworking.googleapis.com&#39;.
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
 }

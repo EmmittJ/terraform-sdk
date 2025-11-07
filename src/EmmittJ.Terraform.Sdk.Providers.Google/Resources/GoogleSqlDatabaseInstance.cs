@@ -31,136 +31,136 @@ public class GoogleSqlDatabaseInstance : TerraformResource
     /// <summary>
     /// The name of the BackupDR backup to restore from.
     /// </summary>
-    public string? BackupdrBackup
+    public TerraformLiteralProperty<string>? BackupdrBackup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backupdr_backup")?.Value;
-        set => this.WithProperty("backupdr_backup", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backupdr_backup");
+        set => this.WithProperty("backupdr_backup", value);
     }
 
     /// <summary>
     /// The MySQL, PostgreSQL or SQL Server (beta) version to use. Supported values include MYSQL_5_6, MYSQL_5_7, MYSQL_8_0, MYSQL_8_4, POSTGRES_9_6, POSTGRES_10, POSTGRES_11, POSTGRES_12, POSTGRES_13, POSTGRES_14, POSTGRES_15, POSTGRES_16, POSTGRES_17, SQLSERVER_2017_STANDARD, SQLSERVER_2017_ENTERPRISE, SQLSERVER_2017_EXPRESS, SQLSERVER_2017_WEB. Database Version Policies includes an up-to-date reference of supported versions.
     /// </summary>
-    public string? DatabaseVersion
+    public TerraformLiteralProperty<string>? DatabaseVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_version")?.Value;
-        set => this.WithProperty("database_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_version");
+        set => this.WithProperty("database_version", value);
     }
 
     /// <summary>
     /// Used to block Terraform from deleting a SQL Instance. Defaults to true.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The encryption_key_name attribute.
     /// </summary>
-    public string? EncryptionKeyName
+    public TerraformLiteralProperty<string>? EncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption_key_name")?.Value;
-        set => this.WithProperty("encryption_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encryption_key_name");
+        set => this.WithProperty("encryption_key_name", value);
     }
 
     /// <summary>
     /// The description of final backup if instance enable create final backup during instance deletion. 
     /// </summary>
-    public string? FinalBackupDescription
+    public TerraformLiteralProperty<string>? FinalBackupDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("final_backup_description")?.Value;
-        set => this.WithProperty("final_backup_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("final_backup_description");
+        set => this.WithProperty("final_backup_description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The type of the instance. See https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances#SqlInstanceType for supported values.
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// Maintenance version.
     /// </summary>
-    public string? MaintenanceVersion
+    public TerraformLiteralProperty<string>? MaintenanceVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_version")?.Value;
-        set => this.WithProperty("maintenance_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_version");
+        set => this.WithProperty("maintenance_version", value);
     }
 
     /// <summary>
     /// The name of the instance that will act as the master in the replication setup. Note, this requires the master to have binary_log_enabled set, as well as existing backups.
     /// </summary>
-    public string? MasterInstanceName
+    public TerraformLiteralProperty<string>? MasterInstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_instance_name")?.Value;
-        set => this.WithProperty("master_instance_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_instance_name");
+        set => this.WithProperty("master_instance_name", value);
     }
 
     /// <summary>
     /// The name of the instance. If the name is left blank, Terraform will randomly generate one when the instance is first created. This is done because after a name is used, it cannot be reused for up to one week.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// For a read pool instance, the number of nodes in the read pool. For read pools with auto scaling enabled, this field is read only.
     /// </summary>
-    public double? NodeCount
+    public TerraformLiteralProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("node_count")?.Value;
-        set => this.WithProperty("node_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("node_count");
+        set => this.WithProperty("node_count", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region the instance will sit in. Note, Cloud SQL is not available in all regions. A valid region must be provided to use this resource. If a region is not provided in the resource definition, the provider region will be used instead, but this will be an apply-time error for instances if the provider region is not supported with Cloud SQL. If you choose not to provide the region argument for this resource, make sure you understand this.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replicas of the instance.
     /// </summary>
-    public List<string>? ReplicaNames
+    public TerraformLiteralProperty<List<string>>? ReplicaNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("replica_names")?.Value;
-        set => this.WithProperty("replica_names", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("replica_names");
+        set => this.WithProperty("replica_names", value);
     }
 
     /// <summary>
     /// Initial root password. Required for MS SQL Server.
     /// </summary>
-    public string? RootPassword
+    public TerraformLiteralProperty<string>? RootPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("root_password")?.Value;
-        set => this.WithProperty("root_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("root_password");
+        set => this.WithProperty("root_password", value);
     }
 
     /// <summary>

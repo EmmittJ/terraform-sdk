@@ -28,10 +28,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -49,10 +49,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// the same time. Optionally, the TEST_BY_PERCENTAGE state can be used to migrate some traffic
     /// back to EXTERNAL or PREPARE can be used to migrate all traffic back to EXTERNAL. Possible values: [&amp;quot;PREPARE&amp;quot;, &amp;quot;TEST_BY_PERCENTAGE&amp;quot;, &amp;quot;TEST_ALL_TRAFFIC&amp;quot;]
     /// </summary>
-    public string? ExternalManagedBackendBucketMigrationState
+    public TerraformLiteralProperty<string>? ExternalManagedBackendBucketMigrationState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_managed_backend_bucket_migration_state")?.Value;
-        set => this.WithProperty("external_managed_backend_bucket_migration_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("external_managed_backend_bucket_migration_state");
+        set => this.WithProperty("external_managed_backend_bucket_migration_state", value);
     }
 
     /// <summary>
@@ -64,19 +64,19 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// This value can only be set if the loadBalancingScheme in the forwarding rule is set to
     /// EXTERNAL (when using the Classic ALB) and the migration state is TEST_BY_PERCENTAGE.
     /// </summary>
-    public double? ExternalManagedBackendBucketMigrationTestingPercentage
+    public TerraformLiteralProperty<double>? ExternalManagedBackendBucketMigrationTestingPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("external_managed_backend_bucket_migration_testing_percentage")?.Value;
-        set => this.WithProperty("external_managed_backend_bucket_migration_testing_percentage", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("external_managed_backend_bucket_migration_testing_percentage");
+        set => this.WithProperty("external_managed_backend_bucket_migration_testing_percentage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -119,10 +119,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// When reading an &#39;IPAddress&#39;, the API always returns the IP
     /// address number.
     /// </summary>
-    public string? IpAddress
+    public TerraformLiteralProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address")?.Value;
-        set => this.WithProperty("ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
@@ -137,19 +137,19 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// as described in [Load balancing
     /// features](https://cloud.google.com/load-balancing/docs/features#protocols_from_the_load_balancer_to_the_backends). Possible values: [&amp;quot;TCP&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;ESP&amp;quot;, &amp;quot;AH&amp;quot;, &amp;quot;SCTP&amp;quot;, &amp;quot;ICMP&amp;quot;]
     /// </summary>
-    public string? IpProtocol
+    public TerraformLiteralProperty<string>? IpProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_protocol")?.Value;
-        set => this.WithProperty("ip_protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_protocol");
+        set => this.WithProperty("ip_protocol", value);
     }
 
     /// <summary>
     /// The IP Version that will be used by this global forwarding rule. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public string? IpVersion
+    public TerraformLiteralProperty<string>? IpVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_version")?.Value;
-        set => this.WithProperty("ip_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_version");
+        set => this.WithProperty("ip_version", value);
     }
 
     /// <summary>
@@ -159,10 +159,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -171,10 +171,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// For more information about forwarding rules, refer to
     /// [Forwarding rule concepts](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts). Default value: &amp;quot;EXTERNAL&amp;quot; Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;EXTERNAL_MANAGED&amp;quot;, &amp;quot;INTERNAL_MANAGED&amp;quot;, &amp;quot;INTERNAL_SELF_MANAGED&amp;quot;]
     /// </summary>
-    public string? LoadBalancingScheme
+    public TerraformLiteralProperty<string>? LoadBalancingScheme
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme")?.Value;
-        set => this.WithProperty("load_balancing_scheme", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme");
+        set => this.WithProperty("load_balancing_scheme", value);
     }
 
     /// <summary>
@@ -192,10 +192,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// APIs, the forwarding rule name must be a 1-20 characters string with
     /// lowercase letters and numbers and must start with a letter.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -210,10 +210,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// For Private Service Connect forwarding rules that forward traffic to Google
     /// APIs, a network must be provided.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
@@ -229,19 +229,19 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// If &#39;IPAddress&#39; is specified, this value must be equal to the
     /// networkTier of the Address. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public string? NetworkTier
+    public TerraformLiteralProperty<string>? NetworkTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_tier")?.Value;
-        set => this.WithProperty("network_tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_tier");
+        set => this.WithProperty("network_tier", value);
     }
 
     /// <summary>
     /// This is used in PSC consumer ForwardingRule to control whether it should try to auto-generate a DNS zone or not. Non-PSC forwarding rules do not use this field.
     /// </summary>
-    public bool? NoAutomateDnsZone
+    public TerraformLiteralProperty<bool>? NoAutomateDnsZone
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("no_automate_dns_zone")?.Value;
-        set => this.WithProperty("no_automate_dns_zone", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("no_automate_dns_zone");
+        set => this.WithProperty("no_automate_dns_zone", value);
     }
 
     /// <summary>
@@ -266,28 +266,28 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// 
     /// @pattern: \d+(?:-\d+)?
     /// </summary>
-    public string? PortRange
+    public TerraformLiteralProperty<string>? PortRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("port_range")?.Value;
-        set => this.WithProperty("port_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("port_range");
+        set => this.WithProperty("port_range", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
     /// </summary>
-    public List<string>? SourceIpRanges
+    public TerraformLiteralProperty<List<string>>? SourceIpRanges
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("source_ip_ranges")?.Value;
-        set => this.WithProperty("source_ip_ranges", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("source_ip_ranges");
+        set => this.WithProperty("source_ip_ranges", value);
     }
 
     /// <summary>
@@ -299,10 +299,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// However, a subnetwork must be specified if the network is in custom subnet
     /// mode or when creating external forwarding rule with IPv6.
     /// </summary>
-    public string? Subnetwork
+    public TerraformLiteralProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork")?.Value;
-        set => this.WithProperty("subnetwork", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork");
+        set => this.WithProperty("subnetwork", value);
     }
 
     /// <summary>
@@ -319,10 +319,10 @@ public class GoogleComputeGlobalForwardingRule : TerraformResource
     /// 
     /// For Private Service Connect forwarding rules that forward traffic to managed services, the target must be a service attachment.
     /// </summary>
-    public string? Target
+    public TerraformLiteralProperty<string>? Target
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target")?.Value;
-        set => this.WithProperty("target", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target");
+        set => this.WithProperty("target", value);
     }
 
     /// <summary>

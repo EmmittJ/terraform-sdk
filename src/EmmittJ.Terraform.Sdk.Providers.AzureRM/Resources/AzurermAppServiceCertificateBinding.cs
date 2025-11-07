@@ -22,37 +22,37 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public string? CertificateId
+    public TerraformLiteralProperty<string>? CertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_id")?.Value;
-        set => this.WithProperty("certificate_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_id");
+        set => this.WithProperty("certificate_id", value);
     }
 
     /// <summary>
     /// The hostname_binding_id attribute.
     /// </summary>
-    public string? HostnameBindingId
+    public TerraformLiteralProperty<string>? HostnameBindingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname_binding_id")?.Value;
-        set => this.WithProperty("hostname_binding_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hostname_binding_id");
+        set => this.WithProperty("hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public string? SslState
+    public TerraformLiteralProperty<string>? SslState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_state")?.Value;
-        set => this.WithProperty("ssl_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ssl_state");
+        set => this.WithProperty("ssl_state", value);
     }
 
     /// <summary>

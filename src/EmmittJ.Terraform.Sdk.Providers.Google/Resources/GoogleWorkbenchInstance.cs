@@ -29,56 +29,56 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// <summary>
     /// Desired state of the Workbench Instance. Set this field to &#39;ACTIVE&#39; to start the Instance, and &#39;STOPPED&#39; to stop the Instance.
     /// </summary>
-    public string? DesiredState
+    public TerraformLiteralProperty<string>? DesiredState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("desired_state")?.Value;
-        set => this.WithProperty("desired_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("desired_state");
+        set => this.WithProperty("desired_state", value);
     }
 
     /// <summary>
     /// Optional. If true, the workbench instance will not register with the proxy.
     /// </summary>
-    public bool? DisableProxyAccess
+    public TerraformLiteralProperty<bool>? DisableProxyAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_proxy_access")?.Value;
-        set => this.WithProperty("disable_proxy_access", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_proxy_access");
+        set => this.WithProperty("disable_proxy_access", value);
     }
 
     /// <summary>
     /// Flag to enable managed end user credentials for the instance.
     /// </summary>
-    public bool? EnableManagedEuc
+    public TerraformLiteralProperty<bool>? EnableManagedEuc
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_managed_euc")?.Value;
-        set => this.WithProperty("enable_managed_euc", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_managed_euc");
+        set => this.WithProperty("enable_managed_euc", value);
     }
 
     /// <summary>
     /// Flag that specifies that a notebook can be accessed with third party
     /// identity provider.
     /// </summary>
-    public bool? EnableThirdPartyIdentity
+    public TerraformLiteralProperty<bool>? EnableThirdPartyIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_third_party_identity")?.Value;
-        set => this.WithProperty("enable_third_party_identity", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_third_party_identity");
+        set => this.WithProperty("enable_third_party_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Required. User-defined unique ID of this instance.
     /// </summary>
-    public string? InstanceId
+    public TerraformLiteralProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id")?.Value;
-        set => this.WithProperty("instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
@@ -88,10 +88,10 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// If specified, sets the access mode to &#39;Single user&#39;. For more details, see
     /// https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-access-jupyterlab&#39;
     /// </summary>
-    public List<string>? InstanceOwners
+    public TerraformLiteralProperty<List<string>>? InstanceOwners
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("instance_owners")?.Value;
-        set => this.WithProperty("instance_owners", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("instance_owners");
+        set => this.WithProperty("instance_owners", value);
     }
 
     /// <summary>
@@ -102,37 +102,37 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of this workbench instance. Format: &#39;projects/{project_id}/locations/{location}/instances/{instance_id}&#39;
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

@@ -20,46 +20,46 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The limit_at_scope attribute.
     /// </summary>
-    public bool? LimitAtScope
+    public TerraformLiteralProperty<bool>? LimitAtScope
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("limit_at_scope")?.Value;
-        set => this.WithProperty("limit_at_scope", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("limit_at_scope");
+        set => this.WithProperty("limit_at_scope", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public string? PrincipalId
+    public TerraformLiteralProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id")?.Value;
-        set => this.WithProperty("principal_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public string? TenantId
+    public TerraformLiteralProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id")?.Value;
-        set => this.WithProperty("tenant_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        set => this.WithProperty("tenant_id", value);
     }
 
     /// <summary>

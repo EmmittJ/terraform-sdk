@@ -22,47 +22,47 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     /// <summary>
     /// ID of the endpoint attachment.
     /// </summary>
-    public string? EndpointAttachmentId
+    public TerraformLiteralProperty<string>? EndpointAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_attachment_id")?.Value;
-        set => this.WithProperty("endpoint_attachment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_attachment_id");
+        set => this.WithProperty("endpoint_attachment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location of the endpoint attachment.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// Format: projects/*/regions/*/serviceAttachments/*
     /// </summary>
-    public string? ServiceAttachment
+    public TerraformLiteralProperty<string>? ServiceAttachment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_attachment")?.Value;
-        set => this.WithProperty("service_attachment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_attachment");
+        set => this.WithProperty("service_attachment", value);
     }
 
     /// <summary>

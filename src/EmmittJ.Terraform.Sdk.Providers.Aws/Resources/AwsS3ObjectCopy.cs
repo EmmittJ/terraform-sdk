@@ -31,370 +31,370 @@ public class AwsS3ObjectCopy : TerraformResource
     /// <summary>
     /// The acl attribute.
     /// </summary>
-    public string? Acl
+    public TerraformLiteralProperty<string>? Acl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("acl")?.Value;
-        set => this.WithProperty("acl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("acl");
+        set => this.WithProperty("acl", value);
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The bucket_key_enabled attribute.
     /// </summary>
-    public bool? BucketKeyEnabled
+    public TerraformLiteralProperty<bool>? BucketKeyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bucket_key_enabled")?.Value;
-        set => this.WithProperty("bucket_key_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("bucket_key_enabled");
+        set => this.WithProperty("bucket_key_enabled", value);
     }
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    public string? CacheControl
+    public TerraformLiteralProperty<string>? CacheControl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_control")?.Value;
-        set => this.WithProperty("cache_control", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cache_control");
+        set => this.WithProperty("cache_control", value);
     }
 
     /// <summary>
     /// The checksum_algorithm attribute.
     /// </summary>
-    public string? ChecksumAlgorithm
+    public TerraformLiteralProperty<string>? ChecksumAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("checksum_algorithm")?.Value;
-        set => this.WithProperty("checksum_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("checksum_algorithm");
+        set => this.WithProperty("checksum_algorithm", value);
     }
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public string? ContentDisposition
+    public TerraformLiteralProperty<string>? ContentDisposition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_disposition")?.Value;
-        set => this.WithProperty("content_disposition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_disposition");
+        set => this.WithProperty("content_disposition", value);
     }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    public string? ContentEncoding
+    public TerraformLiteralProperty<string>? ContentEncoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_encoding")?.Value;
-        set => this.WithProperty("content_encoding", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_encoding");
+        set => this.WithProperty("content_encoding", value);
     }
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
-    public string? ContentLanguage
+    public TerraformLiteralProperty<string>? ContentLanguage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_language")?.Value;
-        set => this.WithProperty("content_language", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_language");
+        set => this.WithProperty("content_language", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public string? ContentType
+    public TerraformLiteralProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type")?.Value;
-        set => this.WithProperty("content_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The copy_if_match attribute.
     /// </summary>
-    public string? CopyIfMatch
+    public TerraformLiteralProperty<string>? CopyIfMatch
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_match")?.Value;
-        set => this.WithProperty("copy_if_match", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_match");
+        set => this.WithProperty("copy_if_match", value);
     }
 
     /// <summary>
     /// The copy_if_modified_since attribute.
     /// </summary>
-    public string? CopyIfModifiedSince
+    public TerraformLiteralProperty<string>? CopyIfModifiedSince
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_modified_since")?.Value;
-        set => this.WithProperty("copy_if_modified_since", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_modified_since");
+        set => this.WithProperty("copy_if_modified_since", value);
     }
 
     /// <summary>
     /// The copy_if_none_match attribute.
     /// </summary>
-    public string? CopyIfNoneMatch
+    public TerraformLiteralProperty<string>? CopyIfNoneMatch
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_none_match")?.Value;
-        set => this.WithProperty("copy_if_none_match", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_none_match");
+        set => this.WithProperty("copy_if_none_match", value);
     }
 
     /// <summary>
     /// The copy_if_unmodified_since attribute.
     /// </summary>
-    public string? CopyIfUnmodifiedSince
+    public TerraformLiteralProperty<string>? CopyIfUnmodifiedSince
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_unmodified_since")?.Value;
-        set => this.WithProperty("copy_if_unmodified_since", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("copy_if_unmodified_since");
+        set => this.WithProperty("copy_if_unmodified_since", value);
     }
 
     /// <summary>
     /// The customer_algorithm attribute.
     /// </summary>
-    public string? CustomerAlgorithm
+    public TerraformLiteralProperty<string>? CustomerAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_algorithm")?.Value;
-        set => this.WithProperty("customer_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_algorithm");
+        set => this.WithProperty("customer_algorithm", value);
     }
 
     /// <summary>
     /// The customer_key attribute.
     /// </summary>
-    public string? CustomerKey
+    public TerraformLiteralProperty<string>? CustomerKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_key")?.Value;
-        set => this.WithProperty("customer_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_key");
+        set => this.WithProperty("customer_key", value);
     }
 
     /// <summary>
     /// The customer_key_md5 attribute.
     /// </summary>
-    public string? CustomerKeyMd5
+    public TerraformLiteralProperty<string>? CustomerKeyMd5
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_key_md5")?.Value;
-        set => this.WithProperty("customer_key_md5", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_key_md5");
+        set => this.WithProperty("customer_key_md5", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public string? ExpectedBucketOwner
+    public TerraformLiteralProperty<string>? ExpectedBucketOwner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expected_bucket_owner")?.Value;
-        set => this.WithProperty("expected_bucket_owner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expected_bucket_owner");
+        set => this.WithProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The expected_source_bucket_owner attribute.
     /// </summary>
-    public string? ExpectedSourceBucketOwner
+    public TerraformLiteralProperty<string>? ExpectedSourceBucketOwner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expected_source_bucket_owner")?.Value;
-        set => this.WithProperty("expected_source_bucket_owner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expected_source_bucket_owner");
+        set => this.WithProperty("expected_source_bucket_owner", value);
     }
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
-    public string? Expires
+    public TerraformLiteralProperty<string>? Expires
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expires")?.Value;
-        set => this.WithProperty("expires", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expires");
+        set => this.WithProperty("expires", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public bool? ForceDestroy
+    public TerraformLiteralProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy")?.Value;
-        set => this.WithProperty("force_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public string? Key
+    public TerraformLiteralProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key")?.Value;
-        set => this.WithProperty("key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The kms_encryption_context attribute.
     /// </summary>
-    public string? KmsEncryptionContext
+    public TerraformLiteralProperty<string>? KmsEncryptionContext
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_encryption_context")?.Value;
-        set => this.WithProperty("kms_encryption_context", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_encryption_context");
+        set => this.WithProperty("kms_encryption_context", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, string>? Metadata
+    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata")?.Value;
-        set => this.WithProperty("metadata", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The metadata_directive attribute.
     /// </summary>
-    public string? MetadataDirective
+    public TerraformLiteralProperty<string>? MetadataDirective
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata_directive")?.Value;
-        set => this.WithProperty("metadata_directive", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("metadata_directive");
+        set => this.WithProperty("metadata_directive", value);
     }
 
     /// <summary>
     /// The object_lock_legal_hold_status attribute.
     /// </summary>
-    public string? ObjectLockLegalHoldStatus
+    public TerraformLiteralProperty<string>? ObjectLockLegalHoldStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_lock_legal_hold_status")?.Value;
-        set => this.WithProperty("object_lock_legal_hold_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object_lock_legal_hold_status");
+        set => this.WithProperty("object_lock_legal_hold_status", value);
     }
 
     /// <summary>
     /// The object_lock_mode attribute.
     /// </summary>
-    public string? ObjectLockMode
+    public TerraformLiteralProperty<string>? ObjectLockMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_lock_mode")?.Value;
-        set => this.WithProperty("object_lock_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object_lock_mode");
+        set => this.WithProperty("object_lock_mode", value);
     }
 
     /// <summary>
     /// The object_lock_retain_until_date attribute.
     /// </summary>
-    public string? ObjectLockRetainUntilDate
+    public TerraformLiteralProperty<string>? ObjectLockRetainUntilDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_lock_retain_until_date")?.Value;
-        set => this.WithProperty("object_lock_retain_until_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object_lock_retain_until_date");
+        set => this.WithProperty("object_lock_retain_until_date", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
-    public string? RequestPayer
+    public TerraformLiteralProperty<string>? RequestPayer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_payer")?.Value;
-        set => this.WithProperty("request_payer", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("request_payer");
+        set => this.WithProperty("request_payer", value);
     }
 
     /// <summary>
     /// The server_side_encryption attribute.
     /// </summary>
-    public string? ServerSideEncryption
+    public TerraformLiteralProperty<string>? ServerSideEncryption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_side_encryption")?.Value;
-        set => this.WithProperty("server_side_encryption", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_side_encryption");
+        set => this.WithProperty("server_side_encryption", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public string? Source
+    public TerraformLiteralProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source")?.Value;
-        set => this.WithProperty("source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// The source_customer_algorithm attribute.
     /// </summary>
-    public string? SourceCustomerAlgorithm
+    public TerraformLiteralProperty<string>? SourceCustomerAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_customer_algorithm")?.Value;
-        set => this.WithProperty("source_customer_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_customer_algorithm");
+        set => this.WithProperty("source_customer_algorithm", value);
     }
 
     /// <summary>
     /// The source_customer_key attribute.
     /// </summary>
-    public string? SourceCustomerKey
+    public TerraformLiteralProperty<string>? SourceCustomerKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_customer_key")?.Value;
-        set => this.WithProperty("source_customer_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_customer_key");
+        set => this.WithProperty("source_customer_key", value);
     }
 
     /// <summary>
     /// The source_customer_key_md5 attribute.
     /// </summary>
-    public string? SourceCustomerKeyMd5
+    public TerraformLiteralProperty<string>? SourceCustomerKeyMd5
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_customer_key_md5")?.Value;
-        set => this.WithProperty("source_customer_key_md5", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_customer_key_md5");
+        set => this.WithProperty("source_customer_key_md5", value);
     }
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
-    public string? StorageClass
+    public TerraformLiteralProperty<string>? StorageClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_class")?.Value;
-        set => this.WithProperty("storage_class", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_class");
+        set => this.WithProperty("storage_class", value);
     }
 
     /// <summary>
     /// The tagging_directive attribute.
     /// </summary>
-    public string? TaggingDirective
+    public TerraformLiteralProperty<string>? TaggingDirective
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tagging_directive")?.Value;
-        set => this.WithProperty("tagging_directive", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tagging_directive");
+        set => this.WithProperty("tagging_directive", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The website_redirect attribute.
     /// </summary>
-    public string? WebsiteRedirect
+    public TerraformLiteralProperty<string>? WebsiteRedirect
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("website_redirect")?.Value;
-        set => this.WithProperty("website_redirect", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("website_redirect");
+        set => this.WithProperty("website_redirect", value);
     }
 
     /// <summary>

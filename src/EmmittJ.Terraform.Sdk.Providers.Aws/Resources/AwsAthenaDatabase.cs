@@ -19,82 +19,82 @@ public class AwsAthenaDatabase : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public string? Comment
+    public TerraformLiteralProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment")?.Value;
-        set => this.WithProperty("comment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    public string? ExpectedBucketOwner
+    public TerraformLiteralProperty<string>? ExpectedBucketOwner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expected_bucket_owner")?.Value;
-        set => this.WithProperty("expected_bucket_owner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expected_bucket_owner");
+        set => this.WithProperty("expected_bucket_owner", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public bool? ForceDestroy
+    public TerraformLiteralProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy")?.Value;
-        set => this.WithProperty("force_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, string>? Properties
+    public TerraformLiteralProperty<Dictionary<string, string>>? Properties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties")?.Value;
-        set => this.WithProperty("properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties");
+        set => this.WithProperty("properties", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
-    public string? Workgroup
+    public TerraformLiteralProperty<string>? Workgroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup")?.Value;
-        set => this.WithProperty("workgroup", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workgroup");
+        set => this.WithProperty("workgroup", value);
     }
 
 }

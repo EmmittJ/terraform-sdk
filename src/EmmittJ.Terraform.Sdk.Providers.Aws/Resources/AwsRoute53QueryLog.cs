@@ -20,28 +20,28 @@ public class AwsRoute53QueryLog : TerraformResource
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public string? CloudwatchLogGroupArn
+    public TerraformLiteralProperty<string>? CloudwatchLogGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_log_group_arn")?.Value;
-        set => this.WithProperty("cloudwatch_log_group_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_log_group_arn");
+        set => this.WithProperty("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public string? ZoneId
+    public TerraformLiteralProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id")?.Value;
-        set => this.WithProperty("zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        set => this.WithProperty("zone_id", value);
     }
 
     /// <summary>

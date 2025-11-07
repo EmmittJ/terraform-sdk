@@ -29,28 +29,28 @@ public class GoogleNetworkSecurityFirewallEndpointAssociation : TerraformResourc
     /// ~&amp;gt; **Note:** The API will reject the request if this value is set to true when creating the resource,
     /// otherwise on an update the association can be disabled.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The URL of the firewall endpoint that is being associated.
     /// </summary>
-    public string? FirewallEndpoint
+    public TerraformLiteralProperty<string>? FirewallEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_endpoint")?.Value;
-        set => this.WithProperty("firewall_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_endpoint");
+        set => this.WithProperty("firewall_endpoint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -60,56 +60,56 @@ public class GoogleNetworkSecurityFirewallEndpointAssociation : TerraformResourc
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location (zone) of the firewall endpoint association.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the firewall endpoint association resource.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The URL of the network that is being associated.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The name of the parent this firewall endpoint association belongs to.
     /// Format: projects/{project_id}.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The URL of the TlsInspectionPolicy that is being associated.
     /// </summary>
-    public string? TlsInspectionPolicy
+    public TerraformLiteralProperty<string>? TlsInspectionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tls_inspection_policy")?.Value;
-        set => this.WithProperty("tls_inspection_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tls_inspection_policy");
+        set => this.WithProperty("tls_inspection_policy", value);
     }
 
     /// <summary>

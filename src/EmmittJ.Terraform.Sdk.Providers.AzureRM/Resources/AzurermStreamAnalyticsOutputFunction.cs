@@ -19,82 +19,82 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public string? ApiKey
+    public TerraformLiteralProperty<string>? ApiKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_key")?.Value;
-        set => this.WithProperty("api_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_key");
+        set => this.WithProperty("api_key", value);
     }
 
     /// <summary>
     /// The batch_max_count attribute.
     /// </summary>
-    public double? BatchMaxCount
+    public TerraformLiteralProperty<double>? BatchMaxCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_max_count")?.Value;
-        set => this.WithProperty("batch_max_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("batch_max_count");
+        set => this.WithProperty("batch_max_count", value);
     }
 
     /// <summary>
     /// The batch_max_in_bytes attribute.
     /// </summary>
-    public double? BatchMaxInBytes
+    public TerraformLiteralProperty<double>? BatchMaxInBytes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_max_in_bytes")?.Value;
-        set => this.WithProperty("batch_max_in_bytes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("batch_max_in_bytes");
+        set => this.WithProperty("batch_max_in_bytes", value);
     }
 
     /// <summary>
     /// The function_app attribute.
     /// </summary>
-    public string? FunctionApp
+    public TerraformLiteralProperty<string>? FunctionApp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app")?.Value;
-        set => this.WithProperty("function_app", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_app");
+        set => this.WithProperty("function_app", value);
     }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public string? FunctionName
+    public TerraformLiteralProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name")?.Value;
-        set => this.WithProperty("function_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public string? StreamAnalyticsJobName
+    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name")?.Value;
-        set => this.WithProperty("stream_analytics_job_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        set => this.WithProperty("stream_analytics_job_name", value);
     }
 
 }

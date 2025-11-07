@@ -32,55 +32,55 @@ public class AwsVpcEndpointServiceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public string? ServiceName
+    public TerraformLiteralProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name")?.Value;
-        set => this.WithProperty("service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The service_regions attribute.
     /// </summary>
-    public HashSet<string>? ServiceRegions
+    public TerraformLiteralProperty<HashSet<string>>? ServiceRegions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("service_regions")?.Value;
-        set => this.WithProperty("service_regions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("service_regions");
+        set => this.WithProperty("service_regions", value);
     }
 
     /// <summary>
     /// The service_type attribute.
     /// </summary>
-    public string? ServiceType
+    public TerraformLiteralProperty<string>? ServiceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_type")?.Value;
-        set => this.WithProperty("service_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_type");
+        set => this.WithProperty("service_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

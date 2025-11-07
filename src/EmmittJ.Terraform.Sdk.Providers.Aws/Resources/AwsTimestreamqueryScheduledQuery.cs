@@ -25,55 +25,55 @@ public class AwsTimestreamqueryScheduledQuery : TerraformResource
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public string? ExecutionRoleArn
+    public TerraformLiteralProperty<string>? ExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn")?.Value;
-        set => this.WithProperty("execution_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn");
+        set => this.WithProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_string attribute.
     /// </summary>
-    public string? QueryString
+    public TerraformLiteralProperty<string>? QueryString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_string")?.Value;
-        set => this.WithProperty("query_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query_string");
+        set => this.WithProperty("query_string", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -19,82 +19,82 @@ public class AzurermDevTestSchedule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lab_name attribute.
     /// </summary>
-    public string? LabName
+    public TerraformLiteralProperty<string>? LabName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lab_name")?.Value;
-        set => this.WithProperty("lab_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lab_name");
+        set => this.WithProperty("lab_name", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The task_type attribute.
     /// </summary>
-    public string? TaskType
+    public TerraformLiteralProperty<string>? TaskType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_type")?.Value;
-        set => this.WithProperty("task_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("task_type");
+        set => this.WithProperty("task_type", value);
     }
 
     /// <summary>
     /// The time_zone_id attribute.
     /// </summary>
-    public string? TimeZoneId
+    public TerraformLiteralProperty<string>? TimeZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone_id")?.Value;
-        set => this.WithProperty("time_zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("time_zone_id");
+        set => this.WithProperty("time_zone_id", value);
     }
 
 }

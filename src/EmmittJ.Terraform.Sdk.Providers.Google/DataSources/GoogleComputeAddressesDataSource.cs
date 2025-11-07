@@ -41,37 +41,37 @@ public class GoogleComputeAddressesDataSource : TerraformDataSource
     /// (cpuPlatform = &amp;quot;Intel Skylake&amp;quot;) OR (cpuPlatform = &amp;quot;Intel Broadwell&amp;quot;)
     /// AND (scheduling.automaticRestart = true) &amp;quot;&amp;quot;&amp;quot;
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The google project in which addresses are listed. Defaults to provider&#39;s configuration if missing.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Region that should be considered to search addresses. All regions are considered if missing.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

@@ -23,82 +23,82 @@ public class AwsQuicksightFolder : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public string? AwsAccountId
+    public TerraformLiteralProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id")?.Value;
-        set => this.WithProperty("aws_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
-    public string? FolderId
+    public TerraformLiteralProperty<string>? FolderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder_id")?.Value;
-        set => this.WithProperty("folder_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder_id");
+        set => this.WithProperty("folder_id", value);
     }
 
     /// <summary>
     /// The folder_type attribute.
     /// </summary>
-    public string? FolderType
+    public TerraformLiteralProperty<string>? FolderType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder_type")?.Value;
-        set => this.WithProperty("folder_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder_type");
+        set => this.WithProperty("folder_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_folder_arn attribute.
     /// </summary>
-    public string? ParentFolderArn
+    public TerraformLiteralProperty<string>? ParentFolderArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_folder_arn")?.Value;
-        set => this.WithProperty("parent_folder_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_folder_arn");
+        set => this.WithProperty("parent_folder_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

@@ -23,10 +23,10 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// As input, project name with either project id or number are accepted.
     /// As output, this field will contain project number.
     /// </summary>
-    public string? GcpProject
+    public TerraformLiteralProperty<string>? GcpProject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gcp_project")?.Value;
-        set => this.WithProperty("gcp_project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gcp_project");
+        set => this.WithProperty("gcp_project", value);
     }
 
     /// <summary>
@@ -35,37 +35,37 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// must be the same as the Google cloud project specified in the
     /// host_project_registration.gcp_project field.
     /// </summary>
-    public string? HostProjectRegistrationId
+    public TerraformLiteralProperty<string>? HostProjectRegistrationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_project_registration_id")?.Value;
-        set => this.WithProperty("host_project_registration_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("host_project_registration_id");
+        set => this.WithProperty("host_project_registration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

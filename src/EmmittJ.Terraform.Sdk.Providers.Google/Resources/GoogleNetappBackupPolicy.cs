@@ -24,38 +24,38 @@ public class GoogleNetappBackupPolicy : TerraformResource
     /// <summary>
     /// Number of daily backups to keep. Note that the minimum daily backup limit is 2.
     /// </summary>
-    public double? DailyBackupLimit
+    public TerraformLiteralProperty<double>? DailyBackupLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("daily_backup_limit")?.Value;
-        set => this.WithProperty("daily_backup_limit", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("daily_backup_limit");
+        set => this.WithProperty("daily_backup_limit", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// If enabled, make backups automatically according to the schedules.
     /// This will be applied to all volumes that have this policy attached and enforced on volume level.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -65,55 +65,55 @@ public class GoogleNetappBackupPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of the region for the policy to apply to.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Number of monthly backups to keep. Note that the sum of daily, weekly and monthly backups should be greater than 1.
     /// </summary>
-    public double? MonthlyBackupLimit
+    public TerraformLiteralProperty<double>? MonthlyBackupLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("monthly_backup_limit")?.Value;
-        set => this.WithProperty("monthly_backup_limit", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("monthly_backup_limit");
+        set => this.WithProperty("monthly_backup_limit", value);
     }
 
     /// <summary>
     /// The name of the backup policy. Needs to be unique per location.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Number of weekly backups to keep. Note that the sum of daily, weekly and monthly backups should be greater than 1.
     /// </summary>
-    public double? WeeklyBackupLimit
+    public TerraformLiteralProperty<double>? WeeklyBackupLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("weekly_backup_limit")?.Value;
-        set => this.WithProperty("weekly_backup_limit", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("weekly_backup_limit");
+        set => this.WithProperty("weekly_backup_limit", value);
     }
 
     /// <summary>

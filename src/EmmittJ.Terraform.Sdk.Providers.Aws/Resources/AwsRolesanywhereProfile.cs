@@ -20,91 +20,91 @@ public class AwsRolesanywhereProfile : TerraformResource
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public double? DurationSeconds
+    public TerraformLiteralProperty<double>? DurationSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_seconds")?.Value;
-        set => this.WithProperty("duration_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("duration_seconds");
+        set => this.WithProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_policy_arns attribute.
     /// </summary>
-    public HashSet<string>? ManagedPolicyArns
+    public TerraformLiteralProperty<HashSet<string>>? ManagedPolicyArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("managed_policy_arns")?.Value;
-        set => this.WithProperty("managed_policy_arns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("managed_policy_arns");
+        set => this.WithProperty("managed_policy_arns", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The require_instance_properties attribute.
     /// </summary>
-    public bool? RequireInstanceProperties
+    public TerraformLiteralProperty<bool>? RequireInstanceProperties
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("require_instance_properties")?.Value;
-        set => this.WithProperty("require_instance_properties", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("require_instance_properties");
+        set => this.WithProperty("require_instance_properties", value);
     }
 
     /// <summary>
     /// The role_arns attribute.
     /// </summary>
-    public HashSet<string>? RoleArns
+    public TerraformLiteralProperty<HashSet<string>>? RoleArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_arns")?.Value;
-        set => this.WithProperty("role_arns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_arns");
+        set => this.WithProperty("role_arns", value);
     }
 
     /// <summary>
     /// The session_policy attribute.
     /// </summary>
-    public string? SessionPolicy
+    public TerraformLiteralProperty<string>? SessionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("session_policy")?.Value;
-        set => this.WithProperty("session_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("session_policy");
+        set => this.WithProperty("session_policy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

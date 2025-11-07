@@ -23,10 +23,10 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -40,19 +40,19 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// maximum allowed value is 600 seconds. For Global external HTTP(S) load
     /// balancer (classic), this option is not available publicly.
     /// </summary>
-    public double? HttpKeepAliveTimeoutSec
+    public TerraformLiteralProperty<double>? HttpKeepAliveTimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec")?.Value;
-        set => this.WithProperty("http_keep_alive_timeout_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec");
+        set => this.WithProperty("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -64,39 +64,39 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public bool? ProxyBind
+    public TerraformLiteralProperty<bool>? ProxyBind
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_bind")?.Value;
-        set => this.WithProperty("proxy_bind", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_bind");
+        set => this.WithProperty("proxy_bind", value);
     }
 
     /// <summary>
     /// A reference to the UrlMap resource that defines the mapping from URL
     /// to the BackendService.
     /// </summary>
-    public string? UrlMap
+    public TerraformLiteralProperty<string>? UrlMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_map")?.Value;
-        set => this.WithProperty("url_map", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url_map");
+        set => this.WithProperty("url_map", value);
     }
 
     /// <summary>

@@ -23,28 +23,28 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     /// <summary>
     /// If set to true, skip group member creation if a membership with the same name already exists. Defaults to false.
     /// </summary>
-    public bool? CreateIgnoreAlreadyExists
+    public TerraformLiteralProperty<bool>? CreateIgnoreAlreadyExists
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_ignore_already_exists")?.Value;
-        set => this.WithProperty("create_ignore_already_exists", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("create_ignore_already_exists");
+        set => this.WithProperty("create_ignore_already_exists", value);
     }
 
     /// <summary>
     /// The name of the Group to create this membership in.
     /// </summary>
-    public string? Group
+    public TerraformLiteralProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group")?.Value;
-        set => this.WithProperty("group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

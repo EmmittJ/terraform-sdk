@@ -20,37 +20,37 @@ public class GoogleComputeSharedVpcServiceProject : TerraformResource
     /// The deletion policy for the shared VPC service. Setting ABANDON allows the resource
     /// 				to be abandoned rather than deleted. Possible values are: &amp;quot;ABANDON&amp;quot;.
     /// </summary>
-    public string? DeletionPolicy
+    public TerraformLiteralProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
-        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The ID of a host project to associate.
     /// </summary>
-    public string? HostProject
+    public TerraformLiteralProperty<string>? HostProject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_project")?.Value;
-        set => this.WithProperty("host_project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("host_project");
+        set => this.WithProperty("host_project", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the project that will serve as a Shared VPC service project.
     /// </summary>
-    public string? ServiceProject
+    public TerraformLiteralProperty<string>? ServiceProject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_project")?.Value;
-        set => this.WithProperty("service_project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_project");
+        set => this.WithProperty("service_project", value);
     }
 
 }

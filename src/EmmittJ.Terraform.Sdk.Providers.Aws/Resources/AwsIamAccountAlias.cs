@@ -19,19 +19,19 @@ public class AwsIamAccountAlias : TerraformResource
     /// <summary>
     /// The account_alias attribute.
     /// </summary>
-    public string? AccountAlias
+    public TerraformLiteralProperty<string>? AccountAlias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_alias")?.Value;
-        set => this.WithProperty("account_alias", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_alias");
+        set => this.WithProperty("account_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

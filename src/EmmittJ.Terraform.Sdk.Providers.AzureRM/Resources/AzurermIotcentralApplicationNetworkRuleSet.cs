@@ -19,37 +19,37 @@ public class AzurermIotcentralApplicationNetworkRuleSet : TerraformResource
     /// <summary>
     /// The apply_to_device attribute.
     /// </summary>
-    public bool? ApplyToDevice
+    public TerraformLiteralProperty<bool>? ApplyToDevice
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("apply_to_device")?.Value;
-        set => this.WithProperty("apply_to_device", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("apply_to_device");
+        set => this.WithProperty("apply_to_device", value);
     }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public string? DefaultAction
+    public TerraformLiteralProperty<string>? DefaultAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_action")?.Value;
-        set => this.WithProperty("default_action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_action");
+        set => this.WithProperty("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iotcentral_application_id attribute.
     /// </summary>
-    public string? IotcentralApplicationId
+    public TerraformLiteralProperty<string>? IotcentralApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iotcentral_application_id")?.Value;
-        set => this.WithProperty("iotcentral_application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iotcentral_application_id");
+        set => this.WithProperty("iotcentral_application_id", value);
     }
 
 }

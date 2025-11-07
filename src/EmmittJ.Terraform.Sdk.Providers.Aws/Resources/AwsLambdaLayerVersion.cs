@@ -27,118 +27,118 @@ public class AwsLambdaLayerVersion : TerraformResource
     /// <summary>
     /// The compatible_architectures attribute.
     /// </summary>
-    public HashSet<string>? CompatibleArchitectures
+    public TerraformLiteralProperty<HashSet<string>>? CompatibleArchitectures
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("compatible_architectures")?.Value;
-        set => this.WithProperty("compatible_architectures", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("compatible_architectures");
+        set => this.WithProperty("compatible_architectures", value);
     }
 
     /// <summary>
     /// The compatible_runtimes attribute.
     /// </summary>
-    public HashSet<string>? CompatibleRuntimes
+    public TerraformLiteralProperty<HashSet<string>>? CompatibleRuntimes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("compatible_runtimes")?.Value;
-        set => this.WithProperty("compatible_runtimes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("compatible_runtimes");
+        set => this.WithProperty("compatible_runtimes", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    public string? Filename
+    public TerraformLiteralProperty<string>? Filename
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filename")?.Value;
-        set => this.WithProperty("filename", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filename");
+        set => this.WithProperty("filename", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The layer_name attribute.
     /// </summary>
-    public string? LayerName
+    public TerraformLiteralProperty<string>? LayerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("layer_name")?.Value;
-        set => this.WithProperty("layer_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("layer_name");
+        set => this.WithProperty("layer_name", value);
     }
 
     /// <summary>
     /// The license_info attribute.
     /// </summary>
-    public string? LicenseInfo
+    public TerraformLiteralProperty<string>? LicenseInfo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_info")?.Value;
-        set => this.WithProperty("license_info", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_info");
+        set => this.WithProperty("license_info", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public string? S3Bucket
+    public TerraformLiteralProperty<string>? S3Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket")?.Value;
-        set => this.WithProperty("s3_bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket");
+        set => this.WithProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    public string? S3Key
+    public TerraformLiteralProperty<string>? S3Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_key")?.Value;
-        set => this.WithProperty("s3_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_key");
+        set => this.WithProperty("s3_key", value);
     }
 
     /// <summary>
     /// The s3_object_version attribute.
     /// </summary>
-    public string? S3ObjectVersion
+    public TerraformLiteralProperty<string>? S3ObjectVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_object_version")?.Value;
-        set => this.WithProperty("s3_object_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_object_version");
+        set => this.WithProperty("s3_object_version", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public bool? SkipDestroy
+    public TerraformLiteralProperty<bool>? SkipDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy")?.Value;
-        set => this.WithProperty("skip_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy");
+        set => this.WithProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    public string? SourceCodeHash
+    public TerraformLiteralProperty<string>? SourceCodeHash
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_code_hash")?.Value;
-        set => this.WithProperty("source_code_hash", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_code_hash");
+        set => this.WithProperty("source_code_hash", value);
     }
 
     /// <summary>

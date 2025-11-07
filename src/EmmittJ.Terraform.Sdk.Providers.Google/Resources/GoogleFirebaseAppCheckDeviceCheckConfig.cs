@@ -22,46 +22,46 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// The ID of an
     /// [Apple App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.iosApps#IosApp.FIELDS.app_id).
     /// </summary>
-    public string? AppId
+    public TerraformLiteralProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id")?.Value;
-        set => this.WithProperty("app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key identifier of a private key enabled with DeviceCheck, created in your Apple Developer account.
     /// </summary>
-    public string? KeyId
+    public TerraformLiteralProperty<string>? KeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_id")?.Value;
-        set => this.WithProperty("key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_id");
+        set => this.WithProperty("key_id", value);
     }
 
     /// <summary>
     /// The contents of the private key (.p8) file associated with the key specified by keyId.
     /// </summary>
-    public string? PrivateKey
+    public TerraformLiteralProperty<string>? PrivateKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_key")?.Value;
-        set => this.WithProperty("private_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("private_key");
+        set => this.WithProperty("private_key", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -70,10 +70,10 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public string? TokenTtl
+    public TerraformLiteralProperty<string>? TokenTtl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_ttl")?.Value;
-        set => this.WithProperty("token_ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("token_ttl");
+        set => this.WithProperty("token_ttl", value);
     }
 
     /// <summary>

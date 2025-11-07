@@ -22,73 +22,73 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     /// <summary>
     /// Apigee API proxy name.
     /// </summary>
-    public string? Api
+    public TerraformLiteralProperty<string>? Api
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api")?.Value;
-        set => this.WithProperty("api", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api");
+        set => this.WithProperty("api", value);
     }
 
     /// <summary>
     /// Apigee environment name.
     /// </summary>
-    public string? Environment
+    public TerraformLiteralProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment")?.Value;
-        set => this.WithProperty("environment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Apigee organization ID.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// If true, replaces other deployed revisions of this proxy in the environment.
     /// </summary>
-    public bool? Override
+    public TerraformLiteralProperty<bool>? Override
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("override")?.Value;
-        set => this.WithProperty("override", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("override");
+        set => this.WithProperty("override", value);
     }
 
     /// <summary>
     /// API proxy revision number to deploy.
     /// </summary>
-    public double? Revision
+    public TerraformLiteralProperty<double>? Revision
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("revision")?.Value;
-        set => this.WithProperty("revision", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("revision");
+        set => this.WithProperty("revision", value);
     }
 
     /// <summary>
     /// If true, enables sequenced rollout for safe traffic switching.
     /// </summary>
-    public bool? SequencedRollout
+    public TerraformLiteralProperty<bool>? SequencedRollout
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sequenced_rollout")?.Value;
-        set => this.WithProperty("sequenced_rollout", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sequenced_rollout");
+        set => this.WithProperty("sequenced_rollout", value);
     }
 
     /// <summary>
     /// Optional service account the deployed proxy runs as.
     /// </summary>
-    public string? ServiceAccount
+    public TerraformLiteralProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account")?.Value;
-        set => this.WithProperty("service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        set => this.WithProperty("service_account", value);
     }
 
     /// <summary>

@@ -19,55 +19,55 @@ public class GoogleBigtableTable : TerraformResource
     /// <summary>
     /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
     /// </summary>
-    public string? ChangeStreamRetention
+    public TerraformLiteralProperty<string>? ChangeStreamRetention
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("change_stream_retention")?.Value;
-        set => this.WithProperty("change_stream_retention", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("change_stream_retention");
+        set => this.WithProperty("change_stream_retention", value);
     }
 
     /// <summary>
     /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, currently deletion protection will be set to UNPROTECTED as it is the API default value.
     /// </summary>
-    public string? DeletionProtection
+    public TerraformLiteralProperty<string>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Bigtable instance.
     /// </summary>
-    public string? InstanceName
+    public TerraformLiteralProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name")?.Value;
-        set => this.WithProperty("instance_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// The name of the table. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -78,19 +78,19 @@ public class GoogleBigtableTable : TerraformResource
     /// 					The schema must be a valid JSON encoded string representing a Type&#39;s struct protobuf message. Note that for bytes sequence (like delimited_bytes.delimiter)
     /// 					the delimiter must be base64 encoded. For example, if you want to set a delimiter to a single byte character &amp;quot;#&amp;quot;, it should be set to &amp;quot;Iw==&amp;quot;, which is the base64 encoding of the byte sequence &amp;quot;#&amp;quot;.
     /// </summary>
-    public string? RowKeySchema
+    public TerraformLiteralProperty<string>? RowKeySchema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("row_key_schema")?.Value;
-        set => this.WithProperty("row_key_schema", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("row_key_schema");
+        set => this.WithProperty("row_key_schema", value);
     }
 
     /// <summary>
     /// A list of predefined keys to split the table on. !&amp;gt; Warning: Modifying the split_keys of an existing table will cause Terraform to delete/recreate the entire google_bigtable_table resource.
     /// </summary>
-    public List<string>? SplitKeys
+    public TerraformLiteralProperty<List<string>>? SplitKeys
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("split_keys")?.Value;
-        set => this.WithProperty("split_keys", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("split_keys");
+        set => this.WithProperty("split_keys", value);
     }
 
 }

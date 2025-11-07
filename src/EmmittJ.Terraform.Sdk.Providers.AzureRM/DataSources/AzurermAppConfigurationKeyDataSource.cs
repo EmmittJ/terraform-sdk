@@ -26,37 +26,37 @@ public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
-    public string? ConfigurationStoreId
+    public TerraformLiteralProperty<string>? ConfigurationStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_store_id")?.Value;
-        set => this.WithProperty("configuration_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("configuration_store_id");
+        set => this.WithProperty("configuration_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public string? Key
+    public TerraformLiteralProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key")?.Value;
-        set => this.WithProperty("key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public string? Label
+    public TerraformLiteralProperty<string>? Label
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("label")?.Value;
-        set => this.WithProperty("label", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("label");
+        set => this.WithProperty("label", value);
     }
 
     /// <summary>

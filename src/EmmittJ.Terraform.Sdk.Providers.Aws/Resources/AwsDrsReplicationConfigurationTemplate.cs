@@ -22,136 +22,136 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     /// <summary>
     /// The associate_default_security_group attribute.
     /// </summary>
-    public bool? AssociateDefaultSecurityGroup
+    public TerraformLiteralProperty<bool>? AssociateDefaultSecurityGroup
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("associate_default_security_group")?.Value;
-        set => this.WithProperty("associate_default_security_group", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("associate_default_security_group");
+        set => this.WithProperty("associate_default_security_group", value);
     }
 
     /// <summary>
     /// The auto_replicate_new_disks attribute.
     /// </summary>
-    public bool? AutoReplicateNewDisks
+    public TerraformLiteralProperty<bool>? AutoReplicateNewDisks
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_replicate_new_disks")?.Value;
-        set => this.WithProperty("auto_replicate_new_disks", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_replicate_new_disks");
+        set => this.WithProperty("auto_replicate_new_disks", value);
     }
 
     /// <summary>
     /// The bandwidth_throttling attribute.
     /// </summary>
-    public double? BandwidthThrottling
+    public TerraformLiteralProperty<double>? BandwidthThrottling
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("bandwidth_throttling")?.Value;
-        set => this.WithProperty("bandwidth_throttling", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("bandwidth_throttling");
+        set => this.WithProperty("bandwidth_throttling", value);
     }
 
     /// <summary>
     /// The create_public_ip attribute.
     /// </summary>
-    public bool? CreatePublicIp
+    public TerraformLiteralProperty<bool>? CreatePublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_public_ip")?.Value;
-        set => this.WithProperty("create_public_ip", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("create_public_ip");
+        set => this.WithProperty("create_public_ip", value);
     }
 
     /// <summary>
     /// The data_plane_routing attribute.
     /// </summary>
-    public string? DataPlaneRouting
+    public TerraformLiteralProperty<string>? DataPlaneRouting
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_plane_routing")?.Value;
-        set => this.WithProperty("data_plane_routing", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_plane_routing");
+        set => this.WithProperty("data_plane_routing", value);
     }
 
     /// <summary>
     /// The default_large_staging_disk_type attribute.
     /// </summary>
-    public string? DefaultLargeStagingDiskType
+    public TerraformLiteralProperty<string>? DefaultLargeStagingDiskType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_large_staging_disk_type")?.Value;
-        set => this.WithProperty("default_large_staging_disk_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_large_staging_disk_type");
+        set => this.WithProperty("default_large_staging_disk_type", value);
     }
 
     /// <summary>
     /// The ebs_encryption attribute.
     /// </summary>
-    public string? EbsEncryption
+    public TerraformLiteralProperty<string>? EbsEncryption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ebs_encryption")?.Value;
-        set => this.WithProperty("ebs_encryption", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ebs_encryption");
+        set => this.WithProperty("ebs_encryption", value);
     }
 
     /// <summary>
     /// The ebs_encryption_key_arn attribute.
     /// </summary>
-    public string? EbsEncryptionKeyArn
+    public TerraformLiteralProperty<string>? EbsEncryptionKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ebs_encryption_key_arn")?.Value;
-        set => this.WithProperty("ebs_encryption_key_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ebs_encryption_key_arn");
+        set => this.WithProperty("ebs_encryption_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replication_server_instance_type attribute.
     /// </summary>
-    public string? ReplicationServerInstanceType
+    public TerraformLiteralProperty<string>? ReplicationServerInstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_server_instance_type")?.Value;
-        set => this.WithProperty("replication_server_instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("replication_server_instance_type");
+        set => this.WithProperty("replication_server_instance_type", value);
     }
 
     /// <summary>
     /// The replication_servers_security_groups_ids attribute.
     /// </summary>
-    public List<string>? ReplicationServersSecurityGroupsIds
+    public TerraformLiteralProperty<List<string>>? ReplicationServersSecurityGroupsIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("replication_servers_security_groups_ids")?.Value;
-        set => this.WithProperty("replication_servers_security_groups_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("replication_servers_security_groups_ids");
+        set => this.WithProperty("replication_servers_security_groups_ids", value);
     }
 
     /// <summary>
     /// The staging_area_subnet_id attribute.
     /// </summary>
-    public string? StagingAreaSubnetId
+    public TerraformLiteralProperty<string>? StagingAreaSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("staging_area_subnet_id")?.Value;
-        set => this.WithProperty("staging_area_subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("staging_area_subnet_id");
+        set => this.WithProperty("staging_area_subnet_id", value);
     }
 
     /// <summary>
     /// The staging_area_tags attribute.
     /// </summary>
-    public Dictionary<string, string>? StagingAreaTags
+    public TerraformLiteralProperty<Dictionary<string, string>>? StagingAreaTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("staging_area_tags")?.Value;
-        set => this.WithProperty("staging_area_tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("staging_area_tags");
+        set => this.WithProperty("staging_area_tags", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The use_dedicated_replication_server attribute.
     /// </summary>
-    public bool? UseDedicatedReplicationServer
+    public TerraformLiteralProperty<bool>? UseDedicatedReplicationServer
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_dedicated_replication_server")?.Value;
-        set => this.WithProperty("use_dedicated_replication_server", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("use_dedicated_replication_server");
+        set => this.WithProperty("use_dedicated_replication_server", value);
     }
 
     /// <summary>

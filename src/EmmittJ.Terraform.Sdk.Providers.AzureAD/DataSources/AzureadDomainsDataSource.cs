@@ -20,64 +20,64 @@ public class AzureadDomainsDataSource : TerraformDataSource
     /// <summary>
     /// Set to `true` to only return domains whose DNS is managed by Microsoft 365
     /// </summary>
-    public bool? AdminManaged
+    public TerraformLiteralProperty<bool>? AdminManaged
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("admin_managed")?.Value;
-        set => this.WithProperty("admin_managed", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("admin_managed");
+        set => this.WithProperty("admin_managed", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Set to `true` if unverified Azure AD domains should be included
     /// </summary>
-    public bool? IncludeUnverified
+    public TerraformLiteralProperty<bool>? IncludeUnverified
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_unverified")?.Value;
-        set => this.WithProperty("include_unverified", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_unverified");
+        set => this.WithProperty("include_unverified", value);
     }
 
     /// <summary>
     /// Set to `true` to only return the default domain
     /// </summary>
-    public bool? OnlyDefault
+    public TerraformLiteralProperty<bool>? OnlyDefault
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("only_default")?.Value;
-        set => this.WithProperty("only_default", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("only_default");
+        set => this.WithProperty("only_default", value);
     }
 
     /// <summary>
     /// Set to `true` to only return the initial domain, which is your primary Azure Active Directory tenant domain
     /// </summary>
-    public bool? OnlyInitial
+    public TerraformLiteralProperty<bool>? OnlyInitial
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("only_initial")?.Value;
-        set => this.WithProperty("only_initial", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("only_initial");
+        set => this.WithProperty("only_initial", value);
     }
 
     /// <summary>
     /// Set to `true` to only return verified root domains. Excludes subdomains and unverified domains
     /// </summary>
-    public bool? OnlyRoot
+    public TerraformLiteralProperty<bool>? OnlyRoot
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("only_root")?.Value;
-        set => this.WithProperty("only_root", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("only_root");
+        set => this.WithProperty("only_root", value);
     }
 
     /// <summary>
     /// A list of supported services that must be supported by a domain
     /// </summary>
-    public List<string>? SupportsServices
+    public TerraformLiteralProperty<List<string>>? SupportsServices
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("supports_services")?.Value;
-        set => this.WithProperty("supports_services", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("supports_services");
+        set => this.WithProperty("supports_services", value);
     }
 
     /// <summary>

@@ -20,145 +20,145 @@ public class AwsFlowLog : TerraformResource
     /// <summary>
     /// The deliver_cross_account_role attribute.
     /// </summary>
-    public string? DeliverCrossAccountRole
+    public TerraformLiteralProperty<string>? DeliverCrossAccountRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deliver_cross_account_role")?.Value;
-        set => this.WithProperty("deliver_cross_account_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deliver_cross_account_role");
+        set => this.WithProperty("deliver_cross_account_role", value);
     }
 
     /// <summary>
     /// The eni_id attribute.
     /// </summary>
-    public string? EniId
+    public TerraformLiteralProperty<string>? EniId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eni_id")?.Value;
-        set => this.WithProperty("eni_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eni_id");
+        set => this.WithProperty("eni_id", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public string? IamRoleArn
+    public TerraformLiteralProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn")?.Value;
-        set => this.WithProperty("iam_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_destination attribute.
     /// </summary>
-    public string? LogDestination
+    public TerraformLiteralProperty<string>? LogDestination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_destination")?.Value;
-        set => this.WithProperty("log_destination", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_destination");
+        set => this.WithProperty("log_destination", value);
     }
 
     /// <summary>
     /// The log_destination_type attribute.
     /// </summary>
-    public string? LogDestinationType
+    public TerraformLiteralProperty<string>? LogDestinationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_destination_type")?.Value;
-        set => this.WithProperty("log_destination_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_destination_type");
+        set => this.WithProperty("log_destination_type", value);
     }
 
     /// <summary>
     /// The log_format attribute.
     /// </summary>
-    public string? LogFormat
+    public TerraformLiteralProperty<string>? LogFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_format")?.Value;
-        set => this.WithProperty("log_format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_format");
+        set => this.WithProperty("log_format", value);
     }
 
     /// <summary>
     /// The max_aggregation_interval attribute.
     /// </summary>
-    public double? MaxAggregationInterval
+    public TerraformLiteralProperty<double>? MaxAggregationInterval
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_aggregation_interval")?.Value;
-        set => this.WithProperty("max_aggregation_interval", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_aggregation_interval");
+        set => this.WithProperty("max_aggregation_interval", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public string? SubnetId
+    public TerraformLiteralProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id")?.Value;
-        set => this.WithProperty("subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The traffic_type attribute.
     /// </summary>
-    public string? TrafficType
+    public TerraformLiteralProperty<string>? TrafficType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_type")?.Value;
-        set => this.WithProperty("traffic_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("traffic_type");
+        set => this.WithProperty("traffic_type", value);
     }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
-    public string? TransitGatewayAttachmentId
+    public TerraformLiteralProperty<string>? TransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id")?.Value;
-        set => this.WithProperty("transit_gateway_attachment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id");
+        set => this.WithProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public string? TransitGatewayId
+    public TerraformLiteralProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id")?.Value;
-        set => this.WithProperty("transit_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>

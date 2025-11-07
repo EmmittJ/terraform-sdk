@@ -19,55 +19,55 @@ public class AzurermPlatformImageDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    public string? Offer
+    public TerraformLiteralProperty<string>? Offer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("offer")?.Value;
-        set => this.WithProperty("offer", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("offer");
+        set => this.WithProperty("offer", value);
     }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public string? Publisher
+    public TerraformLiteralProperty<string>? Publisher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("publisher")?.Value;
-        set => this.WithProperty("publisher", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("publisher");
+        set => this.WithProperty("publisher", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public string? Sku
+    public TerraformLiteralProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku")?.Value;
-        set => this.WithProperty("sku", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
 }

@@ -21,64 +21,64 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
-    public string? AgentId
+    public TerraformLiteralProperty<string>? AgentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_id")?.Value;
-        set => this.WithProperty("agent_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_id");
+        set => this.WithProperty("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public string? AgentVersion
+    public TerraformLiteralProperty<string>? AgentVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_version")?.Value;
-        set => this.WithProperty("agent_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_version");
+        set => this.WithProperty("agent_version", value);
     }
 
     /// <summary>
     /// The collaboration_instruction attribute.
     /// </summary>
-    public string? CollaborationInstruction
+    public TerraformLiteralProperty<string>? CollaborationInstruction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collaboration_instruction")?.Value;
-        set => this.WithProperty("collaboration_instruction", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collaboration_instruction");
+        set => this.WithProperty("collaboration_instruction", value);
     }
 
     /// <summary>
     /// The collaborator_name attribute.
     /// </summary>
-    public string? CollaboratorName
+    public TerraformLiteralProperty<string>? CollaboratorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collaborator_name")?.Value;
-        set => this.WithProperty("collaborator_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collaborator_name");
+        set => this.WithProperty("collaborator_name", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public bool? PrepareAgent
+    public TerraformLiteralProperty<bool>? PrepareAgent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("prepare_agent")?.Value;
-        set => this.WithProperty("prepare_agent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("prepare_agent");
+        set => this.WithProperty("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The relay_conversation_history attribute.
     /// </summary>
-    public string? RelayConversationHistory
+    public TerraformLiteralProperty<string>? RelayConversationHistory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relay_conversation_history")?.Value;
-        set => this.WithProperty("relay_conversation_history", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("relay_conversation_history");
+        set => this.WithProperty("relay_conversation_history", value);
     }
 
     /// <summary>

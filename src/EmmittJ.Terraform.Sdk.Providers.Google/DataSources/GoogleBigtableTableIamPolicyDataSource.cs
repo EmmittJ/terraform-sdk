@@ -21,37 +21,37 @@ public class GoogleBigtableTableIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public string? InstanceName
+    public TerraformLiteralProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name")?.Value;
-        set => this.WithProperty("instance_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public string? Table
+    public TerraformLiteralProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table")?.Value;
-        set => this.WithProperty("table", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        set => this.WithProperty("table", value);
     }
 
     /// <summary>

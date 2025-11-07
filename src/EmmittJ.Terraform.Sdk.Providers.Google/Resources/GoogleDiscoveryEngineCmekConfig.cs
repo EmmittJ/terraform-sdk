@@ -25,58 +25,58 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// <summary>
     /// The unique id of the cmek config.
     /// </summary>
-    public string? CmekConfigId
+    public TerraformLiteralProperty<string>? CmekConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cmek_config_id")?.Value;
-        set => this.WithProperty("cmek_config_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cmek_config_id");
+        set => this.WithProperty("cmek_config_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// KMS key resource name which will be used to encrypt resources
     /// &#39;projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}&#39;.
     /// </summary>
-    public string? KmsKey
+    public TerraformLiteralProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key")?.Value;
-        set => this.WithProperty("kms_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        set => this.WithProperty("kms_key", value);
     }
 
     /// <summary>
     /// The geographic location where the CMEK config should reside. The value can
     /// only be one of &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Set the following CmekConfig as the default to be used for child resources
     /// if one is not specified. The default value is true.
     /// </summary>
-    public bool? SetDefault
+    public TerraformLiteralProperty<bool>? SetDefault
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("set_default")?.Value;
-        set => this.WithProperty("set_default", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("set_default");
+        set => this.WithProperty("set_default", value);
     }
 
     /// <summary>

@@ -21,37 +21,37 @@ public class GoogleOrganizationPolicy : TerraformResource
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
-    public string? Constraint
+    public TerraformLiteralProperty<string>? Constraint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("constraint")?.Value;
-        set => this.WithProperty("constraint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("constraint");
+        set => this.WithProperty("constraint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    public double? Version
+    public TerraformLiteralProperty<double>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

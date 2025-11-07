@@ -19,64 +19,64 @@ public class AzurermNetappVolumeGroupSapHana : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public string? AccountName
+    public TerraformLiteralProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name")?.Value;
-        set => this.WithProperty("account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The application_identifier attribute.
     /// </summary>
-    public string? ApplicationIdentifier
+    public TerraformLiteralProperty<string>? ApplicationIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_identifier")?.Value;
-        set => this.WithProperty("application_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_identifier");
+        set => this.WithProperty("application_identifier", value);
     }
 
     /// <summary>
     /// The group_description attribute.
     /// </summary>
-    public string? GroupDescription
+    public TerraformLiteralProperty<string>? GroupDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_description")?.Value;
-        set => this.WithProperty("group_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group_description");
+        set => this.WithProperty("group_description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
 }

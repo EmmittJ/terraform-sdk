@@ -23,73 +23,73 @@ public class GoogleDiscoveryEngineChatEngine : TerraformResource
     /// <summary>
     /// The collection ID.
     /// </summary>
-    public string? CollectionId
+    public TerraformLiteralProperty<string>? CollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection_id")?.Value;
-        set => this.WithProperty("collection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collection_id");
+        set => this.WithProperty("collection_id", value);
     }
 
     /// <summary>
     /// The data stores associated with this engine. Multiple DataStores in the same Collection can be associated here. All listed DataStores must be &#39;SOLUTION_TYPE_CHAT&#39;.
     /// </summary>
-    public List<string>? DataStoreIds
+    public TerraformLiteralProperty<List<string>>? DataStoreIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("data_store_ids")?.Value;
-        set => this.WithProperty("data_store_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("data_store_ids");
+        set => this.WithProperty("data_store_ids", value);
     }
 
     /// <summary>
     /// The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The ID to use for chat engine.
     /// </summary>
-    public string? EngineId
+    public TerraformLiteralProperty<string>? EngineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_id")?.Value;
-        set => this.WithProperty("engine_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_id");
+        set => this.WithProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The industry vertical that the chat engine registers. Vertical on Engine has to match vertical of the DataStore linked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;]
     /// </summary>
-    public string? IndustryVertical
+    public TerraformLiteralProperty<string>? IndustryVertical
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("industry_vertical")?.Value;
-        set => this.WithProperty("industry_vertical", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("industry_vertical");
+        set => this.WithProperty("industry_vertical", value);
     }
 
     /// <summary>
     /// Location.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

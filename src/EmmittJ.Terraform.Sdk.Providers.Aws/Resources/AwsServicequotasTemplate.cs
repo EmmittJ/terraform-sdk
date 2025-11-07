@@ -24,47 +24,47 @@ public class AwsServicequotasTemplate : TerraformResource
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public string? AwsRegion
+    public TerraformLiteralProperty<string>? AwsRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_region")?.Value;
-        set => this.WithProperty("aws_region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_region");
+        set => this.WithProperty("aws_region", value);
     }
 
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
-    public string? QuotaCode
+    public TerraformLiteralProperty<string>? QuotaCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quota_code")?.Value;
-        set => this.WithProperty("quota_code", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("quota_code");
+        set => this.WithProperty("quota_code", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_code attribute.
     /// </summary>
-    public string? ServiceCode
+    public TerraformLiteralProperty<string>? ServiceCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_code")?.Value;
-        set => this.WithProperty("service_code", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_code");
+        set => this.WithProperty("service_code", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public double? Value
+    public TerraformLiteralProperty<double>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("value")?.Value;
-        set => this.WithProperty("value", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("value");
+        set => this.WithProperty("value", value);
     }
 
     /// <summary>

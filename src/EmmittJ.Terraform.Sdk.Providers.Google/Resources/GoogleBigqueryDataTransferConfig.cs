@@ -24,75 +24,75 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// just [today-1]. Only valid if the data source supports the feature.
     /// Set the value to 0 to use the default value.
     /// </summary>
-    public double? DataRefreshWindowDays
+    public TerraformLiteralProperty<double>? DataRefreshWindowDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("data_refresh_window_days")?.Value;
-        set => this.WithProperty("data_refresh_window_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("data_refresh_window_days");
+        set => this.WithProperty("data_refresh_window_days", value);
     }
 
     /// <summary>
     /// The data source id. Cannot be changed once the transfer config is created.
     /// </summary>
-    public string? DataSourceId
+    public TerraformLiteralProperty<string>? DataSourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_source_id")?.Value;
-        set => this.WithProperty("data_source_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_source_id");
+        set => this.WithProperty("data_source_id", value);
     }
 
     /// <summary>
     /// The BigQuery target dataset id.
     /// </summary>
-    public string? DestinationDatasetId
+    public TerraformLiteralProperty<string>? DestinationDatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_dataset_id")?.Value;
-        set => this.WithProperty("destination_dataset_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_dataset_id");
+        set => this.WithProperty("destination_dataset_id", value);
     }
 
     /// <summary>
     /// When set to true, no runs are scheduled for a given transfer.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The user specified display name for the transfer config.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Pub/Sub topic where notifications will be sent after transfer runs
     /// associated with this transfer config finish.
     /// </summary>
-    public string? NotificationPubsubTopic
+    public TerraformLiteralProperty<string>? NotificationPubsubTopic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_pubsub_topic")?.Value;
-        set => this.WithProperty("notification_pubsub_topic", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("notification_pubsub_topic");
+        set => this.WithProperty("notification_pubsub_topic", value);
     }
 
     /// <summary>
@@ -102,19 +102,19 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// 
     /// **NOTE** : If you are attempting to update a parameter that cannot be updated (due to api limitations) [please force recreation of the resource](https://www.terraform.io/cli/state/taint#forcing-re-creation-of-resources).
     /// </summary>
-    public Dictionary<string, string>? Params
+    public TerraformLiteralProperty<Dictionary<string, string>>? Params
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("params")?.Value;
-        set => this.WithProperty("params", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("params");
+        set => this.WithProperty("params", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -128,10 +128,10 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// NOTE: The minimum interval time between recurring transfers depends
     /// on the data source; refer to the documentation for your data source.
     /// </summary>
-    public string? Schedule
+    public TerraformLiteralProperty<string>? Schedule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schedule")?.Value;
-        set => this.WithProperty("schedule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("schedule");
+        set => this.WithProperty("schedule", value);
     }
 
     /// <summary>
@@ -139,10 +139,10 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// be created with this service account credentials. It requires that
     /// requesting user calling this API has permissions to act as this service account.
     /// </summary>
-    public string? ServiceAccountName
+    public TerraformLiteralProperty<string>? ServiceAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_name")?.Value;
-        set => this.WithProperty("service_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_name");
+        set => this.WithProperty("service_account_name", value);
     }
 
     /// <summary>

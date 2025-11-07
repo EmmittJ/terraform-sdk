@@ -19,64 +19,64 @@ public class AwsElasticBeanstalkConfigurationTemplate : TerraformResource
     /// <summary>
     /// The application attribute.
     /// </summary>
-    public string? Application
+    public TerraformLiteralProperty<string>? Application
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application")?.Value;
-        set => this.WithProperty("application", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application");
+        set => this.WithProperty("application", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public string? EnvironmentId
+    public TerraformLiteralProperty<string>? EnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_id")?.Value;
-        set => this.WithProperty("environment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment_id");
+        set => this.WithProperty("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
-    public string? SolutionStackName
+    public TerraformLiteralProperty<string>? SolutionStackName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("solution_stack_name")?.Value;
-        set => this.WithProperty("solution_stack_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("solution_stack_name");
+        set => this.WithProperty("solution_stack_name", value);
     }
 
 }

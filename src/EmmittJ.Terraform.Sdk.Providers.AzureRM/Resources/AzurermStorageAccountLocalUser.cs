@@ -21,55 +21,55 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    public string? HomeDirectory
+    public TerraformLiteralProperty<string>? HomeDirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("home_directory")?.Value;
-        set => this.WithProperty("home_directory", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("home_directory");
+        set => this.WithProperty("home_directory", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The ssh_key_enabled attribute.
     /// </summary>
-    public bool? SshKeyEnabled
+    public TerraformLiteralProperty<bool>? SshKeyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ssh_key_enabled")?.Value;
-        set => this.WithProperty("ssh_key_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ssh_key_enabled");
+        set => this.WithProperty("ssh_key_enabled", value);
     }
 
     /// <summary>
     /// The ssh_password_enabled attribute.
     /// </summary>
-    public bool? SshPasswordEnabled
+    public TerraformLiteralProperty<bool>? SshPasswordEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ssh_password_enabled")?.Value;
-        set => this.WithProperty("ssh_password_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ssh_password_enabled");
+        set => this.WithProperty("ssh_password_enabled", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public string? StorageAccountId
+    public TerraformLiteralProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id")?.Value;
-        set => this.WithProperty("storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>

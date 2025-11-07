@@ -23,19 +23,19 @@ public class GoogleApigeeOrganization : TerraformResource
     /// <summary>
     /// Primary GCP region for analytics data storage. For valid values, see [Create an Apigee organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org).
     /// </summary>
-    public string? AnalyticsRegion
+    public TerraformLiteralProperty<string>? AnalyticsRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("analytics_region")?.Value;
-        set => this.WithProperty("analytics_region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("analytics_region");
+        set => this.WithProperty("analytics_region", value);
     }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting API consumer data.
     /// </summary>
-    public string? ApiConsumerDataEncryptionKeyName
+    public TerraformLiteralProperty<string>? ApiConsumerDataEncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_consumer_data_encryption_key_name")?.Value;
-        set => this.WithProperty("api_consumer_data_encryption_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_consumer_data_encryption_key_name");
+        set => this.WithProperty("api_consumer_data_encryption_key_name", value);
     }
 
     /// <summary>
@@ -43,10 +43,10 @@ public class GoogleApigeeOrganization : TerraformResource
     /// Apigee stores some control plane data only in single region.
     /// This field determines which single region Apigee should use.
     /// </summary>
-    public string? ApiConsumerDataLocation
+    public TerraformLiteralProperty<string>? ApiConsumerDataLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_consumer_data_location")?.Value;
-        set => this.WithProperty("api_consumer_data_location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_consumer_data_location");
+        set => this.WithProperty("api_consumer_data_location", value);
     }
 
     /// <summary>
@@ -54,38 +54,38 @@ public class GoogleApigeeOrganization : TerraformResource
     /// See [Getting started with the Service Networking API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
     /// Valid only when &#39;RuntimeType&#39; is set to CLOUD. The value can be updated only when there are no runtime instances. For example: &amp;quot;default&amp;quot;.
     /// </summary>
-    public string? AuthorizedNetwork
+    public TerraformLiteralProperty<string>? AuthorizedNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorized_network")?.Value;
-        set => this.WithProperty("authorized_network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorized_network");
+        set => this.WithProperty("authorized_network", value);
     }
 
     /// <summary>
     /// Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
     /// </summary>
-    public string? BillingType
+    public TerraformLiteralProperty<string>? BillingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_type")?.Value;
-        set => this.WithProperty("billing_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("billing_type");
+        set => this.WithProperty("billing_type", value);
     }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting control plane data that is stored in a multi region.
     /// Only used for the data residency region &amp;quot;US&amp;quot; or &amp;quot;EU&amp;quot;.
     /// </summary>
-    public string? ControlPlaneEncryptionKeyName
+    public TerraformLiteralProperty<string>? ControlPlaneEncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_plane_encryption_key_name")?.Value;
-        set => this.WithProperty("control_plane_encryption_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("control_plane_encryption_key_name");
+        set => this.WithProperty("control_plane_encryption_key_name", value);
     }
 
     /// <summary>
     /// Description of the Apigee organization.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -95,37 +95,37 @@ public class GoogleApigeeOrganization : TerraformResource
     /// Valid only when &#39;RuntimeType&#39; is set to CLOUD. The value must be set before the creation
     /// of any Apigee runtime instance and can be updated only when there are no runtime instances.
     /// </summary>
-    public bool? DisableVpcPeering
+    public TerraformLiteralProperty<bool>? DisableVpcPeering
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_vpc_peering")?.Value;
-        set => this.WithProperty("disable_vpc_peering", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_vpc_peering");
+        set => this.WithProperty("disable_vpc_peering", value);
     }
 
     /// <summary>
     /// The display name of the Apigee organization.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project ID associated with the Apigee organization.
     /// </summary>
-    public string? ProjectId
+    public TerraformLiteralProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_id")?.Value;
-        set => this.WithProperty("project_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project_id");
+        set => this.WithProperty("project_id", value);
     }
 
     /// <summary>
@@ -134,10 +134,10 @@ public class GoogleApigeeOrganization : TerraformResource
     /// operation completes. During this period, the Organization may be restored to its last known state.
     /// After this period, the Organization will no longer be able to be restored. Default value: &amp;quot;DELETION_RETENTION_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;DELETION_RETENTION_UNSPECIFIED&amp;quot;, &amp;quot;MINIMUM&amp;quot;]
     /// </summary>
-    public string? Retention
+    public TerraformLiteralProperty<string>? Retention
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retention")?.Value;
-        set => this.WithProperty("retention", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("retention");
+        set => this.WithProperty("retention", value);
     }
 
     /// <summary>
@@ -146,19 +146,19 @@ public class GoogleApigeeOrganization : TerraformResource
     /// If not specified, a Google-Managed encryption key will be used.
     /// Valid only when &#39;RuntimeType&#39; is CLOUD. For example: &#39;projects/foo/locations/us/keyRings/bar/cryptoKeys/baz&#39;.
     /// </summary>
-    public string? RuntimeDatabaseEncryptionKeyName
+    public TerraformLiteralProperty<string>? RuntimeDatabaseEncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime_database_encryption_key_name")?.Value;
-        set => this.WithProperty("runtime_database_encryption_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("runtime_database_encryption_key_name");
+        set => this.WithProperty("runtime_database_encryption_key_name", value);
     }
 
     /// <summary>
     /// Runtime type of the Apigee organization based on the Apigee subscription purchased. Default value: &amp;quot;CLOUD&amp;quot; Possible values: [&amp;quot;CLOUD&amp;quot;, &amp;quot;HYBRID&amp;quot;]
     /// </summary>
-    public string? RuntimeType
+    public TerraformLiteralProperty<string>? RuntimeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime_type")?.Value;
-        set => this.WithProperty("runtime_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("runtime_type");
+        set => this.WithProperty("runtime_type", value);
     }
 
     /// <summary>

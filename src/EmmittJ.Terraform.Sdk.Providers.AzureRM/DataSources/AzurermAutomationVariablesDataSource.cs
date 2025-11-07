@@ -26,19 +26,19 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    public string? AutomationAccountId
+    public TerraformLiteralProperty<string>? AutomationAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id")?.Value;
-        set => this.WithProperty("automation_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id");
+        set => this.WithProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

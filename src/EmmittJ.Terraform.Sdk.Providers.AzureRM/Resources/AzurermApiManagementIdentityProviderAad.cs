@@ -19,73 +19,73 @@ public class AzurermApiManagementIdentityProviderAad : TerraformResource
     /// <summary>
     /// The allowed_tenants attribute.
     /// </summary>
-    public List<string>? AllowedTenants
+    public TerraformLiteralProperty<List<string>>? AllowedTenants
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_tenants")?.Value;
-        set => this.WithProperty("allowed_tenants", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_tenants");
+        set => this.WithProperty("allowed_tenants", value);
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public string? ApiManagementName
+    public TerraformLiteralProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name")?.Value;
-        set => this.WithProperty("api_management_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The client_library attribute.
     /// </summary>
-    public string? ClientLibrary
+    public TerraformLiteralProperty<string>? ClientLibrary
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_library")?.Value;
-        set => this.WithProperty("client_library", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_library");
+        set => this.WithProperty("client_library", value);
     }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public string? ClientSecret
+    public TerraformLiteralProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret")?.Value;
-        set => this.WithProperty("client_secret", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        set => this.WithProperty("client_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The signin_tenant attribute.
     /// </summary>
-    public string? SigninTenant
+    public TerraformLiteralProperty<string>? SigninTenant
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signin_tenant")?.Value;
-        set => this.WithProperty("signin_tenant", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("signin_tenant");
+        set => this.WithProperty("signin_tenant", value);
     }
 
 }

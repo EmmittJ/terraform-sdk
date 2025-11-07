@@ -24,55 +24,55 @@ public class AwsLicensemanagerGrant : TerraformResource
     /// <summary>
     /// Allowed operations for the grant. This is a subset of the allowed operations on the license.
     /// </summary>
-    public HashSet<string>? AllowedOperations
+    public TerraformLiteralProperty<HashSet<string>>? AllowedOperations
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_operations")?.Value;
-        set => this.WithProperty("allowed_operations", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_operations");
+        set => this.WithProperty("allowed_operations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// License ARN.
     /// </summary>
-    public string? LicenseArn
+    public TerraformLiteralProperty<string>? LicenseArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_arn")?.Value;
-        set => this.WithProperty("license_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_arn");
+        set => this.WithProperty("license_arn", value);
     }
 
     /// <summary>
     /// Name of the grant.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
     /// </summary>
-    public string? Principal
+    public TerraformLiteralProperty<string>? Principal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal")?.Value;
-        set => this.WithProperty("principal", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal");
+        set => this.WithProperty("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

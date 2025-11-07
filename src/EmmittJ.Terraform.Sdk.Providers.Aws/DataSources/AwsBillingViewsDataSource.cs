@@ -20,10 +20,10 @@ public class AwsBillingViewsDataSource : TerraformDataSource
     /// <summary>
     /// The billing_view_types attribute.
     /// </summary>
-    public List<string>? BillingViewTypes
+    public TerraformLiteralProperty<List<string>>? BillingViewTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("billing_view_types")?.Value;
-        set => this.WithProperty("billing_view_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("billing_view_types");
+        set => this.WithProperty("billing_view_types", value);
     }
 
     /// <summary>

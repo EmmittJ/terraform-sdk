@@ -26,64 +26,64 @@ public class AzurermFunctionAppFunction : TerraformResource
     /// <summary>
     /// The config for this Function in JSON format.
     /// </summary>
-    public string? ConfigJson
+    public TerraformLiteralProperty<string>? ConfigJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config_json")?.Value;
-        set => this.WithProperty("config_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config_json");
+        set => this.WithProperty("config_json", value);
     }
 
     /// <summary>
     /// Should this function be enabled. Defaults to `true`.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The ID of the Function App in which this function should reside.
     /// </summary>
-    public string? FunctionAppId
+    public TerraformLiteralProperty<string>? FunctionAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id")?.Value;
-        set => this.WithProperty("function_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id");
+        set => this.WithProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The language the Function is written in.
     /// </summary>
-    public string? Language
+    public TerraformLiteralProperty<string>? Language
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language")?.Value;
-        set => this.WithProperty("language", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("language");
+        set => this.WithProperty("language", value);
     }
 
     /// <summary>
     /// The name of the function.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The test data for the function.
     /// </summary>
-    public string? TestData
+    public TerraformLiteralProperty<string>? TestData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("test_data")?.Value;
-        set => this.WithProperty("test_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("test_data");
+        set => this.WithProperty("test_data", value);
     }
 
     /// <summary>

@@ -20,19 +20,19 @@ public class AwsPricingProductDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The service_code attribute.
     /// </summary>
-    public string? ServiceCode
+    public TerraformLiteralProperty<string>? ServiceCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_code")?.Value;
-        set => this.WithProperty("service_code", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_code");
+        set => this.WithProperty("service_code", value);
     }
 
     /// <summary>

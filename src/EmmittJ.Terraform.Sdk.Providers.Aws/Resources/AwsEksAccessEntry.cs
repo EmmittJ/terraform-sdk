@@ -22,82 +22,82 @@ public class AwsEksAccessEntry : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public string? ClusterName
+    public TerraformLiteralProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name")?.Value;
-        set => this.WithProperty("cluster_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kubernetes_groups attribute.
     /// </summary>
-    public HashSet<string>? KubernetesGroups
+    public TerraformLiteralProperty<HashSet<string>>? KubernetesGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("kubernetes_groups")?.Value;
-        set => this.WithProperty("kubernetes_groups", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("kubernetes_groups");
+        set => this.WithProperty("kubernetes_groups", value);
     }
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
-    public string? PrincipalArn
+    public TerraformLiteralProperty<string>? PrincipalArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_arn")?.Value;
-        set => this.WithProperty("principal_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_arn");
+        set => this.WithProperty("principal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public string? UserName
+    public TerraformLiteralProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name")?.Value;
-        set => this.WithProperty("user_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        set => this.WithProperty("user_name", value);
     }
 
     /// <summary>

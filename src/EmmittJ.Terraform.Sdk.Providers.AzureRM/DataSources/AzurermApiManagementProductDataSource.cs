@@ -26,37 +26,37 @@ public class AzurermApiManagementProductDataSource : TerraformDataSource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public string? ApiManagementName
+    public TerraformLiteralProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name")?.Value;
-        set => this.WithProperty("api_management_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public string? ProductId
+    public TerraformLiteralProperty<string>? ProductId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_id")?.Value;
-        set => this.WithProperty("product_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("product_id");
+        set => this.WithProperty("product_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>

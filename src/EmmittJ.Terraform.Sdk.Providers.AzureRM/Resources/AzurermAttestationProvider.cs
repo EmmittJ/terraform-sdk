@@ -21,91 +21,91 @@ public class AzurermAttestationProvider : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The open_enclave_policy_base64 attribute.
     /// </summary>
-    public string? OpenEnclavePolicyBase64
+    public TerraformLiteralProperty<string>? OpenEnclavePolicyBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("open_enclave_policy_base64")?.Value;
-        set => this.WithProperty("open_enclave_policy_base64", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("open_enclave_policy_base64");
+        set => this.WithProperty("open_enclave_policy_base64", value);
     }
 
     /// <summary>
     /// The policy_signing_certificate_data attribute.
     /// </summary>
-    public string? PolicySigningCertificateData
+    public TerraformLiteralProperty<string>? PolicySigningCertificateData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_signing_certificate_data")?.Value;
-        set => this.WithProperty("policy_signing_certificate_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_signing_certificate_data");
+        set => this.WithProperty("policy_signing_certificate_data", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sev_snp_policy_base64 attribute.
     /// </summary>
-    public string? SevSnpPolicyBase64
+    public TerraformLiteralProperty<string>? SevSnpPolicyBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sev_snp_policy_base64")?.Value;
-        set => this.WithProperty("sev_snp_policy_base64", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sev_snp_policy_base64");
+        set => this.WithProperty("sev_snp_policy_base64", value);
     }
 
     /// <summary>
     /// The sgx_enclave_policy_base64 attribute.
     /// </summary>
-    public string? SgxEnclavePolicyBase64
+    public TerraformLiteralProperty<string>? SgxEnclavePolicyBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sgx_enclave_policy_base64")?.Value;
-        set => this.WithProperty("sgx_enclave_policy_base64", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sgx_enclave_policy_base64");
+        set => this.WithProperty("sgx_enclave_policy_base64", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tpm_policy_base64 attribute.
     /// </summary>
-    public string? TpmPolicyBase64
+    public TerraformLiteralProperty<string>? TpmPolicyBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tpm_policy_base64")?.Value;
-        set => this.WithProperty("tpm_policy_base64", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tpm_policy_base64");
+        set => this.WithProperty("tpm_policy_base64", value);
     }
 
     /// <summary>

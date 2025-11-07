@@ -19,82 +19,82 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The importance attribute.
     /// </summary>
-    public string? Importance
+    public TerraformLiteralProperty<string>? Importance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("importance")?.Value;
-        set => this.WithProperty("importance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("importance");
+        set => this.WithProperty("importance", value);
     }
 
     /// <summary>
     /// The max_resource_percent attribute.
     /// </summary>
-    public double? MaxResourcePercent
+    public TerraformLiteralProperty<double>? MaxResourcePercent
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_resource_percent")?.Value;
-        set => this.WithProperty("max_resource_percent", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_resource_percent");
+        set => this.WithProperty("max_resource_percent", value);
     }
 
     /// <summary>
     /// The max_resource_percent_per_request attribute.
     /// </summary>
-    public double? MaxResourcePercentPerRequest
+    public TerraformLiteralProperty<double>? MaxResourcePercentPerRequest
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_resource_percent_per_request")?.Value;
-        set => this.WithProperty("max_resource_percent_per_request", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_resource_percent_per_request");
+        set => this.WithProperty("max_resource_percent_per_request", value);
     }
 
     /// <summary>
     /// The min_resource_percent attribute.
     /// </summary>
-    public double? MinResourcePercent
+    public TerraformLiteralProperty<double>? MinResourcePercent
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_resource_percent")?.Value;
-        set => this.WithProperty("min_resource_percent", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_resource_percent");
+        set => this.WithProperty("min_resource_percent", value);
     }
 
     /// <summary>
     /// The min_resource_percent_per_request attribute.
     /// </summary>
-    public double? MinResourcePercentPerRequest
+    public TerraformLiteralProperty<double>? MinResourcePercentPerRequest
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_resource_percent_per_request")?.Value;
-        set => this.WithProperty("min_resource_percent_per_request", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_resource_percent_per_request");
+        set => this.WithProperty("min_resource_percent_per_request", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_execution_timeout_in_seconds attribute.
     /// </summary>
-    public double? QueryExecutionTimeoutInSeconds
+    public TerraformLiteralProperty<double>? QueryExecutionTimeoutInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("query_execution_timeout_in_seconds")?.Value;
-        set => this.WithProperty("query_execution_timeout_in_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("query_execution_timeout_in_seconds");
+        set => this.WithProperty("query_execution_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The sql_pool_id attribute.
     /// </summary>
-    public string? SqlPoolId
+    public TerraformLiteralProperty<string>? SqlPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_pool_id")?.Value;
-        set => this.WithProperty("sql_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sql_pool_id");
+        set => this.WithProperty("sql_pool_id", value);
     }
 
 }

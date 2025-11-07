@@ -23,82 +23,82 @@ public class AwsQuicksightVpcConnection : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public string? AwsAccountId
+    public TerraformLiteralProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id")?.Value;
-        set => this.WithProperty("aws_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The dns_resolvers attribute.
     /// </summary>
-    public HashSet<string>? DnsResolvers
+    public TerraformLiteralProperty<HashSet<string>>? DnsResolvers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("dns_resolvers")?.Value;
-        set => this.WithProperty("dns_resolvers", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("dns_resolvers");
+        set => this.WithProperty("dns_resolvers", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids")?.Value;
-        set => this.WithProperty("security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<string>? SubnetIds
+    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids")?.Value;
-        set => this.WithProperty("subnet_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_connection_id attribute.
     /// </summary>
-    public string? VpcConnectionId
+    public TerraformLiteralProperty<string>? VpcConnectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_connection_id")?.Value;
-        set => this.WithProperty("vpc_connection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_connection_id");
+        set => this.WithProperty("vpc_connection_id", value);
     }
 
     /// <summary>

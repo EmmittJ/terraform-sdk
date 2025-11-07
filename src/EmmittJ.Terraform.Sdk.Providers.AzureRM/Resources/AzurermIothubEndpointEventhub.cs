@@ -19,91 +19,91 @@ public class AzurermIothubEndpointEventhub : TerraformResource
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public string? AuthenticationType
+    public TerraformLiteralProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type")?.Value;
-        set => this.WithProperty("authentication_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public string? ConnectionString
+    public TerraformLiteralProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string")?.Value;
-        set => this.WithProperty("connection_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    public string? EndpointUri
+    public TerraformLiteralProperty<string>? EndpointUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_uri")?.Value;
-        set => this.WithProperty("endpoint_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_uri");
+        set => this.WithProperty("endpoint_uri", value);
     }
 
     /// <summary>
     /// The entity_path attribute.
     /// </summary>
-    public string? EntityPath
+    public TerraformLiteralProperty<string>? EntityPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entity_path")?.Value;
-        set => this.WithProperty("entity_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("entity_path");
+        set => this.WithProperty("entity_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public string? IdentityId
+    public TerraformLiteralProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_id")?.Value;
-        set => this.WithProperty("identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_id");
+        set => this.WithProperty("identity_id", value);
     }
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
-    public string? IothubId
+    public TerraformLiteralProperty<string>? IothubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id")?.Value;
-        set => this.WithProperty("iothub_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id");
+        set => this.WithProperty("iothub_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public string? SubscriptionId
+    public TerraformLiteralProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id")?.Value;
-        set => this.WithProperty("subscription_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        set => this.WithProperty("subscription_id", value);
     }
 
 }

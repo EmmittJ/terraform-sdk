@@ -19,55 +19,55 @@ public class AwsLbTargetGroupAttachment : TerraformResource
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The target_group_arn attribute.
     /// </summary>
-    public string? TargetGroupArn
+    public TerraformLiteralProperty<string>? TargetGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_group_arn")?.Value;
-        set => this.WithProperty("target_group_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_group_arn");
+        set => this.WithProperty("target_group_arn", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public string? TargetId
+    public TerraformLiteralProperty<string>? TargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_id")?.Value;
-        set => this.WithProperty("target_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_id");
+        set => this.WithProperty("target_id", value);
     }
 
 }

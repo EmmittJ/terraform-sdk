@@ -39,10 +39,10 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// &amp;quot;&#39;admins&#39; in google.groups&amp;quot;
     /// &#39;&#39;&#39;
     /// </summary>
-    public string? AttributeCondition
+    public TerraformLiteralProperty<string>? AttributeCondition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attribute_condition")?.Value;
-        set => this.WithProperty("attribute_condition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("attribute_condition");
+        set => this.WithProperty("attribute_condition", value);
     }
 
     /// <summary>
@@ -98,56 +98,56 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// An object containing a list of &#39;&amp;quot;key&amp;quot;: value&#39; pairs.
     /// Example: &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
     /// </summary>
-    public Dictionary<string, string>? AttributeMapping
+    public TerraformLiteralProperty<Dictionary<string, string>>? AttributeMapping
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attribute_mapping")?.Value;
-        set => this.WithProperty("attribute_mapping", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attribute_mapping");
+        set => this.WithProperty("attribute_mapping", value);
     }
 
     /// <summary>
     /// A user-specified description of the provider. Cannot exceed 256 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
     /// However, existing tokens still grant access.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// A user-specified display name for the provider. Cannot exceed 32 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -155,10 +155,10 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// The prefix &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public string? ProviderId
+    public TerraformLiteralProperty<string>? ProviderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_id")?.Value;
-        set => this.WithProperty("provider_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provider_id");
+        set => this.WithProperty("provider_id", value);
     }
 
     /// <summary>
@@ -173,10 +173,10 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// * ENABLED_FOR_GROUPS: Use SCIM-managed groups instead of the &#39;google.groups&#39;
     ///   attribute mapping for authorization checks Possible values: [&amp;quot;SCIM_USAGE_UNSPECIFIED&amp;quot;, &amp;quot;ENABLED_FOR_GROUPS&amp;quot;]
     /// </summary>
-    public string? ScimUsage
+    public TerraformLiteralProperty<string>? ScimUsage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scim_usage")?.Value;
-        set => this.WithProperty("scim_usage", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scim_usage");
+        set => this.WithProperty("scim_usage", value);
     }
 
     /// <summary>
@@ -185,10 +185,10 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// It must start with a letter, and cannot have a trailing hyphen.
     /// The prefix &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public string? WorkforcePoolId
+    public TerraformLiteralProperty<string>? WorkforcePoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id")?.Value;
-        set => this.WithProperty("workforce_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id");
+        set => this.WithProperty("workforce_pool_id", value);
     }
 
     /// <summary>

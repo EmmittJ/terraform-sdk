@@ -19,73 +19,73 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     /// <summary>
     /// The accumulated attribute.
     /// </summary>
-    public bool? Accumulated
+    public TerraformLiteralProperty<bool>? Accumulated
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("accumulated")?.Value;
-        set => this.WithProperty("accumulated", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("accumulated");
+        set => this.WithProperty("accumulated", value);
     }
 
     /// <summary>
     /// The chart_type attribute.
     /// </summary>
-    public string? ChartType
+    public TerraformLiteralProperty<string>? ChartType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("chart_type")?.Value;
-        set => this.WithProperty("chart_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("chart_type");
+        set => this.WithProperty("chart_type", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The report_type attribute.
     /// </summary>
-    public string? ReportType
+    public TerraformLiteralProperty<string>? ReportType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("report_type")?.Value;
-        set => this.WithProperty("report_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("report_type");
+        set => this.WithProperty("report_type", value);
     }
 
     /// <summary>
     /// The resource_group_id attribute.
     /// </summary>
-    public string? ResourceGroupId
+    public TerraformLiteralProperty<string>? ResourceGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_id")?.Value;
-        set => this.WithProperty("resource_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_id");
+        set => this.WithProperty("resource_group_id", value);
     }
 
     /// <summary>
     /// The timeframe attribute.
     /// </summary>
-    public string? Timeframe
+    public TerraformLiteralProperty<string>? Timeframe
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timeframe")?.Value;
-        set => this.WithProperty("timeframe", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timeframe");
+        set => this.WithProperty("timeframe", value);
     }
 
 }

@@ -19,28 +19,28 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     /// <summary>
     /// The cpu_credits attribute.
     /// </summary>
-    public string? CpuCredits
+    public TerraformLiteralProperty<string>? CpuCredits
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cpu_credits")?.Value;
-        set => this.WithProperty("cpu_credits", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cpu_credits");
+        set => this.WithProperty("cpu_credits", value);
     }
 
     /// <summary>
     /// The instance_family attribute.
     /// </summary>
-    public string? InstanceFamily
+    public TerraformLiteralProperty<string>? InstanceFamily
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_family")?.Value;
-        set => this.WithProperty("instance_family", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_family");
+        set => this.WithProperty("instance_family", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

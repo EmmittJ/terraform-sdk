@@ -19,46 +19,46 @@ public class AzurermRouteServerBgpConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
-    public double? PeerAsn
+    public TerraformLiteralProperty<double>? PeerAsn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("peer_asn")?.Value;
-        set => this.WithProperty("peer_asn", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("peer_asn");
+        set => this.WithProperty("peer_asn", value);
     }
 
     /// <summary>
     /// The peer_ip attribute.
     /// </summary>
-    public string? PeerIp
+    public TerraformLiteralProperty<string>? PeerIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_ip")?.Value;
-        set => this.WithProperty("peer_ip", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("peer_ip");
+        set => this.WithProperty("peer_ip", value);
     }
 
     /// <summary>
     /// The route_server_id attribute.
     /// </summary>
-    public string? RouteServerId
+    public TerraformLiteralProperty<string>? RouteServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_server_id")?.Value;
-        set => this.WithProperty("route_server_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("route_server_id");
+        set => this.WithProperty("route_server_id", value);
     }
 
 }

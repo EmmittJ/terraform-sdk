@@ -21,46 +21,46 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition : Terraf
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_hsm_id attribute.
     /// </summary>
-    public string? ManagedHsmId
+    public TerraformLiteralProperty<string>? ManagedHsmId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_id")?.Value;
-        set => this.WithProperty("managed_hsm_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_id");
+        set => this.WithProperty("managed_hsm_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public string? RoleName
+    public TerraformLiteralProperty<string>? RoleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_name")?.Value;
-        set => this.WithProperty("role_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_name");
+        set => this.WithProperty("role_name", value);
     }
 
     /// <summary>

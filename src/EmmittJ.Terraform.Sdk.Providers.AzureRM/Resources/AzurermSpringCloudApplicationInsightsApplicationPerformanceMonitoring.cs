@@ -19,82 +19,82 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public string? ConnectionString
+    public TerraformLiteralProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string")?.Value;
-        set => this.WithProperty("connection_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public bool? GloballyEnabled
+    public TerraformLiteralProperty<bool>? GloballyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled")?.Value;
-        set => this.WithProperty("globally_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled");
+        set => this.WithProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The role_instance attribute.
     /// </summary>
-    public string? RoleInstance
+    public TerraformLiteralProperty<string>? RoleInstance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_instance")?.Value;
-        set => this.WithProperty("role_instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_instance");
+        set => this.WithProperty("role_instance", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public string? RoleName
+    public TerraformLiteralProperty<string>? RoleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_name")?.Value;
-        set => this.WithProperty("role_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_name");
+        set => this.WithProperty("role_name", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public double? SamplingPercentage
+    public TerraformLiteralProperty<double>? SamplingPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_percentage")?.Value;
-        set => this.WithProperty("sampling_percentage", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("sampling_percentage");
+        set => this.WithProperty("sampling_percentage", value);
     }
 
     /// <summary>
     /// The sampling_requests_per_second attribute.
     /// </summary>
-    public double? SamplingRequestsPerSecond
+    public TerraformLiteralProperty<double>? SamplingRequestsPerSecond
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_requests_per_second")?.Value;
-        set => this.WithProperty("sampling_requests_per_second", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("sampling_requests_per_second");
+        set => this.WithProperty("sampling_requests_per_second", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public string? SpringCloudServiceId
+    public TerraformLiteralProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id")?.Value;
-        set => this.WithProperty("spring_cloud_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        set => this.WithProperty("spring_cloud_service_id", value);
     }
 
 }

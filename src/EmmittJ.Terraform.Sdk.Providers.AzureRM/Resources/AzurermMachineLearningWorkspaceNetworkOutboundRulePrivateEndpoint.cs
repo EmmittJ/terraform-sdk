@@ -19,55 +19,55 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The service_resource_id attribute.
     /// </summary>
-    public string? ServiceResourceId
+    public TerraformLiteralProperty<string>? ServiceResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_resource_id")?.Value;
-        set => this.WithProperty("service_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_resource_id");
+        set => this.WithProperty("service_resource_id", value);
     }
 
     /// <summary>
     /// The spark_enabled attribute.
     /// </summary>
-    public bool? SparkEnabled
+    public TerraformLiteralProperty<bool>? SparkEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("spark_enabled")?.Value;
-        set => this.WithProperty("spark_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("spark_enabled");
+        set => this.WithProperty("spark_enabled", value);
     }
 
     /// <summary>
     /// The sub_resource_target attribute.
     /// </summary>
-    public string? SubResourceTarget
+    public TerraformLiteralProperty<string>? SubResourceTarget
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sub_resource_target")?.Value;
-        set => this.WithProperty("sub_resource_target", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sub_resource_target");
+        set => this.WithProperty("sub_resource_target", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
 }

@@ -20,37 +20,37 @@ public class AwsRoute53ZoneAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    public string? VpcRegion
+    public TerraformLiteralProperty<string>? VpcRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_region")?.Value;
-        set => this.WithProperty("vpc_region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_region");
+        set => this.WithProperty("vpc_region", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public string? ZoneId
+    public TerraformLiteralProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id")?.Value;
-        set => this.WithProperty("zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        set => this.WithProperty("zone_id", value);
     }
 
     /// <summary>

@@ -19,100 +19,100 @@ public class AzurermMonitorSmartDetectorAlertRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The detector_type attribute.
     /// </summary>
-    public string? DetectorType
+    public TerraformLiteralProperty<string>? DetectorType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detector_type")?.Value;
-        set => this.WithProperty("detector_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("detector_type");
+        set => this.WithProperty("detector_type", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public string? Frequency
+    public TerraformLiteralProperty<string>? Frequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frequency")?.Value;
-        set => this.WithProperty("frequency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("frequency");
+        set => this.WithProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scope_resource_ids attribute.
     /// </summary>
-    public HashSet<string>? ScopeResourceIds
+    public TerraformLiteralProperty<HashSet<string>>? ScopeResourceIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scope_resource_ids")?.Value;
-        set => this.WithProperty("scope_resource_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scope_resource_ids");
+        set => this.WithProperty("scope_resource_ids", value);
     }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public string? Severity
+    public TerraformLiteralProperty<string>? Severity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("severity")?.Value;
-        set => this.WithProperty("severity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("severity");
+        set => this.WithProperty("severity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The throttling_duration attribute.
     /// </summary>
-    public string? ThrottlingDuration
+    public TerraformLiteralProperty<string>? ThrottlingDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("throttling_duration")?.Value;
-        set => this.WithProperty("throttling_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("throttling_duration");
+        set => this.WithProperty("throttling_duration", value);
     }
 
 }

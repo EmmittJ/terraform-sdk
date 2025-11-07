@@ -21,56 +21,56 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
-    public string? ConfigId
+    public TerraformLiteralProperty<string>? ConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config_id")?.Value;
-        set => this.WithProperty("config_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config_id");
+        set => this.WithProperty("config_id", value);
     }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Numerical ID of the parent folder.
     /// </summary>
-    public string? Folder
+    public TerraformLiteralProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder")?.Value;
-        set => this.WithProperty("folder", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location ID of the parent organization. If not provided, &#39;global&#39; will be used as the default location.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The Pub/Sub topic to send notifications to. Its format is
     /// &amp;quot;projects/[project_id]/topics/[topic]&amp;quot;.
     /// </summary>
-    public string? PubsubTopic
+    public TerraformLiteralProperty<string>? PubsubTopic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pubsub_topic")?.Value;
-        set => this.WithProperty("pubsub_topic", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pubsub_topic");
+        set => this.WithProperty("pubsub_topic", value);
     }
 
     /// <summary>

@@ -20,55 +20,55 @@ public class AwsRdsClusterActivityStream : TerraformResource
     /// <summary>
     /// The engine_native_audit_fields_included attribute.
     /// </summary>
-    public bool? EngineNativeAuditFieldsIncluded
+    public TerraformLiteralProperty<bool>? EngineNativeAuditFieldsIncluded
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("engine_native_audit_fields_included")?.Value;
-        set => this.WithProperty("engine_native_audit_fields_included", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("engine_native_audit_fields_included");
+        set => this.WithProperty("engine_native_audit_fields_included", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public string? Mode
+    public TerraformLiteralProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode")?.Value;
-        set => this.WithProperty("mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public string? ResourceArn
+    public TerraformLiteralProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn")?.Value;
-        set => this.WithProperty("resource_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        set => this.WithProperty("resource_arn", value);
     }
 
     /// <summary>

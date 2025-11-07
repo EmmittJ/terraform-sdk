@@ -21,37 +21,37 @@ public class GoogleBigqueryConnection : TerraformResource
     /// <summary>
     /// Optional connection id that should be assigned to the created connection.
     /// </summary>
-    public string? ConnectionId
+    public TerraformLiteralProperty<string>? ConnectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_id")?.Value;
-        set => this.WithProperty("connection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_id");
+        set => this.WithProperty("connection_id", value);
     }
 
     /// <summary>
     /// A descriptive description for the connection
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A descriptive name for the connection
     /// </summary>
-    public string? FriendlyName
+    public TerraformLiteralProperty<string>? FriendlyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name")?.Value;
-        set => this.WithProperty("friendly_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name");
+        set => this.WithProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -59,10 +59,10 @@ public class GoogleBigqueryConnection : TerraformResource
     /// 
     /// Example: projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
     /// </summary>
-    public string? KmsKeyName
+    public TerraformLiteralProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name")?.Value;
-        set => this.WithProperty("kms_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name");
+        set => this.WithProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -74,19 +74,19 @@ public class GoogleBigqueryConnection : TerraformResource
     /// AWS allowed regions are aws-us-east-1
     /// Azure allowed regions are azure-eastus2
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

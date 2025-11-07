@@ -19,19 +19,19 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// <summary>
     /// Description of the AccessLevel and its use. Does not affect behavior.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -39,29 +39,29 @@ public class GoogleAccessContextManagerAccessLevel : TerraformResource
     /// with a letter and only include alphanumeric and &#39;_&#39;.
     /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The AccessPolicy this AccessLevel lives in.
     /// Format: accessPolicies/{policy_id}
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
     /// </summary>
-    public string? Title
+    public TerraformLiteralProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title")?.Value;
-        set => this.WithProperty("title", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        set => this.WithProperty("title", value);
     }
 
 }

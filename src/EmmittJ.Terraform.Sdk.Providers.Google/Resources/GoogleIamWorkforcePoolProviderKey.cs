@@ -22,55 +22,55 @@ public class GoogleIamWorkforcePoolProviderKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID to use for the key, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// </summary>
-    public string? KeyId
+    public TerraformLiteralProperty<string>? KeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_id")?.Value;
-        set => this.WithProperty("key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_id");
+        set => this.WithProperty("key_id", value);
     }
 
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the provider.
     /// </summary>
-    public string? ProviderId
+    public TerraformLiteralProperty<string>? ProviderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_id")?.Value;
-        set => this.WithProperty("provider_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provider_id");
+        set => this.WithProperty("provider_id", value);
     }
 
     /// <summary>
     /// The purpose of the key. Possible values: [&amp;quot;ENCRYPTION&amp;quot;]
     /// </summary>
-    public string? Use
+    public TerraformLiteralProperty<string>? Use
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("use")?.Value;
-        set => this.WithProperty("use", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("use");
+        set => this.WithProperty("use", value);
     }
 
     /// <summary>
     /// The ID of the workforce pool.
     /// </summary>
-    public string? WorkforcePoolId
+    public TerraformLiteralProperty<string>? WorkforcePoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id")?.Value;
-        set => this.WithProperty("workforce_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id");
+        set => this.WithProperty("workforce_pool_id", value);
     }
 
     /// <summary>

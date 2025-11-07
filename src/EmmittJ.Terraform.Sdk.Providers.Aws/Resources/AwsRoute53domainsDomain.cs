@@ -30,100 +30,100 @@ public class AwsRoute53domainsDomain : TerraformResource
     /// <summary>
     /// The admin_privacy attribute.
     /// </summary>
-    public bool? AdminPrivacy
+    public TerraformLiteralProperty<bool>? AdminPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("admin_privacy")?.Value;
-        set => this.WithProperty("admin_privacy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("admin_privacy");
+        set => this.WithProperty("admin_privacy", value);
     }
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
-    public bool? AutoRenew
+    public TerraformLiteralProperty<bool>? AutoRenew
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew")?.Value;
-        set => this.WithProperty("auto_renew", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew");
+        set => this.WithProperty("auto_renew", value);
     }
 
     /// <summary>
     /// The billing_contact attribute.
     /// </summary>
-    public List<object>? BillingContact
+    public TerraformLiteralProperty<List<object>>? BillingContact
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("billing_contact")?.Value;
-        set => this.WithProperty("billing_contact", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("billing_contact");
+        set => this.WithProperty("billing_contact", value);
     }
 
     /// <summary>
     /// The billing_privacy attribute.
     /// </summary>
-    public bool? BillingPrivacy
+    public TerraformLiteralProperty<bool>? BillingPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("billing_privacy")?.Value;
-        set => this.WithProperty("billing_privacy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("billing_privacy");
+        set => this.WithProperty("billing_privacy", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public string? DomainName
+    public TerraformLiteralProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name")?.Value;
-        set => this.WithProperty("domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The duration_in_years attribute.
     /// </summary>
-    public double? DurationInYears
+    public TerraformLiteralProperty<double>? DurationInYears
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_in_years")?.Value;
-        set => this.WithProperty("duration_in_years", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("duration_in_years");
+        set => this.WithProperty("duration_in_years", value);
     }
 
     /// <summary>
     /// The name_server attribute.
     /// </summary>
-    public List<object>? NameServer
+    public TerraformLiteralProperty<List<object>>? NameServer
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("name_server")?.Value;
-        set => this.WithProperty("name_server", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("name_server");
+        set => this.WithProperty("name_server", value);
     }
 
     /// <summary>
     /// The registrant_privacy attribute.
     /// </summary>
-    public bool? RegistrantPrivacy
+    public TerraformLiteralProperty<bool>? RegistrantPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registrant_privacy")?.Value;
-        set => this.WithProperty("registrant_privacy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("registrant_privacy");
+        set => this.WithProperty("registrant_privacy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tech_privacy attribute.
     /// </summary>
-    public bool? TechPrivacy
+    public TerraformLiteralProperty<bool>? TechPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tech_privacy")?.Value;
-        set => this.WithProperty("tech_privacy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("tech_privacy");
+        set => this.WithProperty("tech_privacy", value);
     }
 
     /// <summary>
     /// The transfer_lock attribute.
     /// </summary>
-    public bool? TransferLock
+    public TerraformLiteralProperty<bool>? TransferLock
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("transfer_lock")?.Value;
-        set => this.WithProperty("transfer_lock", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("transfer_lock");
+        set => this.WithProperty("transfer_lock", value);
     }
 
     /// <summary>

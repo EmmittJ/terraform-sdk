@@ -20,55 +20,55 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public string? Action
+    public TerraformLiteralProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action")?.Value;
-        set => this.WithProperty("action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The filter_type attribute.
     /// </summary>
-    public string? FilterType
+    public TerraformLiteralProperty<string>? FilterType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_type")?.Value;
-        set => this.WithProperty("filter_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter_type");
+        set => this.WithProperty("filter_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sql_filter attribute.
     /// </summary>
-    public string? SqlFilter
+    public TerraformLiteralProperty<string>? SqlFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_filter")?.Value;
-        set => this.WithProperty("sql_filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sql_filter");
+        set => this.WithProperty("sql_filter", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public string? SubscriptionId
+    public TerraformLiteralProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id")?.Value;
-        set => this.WithProperty("subscription_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        set => this.WithProperty("subscription_id", value);
     }
 
     /// <summary>

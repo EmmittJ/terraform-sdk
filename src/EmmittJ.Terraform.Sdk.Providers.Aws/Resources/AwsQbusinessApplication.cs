@@ -23,55 +23,55 @@ public class AwsQbusinessApplication : TerraformResource
     /// <summary>
     /// A description of the Amazon Q application.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name of the Amazon Q application.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the IAM service role that provides permissions for the Amazon Q application.
     /// </summary>
-    public string? IamServiceRoleArn
+    public TerraformLiteralProperty<string>? IamServiceRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_service_role_arn")?.Value;
-        set => this.WithProperty("iam_service_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_service_role_arn");
+        set => this.WithProperty("iam_service_role_arn", value);
     }
 
     /// <summary>
     /// ARN of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application
     /// </summary>
-    public string? IdentityCenterInstanceArn
+    public TerraformLiteralProperty<string>? IdentityCenterInstanceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_center_instance_arn")?.Value;
-        set => this.WithProperty("identity_center_instance_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_center_instance_arn");
+        set => this.WithProperty("identity_center_instance_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

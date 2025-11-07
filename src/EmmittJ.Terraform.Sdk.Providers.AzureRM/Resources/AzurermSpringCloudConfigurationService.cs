@@ -19,46 +19,46 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// <summary>
     /// The generation attribute.
     /// </summary>
-    public string? Generation
+    public TerraformLiteralProperty<string>? Generation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("generation")?.Value;
-        set => this.WithProperty("generation", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("generation");
+        set => this.WithProperty("generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The refresh_interval_in_seconds attribute.
     /// </summary>
-    public double? RefreshIntervalInSeconds
+    public TerraformLiteralProperty<double>? RefreshIntervalInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("refresh_interval_in_seconds")?.Value;
-        set => this.WithProperty("refresh_interval_in_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("refresh_interval_in_seconds");
+        set => this.WithProperty("refresh_interval_in_seconds", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public string? SpringCloudServiceId
+    public TerraformLiteralProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id")?.Value;
-        set => this.WithProperty("spring_cloud_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        set => this.WithProperty("spring_cloud_service_id", value);
     }
 
 }

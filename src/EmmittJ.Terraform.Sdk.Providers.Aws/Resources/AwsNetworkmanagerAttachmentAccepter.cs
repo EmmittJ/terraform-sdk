@@ -28,28 +28,28 @@ public class AwsNetworkmanagerAttachmentAccepter : TerraformResource
     /// <summary>
     /// The attachment_id attribute.
     /// </summary>
-    public string? AttachmentId
+    public TerraformLiteralProperty<string>? AttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attachment_id")?.Value;
-        set => this.WithProperty("attachment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("attachment_id");
+        set => this.WithProperty("attachment_id", value);
     }
 
     /// <summary>
     /// The attachment_type attribute.
     /// </summary>
-    public string? AttachmentType
+    public TerraformLiteralProperty<string>? AttachmentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attachment_type")?.Value;
-        set => this.WithProperty("attachment_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("attachment_type");
+        set => this.WithProperty("attachment_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

@@ -21,118 +21,118 @@ public class AwsSsmPatchBaseline : TerraformResource
     /// <summary>
     /// The approved_patches attribute.
     /// </summary>
-    public HashSet<string>? ApprovedPatches
+    public TerraformLiteralProperty<HashSet<string>>? ApprovedPatches
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("approved_patches")?.Value;
-        set => this.WithProperty("approved_patches", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("approved_patches");
+        set => this.WithProperty("approved_patches", value);
     }
 
     /// <summary>
     /// The approved_patches_compliance_level attribute.
     /// </summary>
-    public string? ApprovedPatchesComplianceLevel
+    public TerraformLiteralProperty<string>? ApprovedPatchesComplianceLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("approved_patches_compliance_level")?.Value;
-        set => this.WithProperty("approved_patches_compliance_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("approved_patches_compliance_level");
+        set => this.WithProperty("approved_patches_compliance_level", value);
     }
 
     /// <summary>
     /// The approved_patches_enable_non_security attribute.
     /// </summary>
-    public bool? ApprovedPatchesEnableNonSecurity
+    public TerraformLiteralProperty<bool>? ApprovedPatchesEnableNonSecurity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("approved_patches_enable_non_security")?.Value;
-        set => this.WithProperty("approved_patches_enable_non_security", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("approved_patches_enable_non_security");
+        set => this.WithProperty("approved_patches_enable_non_security", value);
     }
 
     /// <summary>
     /// The available_security_updates_compliance_status attribute.
     /// </summary>
-    public string? AvailableSecurityUpdatesComplianceStatus
+    public TerraformLiteralProperty<string>? AvailableSecurityUpdatesComplianceStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("available_security_updates_compliance_status")?.Value;
-        set => this.WithProperty("available_security_updates_compliance_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("available_security_updates_compliance_status");
+        set => this.WithProperty("available_security_updates_compliance_status", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    public string? OperatingSystem
+    public TerraformLiteralProperty<string>? OperatingSystem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operating_system")?.Value;
-        set => this.WithProperty("operating_system", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("operating_system");
+        set => this.WithProperty("operating_system", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rejected_patches attribute.
     /// </summary>
-    public HashSet<string>? RejectedPatches
+    public TerraformLiteralProperty<HashSet<string>>? RejectedPatches
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("rejected_patches")?.Value;
-        set => this.WithProperty("rejected_patches", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("rejected_patches");
+        set => this.WithProperty("rejected_patches", value);
     }
 
     /// <summary>
     /// The rejected_patches_action attribute.
     /// </summary>
-    public string? RejectedPatchesAction
+    public TerraformLiteralProperty<string>? RejectedPatchesAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rejected_patches_action")?.Value;
-        set => this.WithProperty("rejected_patches_action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rejected_patches_action");
+        set => this.WithProperty("rejected_patches_action", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

@@ -19,28 +19,28 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     /// <summary>
     /// The communication_service_id attribute.
     /// </summary>
-    public string? CommunicationServiceId
+    public TerraformLiteralProperty<string>? CommunicationServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("communication_service_id")?.Value;
-        set => this.WithProperty("communication_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("communication_service_id");
+        set => this.WithProperty("communication_service_id", value);
     }
 
     /// <summary>
     /// The email_service_domain_id attribute.
     /// </summary>
-    public string? EmailServiceDomainId
+    public TerraformLiteralProperty<string>? EmailServiceDomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_service_domain_id")?.Value;
-        set => this.WithProperty("email_service_domain_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email_service_domain_id");
+        set => this.WithProperty("email_service_domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

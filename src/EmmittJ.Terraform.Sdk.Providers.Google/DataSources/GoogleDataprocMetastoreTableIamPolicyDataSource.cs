@@ -21,55 +21,55 @@ public class GoogleDataprocMetastoreTableIamPolicyDataSource : TerraformDataSour
     /// <summary>
     /// The database_id attribute.
     /// </summary>
-    public string? DatabaseId
+    public TerraformLiteralProperty<string>? DatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_id")?.Value;
-        set => this.WithProperty("database_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_id");
+        set => this.WithProperty("database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public string? ServiceId
+    public TerraformLiteralProperty<string>? ServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_id")?.Value;
-        set => this.WithProperty("service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_id");
+        set => this.WithProperty("service_id", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public string? Table
+    public TerraformLiteralProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table")?.Value;
-        set => this.WithProperty("table", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        set => this.WithProperty("table", value);
     }
 
     /// <summary>

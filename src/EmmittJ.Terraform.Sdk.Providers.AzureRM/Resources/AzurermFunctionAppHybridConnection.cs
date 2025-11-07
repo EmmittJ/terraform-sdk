@@ -24,55 +24,55 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The ID of the Function App for this Hybrid Connection.
     /// </summary>
-    public string? FunctionAppId
+    public TerraformLiteralProperty<string>? FunctionAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id")?.Value;
-        set => this.WithProperty("function_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id");
+        set => this.WithProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The hostname of the endpoint.
     /// </summary>
-    public string? Hostname
+    public TerraformLiteralProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname")?.Value;
-        set => this.WithProperty("hostname", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The port to use for the endpoint
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The ID of the Relay Hybrid Connection to use.
     /// </summary>
-    public string? RelayId
+    public TerraformLiteralProperty<string>? RelayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relay_id")?.Value;
-        set => this.WithProperty("relay_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("relay_id");
+        set => this.WithProperty("relay_id", value);
     }
 
     /// <summary>
     /// The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
     /// </summary>
-    public string? SendKeyName
+    public TerraformLiteralProperty<string>? SendKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("send_key_name")?.Value;
-        set => this.WithProperty("send_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("send_key_name");
+        set => this.WithProperty("send_key_name", value);
     }
 
     /// <summary>

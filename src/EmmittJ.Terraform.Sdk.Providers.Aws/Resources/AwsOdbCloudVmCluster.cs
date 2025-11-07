@@ -45,172 +45,172 @@ public class AwsOdbCloudVmCluster : TerraformResource
     /// <summary>
     /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
     /// </summary>
-    public string? CloudExadataInfrastructureId
+    public TerraformLiteralProperty<string>? CloudExadataInfrastructureId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_exadata_infrastructure_id")?.Value;
-        set => this.WithProperty("cloud_exadata_infrastructure_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloud_exadata_infrastructure_id");
+        set => this.WithProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
     /// </summary>
-    public string? ClusterName
+    public TerraformLiteralProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name")?.Value;
-        set => this.WithProperty("cluster_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public double? CpuCoreCount
+    public TerraformLiteralProperty<double>? CpuCoreCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cpu_core_count")?.Value;
-        set => this.WithProperty("cpu_core_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("cpu_core_count");
+        set => this.WithProperty("cpu_core_count", value);
     }
 
     /// <summary>
     /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public double? DataStorageSizeInTbs
+    public TerraformLiteralProperty<double>? DataStorageSizeInTbs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("data_storage_size_in_tbs")?.Value;
-        set => this.WithProperty("data_storage_size_in_tbs", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("data_storage_size_in_tbs");
+        set => this.WithProperty("data_storage_size_in_tbs", value);
     }
 
     /// <summary>
     /// The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public double? DbNodeStorageSizeInGbs
+    public TerraformLiteralProperty<double>? DbNodeStorageSizeInGbs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("db_node_storage_size_in_gbs")?.Value;
-        set => this.WithProperty("db_node_storage_size_in_gbs", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("db_node_storage_size_in_gbs");
+        set => this.WithProperty("db_node_storage_size_in_gbs", value);
     }
 
     /// <summary>
     /// The list of database servers for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public HashSet<string>? DbServers
+    public TerraformLiteralProperty<HashSet<string>>? DbServers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("db_servers")?.Value;
-        set => this.WithProperty("db_servers", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("db_servers");
+        set => this.WithProperty("db_servers", value);
     }
 
     /// <summary>
     /// A user-friendly name for the VM cluster. This member is required. Changing this will create a new resource.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// A valid software version of Oracle Grid Infrastructure (GI). To get the list of valid values, use the ListGiVersions operation and specify the shape of the Exadata infrastructure. Example: 19.0.0.0 This member is required. Changing this will create a new resource.
     /// </summary>
-    public string? GiVersion
+    public TerraformLiteralProperty<string>? GiVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gi_version")?.Value;
-        set => this.WithProperty("gi_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gi_version");
+        set => this.WithProperty("gi_version", value);
     }
 
     /// <summary>
     /// The host name prefix for the VM cluster. Constraints: - Can&#39;t be &amp;quot;localhost&amp;quot; or &amp;quot;hostname&amp;quot;. - Can&#39;t contain &amp;quot;-version&amp;quot;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
     /// </summary>
-    public string? HostnamePrefix
+    public TerraformLiteralProperty<string>? HostnamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname_prefix")?.Value;
-        set => this.WithProperty("hostname_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hostname_prefix");
+        set => this.WithProperty("hostname_prefix", value);
     }
 
     /// <summary>
     /// Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public bool? IsLocalBackupEnabled
+    public TerraformLiteralProperty<bool>? IsLocalBackupEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_local_backup_enabled")?.Value;
-        set => this.WithProperty("is_local_backup_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("is_local_backup_enabled");
+        set => this.WithProperty("is_local_backup_enabled", value);
     }
 
     /// <summary>
     /// Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public bool? IsSparseDiskgroupEnabled
+    public TerraformLiteralProperty<bool>? IsSparseDiskgroupEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_sparse_diskgroup_enabled")?.Value;
-        set => this.WithProperty("is_sparse_diskgroup_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("is_sparse_diskgroup_enabled");
+        set => this.WithProperty("is_sparse_diskgroup_enabled", value);
     }
 
     /// <summary>
     /// The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
     /// </summary>
-    public string? LicenseModel
+    public TerraformLiteralProperty<string>? LicenseModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_model")?.Value;
-        set => this.WithProperty("license_model", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_model");
+        set => this.WithProperty("license_model", value);
     }
 
     /// <summary>
     /// The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public double? MemorySizeInGbs
+    public TerraformLiteralProperty<double>? MemorySizeInGbs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("memory_size_in_gbs")?.Value;
-        set => this.WithProperty("memory_size_in_gbs", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("memory_size_in_gbs");
+        set => this.WithProperty("memory_size_in_gbs", value);
     }
 
     /// <summary>
     /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
     /// </summary>
-    public string? OdbNetworkId
+    public TerraformLiteralProperty<string>? OdbNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_network_id")?.Value;
-        set => this.WithProperty("odb_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("odb_network_id");
+        set => this.WithProperty("odb_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999 with the following exceptions: 2484 , 6100 , 6200 , 7060, 7070 , 7085 , and 7879Default: 1521. Changing this will create a new resource.
     /// </summary>
-    public double? ScanListenerPortTcp
+    public TerraformLiteralProperty<double>? ScanListenerPortTcp
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("scan_listener_port_tcp")?.Value;
-        set => this.WithProperty("scan_listener_port_tcp", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("scan_listener_port_tcp");
+        set => this.WithProperty("scan_listener_port_tcp", value);
     }
 
     /// <summary>
     /// The public key portion of one or more key pairs used for SSH access to the VM cluster. This member is required. Changing this will create a new resource.
     /// </summary>
-    public HashSet<string>? SshPublicKeys
+    public TerraformLiteralProperty<HashSet<string>>? SshPublicKeys
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("ssh_public_keys")?.Value;
-        set => this.WithProperty("ssh_public_keys", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("ssh_public_keys");
+        set => this.WithProperty("ssh_public_keys", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The configured time zone of the VM cluster. Changing this will create a new resource.
     /// </summary>
-    public string? Timezone
+    public TerraformLiteralProperty<string>? Timezone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timezone")?.Value;
-        set => this.WithProperty("timezone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timezone");
+        set => this.WithProperty("timezone", value);
     }
 
     /// <summary>

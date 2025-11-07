@@ -19,73 +19,73 @@ public class AzurermSpringCloudBuildDeployment : TerraformResource
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    public string? AddonJson
+    public TerraformLiteralProperty<string>? AddonJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("addon_json")?.Value;
-        set => this.WithProperty("addon_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("addon_json");
+        set => this.WithProperty("addon_json", value);
     }
 
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    public List<string>? ApplicationPerformanceMonitoringIds
+    public TerraformLiteralProperty<List<string>>? ApplicationPerformanceMonitoringIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("application_performance_monitoring_ids")?.Value;
-        set => this.WithProperty("application_performance_monitoring_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("application_performance_monitoring_ids");
+        set => this.WithProperty("application_performance_monitoring_ids", value);
     }
 
     /// <summary>
     /// The build_result_id attribute.
     /// </summary>
-    public string? BuildResultId
+    public TerraformLiteralProperty<string>? BuildResultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("build_result_id")?.Value;
-        set => this.WithProperty("build_result_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("build_result_id");
+        set => this.WithProperty("build_result_id", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, string>? EnvironmentVariables
+    public TerraformLiteralProperty<Dictionary<string, string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("environment_variables")?.Value;
-        set => this.WithProperty("environment_variables", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("environment_variables");
+        set => this.WithProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public double? InstanceCount
+    public TerraformLiteralProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count")?.Value;
-        set => this.WithProperty("instance_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public string? SpringCloudAppId
+    public TerraformLiteralProperty<string>? SpringCloudAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id")?.Value;
-        set => this.WithProperty("spring_cloud_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id");
+        set => this.WithProperty("spring_cloud_app_id", value);
     }
 
 }

@@ -20,19 +20,19 @@ public class AwsCloudwatchEventBusesDataSource : TerraformDataSource
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

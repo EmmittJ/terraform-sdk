@@ -25,10 +25,10 @@ public class GoogleDialogflowAgent : TerraformResource
     /// * API_VERSION_V2: V2 API.
     /// * API_VERSION_V2_BETA_1: V2beta1 API. Possible values: [&amp;quot;API_VERSION_V1&amp;quot;, &amp;quot;API_VERSION_V2&amp;quot;, &amp;quot;API_VERSION_V2_BETA_1&amp;quot;]
     /// </summary>
-    public string? ApiVersion
+    public TerraformLiteralProperty<string>? ApiVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_version")?.Value;
-        set => this.WithProperty("api_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_version");
+        set => this.WithProperty("api_version", value);
     }
 
     /// <summary>
@@ -36,10 +36,10 @@ public class GoogleDialogflowAgent : TerraformResource
     /// into this field, the Dialogflow will save the image in the backend. The address of the backend image returned
     /// from the API will be shown in the [avatarUriBackend] field.
     /// </summary>
-    public string? AvatarUri
+    public TerraformLiteralProperty<string>? AvatarUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("avatar_uri")?.Value;
-        set => this.WithProperty("avatar_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("avatar_uri");
+        set => this.WithProperty("avatar_uri", value);
     }
 
     /// <summary>
@@ -49,56 +49,56 @@ public class GoogleDialogflowAgent : TerraformResource
     /// triggered. The score values range from 0.0 (completely uncertain) to 1.0 (completely certain). If set to 0.0, the
     /// default of 0.3 is used.
     /// </summary>
-    public double? ClassificationThreshold
+    public TerraformLiteralProperty<double>? ClassificationThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("classification_threshold")?.Value;
-        set => this.WithProperty("classification_threshold", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("classification_threshold");
+        set => this.WithProperty("classification_threshold", value);
     }
 
     /// <summary>
     /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/docs/reference/language)
     /// for a list of the currently supported language codes. This field cannot be updated after creation.
     /// </summary>
-    public string? DefaultLanguageCode
+    public TerraformLiteralProperty<string>? DefaultLanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_language_code")?.Value;
-        set => this.WithProperty("default_language_code", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_language_code");
+        set => this.WithProperty("default_language_code", value);
     }
 
     /// <summary>
     /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name of this agent.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Determines whether this agent should log conversation queries.
     /// </summary>
-    public bool? EnableLogging
+    public TerraformLiteralProperty<bool>? EnableLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging")?.Value;
-        set => this.WithProperty("enable_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging");
+        set => this.WithProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -108,28 +108,28 @@ public class GoogleDialogflowAgent : TerraformResource
     /// * MATCH_MODE_ML_ONLY: Can be used for agents with a large number of examples in intents, especially the ones
     /// using @sys.any or very large developer entities. Possible values: [&amp;quot;MATCH_MODE_HYBRID&amp;quot;, &amp;quot;MATCH_MODE_ML_ONLY&amp;quot;]
     /// </summary>
-    public string? MatchMode
+    public TerraformLiteralProperty<string>? MatchMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("match_mode")?.Value;
-        set => this.WithProperty("match_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("match_mode");
+        set => this.WithProperty("match_mode", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The list of all languages supported by this agent (except for the defaultLanguageCode).
     /// </summary>
-    public List<string>? SupportedLanguageCodes
+    public TerraformLiteralProperty<List<string>>? SupportedLanguageCodes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("supported_language_codes")?.Value;
-        set => this.WithProperty("supported_language_codes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("supported_language_codes");
+        set => this.WithProperty("supported_language_codes", value);
     }
 
     /// <summary>
@@ -140,20 +140,20 @@ public class GoogleDialogflowAgent : TerraformResource
     /// NOTE: Due to consistency issues, the provider will not read this field from the API. Drift is possible between
     /// the Terraform state and Dialogflow if the agent tier is changed outside of Terraform. Possible values: [&amp;quot;TIER_STANDARD&amp;quot;, &amp;quot;TIER_ENTERPRISE&amp;quot;, &amp;quot;TIER_ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    public string? Tier
+    public TerraformLiteralProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier")?.Value;
-        set => this.WithProperty("tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        set => this.WithProperty("tier", value);
     }
 
     /// <summary>
     /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
     /// Europe/Paris.
     /// </summary>
-    public string? TimeZone
+    public TerraformLiteralProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone")?.Value;
-        set => this.WithProperty("time_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        set => this.WithProperty("time_zone", value);
     }
 
     /// <summary>

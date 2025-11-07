@@ -20,46 +20,46 @@ public class AzurermAppServiceSlotCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The app_service_slot_id attribute.
     /// </summary>
-    public string? AppServiceSlotId
+    public TerraformLiteralProperty<string>? AppServiceSlotId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_slot_id")?.Value;
-        set => this.WithProperty("app_service_slot_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_service_slot_id");
+        set => this.WithProperty("app_service_slot_id", value);
     }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    public string? Hostname
+    public TerraformLiteralProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname")?.Value;
-        set => this.WithProperty("hostname", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public string? SslState
+    public TerraformLiteralProperty<string>? SslState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_state")?.Value;
-        set => this.WithProperty("ssl_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ssl_state");
+        set => this.WithProperty("ssl_state", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public string? Thumbprint
+    public TerraformLiteralProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint")?.Value;
-        set => this.WithProperty("thumbprint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint");
+        set => this.WithProperty("thumbprint", value);
     }
 
     /// <summary>

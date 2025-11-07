@@ -23,127 +23,127 @@ public class AwsEc2TransitGateway : TerraformResource
     /// <summary>
     /// The amazon_side_asn attribute.
     /// </summary>
-    public double? AmazonSideAsn
+    public TerraformLiteralProperty<double>? AmazonSideAsn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("amazon_side_asn")?.Value;
-        set => this.WithProperty("amazon_side_asn", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("amazon_side_asn");
+        set => this.WithProperty("amazon_side_asn", value);
     }
 
     /// <summary>
     /// The auto_accept_shared_attachments attribute.
     /// </summary>
-    public string? AutoAcceptSharedAttachments
+    public TerraformLiteralProperty<string>? AutoAcceptSharedAttachments
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auto_accept_shared_attachments")?.Value;
-        set => this.WithProperty("auto_accept_shared_attachments", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("auto_accept_shared_attachments");
+        set => this.WithProperty("auto_accept_shared_attachments", value);
     }
 
     /// <summary>
     /// The default_route_table_association attribute.
     /// </summary>
-    public string? DefaultRouteTableAssociation
+    public TerraformLiteralProperty<string>? DefaultRouteTableAssociation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_route_table_association")?.Value;
-        set => this.WithProperty("default_route_table_association", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_route_table_association");
+        set => this.WithProperty("default_route_table_association", value);
     }
 
     /// <summary>
     /// The default_route_table_propagation attribute.
     /// </summary>
-    public string? DefaultRouteTablePropagation
+    public TerraformLiteralProperty<string>? DefaultRouteTablePropagation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_route_table_propagation")?.Value;
-        set => this.WithProperty("default_route_table_propagation", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_route_table_propagation");
+        set => this.WithProperty("default_route_table_propagation", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
-    public string? DnsSupport
+    public TerraformLiteralProperty<string>? DnsSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_support")?.Value;
-        set => this.WithProperty("dns_support", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_support");
+        set => this.WithProperty("dns_support", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The multicast_support attribute.
     /// </summary>
-    public string? MulticastSupport
+    public TerraformLiteralProperty<string>? MulticastSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multicast_support")?.Value;
-        set => this.WithProperty("multicast_support", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("multicast_support");
+        set => this.WithProperty("multicast_support", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    public string? SecurityGroupReferencingSupport
+    public TerraformLiteralProperty<string>? SecurityGroupReferencingSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_group_referencing_support")?.Value;
-        set => this.WithProperty("security_group_referencing_support", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_group_referencing_support");
+        set => this.WithProperty("security_group_referencing_support", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_cidr_blocks attribute.
     /// </summary>
-    public HashSet<string>? TransitGatewayCidrBlocks
+    public TerraformLiteralProperty<HashSet<string>>? TransitGatewayCidrBlocks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("transit_gateway_cidr_blocks")?.Value;
-        set => this.WithProperty("transit_gateway_cidr_blocks", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("transit_gateway_cidr_blocks");
+        set => this.WithProperty("transit_gateway_cidr_blocks", value);
     }
 
     /// <summary>
     /// The vpn_ecmp_support attribute.
     /// </summary>
-    public string? VpnEcmpSupport
+    public TerraformLiteralProperty<string>? VpnEcmpSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_ecmp_support")?.Value;
-        set => this.WithProperty("vpn_ecmp_support", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpn_ecmp_support");
+        set => this.WithProperty("vpn_ecmp_support", value);
     }
 
     /// <summary>

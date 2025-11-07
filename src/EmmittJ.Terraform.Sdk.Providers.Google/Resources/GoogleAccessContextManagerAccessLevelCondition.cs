@@ -20,19 +20,19 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// <summary>
     /// The name of the Access Level to add this condition to.
     /// </summary>
-    public string? AccessLevel
+    public TerraformLiteralProperty<string>? AccessLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_level")?.Value;
-        set => this.WithProperty("access_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_level");
+        set => this.WithProperty("access_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -47,10 +47,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// listed subnets in order for this Condition to be true.
     /// If empty, all IP addresses are allowed.
     /// </summary>
-    public List<string>? IpSubnetworks
+    public TerraformLiteralProperty<List<string>>? IpSubnetworks
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ip_subnetworks")?.Value;
-        set => this.WithProperty("ip_subnetworks", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("ip_subnetworks");
+        set => this.WithProperty("ip_subnetworks", value);
     }
 
     /// <summary>
@@ -63,10 +63,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// groups, etc.).
     /// Formats: &#39;user:{emailid}&#39;, &#39;serviceAccount:{emailid}&#39;
     /// </summary>
-    public List<string>? Members
+    public TerraformLiteralProperty<List<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("members")?.Value;
-        set => this.WithProperty("members", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("members");
+        set => this.WithProperty("members", value);
     }
 
     /// <summary>
@@ -74,10 +74,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// a NAND over its non-empty fields, each field must be false for
     /// the Condition overall to be satisfied. Defaults to false.
     /// </summary>
-    public bool? Negate
+    public TerraformLiteralProperty<bool>? Negate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("negate")?.Value;
-        set => this.WithProperty("negate", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("negate");
+        set => this.WithProperty("negate", value);
     }
 
     /// <summary>
@@ -85,10 +85,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// countries/regions.
     /// Format: A valid ISO 3166-1 alpha-2 code.
     /// </summary>
-    public List<string>? Regions
+    public TerraformLiteralProperty<List<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("regions")?.Value;
-        set => this.WithProperty("regions", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("regions");
+        set => this.WithProperty("regions", value);
     }
 
     /// <summary>
@@ -98,10 +98,10 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// granted for the Condition to be true.
     /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
     /// </summary>
-    public List<string>? RequiredAccessLevels
+    public TerraformLiteralProperty<List<string>>? RequiredAccessLevels
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("required_access_levels")?.Value;
-        set => this.WithProperty("required_access_levels", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("required_access_levels");
+        set => this.WithProperty("required_access_levels", value);
     }
 
     /// <summary>

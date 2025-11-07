@@ -21,37 +21,37 @@ public class AwsEc2InstanceTypeOfferingDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location_type attribute.
     /// </summary>
-    public string? LocationType
+    public TerraformLiteralProperty<string>? LocationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_type")?.Value;
-        set => this.WithProperty("location_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location_type");
+        set => this.WithProperty("location_type", value);
     }
 
     /// <summary>
     /// The preferred_instance_types attribute.
     /// </summary>
-    public List<string>? PreferredInstanceTypes
+    public TerraformLiteralProperty<List<string>>? PreferredInstanceTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_instance_types")?.Value;
-        set => this.WithProperty("preferred_instance_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_instance_types");
+        set => this.WithProperty("preferred_instance_types", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

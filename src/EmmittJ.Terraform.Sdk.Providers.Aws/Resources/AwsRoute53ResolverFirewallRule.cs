@@ -19,118 +19,118 @@ public class AwsRoute53ResolverFirewallRule : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public string? Action
+    public TerraformLiteralProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action")?.Value;
-        set => this.WithProperty("action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The block_override_dns_type attribute.
     /// </summary>
-    public string? BlockOverrideDnsType
+    public TerraformLiteralProperty<string>? BlockOverrideDnsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("block_override_dns_type")?.Value;
-        set => this.WithProperty("block_override_dns_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("block_override_dns_type");
+        set => this.WithProperty("block_override_dns_type", value);
     }
 
     /// <summary>
     /// The block_override_domain attribute.
     /// </summary>
-    public string? BlockOverrideDomain
+    public TerraformLiteralProperty<string>? BlockOverrideDomain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("block_override_domain")?.Value;
-        set => this.WithProperty("block_override_domain", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("block_override_domain");
+        set => this.WithProperty("block_override_domain", value);
     }
 
     /// <summary>
     /// The block_override_ttl attribute.
     /// </summary>
-    public double? BlockOverrideTtl
+    public TerraformLiteralProperty<double>? BlockOverrideTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("block_override_ttl")?.Value;
-        set => this.WithProperty("block_override_ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("block_override_ttl");
+        set => this.WithProperty("block_override_ttl", value);
     }
 
     /// <summary>
     /// The block_response attribute.
     /// </summary>
-    public string? BlockResponse
+    public TerraformLiteralProperty<string>? BlockResponse
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("block_response")?.Value;
-        set => this.WithProperty("block_response", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("block_response");
+        set => this.WithProperty("block_response", value);
     }
 
     /// <summary>
     /// The firewall_domain_list_id attribute.
     /// </summary>
-    public string? FirewallDomainListId
+    public TerraformLiteralProperty<string>? FirewallDomainListId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_domain_list_id")?.Value;
-        set => this.WithProperty("firewall_domain_list_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_domain_list_id");
+        set => this.WithProperty("firewall_domain_list_id", value);
     }
 
     /// <summary>
     /// The firewall_domain_redirection_action attribute.
     /// </summary>
-    public string? FirewallDomainRedirectionAction
+    public TerraformLiteralProperty<string>? FirewallDomainRedirectionAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_domain_redirection_action")?.Value;
-        set => this.WithProperty("firewall_domain_redirection_action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_domain_redirection_action");
+        set => this.WithProperty("firewall_domain_redirection_action", value);
     }
 
     /// <summary>
     /// The firewall_rule_group_id attribute.
     /// </summary>
-    public string? FirewallRuleGroupId
+    public TerraformLiteralProperty<string>? FirewallRuleGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_rule_group_id")?.Value;
-        set => this.WithProperty("firewall_rule_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_rule_group_id");
+        set => this.WithProperty("firewall_rule_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The q_type attribute.
     /// </summary>
-    public string? QType
+    public TerraformLiteralProperty<string>? QType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("q_type")?.Value;
-        set => this.WithProperty("q_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("q_type");
+        set => this.WithProperty("q_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

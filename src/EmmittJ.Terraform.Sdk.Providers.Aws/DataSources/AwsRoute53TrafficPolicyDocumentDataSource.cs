@@ -20,46 +20,46 @@ public class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The record_type attribute.
     /// </summary>
-    public string? RecordType
+    public TerraformLiteralProperty<string>? RecordType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("record_type")?.Value;
-        set => this.WithProperty("record_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("record_type");
+        set => this.WithProperty("record_type", value);
     }
 
     /// <summary>
     /// The start_endpoint attribute.
     /// </summary>
-    public string? StartEndpoint
+    public TerraformLiteralProperty<string>? StartEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_endpoint")?.Value;
-        set => this.WithProperty("start_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_endpoint");
+        set => this.WithProperty("start_endpoint", value);
     }
 
     /// <summary>
     /// The start_rule attribute.
     /// </summary>
-    public string? StartRule
+    public TerraformLiteralProperty<string>? StartRule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_rule")?.Value;
-        set => this.WithProperty("start_rule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_rule");
+        set => this.WithProperty("start_rule", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

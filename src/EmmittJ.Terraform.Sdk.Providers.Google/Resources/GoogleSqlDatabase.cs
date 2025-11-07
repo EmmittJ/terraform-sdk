@@ -24,10 +24,10 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
-    public string? Charset
+    public TerraformLiteralProperty<string>? Charset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("charset")?.Value;
-        set => this.WithProperty("charset", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("charset");
+        set => this.WithProperty("charset", value);
     }
 
     /// <summary>
@@ -37,10 +37,10 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
-    public string? Collation
+    public TerraformLiteralProperty<string>? Collation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collation")?.Value;
-        set => this.WithProperty("collation", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collation");
+        set => this.WithProperty("collation", value);
     }
 
     /// <summary>
@@ -49,48 +49,48 @@ public class GoogleSqlDatabase : TerraformResource
     /// deleted from the API if there are users other than cloudsqlsuperuser with access. Possible
     /// values are: &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;. Defaults to &amp;quot;DELETE&amp;quot;.
     /// </summary>
-    public string? DeletionPolicy
+    public TerraformLiteralProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
-        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Cloud SQL instance. This does not include the project
     /// ID.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The name of the database in the Cloud SQL instance.
     /// This does not include the project ID or instance name.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

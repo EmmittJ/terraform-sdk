@@ -20,82 +20,82 @@ public class AwsPinpointEmailChannel : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The configuration_set attribute.
     /// </summary>
-    public string? ConfigurationSet
+    public TerraformLiteralProperty<string>? ConfigurationSet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_set")?.Value;
-        set => this.WithProperty("configuration_set", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("configuration_set");
+        set => this.WithProperty("configuration_set", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The from_address attribute.
     /// </summary>
-    public string? FromAddress
+    public TerraformLiteralProperty<string>? FromAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("from_address")?.Value;
-        set => this.WithProperty("from_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("from_address");
+        set => this.WithProperty("from_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public string? Identity
+    public TerraformLiteralProperty<string>? Identity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity")?.Value;
-        set => this.WithProperty("identity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity");
+        set => this.WithProperty("identity", value);
     }
 
     /// <summary>
     /// The orchestration_sending_role_arn attribute.
     /// </summary>
-    public string? OrchestrationSendingRoleArn
+    public TerraformLiteralProperty<string>? OrchestrationSendingRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("orchestration_sending_role_arn")?.Value;
-        set => this.WithProperty("orchestration_sending_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("orchestration_sending_role_arn");
+        set => this.WithProperty("orchestration_sending_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>

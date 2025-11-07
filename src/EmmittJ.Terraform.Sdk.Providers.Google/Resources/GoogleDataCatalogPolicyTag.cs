@@ -24,10 +24,10 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// encoded in UTF-8. If not set, defaults to an empty description.
     /// If not set, defaults to an empty description.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -35,19 +35,19 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// taxonomy; contain only unicode letters, numbers, underscores, dashes and spaces;
     /// not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -55,19 +55,19 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// If empty, it means this policy tag is a top level policy tag.
     /// If not set, defaults to an empty string.
     /// </summary>
-    public string? ParentPolicyTag
+    public TerraformLiteralProperty<string>? ParentPolicyTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_policy_tag")?.Value;
-        set => this.WithProperty("parent_policy_tag", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_policy_tag");
+        set => this.WithProperty("parent_policy_tag", value);
     }
 
     /// <summary>
     /// Taxonomy the policy tag is associated with
     /// </summary>
-    public string? Taxonomy
+    public TerraformLiteralProperty<string>? Taxonomy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("taxonomy")?.Value;
-        set => this.WithProperty("taxonomy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("taxonomy");
+        set => this.WithProperty("taxonomy", value);
     }
 
     /// <summary>

@@ -19,55 +19,55 @@ public class AzurermDataProtectionBackupInstancePostgresqlFlexibleServer : Terra
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    public string? BackupPolicyId
+    public TerraformLiteralProperty<string>? BackupPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_policy_id")?.Value;
-        set => this.WithProperty("backup_policy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backup_policy_id");
+        set => this.WithProperty("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public string? ServerId
+    public TerraformLiteralProperty<string>? ServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_id")?.Value;
-        set => this.WithProperty("server_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_id");
+        set => this.WithProperty("server_id", value);
     }
 
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
-    public string? VaultId
+    public TerraformLiteralProperty<string>? VaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_id")?.Value;
-        set => this.WithProperty("vault_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vault_id");
+        set => this.WithProperty("vault_id", value);
     }
 
 }

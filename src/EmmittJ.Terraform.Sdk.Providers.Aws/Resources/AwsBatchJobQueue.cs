@@ -22,55 +22,55 @@ public class AwsBatchJobQueue : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The scheduling_policy_arn attribute.
     /// </summary>
-    public string? SchedulingPolicyArn
+    public TerraformLiteralProperty<string>? SchedulingPolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scheduling_policy_arn")?.Value;
-        set => this.WithProperty("scheduling_policy_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scheduling_policy_arn");
+        set => this.WithProperty("scheduling_policy_arn", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public string? State
+    public TerraformLiteralProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state")?.Value;
-        set => this.WithProperty("state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

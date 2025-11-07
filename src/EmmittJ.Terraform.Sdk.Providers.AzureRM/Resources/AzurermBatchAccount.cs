@@ -22,109 +22,109 @@ public class AzurermBatchAccount : TerraformResource
     /// <summary>
     /// The allowed_authentication_modes attribute.
     /// </summary>
-    public HashSet<string>? AllowedAuthenticationModes
+    public TerraformLiteralProperty<HashSet<string>>? AllowedAuthenticationModes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_authentication_modes")?.Value;
-        set => this.WithProperty("allowed_authentication_modes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_authentication_modes");
+        set => this.WithProperty("allowed_authentication_modes", value);
     }
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public List<object>? Encryption
+    public TerraformLiteralProperty<List<object>>? Encryption
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("encryption")?.Value;
-        set => this.WithProperty("encryption", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("encryption");
+        set => this.WithProperty("encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The pool_allocation_mode attribute.
     /// </summary>
-    public string? PoolAllocationMode
+    public TerraformLiteralProperty<string>? PoolAllocationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool_allocation_mode")?.Value;
-        set => this.WithProperty("pool_allocation_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool_allocation_mode");
+        set => this.WithProperty("pool_allocation_mode", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public bool? PublicNetworkAccessEnabled
+    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled")?.Value;
-        set => this.WithProperty("public_network_access_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_authentication_mode attribute.
     /// </summary>
-    public string? StorageAccountAuthenticationMode
+    public TerraformLiteralProperty<string>? StorageAccountAuthenticationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_authentication_mode")?.Value;
-        set => this.WithProperty("storage_account_authentication_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_authentication_mode");
+        set => this.WithProperty("storage_account_authentication_mode", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public string? StorageAccountId
+    public TerraformLiteralProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id")?.Value;
-        set => this.WithProperty("storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_node_identity attribute.
     /// </summary>
-    public string? StorageAccountNodeIdentity
+    public TerraformLiteralProperty<string>? StorageAccountNodeIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_node_identity")?.Value;
-        set => this.WithProperty("storage_account_node_identity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_node_identity");
+        set => this.WithProperty("storage_account_node_identity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

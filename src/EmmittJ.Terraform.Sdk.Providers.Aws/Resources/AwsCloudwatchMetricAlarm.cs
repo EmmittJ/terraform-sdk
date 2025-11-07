@@ -20,217 +20,217 @@ public class AwsCloudwatchMetricAlarm : TerraformResource
     /// <summary>
     /// The actions_enabled attribute.
     /// </summary>
-    public bool? ActionsEnabled
+    public TerraformLiteralProperty<bool>? ActionsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("actions_enabled")?.Value;
-        set => this.WithProperty("actions_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("actions_enabled");
+        set => this.WithProperty("actions_enabled", value);
     }
 
     /// <summary>
     /// The alarm_actions attribute.
     /// </summary>
-    public HashSet<string>? AlarmActions
+    public TerraformLiteralProperty<HashSet<string>>? AlarmActions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("alarm_actions")?.Value;
-        set => this.WithProperty("alarm_actions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("alarm_actions");
+        set => this.WithProperty("alarm_actions", value);
     }
 
     /// <summary>
     /// The alarm_description attribute.
     /// </summary>
-    public string? AlarmDescription
+    public TerraformLiteralProperty<string>? AlarmDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alarm_description")?.Value;
-        set => this.WithProperty("alarm_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alarm_description");
+        set => this.WithProperty("alarm_description", value);
     }
 
     /// <summary>
     /// The alarm_name attribute.
     /// </summary>
-    public string? AlarmName
+    public TerraformLiteralProperty<string>? AlarmName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alarm_name")?.Value;
-        set => this.WithProperty("alarm_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alarm_name");
+        set => this.WithProperty("alarm_name", value);
     }
 
     /// <summary>
     /// The comparison_operator attribute.
     /// </summary>
-    public string? ComparisonOperator
+    public TerraformLiteralProperty<string>? ComparisonOperator
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comparison_operator")?.Value;
-        set => this.WithProperty("comparison_operator", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("comparison_operator");
+        set => this.WithProperty("comparison_operator", value);
     }
 
     /// <summary>
     /// The datapoints_to_alarm attribute.
     /// </summary>
-    public double? DatapointsToAlarm
+    public TerraformLiteralProperty<double>? DatapointsToAlarm
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("datapoints_to_alarm")?.Value;
-        set => this.WithProperty("datapoints_to_alarm", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("datapoints_to_alarm");
+        set => this.WithProperty("datapoints_to_alarm", value);
     }
 
     /// <summary>
     /// The dimensions attribute.
     /// </summary>
-    public Dictionary<string, string>? Dimensions
+    public TerraformLiteralProperty<Dictionary<string, string>>? Dimensions
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("dimensions")?.Value;
-        set => this.WithProperty("dimensions", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("dimensions");
+        set => this.WithProperty("dimensions", value);
     }
 
     /// <summary>
     /// The evaluate_low_sample_count_percentiles attribute.
     /// </summary>
-    public string? EvaluateLowSampleCountPercentiles
+    public TerraformLiteralProperty<string>? EvaluateLowSampleCountPercentiles
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("evaluate_low_sample_count_percentiles")?.Value;
-        set => this.WithProperty("evaluate_low_sample_count_percentiles", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("evaluate_low_sample_count_percentiles");
+        set => this.WithProperty("evaluate_low_sample_count_percentiles", value);
     }
 
     /// <summary>
     /// The evaluation_periods attribute.
     /// </summary>
-    public double? EvaluationPeriods
+    public TerraformLiteralProperty<double>? EvaluationPeriods
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("evaluation_periods")?.Value;
-        set => this.WithProperty("evaluation_periods", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("evaluation_periods");
+        set => this.WithProperty("evaluation_periods", value);
     }
 
     /// <summary>
     /// The extended_statistic attribute.
     /// </summary>
-    public string? ExtendedStatistic
+    public TerraformLiteralProperty<string>? ExtendedStatistic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("extended_statistic")?.Value;
-        set => this.WithProperty("extended_statistic", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("extended_statistic");
+        set => this.WithProperty("extended_statistic", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The insufficient_data_actions attribute.
     /// </summary>
-    public HashSet<string>? InsufficientDataActions
+    public TerraformLiteralProperty<HashSet<string>>? InsufficientDataActions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("insufficient_data_actions")?.Value;
-        set => this.WithProperty("insufficient_data_actions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("insufficient_data_actions");
+        set => this.WithProperty("insufficient_data_actions", value);
     }
 
     /// <summary>
     /// The metric_name attribute.
     /// </summary>
-    public string? MetricName
+    public TerraformLiteralProperty<string>? MetricName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metric_name")?.Value;
-        set => this.WithProperty("metric_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("metric_name");
+        set => this.WithProperty("metric_name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public string? Namespace
+    public TerraformLiteralProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace")?.Value;
-        set => this.WithProperty("namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// The ok_actions attribute.
     /// </summary>
-    public HashSet<string>? OkActions
+    public TerraformLiteralProperty<HashSet<string>>? OkActions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("ok_actions")?.Value;
-        set => this.WithProperty("ok_actions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("ok_actions");
+        set => this.WithProperty("ok_actions", value);
     }
 
     /// <summary>
     /// The period attribute.
     /// </summary>
-    public double? Period
+    public TerraformLiteralProperty<double>? Period
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("period")?.Value;
-        set => this.WithProperty("period", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("period");
+        set => this.WithProperty("period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The statistic attribute.
     /// </summary>
-    public string? Statistic
+    public TerraformLiteralProperty<string>? Statistic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("statistic")?.Value;
-        set => this.WithProperty("statistic", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("statistic");
+        set => this.WithProperty("statistic", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The threshold attribute.
     /// </summary>
-    public double? Threshold
+    public TerraformLiteralProperty<double>? Threshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("threshold")?.Value;
-        set => this.WithProperty("threshold", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("threshold");
+        set => this.WithProperty("threshold", value);
     }
 
     /// <summary>
     /// The threshold_metric_id attribute.
     /// </summary>
-    public string? ThresholdMetricId
+    public TerraformLiteralProperty<string>? ThresholdMetricId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("threshold_metric_id")?.Value;
-        set => this.WithProperty("threshold_metric_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("threshold_metric_id");
+        set => this.WithProperty("threshold_metric_id", value);
     }
 
     /// <summary>
     /// The treat_missing_data attribute.
     /// </summary>
-    public string? TreatMissingData
+    public TerraformLiteralProperty<string>? TreatMissingData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("treat_missing_data")?.Value;
-        set => this.WithProperty("treat_missing_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("treat_missing_data");
+        set => this.WithProperty("treat_missing_data", value);
     }
 
     /// <summary>
     /// The unit attribute.
     /// </summary>
-    public string? Unit
+    public TerraformLiteralProperty<string>? Unit
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("unit")?.Value;
-        set => this.WithProperty("unit", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("unit");
+        set => this.WithProperty("unit", value);
     }
 
     /// <summary>

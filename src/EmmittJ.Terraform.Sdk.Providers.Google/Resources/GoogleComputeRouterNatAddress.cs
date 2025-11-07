@@ -20,65 +20,65 @@ public class GoogleComputeRouterNatAddress : TerraformResource
     /// A list of URLs of the IP resources to be drained. These IPs must be
     /// valid static external IPs that have been assigned to the NAT.
     /// </summary>
-    public HashSet<string>? DrainNatIps
+    public TerraformLiteralProperty<HashSet<string>>? DrainNatIps
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("drain_nat_ips")?.Value;
-        set => this.WithProperty("drain_nat_ips", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("drain_nat_ips");
+        set => this.WithProperty("drain_nat_ips", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Self-links of NAT IPs to be used in a Nat service. Only valid if the referenced RouterNat
     /// natIpAllocateOption is set to MANUAL_ONLY.
     /// </summary>
-    public HashSet<string>? NatIps
+    public TerraformLiteralProperty<HashSet<string>>? NatIps
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("nat_ips")?.Value;
-        set => this.WithProperty("nat_ips", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("nat_ips");
+        set => this.WithProperty("nat_ips", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Region where the NAT service reside.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The name of the Cloud Router in which the referenced NAT service is configured.
     /// </summary>
-    public string? Router
+    public TerraformLiteralProperty<string>? Router
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("router")?.Value;
-        set => this.WithProperty("router", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("router");
+        set => this.WithProperty("router", value);
     }
 
     /// <summary>
     /// The name of the Nat service in which this address will be configured.
     /// </summary>
-    public string? RouterNat
+    public TerraformLiteralProperty<string>? RouterNat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("router_nat")?.Value;
-        set => this.WithProperty("router_nat", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("router_nat");
+        set => this.WithProperty("router_nat", value);
     }
 
 }

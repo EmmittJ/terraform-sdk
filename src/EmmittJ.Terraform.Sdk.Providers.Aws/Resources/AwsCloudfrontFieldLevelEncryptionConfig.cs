@@ -22,19 +22,19 @@ public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public string? Comment
+    public TerraformLiteralProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment")?.Value;
-        set => this.WithProperty("comment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

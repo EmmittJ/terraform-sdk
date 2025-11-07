@@ -20,73 +20,73 @@ public class AwsStoragegatewayTapePool : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The pool_name attribute.
     /// </summary>
-    public string? PoolName
+    public TerraformLiteralProperty<string>? PoolName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool_name")?.Value;
-        set => this.WithProperty("pool_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool_name");
+        set => this.WithProperty("pool_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The retention_lock_time_in_days attribute.
     /// </summary>
-    public double? RetentionLockTimeInDays
+    public TerraformLiteralProperty<double>? RetentionLockTimeInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_lock_time_in_days")?.Value;
-        set => this.WithProperty("retention_lock_time_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("retention_lock_time_in_days");
+        set => this.WithProperty("retention_lock_time_in_days", value);
     }
 
     /// <summary>
     /// The retention_lock_type attribute.
     /// </summary>
-    public string? RetentionLockType
+    public TerraformLiteralProperty<string>? RetentionLockType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retention_lock_type")?.Value;
-        set => this.WithProperty("retention_lock_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("retention_lock_type");
+        set => this.WithProperty("retention_lock_type", value);
     }
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
-    public string? StorageClass
+    public TerraformLiteralProperty<string>? StorageClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_class")?.Value;
-        set => this.WithProperty("storage_class", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_class");
+        set => this.WithProperty("storage_class", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

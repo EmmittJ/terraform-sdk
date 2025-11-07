@@ -28,37 +28,37 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
-    public string? CoreNetworkId
+    public TerraformLiteralProperty<string>? CoreNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_id")?.Value;
-        set => this.WithProperty("core_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("core_network_id");
+        set => this.WithProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The direct_connect_gateway_arn attribute.
     /// </summary>
-    public string? DirectConnectGatewayArn
+    public TerraformLiteralProperty<string>? DirectConnectGatewayArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direct_connect_gateway_arn")?.Value;
-        set => this.WithProperty("direct_connect_gateway_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("direct_connect_gateway_arn");
+        set => this.WithProperty("direct_connect_gateway_arn", value);
     }
 
     /// <summary>
     /// The edge_locations attribute.
     /// </summary>
-    public List<string>? EdgeLocations
+    public TerraformLiteralProperty<List<string>>? EdgeLocations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("edge_locations")?.Value;
-        set => this.WithProperty("edge_locations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("edge_locations");
+        set => this.WithProperty("edge_locations", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -22,64 +22,64 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// <summary>
     /// A user-specified description of the provider. Cannot exceed 256 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A user-specified display name for the scim tenant. Cannot exceed 32 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the provider.
     /// </summary>
-    public string? ProviderId
+    public TerraformLiteralProperty<string>? ProviderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_id")?.Value;
-        set => this.WithProperty("provider_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provider_id");
+        set => this.WithProperty("provider_id", value);
     }
 
     /// <summary>
     /// The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// </summary>
-    public string? ScimTenantId
+    public TerraformLiteralProperty<string>? ScimTenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scim_tenant_id")?.Value;
-        set => this.WithProperty("scim_tenant_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scim_tenant_id");
+        set => this.WithProperty("scim_tenant_id", value);
     }
 
     /// <summary>
     /// The ID of the workforce pool.
     /// </summary>
-    public string? WorkforcePoolId
+    public TerraformLiteralProperty<string>? WorkforcePoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id")?.Value;
-        set => this.WithProperty("workforce_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id");
+        set => this.WithProperty("workforce_pool_id", value);
     }
 
     /// <summary>

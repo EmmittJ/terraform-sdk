@@ -23,127 +23,127 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     /// <summary>
     /// The availability_zone_change_protection attribute.
     /// </summary>
-    public bool? AvailabilityZoneChangeProtection
+    public TerraformLiteralProperty<bool>? AvailabilityZoneChangeProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("availability_zone_change_protection")?.Value;
-        set => this.WithProperty("availability_zone_change_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("availability_zone_change_protection");
+        set => this.WithProperty("availability_zone_change_protection", value);
     }
 
     /// <summary>
     /// The delete_protection attribute.
     /// </summary>
-    public bool? DeleteProtection
+    public TerraformLiteralProperty<bool>? DeleteProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_protection")?.Value;
-        set => this.WithProperty("delete_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("delete_protection");
+        set => this.WithProperty("delete_protection", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enabled_analysis_types attribute.
     /// </summary>
-    public HashSet<string>? EnabledAnalysisTypes
+    public TerraformLiteralProperty<HashSet<string>>? EnabledAnalysisTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("enabled_analysis_types")?.Value;
-        set => this.WithProperty("enabled_analysis_types", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("enabled_analysis_types");
+        set => this.WithProperty("enabled_analysis_types", value);
     }
 
     /// <summary>
     /// The firewall_policy_arn attribute.
     /// </summary>
-    public string? FirewallPolicyArn
+    public TerraformLiteralProperty<string>? FirewallPolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy_arn")?.Value;
-        set => this.WithProperty("firewall_policy_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy_arn");
+        set => this.WithProperty("firewall_policy_arn", value);
     }
 
     /// <summary>
     /// The firewall_policy_change_protection attribute.
     /// </summary>
-    public bool? FirewallPolicyChangeProtection
+    public TerraformLiteralProperty<bool>? FirewallPolicyChangeProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("firewall_policy_change_protection")?.Value;
-        set => this.WithProperty("firewall_policy_change_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("firewall_policy_change_protection");
+        set => this.WithProperty("firewall_policy_change_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_change_protection attribute.
     /// </summary>
-    public bool? SubnetChangeProtection
+    public TerraformLiteralProperty<bool>? SubnetChangeProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("subnet_change_protection")?.Value;
-        set => this.WithProperty("subnet_change_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("subnet_change_protection");
+        set => this.WithProperty("subnet_change_protection", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public string? TransitGatewayId
+    public TerraformLiteralProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id")?.Value;
-        set => this.WithProperty("transit_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>

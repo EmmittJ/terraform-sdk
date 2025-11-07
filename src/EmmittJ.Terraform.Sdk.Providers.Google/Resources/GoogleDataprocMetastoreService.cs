@@ -29,28 +29,28 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// <summary>
     /// The database type that the Metastore service stores its data. Default value: &amp;quot;MYSQL&amp;quot; Possible values: [&amp;quot;MYSQL&amp;quot;, &amp;quot;SPANNER&amp;quot;]
     /// </summary>
-    public string? DatabaseType
+    public TerraformLiteralProperty<string>? DatabaseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_type")?.Value;
-        set => this.WithProperty("database_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_type");
+        set => this.WithProperty("database_type", value);
     }
 
     /// <summary>
     /// Indicates if the dataproc metastore should be protected against accidental deletions.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -59,20 +59,20 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the metastore service should reside.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -80,37 +80,37 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// 
     /// &amp;quot;projects/{projectNumber}/global/networks/{network_id}&amp;quot;.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The TCP port at which the metastore service is reached. Default: 9083.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The release channel of the service. If unspecified, defaults to &#39;STABLE&#39;. Default value: &amp;quot;STABLE&amp;quot; Possible values: [&amp;quot;CANARY&amp;quot;, &amp;quot;STABLE&amp;quot;]
     /// </summary>
-    public string? ReleaseChannel
+    public TerraformLiteralProperty<string>? ReleaseChannel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_channel")?.Value;
-        set => this.WithProperty("release_channel", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("release_channel");
+        set => this.WithProperty("release_channel", value);
     }
 
     /// <summary>
@@ -118,10 +118,10 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between
     /// 3 and 63 characters.
     /// </summary>
-    public string? ServiceId
+    public TerraformLiteralProperty<string>? ServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_id")?.Value;
-        set => this.WithProperty("service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_id");
+        set => this.WithProperty("service_id", value);
     }
 
     /// <summary>
@@ -129,19 +129,19 @@ public class GoogleDataprocMetastoreService : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tier of the service. Possible values: [&amp;quot;DEVELOPER&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public string? Tier
+    public TerraformLiteralProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier")?.Value;
-        set => this.WithProperty("tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        set => this.WithProperty("tier", value);
     }
 
     /// <summary>

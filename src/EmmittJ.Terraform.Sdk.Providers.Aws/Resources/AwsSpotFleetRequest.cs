@@ -21,226 +21,226 @@ public class AwsSpotFleetRequest : TerraformResource
     /// <summary>
     /// The allocation_strategy attribute.
     /// </summary>
-    public string? AllocationStrategy
+    public TerraformLiteralProperty<string>? AllocationStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allocation_strategy")?.Value;
-        set => this.WithProperty("allocation_strategy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("allocation_strategy");
+        set => this.WithProperty("allocation_strategy", value);
     }
 
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public string? Context
+    public TerraformLiteralProperty<string>? Context
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("context")?.Value;
-        set => this.WithProperty("context", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("context");
+        set => this.WithProperty("context", value);
     }
 
     /// <summary>
     /// The excess_capacity_termination_policy attribute.
     /// </summary>
-    public string? ExcessCapacityTerminationPolicy
+    public TerraformLiteralProperty<string>? ExcessCapacityTerminationPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("excess_capacity_termination_policy")?.Value;
-        set => this.WithProperty("excess_capacity_termination_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("excess_capacity_termination_policy");
+        set => this.WithProperty("excess_capacity_termination_policy", value);
     }
 
     /// <summary>
     /// The fleet_type attribute.
     /// </summary>
-    public string? FleetType
+    public TerraformLiteralProperty<string>? FleetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fleet_type")?.Value;
-        set => this.WithProperty("fleet_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("fleet_type");
+        set => this.WithProperty("fleet_type", value);
     }
 
     /// <summary>
     /// The iam_fleet_role attribute.
     /// </summary>
-    public string? IamFleetRole
+    public TerraformLiteralProperty<string>? IamFleetRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_fleet_role")?.Value;
-        set => this.WithProperty("iam_fleet_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_fleet_role");
+        set => this.WithProperty("iam_fleet_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_interruption_behaviour attribute.
     /// </summary>
-    public string? InstanceInterruptionBehaviour
+    public TerraformLiteralProperty<string>? InstanceInterruptionBehaviour
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_interruption_behaviour")?.Value;
-        set => this.WithProperty("instance_interruption_behaviour", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_interruption_behaviour");
+        set => this.WithProperty("instance_interruption_behaviour", value);
     }
 
     /// <summary>
     /// The instance_pools_to_use_count attribute.
     /// </summary>
-    public double? InstancePoolsToUseCount
+    public TerraformLiteralProperty<double>? InstancePoolsToUseCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_pools_to_use_count")?.Value;
-        set => this.WithProperty("instance_pools_to_use_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("instance_pools_to_use_count");
+        set => this.WithProperty("instance_pools_to_use_count", value);
     }
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
-    public HashSet<string>? LoadBalancers
+    public TerraformLiteralProperty<HashSet<string>>? LoadBalancers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("load_balancers")?.Value;
-        set => this.WithProperty("load_balancers", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("load_balancers");
+        set => this.WithProperty("load_balancers", value);
     }
 
     /// <summary>
     /// The on_demand_allocation_strategy attribute.
     /// </summary>
-    public string? OnDemandAllocationStrategy
+    public TerraformLiteralProperty<string>? OnDemandAllocationStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("on_demand_allocation_strategy")?.Value;
-        set => this.WithProperty("on_demand_allocation_strategy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("on_demand_allocation_strategy");
+        set => this.WithProperty("on_demand_allocation_strategy", value);
     }
 
     /// <summary>
     /// The on_demand_max_total_price attribute.
     /// </summary>
-    public string? OnDemandMaxTotalPrice
+    public TerraformLiteralProperty<string>? OnDemandMaxTotalPrice
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("on_demand_max_total_price")?.Value;
-        set => this.WithProperty("on_demand_max_total_price", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("on_demand_max_total_price");
+        set => this.WithProperty("on_demand_max_total_price", value);
     }
 
     /// <summary>
     /// The on_demand_target_capacity attribute.
     /// </summary>
-    public double? OnDemandTargetCapacity
+    public TerraformLiteralProperty<double>? OnDemandTargetCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("on_demand_target_capacity")?.Value;
-        set => this.WithProperty("on_demand_target_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("on_demand_target_capacity");
+        set => this.WithProperty("on_demand_target_capacity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replace_unhealthy_instances attribute.
     /// </summary>
-    public bool? ReplaceUnhealthyInstances
+    public TerraformLiteralProperty<bool>? ReplaceUnhealthyInstances
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("replace_unhealthy_instances")?.Value;
-        set => this.WithProperty("replace_unhealthy_instances", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("replace_unhealthy_instances");
+        set => this.WithProperty("replace_unhealthy_instances", value);
     }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
-    public string? SpotPrice
+    public TerraformLiteralProperty<string>? SpotPrice
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spot_price")?.Value;
-        set => this.WithProperty("spot_price", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spot_price");
+        set => this.WithProperty("spot_price", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_capacity attribute.
     /// </summary>
-    public double? TargetCapacity
+    public TerraformLiteralProperty<double>? TargetCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("target_capacity")?.Value;
-        set => this.WithProperty("target_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("target_capacity");
+        set => this.WithProperty("target_capacity", value);
     }
 
     /// <summary>
     /// The target_capacity_unit_type attribute.
     /// </summary>
-    public string? TargetCapacityUnitType
+    public TerraformLiteralProperty<string>? TargetCapacityUnitType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_capacity_unit_type")?.Value;
-        set => this.WithProperty("target_capacity_unit_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_capacity_unit_type");
+        set => this.WithProperty("target_capacity_unit_type", value);
     }
 
     /// <summary>
     /// The target_group_arns attribute.
     /// </summary>
-    public HashSet<string>? TargetGroupArns
+    public TerraformLiteralProperty<HashSet<string>>? TargetGroupArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("target_group_arns")?.Value;
-        set => this.WithProperty("target_group_arns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("target_group_arns");
+        set => this.WithProperty("target_group_arns", value);
     }
 
     /// <summary>
     /// The terminate_instances_on_delete attribute.
     /// </summary>
-    public string? TerminateInstancesOnDelete
+    public TerraformLiteralProperty<string>? TerminateInstancesOnDelete
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("terminate_instances_on_delete")?.Value;
-        set => this.WithProperty("terminate_instances_on_delete", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("terminate_instances_on_delete");
+        set => this.WithProperty("terminate_instances_on_delete", value);
     }
 
     /// <summary>
     /// The terminate_instances_with_expiration attribute.
     /// </summary>
-    public bool? TerminateInstancesWithExpiration
+    public TerraformLiteralProperty<bool>? TerminateInstancesWithExpiration
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("terminate_instances_with_expiration")?.Value;
-        set => this.WithProperty("terminate_instances_with_expiration", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("terminate_instances_with_expiration");
+        set => this.WithProperty("terminate_instances_with_expiration", value);
     }
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
-    public string? ValidFrom
+    public TerraformLiteralProperty<string>? ValidFrom
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("valid_from")?.Value;
-        set => this.WithProperty("valid_from", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("valid_from");
+        set => this.WithProperty("valid_from", value);
     }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public string? ValidUntil
+    public TerraformLiteralProperty<string>? ValidUntil
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("valid_until")?.Value;
-        set => this.WithProperty("valid_until", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("valid_until");
+        set => this.WithProperty("valid_until", value);
     }
 
     /// <summary>
     /// The wait_for_fulfillment attribute.
     /// </summary>
-    public bool? WaitForFulfillment
+    public TerraformLiteralProperty<bool>? WaitForFulfillment
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_fulfillment")?.Value;
-        set => this.WithProperty("wait_for_fulfillment", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_fulfillment");
+        set => this.WithProperty("wait_for_fulfillment", value);
     }
 
     /// <summary>

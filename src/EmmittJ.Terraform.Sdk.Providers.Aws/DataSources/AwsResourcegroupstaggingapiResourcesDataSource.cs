@@ -20,55 +20,55 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
     /// <summary>
     /// The exclude_compliant_resources attribute.
     /// </summary>
-    public bool? ExcludeCompliantResources
+    public TerraformLiteralProperty<bool>? ExcludeCompliantResources
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_compliant_resources")?.Value;
-        set => this.WithProperty("exclude_compliant_resources", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_compliant_resources");
+        set => this.WithProperty("exclude_compliant_resources", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_compliance_details attribute.
     /// </summary>
-    public bool? IncludeComplianceDetails
+    public TerraformLiteralProperty<bool>? IncludeComplianceDetails
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_compliance_details")?.Value;
-        set => this.WithProperty("include_compliance_details", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_compliance_details");
+        set => this.WithProperty("include_compliance_details", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn_list attribute.
     /// </summary>
-    public HashSet<string>? ResourceArnList
+    public TerraformLiteralProperty<HashSet<string>>? ResourceArnList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_arn_list")?.Value;
-        set => this.WithProperty("resource_arn_list", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_arn_list");
+        set => this.WithProperty("resource_arn_list", value);
     }
 
     /// <summary>
     /// The resource_type_filters attribute.
     /// </summary>
-    public HashSet<string>? ResourceTypeFilters
+    public TerraformLiteralProperty<HashSet<string>>? ResourceTypeFilters
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_type_filters")?.Value;
-        set => this.WithProperty("resource_type_filters", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_type_filters");
+        set => this.WithProperty("resource_type_filters", value);
     }
 
     /// <summary>

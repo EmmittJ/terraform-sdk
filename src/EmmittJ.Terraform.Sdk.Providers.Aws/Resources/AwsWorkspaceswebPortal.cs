@@ -34,82 +34,82 @@ public class AwsWorkspaceswebPortal : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalEncryptionContext
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context")?.Value;
-        set => this.WithProperty("additional_encryption_context", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context");
+        set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public string? AuthenticationType
+    public TerraformLiteralProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type")?.Value;
-        set => this.WithProperty("authentication_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
-    public string? BrowserSettingsArn
+    public TerraformLiteralProperty<string>? BrowserSettingsArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("browser_settings_arn")?.Value;
-        set => this.WithProperty("browser_settings_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("browser_settings_arn");
+        set => this.WithProperty("browser_settings_arn", value);
     }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public string? CustomerManagedKey
+    public TerraformLiteralProperty<string>? CustomerManagedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key")?.Value;
-        set => this.WithProperty("customer_managed_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key");
+        set => this.WithProperty("customer_managed_key", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The max_concurrent_sessions attribute.
     /// </summary>
-    public double? MaxConcurrentSessions
+    public TerraformLiteralProperty<double>? MaxConcurrentSessions
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_concurrent_sessions")?.Value;
-        set => this.WithProperty("max_concurrent_sessions", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_concurrent_sessions");
+        set => this.WithProperty("max_concurrent_sessions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -21,19 +21,19 @@ public class GoogleAccessApprovalFolderServiceAccountDataSource : TerraformDataS
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
-    public string? FolderId
+    public TerraformLiteralProperty<string>? FolderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder_id")?.Value;
-        set => this.WithProperty("folder_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder_id");
+        set => this.WithProperty("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

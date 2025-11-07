@@ -22,101 +22,101 @@ public class AzurermNginxDeployment : TerraformResource
     /// <summary>
     /// The automatic_upgrade_channel attribute.
     /// </summary>
-    public string? AutomaticUpgradeChannel
+    public TerraformLiteralProperty<string>? AutomaticUpgradeChannel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automatic_upgrade_channel")?.Value;
-        set => this.WithProperty("automatic_upgrade_channel", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("automatic_upgrade_channel");
+        set => this.WithProperty("automatic_upgrade_channel", value);
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public double? Capacity
+    public TerraformLiteralProperty<double>? Capacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("capacity")?.Value;
-        set => this.WithProperty("capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("capacity");
+        set => this.WithProperty("capacity", value);
     }
 
     /// <summary>
     /// The diagnose_support_enabled attribute.
     /// </summary>
-    public bool? DiagnoseSupportEnabled
+    public TerraformLiteralProperty<bool>? DiagnoseSupportEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("diagnose_support_enabled")?.Value;
-        set => this.WithProperty("diagnose_support_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("diagnose_support_enabled");
+        set => this.WithProperty("diagnose_support_enabled", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public string? Email
+    public TerraformLiteralProperty<string>? Email
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email")?.Value;
-        set => this.WithProperty("email", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email");
+        set => this.WithProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_resource_group attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? ManagedResourceGroup
+    public TerraformLiteralProperty<string>? ManagedResourceGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group")?.Value;
-        set => this.WithProperty("managed_resource_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group");
+        set => this.WithProperty("managed_resource_group", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public string? Sku
+    public TerraformLiteralProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku")?.Value;
-        set => this.WithProperty("sku", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

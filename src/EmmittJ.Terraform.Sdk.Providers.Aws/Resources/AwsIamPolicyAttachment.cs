@@ -19,55 +19,55 @@ public class AwsIamPolicyAttachment : TerraformResource
     /// <summary>
     /// The groups attribute.
     /// </summary>
-    public HashSet<string>? Groups
+    public TerraformLiteralProperty<HashSet<string>>? Groups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("groups")?.Value;
-        set => this.WithProperty("groups", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("groups");
+        set => this.WithProperty("groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
-    public string? PolicyArn
+    public TerraformLiteralProperty<string>? PolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_arn")?.Value;
-        set => this.WithProperty("policy_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_arn");
+        set => this.WithProperty("policy_arn", value);
     }
 
     /// <summary>
     /// The roles attribute.
     /// </summary>
-    public HashSet<string>? Roles
+    public TerraformLiteralProperty<HashSet<string>>? Roles
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("roles")?.Value;
-        set => this.WithProperty("roles", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("roles");
+        set => this.WithProperty("roles", value);
     }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
-    public HashSet<string>? Users
+    public TerraformLiteralProperty<HashSet<string>>? Users
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("users")?.Value;
-        set => this.WithProperty("users", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("users");
+        set => this.WithProperty("users", value);
     }
 
 }

@@ -38,10 +38,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// etc.). Please refer to the API documentation for more details.
     /// Possible values are: &#39;ACTIVATION_POLICY_UNSPECIFIED&#39;, &#39;ALWAYS&#39;, &#39;NEVER&#39;.&#39; Possible values: [&amp;quot;ACTIVATION_POLICY_UNSPECIFIED&amp;quot;, &amp;quot;ALWAYS&amp;quot;, &amp;quot;NEVER&amp;quot;]
     /// </summary>
-    public string? ActivationPolicy
+    public TerraformLiteralProperty<string>? ActivationPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("activation_policy")?.Value;
-        set => this.WithProperty("activation_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("activation_policy");
+        set => this.WithProperty("activation_policy", value);
     }
 
     /// <summary>
@@ -50,10 +50,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
@@ -64,65 +64,65 @@ public class GoogleAlloydbInstance : TerraformResource
     /// can have regional availability (nodes are present in 2 or more zones in a region).
     /// Possible values are: &#39;AVAILABILITY_TYPE_UNSPECIFIED&#39;, &#39;ZONAL&#39;, &#39;REGIONAL&#39;.&#39; Possible values: [&amp;quot;AVAILABILITY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;ZONAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public string? AvailabilityType
+    public TerraformLiteralProperty<string>? AvailabilityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_type")?.Value;
-        set => this.WithProperty("availability_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_type");
+        set => this.WithProperty("availability_type", value);
     }
 
     /// <summary>
     /// Identifies the alloydb cluster. Must be in the format
     /// &#39;projects/{project}/locations/{location}/clusters/{cluster_id}&#39;
     /// </summary>
-    public string? Cluster
+    public TerraformLiteralProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster")?.Value;
-        set => this.WithProperty("cluster", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
-    public Dictionary<string, string>? DatabaseFlags
+    public TerraformLiteralProperty<Dictionary<string, string>>? DatabaseFlags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("database_flags")?.Value;
-        set => this.WithProperty("database_flags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("database_flags");
+        set => this.WithProperty("database_flags", value);
     }
 
     /// <summary>
     /// User-settable and human-readable display name for the Instance.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
     /// </summary>
-    public string? GceZone
+    public TerraformLiteralProperty<string>? GceZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gce_zone")?.Value;
-        set => this.WithProperty("gce_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gce_zone");
+        set => this.WithProperty("gce_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the alloydb instance.
     /// </summary>
-    public string? InstanceId
+    public TerraformLiteralProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id")?.Value;
-        set => this.WithProperty("instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
@@ -134,10 +134,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// Use deletion_policy = &amp;quot;FORCE&amp;quot; in the associated secondary cluster and delete the cluster forcefully to delete the secondary cluster as well its associated secondary instance.
     /// Users can undo the delete secondary instance action by importing the deleted secondary instance by calling terraform import. Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;READ_POOL&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
@@ -146,10 +146,10 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>

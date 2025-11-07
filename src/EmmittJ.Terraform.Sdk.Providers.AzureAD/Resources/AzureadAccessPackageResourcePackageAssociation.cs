@@ -19,37 +19,37 @@ public class AzureadAccessPackageResourcePackageAssociation : TerraformResource
     /// <summary>
     /// The ID of access package this resource association is configured to
     /// </summary>
-    public string? AccessPackageId
+    public TerraformLiteralProperty<string>? AccessPackageId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_package_id")?.Value;
-        set => this.WithProperty("access_package_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_package_id");
+        set => this.WithProperty("access_package_id", value);
     }
 
     /// <summary>
     /// The role of access type to the specified resource, valid values are `Member` and `Owner`
     /// </summary>
-    public string? AccessType
+    public TerraformLiteralProperty<string>? AccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_type")?.Value;
-        set => this.WithProperty("access_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_type");
+        set => this.WithProperty("access_type", value);
     }
 
     /// <summary>
     /// The ID of the access package catalog association
     /// </summary>
-    public string? CatalogResourceAssociationId
+    public TerraformLiteralProperty<string>? CatalogResourceAssociationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_resource_association_id")?.Value;
-        set => this.WithProperty("catalog_resource_association_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("catalog_resource_association_id");
+        set => this.WithProperty("catalog_resource_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

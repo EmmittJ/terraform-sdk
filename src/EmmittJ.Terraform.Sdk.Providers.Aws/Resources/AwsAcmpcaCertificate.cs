@@ -22,64 +22,64 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// <summary>
     /// The api_passthrough attribute.
     /// </summary>
-    public string? ApiPassthrough
+    public TerraformLiteralProperty<string>? ApiPassthrough
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_passthrough")?.Value;
-        set => this.WithProperty("api_passthrough", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_passthrough");
+        set => this.WithProperty("api_passthrough", value);
     }
 
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public string? CertificateAuthorityArn
+    public TerraformLiteralProperty<string>? CertificateAuthorityArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn")?.Value;
-        set => this.WithProperty("certificate_authority_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn");
+        set => this.WithProperty("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The certificate_signing_request attribute.
     /// </summary>
-    public string? CertificateSigningRequest
+    public TerraformLiteralProperty<string>? CertificateSigningRequest
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_signing_request")?.Value;
-        set => this.WithProperty("certificate_signing_request", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_signing_request");
+        set => this.WithProperty("certificate_signing_request", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
-    public string? SigningAlgorithm
+    public TerraformLiteralProperty<string>? SigningAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signing_algorithm")?.Value;
-        set => this.WithProperty("signing_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("signing_algorithm");
+        set => this.WithProperty("signing_algorithm", value);
     }
 
     /// <summary>
     /// The template_arn attribute.
     /// </summary>
-    public string? TemplateArn
+    public TerraformLiteralProperty<string>? TemplateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_arn")?.Value;
-        set => this.WithProperty("template_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_arn");
+        set => this.WithProperty("template_arn", value);
     }
 
     /// <summary>

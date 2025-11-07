@@ -31,10 +31,10 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// argument &#39;pool&#39; should be set to &#39;projects/my-project/locations/us-central1/caPools/my-pool&#39;, argument &#39;certificate_authority&#39;
     /// should be set to &#39;my-ca&#39;.
     /// </summary>
-    public string? CertificateAuthority
+    public TerraformLiteralProperty<string>? CertificateAuthority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority")?.Value;
-        set => this.WithProperty("certificate_authority", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority");
+        set => this.WithProperty("certificate_authority", value);
     }
 
     /// <summary>
@@ -44,19 +44,19 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// omitted, no template will be used. This template must be in the same location
     /// as the Certificate.
     /// </summary>
-    public string? CertificateTemplate
+    public TerraformLiteralProperty<string>? CertificateTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_template")?.Value;
-        set => this.WithProperty("certificate_template", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_template");
+        set => this.WithProperty("certificate_template", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -66,10 +66,10 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -77,56 +77,56 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// &amp;quot;notAfterTime&amp;quot; fields inside an X.509 certificate. A duration in seconds with up to nine
     /// fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public string? Lifetime
+    public TerraformLiteralProperty<string>? Lifetime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifetime")?.Value;
-        set => this.WithProperty("lifetime", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lifetime");
+        set => this.WithProperty("lifetime", value);
     }
 
     /// <summary>
     /// Location of the Certificate. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name for this Certificate.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
     /// </summary>
-    public string? PemCsr
+    public TerraformLiteralProperty<string>? PemCsr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pem_csr")?.Value;
-        set => this.WithProperty("pem_csr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pem_csr");
+        set => this.WithProperty("pem_csr", value);
     }
 
     /// <summary>
     /// The name of the CaPool this Certificate belongs to.
     /// </summary>
-    public string? Pool
+    public TerraformLiteralProperty<string>? Pool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool")?.Value;
-        set => this.WithProperty("pool", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool");
+        set => this.WithProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

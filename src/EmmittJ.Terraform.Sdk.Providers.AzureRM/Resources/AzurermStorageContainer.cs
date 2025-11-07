@@ -22,74 +22,74 @@ public class AzurermStorageContainer : TerraformResource
     /// <summary>
     /// The container_access_type attribute.
     /// </summary>
-    public string? ContainerAccessType
+    public TerraformLiteralProperty<string>? ContainerAccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_access_type")?.Value;
-        set => this.WithProperty("container_access_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_access_type");
+        set => this.WithProperty("container_access_type", value);
     }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public string? DefaultEncryptionScope
+    public TerraformLiteralProperty<string>? DefaultEncryptionScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_encryption_scope")?.Value;
-        set => this.WithProperty("default_encryption_scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_encryption_scope");
+        set => this.WithProperty("default_encryption_scope", value);
     }
 
     /// <summary>
     /// The encryption_scope_override_enabled attribute.
     /// </summary>
-    public bool? EncryptionScopeOverrideEnabled
+    public TerraformLiteralProperty<bool>? EncryptionScopeOverrideEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("encryption_scope_override_enabled")?.Value;
-        set => this.WithProperty("encryption_scope_override_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("encryption_scope_override_enabled");
+        set => this.WithProperty("encryption_scope_override_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public Dictionary<string, string>? Metadata
+    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata")?.Value;
-        set => this.WithProperty("metadata", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public string? StorageAccountId
+    public TerraformLiteralProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id")?.Value;
-        set => this.WithProperty("storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? StorageAccountName
+    public TerraformLiteralProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name")?.Value;
-        set => this.WithProperty("storage_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        set => this.WithProperty("storage_account_name", value);
     }
 
     /// <summary>

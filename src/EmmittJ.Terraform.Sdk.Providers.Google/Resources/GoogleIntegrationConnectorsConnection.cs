@@ -30,37 +30,37 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// <summary>
     /// connectorVersion of the Connector.
     /// </summary>
-    public string? ConnectorVersion
+    public TerraformLiteralProperty<string>? ConnectorVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connector_version")?.Value;
-        set => this.WithProperty("connector_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connector_version");
+        set => this.WithProperty("connector_version", value);
     }
 
     /// <summary>
     /// An arbitrary description for the Connection.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Eventing enablement type. Will be nil if eventing is not enabled. Possible values: [&amp;quot;EVENTING_AND_CONNECTION&amp;quot;, &amp;quot;ONLY_EVENTING&amp;quot;]
     /// </summary>
-    public string? EventingEnablementType
+    public TerraformLiteralProperty<string>? EventingEnablementType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventing_enablement_type")?.Value;
-        set => this.WithProperty("eventing_enablement_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventing_enablement_type");
+        set => this.WithProperty("eventing_enablement_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -70,55 +70,55 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location in which Connection needs to be created.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of Connection needs to be created.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Service account needed for runtime plane to access Google Cloud resources.
     /// </summary>
-    public string? ServiceAccount
+    public TerraformLiteralProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account")?.Value;
-        set => this.WithProperty("service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        set => this.WithProperty("service_account", value);
     }
 
     /// <summary>
     /// Suspended indicates if a user has suspended a connection or not.
     /// </summary>
-    public bool? Suspended
+    public TerraformLiteralProperty<bool>? Suspended
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("suspended")?.Value;
-        set => this.WithProperty("suspended", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("suspended");
+        set => this.WithProperty("suspended", value);
     }
 
     /// <summary>

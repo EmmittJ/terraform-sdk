@@ -19,10 +19,10 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// <summary>
     /// Whether to export the custom routes to the peer network.
     /// </summary>
-    public bool? ExportCustomRoutes
+    public TerraformLiteralProperty<bool>? ExportCustomRoutes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("export_custom_routes")?.Value;
-        set => this.WithProperty("export_custom_routes", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("export_custom_routes");
+        set => this.WithProperty("export_custom_routes", value);
     }
 
     /// <summary>
@@ -30,28 +30,28 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// IPv4 special-use ranges are always exported to peers and
     /// are not controlled by this field.
     /// </summary>
-    public bool? ExportSubnetRoutesWithPublicIp
+    public TerraformLiteralProperty<bool>? ExportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("export_subnet_routes_with_public_ip")?.Value;
-        set => this.WithProperty("export_subnet_routes_with_public_ip", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("export_subnet_routes_with_public_ip");
+        set => this.WithProperty("export_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Whether to import the custom routes to the peer network.
     /// </summary>
-    public bool? ImportCustomRoutes
+    public TerraformLiteralProperty<bool>? ImportCustomRoutes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("import_custom_routes")?.Value;
-        set => this.WithProperty("import_custom_routes", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("import_custom_routes");
+        set => this.WithProperty("import_custom_routes", value);
     }
 
     /// <summary>
@@ -59,37 +59,37 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// IPv4 special-use ranges are always imported from peers and
     /// are not controlled by this field.
     /// </summary>
-    public bool? ImportSubnetRoutesWithPublicIp
+    public TerraformLiteralProperty<bool>? ImportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("import_subnet_routes_with_public_ip")?.Value;
-        set => this.WithProperty("import_subnet_routes_with_public_ip", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("import_subnet_routes_with_public_ip");
+        set => this.WithProperty("import_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The name of the primary network for the peering.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// Name of the peering.
     /// </summary>
-    public string? Peering
+    public TerraformLiteralProperty<string>? Peering
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering")?.Value;
-        set => this.WithProperty("peering", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("peering");
+        set => this.WithProperty("peering", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
 }

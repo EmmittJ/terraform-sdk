@@ -20,37 +20,37 @@ public class GoogleServiceAccountIamMember : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
-    public string? Member
+    public TerraformLiteralProperty<string>? Member
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member")?.Value;
-        set => this.WithProperty("member", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("member");
+        set => this.WithProperty("member", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
-    public string? ServiceAccountId
+    public TerraformLiteralProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id")?.Value;
-        set => this.WithProperty("service_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id");
+        set => this.WithProperty("service_account_id", value);
     }
 
     /// <summary>

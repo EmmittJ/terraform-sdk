@@ -21,109 +21,109 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     /// <summary>
     /// The cutoff_behavior attribute.
     /// </summary>
-    public string? CutoffBehavior
+    public TerraformLiteralProperty<string>? CutoffBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cutoff_behavior")?.Value;
-        set => this.WithProperty("cutoff_behavior", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cutoff_behavior");
+        set => this.WithProperty("cutoff_behavior", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public string? MaxConcurrency
+    public TerraformLiteralProperty<string>? MaxConcurrency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("max_concurrency")?.Value;
-        set => this.WithProperty("max_concurrency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("max_concurrency");
+        set => this.WithProperty("max_concurrency", value);
     }
 
     /// <summary>
     /// The max_errors attribute.
     /// </summary>
-    public string? MaxErrors
+    public TerraformLiteralProperty<string>? MaxErrors
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("max_errors")?.Value;
-        set => this.WithProperty("max_errors", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("max_errors");
+        set => this.WithProperty("max_errors", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    public string? ServiceRoleArn
+    public TerraformLiteralProperty<string>? ServiceRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_role_arn")?.Value;
-        set => this.WithProperty("service_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_role_arn");
+        set => this.WithProperty("service_role_arn", value);
     }
 
     /// <summary>
     /// The task_arn attribute.
     /// </summary>
-    public string? TaskArn
+    public TerraformLiteralProperty<string>? TaskArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_arn")?.Value;
-        set => this.WithProperty("task_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("task_arn");
+        set => this.WithProperty("task_arn", value);
     }
 
     /// <summary>
     /// The task_type attribute.
     /// </summary>
-    public string? TaskType
+    public TerraformLiteralProperty<string>? TaskType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_type")?.Value;
-        set => this.WithProperty("task_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("task_type");
+        set => this.WithProperty("task_type", value);
     }
 
     /// <summary>
     /// The window_id attribute.
     /// </summary>
-    public string? WindowId
+    public TerraformLiteralProperty<string>? WindowId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("window_id")?.Value;
-        set => this.WithProperty("window_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("window_id");
+        set => this.WithProperty("window_id", value);
     }
 
     /// <summary>

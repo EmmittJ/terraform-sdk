@@ -22,19 +22,19 @@ public class GoogleMlEngineModel : TerraformResource
     /// <summary>
     /// The description specified for the model when it was created.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -43,56 +43,56 @@ public class GoogleMlEngineModel : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name specified for the model.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// If true, online prediction nodes send stderr and stdout streams to Stackdriver Logging
     /// </summary>
-    public bool? OnlinePredictionConsoleLogging
+    public TerraformLiteralProperty<bool>? OnlinePredictionConsoleLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("online_prediction_console_logging")?.Value;
-        set => this.WithProperty("online_prediction_console_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("online_prediction_console_logging");
+        set => this.WithProperty("online_prediction_console_logging", value);
     }
 
     /// <summary>
     /// If true, online prediction access logs are sent to StackDriver Logging.
     /// </summary>
-    public bool? OnlinePredictionLogging
+    public TerraformLiteralProperty<bool>? OnlinePredictionLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("online_prediction_logging")?.Value;
-        set => this.WithProperty("online_prediction_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("online_prediction_logging");
+        set => this.WithProperty("online_prediction_logging", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The list of regions where the model is going to be deployed.
     /// Currently only one region per model is supported
     /// </summary>
-    public List<string>? Regions
+    public TerraformLiteralProperty<List<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("regions")?.Value;
-        set => this.WithProperty("regions", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("regions");
+        set => this.WithProperty("regions", value);
     }
 
     /// <summary>

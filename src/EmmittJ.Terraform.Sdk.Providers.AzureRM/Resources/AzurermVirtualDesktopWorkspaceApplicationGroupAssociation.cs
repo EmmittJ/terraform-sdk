@@ -19,28 +19,28 @@ public class AzurermVirtualDesktopWorkspaceApplicationGroupAssociation : Terrafo
     /// <summary>
     /// The application_group_id attribute.
     /// </summary>
-    public string? ApplicationGroupId
+    public TerraformLiteralProperty<string>? ApplicationGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_group_id")?.Value;
-        set => this.WithProperty("application_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_group_id");
+        set => this.WithProperty("application_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
 }

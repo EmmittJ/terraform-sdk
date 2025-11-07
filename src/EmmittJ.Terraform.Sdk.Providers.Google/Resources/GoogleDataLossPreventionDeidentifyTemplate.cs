@@ -22,28 +22,28 @@ public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
     /// <summary>
     /// A description of the template.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// User set display name of the template.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -54,10 +54,10 @@ public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
     /// * &#39;organizations/{{organization_id}}&#39;
     /// * &#39;organizations/{{organization_id}}/locations/{{location}}&#39;
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
@@ -65,10 +65,10 @@ public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is
     /// 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public string? TemplateId
+    public TerraformLiteralProperty<string>? TemplateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_id")?.Value;
-        set => this.WithProperty("template_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_id");
+        set => this.WithProperty("template_id", value);
     }
 
     /// <summary>

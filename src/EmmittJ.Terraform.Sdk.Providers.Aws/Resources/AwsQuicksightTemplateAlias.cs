@@ -21,46 +21,46 @@ public class AwsQuicksightTemplateAlias : TerraformResource
     /// <summary>
     /// The alias_name attribute.
     /// </summary>
-    public string? AliasName
+    public TerraformLiteralProperty<string>? AliasName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias_name")?.Value;
-        set => this.WithProperty("alias_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alias_name");
+        set => this.WithProperty("alias_name", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public string? AwsAccountId
+    public TerraformLiteralProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id")?.Value;
-        set => this.WithProperty("aws_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The template_id attribute.
     /// </summary>
-    public string? TemplateId
+    public TerraformLiteralProperty<string>? TemplateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_id")?.Value;
-        set => this.WithProperty("template_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_id");
+        set => this.WithProperty("template_id", value);
     }
 
     /// <summary>
     /// The template_version_number attribute.
     /// </summary>
-    public double? TemplateVersionNumber
+    public TerraformLiteralProperty<double>? TemplateVersionNumber
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("template_version_number")?.Value;
-        set => this.WithProperty("template_version_number", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("template_version_number");
+        set => this.WithProperty("template_version_number", value);
     }
 
     /// <summary>

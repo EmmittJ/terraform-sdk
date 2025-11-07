@@ -31,172 +31,172 @@ public class AwsAmi : TerraformResource
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    public string? Architecture
+    public TerraformLiteralProperty<string>? Architecture
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("architecture")?.Value;
-        set => this.WithProperty("architecture", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("architecture");
+        set => this.WithProperty("architecture", value);
     }
 
     /// <summary>
     /// The boot_mode attribute.
     /// </summary>
-    public string? BootMode
+    public TerraformLiteralProperty<string>? BootMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("boot_mode")?.Value;
-        set => this.WithProperty("boot_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("boot_mode");
+        set => this.WithProperty("boot_mode", value);
     }
 
     /// <summary>
     /// The deprecation_time attribute.
     /// </summary>
-    public string? DeprecationTime
+    public TerraformLiteralProperty<string>? DeprecationTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deprecation_time")?.Value;
-        set => this.WithProperty("deprecation_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deprecation_time");
+        set => this.WithProperty("deprecation_time", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
-    public bool? EnaSupport
+    public TerraformLiteralProperty<bool>? EnaSupport
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ena_support")?.Value;
-        set => this.WithProperty("ena_support", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ena_support");
+        set => this.WithProperty("ena_support", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_location attribute.
     /// </summary>
-    public string? ImageLocation
+    public TerraformLiteralProperty<string>? ImageLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_location")?.Value;
-        set => this.WithProperty("image_location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("image_location");
+        set => this.WithProperty("image_location", value);
     }
 
     /// <summary>
     /// The imds_support attribute.
     /// </summary>
-    public string? ImdsSupport
+    public TerraformLiteralProperty<string>? ImdsSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("imds_support")?.Value;
-        set => this.WithProperty("imds_support", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("imds_support");
+        set => this.WithProperty("imds_support", value);
     }
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
-    public string? KernelId
+    public TerraformLiteralProperty<string>? KernelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kernel_id")?.Value;
-        set => this.WithProperty("kernel_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kernel_id");
+        set => this.WithProperty("kernel_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The ramdisk_id attribute.
     /// </summary>
-    public string? RamdiskId
+    public TerraformLiteralProperty<string>? RamdiskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ramdisk_id")?.Value;
-        set => this.WithProperty("ramdisk_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ramdisk_id");
+        set => this.WithProperty("ramdisk_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The root_device_name attribute.
     /// </summary>
-    public string? RootDeviceName
+    public TerraformLiteralProperty<string>? RootDeviceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("root_device_name")?.Value;
-        set => this.WithProperty("root_device_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("root_device_name");
+        set => this.WithProperty("root_device_name", value);
     }
 
     /// <summary>
     /// The sriov_net_support attribute.
     /// </summary>
-    public string? SriovNetSupport
+    public TerraformLiteralProperty<string>? SriovNetSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sriov_net_support")?.Value;
-        set => this.WithProperty("sriov_net_support", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sriov_net_support");
+        set => this.WithProperty("sriov_net_support", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tpm_support attribute.
     /// </summary>
-    public string? TpmSupport
+    public TerraformLiteralProperty<string>? TpmSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tpm_support")?.Value;
-        set => this.WithProperty("tpm_support", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tpm_support");
+        set => this.WithProperty("tpm_support", value);
     }
 
     /// <summary>
     /// The uefi_data attribute.
     /// </summary>
-    public string? UefiData
+    public TerraformLiteralProperty<string>? UefiData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("uefi_data")?.Value;
-        set => this.WithProperty("uefi_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("uefi_data");
+        set => this.WithProperty("uefi_data", value);
     }
 
     /// <summary>
     /// The virtualization_type attribute.
     /// </summary>
-    public string? VirtualizationType
+    public TerraformLiteralProperty<string>? VirtualizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtualization_type")?.Value;
-        set => this.WithProperty("virtualization_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("virtualization_type");
+        set => this.WithProperty("virtualization_type", value);
     }
 
     /// <summary>

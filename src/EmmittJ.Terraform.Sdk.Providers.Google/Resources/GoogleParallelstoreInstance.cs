@@ -28,10 +28,10 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// <summary>
     /// Required. Immutable. Storage capacity of Parallelstore instance in Gibibytes (GiB).
     /// </summary>
-    public string? CapacityGib
+    public TerraformLiteralProperty<string>? CapacityGib
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_gib")?.Value;
-        set => this.WithProperty("capacity_gib", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("capacity_gib");
+        set => this.WithProperty("capacity_gib", value);
     }
 
     /// <summary>
@@ -41,19 +41,19 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   SCRATCH
     ///   PERSISTENT
     /// </summary>
-    public string? DeploymentType
+    public TerraformLiteralProperty<string>? DeploymentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_type")?.Value;
-        set => this.WithProperty("deployment_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_type");
+        set => this.WithProperty("deployment_type", value);
     }
 
     /// <summary>
     /// The description of the instance. 2048 characters or less.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -66,10 +66,10 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   DIRECTORY_STRIPE_LEVEL_BALANCED
     ///   DIRECTORY_STRIPE_LEVEL_MAX
     /// </summary>
-    public string? DirectoryStripeLevel
+    public TerraformLiteralProperty<string>? DirectoryStripeLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_stripe_level")?.Value;
-        set => this.WithProperty("directory_stripe_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("directory_stripe_level");
+        set => this.WithProperty("directory_stripe_level", value);
     }
 
     /// <summary>
@@ -82,19 +82,19 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   FILE_STRIPE_LEVEL_BALANCED
     ///   FILE_STRIPE_LEVEL_MAX
     /// </summary>
-    public string? FileStripeLevel
+    public TerraformLiteralProperty<string>? FileStripeLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_stripe_level")?.Value;
-        set => this.WithProperty("file_stripe_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("file_stripe_level");
+        set => this.WithProperty("file_stripe_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -105,10 +105,10 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   * Must end with a number or a letter.
     ///   * Must be unique within the customer project/ location
     /// </summary>
-    public string? InstanceId
+    public TerraformLiteralProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id")?.Value;
-        set => this.WithProperty("instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
@@ -138,38 +138,38 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Immutable. The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc)
     /// to which the instance is connected.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -178,10 +178,10 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// associated with IP range 10.0.0.0/29. If no range id is provided all ranges will
     /// be considered.
     /// </summary>
-    public string? ReservedIpRange
+    public TerraformLiteralProperty<string>? ReservedIpRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reserved_ip_range")?.Value;
-        set => this.WithProperty("reserved_ip_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("reserved_ip_range");
+        set => this.WithProperty("reserved_ip_range", value);
     }
 
     /// <summary>

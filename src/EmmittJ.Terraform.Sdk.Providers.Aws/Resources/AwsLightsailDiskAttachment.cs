@@ -19,46 +19,46 @@ public class AwsLightsailDiskAttachment : TerraformResource
     /// <summary>
     /// The disk_name attribute.
     /// </summary>
-    public string? DiskName
+    public TerraformLiteralProperty<string>? DiskName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_name")?.Value;
-        set => this.WithProperty("disk_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("disk_name");
+        set => this.WithProperty("disk_name", value);
     }
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
-    public string? DiskPath
+    public TerraformLiteralProperty<string>? DiskPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_path")?.Value;
-        set => this.WithProperty("disk_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("disk_path");
+        set => this.WithProperty("disk_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public string? InstanceName
+    public TerraformLiteralProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name")?.Value;
-        set => this.WithProperty("instance_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

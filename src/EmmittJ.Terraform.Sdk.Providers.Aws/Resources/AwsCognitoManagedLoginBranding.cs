@@ -21,46 +21,46 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public string? Settings
+    public TerraformLiteralProperty<string>? Settings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("settings")?.Value;
-        set => this.WithProperty("settings", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("settings");
+        set => this.WithProperty("settings", value);
     }
 
     /// <summary>
     /// The use_cognito_provided_values attribute.
     /// </summary>
-    public bool? UseCognitoProvidedValues
+    public TerraformLiteralProperty<bool>? UseCognitoProvidedValues
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_cognito_provided_values")?.Value;
-        set => this.WithProperty("use_cognito_provided_values", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("use_cognito_provided_values");
+        set => this.WithProperty("use_cognito_provided_values", value);
     }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public string? UserPoolId
+    public TerraformLiteralProperty<string>? UserPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id")?.Value;
-        set => this.WithProperty("user_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id");
+        set => this.WithProperty("user_pool_id", value);
     }
 
     /// <summary>

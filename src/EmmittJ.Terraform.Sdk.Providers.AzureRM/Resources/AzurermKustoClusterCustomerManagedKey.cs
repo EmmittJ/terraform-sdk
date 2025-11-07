@@ -19,64 +19,64 @@ public class AzurermKustoClusterCustomerManagedKey : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public string? ClusterId
+    public TerraformLiteralProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id")?.Value;
-        set => this.WithProperty("cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public string? KeyName
+    public TerraformLiteralProperty<string>? KeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_name")?.Value;
-        set => this.WithProperty("key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_name");
+        set => this.WithProperty("key_name", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public string? KeyVaultId
+    public TerraformLiteralProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id")?.Value;
-        set => this.WithProperty("key_vault_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The key_version attribute.
     /// </summary>
-    public string? KeyVersion
+    public TerraformLiteralProperty<string>? KeyVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_version")?.Value;
-        set => this.WithProperty("key_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_version");
+        set => this.WithProperty("key_version", value);
     }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    public string? ManagedHsmKeyId
+    public TerraformLiteralProperty<string>? ManagedHsmKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_key_id")?.Value;
-        set => this.WithProperty("managed_hsm_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_key_id");
+        set => this.WithProperty("managed_hsm_key_id", value);
     }
 
     /// <summary>
     /// The user_identity attribute.
     /// </summary>
-    public string? UserIdentity
+    public TerraformLiteralProperty<string>? UserIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_identity")?.Value;
-        set => this.WithProperty("user_identity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_identity");
+        set => this.WithProperty("user_identity", value);
     }
 
 }

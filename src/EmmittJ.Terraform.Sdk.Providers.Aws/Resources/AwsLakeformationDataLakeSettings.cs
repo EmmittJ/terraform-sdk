@@ -19,100 +19,100 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     /// <summary>
     /// The admins attribute.
     /// </summary>
-    public HashSet<string>? Admins
+    public TerraformLiteralProperty<HashSet<string>>? Admins
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("admins")?.Value;
-        set => this.WithProperty("admins", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("admins");
+        set => this.WithProperty("admins", value);
     }
 
     /// <summary>
     /// The allow_external_data_filtering attribute.
     /// </summary>
-    public bool? AllowExternalDataFiltering
+    public TerraformLiteralProperty<bool>? AllowExternalDataFiltering
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_external_data_filtering")?.Value;
-        set => this.WithProperty("allow_external_data_filtering", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_external_data_filtering");
+        set => this.WithProperty("allow_external_data_filtering", value);
     }
 
     /// <summary>
     /// The allow_full_table_external_data_access attribute.
     /// </summary>
-    public bool? AllowFullTableExternalDataAccess
+    public TerraformLiteralProperty<bool>? AllowFullTableExternalDataAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_full_table_external_data_access")?.Value;
-        set => this.WithProperty("allow_full_table_external_data_access", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_full_table_external_data_access");
+        set => this.WithProperty("allow_full_table_external_data_access", value);
     }
 
     /// <summary>
     /// The authorized_session_tag_value_list attribute.
     /// </summary>
-    public List<string>? AuthorizedSessionTagValueList
+    public TerraformLiteralProperty<List<string>>? AuthorizedSessionTagValueList
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("authorized_session_tag_value_list")?.Value;
-        set => this.WithProperty("authorized_session_tag_value_list", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("authorized_session_tag_value_list");
+        set => this.WithProperty("authorized_session_tag_value_list", value);
     }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public string? CatalogId
+    public TerraformLiteralProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id")?.Value;
-        set => this.WithProperty("catalog_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The external_data_filtering_allow_list attribute.
     /// </summary>
-    public HashSet<string>? ExternalDataFilteringAllowList
+    public TerraformLiteralProperty<HashSet<string>>? ExternalDataFilteringAllowList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("external_data_filtering_allow_list")?.Value;
-        set => this.WithProperty("external_data_filtering_allow_list", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("external_data_filtering_allow_list");
+        set => this.WithProperty("external_data_filtering_allow_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, string>? Parameters
+    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters")?.Value;
-        set => this.WithProperty("parameters", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The read_only_admins attribute.
     /// </summary>
-    public HashSet<string>? ReadOnlyAdmins
+    public TerraformLiteralProperty<HashSet<string>>? ReadOnlyAdmins
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("read_only_admins")?.Value;
-        set => this.WithProperty("read_only_admins", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("read_only_admins");
+        set => this.WithProperty("read_only_admins", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The trusted_resource_owners attribute.
     /// </summary>
-    public List<string>? TrustedResourceOwners
+    public TerraformLiteralProperty<List<string>>? TrustedResourceOwners
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("trusted_resource_owners")?.Value;
-        set => this.WithProperty("trusted_resource_owners", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("trusted_resource_owners");
+        set => this.WithProperty("trusted_resource_owners", value);
     }
 
 }

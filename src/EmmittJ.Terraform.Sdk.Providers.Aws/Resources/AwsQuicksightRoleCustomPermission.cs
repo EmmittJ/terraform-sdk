@@ -19,46 +19,46 @@ public class AwsQuicksightRoleCustomPermission : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public string? AwsAccountId
+    public TerraformLiteralProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id")?.Value;
-        set => this.WithProperty("aws_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The custom_permissions_name attribute.
     /// </summary>
-    public string? CustomPermissionsName
+    public TerraformLiteralProperty<string>? CustomPermissionsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_permissions_name")?.Value;
-        set => this.WithProperty("custom_permissions_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_permissions_name");
+        set => this.WithProperty("custom_permissions_name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public string? Namespace
+    public TerraformLiteralProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace")?.Value;
-        set => this.WithProperty("namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
 }

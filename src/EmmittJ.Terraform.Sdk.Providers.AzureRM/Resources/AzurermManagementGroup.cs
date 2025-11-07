@@ -20,46 +20,46 @@ public class AzurermManagementGroup : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
-    public string? ParentManagementGroupId
+    public TerraformLiteralProperty<string>? ParentManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_management_group_id")?.Value;
-        set => this.WithProperty("parent_management_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_management_group_id");
+        set => this.WithProperty("parent_management_group_id", value);
     }
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
-    public HashSet<string>? SubscriptionIds
+    public TerraformLiteralProperty<HashSet<string>>? SubscriptionIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subscription_ids")?.Value;
-        set => this.WithProperty("subscription_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subscription_ids");
+        set => this.WithProperty("subscription_ids", value);
     }
 
     /// <summary>

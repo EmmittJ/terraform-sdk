@@ -22,28 +22,28 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     /// <summary>
     /// Healthcare Dataset under which the Pipeline Job is to run
     /// </summary>
-    public string? Dataset
+    public TerraformLiteralProperty<string>? Dataset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset")?.Value;
-        set => this.WithProperty("dataset", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset");
+        set => this.WithProperty("dataset", value);
     }
 
     /// <summary>
     /// If true, disables writing lineage for the pipeline.
     /// </summary>
-    public bool? DisableLineage
+    public TerraformLiteralProperty<bool>? DisableLineage
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_lineage")?.Value;
-        set => this.WithProperty("disable_lineage", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_lineage");
+        set => this.WithProperty("disable_lineage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -62,28 +62,28 @@ public class GoogleHealthcarePipelineJob : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location where the Pipeline Job is to run
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Specifies the name of the pipeline job. This field is user-assigned.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

@@ -24,73 +24,73 @@ public class AzurermContainerApp : TerraformResource
     /// <summary>
     /// The ID of the Container App Environment to host this Container App.
     /// </summary>
-    public string? ContainerAppEnvironmentId
+    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id")?.Value;
-        set => this.WithProperty("container_app_environment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_inactive_revisions attribute.
     /// </summary>
-    public double? MaxInactiveRevisions
+    public TerraformLiteralProperty<double>? MaxInactiveRevisions
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_inactive_revisions")?.Value;
-        set => this.WithProperty("max_inactive_revisions", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_inactive_revisions");
+        set => this.WithProperty("max_inactive_revisions", value);
     }
 
     /// <summary>
     /// The name for this Container App.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The revision_mode attribute.
     /// </summary>
-    public string? RevisionMode
+    public TerraformLiteralProperty<string>? RevisionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revision_mode")?.Value;
-        set => this.WithProperty("revision_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("revision_mode");
+        set => this.WithProperty("revision_mode", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workload_profile_name attribute.
     /// </summary>
-    public string? WorkloadProfileName
+    public TerraformLiteralProperty<string>? WorkloadProfileName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_profile_name")?.Value;
-        set => this.WithProperty("workload_profile_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workload_profile_name");
+        set => this.WithProperty("workload_profile_name", value);
     }
 
     /// <summary>

@@ -19,82 +19,82 @@ public class AzurermContainerRegistryAgentPool : TerraformResource
     /// <summary>
     /// The container_registry_name attribute.
     /// </summary>
-    public string? ContainerRegistryName
+    public TerraformLiteralProperty<string>? ContainerRegistryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_name")?.Value;
-        set => this.WithProperty("container_registry_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_name");
+        set => this.WithProperty("container_registry_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public double? InstanceCount
+    public TerraformLiteralProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count")?.Value;
-        set => this.WithProperty("instance_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public string? Tier
+    public TerraformLiteralProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier")?.Value;
-        set => this.WithProperty("tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        set => this.WithProperty("tier", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_id attribute.
     /// </summary>
-    public string? VirtualNetworkSubnetId
+    public TerraformLiteralProperty<string>? VirtualNetworkSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_subnet_id")?.Value;
-        set => this.WithProperty("virtual_network_subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_subnet_id");
+        set => this.WithProperty("virtual_network_subnet_id", value);
     }
 
 }

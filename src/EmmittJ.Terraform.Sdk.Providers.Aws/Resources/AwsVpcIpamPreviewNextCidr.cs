@@ -20,46 +20,46 @@ public class AwsVpcIpamPreviewNextCidr : TerraformResource
     /// <summary>
     /// The disallowed_cidrs attribute.
     /// </summary>
-    public HashSet<string>? DisallowedCidrs
+    public TerraformLiteralProperty<HashSet<string>>? DisallowedCidrs
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("disallowed_cidrs")?.Value;
-        set => this.WithProperty("disallowed_cidrs", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("disallowed_cidrs");
+        set => this.WithProperty("disallowed_cidrs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public string? IpamPoolId
+    public TerraformLiteralProperty<string>? IpamPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipam_pool_id")?.Value;
-        set => this.WithProperty("ipam_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipam_pool_id");
+        set => this.WithProperty("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The netmask_length attribute.
     /// </summary>
-    public double? NetmaskLength
+    public TerraformLiteralProperty<double>? NetmaskLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("netmask_length")?.Value;
-        set => this.WithProperty("netmask_length", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("netmask_length");
+        set => this.WithProperty("netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

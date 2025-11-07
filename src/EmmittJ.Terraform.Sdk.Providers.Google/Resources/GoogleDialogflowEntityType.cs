@@ -20,28 +20,28 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// <summary>
     /// The name of this entity type to be displayed on the console.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
-    public bool? EnableFuzzyExtraction
+    public TerraformLiteralProperty<bool>? EnableFuzzyExtraction
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_fuzzy_extraction")?.Value;
-        set => this.WithProperty("enable_fuzzy_extraction", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_fuzzy_extraction");
+        set => this.WithProperty("enable_fuzzy_extraction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -51,19 +51,19 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// types can contain references to other entity types (with or without aliases).
     /// * KIND_REGEXP: Regexp entity types allow to specify regular expressions in entries values. Possible values: [&amp;quot;KIND_MAP&amp;quot;, &amp;quot;KIND_LIST&amp;quot;, &amp;quot;KIND_REGEXP&amp;quot;]
     /// </summary>
-    public string? Kind
+    public TerraformLiteralProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind")?.Value;
-        set => this.WithProperty("kind", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

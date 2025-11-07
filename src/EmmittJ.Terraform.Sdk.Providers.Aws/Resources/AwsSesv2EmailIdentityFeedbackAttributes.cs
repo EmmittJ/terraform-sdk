@@ -19,37 +19,37 @@ public class AwsSesv2EmailIdentityFeedbackAttributes : TerraformResource
     /// <summary>
     /// The email_forwarding_enabled attribute.
     /// </summary>
-    public bool? EmailForwardingEnabled
+    public TerraformLiteralProperty<bool>? EmailForwardingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("email_forwarding_enabled")?.Value;
-        set => this.WithProperty("email_forwarding_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("email_forwarding_enabled");
+        set => this.WithProperty("email_forwarding_enabled", value);
     }
 
     /// <summary>
     /// The email_identity attribute.
     /// </summary>
-    public string? EmailIdentity
+    public TerraformLiteralProperty<string>? EmailIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_identity")?.Value;
-        set => this.WithProperty("email_identity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email_identity");
+        set => this.WithProperty("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

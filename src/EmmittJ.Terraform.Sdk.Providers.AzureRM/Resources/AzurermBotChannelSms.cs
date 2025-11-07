@@ -19,64 +19,64 @@ public class AzurermBotChannelSms : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public string? BotName
+    public TerraformLiteralProperty<string>? BotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_name")?.Value;
-        set => this.WithProperty("bot_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bot_name");
+        set => this.WithProperty("bot_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public string? PhoneNumber
+    public TerraformLiteralProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("phone_number")?.Value;
-        set => this.WithProperty("phone_number", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("phone_number");
+        set => this.WithProperty("phone_number", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sms_channel_account_security_id attribute.
     /// </summary>
-    public string? SmsChannelAccountSecurityId
+    public TerraformLiteralProperty<string>? SmsChannelAccountSecurityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sms_channel_account_security_id")?.Value;
-        set => this.WithProperty("sms_channel_account_security_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sms_channel_account_security_id");
+        set => this.WithProperty("sms_channel_account_security_id", value);
     }
 
     /// <summary>
     /// The sms_channel_auth_token attribute.
     /// </summary>
-    public string? SmsChannelAuthToken
+    public TerraformLiteralProperty<string>? SmsChannelAuthToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sms_channel_auth_token")?.Value;
-        set => this.WithProperty("sms_channel_auth_token", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sms_channel_auth_token");
+        set => this.WithProperty("sms_channel_auth_token", value);
     }
 
 }

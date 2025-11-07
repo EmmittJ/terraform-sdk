@@ -19,37 +19,37 @@ public class AwsIamGroupMembership : TerraformResource
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public string? Group
+    public TerraformLiteralProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group")?.Value;
-        set => this.WithProperty("group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
-    public HashSet<string>? Users
+    public TerraformLiteralProperty<HashSet<string>>? Users
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("users")?.Value;
-        set => this.WithProperty("users", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("users");
+        set => this.WithProperty("users", value);
     }
 
 }

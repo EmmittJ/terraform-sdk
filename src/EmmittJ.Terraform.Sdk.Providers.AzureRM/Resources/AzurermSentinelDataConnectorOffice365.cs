@@ -19,64 +19,64 @@ public class AzurermSentinelDataConnectorOffice365 : TerraformResource
     /// <summary>
     /// The exchange_enabled attribute.
     /// </summary>
-    public bool? ExchangeEnabled
+    public TerraformLiteralProperty<bool>? ExchangeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exchange_enabled")?.Value;
-        set => this.WithProperty("exchange_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("exchange_enabled");
+        set => this.WithProperty("exchange_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public string? LogAnalyticsWorkspaceId
+    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id")?.Value;
-        set => this.WithProperty("log_analytics_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sharepoint_enabled attribute.
     /// </summary>
-    public bool? SharepointEnabled
+    public TerraformLiteralProperty<bool>? SharepointEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sharepoint_enabled")?.Value;
-        set => this.WithProperty("sharepoint_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sharepoint_enabled");
+        set => this.WithProperty("sharepoint_enabled", value);
     }
 
     /// <summary>
     /// The teams_enabled attribute.
     /// </summary>
-    public bool? TeamsEnabled
+    public TerraformLiteralProperty<bool>? TeamsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("teams_enabled")?.Value;
-        set => this.WithProperty("teams_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("teams_enabled");
+        set => this.WithProperty("teams_enabled", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public string? TenantId
+    public TerraformLiteralProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id")?.Value;
-        set => this.WithProperty("tenant_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        set => this.WithProperty("tenant_id", value);
     }
 
 }

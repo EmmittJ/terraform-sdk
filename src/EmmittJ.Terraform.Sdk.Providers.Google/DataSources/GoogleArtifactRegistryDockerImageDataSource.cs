@@ -27,46 +27,46 @@ public class GoogleArtifactRegistryDockerImageDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image name to fetch.
     /// </summary>
-    public string? ImageName
+    public TerraformLiteralProperty<string>? ImageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_name")?.Value;
-        set => this.WithProperty("image_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("image_name");
+        set => this.WithProperty("image_name", value);
     }
 
     /// <summary>
     /// The region of the artifact registry repository. For example, &amp;quot;us-west1&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The last part of the repository name to fetch from.
     /// </summary>
-    public string? RepositoryId
+    public TerraformLiteralProperty<string>? RepositoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_id")?.Value;
-        set => this.WithProperty("repository_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repository_id");
+        set => this.WithProperty("repository_id", value);
     }
 
     /// <summary>

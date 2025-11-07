@@ -26,46 +26,46 @@ public class AwsAppfabricAppAuthorization : TerraformResource
     /// <summary>
     /// The app attribute.
     /// </summary>
-    public string? App
+    public TerraformLiteralProperty<string>? App
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app")?.Value;
-        set => this.WithProperty("app", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app");
+        set => this.WithProperty("app", value);
     }
 
     /// <summary>
     /// The app_bundle_arn attribute.
     /// </summary>
-    public string? AppBundleArn
+    public TerraformLiteralProperty<string>? AppBundleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_bundle_arn")?.Value;
-        set => this.WithProperty("app_bundle_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_bundle_arn");
+        set => this.WithProperty("app_bundle_arn", value);
     }
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
-    public string? AuthType
+    public TerraformLiteralProperty<string>? AuthType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auth_type")?.Value;
-        set => this.WithProperty("auth_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("auth_type");
+        set => this.WithProperty("auth_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -43,64 +43,64 @@ public class AzureadGroupDataSource : TerraformDataSource
     /// <summary>
     /// The display name for the group
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Specifies whether to include transitive members (a flat list of all nested members).
     /// </summary>
-    public bool? IncludeTransitiveMembers
+    public TerraformLiteralProperty<bool>? IncludeTransitiveMembers
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_transitive_members")?.Value;
-        set => this.WithProperty("include_transitive_members", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_transitive_members");
+        set => this.WithProperty("include_transitive_members", value);
     }
 
     /// <summary>
     /// Whether the group is mail-enabled
     /// </summary>
-    public bool? MailEnabled
+    public TerraformLiteralProperty<bool>? MailEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("mail_enabled")?.Value;
-        set => this.WithProperty("mail_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("mail_enabled");
+        set => this.WithProperty("mail_enabled", value);
     }
 
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    public string? MailNickname
+    public TerraformLiteralProperty<string>? MailNickname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mail_nickname")?.Value;
-        set => this.WithProperty("mail_nickname", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mail_nickname");
+        set => this.WithProperty("mail_nickname", value);
     }
 
     /// <summary>
     /// The object ID of the group
     /// </summary>
-    public string? ObjectId
+    public TerraformLiteralProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id")?.Value;
-        set => this.WithProperty("object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        set => this.WithProperty("object_id", value);
     }
 
     /// <summary>
     /// Whether the group is a security group
     /// </summary>
-    public bool? SecurityEnabled
+    public TerraformLiteralProperty<bool>? SecurityEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("security_enabled")?.Value;
-        set => this.WithProperty("security_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("security_enabled");
+        set => this.WithProperty("security_enabled", value);
     }
 
     /// <summary>

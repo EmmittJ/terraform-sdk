@@ -25,19 +25,19 @@ public class GoogleTagsTagValueDataSource : TerraformDataSource
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
-    public string? ShortName
+    public TerraformLiteralProperty<string>? ShortName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_name")?.Value;
-        set => this.WithProperty("short_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("short_name");
+        set => this.WithProperty("short_name", value);
     }
 
     /// <summary>

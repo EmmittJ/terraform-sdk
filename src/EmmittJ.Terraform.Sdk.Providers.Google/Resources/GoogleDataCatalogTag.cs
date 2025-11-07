@@ -26,29 +26,29 @@ public class GoogleDataCatalogTag : TerraformResource
     /// For attaching a tag to a nested column, use &#39;.&#39; to separate the column names. Example:
     /// &#39;outer_column.inner_column&#39;
     /// </summary>
-    public string? Column
+    public TerraformLiteralProperty<string>? Column
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("column")?.Value;
-        set => this.WithProperty("column", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("column");
+        set => this.WithProperty("column", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the parent this tag is attached to. This can be the name of an entry or an entry group. If an entry group, the tag will be attached to
     /// all entries in that group.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
@@ -56,10 +56,10 @@ public class GoogleDataCatalogTag : TerraformResource
     /// projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}
     /// This field cannot be modified after creation.
     /// </summary>
-    public string? Template
+    public TerraformLiteralProperty<string>? Template
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template")?.Value;
-        set => this.WithProperty("template", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template");
+        set => this.WithProperty("template", value);
     }
 
     /// <summary>

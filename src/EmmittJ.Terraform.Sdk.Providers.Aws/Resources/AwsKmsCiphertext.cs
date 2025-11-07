@@ -20,46 +20,46 @@ public class AwsKmsCiphertext : TerraformResource
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public Dictionary<string, string>? Context
+    public TerraformLiteralProperty<Dictionary<string, string>>? Context
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("context")?.Value;
-        set => this.WithProperty("context", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("context");
+        set => this.WithProperty("context", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public string? KeyId
+    public TerraformLiteralProperty<string>? KeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_id")?.Value;
-        set => this.WithProperty("key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_id");
+        set => this.WithProperty("key_id", value);
     }
 
     /// <summary>
     /// The plaintext attribute.
     /// </summary>
-    public string? Plaintext
+    public TerraformLiteralProperty<string>? Plaintext
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plaintext")?.Value;
-        set => this.WithProperty("plaintext", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plaintext");
+        set => this.WithProperty("plaintext", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

@@ -25,64 +25,64 @@ public class AwsDetectiveMember : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public string? AccountId
+    public TerraformLiteralProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id")?.Value;
-        set => this.WithProperty("account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The disable_email_notification attribute.
     /// </summary>
-    public bool? DisableEmailNotification
+    public TerraformLiteralProperty<bool>? DisableEmailNotification
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_email_notification")?.Value;
-        set => this.WithProperty("disable_email_notification", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_email_notification");
+        set => this.WithProperty("disable_email_notification", value);
     }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    public string? EmailAddress
+    public TerraformLiteralProperty<string>? EmailAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_address")?.Value;
-        set => this.WithProperty("email_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email_address");
+        set => this.WithProperty("email_address", value);
     }
 
     /// <summary>
     /// The graph_arn attribute.
     /// </summary>
-    public string? GraphArn
+    public TerraformLiteralProperty<string>? GraphArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("graph_arn")?.Value;
-        set => this.WithProperty("graph_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("graph_arn");
+        set => this.WithProperty("graph_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public string? Message
+    public TerraformLiteralProperty<string>? Message
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message")?.Value;
-        set => this.WithProperty("message", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("message");
+        set => this.WithProperty("message", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

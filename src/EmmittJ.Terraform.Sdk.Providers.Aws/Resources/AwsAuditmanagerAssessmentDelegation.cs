@@ -22,55 +22,55 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     /// <summary>
     /// The assessment_id attribute.
     /// </summary>
-    public string? AssessmentId
+    public TerraformLiteralProperty<string>? AssessmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assessment_id")?.Value;
-        set => this.WithProperty("assessment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("assessment_id");
+        set => this.WithProperty("assessment_id", value);
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public string? Comment
+    public TerraformLiteralProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment")?.Value;
-        set => this.WithProperty("comment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The control_set_id attribute.
     /// </summary>
-    public string? ControlSetId
+    public TerraformLiteralProperty<string>? ControlSetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_set_id")?.Value;
-        set => this.WithProperty("control_set_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("control_set_id");
+        set => this.WithProperty("control_set_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
-    public string? RoleType
+    public TerraformLiteralProperty<string>? RoleType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_type")?.Value;
-        set => this.WithProperty("role_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_type");
+        set => this.WithProperty("role_type", value);
     }
 
     /// <summary>

@@ -20,37 +20,37 @@ public class AwsPollyVoicesDataSource : TerraformDataSource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public string? Engine
+    public TerraformLiteralProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine")?.Value;
-        set => this.WithProperty("engine", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The include_additional_language_codes attribute.
     /// </summary>
-    public bool? IncludeAdditionalLanguageCodes
+    public TerraformLiteralProperty<bool>? IncludeAdditionalLanguageCodes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_additional_language_codes")?.Value;
-        set => this.WithProperty("include_additional_language_codes", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_additional_language_codes");
+        set => this.WithProperty("include_additional_language_codes", value);
     }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public string? LanguageCode
+    public TerraformLiteralProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code")?.Value;
-        set => this.WithProperty("language_code", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        set => this.WithProperty("language_code", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

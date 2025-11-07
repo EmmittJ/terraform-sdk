@@ -24,10 +24,10 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// <summary>
     /// The password for the default ADMIN user.
     /// </summary>
-    public string? AdminPassword
+    public TerraformLiteralProperty<string>? AdminPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_password")?.Value;
-        set => this.WithProperty("admin_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("admin_password");
+        set => this.WithProperty("admin_password", value);
     }
 
     /// <summary>
@@ -36,19 +36,19 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// characters in length. The value must start with a letter and end with
     /// a letter or a number.
     /// </summary>
-    public string? AutonomousDatabaseId
+    public TerraformLiteralProperty<string>? AutonomousDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("autonomous_database_id")?.Value;
-        set => this.WithProperty("autonomous_database_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("autonomous_database_id");
+        set => this.WithProperty("autonomous_database_id", value);
     }
 
     /// <summary>
     /// The subnet CIDR range for the Autonmous Database.
     /// </summary>
-    public string? Cidr
+    public TerraformLiteralProperty<string>? Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr")?.Value;
-        set => this.WithProperty("cidr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr");
+        set => this.WithProperty("cidr", value);
     }
 
     /// <summary>
@@ -56,38 +56,38 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// the project. The name must begin with a letter and can
     /// contain a maximum of 30 alphanumeric characters.
     /// </summary>
-    public string? Database
+    public TerraformLiteralProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database")?.Value;
-        set => this.WithProperty("database", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The display name for the Autonomous Database. The name does not have to
     /// be unique within your project.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -96,29 +96,29 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/AutonomousDatabaseBackup&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the VPC network used by the Autonomous Database.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
@@ -128,10 +128,10 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public string? OdbNetwork
+    public TerraformLiteralProperty<string>? OdbNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_network")?.Value;
-        set => this.WithProperty("odb_network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("odb_network");
+        set => this.WithProperty("odb_network", value);
     }
 
     /// <summary>
@@ -139,19 +139,19 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public string? OdbSubnet
+    public TerraformLiteralProperty<string>? OdbSubnet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_subnet")?.Value;
-        set => this.WithProperty("odb_subnet", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("odb_subnet");
+        set => this.WithProperty("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

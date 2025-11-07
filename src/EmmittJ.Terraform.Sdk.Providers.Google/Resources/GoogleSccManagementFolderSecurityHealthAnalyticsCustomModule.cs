@@ -27,46 +27,46 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule : Terr
     /// 128 characters, start with a lowercase letter, and contain alphanumeric
     /// characters or underscores only.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enablement state of the custom module. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public string? EnablementState
+    public TerraformLiteralProperty<string>? EnablementState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enablement_state")?.Value;
-        set => this.WithProperty("enablement_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enablement_state");
+        set => this.WithProperty("enablement_state", value);
     }
 
     /// <summary>
     /// Numerical ID of the parent folder.
     /// </summary>
-    public string? Folder
+    public TerraformLiteralProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder")?.Value;
-        set => this.WithProperty("folder", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location ID of the parent organization. If not provided, &#39;global&#39; will be used as the default location.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>

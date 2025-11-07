@@ -24,37 +24,37 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the underlying interconnect that this attachment&#39;s traffic will traverse through.
     /// </summary>
-    public string? Interconnect
+    public TerraformLiteralProperty<string>? Interconnect
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect")?.Value;
-        set => this.WithProperty("interconnect", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("interconnect");
+        set => this.WithProperty("interconnect", value);
     }
 
     /// <summary>
     /// A unique ID that identifies this interconnect attachment.
     /// </summary>
-    public string? InterconnectAttachmentId
+    public TerraformLiteralProperty<string>? InterconnectAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_attachment_id")?.Value;
-        set => this.WithProperty("interconnect_attachment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_attachment_id");
+        set => this.WithProperty("interconnect_attachment_id", value);
     }
 
     /// <summary>
@@ -64,65 +64,65 @@ public class GoogleEdgenetworkInterconnectAttachment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The Google Cloud region to which the target Distributed Cloud Edge zone belongs.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// IP (L3) MTU value of the virtual edge cloud. Default value is &#39;1500&#39;. Possible values are: &#39;1500&#39;, &#39;9000&#39;.
     /// </summary>
-    public double? Mtu
+    public TerraformLiteralProperty<double>? Mtu
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("mtu")?.Value;
-        set => this.WithProperty("mtu", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("mtu");
+        set => this.WithProperty("mtu", value);
     }
 
     /// <summary>
     /// The ID of the network to which this interconnect attachment belongs.
     /// Must be of the form: &#39;projects/{{project}}/locations/{{location}}/zones/{{zone}}/networks/{{network_id}}&#39;
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// VLAN ID provided by user. Must be site-wise unique.
     /// </summary>
-    public double? VlanId
+    public TerraformLiteralProperty<double>? VlanId
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vlan_id")?.Value;
-        set => this.WithProperty("vlan_id", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("vlan_id");
+        set => this.WithProperty("vlan_id", value);
     }
 
     /// <summary>
     /// The name of the target Distributed Cloud Edge zone.
     /// </summary>
-    public string? Zone
+    public TerraformLiteralProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone")?.Value;
-        set => this.WithProperty("zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        set => this.WithProperty("zone", value);
     }
 
     /// <summary>

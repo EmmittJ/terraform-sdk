@@ -23,73 +23,73 @@ public class AzurermNotificationHubAuthorizationRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    public bool? Listen
+    public TerraformLiteralProperty<bool>? Listen
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("listen")?.Value;
-        set => this.WithProperty("listen", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("listen");
+        set => this.WithProperty("listen", value);
     }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    public bool? Manage
+    public TerraformLiteralProperty<bool>? Manage
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("manage")?.Value;
-        set => this.WithProperty("manage", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("manage");
+        set => this.WithProperty("manage", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    public string? NamespaceName
+    public TerraformLiteralProperty<string>? NamespaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace_name")?.Value;
-        set => this.WithProperty("namespace_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace_name");
+        set => this.WithProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The notification_hub_name attribute.
     /// </summary>
-    public string? NotificationHubName
+    public TerraformLiteralProperty<string>? NotificationHubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_hub_name")?.Value;
-        set => this.WithProperty("notification_hub_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("notification_hub_name");
+        set => this.WithProperty("notification_hub_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
-    public bool? Send
+    public TerraformLiteralProperty<bool>? Send
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("send")?.Value;
-        set => this.WithProperty("send", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("send");
+        set => this.WithProperty("send", value);
     }
 
     /// <summary>

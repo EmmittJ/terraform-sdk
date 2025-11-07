@@ -19,55 +19,55 @@ public class AwsServicecatalogPrincipalPortfolioAssociation : TerraformResource
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public string? AcceptLanguage
+    public TerraformLiteralProperty<string>? AcceptLanguage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("accept_language")?.Value;
-        set => this.WithProperty("accept_language", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("accept_language");
+        set => this.WithProperty("accept_language", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The portfolio_id attribute.
     /// </summary>
-    public string? PortfolioId
+    public TerraformLiteralProperty<string>? PortfolioId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("portfolio_id")?.Value;
-        set => this.WithProperty("portfolio_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("portfolio_id");
+        set => this.WithProperty("portfolio_id", value);
     }
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
-    public string? PrincipalArn
+    public TerraformLiteralProperty<string>? PrincipalArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_arn")?.Value;
-        set => this.WithProperty("principal_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_arn");
+        set => this.WithProperty("principal_arn", value);
     }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public string? PrincipalType
+    public TerraformLiteralProperty<string>? PrincipalType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_type")?.Value;
-        set => this.WithProperty("principal_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_type");
+        set => this.WithProperty("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

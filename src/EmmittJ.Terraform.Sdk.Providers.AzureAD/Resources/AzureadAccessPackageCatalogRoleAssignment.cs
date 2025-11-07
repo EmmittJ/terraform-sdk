@@ -19,37 +19,37 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     /// <summary>
     /// The unique ID of the access package catalog.
     /// </summary>
-    public string? CatalogId
+    public TerraformLiteralProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id")?.Value;
-        set => this.WithProperty("catalog_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the member principal
     /// </summary>
-    public string? PrincipalObjectId
+    public TerraformLiteralProperty<string>? PrincipalObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_object_id")?.Value;
-        set => this.WithProperty("principal_object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_object_id");
+        set => this.WithProperty("principal_object_id", value);
     }
 
     /// <summary>
     /// The object ID of the catalog role for this assignment
     /// </summary>
-    public string? RoleId
+    public TerraformLiteralProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id")?.Value;
-        set => this.WithProperty("role_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        set => this.WithProperty("role_id", value);
     }
 
 }

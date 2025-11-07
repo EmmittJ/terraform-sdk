@@ -27,10 +27,10 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// <summary>
     /// The user provided Resource ID for this Certificate Authority.
     /// </summary>
-    public string? CertificateAuthorityId
+    public TerraformLiteralProperty<string>? CertificateAuthorityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_id")?.Value;
-        set => this.WithProperty("certificate_authority_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_id");
+        set => this.WithProperty("certificate_authority_id", value);
     }
 
     /// <summary>
@@ -39,20 +39,20 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the CertificateAuthority will fail.
     /// When the field is set to false, deleting the CertificateAuthority is allowed.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// Desired state of the CertificateAuthority. Set this field to &#39;STAGED&#39; to create a &#39;STAGED&#39; root CA.
     /// Possible values: ENABLED, DISABLED, STAGED.
     /// </summary>
-    public string? DesiredState
+    public TerraformLiteralProperty<string>? DesiredState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("desired_state")?.Value;
-        set => this.WithProperty("desired_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("desired_state");
+        set => this.WithProperty("desired_state", value);
     }
 
     /// <summary>
@@ -62,29 +62,29 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// my-bucket, you would simply specify &#39;my-bucket&#39;. If not specified, a managed bucket will be
     /// created.
     /// </summary>
-    public string? GcsBucket
+    public TerraformLiteralProperty<string>? GcsBucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gcs_bucket")?.Value;
-        set => this.WithProperty("gcs_bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gcs_bucket");
+        set => this.WithProperty("gcs_bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// This field allows the CA to be deleted even if the CA has active certs. Active certs include both unrevoked and unexpired certs.
     /// Use with care. Defaults to &#39;false&#39;.
     /// </summary>
-    public bool? IgnoreActiveCertificatesOnDeletion
+    public TerraformLiteralProperty<bool>? IgnoreActiveCertificatesOnDeletion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_active_certificates_on_deletion")?.Value;
-        set => this.WithProperty("ignore_active_certificates_on_deletion", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_active_certificates_on_deletion");
+        set => this.WithProperty("ignore_active_certificates_on_deletion", value);
     }
 
     /// <summary>
@@ -97,10 +97,10 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -108,47 +108,47 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// &amp;quot;notAfterTime&amp;quot; fields inside an X.509 certificate. A duration in seconds with up to nine
     /// fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public string? Lifetime
+    public TerraformLiteralProperty<string>? Lifetime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifetime")?.Value;
-        set => this.WithProperty("lifetime", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lifetime");
+        set => this.WithProperty("lifetime", value);
     }
 
     /// <summary>
     /// Location of the CertificateAuthority. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The signed CA certificate issued from the subordinated CA&#39;s CSR. This is needed when activating the subordiante CA with a third party issuer.
     /// </summary>
-    public string? PemCaCertificate
+    public TerraformLiteralProperty<string>? PemCaCertificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pem_ca_certificate")?.Value;
-        set => this.WithProperty("pem_ca_certificate", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pem_ca_certificate");
+        set => this.WithProperty("pem_ca_certificate", value);
     }
 
     /// <summary>
     /// The name of the CaPool this Certificate Authority belongs to.
     /// </summary>
-    public string? Pool
+    public TerraformLiteralProperty<string>? Pool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool")?.Value;
-        set => this.WithProperty("pool", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool");
+        set => this.WithProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -157,10 +157,10 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// allowed. If you proceed, there will be no way to recover this CA.
     /// Use with care. Defaults to &#39;false&#39;.
     /// </summary>
-    public bool? SkipGracePeriod
+    public TerraformLiteralProperty<bool>? SkipGracePeriod
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_grace_period")?.Value;
-        set => this.WithProperty("skip_grace_period", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_grace_period");
+        set => this.WithProperty("skip_grace_period", value);
     }
 
     /// <summary>
@@ -169,10 +169,10 @@ public class GooglePrivatecaCertificateAuthority : TerraformResource
     /// ~&amp;gt; **Note:** For &#39;SUBORDINATE&#39; Certificate Authorities, they need to
     /// be activated before they can issue certificates. Default value: &amp;quot;SELF_SIGNED&amp;quot; Possible values: [&amp;quot;SELF_SIGNED&amp;quot;, &amp;quot;SUBORDINATE&amp;quot;]
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

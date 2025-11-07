@@ -30,19 +30,19 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -51,10 +51,10 @@ public class GoogleBeyondcorpSecurityGatewayDataSource : TerraformDataSource
     /// * Must contain between 4-63 characters from &#39;/a-z-/&#39;.
     /// * Must end with a number or letter.
     /// </summary>
-    public string? SecurityGatewayId
+    public TerraformLiteralProperty<string>? SecurityGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_gateway_id")?.Value;
-        set => this.WithProperty("security_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_gateway_id");
+        set => this.WithProperty("security_gateway_id", value);
     }
 
     /// <summary>

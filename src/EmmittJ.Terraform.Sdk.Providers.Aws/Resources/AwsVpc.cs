@@ -27,145 +27,145 @@ public class AwsVpc : TerraformResource
     /// <summary>
     /// The assign_generated_ipv6_cidr_block attribute.
     /// </summary>
-    public bool? AssignGeneratedIpv6CidrBlock
+    public TerraformLiteralProperty<bool>? AssignGeneratedIpv6CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("assign_generated_ipv6_cidr_block")?.Value;
-        set => this.WithProperty("assign_generated_ipv6_cidr_block", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("assign_generated_ipv6_cidr_block");
+        set => this.WithProperty("assign_generated_ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public string? CidrBlock
+    public TerraformLiteralProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block")?.Value;
-        set => this.WithProperty("cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block");
+        set => this.WithProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The enable_dns_hostnames attribute.
     /// </summary>
-    public bool? EnableDnsHostnames
+    public TerraformLiteralProperty<bool>? EnableDnsHostnames
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_dns_hostnames")?.Value;
-        set => this.WithProperty("enable_dns_hostnames", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_dns_hostnames");
+        set => this.WithProperty("enable_dns_hostnames", value);
     }
 
     /// <summary>
     /// The enable_dns_support attribute.
     /// </summary>
-    public bool? EnableDnsSupport
+    public TerraformLiteralProperty<bool>? EnableDnsSupport
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_dns_support")?.Value;
-        set => this.WithProperty("enable_dns_support", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_dns_support");
+        set => this.WithProperty("enable_dns_support", value);
     }
 
     /// <summary>
     /// The enable_network_address_usage_metrics attribute.
     /// </summary>
-    public bool? EnableNetworkAddressUsageMetrics
+    public TerraformLiteralProperty<bool>? EnableNetworkAddressUsageMetrics
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_network_address_usage_metrics")?.Value;
-        set => this.WithProperty("enable_network_address_usage_metrics", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_network_address_usage_metrics");
+        set => this.WithProperty("enable_network_address_usage_metrics", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_tenancy attribute.
     /// </summary>
-    public string? InstanceTenancy
+    public TerraformLiteralProperty<string>? InstanceTenancy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_tenancy")?.Value;
-        set => this.WithProperty("instance_tenancy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_tenancy");
+        set => this.WithProperty("instance_tenancy", value);
     }
 
     /// <summary>
     /// The ipv4_ipam_pool_id attribute.
     /// </summary>
-    public string? Ipv4IpamPoolId
+    public TerraformLiteralProperty<string>? Ipv4IpamPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv4_ipam_pool_id")?.Value;
-        set => this.WithProperty("ipv4_ipam_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv4_ipam_pool_id");
+        set => this.WithProperty("ipv4_ipam_pool_id", value);
     }
 
     /// <summary>
     /// The ipv4_netmask_length attribute.
     /// </summary>
-    public double? Ipv4NetmaskLength
+    public TerraformLiteralProperty<double>? Ipv4NetmaskLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ipv4_netmask_length")?.Value;
-        set => this.WithProperty("ipv4_netmask_length", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("ipv4_netmask_length");
+        set => this.WithProperty("ipv4_netmask_length", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public string? Ipv6CidrBlock
+    public TerraformLiteralProperty<string>? Ipv6CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block")?.Value;
-        set => this.WithProperty("ipv6_cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block");
+        set => this.WithProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block_network_border_group attribute.
     /// </summary>
-    public string? Ipv6CidrBlockNetworkBorderGroup
+    public TerraformLiteralProperty<string>? Ipv6CidrBlockNetworkBorderGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block_network_border_group")?.Value;
-        set => this.WithProperty("ipv6_cidr_block_network_border_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block_network_border_group");
+        set => this.WithProperty("ipv6_cidr_block_network_border_group", value);
     }
 
     /// <summary>
     /// The ipv6_ipam_pool_id attribute.
     /// </summary>
-    public string? Ipv6IpamPoolId
+    public TerraformLiteralProperty<string>? Ipv6IpamPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_ipam_pool_id")?.Value;
-        set => this.WithProperty("ipv6_ipam_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_ipam_pool_id");
+        set => this.WithProperty("ipv6_ipam_pool_id", value);
     }
 
     /// <summary>
     /// The ipv6_netmask_length attribute.
     /// </summary>
-    public double? Ipv6NetmaskLength
+    public TerraformLiteralProperty<double>? Ipv6NetmaskLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ipv6_netmask_length")?.Value;
-        set => this.WithProperty("ipv6_netmask_length", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("ipv6_netmask_length");
+        set => this.WithProperty("ipv6_netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

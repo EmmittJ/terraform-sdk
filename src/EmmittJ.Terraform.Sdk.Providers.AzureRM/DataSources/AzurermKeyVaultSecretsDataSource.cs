@@ -21,19 +21,19 @@ public class AzurermKeyVaultSecretsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public string? KeyVaultId
+    public TerraformLiteralProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id")?.Value;
-        set => this.WithProperty("key_vault_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>

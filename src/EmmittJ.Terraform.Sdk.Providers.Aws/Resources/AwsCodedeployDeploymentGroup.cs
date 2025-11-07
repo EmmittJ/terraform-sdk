@@ -22,100 +22,100 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// <summary>
     /// The app_name attribute.
     /// </summary>
-    public string? AppName
+    public TerraformLiteralProperty<string>? AppName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_name")?.Value;
-        set => this.WithProperty("app_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_name");
+        set => this.WithProperty("app_name", value);
     }
 
     /// <summary>
     /// The autoscaling_groups attribute.
     /// </summary>
-    public HashSet<string>? AutoscalingGroups
+    public TerraformLiteralProperty<HashSet<string>>? AutoscalingGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("autoscaling_groups")?.Value;
-        set => this.WithProperty("autoscaling_groups", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("autoscaling_groups");
+        set => this.WithProperty("autoscaling_groups", value);
     }
 
     /// <summary>
     /// The deployment_config_name attribute.
     /// </summary>
-    public string? DeploymentConfigName
+    public TerraformLiteralProperty<string>? DeploymentConfigName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_config_name")?.Value;
-        set => this.WithProperty("deployment_config_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_config_name");
+        set => this.WithProperty("deployment_config_name", value);
     }
 
     /// <summary>
     /// The deployment_group_name attribute.
     /// </summary>
-    public string? DeploymentGroupName
+    public TerraformLiteralProperty<string>? DeploymentGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_group_name")?.Value;
-        set => this.WithProperty("deployment_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_group_name");
+        set => this.WithProperty("deployment_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The outdated_instances_strategy attribute.
     /// </summary>
-    public string? OutdatedInstancesStrategy
+    public TerraformLiteralProperty<string>? OutdatedInstancesStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("outdated_instances_strategy")?.Value;
-        set => this.WithProperty("outdated_instances_strategy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("outdated_instances_strategy");
+        set => this.WithProperty("outdated_instances_strategy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    public string? ServiceRoleArn
+    public TerraformLiteralProperty<string>? ServiceRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_role_arn")?.Value;
-        set => this.WithProperty("service_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_role_arn");
+        set => this.WithProperty("service_role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The termination_hook_enabled attribute.
     /// </summary>
-    public bool? TerminationHookEnabled
+    public TerraformLiteralProperty<bool>? TerminationHookEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("termination_hook_enabled")?.Value;
-        set => this.WithProperty("termination_hook_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("termination_hook_enabled");
+        set => this.WithProperty("termination_hook_enabled", value);
     }
 
     /// <summary>

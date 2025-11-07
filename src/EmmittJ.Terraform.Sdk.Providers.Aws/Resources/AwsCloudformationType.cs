@@ -31,55 +31,55 @@ public class AwsCloudformationType : TerraformResource
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public string? ExecutionRoleArn
+    public TerraformLiteralProperty<string>? ExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn")?.Value;
-        set => this.WithProperty("execution_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn");
+        set => this.WithProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The schema_handler_package attribute.
     /// </summary>
-    public string? SchemaHandlerPackage
+    public TerraformLiteralProperty<string>? SchemaHandlerPackage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema_handler_package")?.Value;
-        set => this.WithProperty("schema_handler_package", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("schema_handler_package");
+        set => this.WithProperty("schema_handler_package", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public string? TypeName
+    public TerraformLiteralProperty<string>? TypeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type_name")?.Value;
-        set => this.WithProperty("type_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type_name");
+        set => this.WithProperty("type_name", value);
     }
 
     /// <summary>

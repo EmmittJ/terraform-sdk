@@ -23,29 +23,29 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// <summary>
     /// Description of the patch deployment. Length of the description is limited to 1024 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Duration of the patch. After the duration ends, the patch times out.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;
     /// </summary>
-    public string? Duration
+    public TerraformLiteralProperty<string>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("duration")?.Value;
-        set => this.WithProperty("duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("duration");
+        set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -56,19 +56,19 @@ public class GoogleOsConfigPatchDeployment : TerraformResource
     /// * Must end with a number or a letter.
     /// * Must be unique within the project.
     /// </summary>
-    public string? PatchDeploymentId
+    public TerraformLiteralProperty<string>? PatchDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("patch_deployment_id")?.Value;
-        set => this.WithProperty("patch_deployment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("patch_deployment_id");
+        set => this.WithProperty("patch_deployment_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

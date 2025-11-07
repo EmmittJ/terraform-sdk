@@ -25,118 +25,118 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public Dictionary<string, string>? Attributes
+    public TerraformLiteralProperty<Dictionary<string, string>>? Attributes
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attributes")?.Value;
-        set => this.WithProperty("attributes", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attributes");
+        set => this.WithProperty("attributes", value);
     }
 
     /// <summary>
     /// The client_metadata attribute.
     /// </summary>
-    public Dictionary<string, string>? ClientMetadata
+    public TerraformLiteralProperty<Dictionary<string, string>>? ClientMetadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("client_metadata")?.Value;
-        set => this.WithProperty("client_metadata", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("client_metadata");
+        set => this.WithProperty("client_metadata", value);
     }
 
     /// <summary>
     /// The desired_delivery_mediums attribute.
     /// </summary>
-    public HashSet<string>? DesiredDeliveryMediums
+    public TerraformLiteralProperty<HashSet<string>>? DesiredDeliveryMediums
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("desired_delivery_mediums")?.Value;
-        set => this.WithProperty("desired_delivery_mediums", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("desired_delivery_mediums");
+        set => this.WithProperty("desired_delivery_mediums", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The force_alias_creation attribute.
     /// </summary>
-    public bool? ForceAliasCreation
+    public TerraformLiteralProperty<bool>? ForceAliasCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_alias_creation")?.Value;
-        set => this.WithProperty("force_alias_creation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_alias_creation");
+        set => this.WithProperty("force_alias_creation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The message_action attribute.
     /// </summary>
-    public string? MessageAction
+    public TerraformLiteralProperty<string>? MessageAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message_action")?.Value;
-        set => this.WithProperty("message_action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("message_action");
+        set => this.WithProperty("message_action", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public string? Password
+    public TerraformLiteralProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password")?.Value;
-        set => this.WithProperty("password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The temporary_password attribute.
     /// </summary>
-    public string? TemporaryPassword
+    public TerraformLiteralProperty<string>? TemporaryPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("temporary_password")?.Value;
-        set => this.WithProperty("temporary_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("temporary_password");
+        set => this.WithProperty("temporary_password", value);
     }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public string? UserPoolId
+    public TerraformLiteralProperty<string>? UserPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id")?.Value;
-        set => this.WithProperty("user_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id");
+        set => this.WithProperty("user_pool_id", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public string? Username
+    public TerraformLiteralProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username")?.Value;
-        set => this.WithProperty("username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        set => this.WithProperty("username", value);
     }
 
     /// <summary>
     /// The validation_data attribute.
     /// </summary>
-    public Dictionary<string, string>? ValidationData
+    public TerraformLiteralProperty<Dictionary<string, string>>? ValidationData
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("validation_data")?.Value;
-        set => this.WithProperty("validation_data", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("validation_data");
+        set => this.WithProperty("validation_data", value);
     }
 
     /// <summary>

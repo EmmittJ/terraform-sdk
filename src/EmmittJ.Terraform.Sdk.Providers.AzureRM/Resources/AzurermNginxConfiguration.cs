@@ -19,37 +19,37 @@ public class AzurermNginxConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
-    public string? NginxDeploymentId
+    public TerraformLiteralProperty<string>? NginxDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nginx_deployment_id")?.Value;
-        set => this.WithProperty("nginx_deployment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("nginx_deployment_id");
+        set => this.WithProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
-    public string? PackageData
+    public TerraformLiteralProperty<string>? PackageData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_data")?.Value;
-        set => this.WithProperty("package_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("package_data");
+        set => this.WithProperty("package_data", value);
     }
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
-    public string? RootFile
+    public TerraformLiteralProperty<string>? RootFile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("root_file")?.Value;
-        set => this.WithProperty("root_file", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("root_file");
+        set => this.WithProperty("root_file", value);
     }
 
 }

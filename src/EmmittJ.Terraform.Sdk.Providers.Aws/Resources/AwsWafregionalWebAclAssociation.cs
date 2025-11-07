@@ -19,37 +19,37 @@ public class AwsWafregionalWebAclAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public string? ResourceArn
+    public TerraformLiteralProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn")?.Value;
-        set => this.WithProperty("resource_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        set => this.WithProperty("resource_arn", value);
     }
 
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
-    public string? WebAclId
+    public TerraformLiteralProperty<string>? WebAclId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_acl_id")?.Value;
-        set => this.WithProperty("web_acl_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("web_acl_id");
+        set => this.WithProperty("web_acl_id", value);
     }
 
 }

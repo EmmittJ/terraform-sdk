@@ -21,37 +21,37 @@ public class AwsRedshiftserverlessCustomDomainAssociation : TerraformResource
     /// <summary>
     /// The custom_domain_certificate_arn attribute.
     /// </summary>
-    public string? CustomDomainCertificateArn
+    public TerraformLiteralProperty<string>? CustomDomainCertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_domain_certificate_arn")?.Value;
-        set => this.WithProperty("custom_domain_certificate_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_domain_certificate_arn");
+        set => this.WithProperty("custom_domain_certificate_arn", value);
     }
 
     /// <summary>
     /// The custom_domain_name attribute.
     /// </summary>
-    public string? CustomDomainName
+    public TerraformLiteralProperty<string>? CustomDomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_domain_name")?.Value;
-        set => this.WithProperty("custom_domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_domain_name");
+        set => this.WithProperty("custom_domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public string? WorkgroupName
+    public TerraformLiteralProperty<string>? WorkgroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name")?.Value;
-        set => this.WithProperty("workgroup_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name");
+        set => this.WithProperty("workgroup_name", value);
     }
 
     /// <summary>

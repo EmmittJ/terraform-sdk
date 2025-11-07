@@ -24,127 +24,127 @@ public class AwsM2Environment : TerraformResource
     /// <summary>
     /// The apply_changes_during_maintenance_window attribute.
     /// </summary>
-    public bool? ApplyChangesDuringMaintenanceWindow
+    public TerraformLiteralProperty<bool>? ApplyChangesDuringMaintenanceWindow
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("apply_changes_during_maintenance_window")?.Value;
-        set => this.WithProperty("apply_changes_during_maintenance_window", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("apply_changes_during_maintenance_window");
+        set => this.WithProperty("apply_changes_during_maintenance_window", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
-    public string? EngineType
+    public TerraformLiteralProperty<string>? EngineType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_type")?.Value;
-        set => this.WithProperty("engine_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_type");
+        set => this.WithProperty("engine_type", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public string? EngineVersion
+    public TerraformLiteralProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version")?.Value;
-        set => this.WithProperty("engine_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The force_update attribute.
     /// </summary>
-    public bool? ForceUpdate
+    public TerraformLiteralProperty<bool>? ForceUpdate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_update")?.Value;
-        set => this.WithProperty("force_update", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_update");
+        set => this.WithProperty("force_update", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public string? PreferredMaintenanceWindow
+    public TerraformLiteralProperty<string>? PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window")?.Value;
-        set => this.WithProperty("preferred_maintenance_window", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window");
+        set => this.WithProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public bool? PubliclyAccessible
+    public TerraformLiteralProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible")?.Value;
-        set => this.WithProperty("publicly_accessible", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids")?.Value;
-        set => this.WithProperty("security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<string>? SubnetIds
+    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids")?.Value;
-        set => this.WithProperty("subnet_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

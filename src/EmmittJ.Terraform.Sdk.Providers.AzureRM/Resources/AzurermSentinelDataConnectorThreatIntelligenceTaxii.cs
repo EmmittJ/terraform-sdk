@@ -19,100 +19,100 @@ public class AzurermSentinelDataConnectorThreatIntelligenceTaxii : TerraformReso
     /// <summary>
     /// The api_root_url attribute.
     /// </summary>
-    public string? ApiRootUrl
+    public TerraformLiteralProperty<string>? ApiRootUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_root_url")?.Value;
-        set => this.WithProperty("api_root_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_root_url");
+        set => this.WithProperty("api_root_url", value);
     }
 
     /// <summary>
     /// The collection_id attribute.
     /// </summary>
-    public string? CollectionId
+    public TerraformLiteralProperty<string>? CollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection_id")?.Value;
-        set => this.WithProperty("collection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collection_id");
+        set => this.WithProperty("collection_id", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public string? LogAnalyticsWorkspaceId
+    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id")?.Value;
-        set => this.WithProperty("log_analytics_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The lookback_date attribute.
     /// </summary>
-    public string? LookbackDate
+    public TerraformLiteralProperty<string>? LookbackDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lookback_date")?.Value;
-        set => this.WithProperty("lookback_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lookback_date");
+        set => this.WithProperty("lookback_date", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public string? Password
+    public TerraformLiteralProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password")?.Value;
-        set => this.WithProperty("password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The polling_frequency attribute.
     /// </summary>
-    public string? PollingFrequency
+    public TerraformLiteralProperty<string>? PollingFrequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("polling_frequency")?.Value;
-        set => this.WithProperty("polling_frequency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("polling_frequency");
+        set => this.WithProperty("polling_frequency", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public string? TenantId
+    public TerraformLiteralProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id")?.Value;
-        set => this.WithProperty("tenant_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        set => this.WithProperty("tenant_id", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public string? UserName
+    public TerraformLiteralProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name")?.Value;
-        set => this.WithProperty("user_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        set => this.WithProperty("user_name", value);
     }
 
 }

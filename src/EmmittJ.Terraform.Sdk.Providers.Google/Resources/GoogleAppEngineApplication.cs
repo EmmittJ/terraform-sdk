@@ -26,64 +26,64 @@ public class GoogleAppEngineApplication : TerraformResource
     /// <summary>
     /// The domain to authenticate users with when using App Engine&#39;s User API.
     /// </summary>
-    public string? AuthDomain
+    public TerraformLiteralProperty<string>? AuthDomain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auth_domain")?.Value;
-        set => this.WithProperty("auth_domain", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("auth_domain");
+        set => this.WithProperty("auth_domain", value);
     }
 
     /// <summary>
     /// The database_type attribute.
     /// </summary>
-    public string? DatabaseType
+    public TerraformLiteralProperty<string>? DatabaseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_type")?.Value;
-        set => this.WithProperty("database_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_type");
+        set => this.WithProperty("database_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location to serve the app from.
     /// </summary>
-    public string? LocationId
+    public TerraformLiteralProperty<string>? LocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_id")?.Value;
-        set => this.WithProperty("location_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location_id");
+        set => this.WithProperty("location_id", value);
     }
 
     /// <summary>
     /// The project ID to create the application under.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The serving status of the app.
     /// </summary>
-    public string? ServingStatus
+    public TerraformLiteralProperty<string>? ServingStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("serving_status")?.Value;
-        set => this.WithProperty("serving_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("serving_status");
+        set => this.WithProperty("serving_status", value);
     }
 
     /// <summary>
     /// The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS \u003c 1.2 and allow only Modern Ciphers suite
     /// </summary>
-    public string? SslPolicy
+    public TerraformLiteralProperty<string>? SslPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy")?.Value;
-        set => this.WithProperty("ssl_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy");
+        set => this.WithProperty("ssl_policy", value);
     }
 
     /// <summary>

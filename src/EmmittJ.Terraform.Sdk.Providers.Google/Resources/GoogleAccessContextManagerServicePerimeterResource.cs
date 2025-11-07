@@ -21,19 +21,19 @@ public class GoogleAccessContextManagerServicePerimeterResource : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
-    public string? PerimeterName
+    public TerraformLiteralProperty<string>? PerimeterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("perimeter_name")?.Value;
-        set => this.WithProperty("perimeter_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("perimeter_name");
+        set => this.WithProperty("perimeter_name", value);
     }
 
     /// <summary>
@@ -41,10 +41,10 @@ public class GoogleAccessContextManagerServicePerimeterResource : TerraformResou
     /// Currently only projects are allowed.
     /// Format: projects/{project_number}
     /// </summary>
-    public string? Resource
+    public TerraformLiteralProperty<string>? Resource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource")?.Value;
-        set => this.WithProperty("resource", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource");
+        set => this.WithProperty("resource", value);
     }
 
     /// <summary>

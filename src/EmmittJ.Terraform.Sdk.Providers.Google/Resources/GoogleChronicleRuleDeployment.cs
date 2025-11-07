@@ -26,10 +26,10 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// Whether detections resulting from this deployment should be considered
     /// alerts.
     /// </summary>
-    public bool? Alerting
+    public TerraformLiteralProperty<bool>? Alerting
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("alerting")?.Value;
-        set => this.WithProperty("alerting", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("alerting");
+        set => this.WithProperty("alerting", value);
     }
 
     /// <summary>
@@ -41,64 +41,64 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// If currently set to true, enabled, alerting, and run_frequency cannot be
     /// updated.
     /// </summary>
-    public bool? Archived
+    public TerraformLiteralProperty<bool>? Archived
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("archived")?.Value;
-        set => this.WithProperty("archived", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("archived");
+        set => this.WithProperty("archived", value);
     }
 
     /// <summary>
     /// Whether the rule is currently deployed continuously against incoming data.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The Rule ID of the rule.
     /// </summary>
-    public string? Rule
+    public TerraformLiteralProperty<string>? Rule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule")?.Value;
-        set => this.WithProperty("rule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule");
+        set => this.WithProperty("rule", value);
     }
 
     /// <summary>
@@ -108,10 +108,10 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// HOURLY
     /// DAILY
     /// </summary>
-    public string? RunFrequency
+    public TerraformLiteralProperty<string>? RunFrequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("run_frequency")?.Value;
-        set => this.WithProperty("run_frequency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("run_frequency");
+        set => this.WithProperty("run_frequency", value);
     }
 
     /// <summary>

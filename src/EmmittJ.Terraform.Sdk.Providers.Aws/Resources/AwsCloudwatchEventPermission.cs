@@ -19,55 +19,55 @@ public class AwsCloudwatchEventPermission : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public string? Action
+    public TerraformLiteralProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action")?.Value;
-        set => this.WithProperty("action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
-    public string? EventBusName
+    public TerraformLiteralProperty<string>? EventBusName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_bus_name")?.Value;
-        set => this.WithProperty("event_bus_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("event_bus_name");
+        set => this.WithProperty("event_bus_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public string? Principal
+    public TerraformLiteralProperty<string>? Principal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal")?.Value;
-        set => this.WithProperty("principal", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal");
+        set => this.WithProperty("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The statement_id attribute.
     /// </summary>
-    public string? StatementId
+    public TerraformLiteralProperty<string>? StatementId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("statement_id")?.Value;
-        set => this.WithProperty("statement_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("statement_id");
+        set => this.WithProperty("statement_id", value);
     }
 
 }

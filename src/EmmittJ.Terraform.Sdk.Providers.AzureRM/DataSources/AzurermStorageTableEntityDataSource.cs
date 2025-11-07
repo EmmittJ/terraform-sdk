@@ -20,37 +20,37 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public string? PartitionKey
+    public TerraformLiteralProperty<string>? PartitionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partition_key")?.Value;
-        set => this.WithProperty("partition_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("partition_key");
+        set => this.WithProperty("partition_key", value);
     }
 
     /// <summary>
     /// The row_key attribute.
     /// </summary>
-    public string? RowKey
+    public TerraformLiteralProperty<string>? RowKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("row_key")?.Value;
-        set => this.WithProperty("row_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("row_key");
+        set => this.WithProperty("row_key", value);
     }
 
     /// <summary>
     /// The storage_table_id attribute.
     /// </summary>
-    public string? StorageTableId
+    public TerraformLiteralProperty<string>? StorageTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_table_id")?.Value;
-        set => this.WithProperty("storage_table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_table_id");
+        set => this.WithProperty("storage_table_id", value);
     }
 
     /// <summary>

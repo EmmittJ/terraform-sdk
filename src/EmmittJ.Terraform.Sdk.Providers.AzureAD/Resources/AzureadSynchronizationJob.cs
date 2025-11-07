@@ -20,37 +20,37 @@ public class AzureadSynchronizationJob : TerraformResource
     /// <summary>
     /// Whether or not the synchronization job is enabled
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the service principal for which this synchronization job should be created
     /// </summary>
-    public string? ServicePrincipalId
+    public TerraformLiteralProperty<string>? ServicePrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_id")?.Value;
-        set => this.WithProperty("service_principal_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_id");
+        set => this.WithProperty("service_principal_id", value);
     }
 
     /// <summary>
     /// Identifier of the synchronization template this job is based on.
     /// </summary>
-    public string? TemplateId
+    public TerraformLiteralProperty<string>? TemplateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_id")?.Value;
-        set => this.WithProperty("template_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_id");
+        set => this.WithProperty("template_id", value);
     }
 
     /// <summary>

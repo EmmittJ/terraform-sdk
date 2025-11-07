@@ -19,37 +19,37 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
     /// <summary>
     /// The arc_resource_ids attribute.
     /// </summary>
-    public List<string>? ArcResourceIds
+    public TerraformLiteralProperty<List<string>>? ArcResourceIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("arc_resource_ids")?.Value;
-        set => this.WithProperty("arc_resource_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("arc_resource_ids");
+        set => this.WithProperty("arc_resource_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The stack_hci_cluster_id attribute.
     /// </summary>
-    public string? StackHciClusterId
+    public TerraformLiteralProperty<string>? StackHciClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_hci_cluster_id")?.Value;
-        set => this.WithProperty("stack_hci_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stack_hci_cluster_id");
+        set => this.WithProperty("stack_hci_cluster_id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
 }

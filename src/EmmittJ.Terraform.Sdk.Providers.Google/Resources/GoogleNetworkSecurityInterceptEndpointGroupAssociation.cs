@@ -28,10 +28,10 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -39,10 +39,10 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     /// &#39;projects/123456789/locations/global/interceptEndpointGroups/my-eg&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public string? InterceptEndpointGroup
+    public TerraformLiteralProperty<string>? InterceptEndpointGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("intercept_endpoint_group")?.Value;
-        set => this.WithProperty("intercept_endpoint_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("intercept_endpoint_group");
+        set => this.WithProperty("intercept_endpoint_group", value);
     }
 
     /// <summary>
@@ -50,10 +50,10 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     /// component of the endpoint group&#39;s resource name. If not provided, the
     /// server will generate a unique ID.
     /// </summary>
-    public string? InterceptEndpointGroupAssociationId
+    public TerraformLiteralProperty<string>? InterceptEndpointGroupAssociationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("intercept_endpoint_group_association_id")?.Value;
-        set => this.WithProperty("intercept_endpoint_group_association_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("intercept_endpoint_group_association_id");
+        set => this.WithProperty("intercept_endpoint_group_association_id", value);
     }
 
     /// <summary>
@@ -62,19 +62,19 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The cloud location of the association, currently restricted to &#39;global&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -82,19 +82,19 @@ public class GoogleNetworkSecurityInterceptEndpointGroupAssociation : TerraformR
     /// &#39;projects/123456789/global/networks/my-network&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

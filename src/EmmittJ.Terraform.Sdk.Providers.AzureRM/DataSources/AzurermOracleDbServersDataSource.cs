@@ -20,28 +20,28 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
     /// <summary>
     /// The cloud_exadata_infrastructure_name attribute.
     /// </summary>
-    public string? CloudExadataInfrastructureName
+    public TerraformLiteralProperty<string>? CloudExadataInfrastructureName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_exadata_infrastructure_name")?.Value;
-        set => this.WithProperty("cloud_exadata_infrastructure_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloud_exadata_infrastructure_name");
+        set => this.WithProperty("cloud_exadata_infrastructure_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>

@@ -20,46 +20,46 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public HashSet<string>? Delegates
+    public TerraformLiteralProperty<HashSet<string>>? Delegates
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("delegates")?.Value;
-        set => this.WithProperty("delegates", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("delegates");
+        set => this.WithProperty("delegates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lifetime attribute.
     /// </summary>
-    public string? Lifetime
+    public TerraformLiteralProperty<string>? Lifetime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifetime")?.Value;
-        set => this.WithProperty("lifetime", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lifetime");
+        set => this.WithProperty("lifetime", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public HashSet<string>? Scopes
+    public TerraformLiteralProperty<HashSet<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scopes")?.Value;
-        set => this.WithProperty("scopes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scopes");
+        set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public string? TargetServiceAccount
+    public TerraformLiteralProperty<string>? TargetServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_service_account")?.Value;
-        set => this.WithProperty("target_service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_service_account");
+        set => this.WithProperty("target_service_account", value);
     }
 
     /// <summary>

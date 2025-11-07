@@ -19,46 +19,46 @@ public class AzurermKubernetesClusterTrustedAccessRoleBinding : TerraformResourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
     /// </summary>
-    public string? KubernetesClusterId
+    public TerraformLiteralProperty<string>? KubernetesClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_cluster_id")?.Value;
-        set => this.WithProperty("kubernetes_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_cluster_id");
+        set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The roles attribute.
     /// </summary>
-    public List<string>? Roles
+    public TerraformLiteralProperty<List<string>>? Roles
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("roles")?.Value;
-        set => this.WithProperty("roles", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("roles");
+        set => this.WithProperty("roles", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public string? SourceResourceId
+    public TerraformLiteralProperty<string>? SourceResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_resource_id")?.Value;
-        set => this.WithProperty("source_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_resource_id");
+        set => this.WithProperty("source_resource_id", value);
     }
 
 }

@@ -55,37 +55,37 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
     /// <summary>
     /// The dataset ID to create the table in. Changing this forces a new resource to be created.
     /// </summary>
-    public string? DatasetId
+    public TerraformLiteralProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id")?.Value;
-        set => this.WithProperty("dataset_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        set => this.WithProperty("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A unique ID for the resource. Changing this forces a new resource to be created.
     /// </summary>
-    public string? TableId
+    public TerraformLiteralProperty<string>? TableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_id")?.Value;
-        set => this.WithProperty("table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table_id");
+        set => this.WithProperty("table_id", value);
     }
 
     /// <summary>

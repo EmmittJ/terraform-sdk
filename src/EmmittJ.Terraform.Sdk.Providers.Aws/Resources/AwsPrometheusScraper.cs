@@ -23,37 +23,37 @@ public class AwsPrometheusScraper : TerraformResource
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public string? Alias
+    public TerraformLiteralProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias")?.Value;
-        set => this.WithProperty("alias", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        set => this.WithProperty("alias", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The scrape_configuration attribute.
     /// </summary>
-    public string? ScrapeConfiguration
+    public TerraformLiteralProperty<string>? ScrapeConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scrape_configuration")?.Value;
-        set => this.WithProperty("scrape_configuration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scrape_configuration");
+        set => this.WithProperty("scrape_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -22,82 +22,82 @@ public class AzurermRedisEnterpriseDatabase : TerraformResource
     /// <summary>
     /// The client_protocol attribute.
     /// </summary>
-    public string? ClientProtocol
+    public TerraformLiteralProperty<string>? ClientProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_protocol")?.Value;
-        set => this.WithProperty("client_protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_protocol");
+        set => this.WithProperty("client_protocol", value);
     }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public string? ClusterId
+    public TerraformLiteralProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id")?.Value;
-        set => this.WithProperty("cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The clustering_policy attribute.
     /// </summary>
-    public string? ClusteringPolicy
+    public TerraformLiteralProperty<string>? ClusteringPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("clustering_policy")?.Value;
-        set => this.WithProperty("clustering_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("clustering_policy");
+        set => this.WithProperty("clustering_policy", value);
     }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public string? EvictionPolicy
+    public TerraformLiteralProperty<string>? EvictionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eviction_policy")?.Value;
-        set => this.WithProperty("eviction_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eviction_policy");
+        set => this.WithProperty("eviction_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The linked_database_group_nickname attribute.
     /// </summary>
-    public string? LinkedDatabaseGroupNickname
+    public TerraformLiteralProperty<string>? LinkedDatabaseGroupNickname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("linked_database_group_nickname")?.Value;
-        set => this.WithProperty("linked_database_group_nickname", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("linked_database_group_nickname");
+        set => this.WithProperty("linked_database_group_nickname", value);
     }
 
     /// <summary>
     /// The linked_database_id attribute.
     /// </summary>
-    public HashSet<string>? LinkedDatabaseId
+    public TerraformLiteralProperty<HashSet<string>>? LinkedDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("linked_database_id")?.Value;
-        set => this.WithProperty("linked_database_id", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("linked_database_id");
+        set => this.WithProperty("linked_database_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>

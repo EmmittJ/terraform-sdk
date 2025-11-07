@@ -21,37 +21,37 @@ public class AwsRoute53recoverycontrolconfigRoutingControl : TerraformResource
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
-    public string? ClusterArn
+    public TerraformLiteralProperty<string>? ClusterArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_arn")?.Value;
-        set => this.WithProperty("cluster_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_arn");
+        set => this.WithProperty("cluster_arn", value);
     }
 
     /// <summary>
     /// The control_panel_arn attribute.
     /// </summary>
-    public string? ControlPanelArn
+    public TerraformLiteralProperty<string>? ControlPanelArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_panel_arn")?.Value;
-        set => this.WithProperty("control_panel_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("control_panel_arn");
+        set => this.WithProperty("control_panel_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

@@ -21,84 +21,84 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// <summary>
     /// If set to DATA_MASKING, the function is validated and made available as a masking function. For more information, see https://cloud.google.com/bigquery/docs/user-defined-functions#custom-mask Possible values: [&amp;quot;DATA_MASKING&amp;quot;]
     /// </summary>
-    public string? DataGovernanceType
+    public TerraformLiteralProperty<string>? DataGovernanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_governance_type")?.Value;
-        set => this.WithProperty("data_governance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_governance_type");
+        set => this.WithProperty("data_governance_type", value);
     }
 
     /// <summary>
     /// The ID of the dataset containing this routine
     /// </summary>
-    public string? DatasetId
+    public TerraformLiteralProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id")?.Value;
-        set => this.WithProperty("dataset_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        set => this.WithProperty("dataset_id", value);
     }
 
     /// <summary>
     /// The body of the routine. For functions, this is the expression in the AS clause.
     /// If language=SQL, it is the substring inside (but excluding) the parentheses.
     /// </summary>
-    public string? DefinitionBody
+    public TerraformLiteralProperty<string>? DefinitionBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("definition_body")?.Value;
-        set => this.WithProperty("definition_body", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("definition_body");
+        set => this.WithProperty("definition_body", value);
     }
 
     /// <summary>
     /// The description of the routine if defined.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The determinism level of the JavaScript UDF if defined. Possible values: [&amp;quot;DETERMINISM_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;DETERMINISTIC&amp;quot;, &amp;quot;NOT_DETERMINISTIC&amp;quot;]
     /// </summary>
-    public string? DeterminismLevel
+    public TerraformLiteralProperty<string>? DeterminismLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("determinism_level")?.Value;
-        set => this.WithProperty("determinism_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("determinism_level");
+        set => this.WithProperty("determinism_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Optional. If language = &amp;quot;JAVASCRIPT&amp;quot;, this field stores the path of the
     /// imported JAVASCRIPT libraries.
     /// </summary>
-    public List<string>? ImportedLibraries
+    public TerraformLiteralProperty<List<string>>? ImportedLibraries
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("imported_libraries")?.Value;
-        set => this.WithProperty("imported_libraries", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("imported_libraries");
+        set => this.WithProperty("imported_libraries", value);
     }
 
     /// <summary>
     /// The language of the routine. Possible values: [&amp;quot;SQL&amp;quot;, &amp;quot;JAVASCRIPT&amp;quot;, &amp;quot;PYTHON&amp;quot;, &amp;quot;JAVA&amp;quot;, &amp;quot;SCALA&amp;quot;]
     /// </summary>
-    public string? Language
+    public TerraformLiteralProperty<string>? Language
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language")?.Value;
-        set => this.WithProperty("language", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("language");
+        set => this.WithProperty("language", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -108,10 +108,10 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// that references this routine. If present, then the columns in the evaluated table result will
     /// be cast to match the column types specificed in return table type, at query time.
     /// </summary>
-    public string? ReturnTableType
+    public TerraformLiteralProperty<string>? ReturnTableType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("return_table_type")?.Value;
-        set => this.WithProperty("return_table_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("return_table_type");
+        set => this.WithProperty("return_table_type", value);
     }
 
     /// <summary>
@@ -125,37 +125,37 @@ public class GoogleBigqueryRoutine : TerraformResource
     /// cannot suppress the recurring diff this causes. As a workaround, we recommend using
     /// the schema as returned by the API.
     /// </summary>
-    public string? ReturnType
+    public TerraformLiteralProperty<string>? ReturnType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("return_type")?.Value;
-        set => this.WithProperty("return_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("return_type");
+        set => this.WithProperty("return_type", value);
     }
 
     /// <summary>
     /// The ID of the the routine. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256 characters.
     /// </summary>
-    public string? RoutineId
+    public TerraformLiteralProperty<string>? RoutineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routine_id")?.Value;
-        set => this.WithProperty("routine_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("routine_id");
+        set => this.WithProperty("routine_id", value);
     }
 
     /// <summary>
     /// The type of routine. Possible values: [&amp;quot;SCALAR_FUNCTION&amp;quot;, &amp;quot;PROCEDURE&amp;quot;, &amp;quot;TABLE_VALUED_FUNCTION&amp;quot;]
     /// </summary>
-    public string? RoutineType
+    public TerraformLiteralProperty<string>? RoutineType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routine_type")?.Value;
-        set => this.WithProperty("routine_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("routine_type");
+        set => this.WithProperty("routine_type", value);
     }
 
     /// <summary>
     /// Optional. The security mode of the routine, if defined. If not defined, the security mode is automatically determined from the routine&#39;s configuration. Possible values: [&amp;quot;DEFINER&amp;quot;, &amp;quot;INVOKER&amp;quot;]
     /// </summary>
-    public string? SecurityMode
+    public TerraformLiteralProperty<string>? SecurityMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_mode")?.Value;
-        set => this.WithProperty("security_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_mode");
+        set => this.WithProperty("security_mode", value);
     }
 
     /// <summary>

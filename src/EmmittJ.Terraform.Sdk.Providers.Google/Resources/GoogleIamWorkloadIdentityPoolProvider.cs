@@ -39,10 +39,10 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// &amp;quot;&#39;admins&#39; in google.groups&amp;quot;
     /// &#39;&#39;&#39;
     /// </summary>
-    public string? AttributeCondition
+    public TerraformLiteralProperty<string>? AttributeCondition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attribute_condition")?.Value;
-        set => this.WithProperty("attribute_condition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("attribute_condition");
+        set => this.WithProperty("attribute_condition", value);
     }
 
     /// <summary>
@@ -107,56 +107,56 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     ///     {&amp;quot;google.subject&amp;quot;: &amp;quot;assertion.sub&amp;quot;}
     ///     &#39;&#39;&#39;
     /// </summary>
-    public Dictionary<string, string>? AttributeMapping
+    public TerraformLiteralProperty<Dictionary<string, string>>? AttributeMapping
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attribute_mapping")?.Value;
-        set => this.WithProperty("attribute_mapping", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attribute_mapping");
+        set => this.WithProperty("attribute_mapping", value);
     }
 
     /// <summary>
     /// A description for the provider. Cannot exceed 256 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
     /// However, existing tokens still grant access.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// A display name for the provider. Cannot exceed 32 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -164,10 +164,10 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public string? WorkloadIdentityPoolId
+    public TerraformLiteralProperty<string>? WorkloadIdentityPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_id")?.Value;
-        set => this.WithProperty("workload_identity_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_id");
+        set => this.WithProperty("workload_identity_pool_id", value);
     }
 
     /// <summary>
@@ -175,10 +175,10 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     /// value must be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public string? WorkloadIdentityPoolProviderId
+    public TerraformLiteralProperty<string>? WorkloadIdentityPoolProviderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_provider_id")?.Value;
-        set => this.WithProperty("workload_identity_pool_provider_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_provider_id");
+        set => this.WithProperty("workload_identity_pool_provider_id", value);
     }
 
     /// <summary>

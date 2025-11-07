@@ -19,91 +19,91 @@ public class AzurermBotConnection : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public string? BotName
+    public TerraformLiteralProperty<string>? BotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_name")?.Value;
-        set => this.WithProperty("bot_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bot_name");
+        set => this.WithProperty("bot_name", value);
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public string? ClientSecret
+    public TerraformLiteralProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret")?.Value;
-        set => this.WithProperty("client_secret", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        set => this.WithProperty("client_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, string>? Parameters
+    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters")?.Value;
-        set => this.WithProperty("parameters", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public string? Scopes
+    public TerraformLiteralProperty<string>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scopes")?.Value;
-        set => this.WithProperty("scopes", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scopes");
+        set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// The service_provider_name attribute.
     /// </summary>
-    public string? ServiceProviderName
+    public TerraformLiteralProperty<string>? ServiceProviderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_provider_name")?.Value;
-        set => this.WithProperty("service_provider_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_provider_name");
+        set => this.WithProperty("service_provider_name", value);
     }
 
 }

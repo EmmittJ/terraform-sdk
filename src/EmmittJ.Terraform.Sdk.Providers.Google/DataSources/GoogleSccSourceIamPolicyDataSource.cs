@@ -21,28 +21,28 @@ public class GoogleSccSourceIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    public string? Organization
+    public TerraformLiteralProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization")?.Value;
-        set => this.WithProperty("organization", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        set => this.WithProperty("organization", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public string? Source
+    public TerraformLiteralProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source")?.Value;
-        set => this.WithProperty("source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>

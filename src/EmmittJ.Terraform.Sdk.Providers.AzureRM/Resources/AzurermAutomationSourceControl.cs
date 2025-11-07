@@ -19,91 +19,91 @@ public class AzurermAutomationSourceControl : TerraformResource
     /// <summary>
     /// The automatic_sync attribute.
     /// </summary>
-    public bool? AutomaticSync
+    public TerraformLiteralProperty<bool>? AutomaticSync
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_sync")?.Value;
-        set => this.WithProperty("automatic_sync", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_sync");
+        set => this.WithProperty("automatic_sync", value);
     }
 
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    public string? AutomationAccountId
+    public TerraformLiteralProperty<string>? AutomationAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id")?.Value;
-        set => this.WithProperty("automation_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id");
+        set => this.WithProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The branch attribute.
     /// </summary>
-    public string? Branch
+    public TerraformLiteralProperty<string>? Branch
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch")?.Value;
-        set => this.WithProperty("branch", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("branch");
+        set => this.WithProperty("branch", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    public string? FolderPath
+    public TerraformLiteralProperty<string>? FolderPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder_path")?.Value;
-        set => this.WithProperty("folder_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder_path");
+        set => this.WithProperty("folder_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The publish_runbook_enabled attribute.
     /// </summary>
-    public bool? PublishRunbookEnabled
+    public TerraformLiteralProperty<bool>? PublishRunbookEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publish_runbook_enabled")?.Value;
-        set => this.WithProperty("publish_runbook_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("publish_runbook_enabled");
+        set => this.WithProperty("publish_runbook_enabled", value);
     }
 
     /// <summary>
     /// The repository_url attribute.
     /// </summary>
-    public string? RepositoryUrl
+    public TerraformLiteralProperty<string>? RepositoryUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_url")?.Value;
-        set => this.WithProperty("repository_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repository_url");
+        set => this.WithProperty("repository_url", value);
     }
 
     /// <summary>
     /// The source_control_type attribute.
     /// </summary>
-    public string? SourceControlType
+    public TerraformLiteralProperty<string>? SourceControlType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_control_type")?.Value;
-        set => this.WithProperty("source_control_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_control_type");
+        set => this.WithProperty("source_control_type", value);
     }
 
 }

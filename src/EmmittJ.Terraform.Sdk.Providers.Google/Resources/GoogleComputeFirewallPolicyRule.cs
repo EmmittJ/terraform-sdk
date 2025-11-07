@@ -22,28 +22,28 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// <summary>
     /// The Action to perform when the client connection triggers the rule. Valid actions are &amp;quot;allow&amp;quot;, &amp;quot;deny&amp;quot;, &amp;quot;goto_next&amp;quot; and &amp;quot;apply_security_profile_group&amp;quot;.
     /// </summary>
-    public string? Action
+    public TerraformLiteralProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action")?.Value;
-        set => this.WithProperty("action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// An optional description for this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The direction in which this rule applies. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
-    public string? Direction
+    public TerraformLiteralProperty<string>? Direction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direction")?.Value;
-        set => this.WithProperty("direction", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("direction");
+        set => this.WithProperty("direction", value);
     }
 
     /// <summary>
@@ -51,10 +51,10 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// When set to true, the firewall policy rule is not enforced and traffic behaves as if it did not exist.
     /// If this is unspecified, the firewall policy rule will be enabled.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
@@ -63,28 +63,28 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// Logs may be exported to BigQuery or Pub/Sub.
     /// Note: you cannot enable logging on &amp;quot;goto_next&amp;quot; rules.
     /// </summary>
-    public bool? EnableLogging
+    public TerraformLiteralProperty<bool>? EnableLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging")?.Value;
-        set => this.WithProperty("enable_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging");
+        set => this.WithProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The firewall policy of the resource.
     /// </summary>
-    public string? FirewallPolicy
+    public TerraformLiteralProperty<string>? FirewallPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy")?.Value;
-        set => this.WithProperty("firewall_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy");
+        set => this.WithProperty("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -92,10 +92,10 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// The priority must be a positive value between 0 and 2147483647.
     /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
@@ -103,10 +103,10 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// Example: https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
     /// Must be specified if action = &#39;apply_security_profile_group&#39; and cannot be specified for other actions.
     /// </summary>
-    public string? SecurityProfileGroup
+    public TerraformLiteralProperty<string>? SecurityProfileGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_profile_group")?.Value;
-        set => this.WithProperty("security_profile_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_profile_group");
+        set => this.WithProperty("security_profile_group", value);
     }
 
     /// <summary>
@@ -114,29 +114,29 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// This field allows you to control which network&#39;s VMs get this rule.
     /// If this field is left blank, all VMs within the organization will receive the rule.
     /// </summary>
-    public List<string>? TargetResources
+    public TerraformLiteralProperty<List<string>>? TargetResources
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_resources")?.Value;
-        set => this.WithProperty("target_resources", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_resources");
+        set => this.WithProperty("target_resources", value);
     }
 
     /// <summary>
     /// A list of service accounts indicating the sets of instances that are applied with this rule.
     /// </summary>
-    public List<string>? TargetServiceAccounts
+    public TerraformLiteralProperty<List<string>>? TargetServiceAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_service_accounts")?.Value;
-        set => this.WithProperty("target_service_accounts", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_service_accounts");
+        set => this.WithProperty("target_service_accounts", value);
     }
 
     /// <summary>
     /// Boolean flag indicating if the traffic should be TLS decrypted.
     /// Can be set only if action = &#39;apply_security_profile_group&#39; and cannot be set for other actions.
     /// </summary>
-    public bool? TlsInspect
+    public TerraformLiteralProperty<bool>? TlsInspect
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls_inspect")?.Value;
-        set => this.WithProperty("tls_inspect", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("tls_inspect");
+        set => this.WithProperty("tls_inspect", value);
     }
 
     /// <summary>

@@ -19,100 +19,100 @@ public class AzurermAutomanageConfiguration : TerraformResource
     /// <summary>
     /// The automation_account_enabled attribute.
     /// </summary>
-    public bool? AutomationAccountEnabled
+    public TerraformLiteralProperty<bool>? AutomationAccountEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automation_account_enabled")?.Value;
-        set => this.WithProperty("automation_account_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("automation_account_enabled");
+        set => this.WithProperty("automation_account_enabled", value);
     }
 
     /// <summary>
     /// The boot_diagnostics_enabled attribute.
     /// </summary>
-    public bool? BootDiagnosticsEnabled
+    public TerraformLiteralProperty<bool>? BootDiagnosticsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("boot_diagnostics_enabled")?.Value;
-        set => this.WithProperty("boot_diagnostics_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("boot_diagnostics_enabled");
+        set => this.WithProperty("boot_diagnostics_enabled", value);
     }
 
     /// <summary>
     /// The defender_for_cloud_enabled attribute.
     /// </summary>
-    public bool? DefenderForCloudEnabled
+    public TerraformLiteralProperty<bool>? DefenderForCloudEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("defender_for_cloud_enabled")?.Value;
-        set => this.WithProperty("defender_for_cloud_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("defender_for_cloud_enabled");
+        set => this.WithProperty("defender_for_cloud_enabled", value);
     }
 
     /// <summary>
     /// The guest_configuration_enabled attribute.
     /// </summary>
-    public bool? GuestConfigurationEnabled
+    public TerraformLiteralProperty<bool>? GuestConfigurationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("guest_configuration_enabled")?.Value;
-        set => this.WithProperty("guest_configuration_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("guest_configuration_enabled");
+        set => this.WithProperty("guest_configuration_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The log_analytics_enabled attribute.
     /// </summary>
-    public bool? LogAnalyticsEnabled
+    public TerraformLiteralProperty<bool>? LogAnalyticsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_analytics_enabled")?.Value;
-        set => this.WithProperty("log_analytics_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("log_analytics_enabled");
+        set => this.WithProperty("log_analytics_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The status_change_alert_enabled attribute.
     /// </summary>
-    public bool? StatusChangeAlertEnabled
+    public TerraformLiteralProperty<bool>? StatusChangeAlertEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("status_change_alert_enabled")?.Value;
-        set => this.WithProperty("status_change_alert_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("status_change_alert_enabled");
+        set => this.WithProperty("status_change_alert_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

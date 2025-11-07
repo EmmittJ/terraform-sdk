@@ -19,73 +19,73 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// <summary>
     /// The client id of an OAuth client.
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The client secret of the OAuth client, to enable OIDC code flow.
     /// </summary>
-    public string? ClientSecret
+    public TerraformLiteralProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret")?.Value;
-        set => this.WithProperty("client_secret", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        set => this.WithProperty("client_secret", value);
     }
 
     /// <summary>
     /// Human friendly display name.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// For OIDC Idps, the issuer identifier.
     /// </summary>
-    public string? Issuer
+    public TerraformLiteralProperty<string>? Issuer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("issuer")?.Value;
-        set => this.WithProperty("issuer", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("issuer");
+        set => this.WithProperty("issuer", value);
     }
 
     /// <summary>
     /// The name of the OauthIdpConfig. Must start with &#39;oidc.&#39;.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
 }

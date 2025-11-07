@@ -19,100 +19,100 @@ public class AzurermIothubFileUpload : TerraformResource
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public string? AuthenticationType
+    public TerraformLiteralProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type")?.Value;
-        set => this.WithProperty("authentication_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public string? ConnectionString
+    public TerraformLiteralProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string")?.Value;
-        set => this.WithProperty("connection_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public string? ContainerName
+    public TerraformLiteralProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name")?.Value;
-        set => this.WithProperty("container_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public string? DefaultTtl
+    public TerraformLiteralProperty<string>? DefaultTtl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_ttl")?.Value;
-        set => this.WithProperty("default_ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_ttl");
+        set => this.WithProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public string? IdentityId
+    public TerraformLiteralProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_id")?.Value;
-        set => this.WithProperty("identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_id");
+        set => this.WithProperty("identity_id", value);
     }
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
-    public string? IothubId
+    public TerraformLiteralProperty<string>? IothubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id")?.Value;
-        set => this.WithProperty("iothub_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id");
+        set => this.WithProperty("iothub_id", value);
     }
 
     /// <summary>
     /// The lock_duration attribute.
     /// </summary>
-    public string? LockDuration
+    public TerraformLiteralProperty<string>? LockDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lock_duration")?.Value;
-        set => this.WithProperty("lock_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("lock_duration");
+        set => this.WithProperty("lock_duration", value);
     }
 
     /// <summary>
     /// The max_delivery_count attribute.
     /// </summary>
-    public double? MaxDeliveryCount
+    public TerraformLiteralProperty<double>? MaxDeliveryCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_delivery_count")?.Value;
-        set => this.WithProperty("max_delivery_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_delivery_count");
+        set => this.WithProperty("max_delivery_count", value);
     }
 
     /// <summary>
     /// The notifications_enabled attribute.
     /// </summary>
-    public bool? NotificationsEnabled
+    public TerraformLiteralProperty<bool>? NotificationsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("notifications_enabled")?.Value;
-        set => this.WithProperty("notifications_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("notifications_enabled");
+        set => this.WithProperty("notifications_enabled", value);
     }
 
     /// <summary>
     /// The sas_ttl attribute.
     /// </summary>
-    public string? SasTtl
+    public TerraformLiteralProperty<string>? SasTtl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sas_ttl")?.Value;
-        set => this.WithProperty("sas_ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sas_ttl");
+        set => this.WithProperty("sas_ttl", value);
     }
 
 }

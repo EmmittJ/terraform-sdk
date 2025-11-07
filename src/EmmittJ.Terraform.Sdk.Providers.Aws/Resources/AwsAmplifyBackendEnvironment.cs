@@ -20,55 +20,55 @@ public class AwsAmplifyBackendEnvironment : TerraformResource
     /// <summary>
     /// The app_id attribute.
     /// </summary>
-    public string? AppId
+    public TerraformLiteralProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id")?.Value;
-        set => this.WithProperty("app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The deployment_artifacts attribute.
     /// </summary>
-    public string? DeploymentArtifacts
+    public TerraformLiteralProperty<string>? DeploymentArtifacts
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_artifacts")?.Value;
-        set => this.WithProperty("deployment_artifacts", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_artifacts");
+        set => this.WithProperty("deployment_artifacts", value);
     }
 
     /// <summary>
     /// The environment_name attribute.
     /// </summary>
-    public string? EnvironmentName
+    public TerraformLiteralProperty<string>? EnvironmentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_name")?.Value;
-        set => this.WithProperty("environment_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment_name");
+        set => this.WithProperty("environment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The stack_name attribute.
     /// </summary>
-    public string? StackName
+    public TerraformLiteralProperty<string>? StackName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_name")?.Value;
-        set => this.WithProperty("stack_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stack_name");
+        set => this.WithProperty("stack_name", value);
     }
 
     /// <summary>

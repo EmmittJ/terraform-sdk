@@ -19,64 +19,64 @@ public class AzurermCosmosdbSqlStoredProcedure : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public string? AccountName
+    public TerraformLiteralProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name")?.Value;
-        set => this.WithProperty("account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public string? Body
+    public TerraformLiteralProperty<string>? Body
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("body")?.Value;
-        set => this.WithProperty("body", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("body");
+        set => this.WithProperty("body", value);
     }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public string? ContainerName
+    public TerraformLiteralProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name")?.Value;
-        set => this.WithProperty("container_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public string? DatabaseName
+    public TerraformLiteralProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name")?.Value;
-        set => this.WithProperty("database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
 }

@@ -19,46 +19,46 @@ public class AzurermEventhubNamespaceCustomerManagedKey : TerraformResource
     /// <summary>
     /// The eventhub_namespace_id attribute.
     /// </summary>
-    public string? EventhubNamespaceId
+    public TerraformLiteralProperty<string>? EventhubNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_id")?.Value;
-        set => this.WithProperty("eventhub_namespace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_id");
+        set => this.WithProperty("eventhub_namespace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public bool? InfrastructureEncryptionEnabled
+    public TerraformLiteralProperty<bool>? InfrastructureEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("infrastructure_encryption_enabled")?.Value;
-        set => this.WithProperty("infrastructure_encryption_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("infrastructure_encryption_enabled");
+        set => this.WithProperty("infrastructure_encryption_enabled", value);
     }
 
     /// <summary>
     /// The key_vault_key_ids attribute.
     /// </summary>
-    public HashSet<string>? KeyVaultKeyIds
+    public TerraformLiteralProperty<HashSet<string>>? KeyVaultKeyIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_vault_key_ids")?.Value;
-        set => this.WithProperty("key_vault_key_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_vault_key_ids");
+        set => this.WithProperty("key_vault_key_ids", value);
     }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public string? UserAssignedIdentityId
+    public TerraformLiteralProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_assigned_identity_id")?.Value;
-        set => this.WithProperty("user_assigned_identity_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_assigned_identity_id");
+        set => this.WithProperty("user_assigned_identity_id", value);
     }
 
 }

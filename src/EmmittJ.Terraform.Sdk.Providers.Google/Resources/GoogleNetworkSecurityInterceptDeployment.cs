@@ -27,10 +27,10 @@ public class GoogleNetworkSecurityInterceptDeployment : TerraformResource
     /// User-provided description of the deployment.
     /// Used as additional context for the deployment.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -38,19 +38,19 @@ public class GoogleNetworkSecurityInterceptDeployment : TerraformResource
     /// &#39;projects/123456789/regions/us-central1/forwardingRules/my-rule&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public string? ForwardingRule
+    public TerraformLiteralProperty<string>? ForwardingRule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("forwarding_rule")?.Value;
-        set => this.WithProperty("forwarding_rule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("forwarding_rule");
+        set => this.WithProperty("forwarding_rule", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -58,20 +58,20 @@ public class GoogleNetworkSecurityInterceptDeployment : TerraformResource
     /// &#39;projects/123456789/locations/global/interceptDeploymentGroups/my-dg&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public string? InterceptDeploymentGroup
+    public TerraformLiteralProperty<string>? InterceptDeploymentGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("intercept_deployment_group")?.Value;
-        set => this.WithProperty("intercept_deployment_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("intercept_deployment_group");
+        set => this.WithProperty("intercept_deployment_group", value);
     }
 
     /// <summary>
     /// The ID to use for the new deployment, which will become the final
     /// component of the deployment&#39;s resource name.
     /// </summary>
-    public string? InterceptDeploymentId
+    public TerraformLiteralProperty<string>? InterceptDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("intercept_deployment_id")?.Value;
-        set => this.WithProperty("intercept_deployment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("intercept_deployment_id");
+        set => this.WithProperty("intercept_deployment_id", value);
     }
 
     /// <summary>
@@ -80,28 +80,28 @@ public class GoogleNetworkSecurityInterceptDeployment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The cloud location of the deployment, e.g. &#39;us-central1-a&#39; or &#39;asia-south1-b&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

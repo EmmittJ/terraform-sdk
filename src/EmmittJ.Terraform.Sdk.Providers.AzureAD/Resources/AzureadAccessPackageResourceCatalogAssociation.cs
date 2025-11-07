@@ -19,37 +19,37 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     /// <summary>
     /// The unique ID of the access package catalog
     /// </summary>
-    public string? CatalogId
+    public TerraformLiteralProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id")?.Value;
-        set => this.WithProperty("catalog_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group
     /// </summary>
-    public string? ResourceOriginId
+    public TerraformLiteralProperty<string>? ResourceOriginId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_origin_id")?.Value;
-        set => this.WithProperty("resource_origin_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_origin_id");
+        set => this.WithProperty("resource_origin_id", value);
     }
 
     /// <summary>
     /// The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup
     /// </summary>
-    public string? ResourceOriginSystem
+    public TerraformLiteralProperty<string>? ResourceOriginSystem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_origin_system")?.Value;
-        set => this.WithProperty("resource_origin_system", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_origin_system");
+        set => this.WithProperty("resource_origin_system", value);
     }
 
 }

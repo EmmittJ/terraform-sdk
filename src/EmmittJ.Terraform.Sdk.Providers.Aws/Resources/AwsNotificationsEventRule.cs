@@ -20,46 +20,46 @@ public class AwsNotificationsEventRule : TerraformResource
     /// <summary>
     /// The event_pattern attribute.
     /// </summary>
-    public string? EventPattern
+    public TerraformLiteralProperty<string>? EventPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_pattern")?.Value;
-        set => this.WithProperty("event_pattern", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("event_pattern");
+        set => this.WithProperty("event_pattern", value);
     }
 
     /// <summary>
     /// The event_type attribute.
     /// </summary>
-    public string? EventType
+    public TerraformLiteralProperty<string>? EventType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_type")?.Value;
-        set => this.WithProperty("event_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("event_type");
+        set => this.WithProperty("event_type", value);
     }
 
     /// <summary>
     /// The notification_configuration_arn attribute.
     /// </summary>
-    public string? NotificationConfigurationArn
+    public TerraformLiteralProperty<string>? NotificationConfigurationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_configuration_arn")?.Value;
-        set => this.WithProperty("notification_configuration_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("notification_configuration_arn");
+        set => this.WithProperty("notification_configuration_arn", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public HashSet<string>? Regions
+    public TerraformLiteralProperty<HashSet<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions")?.Value;
-        set => this.WithProperty("regions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions");
+        set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public string? Source
+    public TerraformLiteralProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source")?.Value;
-        set => this.WithProperty("source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>

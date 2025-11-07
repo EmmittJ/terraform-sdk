@@ -20,28 +20,28 @@ public class GoogleTagsTagValueIamPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public string? PolicyData
+    public TerraformLiteralProperty<string>? PolicyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_data")?.Value;
-        set => this.WithProperty("policy_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_data");
+        set => this.WithProperty("policy_data", value);
     }
 
     /// <summary>
     /// The tag_value attribute.
     /// </summary>
-    public string? TagValue
+    public TerraformLiteralProperty<string>? TagValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_value")?.Value;
-        set => this.WithProperty("tag_value", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tag_value");
+        set => this.WithProperty("tag_value", value);
     }
 
     /// <summary>

@@ -24,10 +24,10 @@ public class GoogleSccOrganizationSccBigQueryExport : TerraformResource
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
-    public string? BigQueryExportId
+    public TerraformLiteralProperty<string>? BigQueryExportId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("big_query_export_id")?.Value;
-        set => this.WithProperty("big_query_export_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("big_query_export_id");
+        set => this.WithProperty("big_query_export_id", value);
     }
 
     /// <summary>
@@ -35,19 +35,19 @@ public class GoogleSccOrganizationSccBigQueryExport : TerraformResource
     /// Its format is &amp;quot;projects/[projectId]/datasets/[bigquery_dataset_id]&amp;quot;.
     /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
     /// </summary>
-    public string? Dataset
+    public TerraformLiteralProperty<string>? Dataset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset")?.Value;
-        set => this.WithProperty("dataset", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset");
+        set => this.WithProperty("dataset", value);
     }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -77,29 +77,29 @@ public class GoogleSccOrganizationSccBigQueryExport : TerraformResource
     /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
     /// for information on how to write a filter.
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The organization whose Cloud Security Command Center the Big Query Export
     /// Config lives in.
     /// </summary>
-    public string? Organization
+    public TerraformLiteralProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization")?.Value;
-        set => this.WithProperty("organization", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        set => this.WithProperty("organization", value);
     }
 
     /// <summary>

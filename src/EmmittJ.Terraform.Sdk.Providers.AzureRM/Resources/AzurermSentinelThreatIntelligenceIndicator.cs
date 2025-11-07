@@ -27,163 +27,163 @@ public class AzurermSentinelThreatIntelligenceIndicator : TerraformResource
     /// <summary>
     /// The confidence attribute.
     /// </summary>
-    public double? Confidence
+    public TerraformLiteralProperty<double>? Confidence
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("confidence")?.Value;
-        set => this.WithProperty("confidence", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("confidence");
+        set => this.WithProperty("confidence", value);
     }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    public string? CreatedBy
+    public TerraformLiteralProperty<string>? CreatedBy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("created_by")?.Value;
-        set => this.WithProperty("created_by", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("created_by");
+        set => this.WithProperty("created_by", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The extension attribute.
     /// </summary>
-    public string? Extension
+    public TerraformLiteralProperty<string>? Extension
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("extension")?.Value;
-        set => this.WithProperty("extension", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("extension");
+        set => this.WithProperty("extension", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The language attribute.
     /// </summary>
-    public string? Language
+    public TerraformLiteralProperty<string>? Language
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language")?.Value;
-        set => this.WithProperty("language", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("language");
+        set => this.WithProperty("language", value);
     }
 
     /// <summary>
     /// The object_marking_refs attribute.
     /// </summary>
-    public List<string>? ObjectMarkingRefs
+    public TerraformLiteralProperty<List<string>>? ObjectMarkingRefs
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("object_marking_refs")?.Value;
-        set => this.WithProperty("object_marking_refs", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("object_marking_refs");
+        set => this.WithProperty("object_marking_refs", value);
     }
 
     /// <summary>
     /// The pattern attribute.
     /// </summary>
-    public string? Pattern
+    public TerraformLiteralProperty<string>? Pattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pattern")?.Value;
-        set => this.WithProperty("pattern", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pattern");
+        set => this.WithProperty("pattern", value);
     }
 
     /// <summary>
     /// The pattern_type attribute.
     /// </summary>
-    public string? PatternType
+    public TerraformLiteralProperty<string>? PatternType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pattern_type")?.Value;
-        set => this.WithProperty("pattern_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pattern_type");
+        set => this.WithProperty("pattern_type", value);
     }
 
     /// <summary>
     /// The pattern_version attribute.
     /// </summary>
-    public string? PatternVersion
+    public TerraformLiteralProperty<string>? PatternVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pattern_version")?.Value;
-        set => this.WithProperty("pattern_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pattern_version");
+        set => this.WithProperty("pattern_version", value);
     }
 
     /// <summary>
     /// The revoked attribute.
     /// </summary>
-    public bool? Revoked
+    public TerraformLiteralProperty<bool>? Revoked
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("revoked")?.Value;
-        set => this.WithProperty("revoked", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("revoked");
+        set => this.WithProperty("revoked", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public string? Source
+    public TerraformLiteralProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source")?.Value;
-        set => this.WithProperty("source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public List<string>? Tags
+    public TerraformLiteralProperty<List<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The threat_types attribute.
     /// </summary>
-    public List<string>? ThreatTypes
+    public TerraformLiteralProperty<List<string>>? ThreatTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("threat_types")?.Value;
-        set => this.WithProperty("threat_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("threat_types");
+        set => this.WithProperty("threat_types", value);
     }
 
     /// <summary>
     /// The validate_from_utc attribute.
     /// </summary>
-    public string? ValidateFromUtc
+    public TerraformLiteralProperty<string>? ValidateFromUtc
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("validate_from_utc")?.Value;
-        set => this.WithProperty("validate_from_utc", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("validate_from_utc");
+        set => this.WithProperty("validate_from_utc", value);
     }
 
     /// <summary>
     /// The validate_until_utc attribute.
     /// </summary>
-    public string? ValidateUntilUtc
+    public TerraformLiteralProperty<string>? ValidateUntilUtc
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("validate_until_utc")?.Value;
-        set => this.WithProperty("validate_until_utc", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("validate_until_utc");
+        set => this.WithProperty("validate_until_utc", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
     /// <summary>

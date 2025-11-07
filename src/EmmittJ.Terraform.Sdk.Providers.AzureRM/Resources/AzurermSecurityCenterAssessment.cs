@@ -19,37 +19,37 @@ public class AzurermSecurityCenterAssessment : TerraformResource
     /// <summary>
     /// The additional_data attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalData
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalData
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_data")?.Value;
-        set => this.WithProperty("additional_data", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_data");
+        set => this.WithProperty("additional_data", value);
     }
 
     /// <summary>
     /// The assessment_policy_id attribute.
     /// </summary>
-    public string? AssessmentPolicyId
+    public TerraformLiteralProperty<string>? AssessmentPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assessment_policy_id")?.Value;
-        set => this.WithProperty("assessment_policy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("assessment_policy_id");
+        set => this.WithProperty("assessment_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public string? TargetResourceId
+    public TerraformLiteralProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id")?.Value;
-        set => this.WithProperty("target_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id");
+        set => this.WithProperty("target_resource_id", value);
     }
 
 }

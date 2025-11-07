@@ -22,28 +22,28 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The volume_group_id attribute.
     /// </summary>
-    public string? VolumeGroupId
+    public TerraformLiteralProperty<string>? VolumeGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_group_id")?.Value;
-        set => this.WithProperty("volume_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("volume_group_id");
+        set => this.WithProperty("volume_group_id", value);
     }
 
     /// <summary>

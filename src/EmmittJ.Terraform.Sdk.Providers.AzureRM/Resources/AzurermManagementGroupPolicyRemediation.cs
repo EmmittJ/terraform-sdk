@@ -19,82 +19,82 @@ public class AzurermManagementGroupPolicyRemediation : TerraformResource
     /// <summary>
     /// The failure_percentage attribute.
     /// </summary>
-    public double? FailurePercentage
+    public TerraformLiteralProperty<double>? FailurePercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("failure_percentage")?.Value;
-        set => this.WithProperty("failure_percentage", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("failure_percentage");
+        set => this.WithProperty("failure_percentage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location_filters attribute.
     /// </summary>
-    public List<string>? LocationFilters
+    public TerraformLiteralProperty<List<string>>? LocationFilters
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("location_filters")?.Value;
-        set => this.WithProperty("location_filters", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("location_filters");
+        set => this.WithProperty("location_filters", value);
     }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public string? ManagementGroupId
+    public TerraformLiteralProperty<string>? ManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id")?.Value;
-        set => this.WithProperty("management_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id");
+        set => this.WithProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parallel_deployments attribute.
     /// </summary>
-    public double? ParallelDeployments
+    public TerraformLiteralProperty<double>? ParallelDeployments
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("parallel_deployments")?.Value;
-        set => this.WithProperty("parallel_deployments", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("parallel_deployments");
+        set => this.WithProperty("parallel_deployments", value);
     }
 
     /// <summary>
     /// The policy_assignment_id attribute.
     /// </summary>
-    public string? PolicyAssignmentId
+    public TerraformLiteralProperty<string>? PolicyAssignmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_assignment_id")?.Value;
-        set => this.WithProperty("policy_assignment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_assignment_id");
+        set => this.WithProperty("policy_assignment_id", value);
     }
 
     /// <summary>
     /// The policy_definition_reference_id attribute.
     /// </summary>
-    public string? PolicyDefinitionReferenceId
+    public TerraformLiteralProperty<string>? PolicyDefinitionReferenceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_definition_reference_id")?.Value;
-        set => this.WithProperty("policy_definition_reference_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_definition_reference_id");
+        set => this.WithProperty("policy_definition_reference_id", value);
     }
 
     /// <summary>
     /// The resource_count attribute.
     /// </summary>
-    public double? ResourceCount
+    public TerraformLiteralProperty<double>? ResourceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("resource_count")?.Value;
-        set => this.WithProperty("resource_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("resource_count");
+        set => this.WithProperty("resource_count", value);
     }
 
 }

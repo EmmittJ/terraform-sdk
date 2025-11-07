@@ -19,37 +19,37 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The host_pool_id attribute.
     /// </summary>
-    public string? HostPoolId
+    public TerraformLiteralProperty<string>? HostPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_pool_id")?.Value;
-        set => this.WithProperty("host_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("host_pool_id");
+        set => this.WithProperty("host_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The scaling_plan_id attribute.
     /// </summary>
-    public string? ScalingPlanId
+    public TerraformLiteralProperty<string>? ScalingPlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scaling_plan_id")?.Value;
-        set => this.WithProperty("scaling_plan_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scaling_plan_id");
+        set => this.WithProperty("scaling_plan_id", value);
     }
 
 }

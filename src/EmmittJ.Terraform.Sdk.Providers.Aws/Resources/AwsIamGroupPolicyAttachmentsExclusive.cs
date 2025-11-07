@@ -19,19 +19,19 @@ public class AwsIamGroupPolicyAttachmentsExclusive : TerraformResource
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public string? GroupName
+    public TerraformLiteralProperty<string>? GroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_name")?.Value;
-        set => this.WithProperty("group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group_name");
+        set => this.WithProperty("group_name", value);
     }
 
     /// <summary>
     /// The policy_arns attribute.
     /// </summary>
-    public HashSet<string>? PolicyArns
+    public TerraformLiteralProperty<HashSet<string>>? PolicyArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("policy_arns")?.Value;
-        set => this.WithProperty("policy_arns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("policy_arns");
+        set => this.WithProperty("policy_arns", value);
     }
 
 }

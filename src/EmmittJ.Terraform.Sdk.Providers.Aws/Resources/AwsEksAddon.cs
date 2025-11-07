@@ -22,109 +22,109 @@ public class AwsEksAddon : TerraformResource
     /// <summary>
     /// The addon_name attribute.
     /// </summary>
-    public string? AddonName
+    public TerraformLiteralProperty<string>? AddonName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("addon_name")?.Value;
-        set => this.WithProperty("addon_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("addon_name");
+        set => this.WithProperty("addon_name", value);
     }
 
     /// <summary>
     /// The addon_version attribute.
     /// </summary>
-    public string? AddonVersion
+    public TerraformLiteralProperty<string>? AddonVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("addon_version")?.Value;
-        set => this.WithProperty("addon_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("addon_version");
+        set => this.WithProperty("addon_version", value);
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public string? ClusterName
+    public TerraformLiteralProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name")?.Value;
-        set => this.WithProperty("cluster_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The configuration_values attribute.
     /// </summary>
-    public string? ConfigurationValues
+    public TerraformLiteralProperty<string>? ConfigurationValues
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_values")?.Value;
-        set => this.WithProperty("configuration_values", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("configuration_values");
+        set => this.WithProperty("configuration_values", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The preserve attribute.
     /// </summary>
-    public bool? Preserve
+    public TerraformLiteralProperty<bool>? Preserve
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("preserve")?.Value;
-        set => this.WithProperty("preserve", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("preserve");
+        set => this.WithProperty("preserve", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resolve_conflicts_on_create attribute.
     /// </summary>
-    public string? ResolveConflictsOnCreate
+    public TerraformLiteralProperty<string>? ResolveConflictsOnCreate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resolve_conflicts_on_create")?.Value;
-        set => this.WithProperty("resolve_conflicts_on_create", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resolve_conflicts_on_create");
+        set => this.WithProperty("resolve_conflicts_on_create", value);
     }
 
     /// <summary>
     /// The resolve_conflicts_on_update attribute.
     /// </summary>
-    public string? ResolveConflictsOnUpdate
+    public TerraformLiteralProperty<string>? ResolveConflictsOnUpdate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resolve_conflicts_on_update")?.Value;
-        set => this.WithProperty("resolve_conflicts_on_update", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resolve_conflicts_on_update");
+        set => this.WithProperty("resolve_conflicts_on_update", value);
     }
 
     /// <summary>
     /// The service_account_role_arn attribute.
     /// </summary>
-    public string? ServiceAccountRoleArn
+    public TerraformLiteralProperty<string>? ServiceAccountRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_role_arn")?.Value;
-        set => this.WithProperty("service_account_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_role_arn");
+        set => this.WithProperty("service_account_role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

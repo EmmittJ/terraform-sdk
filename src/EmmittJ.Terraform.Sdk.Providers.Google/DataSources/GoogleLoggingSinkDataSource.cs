@@ -27,10 +27,10 @@ public class GoogleLoggingSinkDataSource : TerraformDataSource
     /// <summary>
     /// Required. An identifier for the resource in format: &amp;quot;projects/[PROJECT_ID]/sinks/[SINK_NAME]&amp;quot;, &amp;quot;organizations/[ORGANIZATION_ID]/sinks/[SINK_NAME]&amp;quot;, &amp;quot;billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_NAME]&amp;quot;, &amp;quot;folders/[FOLDER_ID]/sinks/[SINK_NAME]&amp;quot;
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

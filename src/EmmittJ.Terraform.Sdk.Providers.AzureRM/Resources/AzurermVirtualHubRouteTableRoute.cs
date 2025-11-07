@@ -19,64 +19,64 @@ public class AzurermVirtualHubRouteTableRoute : TerraformResource
     /// <summary>
     /// The destinations attribute.
     /// </summary>
-    public HashSet<string>? Destinations
+    public TerraformLiteralProperty<HashSet<string>>? Destinations
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destinations")?.Value;
-        set => this.WithProperty("destinations", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destinations");
+        set => this.WithProperty("destinations", value);
     }
 
     /// <summary>
     /// The destinations_type attribute.
     /// </summary>
-    public string? DestinationsType
+    public TerraformLiteralProperty<string>? DestinationsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destinations_type")?.Value;
-        set => this.WithProperty("destinations_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destinations_type");
+        set => this.WithProperty("destinations_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The next_hop attribute.
     /// </summary>
-    public string? NextHop
+    public TerraformLiteralProperty<string>? NextHop
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop")?.Value;
-        set => this.WithProperty("next_hop", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("next_hop");
+        set => this.WithProperty("next_hop", value);
     }
 
     /// <summary>
     /// The next_hop_type attribute.
     /// </summary>
-    public string? NextHopType
+    public TerraformLiteralProperty<string>? NextHopType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_type")?.Value;
-        set => this.WithProperty("next_hop_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_type");
+        set => this.WithProperty("next_hop_type", value);
     }
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public string? RouteTableId
+    public TerraformLiteralProperty<string>? RouteTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_table_id")?.Value;
-        set => this.WithProperty("route_table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("route_table_id");
+        set => this.WithProperty("route_table_id", value);
     }
 
 }

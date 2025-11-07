@@ -23,10 +23,10 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -34,28 +34,28 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// projects/[PROJECT]/notes/[NOTE_ID]. This field can be used as a
     /// filter in list requests.
     /// </summary>
-    public string? NoteName
+    public TerraformLiteralProperty<string>? NoteName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("note_name")?.Value;
-        set => this.WithProperty("note_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("note_name");
+        set => this.WithProperty("note_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A description of actions that can be taken to remedy the note.
     /// </summary>
-    public string? Remediation
+    public TerraformLiteralProperty<string>? Remediation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remediation")?.Value;
-        set => this.WithProperty("remediation", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remediation");
+        set => this.WithProperty("remediation", value);
     }
 
     /// <summary>
@@ -63,10 +63,10 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// the occurrence applies. For example,
     /// https://gcr.io/project/image@sha256:123abc for a Docker image.
     /// </summary>
-    public string? ResourceUri
+    public TerraformLiteralProperty<string>? ResourceUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_uri")?.Value;
-        set => this.WithProperty("resource_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_uri");
+        set => this.WithProperty("resource_uri", value);
     }
 
     /// <summary>

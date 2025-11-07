@@ -20,46 +20,46 @@ public class AzurermApplicationInsightsApiKey : TerraformResource
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public string? ApplicationInsightsId
+    public TerraformLiteralProperty<string>? ApplicationInsightsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id")?.Value;
-        set => this.WithProperty("application_insights_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id");
+        set => this.WithProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The read_permissions attribute.
     /// </summary>
-    public HashSet<string>? ReadPermissions
+    public TerraformLiteralProperty<HashSet<string>>? ReadPermissions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("read_permissions")?.Value;
-        set => this.WithProperty("read_permissions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("read_permissions");
+        set => this.WithProperty("read_permissions", value);
     }
 
     /// <summary>
     /// The write_permissions attribute.
     /// </summary>
-    public HashSet<string>? WritePermissions
+    public TerraformLiteralProperty<HashSet<string>>? WritePermissions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("write_permissions")?.Value;
-        set => this.WithProperty("write_permissions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("write_permissions");
+        set => this.WithProperty("write_permissions", value);
     }
 
     /// <summary>

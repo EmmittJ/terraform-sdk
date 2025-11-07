@@ -21,19 +21,19 @@ public class GoogleBillingAccountIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The billing_account_id attribute.
     /// </summary>
-    public string? BillingAccountId
+    public TerraformLiteralProperty<string>? BillingAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account_id")?.Value;
-        set => this.WithProperty("billing_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("billing_account_id");
+        set => this.WithProperty("billing_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

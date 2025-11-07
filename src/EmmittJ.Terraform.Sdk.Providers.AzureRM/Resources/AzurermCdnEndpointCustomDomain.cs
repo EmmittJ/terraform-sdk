@@ -19,37 +19,37 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// <summary>
     /// The cdn_endpoint_id attribute.
     /// </summary>
-    public string? CdnEndpointId
+    public TerraformLiteralProperty<string>? CdnEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_endpoint_id")?.Value;
-        set => this.WithProperty("cdn_endpoint_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cdn_endpoint_id");
+        set => this.WithProperty("cdn_endpoint_id", value);
     }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    public string? HostName
+    public TerraformLiteralProperty<string>? HostName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_name")?.Value;
-        set => this.WithProperty("host_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("host_name");
+        set => this.WithProperty("host_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

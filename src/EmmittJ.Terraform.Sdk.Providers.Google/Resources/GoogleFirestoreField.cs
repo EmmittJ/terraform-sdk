@@ -20,46 +20,46 @@ public class GoogleFirestoreField : TerraformResource
     /// <summary>
     /// The id of the collection group to configure.
     /// </summary>
-    public string? Collection
+    public TerraformLiteralProperty<string>? Collection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection")?.Value;
-        set => this.WithProperty("collection", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collection");
+        set => this.WithProperty("collection", value);
     }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public string? Database
+    public TerraformLiteralProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database")?.Value;
-        set => this.WithProperty("database", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The id of the field to configure.
     /// </summary>
-    public string? Field
+    public TerraformLiteralProperty<string>? Field
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("field")?.Value;
-        set => this.WithProperty("field", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("field");
+        set => this.WithProperty("field", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

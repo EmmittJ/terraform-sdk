@@ -19,55 +19,55 @@ public class AwsRumMetricsDestination : TerraformResource
     /// <summary>
     /// The app_monitor_name attribute.
     /// </summary>
-    public string? AppMonitorName
+    public TerraformLiteralProperty<string>? AppMonitorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_monitor_name")?.Value;
-        set => this.WithProperty("app_monitor_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_monitor_name");
+        set => this.WithProperty("app_monitor_name", value);
     }
 
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public string? Destination
+    public TerraformLiteralProperty<string>? Destination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination")?.Value;
-        set => this.WithProperty("destination", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination");
+        set => this.WithProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
-    public string? DestinationArn
+    public TerraformLiteralProperty<string>? DestinationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_arn")?.Value;
-        set => this.WithProperty("destination_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_arn");
+        set => this.WithProperty("destination_arn", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public string? IamRoleArn
+    public TerraformLiteralProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn")?.Value;
-        set => this.WithProperty("iam_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

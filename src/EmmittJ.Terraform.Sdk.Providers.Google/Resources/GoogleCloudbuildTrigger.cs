@@ -21,19 +21,19 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// <summary>
     /// Human-readable description of the trigger.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
@@ -41,28 +41,28 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
     /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
     /// </summary>
-    public string? Filename
+    public TerraformLiteralProperty<string>? Filename
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filename")?.Value;
-        set => this.WithProperty("filename", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filename");
+        set => this.WithProperty("filename", value);
     }
 
     /// <summary>
     /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -76,10 +76,10 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// of the ignored_file globs. If the change has no files that are outside
     /// of the ignoredFiles globs, then we do not trigger a build.
     /// </summary>
-    public List<string>? IgnoredFiles
+    public TerraformLiteralProperty<List<string>>? IgnoredFiles
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ignored_files")?.Value;
-        set => this.WithProperty("ignored_files", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("ignored_files");
+        set => this.WithProperty("ignored_files", value);
     }
 
     /// <summary>
@@ -87,10 +87,10 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
     /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
     /// </summary>
-    public string? IncludeBuildLogs
+    public TerraformLiteralProperty<string>? IncludeBuildLogs
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("include_build_logs")?.Value;
-        set => this.WithProperty("include_build_logs", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("include_build_logs");
+        set => this.WithProperty("include_build_logs", value);
     }
 
     /// <summary>
@@ -106,38 +106,38 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// those files matches a includedFiles glob. If not, then we do not trigger
     /// a build.
     /// </summary>
-    public List<string>? IncludedFiles
+    public TerraformLiteralProperty<List<string>>? IncludedFiles
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("included_files")?.Value;
-        set => this.WithProperty("included_files", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("included_files");
+        set => this.WithProperty("included_files", value);
     }
 
     /// <summary>
     /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
     /// If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -149,28 +149,28 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// 
     /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
     /// </summary>
-    public string? ServiceAccount
+    public TerraformLiteralProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account")?.Value;
-        set => this.WithProperty("service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        set => this.WithProperty("service_account", value);
     }
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
-    public Dictionary<string, string>? Substitutions
+    public TerraformLiteralProperty<Dictionary<string, string>>? Substitutions
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("substitutions")?.Value;
-        set => this.WithProperty("substitutions", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("substitutions");
+        set => this.WithProperty("substitutions", value);
     }
 
     /// <summary>
     /// Tags for annotation of a BuildTrigger
     /// </summary>
-    public List<string>? Tags
+    public TerraformLiteralProperty<List<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

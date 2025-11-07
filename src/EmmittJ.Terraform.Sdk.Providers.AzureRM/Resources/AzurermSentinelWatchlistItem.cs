@@ -19,37 +19,37 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public Dictionary<string, string>? Properties
+    public TerraformLiteralProperty<Dictionary<string, string>>? Properties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties")?.Value;
-        set => this.WithProperty("properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties");
+        set => this.WithProperty("properties", value);
     }
 
     /// <summary>
     /// The watchlist_id attribute.
     /// </summary>
-    public string? WatchlistId
+    public TerraformLiteralProperty<string>? WatchlistId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("watchlist_id")?.Value;
-        set => this.WithProperty("watchlist_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("watchlist_id");
+        set => this.WithProperty("watchlist_id", value);
     }
 
 }

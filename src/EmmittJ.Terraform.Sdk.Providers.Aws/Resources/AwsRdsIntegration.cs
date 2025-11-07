@@ -22,73 +22,73 @@ public class AwsRdsIntegration : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalEncryptionContext
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context")?.Value;
-        set => this.WithProperty("additional_encryption_context", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context");
+        set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The data_filter attribute.
     /// </summary>
-    public string? DataFilter
+    public TerraformLiteralProperty<string>? DataFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_filter")?.Value;
-        set => this.WithProperty("data_filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_filter");
+        set => this.WithProperty("data_filter", value);
     }
 
     /// <summary>
     /// The integration_name attribute.
     /// </summary>
-    public string? IntegrationName
+    public TerraformLiteralProperty<string>? IntegrationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_name")?.Value;
-        set => this.WithProperty("integration_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("integration_name");
+        set => this.WithProperty("integration_name", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public string? SourceArn
+    public TerraformLiteralProperty<string>? SourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_arn")?.Value;
-        set => this.WithProperty("source_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_arn");
+        set => this.WithProperty("source_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
-    public string? TargetArn
+    public TerraformLiteralProperty<string>? TargetArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_arn")?.Value;
-        set => this.WithProperty("target_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_arn");
+        set => this.WithProperty("target_arn", value);
     }
 
     /// <summary>

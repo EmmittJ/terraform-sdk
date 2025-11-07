@@ -19,28 +19,28 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public bool? CustomerManagedKeyEnabled
+    public TerraformLiteralProperty<bool>? CustomerManagedKeyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("customer_managed_key_enabled")?.Value;
-        set => this.WithProperty("customer_managed_key_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("customer_managed_key_enabled");
+        set => this.WithProperty("customer_managed_key_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
 }

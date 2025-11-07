@@ -20,37 +20,37 @@ public class GoogleHealthcareDatasetIamBinding : TerraformResource
     /// <summary>
     /// The dataset_id attribute.
     /// </summary>
-    public string? DatasetId
+    public TerraformLiteralProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id")?.Value;
-        set => this.WithProperty("dataset_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        set => this.WithProperty("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public HashSet<string>? Members
+    public TerraformLiteralProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members")?.Value;
-        set => this.WithProperty("members", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>

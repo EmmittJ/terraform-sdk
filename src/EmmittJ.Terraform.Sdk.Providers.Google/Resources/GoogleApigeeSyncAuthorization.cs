@@ -20,10 +20,10 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -35,19 +35,19 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     /// 
     /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
     /// </summary>
-    public List<string>? Identities
+    public TerraformLiteralProperty<List<string>>? Identities
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("identities")?.Value;
-        set => this.WithProperty("identities", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("identities");
+        set => this.WithProperty("identities", value);
     }
 
     /// <summary>
     /// Name of the Apigee organization.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

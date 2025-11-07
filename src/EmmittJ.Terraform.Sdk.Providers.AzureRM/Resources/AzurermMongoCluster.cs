@@ -20,154 +20,154 @@ public class AzurermMongoCluster : TerraformResource
     /// <summary>
     /// The administrator_password attribute.
     /// </summary>
-    public string? AdministratorPassword
+    public TerraformLiteralProperty<string>? AdministratorPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrator_password")?.Value;
-        set => this.WithProperty("administrator_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("administrator_password");
+        set => this.WithProperty("administrator_password", value);
     }
 
     /// <summary>
     /// The administrator_username attribute.
     /// </summary>
-    public string? AdministratorUsername
+    public TerraformLiteralProperty<string>? AdministratorUsername
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrator_username")?.Value;
-        set => this.WithProperty("administrator_username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("administrator_username");
+        set => this.WithProperty("administrator_username", value);
     }
 
     /// <summary>
     /// The compute_tier attribute.
     /// </summary>
-    public string? ComputeTier
+    public TerraformLiteralProperty<string>? ComputeTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_tier")?.Value;
-        set => this.WithProperty("compute_tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compute_tier");
+        set => this.WithProperty("compute_tier", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public string? CreateMode
+    public TerraformLiteralProperty<string>? CreateMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_mode")?.Value;
-        set => this.WithProperty("create_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("create_mode");
+        set => this.WithProperty("create_mode", value);
     }
 
     /// <summary>
     /// The high_availability_mode attribute.
     /// </summary>
-    public string? HighAvailabilityMode
+    public TerraformLiteralProperty<string>? HighAvailabilityMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("high_availability_mode")?.Value;
-        set => this.WithProperty("high_availability_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("high_availability_mode");
+        set => this.WithProperty("high_availability_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The preview_features attribute.
     /// </summary>
-    public List<string>? PreviewFeatures
+    public TerraformLiteralProperty<List<string>>? PreviewFeatures
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preview_features")?.Value;
-        set => this.WithProperty("preview_features", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("preview_features");
+        set => this.WithProperty("preview_features", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public string? PublicNetworkAccess
+    public TerraformLiteralProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access")?.Value;
-        set => this.WithProperty("public_network_access", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
-    public double? ShardCount
+    public TerraformLiteralProperty<double>? ShardCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("shard_count")?.Value;
-        set => this.WithProperty("shard_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("shard_count");
+        set => this.WithProperty("shard_count", value);
     }
 
     /// <summary>
     /// The source_location attribute.
     /// </summary>
-    public string? SourceLocation
+    public TerraformLiteralProperty<string>? SourceLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_location")?.Value;
-        set => this.WithProperty("source_location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_location");
+        set => this.WithProperty("source_location", value);
     }
 
     /// <summary>
     /// The source_server_id attribute.
     /// </summary>
-    public string? SourceServerId
+    public TerraformLiteralProperty<string>? SourceServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_server_id")?.Value;
-        set => this.WithProperty("source_server_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_server_id");
+        set => this.WithProperty("source_server_id", value);
     }
 
     /// <summary>
     /// The storage_size_in_gb attribute.
     /// </summary>
-    public double? StorageSizeInGb
+    public TerraformLiteralProperty<double>? StorageSizeInGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_size_in_gb")?.Value;
-        set => this.WithProperty("storage_size_in_gb", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("storage_size_in_gb");
+        set => this.WithProperty("storage_size_in_gb", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

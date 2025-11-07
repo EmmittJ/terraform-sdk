@@ -23,37 +23,37 @@ public class GoogleStorageHmacKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The email address of the key&#39;s associated service account.
     /// </summary>
-    public string? ServiceAccountEmail
+    public TerraformLiteralProperty<string>? ServiceAccountEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_email")?.Value;
-        set => this.WithProperty("service_account_email", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_email");
+        set => this.WithProperty("service_account_email", value);
     }
 
     /// <summary>
     /// The state of the key. Can be set to one of ACTIVE, INACTIVE. Default value: &amp;quot;ACTIVE&amp;quot; Possible values: [&amp;quot;ACTIVE&amp;quot;, &amp;quot;INACTIVE&amp;quot;]
     /// </summary>
-    public string? State
+    public TerraformLiteralProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state")?.Value;
-        set => this.WithProperty("state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        set => this.WithProperty("state", value);
     }
 
     /// <summary>

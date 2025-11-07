@@ -19,73 +19,73 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public string? IamRoleArn
+    public TerraformLiteralProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn")?.Value;
-        set => this.WithProperty("iam_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protected_resource_arns attribute.
     /// </summary>
-    public HashSet<string>? ProtectedResourceArns
+    public TerraformLiteralProperty<HashSet<string>>? ProtectedResourceArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("protected_resource_arns")?.Value;
-        set => this.WithProperty("protected_resource_arns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("protected_resource_arns");
+        set => this.WithProperty("protected_resource_arns", value);
     }
 
     /// <summary>
     /// The protected_resource_type attribute.
     /// </summary>
-    public string? ProtectedResourceType
+    public TerraformLiteralProperty<string>? ProtectedResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protected_resource_type")?.Value;
-        set => this.WithProperty("protected_resource_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protected_resource_type");
+        set => this.WithProperty("protected_resource_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The restore_metadata_overrides attribute.
     /// </summary>
-    public Dictionary<string, string>? RestoreMetadataOverrides
+    public TerraformLiteralProperty<Dictionary<string, string>>? RestoreMetadataOverrides
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("restore_metadata_overrides")?.Value;
-        set => this.WithProperty("restore_metadata_overrides", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("restore_metadata_overrides");
+        set => this.WithProperty("restore_metadata_overrides", value);
     }
 
     /// <summary>
     /// The restore_testing_plan_name attribute.
     /// </summary>
-    public string? RestoreTestingPlanName
+    public TerraformLiteralProperty<string>? RestoreTestingPlanName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("restore_testing_plan_name")?.Value;
-        set => this.WithProperty("restore_testing_plan_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("restore_testing_plan_name");
+        set => this.WithProperty("restore_testing_plan_name", value);
     }
 
     /// <summary>
     /// The validation_window_hours attribute.
     /// </summary>
-    public double? ValidationWindowHours
+    public TerraformLiteralProperty<double>? ValidationWindowHours
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("validation_window_hours")?.Value;
-        set => this.WithProperty("validation_window_hours", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("validation_window_hours");
+        set => this.WithProperty("validation_window_hours", value);
     }
 
 }

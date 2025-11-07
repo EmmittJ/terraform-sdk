@@ -19,82 +19,82 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The agent_pool_name attribute.
     /// </summary>
-    public string? AgentPoolName
+    public TerraformLiteralProperty<string>? AgentPoolName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_pool_name")?.Value;
-        set => this.WithProperty("agent_pool_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_pool_name");
+        set => this.WithProperty("agent_pool_name", value);
     }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public string? ContainerRegistryId
+    public TerraformLiteralProperty<string>? ContainerRegistryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_id")?.Value;
-        set => this.WithProperty("container_registry_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_id");
+        set => this.WithProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_system_task attribute.
     /// </summary>
-    public bool? IsSystemTask
+    public TerraformLiteralProperty<bool>? IsSystemTask
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_system_task")?.Value;
-        set => this.WithProperty("is_system_task", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("is_system_task");
+        set => this.WithProperty("is_system_task", value);
     }
 
     /// <summary>
     /// The log_template attribute.
     /// </summary>
-    public string? LogTemplate
+    public TerraformLiteralProperty<string>? LogTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_template")?.Value;
-        set => this.WithProperty("log_template", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_template");
+        set => this.WithProperty("log_template", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public double? TimeoutInSeconds
+    public TerraformLiteralProperty<double>? TimeoutInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("timeout_in_seconds")?.Value;
-        set => this.WithProperty("timeout_in_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("timeout_in_seconds");
+        set => this.WithProperty("timeout_in_seconds", value);
     }
 
 }

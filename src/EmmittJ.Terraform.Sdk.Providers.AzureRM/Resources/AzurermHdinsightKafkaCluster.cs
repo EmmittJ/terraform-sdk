@@ -22,82 +22,82 @@ public class AzurermHdinsightKafkaCluster : TerraformResource
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
-    public string? ClusterVersion
+    public TerraformLiteralProperty<string>? ClusterVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_version")?.Value;
-        set => this.WithProperty("cluster_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_version");
+        set => this.WithProperty("cluster_version", value);
     }
 
     /// <summary>
     /// The encryption_in_transit_enabled attribute.
     /// </summary>
-    public bool? EncryptionInTransitEnabled
+    public TerraformLiteralProperty<bool>? EncryptionInTransitEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("encryption_in_transit_enabled")?.Value;
-        set => this.WithProperty("encryption_in_transit_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("encryption_in_transit_enabled");
+        set => this.WithProperty("encryption_in_transit_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public string? Tier
+    public TerraformLiteralProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier")?.Value;
-        set => this.WithProperty("tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        set => this.WithProperty("tier", value);
     }
 
     /// <summary>
     /// The tls_min_version attribute.
     /// </summary>
-    public string? TlsMinVersion
+    public TerraformLiteralProperty<string>? TlsMinVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tls_min_version")?.Value;
-        set => this.WithProperty("tls_min_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tls_min_version");
+        set => this.WithProperty("tls_min_version", value);
     }
 
     /// <summary>

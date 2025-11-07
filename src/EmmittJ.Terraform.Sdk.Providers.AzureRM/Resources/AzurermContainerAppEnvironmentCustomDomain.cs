@@ -19,46 +19,46 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     /// <summary>
     /// The Custom Domain Certificate Private Key as a base64 encoded PFX or PEM.
     /// </summary>
-    public string? CertificateBlobBase64
+    public TerraformLiteralProperty<string>? CertificateBlobBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_blob_base64")?.Value;
-        set => this.WithProperty("certificate_blob_base64", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_blob_base64");
+        set => this.WithProperty("certificate_blob_base64", value);
     }
 
     /// <summary>
     /// The Custom Domain Certificate password.
     /// </summary>
-    public string? CertificatePassword
+    public TerraformLiteralProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_password")?.Value;
-        set => this.WithProperty("certificate_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_password");
+        set => this.WithProperty("certificate_password", value);
     }
 
     /// <summary>
     /// The Container App Managed Environment ID to configure this Custom Domain on.
     /// </summary>
-    public string? ContainerAppEnvironmentId
+    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id")?.Value;
-        set => this.WithProperty("container_app_environment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The Custom Domain DNS suffix for this Container App Environment.
     /// </summary>
-    public string? DnsSuffix
+    public TerraformLiteralProperty<string>? DnsSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_suffix")?.Value;
-        set => this.WithProperty("dns_suffix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_suffix");
+        set => this.WithProperty("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

@@ -22,55 +22,55 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     /// <summary>
     /// The commitment_duration attribute.
     /// </summary>
-    public string? CommitmentDuration
+    public TerraformLiteralProperty<string>? CommitmentDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("commitment_duration")?.Value;
-        set => this.WithProperty("commitment_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("commitment_duration");
+        set => this.WithProperty("commitment_duration", value);
     }
 
     /// <summary>
     /// The model_arn attribute.
     /// </summary>
-    public string? ModelArn
+    public TerraformLiteralProperty<string>? ModelArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("model_arn")?.Value;
-        set => this.WithProperty("model_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("model_arn");
+        set => this.WithProperty("model_arn", value);
     }
 
     /// <summary>
     /// The model_units attribute.
     /// </summary>
-    public double? ModelUnits
+    public TerraformLiteralProperty<double>? ModelUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("model_units")?.Value;
-        set => this.WithProperty("model_units", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("model_units");
+        set => this.WithProperty("model_units", value);
     }
 
     /// <summary>
     /// The provisioned_model_name attribute.
     /// </summary>
-    public string? ProvisionedModelName
+    public TerraformLiteralProperty<string>? ProvisionedModelName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provisioned_model_name")?.Value;
-        set => this.WithProperty("provisioned_model_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provisioned_model_name");
+        set => this.WithProperty("provisioned_model_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

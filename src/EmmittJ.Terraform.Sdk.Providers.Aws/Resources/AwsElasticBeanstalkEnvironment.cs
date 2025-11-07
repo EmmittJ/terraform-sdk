@@ -29,136 +29,136 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
     /// <summary>
     /// The application attribute.
     /// </summary>
-    public string? Application
+    public TerraformLiteralProperty<string>? Application
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application")?.Value;
-        set => this.WithProperty("application", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application");
+        set => this.WithProperty("application", value);
     }
 
     /// <summary>
     /// The cname_prefix attribute.
     /// </summary>
-    public string? CnamePrefix
+    public TerraformLiteralProperty<string>? CnamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cname_prefix")?.Value;
-        set => this.WithProperty("cname_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cname_prefix");
+        set => this.WithProperty("cname_prefix", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The platform_arn attribute.
     /// </summary>
-    public string? PlatformArn
+    public TerraformLiteralProperty<string>? PlatformArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform_arn")?.Value;
-        set => this.WithProperty("platform_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("platform_arn");
+        set => this.WithProperty("platform_arn", value);
     }
 
     /// <summary>
     /// The poll_interval attribute.
     /// </summary>
-    public string? PollInterval
+    public TerraformLiteralProperty<string>? PollInterval
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("poll_interval")?.Value;
-        set => this.WithProperty("poll_interval", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("poll_interval");
+        set => this.WithProperty("poll_interval", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
-    public string? SolutionStackName
+    public TerraformLiteralProperty<string>? SolutionStackName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("solution_stack_name")?.Value;
-        set => this.WithProperty("solution_stack_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("solution_stack_name");
+        set => this.WithProperty("solution_stack_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The template_name attribute.
     /// </summary>
-    public string? TemplateName
+    public TerraformLiteralProperty<string>? TemplateName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_name")?.Value;
-        set => this.WithProperty("template_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_name");
+        set => this.WithProperty("template_name", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public string? Tier
+    public TerraformLiteralProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier")?.Value;
-        set => this.WithProperty("tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        set => this.WithProperty("tier", value);
     }
 
     /// <summary>
     /// The version_label attribute.
     /// </summary>
-    public string? VersionLabel
+    public TerraformLiteralProperty<string>? VersionLabel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_label")?.Value;
-        set => this.WithProperty("version_label", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version_label");
+        set => this.WithProperty("version_label", value);
     }
 
     /// <summary>
     /// The wait_for_ready_timeout attribute.
     /// </summary>
-    public string? WaitForReadyTimeout
+    public TerraformLiteralProperty<string>? WaitForReadyTimeout
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("wait_for_ready_timeout")?.Value;
-        set => this.WithProperty("wait_for_ready_timeout", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("wait_for_ready_timeout");
+        set => this.WithProperty("wait_for_ready_timeout", value);
     }
 
     /// <summary>

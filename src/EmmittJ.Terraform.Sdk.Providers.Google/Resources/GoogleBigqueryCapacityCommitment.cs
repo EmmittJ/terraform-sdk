@@ -26,83 +26,83 @@ public class GoogleBigqueryCapacityCommitment : TerraformResource
     /// cannot be a dash. Max length is 64 characters. NOTE: this ID won&#39;t be kept if the capacity commitment is split
     /// or merged.
     /// </summary>
-    public string? CapacityCommitmentId
+    public TerraformLiteralProperty<string>? CapacityCommitmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_commitment_id")?.Value;
-        set => this.WithProperty("capacity_commitment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("capacity_commitment_id");
+        set => this.WithProperty("capacity_commitment_id", value);
     }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
-    public string? Edition
+    public TerraformLiteralProperty<string>? Edition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edition")?.Value;
-        set => this.WithProperty("edition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("edition");
+        set => this.WithProperty("edition", value);
     }
 
     /// <summary>
     /// If true, fail the request if another project in the organization has a capacity commitment.
     /// </summary>
-    public string? EnforceSingleAdminProjectPerOrg
+    public TerraformLiteralProperty<string>? EnforceSingleAdminProjectPerOrg
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enforce_single_admin_project_per_org")?.Value;
-        set => this.WithProperty("enforce_single_admin_project_per_org", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enforce_single_admin_project_per_org");
+        set => this.WithProperty("enforce_single_admin_project_per_org", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Capacity commitment plan. Valid values are at https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1#commitmentplan
     /// </summary>
-    public string? Plan
+    public TerraformLiteralProperty<string>? Plan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan")?.Value;
-        set => this.WithProperty("plan", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plan");
+        set => this.WithProperty("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The plan this capacity commitment is converted to after commitmentEndTime passes. Once the plan is changed, committed period is extended according to commitment plan. Only applicable for some commitment plans.
     /// </summary>
-    public string? RenewalPlan
+    public TerraformLiteralProperty<string>? RenewalPlan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("renewal_plan")?.Value;
-        set => this.WithProperty("renewal_plan", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("renewal_plan");
+        set => this.WithProperty("renewal_plan", value);
     }
 
     /// <summary>
     /// Number of slots in this commitment.
     /// </summary>
-    public double? SlotCount
+    public TerraformLiteralProperty<double>? SlotCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("slot_count")?.Value;
-        set => this.WithProperty("slot_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("slot_count");
+        set => this.WithProperty("slot_count", value);
     }
 
     /// <summary>

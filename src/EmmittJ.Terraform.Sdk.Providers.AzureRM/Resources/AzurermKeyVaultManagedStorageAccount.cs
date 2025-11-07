@@ -19,73 +19,73 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public string? KeyVaultId
+    public TerraformLiteralProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id")?.Value;
-        set => this.WithProperty("key_vault_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The regenerate_key_automatically attribute.
     /// </summary>
-    public bool? RegenerateKeyAutomatically
+    public TerraformLiteralProperty<bool>? RegenerateKeyAutomatically
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("regenerate_key_automatically")?.Value;
-        set => this.WithProperty("regenerate_key_automatically", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("regenerate_key_automatically");
+        set => this.WithProperty("regenerate_key_automatically", value);
     }
 
     /// <summary>
     /// The regeneration_period attribute.
     /// </summary>
-    public string? RegenerationPeriod
+    public TerraformLiteralProperty<string>? RegenerationPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("regeneration_period")?.Value;
-        set => this.WithProperty("regeneration_period", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("regeneration_period");
+        set => this.WithProperty("regeneration_period", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public string? StorageAccountId
+    public TerraformLiteralProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id")?.Value;
-        set => this.WithProperty("storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public string? StorageAccountKey
+    public TerraformLiteralProperty<string>? StorageAccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key")?.Value;
-        set => this.WithProperty("storage_account_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key");
+        set => this.WithProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

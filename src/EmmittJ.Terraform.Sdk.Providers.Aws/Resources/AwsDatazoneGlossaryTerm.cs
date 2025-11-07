@@ -22,64 +22,64 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
-    public string? DomainIdentifier
+    public TerraformLiteralProperty<string>? DomainIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_identifier")?.Value;
-        set => this.WithProperty("domain_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_identifier");
+        set => this.WithProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// The glossary_identifier attribute.
     /// </summary>
-    public string? GlossaryIdentifier
+    public TerraformLiteralProperty<string>? GlossaryIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("glossary_identifier")?.Value;
-        set => this.WithProperty("glossary_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("glossary_identifier");
+        set => this.WithProperty("glossary_identifier", value);
     }
 
     /// <summary>
     /// The long_description attribute.
     /// </summary>
-    public string? LongDescription
+    public TerraformLiteralProperty<string>? LongDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("long_description")?.Value;
-        set => this.WithProperty("long_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("long_description");
+        set => this.WithProperty("long_description", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The short_description attribute.
     /// </summary>
-    public string? ShortDescription
+    public TerraformLiteralProperty<string>? ShortDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_description")?.Value;
-        set => this.WithProperty("short_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("short_description");
+        set => this.WithProperty("short_description", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>

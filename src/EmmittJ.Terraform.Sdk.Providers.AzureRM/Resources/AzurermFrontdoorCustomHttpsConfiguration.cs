@@ -19,28 +19,28 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     /// <summary>
     /// The custom_https_provisioning_enabled attribute.
     /// </summary>
-    public bool? CustomHttpsProvisioningEnabled
+    public TerraformLiteralProperty<bool>? CustomHttpsProvisioningEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("custom_https_provisioning_enabled")?.Value;
-        set => this.WithProperty("custom_https_provisioning_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("custom_https_provisioning_enabled");
+        set => this.WithProperty("custom_https_provisioning_enabled", value);
     }
 
     /// <summary>
     /// The frontend_endpoint_id attribute.
     /// </summary>
-    public string? FrontendEndpointId
+    public TerraformLiteralProperty<string>? FrontendEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frontend_endpoint_id")?.Value;
-        set => this.WithProperty("frontend_endpoint_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("frontend_endpoint_id");
+        set => this.WithProperty("frontend_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

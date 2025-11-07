@@ -25,28 +25,28 @@ public class AzurermMobileNetworkPacketCoreDataPlaneDataSource : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mobile_network_packet_core_control_plane_id attribute.
     /// </summary>
-    public string? MobileNetworkPacketCoreControlPlaneId
+    public TerraformLiteralProperty<string>? MobileNetworkPacketCoreControlPlaneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_packet_core_control_plane_id")?.Value;
-        set => this.WithProperty("mobile_network_packet_core_control_plane_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_packet_core_control_plane_id");
+        set => this.WithProperty("mobile_network_packet_core_control_plane_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

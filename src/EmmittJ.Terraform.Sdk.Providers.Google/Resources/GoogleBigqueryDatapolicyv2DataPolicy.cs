@@ -24,10 +24,10 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// unique within a project. Used as {data_policy_id} in part of the resource
     /// name.
     /// </summary>
-    public string? DataPolicyId
+    public TerraformLiteralProperty<string>? DataPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_id")?.Value;
-        set => this.WithProperty("data_policy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_id");
+        set => this.WithProperty("data_policy_id", value);
     }
 
     /// <summary>
@@ -37,10 +37,10 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// RAW_DATA_ACCESS_POLICY
     /// COLUMN_LEVEL_SECURITY_POLICY
     /// </summary>
-    public string? DataPolicyType
+    public TerraformLiteralProperty<string>? DataPolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_type")?.Value;
-        set => this.WithProperty("data_policy_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_type");
+        set => this.WithProperty("data_policy_type", value);
     }
 
     /// <summary>
@@ -50,10 +50,10 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// populated in the response of GetDataPolicy, CreateDataPolicy, and
     /// UpdateDataPolicy calls.
     /// </summary>
-    public string? Etag
+    public TerraformLiteralProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag")?.Value;
-        set => this.WithProperty("etag", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        set => this.WithProperty("etag", value);
     }
 
     /// <summary>
@@ -66,37 +66,37 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// This field is supported in V2 Data Policy only. In case of V1 data policies
     /// (i.e. verion = 1 and policy_tag is set), this field is not populated.
     /// </summary>
-    public List<string>? Grantees
+    public TerraformLiteralProperty<List<string>>? Grantees
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("grantees")?.Value;
-        set => this.WithProperty("grantees", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("grantees");
+        set => this.WithProperty("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

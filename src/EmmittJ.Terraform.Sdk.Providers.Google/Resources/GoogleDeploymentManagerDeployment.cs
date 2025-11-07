@@ -26,10 +26,10 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// the deployment will fail. Note that updating this field does not
     /// actually affect the deployment, just how it is updated. Default value: &amp;quot;CREATE_OR_ACQUIRE&amp;quot; Possible values: [&amp;quot;ACQUIRE&amp;quot;, &amp;quot;CREATE_OR_ACQUIRE&amp;quot;]
     /// </summary>
-    public string? CreatePolicy
+    public TerraformLiteralProperty<string>? CreatePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_policy")?.Value;
-        set => this.WithProperty("create_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("create_policy");
+        set => this.WithProperty("create_policy", value);
     }
 
     /// <summary>
@@ -40,37 +40,37 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// and is not actually deleted. Note that updating this field does not
     /// actually change the deployment, just how it is updated. Default value: &amp;quot;DELETE&amp;quot; Possible values: [&amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;]
     /// </summary>
-    public string? DeletePolicy
+    public TerraformLiteralProperty<string>? DeletePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delete_policy")?.Value;
-        set => this.WithProperty("delete_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delete_policy");
+        set => this.WithProperty("delete_policy", value);
     }
 
     /// <summary>
     /// Optional user-provided description of deployment.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Unique name for the deployment
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -83,19 +83,19 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// Terraform will force-recreate deployments if either preview is updated
     /// to true or if other fields are updated while preview is true.
     /// </summary>
-    public bool? Preview
+    public TerraformLiteralProperty<bool>? Preview
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("preview")?.Value;
-        set => this.WithProperty("preview", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("preview");
+        set => this.WithProperty("preview", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

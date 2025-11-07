@@ -21,37 +21,37 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public string? ManagedInstanceId
+    public TerraformLiteralProperty<string>? ManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id")?.Value;
-        set => this.WithProperty("managed_instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id");
+        set => this.WithProperty("managed_instance_id", value);
     }
 
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
-    public string? TimezoneId
+    public TerraformLiteralProperty<string>? TimezoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timezone_id")?.Value;
-        set => this.WithProperty("timezone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timezone_id");
+        set => this.WithProperty("timezone_id", value);
     }
 
     /// <summary>

@@ -48,47 +48,47 @@ public class GoogleCloudRunV2Service : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
-    public string? Client
+    public TerraformLiteralProperty<string>? Client
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client")?.Value;
-        set => this.WithProperty("client", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client");
+        set => this.WithProperty("client", value);
     }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
-    public string? ClientVersion
+    public TerraformLiteralProperty<string>? ClientVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_version")?.Value;
-        set => this.WithProperty("client_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_version");
+        set => this.WithProperty("client_version", value);
     }
 
     /// <summary>
     /// One or more custom audiences that you want this service to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
     /// For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
     /// </summary>
-    public List<string>? CustomAudiences
+    public TerraformLiteralProperty<List<string>>? CustomAudiences
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("custom_audiences")?.Value;
-        set => this.WithProperty("custom_audiences", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("custom_audiences");
+        set => this.WithProperty("custom_audiences", value);
     }
 
     /// <summary>
     /// Disables public resolution of the default URI of this service.
     /// </summary>
-    public bool? DefaultUriDisabled
+    public TerraformLiteralProperty<bool>? DefaultUriDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_uri_disabled")?.Value;
-        set => this.WithProperty("default_uri_disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("default_uri_disabled");
+        set => this.WithProperty("default_uri_disabled", value);
     }
 
     /// <summary>
@@ -99,46 +99,46 @@ public class GoogleCloudRunV2Service : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the service will fail.
     /// When the field is set to false, deleting the service is allowed.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User-provided description of the Service. This field currently has a 512-character limit.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Provides the ingress settings for this Service. On output, returns the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if no revision is active. Possible values: [&amp;quot;INGRESS_TRAFFIC_ALL&amp;quot;, &amp;quot;INGRESS_TRAFFIC_INTERNAL_ONLY&amp;quot;, &amp;quot;INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER&amp;quot;]
     /// </summary>
-    public string? Ingress
+    public TerraformLiteralProperty<string>? Ingress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ingress")?.Value;
-        set => this.WithProperty("ingress", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ingress");
+        set => this.WithProperty("ingress", value);
     }
 
     /// <summary>
     /// Disables IAM permission check for run.routes.invoke for callers of this service. For more information, visit https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
     /// </summary>
-    public bool? InvokerIamDisabled
+    public TerraformLiteralProperty<bool>? InvokerIamDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("invoker_iam_disabled")?.Value;
-        set => this.WithProperty("invoker_iam_disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("invoker_iam_disabled");
+        set => this.WithProperty("invoker_iam_disabled", value);
     }
 
     /// <summary>
@@ -151,10 +151,10 @@ public class GoogleCloudRunV2Service : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -163,37 +163,37 @@ public class GoogleCloudRunV2Service : TerraformResource
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public string? LaunchStage
+    public TerraformLiteralProperty<string>? LaunchStage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("launch_stage")?.Value;
-        set => this.WithProperty("launch_stage", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("launch_stage");
+        set => this.WithProperty("launch_stage", value);
     }
 
     /// <summary>
     /// The location of the cloud run service
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of the Service.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

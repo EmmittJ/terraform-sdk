@@ -20,37 +20,37 @@ public class AzurermManagedDiskSasToken : TerraformResource
     /// <summary>
     /// The access_level attribute.
     /// </summary>
-    public string? AccessLevel
+    public TerraformLiteralProperty<string>? AccessLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_level")?.Value;
-        set => this.WithProperty("access_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_level");
+        set => this.WithProperty("access_level", value);
     }
 
     /// <summary>
     /// The duration_in_seconds attribute.
     /// </summary>
-    public double? DurationInSeconds
+    public TerraformLiteralProperty<double>? DurationInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_in_seconds")?.Value;
-        set => this.WithProperty("duration_in_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("duration_in_seconds");
+        set => this.WithProperty("duration_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    public string? ManagedDiskId
+    public TerraformLiteralProperty<string>? ManagedDiskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_disk_id")?.Value;
-        set => this.WithProperty("managed_disk_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("managed_disk_id");
+        set => this.WithProperty("managed_disk_id", value);
     }
 
     /// <summary>

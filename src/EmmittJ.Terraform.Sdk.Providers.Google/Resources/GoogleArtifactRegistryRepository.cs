@@ -26,19 +26,19 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// If true, the cleanup pipeline is prevented from deleting versions in this
     /// repository.
     /// </summary>
-    public bool? CleanupPolicyDryRun
+    public TerraformLiteralProperty<bool>? CleanupPolicyDryRun
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cleanup_policy_dry_run")?.Value;
-        set => this.WithProperty("cleanup_policy_dry_run", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("cleanup_policy_dry_run");
+        set => this.WithProperty("cleanup_policy_dry_run", value);
     }
 
     /// <summary>
     /// The user-provided description of the repository.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -47,19 +47,19 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// You can only create alpha formats if you are a member of the
     /// [alpha user group](https://cloud.google.com/artifact-registry/docs/supported-formats#alpha-access).
     /// </summary>
-    public string? Format
+    public TerraformLiteralProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format")?.Value;
-        set => this.WithProperty("format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -68,10 +68,10 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// &#39;projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key&#39;.
     /// This value may not be changed after the Repository has been created.
     /// </summary>
-    public string? KmsKeyName
+    public TerraformLiteralProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name")?.Value;
-        set => this.WithProperty("kms_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name");
+        set => this.WithProperty("kms_key_name", value);
     }
 
     /// <summary>
@@ -85,10 +85,10 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -99,38 +99,38 @@ public class GoogleArtifactRegistryRepository : TerraformResource
     /// [google_artifact_registry_locations](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/artifact_registry_locations)
     /// data source for possible values.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The mode configures the repository to serve artifacts from different sources. Default value: &amp;quot;STANDARD_REPOSITORY&amp;quot; Possible values: [&amp;quot;STANDARD_REPOSITORY&amp;quot;, &amp;quot;VIRTUAL_REPOSITORY&amp;quot;, &amp;quot;REMOTE_REPOSITORY&amp;quot;]
     /// </summary>
-    public string? Mode
+    public TerraformLiteralProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode")?.Value;
-        set => this.WithProperty("mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The last part of the repository name, for example:
     /// &amp;quot;repo1&amp;quot;
     /// </summary>
-    public string? RepositoryId
+    public TerraformLiteralProperty<string>? RepositoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_id")?.Value;
-        set => this.WithProperty("repository_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repository_id");
+        set => this.WithProperty("repository_id", value);
     }
 
     /// <summary>

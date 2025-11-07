@@ -19,64 +19,64 @@ public class AzurermHealthcareMedtechServiceFhirDestination : TerraformResource
     /// <summary>
     /// The destination_fhir_mapping_json attribute.
     /// </summary>
-    public string? DestinationFhirMappingJson
+    public TerraformLiteralProperty<string>? DestinationFhirMappingJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_fhir_mapping_json")?.Value;
-        set => this.WithProperty("destination_fhir_mapping_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_fhir_mapping_json");
+        set => this.WithProperty("destination_fhir_mapping_json", value);
     }
 
     /// <summary>
     /// The destination_fhir_service_id attribute.
     /// </summary>
-    public string? DestinationFhirServiceId
+    public TerraformLiteralProperty<string>? DestinationFhirServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_fhir_service_id")?.Value;
-        set => this.WithProperty("destination_fhir_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_fhir_service_id");
+        set => this.WithProperty("destination_fhir_service_id", value);
     }
 
     /// <summary>
     /// The destination_identity_resolution_type attribute.
     /// </summary>
-    public string? DestinationIdentityResolutionType
+    public TerraformLiteralProperty<string>? DestinationIdentityResolutionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_identity_resolution_type")?.Value;
-        set => this.WithProperty("destination_identity_resolution_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_identity_resolution_type");
+        set => this.WithProperty("destination_identity_resolution_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The medtech_service_id attribute.
     /// </summary>
-    public string? MedtechServiceId
+    public TerraformLiteralProperty<string>? MedtechServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("medtech_service_id")?.Value;
-        set => this.WithProperty("medtech_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("medtech_service_id");
+        set => this.WithProperty("medtech_service_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

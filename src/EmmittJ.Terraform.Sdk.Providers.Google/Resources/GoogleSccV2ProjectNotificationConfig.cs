@@ -21,56 +21,56 @@ public class GoogleSccV2ProjectNotificationConfig : TerraformResource
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public string? ConfigId
+    public TerraformLiteralProperty<string>? ConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config_id")?.Value;
-        set => this.WithProperty("config_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config_id");
+        set => this.WithProperty("config_id", value);
     }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location ID of the parent organization. Only global is supported at the moment.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The Pub/Sub topic to send notifications to. Its format is
     /// &amp;quot;projects/[project_id]/topics/[topic]&amp;quot;.
     /// </summary>
-    public string? PubsubTopic
+    public TerraformLiteralProperty<string>? PubsubTopic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pubsub_topic")?.Value;
-        set => this.WithProperty("pubsub_topic", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pubsub_topic");
+        set => this.WithProperty("pubsub_topic", value);
     }
 
     /// <summary>

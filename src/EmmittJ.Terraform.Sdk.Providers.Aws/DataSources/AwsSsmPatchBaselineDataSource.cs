@@ -31,55 +31,55 @@ public class AwsSsmPatchBaselineDataSource : TerraformDataSource
     /// <summary>
     /// The default_baseline attribute.
     /// </summary>
-    public bool? DefaultBaseline
+    public TerraformLiteralProperty<bool>? DefaultBaseline
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_baseline")?.Value;
-        set => this.WithProperty("default_baseline", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("default_baseline");
+        set => this.WithProperty("default_baseline", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    public string? OperatingSystem
+    public TerraformLiteralProperty<string>? OperatingSystem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operating_system")?.Value;
-        set => this.WithProperty("operating_system", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("operating_system");
+        set => this.WithProperty("operating_system", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public string? Owner
+    public TerraformLiteralProperty<string>? Owner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner")?.Value;
-        set => this.WithProperty("owner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("owner");
+        set => this.WithProperty("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

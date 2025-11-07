@@ -27,10 +27,10 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// <summary>
     /// The unique id of the data store.
     /// </summary>
-    public string? DataStoreId
+    public TerraformLiteralProperty<string>? DataStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_store_id")?.Value;
-        set => this.WithProperty("data_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_store_id");
+        set => this.WithProperty("data_store_id", value);
     }
 
     /// <summary>
@@ -41,57 +41,57 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// provided_uri_pattern is always normalized to generate the URI pattern to
     /// be used by the search engine.
     /// </summary>
-    public bool? ExactMatch
+    public TerraformLiteralProperty<bool>? ExactMatch
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exact_match")?.Value;
-        set => this.WithProperty("exact_match", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("exact_match");
+        set => this.WithProperty("exact_match", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The user provided URI pattern from which the &#39;generated_uri_pattern&#39; is
     /// generated.
     /// </summary>
-    public string? ProvidedUriPattern
+    public TerraformLiteralProperty<string>? ProvidedUriPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provided_uri_pattern")?.Value;
-        set => this.WithProperty("provided_uri_pattern", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provided_uri_pattern");
+        set => this.WithProperty("provided_uri_pattern", value);
     }
 
     /// <summary>
     /// The possible target site types. Possible values: [&amp;quot;INCLUDE&amp;quot;, &amp;quot;EXCLUDE&amp;quot;]
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

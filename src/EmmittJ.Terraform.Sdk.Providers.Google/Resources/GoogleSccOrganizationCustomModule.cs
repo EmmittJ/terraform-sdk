@@ -27,37 +27,37 @@ public class GoogleSccOrganizationCustomModule : TerraformResource
     /// 128 characters, start with a lowercase letter, and contain alphanumeric
     /// characters or underscores only.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enablement state of the custom module. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public string? EnablementState
+    public TerraformLiteralProperty<string>? EnablementState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enablement_state")?.Value;
-        set => this.WithProperty("enablement_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enablement_state");
+        set => this.WithProperty("enablement_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Numerical ID of the parent organization.
     /// </summary>
-    public string? Organization
+    public TerraformLiteralProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization")?.Value;
-        set => this.WithProperty("organization", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        set => this.WithProperty("organization", value);
     }
 
     /// <summary>

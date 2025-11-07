@@ -24,37 +24,37 @@ public class AwsSyntheticsRuntimeVersionDataSource : TerraformDataSource
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public bool? Latest
+    public TerraformLiteralProperty<bool>? Latest
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("latest")?.Value;
-        set => this.WithProperty("latest", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("latest");
+        set => this.WithProperty("latest", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public string? Prefix
+    public TerraformLiteralProperty<string>? Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("prefix")?.Value;
-        set => this.WithProperty("prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("prefix");
+        set => this.WithProperty("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

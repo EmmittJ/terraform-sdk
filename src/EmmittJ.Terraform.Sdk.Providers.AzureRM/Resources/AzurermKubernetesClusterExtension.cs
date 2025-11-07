@@ -21,91 +21,91 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public string? ClusterId
+    public TerraformLiteralProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id")?.Value;
-        set => this.WithProperty("cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The configuration_protected_settings attribute.
     /// </summary>
-    public Dictionary<string, string>? ConfigurationProtectedSettings
+    public TerraformLiteralProperty<Dictionary<string, string>>? ConfigurationProtectedSettings
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("configuration_protected_settings")?.Value;
-        set => this.WithProperty("configuration_protected_settings", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("configuration_protected_settings");
+        set => this.WithProperty("configuration_protected_settings", value);
     }
 
     /// <summary>
     /// The configuration_settings attribute.
     /// </summary>
-    public Dictionary<string, string>? ConfigurationSettings
+    public TerraformLiteralProperty<Dictionary<string, string>>? ConfigurationSettings
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("configuration_settings")?.Value;
-        set => this.WithProperty("configuration_settings", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("configuration_settings");
+        set => this.WithProperty("configuration_settings", value);
     }
 
     /// <summary>
     /// The extension_type attribute.
     /// </summary>
-    public string? ExtensionType
+    public TerraformLiteralProperty<string>? ExtensionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("extension_type")?.Value;
-        set => this.WithProperty("extension_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("extension_type");
+        set => this.WithProperty("extension_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The release_namespace attribute.
     /// </summary>
-    public string? ReleaseNamespace
+    public TerraformLiteralProperty<string>? ReleaseNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_namespace")?.Value;
-        set => this.WithProperty("release_namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("release_namespace");
+        set => this.WithProperty("release_namespace", value);
     }
 
     /// <summary>
     /// The release_train attribute.
     /// </summary>
-    public string? ReleaseTrain
+    public TerraformLiteralProperty<string>? ReleaseTrain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_train")?.Value;
-        set => this.WithProperty("release_train", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("release_train");
+        set => this.WithProperty("release_train", value);
     }
 
     /// <summary>
     /// The target_namespace attribute.
     /// </summary>
-    public string? TargetNamespace
+    public TerraformLiteralProperty<string>? TargetNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_namespace")?.Value;
-        set => this.WithProperty("target_namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_namespace");
+        set => this.WithProperty("target_namespace", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

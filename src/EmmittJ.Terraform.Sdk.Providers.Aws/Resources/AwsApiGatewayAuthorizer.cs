@@ -20,100 +20,100 @@ public class AwsApiGatewayAuthorizer : TerraformResource
     /// <summary>
     /// The authorizer_credentials attribute.
     /// </summary>
-    public string? AuthorizerCredentials
+    public TerraformLiteralProperty<string>? AuthorizerCredentials
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_credentials")?.Value;
-        set => this.WithProperty("authorizer_credentials", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_credentials");
+        set => this.WithProperty("authorizer_credentials", value);
     }
 
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public double? AuthorizerResultTtlInSeconds
+    public TerraformLiteralProperty<double>? AuthorizerResultTtlInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("authorizer_result_ttl_in_seconds")?.Value;
-        set => this.WithProperty("authorizer_result_ttl_in_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("authorizer_result_ttl_in_seconds");
+        set => this.WithProperty("authorizer_result_ttl_in_seconds", value);
     }
 
     /// <summary>
     /// The authorizer_uri attribute.
     /// </summary>
-    public string? AuthorizerUri
+    public TerraformLiteralProperty<string>? AuthorizerUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_uri")?.Value;
-        set => this.WithProperty("authorizer_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_uri");
+        set => this.WithProperty("authorizer_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_source attribute.
     /// </summary>
-    public string? IdentitySource
+    public TerraformLiteralProperty<string>? IdentitySource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_source")?.Value;
-        set => this.WithProperty("identity_source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_source");
+        set => this.WithProperty("identity_source", value);
     }
 
     /// <summary>
     /// The identity_validation_expression attribute.
     /// </summary>
-    public string? IdentityValidationExpression
+    public TerraformLiteralProperty<string>? IdentityValidationExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_validation_expression")?.Value;
-        set => this.WithProperty("identity_validation_expression", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_validation_expression");
+        set => this.WithProperty("identity_validation_expression", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The provider_arns attribute.
     /// </summary>
-    public HashSet<string>? ProviderArns
+    public TerraformLiteralProperty<HashSet<string>>? ProviderArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("provider_arns")?.Value;
-        set => this.WithProperty("provider_arns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("provider_arns");
+        set => this.WithProperty("provider_arns", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public string? RestApiId
+    public TerraformLiteralProperty<string>? RestApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rest_api_id")?.Value;
-        set => this.WithProperty("rest_api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rest_api_id");
+        set => this.WithProperty("rest_api_id", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

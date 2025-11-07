@@ -21,73 +21,73 @@ public class AzurermBatchCertificate : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public string? AccountName
+    public TerraformLiteralProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name")?.Value;
-        set => this.WithProperty("account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public string? Certificate
+    public TerraformLiteralProperty<string>? Certificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate")?.Value;
-        set => this.WithProperty("certificate", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate");
+        set => this.WithProperty("certificate", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public string? Format
+    public TerraformLiteralProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format")?.Value;
-        set => this.WithProperty("format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public string? Password
+    public TerraformLiteralProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password")?.Value;
-        set => this.WithProperty("password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public string? Thumbprint
+    public TerraformLiteralProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint")?.Value;
-        set => this.WithProperty("thumbprint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint");
+        set => this.WithProperty("thumbprint", value);
     }
 
     /// <summary>
     /// The thumbprint_algorithm attribute.
     /// </summary>
-    public string? ThumbprintAlgorithm
+    public TerraformLiteralProperty<string>? ThumbprintAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint_algorithm")?.Value;
-        set => this.WithProperty("thumbprint_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint_algorithm");
+        set => this.WithProperty("thumbprint_algorithm", value);
     }
 
     /// <summary>

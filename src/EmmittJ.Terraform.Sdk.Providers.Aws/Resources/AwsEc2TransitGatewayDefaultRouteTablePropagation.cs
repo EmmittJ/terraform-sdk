@@ -21,28 +21,28 @@ public class AwsEc2TransitGatewayDefaultRouteTablePropagation : TerraformResourc
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public string? TransitGatewayId
+    public TerraformLiteralProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id")?.Value;
-        set => this.WithProperty("transit_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_route_table_id attribute.
     /// </summary>
-    public string? TransitGatewayRouteTableId
+    public TerraformLiteralProperty<string>? TransitGatewayRouteTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_route_table_id")?.Value;
-        set => this.WithProperty("transit_gateway_route_table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_route_table_id");
+        set => this.WithProperty("transit_gateway_route_table_id", value);
     }
 
     /// <summary>

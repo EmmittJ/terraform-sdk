@@ -21,64 +21,64 @@ public class GoogleOrganizationIamCustomRole : TerraformResource
     /// <summary>
     /// A human-readable description for the role.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The numeric ID of the organization in which you want to create a custom role.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
     /// </summary>
-    public HashSet<string>? Permissions
+    public TerraformLiteralProperty<HashSet<string>>? Permissions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("permissions")?.Value;
-        set => this.WithProperty("permissions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("permissions");
+        set => this.WithProperty("permissions", value);
     }
 
     /// <summary>
     /// The role id to use for this role.
     /// </summary>
-    public string? RoleId
+    public TerraformLiteralProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id")?.Value;
-        set => this.WithProperty("role_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        set => this.WithProperty("role_id", value);
     }
 
     /// <summary>
     /// The current launch stage of the role. Defaults to GA.
     /// </summary>
-    public string? Stage
+    public TerraformLiteralProperty<string>? Stage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stage")?.Value;
-        set => this.WithProperty("stage", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stage");
+        set => this.WithProperty("stage", value);
     }
 
     /// <summary>
     /// A human-readable title for the role.
     /// </summary>
-    public string? Title
+    public TerraformLiteralProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title")?.Value;
-        set => this.WithProperty("title", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        set => this.WithProperty("title", value);
     }
 
     /// <summary>

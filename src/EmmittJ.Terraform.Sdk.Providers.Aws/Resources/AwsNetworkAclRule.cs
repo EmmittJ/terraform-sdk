@@ -19,118 +19,118 @@ public class AwsNetworkAclRule : TerraformResource
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public string? CidrBlock
+    public TerraformLiteralProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block")?.Value;
-        set => this.WithProperty("cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block");
+        set => this.WithProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The egress attribute.
     /// </summary>
-    public bool? Egress
+    public TerraformLiteralProperty<bool>? Egress
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("egress")?.Value;
-        set => this.WithProperty("egress", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("egress");
+        set => this.WithProperty("egress", value);
     }
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    public double? FromPort
+    public TerraformLiteralProperty<double>? FromPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("from_port")?.Value;
-        set => this.WithProperty("from_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("from_port");
+        set => this.WithProperty("from_port", value);
     }
 
     /// <summary>
     /// The icmp_code attribute.
     /// </summary>
-    public double? IcmpCode
+    public TerraformLiteralProperty<double>? IcmpCode
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("icmp_code")?.Value;
-        set => this.WithProperty("icmp_code", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("icmp_code");
+        set => this.WithProperty("icmp_code", value);
     }
 
     /// <summary>
     /// The icmp_type attribute.
     /// </summary>
-    public double? IcmpType
+    public TerraformLiteralProperty<double>? IcmpType
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("icmp_type")?.Value;
-        set => this.WithProperty("icmp_type", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("icmp_type");
+        set => this.WithProperty("icmp_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public string? Ipv6CidrBlock
+    public TerraformLiteralProperty<string>? Ipv6CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block")?.Value;
-        set => this.WithProperty("ipv6_cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block");
+        set => this.WithProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The network_acl_id attribute.
     /// </summary>
-    public string? NetworkAclId
+    public TerraformLiteralProperty<string>? NetworkAclId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_acl_id")?.Value;
-        set => this.WithProperty("network_acl_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_acl_id");
+        set => this.WithProperty("network_acl_id", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rule_action attribute.
     /// </summary>
-    public string? RuleAction
+    public TerraformLiteralProperty<string>? RuleAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_action")?.Value;
-        set => this.WithProperty("rule_action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_action");
+        set => this.WithProperty("rule_action", value);
     }
 
     /// <summary>
     /// The rule_number attribute.
     /// </summary>
-    public double? RuleNumber
+    public TerraformLiteralProperty<double>? RuleNumber
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("rule_number")?.Value;
-        set => this.WithProperty("rule_number", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("rule_number");
+        set => this.WithProperty("rule_number", value);
     }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    public double? ToPort
+    public TerraformLiteralProperty<double>? ToPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("to_port")?.Value;
-        set => this.WithProperty("to_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("to_port");
+        set => this.WithProperty("to_port", value);
     }
 
 }

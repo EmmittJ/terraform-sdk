@@ -22,100 +22,100 @@ public class AzurermAiServices : TerraformResource
     /// <summary>
     /// The custom_subdomain_name attribute.
     /// </summary>
-    public string? CustomSubdomainName
+    public TerraformLiteralProperty<string>? CustomSubdomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_subdomain_name")?.Value;
-        set => this.WithProperty("custom_subdomain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_subdomain_name");
+        set => this.WithProperty("custom_subdomain_name", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public List<string>? Fqdns
+    public TerraformLiteralProperty<List<string>>? Fqdns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("fqdns")?.Value;
-        set => this.WithProperty("fqdns", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("fqdns");
+        set => this.WithProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public bool? LocalAuthenticationEnabled
+    public TerraformLiteralProperty<bool>? LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_authentication_enabled")?.Value;
-        set => this.WithProperty("local_authentication_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("local_authentication_enabled");
+        set => this.WithProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
-    public bool? OutboundNetworkAccessRestricted
+    public TerraformLiteralProperty<bool>? OutboundNetworkAccessRestricted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("outbound_network_access_restricted")?.Value;
-        set => this.WithProperty("outbound_network_access_restricted", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("outbound_network_access_restricted");
+        set => this.WithProperty("outbound_network_access_restricted", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public string? PublicNetworkAccess
+    public TerraformLiteralProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access")?.Value;
-        set => this.WithProperty("public_network_access", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public string? SkuName
+    public TerraformLiteralProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name")?.Value;
-        set => this.WithProperty("sku_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

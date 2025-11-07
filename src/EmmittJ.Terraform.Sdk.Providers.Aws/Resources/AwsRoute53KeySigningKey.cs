@@ -29,46 +29,46 @@ public class AwsRoute53KeySigningKey : TerraformResource
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public string? HostedZoneId
+    public TerraformLiteralProperty<string>? HostedZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hosted_zone_id")?.Value;
-        set => this.WithProperty("hosted_zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hosted_zone_id");
+        set => this.WithProperty("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_management_service_arn attribute.
     /// </summary>
-    public string? KeyManagementServiceArn
+    public TerraformLiteralProperty<string>? KeyManagementServiceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_management_service_arn")?.Value;
-        set => this.WithProperty("key_management_service_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_management_service_arn");
+        set => this.WithProperty("key_management_service_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>

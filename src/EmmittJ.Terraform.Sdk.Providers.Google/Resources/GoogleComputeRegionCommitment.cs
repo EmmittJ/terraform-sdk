@@ -29,10 +29,10 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// If the field is set to true, the commitment will be automatically renewed for either
     /// one or three years according to the terms of the existing commitment.
     /// </summary>
-    public bool? AutoRenew
+    public TerraformLiteralProperty<bool>? AutoRenew
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew")?.Value;
-        set => this.WithProperty("auto_renew", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew");
+        set => this.WithProperty("auto_renew", value);
     }
 
     /// <summary>
@@ -41,37 +41,37 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// specifies commitments composed of software licenses, listed in licenseResources.
     /// Note that only MACHINE commitments should have a Type specified. Possible values: [&amp;quot;LICENSE&amp;quot;, &amp;quot;MACHINE&amp;quot;]
     /// </summary>
-    public string? Category
+    public TerraformLiteralProperty<string>? Category
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("category")?.Value;
-        set => this.WithProperty("category", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("category");
+        set => this.WithProperty("category", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Specifies the already existing reservations to attach to the Commitment.
     /// </summary>
-    public string? ExistingReservations
+    public TerraformLiteralProperty<string>? ExistingReservations
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("existing_reservations")?.Value;
-        set => this.WithProperty("existing_reservations", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("existing_reservations");
+        set => this.WithProperty("existing_reservations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -81,38 +81,38 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The plan for this commitment, which determines duration and discount rate.
     /// The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years). Possible values: [&amp;quot;TWELVE_MONTH&amp;quot;, &amp;quot;THIRTY_SIX_MONTH&amp;quot;]
     /// </summary>
-    public string? Plan
+    public TerraformLiteralProperty<string>? Plan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan")?.Value;
-        set => this.WithProperty("plan", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plan");
+        set => this.WithProperty("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// URL of the region where this commitment may be used.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -122,10 +122,10 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// &#39;GENERAL_PURPOSE_T2D&#39;, &#39;GENERAL_PURPOSE_C3&#39;, &#39;COMPUTE_OPTIMIZED_C2&#39;, &#39;COMPUTE_OPTIMIZED_C2D&#39; and
     /// &#39;GRAPHICS_OPTIMIZED_G2&#39;
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

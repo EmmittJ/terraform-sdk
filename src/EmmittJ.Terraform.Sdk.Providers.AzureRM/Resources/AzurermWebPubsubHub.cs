@@ -19,37 +19,37 @@ public class AzurermWebPubsubHub : TerraformResource
     /// <summary>
     /// The anonymous_connections_enabled attribute.
     /// </summary>
-    public bool? AnonymousConnectionsEnabled
+    public TerraformLiteralProperty<bool>? AnonymousConnectionsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("anonymous_connections_enabled")?.Value;
-        set => this.WithProperty("anonymous_connections_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("anonymous_connections_enabled");
+        set => this.WithProperty("anonymous_connections_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
-    public string? WebPubsubId
+    public TerraformLiteralProperty<string>? WebPubsubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_pubsub_id")?.Value;
-        set => this.WithProperty("web_pubsub_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("web_pubsub_id");
+        set => this.WithProperty("web_pubsub_id", value);
     }
 
 }

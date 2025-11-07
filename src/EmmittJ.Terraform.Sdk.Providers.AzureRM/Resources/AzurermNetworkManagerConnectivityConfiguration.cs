@@ -19,64 +19,64 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// <summary>
     /// The connectivity_topology attribute.
     /// </summary>
-    public string? ConnectivityTopology
+    public TerraformLiteralProperty<string>? ConnectivityTopology
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connectivity_topology")?.Value;
-        set => this.WithProperty("connectivity_topology", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connectivity_topology");
+        set => this.WithProperty("connectivity_topology", value);
     }
 
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
-    public bool? DeleteExistingPeeringEnabled
+    public TerraformLiteralProperty<bool>? DeleteExistingPeeringEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_existing_peering_enabled")?.Value;
-        set => this.WithProperty("delete_existing_peering_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("delete_existing_peering_enabled");
+        set => this.WithProperty("delete_existing_peering_enabled", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
-    public bool? GlobalMeshEnabled
+    public TerraformLiteralProperty<bool>? GlobalMeshEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("global_mesh_enabled")?.Value;
-        set => this.WithProperty("global_mesh_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("global_mesh_enabled");
+        set => this.WithProperty("global_mesh_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_manager_id attribute.
     /// </summary>
-    public string? NetworkManagerId
+    public TerraformLiteralProperty<string>? NetworkManagerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_manager_id")?.Value;
-        set => this.WithProperty("network_manager_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_manager_id");
+        set => this.WithProperty("network_manager_id", value);
     }
 
 }

@@ -19,37 +19,37 @@ public class AzurermApiManagementWorkspacePolicy : TerraformResource
     /// <summary>
     /// The api_management_workspace_id attribute.
     /// </summary>
-    public string? ApiManagementWorkspaceId
+    public TerraformLiteralProperty<string>? ApiManagementWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_workspace_id")?.Value;
-        set => this.WithProperty("api_management_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_workspace_id");
+        set => this.WithProperty("api_management_workspace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public string? XmlContent
+    public TerraformLiteralProperty<string>? XmlContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_content")?.Value;
-        set => this.WithProperty("xml_content", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("xml_content");
+        set => this.WithProperty("xml_content", value);
     }
 
     /// <summary>
     /// The xml_link attribute.
     /// </summary>
-    public string? XmlLink
+    public TerraformLiteralProperty<string>? XmlLink
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_link")?.Value;
-        set => this.WithProperty("xml_link", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("xml_link");
+        set => this.WithProperty("xml_link", value);
     }
 
 }

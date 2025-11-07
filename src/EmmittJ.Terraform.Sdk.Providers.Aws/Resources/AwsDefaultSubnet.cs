@@ -28,145 +28,145 @@ public class AwsDefaultSubnet : TerraformResource
     /// <summary>
     /// The assign_ipv6_address_on_creation attribute.
     /// </summary>
-    public bool? AssignIpv6AddressOnCreation
+    public TerraformLiteralProperty<bool>? AssignIpv6AddressOnCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("assign_ipv6_address_on_creation")?.Value;
-        set => this.WithProperty("assign_ipv6_address_on_creation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("assign_ipv6_address_on_creation");
+        set => this.WithProperty("assign_ipv6_address_on_creation", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    public string? CustomerOwnedIpv4Pool
+    public TerraformLiteralProperty<string>? CustomerOwnedIpv4Pool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_owned_ipv4_pool")?.Value;
-        set => this.WithProperty("customer_owned_ipv4_pool", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_owned_ipv4_pool");
+        set => this.WithProperty("customer_owned_ipv4_pool", value);
     }
 
     /// <summary>
     /// The enable_dns64 attribute.
     /// </summary>
-    public bool? EnableDns64
+    public TerraformLiteralProperty<bool>? EnableDns64
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_dns64")?.Value;
-        set => this.WithProperty("enable_dns64", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_dns64");
+        set => this.WithProperty("enable_dns64", value);
     }
 
     /// <summary>
     /// The enable_resource_name_dns_a_record_on_launch attribute.
     /// </summary>
-    public bool? EnableResourceNameDnsARecordOnLaunch
+    public TerraformLiteralProperty<bool>? EnableResourceNameDnsARecordOnLaunch
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_resource_name_dns_a_record_on_launch")?.Value;
-        set => this.WithProperty("enable_resource_name_dns_a_record_on_launch", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_resource_name_dns_a_record_on_launch");
+        set => this.WithProperty("enable_resource_name_dns_a_record_on_launch", value);
     }
 
     /// <summary>
     /// The enable_resource_name_dns_aaaa_record_on_launch attribute.
     /// </summary>
-    public bool? EnableResourceNameDnsAaaaRecordOnLaunch
+    public TerraformLiteralProperty<bool>? EnableResourceNameDnsAaaaRecordOnLaunch
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_resource_name_dns_aaaa_record_on_launch")?.Value;
-        set => this.WithProperty("enable_resource_name_dns_aaaa_record_on_launch", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_resource_name_dns_aaaa_record_on_launch");
+        set => this.WithProperty("enable_resource_name_dns_aaaa_record_on_launch", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public bool? ForceDestroy
+    public TerraformLiteralProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy")?.Value;
-        set => this.WithProperty("force_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public string? Ipv6CidrBlock
+    public TerraformLiteralProperty<string>? Ipv6CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block")?.Value;
-        set => this.WithProperty("ipv6_cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block");
+        set => this.WithProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The ipv6_native attribute.
     /// </summary>
-    public bool? Ipv6Native
+    public TerraformLiteralProperty<bool>? Ipv6Native
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ipv6_native")?.Value;
-        set => this.WithProperty("ipv6_native", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ipv6_native");
+        set => this.WithProperty("ipv6_native", value);
     }
 
     /// <summary>
     /// The map_customer_owned_ip_on_launch attribute.
     /// </summary>
-    public bool? MapCustomerOwnedIpOnLaunch
+    public TerraformLiteralProperty<bool>? MapCustomerOwnedIpOnLaunch
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("map_customer_owned_ip_on_launch")?.Value;
-        set => this.WithProperty("map_customer_owned_ip_on_launch", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("map_customer_owned_ip_on_launch");
+        set => this.WithProperty("map_customer_owned_ip_on_launch", value);
     }
 
     /// <summary>
     /// The map_public_ip_on_launch attribute.
     /// </summary>
-    public bool? MapPublicIpOnLaunch
+    public TerraformLiteralProperty<bool>? MapPublicIpOnLaunch
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("map_public_ip_on_launch")?.Value;
-        set => this.WithProperty("map_public_ip_on_launch", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("map_public_ip_on_launch");
+        set => this.WithProperty("map_public_ip_on_launch", value);
     }
 
     /// <summary>
     /// The private_dns_hostname_type_on_launch attribute.
     /// </summary>
-    public string? PrivateDnsHostnameTypeOnLaunch
+    public TerraformLiteralProperty<string>? PrivateDnsHostnameTypeOnLaunch
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_dns_hostname_type_on_launch")?.Value;
-        set => this.WithProperty("private_dns_hostname_type_on_launch", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("private_dns_hostname_type_on_launch");
+        set => this.WithProperty("private_dns_hostname_type_on_launch", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

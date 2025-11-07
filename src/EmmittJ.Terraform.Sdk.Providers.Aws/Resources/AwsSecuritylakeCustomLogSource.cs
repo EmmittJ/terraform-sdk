@@ -22,37 +22,37 @@ public class AwsSecuritylakeCustomLogSource : TerraformResource
     /// <summary>
     /// The event_classes attribute.
     /// </summary>
-    public HashSet<string>? EventClasses
+    public TerraformLiteralProperty<HashSet<string>>? EventClasses
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("event_classes")?.Value;
-        set => this.WithProperty("event_classes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("event_classes");
+        set => this.WithProperty("event_classes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_name attribute.
     /// </summary>
-    public string? SourceName
+    public TerraformLiteralProperty<string>? SourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_name")?.Value;
-        set => this.WithProperty("source_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_name");
+        set => this.WithProperty("source_name", value);
     }
 
     /// <summary>
     /// The source_version attribute.
     /// </summary>
-    public string? SourceVersion
+    public TerraformLiteralProperty<string>? SourceVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_version")?.Value;
-        set => this.WithProperty("source_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_version");
+        set => this.WithProperty("source_version", value);
     }
 
     /// <summary>

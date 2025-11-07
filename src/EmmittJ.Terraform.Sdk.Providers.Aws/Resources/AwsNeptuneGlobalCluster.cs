@@ -23,73 +23,73 @@ public class AwsNeptuneGlobalCluster : TerraformResource
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public string? Engine
+    public TerraformLiteralProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine")?.Value;
-        set => this.WithProperty("engine", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public string? EngineVersion
+    public TerraformLiteralProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version")?.Value;
-        set => this.WithProperty("engine_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The global_cluster_identifier attribute.
     /// </summary>
-    public string? GlobalClusterIdentifier
+    public TerraformLiteralProperty<string>? GlobalClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_cluster_identifier")?.Value;
-        set => this.WithProperty("global_cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_cluster_identifier");
+        set => this.WithProperty("global_cluster_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_db_cluster_identifier attribute.
     /// </summary>
-    public string? SourceDbClusterIdentifier
+    public TerraformLiteralProperty<string>? SourceDbClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_db_cluster_identifier")?.Value;
-        set => this.WithProperty("source_db_cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_db_cluster_identifier");
+        set => this.WithProperty("source_db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The storage_encrypted attribute.
     /// </summary>
-    public bool? StorageEncrypted
+    public TerraformLiteralProperty<bool>? StorageEncrypted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("storage_encrypted")?.Value;
-        set => this.WithProperty("storage_encrypted", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("storage_encrypted");
+        set => this.WithProperty("storage_encrypted", value);
     }
 
     /// <summary>

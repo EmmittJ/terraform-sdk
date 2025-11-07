@@ -22,10 +22,10 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// <summary>
     /// The content config of the data store. Possible values: [&amp;quot;NO_CONTENT&amp;quot;, &amp;quot;CONTENT_REQUIRED&amp;quot;, &amp;quot;PUBLIC_WEBSITE&amp;quot;]
     /// </summary>
-    public string? ContentConfig
+    public TerraformLiteralProperty<string>? ContentConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_config")?.Value;
-        set => this.WithProperty("content_config", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content_config");
+        set => this.WithProperty("content_config", value);
     }
 
     /// <summary>
@@ -33,47 +33,47 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// data store is not configured as site search (GENERIC vertical and
     /// PUBLIC_WEBSITE contentConfig), this flag will be ignored.
     /// </summary>
-    public bool? CreateAdvancedSiteSearch
+    public TerraformLiteralProperty<bool>? CreateAdvancedSiteSearch
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_advanced_site_search")?.Value;
-        set => this.WithProperty("create_advanced_site_search", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("create_advanced_site_search");
+        set => this.WithProperty("create_advanced_site_search", value);
     }
 
     /// <summary>
     /// The unique id of the data store.
     /// </summary>
-    public string? DataStoreId
+    public TerraformLiteralProperty<string>? DataStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_store_id")?.Value;
-        set => this.WithProperty("data_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_store_id");
+        set => this.WithProperty("data_store_id", value);
     }
 
     /// <summary>
     /// The display name of the data store. This field must be a UTF-8 encoded
     /// string with a length limit of 128 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The industry vertical that the data store registers. Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;, &amp;quot;HEALTHCARE_FHIR&amp;quot;]
     /// </summary>
-    public string? IndustryVertical
+    public TerraformLiteralProperty<string>? IndustryVertical
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("industry_vertical")?.Value;
-        set => this.WithProperty("industry_vertical", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("industry_vertical");
+        set => this.WithProperty("industry_vertical", value);
     }
 
     /// <summary>
@@ -84,29 +84,29 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// If this field is set and processed successfully, the DataStore will be
     /// protected by the KMS key, as indicated in the cmek_config field.
     /// </summary>
-    public string? KmsKeyName
+    public TerraformLiteralProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name")?.Value;
-        set => this.WithProperty("kms_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name");
+        set => this.WithProperty("kms_key_name", value);
     }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -118,19 +118,19 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// This flag cannot be specified if &#39;data_store.starting_schema&#39; is
     /// specified.
     /// </summary>
-    public bool? SkipDefaultSchemaCreation
+    public TerraformLiteralProperty<bool>? SkipDefaultSchemaCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_default_schema_creation")?.Value;
-        set => this.WithProperty("skip_default_schema_creation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_default_schema_creation");
+        set => this.WithProperty("skip_default_schema_creation", value);
     }
 
     /// <summary>
     /// The solutions that the data store enrolls. Possible values: [&amp;quot;SOLUTION_TYPE_RECOMMENDATION&amp;quot;, &amp;quot;SOLUTION_TYPE_SEARCH&amp;quot;, &amp;quot;SOLUTION_TYPE_CHAT&amp;quot;, &amp;quot;SOLUTION_TYPE_GENERATIVE_CHAT&amp;quot;]
     /// </summary>
-    public List<string>? SolutionTypes
+    public TerraformLiteralProperty<List<string>>? SolutionTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("solution_types")?.Value;
-        set => this.WithProperty("solution_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("solution_types");
+        set => this.WithProperty("solution_types", value);
     }
 
     /// <summary>

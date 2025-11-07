@@ -25,73 +25,73 @@ public class AwsNetworkmonitorProbe : TerraformResource
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public string? Destination
+    public TerraformLiteralProperty<string>? Destination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination")?.Value;
-        set => this.WithProperty("destination", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination");
+        set => this.WithProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
-    public double? DestinationPort
+    public TerraformLiteralProperty<double>? DestinationPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("destination_port")?.Value;
-        set => this.WithProperty("destination_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("destination_port");
+        set => this.WithProperty("destination_port", value);
     }
 
     /// <summary>
     /// The monitor_name attribute.
     /// </summary>
-    public string? MonitorName
+    public TerraformLiteralProperty<string>? MonitorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("monitor_name")?.Value;
-        set => this.WithProperty("monitor_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("monitor_name");
+        set => this.WithProperty("monitor_name", value);
     }
 
     /// <summary>
     /// The packet_size attribute.
     /// </summary>
-    public double? PacketSize
+    public TerraformLiteralProperty<double>? PacketSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("packet_size")?.Value;
-        set => this.WithProperty("packet_size", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("packet_size");
+        set => this.WithProperty("packet_size", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public string? SourceArn
+    public TerraformLiteralProperty<string>? SourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_arn")?.Value;
-        set => this.WithProperty("source_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_arn");
+        set => this.WithProperty("source_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

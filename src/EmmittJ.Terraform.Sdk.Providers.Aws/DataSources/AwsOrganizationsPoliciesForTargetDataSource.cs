@@ -20,28 +20,28 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public string? TargetId
+    public TerraformLiteralProperty<string>? TargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_id")?.Value;
-        set => this.WithProperty("target_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_id");
+        set => this.WithProperty("target_id", value);
     }
 
     /// <summary>

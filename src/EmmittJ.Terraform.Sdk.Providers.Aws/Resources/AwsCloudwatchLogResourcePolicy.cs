@@ -19,37 +19,37 @@ public class AwsCloudwatchLogResourcePolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public string? PolicyDocument
+    public TerraformLiteralProperty<string>? PolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_document")?.Value;
-        set => this.WithProperty("policy_document", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_document");
+        set => this.WithProperty("policy_document", value);
     }
 
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
-    public string? PolicyName
+    public TerraformLiteralProperty<string>? PolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_name")?.Value;
-        set => this.WithProperty("policy_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_name");
+        set => this.WithProperty("policy_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

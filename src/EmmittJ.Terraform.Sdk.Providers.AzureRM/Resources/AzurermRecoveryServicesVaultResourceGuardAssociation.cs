@@ -19,28 +19,28 @@ public class AzurermRecoveryServicesVaultResourceGuardAssociation : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_guard_id attribute.
     /// </summary>
-    public string? ResourceGuardId
+    public TerraformLiteralProperty<string>? ResourceGuardId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_guard_id")?.Value;
-        set => this.WithProperty("resource_guard_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_guard_id");
+        set => this.WithProperty("resource_guard_id", value);
     }
 
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
-    public string? VaultId
+    public TerraformLiteralProperty<string>? VaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_id")?.Value;
-        set => this.WithProperty("vault_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vault_id");
+        set => this.WithProperty("vault_id", value);
     }
 
 }

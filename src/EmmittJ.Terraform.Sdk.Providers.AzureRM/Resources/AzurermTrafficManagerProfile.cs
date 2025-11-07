@@ -20,73 +20,73 @@ public class AzurermTrafficManagerProfile : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_return attribute.
     /// </summary>
-    public double? MaxReturn
+    public TerraformLiteralProperty<double>? MaxReturn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_return")?.Value;
-        set => this.WithProperty("max_return", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_return");
+        set => this.WithProperty("max_return", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
-    public string? ProfileStatus
+    public TerraformLiteralProperty<string>? ProfileStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile_status")?.Value;
-        set => this.WithProperty("profile_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("profile_status");
+        set => this.WithProperty("profile_status", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The traffic_routing_method attribute.
     /// </summary>
-    public string? TrafficRoutingMethod
+    public TerraformLiteralProperty<string>? TrafficRoutingMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_routing_method")?.Value;
-        set => this.WithProperty("traffic_routing_method", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("traffic_routing_method");
+        set => this.WithProperty("traffic_routing_method", value);
     }
 
     /// <summary>
     /// The traffic_view_enabled attribute.
     /// </summary>
-    public bool? TrafficViewEnabled
+    public TerraformLiteralProperty<bool>? TrafficViewEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("traffic_view_enabled")?.Value;
-        set => this.WithProperty("traffic_view_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("traffic_view_enabled");
+        set => this.WithProperty("traffic_view_enabled", value);
     }
 
     /// <summary>

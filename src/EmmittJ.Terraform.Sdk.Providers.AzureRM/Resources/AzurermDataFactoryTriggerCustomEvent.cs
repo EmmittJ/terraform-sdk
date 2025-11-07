@@ -19,100 +19,100 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    public bool? Activated
+    public TerraformLiteralProperty<bool>? Activated
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("activated")?.Value;
-        set => this.WithProperty("activated", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("activated");
+        set => this.WithProperty("activated", value);
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalProperties
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties")?.Value;
-        set => this.WithProperty("additional_properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties");
+        set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<string>? Annotations
+    public TerraformLiteralProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The eventgrid_topic_id attribute.
     /// </summary>
-    public string? EventgridTopicId
+    public TerraformLiteralProperty<string>? EventgridTopicId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventgrid_topic_id")?.Value;
-        set => this.WithProperty("eventgrid_topic_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventgrid_topic_id");
+        set => this.WithProperty("eventgrid_topic_id", value);
     }
 
     /// <summary>
     /// The events attribute.
     /// </summary>
-    public HashSet<string>? Events
+    public TerraformLiteralProperty<HashSet<string>>? Events
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("events")?.Value;
-        set => this.WithProperty("events", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("events");
+        set => this.WithProperty("events", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The subject_begins_with attribute.
     /// </summary>
-    public string? SubjectBeginsWith
+    public TerraformLiteralProperty<string>? SubjectBeginsWith
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subject_begins_with")?.Value;
-        set => this.WithProperty("subject_begins_with", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subject_begins_with");
+        set => this.WithProperty("subject_begins_with", value);
     }
 
     /// <summary>
     /// The subject_ends_with attribute.
     /// </summary>
-    public string? SubjectEndsWith
+    public TerraformLiteralProperty<string>? SubjectEndsWith
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subject_ends_with")?.Value;
-        set => this.WithProperty("subject_ends_with", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subject_ends_with");
+        set => this.WithProperty("subject_ends_with", value);
     }
 
 }

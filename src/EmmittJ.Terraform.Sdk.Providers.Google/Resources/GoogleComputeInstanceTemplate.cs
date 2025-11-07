@@ -27,46 +27,46 @@ public class GoogleComputeInstanceTemplate : TerraformResource
     /// <summary>
     /// Whether to allow sending and receiving of packets with non-matching source or destination IPs. This defaults to false.
     /// </summary>
-    public bool? CanIpForward
+    public TerraformLiteralProperty<bool>? CanIpForward
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("can_ip_forward")?.Value;
-        set => this.WithProperty("can_ip_forward", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("can_ip_forward");
+        set => this.WithProperty("can_ip_forward", value);
     }
 
     /// <summary>
     /// A brief description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A description of the instance.
     /// </summary>
-    public string? InstanceDescription
+    public TerraformLiteralProperty<string>? InstanceDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_description")?.Value;
-        set => this.WithProperty("instance_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_description");
+        set => this.WithProperty("instance_description", value);
     }
 
     /// <summary>
     /// Action to be taken when a customer&#39;s encryption key is revoked. Supports &amp;quot;STOP&amp;quot; and &amp;quot;NONE&amp;quot;, with &amp;quot;NONE&amp;quot; being the default.
     /// </summary>
-    public string? KeyRevocationActionType
+    public TerraformLiteralProperty<string>? KeyRevocationActionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_revocation_action_type")?.Value;
-        set => this.WithProperty("key_revocation_action_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_revocation_action_type");
+        set => this.WithProperty("key_revocation_action_type", value);
     }
 
     /// <summary>
@@ -75,82 +75,82 @@ public class GoogleComputeInstanceTemplate : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The machine type to create. To create a machine with a custom type (such as extended memory), format the value like custom-VCPUS-MEM_IN_MB like custom-6-20480 for 6 vCPU and 20GB of RAM.
     /// </summary>
-    public string? MachineType
+    public TerraformLiteralProperty<string>? MachineType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("machine_type")?.Value;
-        set => this.WithProperty("machine_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("machine_type");
+        set => this.WithProperty("machine_type", value);
     }
 
     /// <summary>
     /// Metadata key/value pairs to make available from within instances created from this template.
     /// </summary>
-    public Dictionary<string, string>? Metadata
+    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata")?.Value;
-        set => this.WithProperty("metadata", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// An alternative to using the startup-script metadata key, mostly to match the compute_instance resource. This replaces the startup-script metadata key on the created instance and thus the two mechanisms are not allowed to be used simultaneously.
     /// </summary>
-    public string? MetadataStartupScript
+    public TerraformLiteralProperty<string>? MetadataStartupScript
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata_startup_script")?.Value;
-        set => this.WithProperty("metadata_startup_script", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("metadata_startup_script");
+        set => this.WithProperty("metadata_startup_script", value);
     }
 
     /// <summary>
     /// Specifies a minimum CPU platform. Applicable values are the friendly names of CPU platforms, such as Intel Haswell or Intel Skylake.
     /// </summary>
-    public string? MinCpuPlatform
+    public TerraformLiteralProperty<string>? MinCpuPlatform
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("min_cpu_platform")?.Value;
-        set => this.WithProperty("min_cpu_platform", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("min_cpu_platform");
+        set => this.WithProperty("min_cpu_platform", value);
     }
 
     /// <summary>
     /// The name of the instance template. If you leave this blank, Terraform will auto-generate a unique name.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Creates a unique name beginning with the specified prefix. Conflicts with name. Max length is 54 characters. Prefixes with lengths longer than 37 characters will use a shortened UUID that will be more prone to collisions.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// An instance template is a global resource that is not bound to a zone or a region. However, you can still specify some regional resources in an instance template, which restricts the template to the region where that resource resides. For example, a custom subnetwork resource is tied to a specific region. Defaults to the region of the Provider if no value is given.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -159,28 +159,28 @@ public class GoogleComputeInstanceTemplate : TerraformResource
     /// 				Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456.
     /// 				The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public Dictionary<string, string>? ResourceManagerTags
+    public TerraformLiteralProperty<Dictionary<string, string>>? ResourceManagerTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("resource_manager_tags")?.Value;
-        set => this.WithProperty("resource_manager_tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("resource_manager_tags");
+        set => this.WithProperty("resource_manager_tags", value);
     }
 
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance. Currently a max of 1 resource policy is supported.
     /// </summary>
-    public List<string>? ResourcePolicies
+    public TerraformLiteralProperty<List<string>>? ResourcePolicies
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("resource_policies")?.Value;
-        set => this.WithProperty("resource_policies", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("resource_policies");
+        set => this.WithProperty("resource_policies", value);
     }
 
     /// <summary>
     /// Tags to attach to the instance.
     /// </summary>
-    public HashSet<string>? Tags
+    public TerraformLiteralProperty<HashSet<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

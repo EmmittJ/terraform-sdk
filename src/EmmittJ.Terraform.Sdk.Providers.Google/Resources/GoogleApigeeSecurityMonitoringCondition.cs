@@ -24,47 +24,47 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     /// <summary>
     /// Resource ID of the security monitoring condition.
     /// </summary>
-    public string? ConditionId
+    public TerraformLiteralProperty<string>? ConditionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition_id")?.Value;
-        set => this.WithProperty("condition_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("condition_id");
+        set => this.WithProperty("condition_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee Security Monitoring Condition,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
     /// </summary>
-    public string? Profile
+    public TerraformLiteralProperty<string>? Profile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile")?.Value;
-        set => this.WithProperty("profile", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("profile");
+        set => this.WithProperty("profile", value);
     }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>

@@ -26,10 +26,10 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// resource. This can be supplied as an input to reserve a specific
     /// address or omitted to allow GCP to choose a valid one for you.
     /// </summary>
-    public string? Address
+    public TerraformLiteralProperty<string>? Address
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address")?.Value;
-        set => this.WithProperty("address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("address");
+        set => this.WithProperty("address", value);
     }
 
     /// <summary>
@@ -38,37 +38,37 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// * EXTERNAL indicates public/external single IP address.
     /// * INTERNAL indicates internal IP ranges belonging to some network. Default value: &amp;quot;EXTERNAL&amp;quot; Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;INTERNAL&amp;quot;]
     /// </summary>
-    public string? AddressType
+    public TerraformLiteralProperty<string>? AddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_type")?.Value;
-        set => this.WithProperty("address_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("address_type");
+        set => this.WithProperty("address_type", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IP Version that will be used by this address. The default value is &#39;IPV4&#39;. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public string? IpVersion
+    public TerraformLiteralProperty<string>? IpVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_version")?.Value;
-        set => this.WithProperty("ip_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_version");
+        set => this.WithProperty("ip_version", value);
     }
 
     /// <summary>
@@ -78,10 +78,10 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -93,10 +93,10 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -106,10 +106,10 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// 
     /// This should only be set when using an Internal address.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
@@ -119,19 +119,19 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// This field is not applicable to addresses with addressType=INTERNAL
     /// when purpose=PRIVATE_SERVICE_CONNECT
     /// </summary>
-    public double? PrefixLength
+    public TerraformLiteralProperty<double>? PrefixLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("prefix_length")?.Value;
-        set => this.WithProperty("prefix_length", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("prefix_length");
+        set => this.WithProperty("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -141,10 +141,10 @@ public class GoogleComputeGlobalAddress : TerraformResource
     /// 
     /// * PRIVATE_SERVICE_CONNECT - for ([Beta](https://terraform.io/docs/providers/google/guides/provider_versions.html) only) Private Service Connect networks
     /// </summary>
-    public string? Purpose
+    public TerraformLiteralProperty<string>? Purpose
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("purpose")?.Value;
-        set => this.WithProperty("purpose", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("purpose");
+        set => this.WithProperty("purpose", value);
     }
 
     /// <summary>

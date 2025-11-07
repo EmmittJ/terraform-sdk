@@ -20,46 +20,46 @@ public class AwsXrayResourcePolicy : TerraformResource
     /// <summary>
     /// The bypass_policy_lockout_check attribute.
     /// </summary>
-    public bool? BypassPolicyLockoutCheck
+    public TerraformLiteralProperty<bool>? BypassPolicyLockoutCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bypass_policy_lockout_check")?.Value;
-        set => this.WithProperty("bypass_policy_lockout_check", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("bypass_policy_lockout_check");
+        set => this.WithProperty("bypass_policy_lockout_check", value);
     }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public string? PolicyDocument
+    public TerraformLiteralProperty<string>? PolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_document")?.Value;
-        set => this.WithProperty("policy_document", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_document");
+        set => this.WithProperty("policy_document", value);
     }
 
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
-    public string? PolicyName
+    public TerraformLiteralProperty<string>? PolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_name")?.Value;
-        set => this.WithProperty("policy_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_name");
+        set => this.WithProperty("policy_name", value);
     }
 
     /// <summary>
     /// The policy_revision_id attribute.
     /// </summary>
-    public string? PolicyRevisionId
+    public TerraformLiteralProperty<string>? PolicyRevisionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_revision_id")?.Value;
-        set => this.WithProperty("policy_revision_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_revision_id");
+        set => this.WithProperty("policy_revision_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

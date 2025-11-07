@@ -47,46 +47,46 @@ public class AzureadApplicationDataSource : TerraformDataSource
     /// <summary>
     /// The Client ID (also called Application ID)
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// One of the application&#39;s identifier URIs
     /// </summary>
-    public string? IdentifierUri
+    public TerraformLiteralProperty<string>? IdentifierUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier_uri")?.Value;
-        set => this.WithProperty("identifier_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identifier_uri");
+        set => this.WithProperty("identifier_uri", value);
     }
 
     /// <summary>
     /// The application&#39;s object ID
     /// </summary>
-    public string? ObjectId
+    public TerraformLiteralProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id")?.Value;
-        set => this.WithProperty("object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        set => this.WithProperty("object_id", value);
     }
 
     /// <summary>

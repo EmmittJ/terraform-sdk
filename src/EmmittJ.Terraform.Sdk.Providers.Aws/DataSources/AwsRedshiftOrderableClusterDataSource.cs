@@ -20,55 +20,55 @@ public class AwsRedshiftOrderableClusterDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_type attribute.
     /// </summary>
-    public string? ClusterType
+    public TerraformLiteralProperty<string>? ClusterType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_type")?.Value;
-        set => this.WithProperty("cluster_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_type");
+        set => this.WithProperty("cluster_type", value);
     }
 
     /// <summary>
     /// The cluster_version attribute.
     /// </summary>
-    public string? ClusterVersion
+    public TerraformLiteralProperty<string>? ClusterVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_version")?.Value;
-        set => this.WithProperty("cluster_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_version");
+        set => this.WithProperty("cluster_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public string? NodeType
+    public TerraformLiteralProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type")?.Value;
-        set => this.WithProperty("node_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The preferred_node_types attribute.
     /// </summary>
-    public List<string>? PreferredNodeTypes
+    public TerraformLiteralProperty<List<string>>? PreferredNodeTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_node_types")?.Value;
-        set => this.WithProperty("preferred_node_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_node_types");
+        set => this.WithProperty("preferred_node_types", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

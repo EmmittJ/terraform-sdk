@@ -26,73 +26,73 @@ public class AwsEfsMountTarget : TerraformResource
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public string? FileSystemId
+    public TerraformLiteralProperty<string>? FileSystemId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_id")?.Value;
-        set => this.WithProperty("file_system_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("file_system_id");
+        set => this.WithProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public string? IpAddress
+    public TerraformLiteralProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address")?.Value;
-        set => this.WithProperty("ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public string? IpAddressType
+    public TerraformLiteralProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type")?.Value;
-        set => this.WithProperty("ip_address_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type");
+        set => this.WithProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The ipv6_address attribute.
     /// </summary>
-    public string? Ipv6Address
+    public TerraformLiteralProperty<string>? Ipv6Address
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_address")?.Value;
-        set => this.WithProperty("ipv6_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_address");
+        set => this.WithProperty("ipv6_address", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroups
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_groups")?.Value;
-        set => this.WithProperty("security_groups", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_groups");
+        set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public string? SubnetId
+    public TerraformLiteralProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id")?.Value;
-        set => this.WithProperty("subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>

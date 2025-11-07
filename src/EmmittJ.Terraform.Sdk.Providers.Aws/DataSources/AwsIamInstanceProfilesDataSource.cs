@@ -22,19 +22,19 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public string? RoleName
+    public TerraformLiteralProperty<string>? RoleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_name")?.Value;
-        set => this.WithProperty("role_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_name");
+        set => this.WithProperty("role_name", value);
     }
 
     /// <summary>

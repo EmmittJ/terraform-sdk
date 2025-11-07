@@ -22,154 +22,154 @@ public class AwsApigatewayv2Api : TerraformResource
     /// <summary>
     /// The api_key_selection_expression attribute.
     /// </summary>
-    public string? ApiKeySelectionExpression
+    public TerraformLiteralProperty<string>? ApiKeySelectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_key_selection_expression")?.Value;
-        set => this.WithProperty("api_key_selection_expression", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_key_selection_expression");
+        set => this.WithProperty("api_key_selection_expression", value);
     }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public string? Body
+    public TerraformLiteralProperty<string>? Body
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("body")?.Value;
-        set => this.WithProperty("body", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("body");
+        set => this.WithProperty("body", value);
     }
 
     /// <summary>
     /// The credentials_arn attribute.
     /// </summary>
-    public string? CredentialsArn
+    public TerraformLiteralProperty<string>? CredentialsArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("credentials_arn")?.Value;
-        set => this.WithProperty("credentials_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("credentials_arn");
+        set => this.WithProperty("credentials_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The disable_execute_api_endpoint attribute.
     /// </summary>
-    public bool? DisableExecuteApiEndpoint
+    public TerraformLiteralProperty<bool>? DisableExecuteApiEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_execute_api_endpoint")?.Value;
-        set => this.WithProperty("disable_execute_api_endpoint", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_execute_api_endpoint");
+        set => this.WithProperty("disable_execute_api_endpoint", value);
     }
 
     /// <summary>
     /// The fail_on_warnings attribute.
     /// </summary>
-    public bool? FailOnWarnings
+    public TerraformLiteralProperty<bool>? FailOnWarnings
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fail_on_warnings")?.Value;
-        set => this.WithProperty("fail_on_warnings", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("fail_on_warnings");
+        set => this.WithProperty("fail_on_warnings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public string? IpAddressType
+    public TerraformLiteralProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type")?.Value;
-        set => this.WithProperty("ip_address_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type");
+        set => this.WithProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    public string? ProtocolType
+    public TerraformLiteralProperty<string>? ProtocolType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol_type")?.Value;
-        set => this.WithProperty("protocol_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol_type");
+        set => this.WithProperty("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The route_key attribute.
     /// </summary>
-    public string? RouteKey
+    public TerraformLiteralProperty<string>? RouteKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_key")?.Value;
-        set => this.WithProperty("route_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("route_key");
+        set => this.WithProperty("route_key", value);
     }
 
     /// <summary>
     /// The route_selection_expression attribute.
     /// </summary>
-    public string? RouteSelectionExpression
+    public TerraformLiteralProperty<string>? RouteSelectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_selection_expression")?.Value;
-        set => this.WithProperty("route_selection_expression", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("route_selection_expression");
+        set => this.WithProperty("route_selection_expression", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public string? Target
+    public TerraformLiteralProperty<string>? Target
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target")?.Value;
-        set => this.WithProperty("target", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target");
+        set => this.WithProperty("target", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

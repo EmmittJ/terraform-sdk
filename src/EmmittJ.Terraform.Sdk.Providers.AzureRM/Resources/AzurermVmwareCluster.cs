@@ -21,46 +21,46 @@ public class AzurermVmwareCluster : TerraformResource
     /// <summary>
     /// The cluster_node_count attribute.
     /// </summary>
-    public double? ClusterNodeCount
+    public TerraformLiteralProperty<double>? ClusterNodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cluster_node_count")?.Value;
-        set => this.WithProperty("cluster_node_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("cluster_node_count");
+        set => this.WithProperty("cluster_node_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public string? SkuName
+    public TerraformLiteralProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name")?.Value;
-        set => this.WithProperty("sku_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The vmware_cloud_id attribute.
     /// </summary>
-    public string? VmwareCloudId
+    public TerraformLiteralProperty<string>? VmwareCloudId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vmware_cloud_id")?.Value;
-        set => this.WithProperty("vmware_cloud_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vmware_cloud_id");
+        set => this.WithProperty("vmware_cloud_id", value);
     }
 
     /// <summary>

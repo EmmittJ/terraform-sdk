@@ -21,55 +21,55 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     /// <summary>
     /// The identity_provider_details attribute.
     /// </summary>
-    public Dictionary<string, string>? IdentityProviderDetails
+    public TerraformLiteralProperty<Dictionary<string, string>>? IdentityProviderDetails
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("identity_provider_details")?.Value;
-        set => this.WithProperty("identity_provider_details", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("identity_provider_details");
+        set => this.WithProperty("identity_provider_details", value);
     }
 
     /// <summary>
     /// The identity_provider_name attribute.
     /// </summary>
-    public string? IdentityProviderName
+    public TerraformLiteralProperty<string>? IdentityProviderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_provider_name")?.Value;
-        set => this.WithProperty("identity_provider_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_provider_name");
+        set => this.WithProperty("identity_provider_name", value);
     }
 
     /// <summary>
     /// The identity_provider_type attribute.
     /// </summary>
-    public string? IdentityProviderType
+    public TerraformLiteralProperty<string>? IdentityProviderType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_provider_type")?.Value;
-        set => this.WithProperty("identity_provider_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_provider_type");
+        set => this.WithProperty("identity_provider_type", value);
     }
 
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public string? PortalArn
+    public TerraformLiteralProperty<string>? PortalArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("portal_arn")?.Value;
-        set => this.WithProperty("portal_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("portal_arn");
+        set => this.WithProperty("portal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

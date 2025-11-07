@@ -32,64 +32,64 @@ public class AwsDbClusterSnapshot : TerraformResource
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public string? DbClusterIdentifier
+    public TerraformLiteralProperty<string>? DbClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier")?.Value;
-        set => this.WithProperty("db_cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier");
+        set => this.WithProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_cluster_snapshot_identifier attribute.
     /// </summary>
-    public string? DbClusterSnapshotIdentifier
+    public TerraformLiteralProperty<string>? DbClusterSnapshotIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_snapshot_identifier")?.Value;
-        set => this.WithProperty("db_cluster_snapshot_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_snapshot_identifier");
+        set => this.WithProperty("db_cluster_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public HashSet<string>? SharedAccounts
+    public TerraformLiteralProperty<HashSet<string>>? SharedAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("shared_accounts")?.Value;
-        set => this.WithProperty("shared_accounts", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("shared_accounts");
+        set => this.WithProperty("shared_accounts", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

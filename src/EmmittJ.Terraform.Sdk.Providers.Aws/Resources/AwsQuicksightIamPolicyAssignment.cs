@@ -21,55 +21,55 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     /// <summary>
     /// The assignment_name attribute.
     /// </summary>
-    public string? AssignmentName
+    public TerraformLiteralProperty<string>? AssignmentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assignment_name")?.Value;
-        set => this.WithProperty("assignment_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("assignment_name");
+        set => this.WithProperty("assignment_name", value);
     }
 
     /// <summary>
     /// The assignment_status attribute.
     /// </summary>
-    public string? AssignmentStatus
+    public TerraformLiteralProperty<string>? AssignmentStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assignment_status")?.Value;
-        set => this.WithProperty("assignment_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("assignment_status");
+        set => this.WithProperty("assignment_status", value);
     }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public string? AwsAccountId
+    public TerraformLiteralProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id")?.Value;
-        set => this.WithProperty("aws_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public string? Namespace
+    public TerraformLiteralProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace")?.Value;
-        set => this.WithProperty("namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
-    public string? PolicyArn
+    public TerraformLiteralProperty<string>? PolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_arn")?.Value;
-        set => this.WithProperty("policy_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_arn");
+        set => this.WithProperty("policy_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

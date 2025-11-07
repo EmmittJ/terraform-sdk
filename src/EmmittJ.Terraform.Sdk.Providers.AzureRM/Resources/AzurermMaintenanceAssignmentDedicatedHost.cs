@@ -19,37 +19,37 @@ public class AzurermMaintenanceAssignmentDedicatedHost : TerraformResource
     /// <summary>
     /// The dedicated_host_id attribute.
     /// </summary>
-    public string? DedicatedHostId
+    public TerraformLiteralProperty<string>? DedicatedHostId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dedicated_host_id")?.Value;
-        set => this.WithProperty("dedicated_host_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dedicated_host_id");
+        set => this.WithProperty("dedicated_host_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_id attribute.
     /// </summary>
-    public string? MaintenanceConfigurationId
+    public TerraformLiteralProperty<string>? MaintenanceConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_id")?.Value;
-        set => this.WithProperty("maintenance_configuration_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_id");
+        set => this.WithProperty("maintenance_configuration_id", value);
     }
 
 }

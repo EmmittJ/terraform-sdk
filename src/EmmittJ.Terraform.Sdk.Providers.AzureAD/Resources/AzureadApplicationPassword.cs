@@ -21,65 +21,65 @@ public class AzureadApplicationPassword : TerraformResource
     /// <summary>
     /// The resource ID of the application for which this password should be created
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// A display name for the password
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public string? EndDate
+    public TerraformLiteralProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date")?.Value;
-        set => this.WithProperty("end_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        set => this.WithProperty("end_date", value);
     }
 
     /// <summary>
     /// A relative duration for which the password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? EndDateRelative
+    public TerraformLiteralProperty<string>? EndDateRelative
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date_relative")?.Value;
-        set => this.WithProperty("end_date_relative", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date_relative");
+        set => this.WithProperty("end_date_relative", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger rotation of the password
     /// </summary>
-    public Dictionary<string, string>? RotateWhenChanged
+    public TerraformLiteralProperty<Dictionary<string, string>>? RotateWhenChanged
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("rotate_when_changed")?.Value;
-        set => this.WithProperty("rotate_when_changed", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("rotate_when_changed");
+        set => this.WithProperty("rotate_when_changed", value);
     }
 
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public string? StartDate
+    public TerraformLiteralProperty<string>? StartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_date")?.Value;
-        set => this.WithProperty("start_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_date");
+        set => this.WithProperty("start_date", value);
     }
 
     /// <summary>

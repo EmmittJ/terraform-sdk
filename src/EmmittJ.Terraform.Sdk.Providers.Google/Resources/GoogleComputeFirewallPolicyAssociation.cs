@@ -20,10 +20,10 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
     /// <summary>
     /// The target that the firewall policy is attached to.
     /// </summary>
-    public string? AttachmentTarget
+    public TerraformLiteralProperty<string>? AttachmentTarget
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attachment_target")?.Value;
-        set => this.WithProperty("attachment_target", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("attachment_target");
+        set => this.WithProperty("attachment_target", value);
     }
 
     /// <summary>
@@ -35,28 +35,28 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
     /// **Note** Due to potential risks with this operation it is *highly* recommended to use the &#39;create_before_destroy&#39; life cycle option
     /// on your exisiting firewall policy so as to prevent a situation where your attachment target has no associated policy.
     /// </summary>
-    public string? FirewallPolicy
+    public TerraformLiteralProperty<string>? FirewallPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy")?.Value;
-        set => this.WithProperty("firewall_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy");
+        set => this.WithProperty("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name for an association.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

@@ -49,28 +49,28 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     /// If your app has not launched yet, you should enable enforcement immediately, since there are no outdated
     /// clients in use. Possible values: [&amp;quot;UNENFORCED&amp;quot;, &amp;quot;ENFORCED&amp;quot;]
     /// </summary>
-    public string? EnforcementMode
+    public TerraformLiteralProperty<string>? EnforcementMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enforcement_mode")?.Value;
-        set => this.WithProperty("enforcement_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enforcement_mode");
+        set => this.WithProperty("enforcement_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -80,10 +80,10 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     ///   firestore.googleapis.com (Cloud Firestore)
     ///   identitytoolkit.googleapis.com (Authentication)
     /// </summary>
-    public string? ServiceId
+    public TerraformLiteralProperty<string>? ServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_id")?.Value;
-        set => this.WithProperty("service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_id");
+        set => this.WithProperty("service_id", value);
     }
 
     /// <summary>

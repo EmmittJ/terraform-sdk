@@ -19,46 +19,46 @@ public class AzurermVpnGatewayConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
-    public bool? InternetSecurityEnabled
+    public TerraformLiteralProperty<bool>? InternetSecurityEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internet_security_enabled")?.Value;
-        set => this.WithProperty("internet_security_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("internet_security_enabled");
+        set => this.WithProperty("internet_security_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The remote_vpn_site_id attribute.
     /// </summary>
-    public string? RemoteVpnSiteId
+    public TerraformLiteralProperty<string>? RemoteVpnSiteId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_vpn_site_id")?.Value;
-        set => this.WithProperty("remote_vpn_site_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remote_vpn_site_id");
+        set => this.WithProperty("remote_vpn_site_id", value);
     }
 
     /// <summary>
     /// The vpn_gateway_id attribute.
     /// </summary>
-    public string? VpnGatewayId
+    public TerraformLiteralProperty<string>? VpnGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_gateway_id")?.Value;
-        set => this.WithProperty("vpn_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpn_gateway_id");
+        set => this.WithProperty("vpn_gateway_id", value);
     }
 
 }

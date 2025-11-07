@@ -24,46 +24,46 @@ public class GoogleStorageAnywhereCache : TerraformResource
     /// <summary>
     /// The cache admission policy dictates whether a block should be inserted upon a cache miss. Default value: &amp;quot;admit-on-first-miss&amp;quot; Possible values: [&amp;quot;admit-on-first-miss&amp;quot;, &amp;quot;admit-on-second-miss&amp;quot;]
     /// </summary>
-    public string? AdmissionPolicy
+    public TerraformLiteralProperty<string>? AdmissionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admission_policy")?.Value;
-        set => this.WithProperty("admission_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("admission_policy");
+        set => this.WithProperty("admission_policy", value);
     }
 
     /// <summary>
     /// A reference to Bucket resource
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The TTL of all cache entries in whole seconds. e.g., &amp;quot;7200s&amp;quot;. It defaults to &#39;86400s&#39;
     /// </summary>
-    public string? Ttl
+    public TerraformLiteralProperty<string>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ttl")?.Value;
-        set => this.WithProperty("ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ttl");
+        set => this.WithProperty("ttl", value);
     }
 
     /// <summary>
     /// The zone in which the cache instance needs to be created. For example, &#39;us-central1-a.&#39;
     /// </summary>
-    public string? Zone
+    public TerraformLiteralProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone")?.Value;
-        set => this.WithProperty("zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        set => this.WithProperty("zone", value);
     }
 
     /// <summary>

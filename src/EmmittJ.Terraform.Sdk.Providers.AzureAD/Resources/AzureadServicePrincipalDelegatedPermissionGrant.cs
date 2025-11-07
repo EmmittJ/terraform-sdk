@@ -19,46 +19,46 @@ public class AzureadServicePrincipalDelegatedPermissionGrant : TerraformResource
     /// <summary>
     /// A set of claim values for delegated permission scopes which should be included in access tokens for the resource
     /// </summary>
-    public HashSet<string>? ClaimValues
+    public TerraformLiteralProperty<HashSet<string>>? ClaimValues
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("claim_values")?.Value;
-        set => this.WithProperty("claim_values", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("claim_values");
+        set => this.WithProperty("claim_values", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the service principal representing the resource to be accessed
     /// </summary>
-    public string? ResourceServicePrincipalObjectId
+    public TerraformLiteralProperty<string>? ResourceServicePrincipalObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_service_principal_object_id")?.Value;
-        set => this.WithProperty("resource_service_principal_object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_service_principal_object_id");
+        set => this.WithProperty("resource_service_principal_object_id", value);
     }
 
     /// <summary>
     /// The object ID of the service principal for which this delegated permission grant should be created
     /// </summary>
-    public string? ServicePrincipalObjectId
+    public TerraformLiteralProperty<string>? ServicePrincipalObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_object_id")?.Value;
-        set => this.WithProperty("service_principal_object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_object_id");
+        set => this.WithProperty("service_principal_object_id", value);
     }
 
     /// <summary>
     /// The object ID of the user on behalf of whom the service principal is authorized to access the resource
     /// </summary>
-    public string? UserObjectId
+    public TerraformLiteralProperty<string>? UserObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_object_id")?.Value;
-        set => this.WithProperty("user_object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_object_id");
+        set => this.WithProperty("user_object_id", value);
     }
 
 }

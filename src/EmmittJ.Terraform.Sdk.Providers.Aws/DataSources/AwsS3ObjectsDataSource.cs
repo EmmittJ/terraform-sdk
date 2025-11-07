@@ -23,91 +23,91 @@ public class AwsS3ObjectsDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The delimiter attribute.
     /// </summary>
-    public string? Delimiter
+    public TerraformLiteralProperty<string>? Delimiter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delimiter")?.Value;
-        set => this.WithProperty("delimiter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delimiter");
+        set => this.WithProperty("delimiter", value);
     }
 
     /// <summary>
     /// The encoding_type attribute.
     /// </summary>
-    public string? EncodingType
+    public TerraformLiteralProperty<string>? EncodingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encoding_type")?.Value;
-        set => this.WithProperty("encoding_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encoding_type");
+        set => this.WithProperty("encoding_type", value);
     }
 
     /// <summary>
     /// The fetch_owner attribute.
     /// </summary>
-    public bool? FetchOwner
+    public TerraformLiteralProperty<bool>? FetchOwner
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fetch_owner")?.Value;
-        set => this.WithProperty("fetch_owner", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("fetch_owner");
+        set => this.WithProperty("fetch_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_keys attribute.
     /// </summary>
-    public double? MaxKeys
+    public TerraformLiteralProperty<double>? MaxKeys
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_keys")?.Value;
-        set => this.WithProperty("max_keys", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_keys");
+        set => this.WithProperty("max_keys", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public string? Prefix
+    public TerraformLiteralProperty<string>? Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("prefix")?.Value;
-        set => this.WithProperty("prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("prefix");
+        set => this.WithProperty("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
-    public string? RequestPayer
+    public TerraformLiteralProperty<string>? RequestPayer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_payer")?.Value;
-        set => this.WithProperty("request_payer", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("request_payer");
+        set => this.WithProperty("request_payer", value);
     }
 
     /// <summary>
     /// The start_after attribute.
     /// </summary>
-    public string? StartAfter
+    public TerraformLiteralProperty<string>? StartAfter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_after")?.Value;
-        set => this.WithProperty("start_after", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_after");
+        set => this.WithProperty("start_after", value);
     }
 
     /// <summary>

@@ -24,82 +24,82 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     /// <summary>
     /// The authorizer_type attribute.
     /// </summary>
-    public string? AuthorizerType
+    public TerraformLiteralProperty<string>? AuthorizerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_type")?.Value;
-        set => this.WithProperty("authorizer_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_type");
+        set => this.WithProperty("authorizer_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The exception_level attribute.
     /// </summary>
-    public string? ExceptionLevel
+    public TerraformLiteralProperty<string>? ExceptionLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("exception_level")?.Value;
-        set => this.WithProperty("exception_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("exception_level");
+        set => this.WithProperty("exception_level", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public string? KmsKeyArn
+    public TerraformLiteralProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_arn")?.Value;
-        set => this.WithProperty("kms_key_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_arn");
+        set => this.WithProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    public string? ProtocolType
+    public TerraformLiteralProperty<string>? ProtocolType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol_type")?.Value;
-        set => this.WithProperty("protocol_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol_type");
+        set => this.WithProperty("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

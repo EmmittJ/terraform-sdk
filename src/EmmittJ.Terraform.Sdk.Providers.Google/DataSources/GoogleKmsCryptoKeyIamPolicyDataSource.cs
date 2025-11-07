@@ -21,19 +21,19 @@ public class GoogleKmsCryptoKeyIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The crypto_key_id attribute.
     /// </summary>
-    public string? CryptoKeyId
+    public TerraformLiteralProperty<string>? CryptoKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_id")?.Value;
-        set => this.WithProperty("crypto_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_id");
+        set => this.WithProperty("crypto_key_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

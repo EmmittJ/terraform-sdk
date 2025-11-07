@@ -27,73 +27,73 @@ public class GoogleComputeNetworkAttachment : TerraformResource
     /// <summary>
     /// The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules. Possible values: [&amp;quot;ACCEPT_AUTOMATIC&amp;quot;, &amp;quot;ACCEPT_MANUAL&amp;quot;, &amp;quot;INVALID&amp;quot;]
     /// </summary>
-    public string? ConnectionPreference
+    public TerraformLiteralProperty<string>? ConnectionPreference
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_preference")?.Value;
-        set => this.WithProperty("connection_preference", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_preference");
+        set => this.WithProperty("connection_preference", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Projects that are allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
-    public List<string>? ProducerAcceptLists
+    public TerraformLiteralProperty<List<string>>? ProducerAcceptLists
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("producer_accept_lists")?.Value;
-        set => this.WithProperty("producer_accept_lists", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("producer_accept_lists");
+        set => this.WithProperty("producer_accept_lists", value);
     }
 
     /// <summary>
     /// Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number.
     /// </summary>
-    public List<string>? ProducerRejectLists
+    public TerraformLiteralProperty<List<string>>? ProducerRejectLists
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("producer_reject_lists")?.Value;
-        set => this.WithProperty("producer_reject_lists", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("producer_reject_lists");
+        set => this.WithProperty("producer_reject_lists", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment.
     /// </summary>
-    public List<string>? Subnetworks
+    public TerraformLiteralProperty<List<string>>? Subnetworks
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("subnetworks")?.Value;
-        set => this.WithProperty("subnetworks", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("subnetworks");
+        set => this.WithProperty("subnetworks", value);
     }
 
     /// <summary>

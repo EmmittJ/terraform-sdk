@@ -21,37 +21,37 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The IPv4 address to be used for reverse DNS verification.
     /// </summary>
-    public string? DnsVerificationIp
+    public TerraformLiteralProperty<string>? DnsVerificationIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_verification_ip")?.Value;
-        set => this.WithProperty("dns_verification_ip", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_verification_ip");
+        set => this.WithProperty("dns_verification_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The address range, in CIDR format, represented by this public advertised prefix.
     /// </summary>
-    public string? IpCidrRange
+    public TerraformLiteralProperty<string>? IpCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range")?.Value;
-        set => this.WithProperty("ip_cidr_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range");
+        set => this.WithProperty("ip_cidr_range", value);
     }
 
     /// <summary>
@@ -62,10 +62,10 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -76,19 +76,19 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// * GLOBAL: The public delegated prefix is global only. The provisioning
     /// will take ~4 weeks. Possible values: [&amp;quot;GLOBAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public string? PdpScope
+    public TerraformLiteralProperty<string>? PdpScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pdp_scope")?.Value;
-        set => this.WithProperty("pdp_scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pdp_scope");
+        set => this.WithProperty("pdp_scope", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

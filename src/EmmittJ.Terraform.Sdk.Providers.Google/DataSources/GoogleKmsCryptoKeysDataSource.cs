@@ -28,28 +28,28 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key ring that the keys belongs to. Format: &#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;.
     /// </summary>
-    public string? KeyRing
+    public TerraformLiteralProperty<string>? KeyRing
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_ring")?.Value;
-        set => this.WithProperty("key_ring", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_ring");
+        set => this.WithProperty("key_ring", value);
     }
 
     /// <summary>

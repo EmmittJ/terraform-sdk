@@ -30,19 +30,19 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     /// <summary>
     /// A description of the auth config.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name of the auth config.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
@@ -50,28 +50,28 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public List<string>? ExpiryNotificationDuration
+    public TerraformLiteralProperty<List<string>>? ExpiryNotificationDuration
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("expiry_notification_duration")?.Value;
-        set => this.WithProperty("expiry_notification_duration", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("expiry_notification_duration");
+        set => this.WithProperty("expiry_notification_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location in which client needs to be provisioned.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -79,28 +79,28 @@ public class GoogleIntegrationsAuthConfig : TerraformResource
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public string? OverrideValidTime
+    public TerraformLiteralProperty<string>? OverrideValidTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("override_valid_time")?.Value;
-        set => this.WithProperty("override_valid_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("override_valid_time");
+        set => this.WithProperty("override_valid_time", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The visibility of the auth config. Possible values: [&amp;quot;PRIVATE&amp;quot;, &amp;quot;CLIENT_VISIBLE&amp;quot;]
     /// </summary>
-    public string? Visibility
+    public TerraformLiteralProperty<string>? Visibility
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("visibility")?.Value;
-        set => this.WithProperty("visibility", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("visibility");
+        set => this.WithProperty("visibility", value);
     }
 
     /// <summary>

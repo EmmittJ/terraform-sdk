@@ -22,37 +22,37 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     /// <summary>
     /// Floor Settings enforcement status.
     /// </summary>
-    public bool? EnableFloorSettingEnforcement
+    public TerraformLiteralProperty<bool>? EnableFloorSettingEnforcement
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_floor_setting_enforcement")?.Value;
-        set => this.WithProperty("enable_floor_setting_enforcement", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_floor_setting_enforcement");
+        set => this.WithProperty("enable_floor_setting_enforcement", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// List of integrated services for which the floor setting is applicable.
     /// </summary>
-    public List<string>? IntegratedServices
+    public TerraformLiteralProperty<List<string>>? IntegratedServices
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("integrated_services")?.Value;
-        set => this.WithProperty("integrated_services", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("integrated_services");
+        set => this.WithProperty("integrated_services", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -62,10 +62,10 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     /// * &#39;folders/{folder}&#39;
     /// * &#39;organizations/{organizationId}&#39;
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>

@@ -19,91 +19,91 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public string? AuthenticationMode
+    public TerraformLiteralProperty<string>? AuthenticationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_mode")?.Value;
-        set => this.WithProperty("authentication_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authentication_mode");
+        set => this.WithProperty("authentication_mode", value);
     }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    public string? EventhubConsumerGroupName
+    public TerraformLiteralProperty<string>? EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name")?.Value;
-        set => this.WithProperty("eventhub_consumer_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name");
+        set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    public string? EventhubName
+    public TerraformLiteralProperty<string>? EventhubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name")?.Value;
-        set => this.WithProperty("eventhub_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name");
+        set => this.WithProperty("eventhub_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public string? PartitionKey
+    public TerraformLiteralProperty<string>? PartitionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partition_key")?.Value;
-        set => this.WithProperty("partition_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("partition_key");
+        set => this.WithProperty("partition_key", value);
     }
 
     /// <summary>
     /// The servicebus_namespace attribute.
     /// </summary>
-    public string? ServicebusNamespace
+    public TerraformLiteralProperty<string>? ServicebusNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("servicebus_namespace")?.Value;
-        set => this.WithProperty("servicebus_namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("servicebus_namespace");
+        set => this.WithProperty("servicebus_namespace", value);
     }
 
     /// <summary>
     /// The shared_access_policy_key attribute.
     /// </summary>
-    public string? SharedAccessPolicyKey
+    public TerraformLiteralProperty<string>? SharedAccessPolicyKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_key")?.Value;
-        set => this.WithProperty("shared_access_policy_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_key");
+        set => this.WithProperty("shared_access_policy_key", value);
     }
 
     /// <summary>
     /// The shared_access_policy_name attribute.
     /// </summary>
-    public string? SharedAccessPolicyName
+    public TerraformLiteralProperty<string>? SharedAccessPolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_name")?.Value;
-        set => this.WithProperty("shared_access_policy_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_name");
+        set => this.WithProperty("shared_access_policy_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
-    public string? StreamAnalyticsJobId
+    public TerraformLiteralProperty<string>? StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id")?.Value;
-        set => this.WithProperty("stream_analytics_job_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id");
+        set => this.WithProperty("stream_analytics_job_id", value);
     }
 
 }

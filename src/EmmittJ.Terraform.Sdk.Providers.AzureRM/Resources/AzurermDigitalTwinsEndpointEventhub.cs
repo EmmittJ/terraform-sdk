@@ -19,55 +19,55 @@ public class AzurermDigitalTwinsEndpointEventhub : TerraformResource
     /// <summary>
     /// The dead_letter_storage_secret attribute.
     /// </summary>
-    public string? DeadLetterStorageSecret
+    public TerraformLiteralProperty<string>? DeadLetterStorageSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dead_letter_storage_secret")?.Value;
-        set => this.WithProperty("dead_letter_storage_secret", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dead_letter_storage_secret");
+        set => this.WithProperty("dead_letter_storage_secret", value);
     }
 
     /// <summary>
     /// The digital_twins_id attribute.
     /// </summary>
-    public string? DigitalTwinsId
+    public TerraformLiteralProperty<string>? DigitalTwinsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("digital_twins_id")?.Value;
-        set => this.WithProperty("digital_twins_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("digital_twins_id");
+        set => this.WithProperty("digital_twins_id", value);
     }
 
     /// <summary>
     /// The eventhub_primary_connection_string attribute.
     /// </summary>
-    public string? EventhubPrimaryConnectionString
+    public TerraformLiteralProperty<string>? EventhubPrimaryConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_primary_connection_string")?.Value;
-        set => this.WithProperty("eventhub_primary_connection_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_primary_connection_string");
+        set => this.WithProperty("eventhub_primary_connection_string", value);
     }
 
     /// <summary>
     /// The eventhub_secondary_connection_string attribute.
     /// </summary>
-    public string? EventhubSecondaryConnectionString
+    public TerraformLiteralProperty<string>? EventhubSecondaryConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_secondary_connection_string")?.Value;
-        set => this.WithProperty("eventhub_secondary_connection_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_secondary_connection_string");
+        set => this.WithProperty("eventhub_secondary_connection_string", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

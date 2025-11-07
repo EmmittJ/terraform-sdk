@@ -29,28 +29,28 @@ public class GoogleFolderDataSource : TerraformDataSource
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public string? Folder
+    public TerraformLiteralProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder")?.Value;
-        set => this.WithProperty("folder", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lookup_organization attribute.
     /// </summary>
-    public bool? LookupOrganization
+    public TerraformLiteralProperty<bool>? LookupOrganization
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("lookup_organization")?.Value;
-        set => this.WithProperty("lookup_organization", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("lookup_organization");
+        set => this.WithProperty("lookup_organization", value);
     }
 
     /// <summary>

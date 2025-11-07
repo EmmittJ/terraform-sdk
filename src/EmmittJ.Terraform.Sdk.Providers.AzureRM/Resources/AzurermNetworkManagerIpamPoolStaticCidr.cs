@@ -19,46 +19,46 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    public List<string>? AddressPrefixes
+    public TerraformLiteralProperty<List<string>>? AddressPrefixes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("address_prefixes")?.Value;
-        set => this.WithProperty("address_prefixes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("address_prefixes");
+        set => this.WithProperty("address_prefixes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public string? IpamPoolId
+    public TerraformLiteralProperty<string>? IpamPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipam_pool_id")?.Value;
-        set => this.WithProperty("ipam_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipam_pool_id");
+        set => this.WithProperty("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The number_of_ip_addresses_to_allocate attribute.
     /// </summary>
-    public string? NumberOfIpAddressesToAllocate
+    public TerraformLiteralProperty<string>? NumberOfIpAddressesToAllocate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("number_of_ip_addresses_to_allocate")?.Value;
-        set => this.WithProperty("number_of_ip_addresses_to_allocate", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("number_of_ip_addresses_to_allocate");
+        set => this.WithProperty("number_of_ip_addresses_to_allocate", value);
     }
 
 }

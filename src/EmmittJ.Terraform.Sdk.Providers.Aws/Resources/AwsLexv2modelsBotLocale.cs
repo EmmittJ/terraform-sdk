@@ -20,64 +20,64 @@ public class AwsLexv2modelsBotLocale : TerraformResource
     /// <summary>
     /// The bot_id attribute.
     /// </summary>
-    public string? BotId
+    public TerraformLiteralProperty<string>? BotId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_id")?.Value;
-        set => this.WithProperty("bot_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bot_id");
+        set => this.WithProperty("bot_id", value);
     }
 
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
-    public string? BotVersion
+    public TerraformLiteralProperty<string>? BotVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_version")?.Value;
-        set => this.WithProperty("bot_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bot_version");
+        set => this.WithProperty("bot_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The locale_id attribute.
     /// </summary>
-    public string? LocaleId
+    public TerraformLiteralProperty<string>? LocaleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("locale_id")?.Value;
-        set => this.WithProperty("locale_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("locale_id");
+        set => this.WithProperty("locale_id", value);
     }
 
     /// <summary>
     /// The n_lu_intent_confidence_threshold attribute.
     /// </summary>
-    public double? NLuIntentConfidenceThreshold
+    public TerraformLiteralProperty<double>? NLuIntentConfidenceThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("n_lu_intent_confidence_threshold")?.Value;
-        set => this.WithProperty("n_lu_intent_confidence_threshold", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("n_lu_intent_confidence_threshold");
+        set => this.WithProperty("n_lu_intent_confidence_threshold", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

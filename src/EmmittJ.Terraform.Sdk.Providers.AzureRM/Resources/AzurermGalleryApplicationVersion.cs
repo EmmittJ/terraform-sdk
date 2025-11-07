@@ -19,91 +19,91 @@ public class AzurermGalleryApplicationVersion : TerraformResource
     /// <summary>
     /// The config_file attribute.
     /// </summary>
-    public string? ConfigFile
+    public TerraformLiteralProperty<string>? ConfigFile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config_file")?.Value;
-        set => this.WithProperty("config_file", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config_file");
+        set => this.WithProperty("config_file", value);
     }
 
     /// <summary>
     /// The enable_health_check attribute.
     /// </summary>
-    public bool? EnableHealthCheck
+    public TerraformLiteralProperty<bool>? EnableHealthCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_health_check")?.Value;
-        set => this.WithProperty("enable_health_check", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_health_check");
+        set => this.WithProperty("enable_health_check", value);
     }
 
     /// <summary>
     /// The end_of_life_date attribute.
     /// </summary>
-    public string? EndOfLifeDate
+    public TerraformLiteralProperty<string>? EndOfLifeDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_of_life_date")?.Value;
-        set => this.WithProperty("end_of_life_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_of_life_date");
+        set => this.WithProperty("end_of_life_date", value);
     }
 
     /// <summary>
     /// The exclude_from_latest attribute.
     /// </summary>
-    public bool? ExcludeFromLatest
+    public TerraformLiteralProperty<bool>? ExcludeFromLatest
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_from_latest")?.Value;
-        set => this.WithProperty("exclude_from_latest", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_from_latest");
+        set => this.WithProperty("exclude_from_latest", value);
     }
 
     /// <summary>
     /// The gallery_application_id attribute.
     /// </summary>
-    public string? GalleryApplicationId
+    public TerraformLiteralProperty<string>? GalleryApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gallery_application_id")?.Value;
-        set => this.WithProperty("gallery_application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gallery_application_id");
+        set => this.WithProperty("gallery_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The package_file attribute.
     /// </summary>
-    public string? PackageFile
+    public TerraformLiteralProperty<string>? PackageFile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_file")?.Value;
-        set => this.WithProperty("package_file", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("package_file");
+        set => this.WithProperty("package_file", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

@@ -23,82 +23,82 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The enrollment_read attribute.
     /// </summary>
-    public bool? EnrollmentRead
+    public TerraformLiteralProperty<bool>? EnrollmentRead
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enrollment_read")?.Value;
-        set => this.WithProperty("enrollment_read", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enrollment_read");
+        set => this.WithProperty("enrollment_read", value);
     }
 
     /// <summary>
     /// The enrollment_write attribute.
     /// </summary>
-    public bool? EnrollmentWrite
+    public TerraformLiteralProperty<bool>? EnrollmentWrite
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enrollment_write")?.Value;
-        set => this.WithProperty("enrollment_write", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enrollment_write");
+        set => this.WithProperty("enrollment_write", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_dps_name attribute.
     /// </summary>
-    public string? IothubDpsName
+    public TerraformLiteralProperty<string>? IothubDpsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_dps_name")?.Value;
-        set => this.WithProperty("iothub_dps_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iothub_dps_name");
+        set => this.WithProperty("iothub_dps_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The registration_read attribute.
     /// </summary>
-    public bool? RegistrationRead
+    public TerraformLiteralProperty<bool>? RegistrationRead
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registration_read")?.Value;
-        set => this.WithProperty("registration_read", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("registration_read");
+        set => this.WithProperty("registration_read", value);
     }
 
     /// <summary>
     /// The registration_write attribute.
     /// </summary>
-    public bool? RegistrationWrite
+    public TerraformLiteralProperty<bool>? RegistrationWrite
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registration_write")?.Value;
-        set => this.WithProperty("registration_write", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("registration_write");
+        set => this.WithProperty("registration_write", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_config attribute.
     /// </summary>
-    public bool? ServiceConfig
+    public TerraformLiteralProperty<bool>? ServiceConfig
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("service_config")?.Value;
-        set => this.WithProperty("service_config", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("service_config");
+        set => this.WithProperty("service_config", value);
     }
 
     /// <summary>

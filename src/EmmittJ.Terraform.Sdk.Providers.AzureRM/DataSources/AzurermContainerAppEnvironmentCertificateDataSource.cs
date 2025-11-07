@@ -25,28 +25,28 @@ public class AzurermContainerAppEnvironmentCertificateDataSource : TerraformData
     /// <summary>
     /// The Container App Managed Environment ID to configure this Certificate on.
     /// </summary>
-    public string? ContainerAppEnvironmentId
+    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id")?.Value;
-        set => this.WithProperty("container_app_environment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Container Apps Certificate.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

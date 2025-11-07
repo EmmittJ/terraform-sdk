@@ -20,37 +20,37 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
     /// <summary>
     /// The asset_types attribute.
     /// </summary>
-    public List<string>? AssetTypes
+    public TerraformLiteralProperty<List<string>>? AssetTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("asset_types")?.Value;
-        set => this.WithProperty("asset_types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("asset_types");
+        set => this.WithProperty("asset_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public string? Query
+    public TerraformLiteralProperty<string>? Query
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query")?.Value;
-        set => this.WithProperty("query", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query");
+        set => this.WithProperty("query", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>

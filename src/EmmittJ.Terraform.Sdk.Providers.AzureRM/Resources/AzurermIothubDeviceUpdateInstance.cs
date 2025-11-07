@@ -19,55 +19,55 @@ public class AzurermIothubDeviceUpdateInstance : TerraformResource
     /// <summary>
     /// The device_update_account_id attribute.
     /// </summary>
-    public string? DeviceUpdateAccountId
+    public TerraformLiteralProperty<string>? DeviceUpdateAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("device_update_account_id")?.Value;
-        set => this.WithProperty("device_update_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("device_update_account_id");
+        set => this.WithProperty("device_update_account_id", value);
     }
 
     /// <summary>
     /// The diagnostic_enabled attribute.
     /// </summary>
-    public bool? DiagnosticEnabled
+    public TerraformLiteralProperty<bool>? DiagnosticEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("diagnostic_enabled")?.Value;
-        set => this.WithProperty("diagnostic_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("diagnostic_enabled");
+        set => this.WithProperty("diagnostic_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
-    public string? IothubId
+    public TerraformLiteralProperty<string>? IothubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id")?.Value;
-        set => this.WithProperty("iothub_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id");
+        set => this.WithProperty("iothub_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

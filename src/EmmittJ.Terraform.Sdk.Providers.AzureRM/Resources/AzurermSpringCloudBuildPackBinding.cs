@@ -19,37 +19,37 @@ public class AzurermSpringCloudBuildPackBinding : TerraformResource
     /// <summary>
     /// The binding_type attribute.
     /// </summary>
-    public string? BindingType
+    public TerraformLiteralProperty<string>? BindingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("binding_type")?.Value;
-        set => this.WithProperty("binding_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("binding_type");
+        set => this.WithProperty("binding_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_builder_id attribute.
     /// </summary>
-    public string? SpringCloudBuilderId
+    public TerraformLiteralProperty<string>? SpringCloudBuilderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_builder_id")?.Value;
-        set => this.WithProperty("spring_cloud_builder_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_builder_id");
+        set => this.WithProperty("spring_cloud_builder_id", value);
     }
 
 }

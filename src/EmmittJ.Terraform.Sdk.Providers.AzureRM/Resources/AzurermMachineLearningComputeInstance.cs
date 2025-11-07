@@ -19,91 +19,91 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    public string? AuthorizationType
+    public TerraformLiteralProperty<string>? AuthorizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_type")?.Value;
-        set => this.WithProperty("authorization_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorization_type");
+        set => this.WithProperty("authorization_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public bool? LocalAuthEnabled
+    public TerraformLiteralProperty<bool>? LocalAuthEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_auth_enabled")?.Value;
-        set => this.WithProperty("local_auth_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("local_auth_enabled");
+        set => this.WithProperty("local_auth_enabled", value);
     }
 
     /// <summary>
     /// The machine_learning_workspace_id attribute.
     /// </summary>
-    public string? MachineLearningWorkspaceId
+    public TerraformLiteralProperty<string>? MachineLearningWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("machine_learning_workspace_id")?.Value;
-        set => this.WithProperty("machine_learning_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("machine_learning_workspace_id");
+        set => this.WithProperty("machine_learning_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
-    public bool? NodePublicIpEnabled
+    public TerraformLiteralProperty<bool>? NodePublicIpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("node_public_ip_enabled")?.Value;
-        set => this.WithProperty("node_public_ip_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("node_public_ip_enabled");
+        set => this.WithProperty("node_public_ip_enabled", value);
     }
 
     /// <summary>
     /// The subnet_resource_id attribute.
     /// </summary>
-    public string? SubnetResourceId
+    public TerraformLiteralProperty<string>? SubnetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_resource_id")?.Value;
-        set => this.WithProperty("subnet_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnet_resource_id");
+        set => this.WithProperty("subnet_resource_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_machine_size attribute.
     /// </summary>
-    public string? VirtualMachineSize
+    public TerraformLiteralProperty<string>? VirtualMachineSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_size")?.Value;
-        set => this.WithProperty("virtual_machine_size", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_size");
+        set => this.WithProperty("virtual_machine_size", value);
     }
 
 }

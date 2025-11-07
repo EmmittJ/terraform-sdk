@@ -19,46 +19,46 @@ public class AwsAcmpcaCertificateAuthorityCertificate : TerraformResource
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public string? Certificate
+    public TerraformLiteralProperty<string>? Certificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate")?.Value;
-        set => this.WithProperty("certificate", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate");
+        set => this.WithProperty("certificate", value);
     }
 
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public string? CertificateAuthorityArn
+    public TerraformLiteralProperty<string>? CertificateAuthorityArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn")?.Value;
-        set => this.WithProperty("certificate_authority_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn");
+        set => this.WithProperty("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public string? CertificateChain
+    public TerraformLiteralProperty<string>? CertificateChain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_chain")?.Value;
-        set => this.WithProperty("certificate_chain", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_chain");
+        set => this.WithProperty("certificate_chain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

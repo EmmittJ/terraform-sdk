@@ -21,38 +21,38 @@ public class GoogleMonitoringService : TerraformResource
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
-    public string? ServiceId
+    public TerraformLiteralProperty<string>? ServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_id")?.Value;
-        set => this.WithProperty("service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_id");
+        set => this.WithProperty("service_id", value);
     }
 
     /// <summary>
@@ -63,10 +63,10 @@ public class GoogleMonitoringService : TerraformResource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    public Dictionary<string, string>? UserLabels
+    public TerraformLiteralProperty<Dictionary<string, string>>? UserLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_labels")?.Value;
-        set => this.WithProperty("user_labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_labels");
+        set => this.WithProperty("user_labels", value);
     }
 
     /// <summary>

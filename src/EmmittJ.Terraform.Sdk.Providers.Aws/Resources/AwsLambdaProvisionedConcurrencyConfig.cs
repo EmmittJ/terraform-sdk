@@ -19,55 +19,55 @@ public class AwsLambdaProvisionedConcurrencyConfig : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public string? FunctionName
+    public TerraformLiteralProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name")?.Value;
-        set => this.WithProperty("function_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The provisioned_concurrent_executions attribute.
     /// </summary>
-    public double? ProvisionedConcurrentExecutions
+    public TerraformLiteralProperty<double>? ProvisionedConcurrentExecutions
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_concurrent_executions")?.Value;
-        set => this.WithProperty("provisioned_concurrent_executions", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_concurrent_executions");
+        set => this.WithProperty("provisioned_concurrent_executions", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public string? Qualifier
+    public TerraformLiteralProperty<string>? Qualifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("qualifier")?.Value;
-        set => this.WithProperty("qualifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("qualifier");
+        set => this.WithProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public bool? SkipDestroy
+    public TerraformLiteralProperty<bool>? SkipDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy")?.Value;
-        set => this.WithProperty("skip_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy");
+        set => this.WithProperty("skip_destroy", value);
     }
 
 }

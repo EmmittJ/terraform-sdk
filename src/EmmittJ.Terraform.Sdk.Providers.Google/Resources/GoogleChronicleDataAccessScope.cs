@@ -32,10 +32,10 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// to see all data except data labeled with A and data labeled with B and data
     /// with labels A and B.
     /// </summary>
-    public bool? AllowAll
+    public TerraformLiteralProperty<bool>? AllowAll
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_all")?.Value;
-        set => this.WithProperty("allow_all", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_all");
+        set => this.WithProperty("allow_all", value);
     }
 
     /// <summary>
@@ -43,55 +43,55 @@ public class GoogleChronicleDataAccessScope : TerraformResource
     /// of the scope resource.
     /// Needs to be compliant with https://google.aip.dev/122
     /// </summary>
-    public string? DataAccessScopeId
+    public TerraformLiteralProperty<string>? DataAccessScopeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_access_scope_id")?.Value;
-        set => this.WithProperty("data_access_scope_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_access_scope_id");
+        set => this.WithProperty("data_access_scope_id", value);
     }
 
     /// <summary>
     /// Optional. A description of the data access scope for a human reader.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

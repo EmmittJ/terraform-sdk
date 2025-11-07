@@ -22,46 +22,46 @@ public class GoogleSqlBackupRunDataSource : TerraformDataSource
     /// <summary>
     /// The identifier for this backup run. Unique only for a specific Cloud SQL instance. If left empty and multiple backups exist for the instance, most_recent must be set to true.
     /// </summary>
-    public double? BackupId
+    public TerraformLiteralProperty<double>? BackupId
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("backup_id")?.Value;
-        set => this.WithProperty("backup_id", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("backup_id");
+        set => this.WithProperty("backup_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the database instance.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// Toggles use of the most recent backup run if multiple backups exist for a Cloud SQL instance.
     /// </summary>
-    public bool? MostRecent
+    public TerraformLiteralProperty<bool>? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent")?.Value;
-        set => this.WithProperty("most_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent");
+        set => this.WithProperty("most_recent", value);
     }
 
     /// <summary>
     /// Project ID of the project that contains the instance.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

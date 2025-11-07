@@ -19,73 +19,73 @@ public class AzurermMssqlDatabaseExtendedAuditingPolicy : TerraformResource
     /// <summary>
     /// The database_id attribute.
     /// </summary>
-    public string? DatabaseId
+    public TerraformLiteralProperty<string>? DatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_id")?.Value;
-        set => this.WithProperty("database_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_id");
+        set => this.WithProperty("database_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_monitoring_enabled attribute.
     /// </summary>
-    public bool? LogMonitoringEnabled
+    public TerraformLiteralProperty<bool>? LogMonitoringEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_monitoring_enabled")?.Value;
-        set => this.WithProperty("log_monitoring_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("log_monitoring_enabled");
+        set => this.WithProperty("log_monitoring_enabled", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public double? RetentionInDays
+    public TerraformLiteralProperty<double>? RetentionInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_in_days")?.Value;
-        set => this.WithProperty("retention_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("retention_in_days");
+        set => this.WithProperty("retention_in_days", value);
     }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    public string? StorageAccountAccessKey
+    public TerraformLiteralProperty<string>? StorageAccountAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_access_key")?.Value;
-        set => this.WithProperty("storage_account_access_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_access_key");
+        set => this.WithProperty("storage_account_access_key", value);
     }
 
     /// <summary>
     /// The storage_account_access_key_is_secondary attribute.
     /// </summary>
-    public bool? StorageAccountAccessKeyIsSecondary
+    public TerraformLiteralProperty<bool>? StorageAccountAccessKeyIsSecondary
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("storage_account_access_key_is_secondary")?.Value;
-        set => this.WithProperty("storage_account_access_key_is_secondary", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("storage_account_access_key_is_secondary");
+        set => this.WithProperty("storage_account_access_key_is_secondary", value);
     }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
-    public string? StorageEndpoint
+    public TerraformLiteralProperty<string>? StorageEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_endpoint")?.Value;
-        set => this.WithProperty("storage_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_endpoint");
+        set => this.WithProperty("storage_endpoint", value);
     }
 
 }

@@ -27,112 +27,112 @@ public class AwsS3Bucket : TerraformResource
     /// The acceleration_status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? AccelerationStatus
+    public TerraformLiteralProperty<string>? AccelerationStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("acceleration_status")?.Value;
-        set => this.WithProperty("acceleration_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("acceleration_status");
+        set => this.WithProperty("acceleration_status", value);
     }
 
     /// <summary>
     /// The acl attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? Acl
+    public TerraformLiteralProperty<string>? Acl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("acl")?.Value;
-        set => this.WithProperty("acl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("acl");
+        set => this.WithProperty("acl", value);
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public string? Bucket
+    public TerraformLiteralProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket")?.Value;
-        set => this.WithProperty("bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The bucket_prefix attribute.
     /// </summary>
-    public string? BucketPrefix
+    public TerraformLiteralProperty<string>? BucketPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket_prefix")?.Value;
-        set => this.WithProperty("bucket_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket_prefix");
+        set => this.WithProperty("bucket_prefix", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public bool? ForceDestroy
+    public TerraformLiteralProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy")?.Value;
-        set => this.WithProperty("force_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object_lock_enabled attribute.
     /// </summary>
-    public bool? ObjectLockEnabled
+    public TerraformLiteralProperty<bool>? ObjectLockEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("object_lock_enabled")?.Value;
-        set => this.WithProperty("object_lock_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("object_lock_enabled");
+        set => this.WithProperty("object_lock_enabled", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? Policy
+    public TerraformLiteralProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy")?.Value;
-        set => this.WithProperty("policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public string? RequestPayer
+    public TerraformLiteralProperty<string>? RequestPayer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_payer")?.Value;
-        set => this.WithProperty("request_payer", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("request_payer");
+        set => this.WithProperty("request_payer", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

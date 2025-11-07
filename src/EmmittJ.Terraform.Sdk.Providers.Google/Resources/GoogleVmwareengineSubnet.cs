@@ -29,29 +29,29 @@ public class GoogleVmwareengineSubnet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IP address range of the subnet in CIDR format.
     /// </summary>
-    public string? IpCidrRange
+    public TerraformLiteralProperty<string>? IpCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range")?.Value;
-        set => this.WithProperty("ip_cidr_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range");
+        set => this.WithProperty("ip_cidr_range", value);
     }
 
     /// <summary>
     /// The ID of the subnet. For userDefined subnets, this name should be in the format of &amp;quot;service-n&amp;quot;,
     /// where n ranges from 1 to 5.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -59,10 +59,10 @@ public class GoogleVmwareengineSubnet : TerraformResource
     /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>

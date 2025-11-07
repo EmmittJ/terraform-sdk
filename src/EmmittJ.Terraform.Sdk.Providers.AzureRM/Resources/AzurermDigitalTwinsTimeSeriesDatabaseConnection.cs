@@ -19,100 +19,100 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     /// <summary>
     /// The digital_twins_id attribute.
     /// </summary>
-    public string? DigitalTwinsId
+    public TerraformLiteralProperty<string>? DigitalTwinsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("digital_twins_id")?.Value;
-        set => this.WithProperty("digital_twins_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("digital_twins_id");
+        set => this.WithProperty("digital_twins_id", value);
     }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    public string? EventhubConsumerGroupName
+    public TerraformLiteralProperty<string>? EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name")?.Value;
-        set => this.WithProperty("eventhub_consumer_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name");
+        set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    public string? EventhubName
+    public TerraformLiteralProperty<string>? EventhubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name")?.Value;
-        set => this.WithProperty("eventhub_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name");
+        set => this.WithProperty("eventhub_name", value);
     }
 
     /// <summary>
     /// The eventhub_namespace_endpoint_uri attribute.
     /// </summary>
-    public string? EventhubNamespaceEndpointUri
+    public TerraformLiteralProperty<string>? EventhubNamespaceEndpointUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_endpoint_uri")?.Value;
-        set => this.WithProperty("eventhub_namespace_endpoint_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_endpoint_uri");
+        set => this.WithProperty("eventhub_namespace_endpoint_uri", value);
     }
 
     /// <summary>
     /// The eventhub_namespace_id attribute.
     /// </summary>
-    public string? EventhubNamespaceId
+    public TerraformLiteralProperty<string>? EventhubNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_id")?.Value;
-        set => this.WithProperty("eventhub_namespace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_id");
+        set => this.WithProperty("eventhub_namespace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kusto_cluster_id attribute.
     /// </summary>
-    public string? KustoClusterId
+    public TerraformLiteralProperty<string>? KustoClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_id")?.Value;
-        set => this.WithProperty("kusto_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_id");
+        set => this.WithProperty("kusto_cluster_id", value);
     }
 
     /// <summary>
     /// The kusto_cluster_uri attribute.
     /// </summary>
-    public string? KustoClusterUri
+    public TerraformLiteralProperty<string>? KustoClusterUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_uri")?.Value;
-        set => this.WithProperty("kusto_cluster_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_uri");
+        set => this.WithProperty("kusto_cluster_uri", value);
     }
 
     /// <summary>
     /// The kusto_database_name attribute.
     /// </summary>
-    public string? KustoDatabaseName
+    public TerraformLiteralProperty<string>? KustoDatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_database_name")?.Value;
-        set => this.WithProperty("kusto_database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kusto_database_name");
+        set => this.WithProperty("kusto_database_name", value);
     }
 
     /// <summary>
     /// The kusto_table_name attribute.
     /// </summary>
-    public string? KustoTableName
+    public TerraformLiteralProperty<string>? KustoTableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_table_name")?.Value;
-        set => this.WithProperty("kusto_table_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kusto_table_name");
+        set => this.WithProperty("kusto_table_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

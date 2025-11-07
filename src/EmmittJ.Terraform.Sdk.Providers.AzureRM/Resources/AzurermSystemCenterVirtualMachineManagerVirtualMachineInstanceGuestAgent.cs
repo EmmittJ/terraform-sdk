@@ -19,46 +19,46 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public string? Password
+    public TerraformLiteralProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password")?.Value;
-        set => this.WithProperty("password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The provisioning_action attribute.
     /// </summary>
-    public string? ProvisioningAction
+    public TerraformLiteralProperty<string>? ProvisioningAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provisioning_action")?.Value;
-        set => this.WithProperty("provisioning_action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provisioning_action");
+        set => this.WithProperty("provisioning_action", value);
     }
 
     /// <summary>
     /// The scoped_resource_id attribute.
     /// </summary>
-    public string? ScopedResourceId
+    public TerraformLiteralProperty<string>? ScopedResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scoped_resource_id")?.Value;
-        set => this.WithProperty("scoped_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scoped_resource_id");
+        set => this.WithProperty("scoped_resource_id", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public string? Username
+    public TerraformLiteralProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username")?.Value;
-        set => this.WithProperty("username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        set => this.WithProperty("username", value);
     }
 
 }

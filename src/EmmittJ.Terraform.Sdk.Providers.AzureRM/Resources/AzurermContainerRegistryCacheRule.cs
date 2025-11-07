@@ -19,55 +19,55 @@ public class AzurermContainerRegistryCacheRule : TerraformResource
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public string? ContainerRegistryId
+    public TerraformLiteralProperty<string>? ContainerRegistryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_id")?.Value;
-        set => this.WithProperty("container_registry_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_id");
+        set => this.WithProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The ARM resource ID of the credential store which is associated with the cache rule.
     /// </summary>
-    public string? CredentialSetId
+    public TerraformLiteralProperty<string>? CredentialSetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("credential_set_id")?.Value;
-        set => this.WithProperty("credential_set_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("credential_set_id");
+        set => this.WithProperty("credential_set_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the cache rule.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The full source repository path such as &#39;docker.io/library/ubuntu&#39;.
     /// </summary>
-    public string? SourceRepo
+    public TerraformLiteralProperty<string>? SourceRepo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_repo")?.Value;
-        set => this.WithProperty("source_repo", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_repo");
+        set => this.WithProperty("source_repo", value);
     }
 
     /// <summary>
     /// The target repository namespace such as &#39;ubuntu&#39;.
     /// </summary>
-    public string? TargetRepo
+    public TerraformLiteralProperty<string>? TargetRepo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_repo")?.Value;
-        set => this.WithProperty("target_repo", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_repo");
+        set => this.WithProperty("target_repo", value);
     }
 
 }

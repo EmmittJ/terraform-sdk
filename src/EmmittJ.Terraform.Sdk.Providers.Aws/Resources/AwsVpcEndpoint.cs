@@ -27,154 +27,154 @@ public class AwsVpcEndpoint : TerraformResource
     /// <summary>
     /// The auto_accept attribute.
     /// </summary>
-    public bool? AutoAccept
+    public TerraformLiteralProperty<bool>? AutoAccept
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_accept")?.Value;
-        set => this.WithProperty("auto_accept", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_accept");
+        set => this.WithProperty("auto_accept", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public string? IpAddressType
+    public TerraformLiteralProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type")?.Value;
-        set => this.WithProperty("ip_address_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type");
+        set => this.WithProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public string? Policy
+    public TerraformLiteralProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy")?.Value;
-        set => this.WithProperty("policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// The private_dns_enabled attribute.
     /// </summary>
-    public bool? PrivateDnsEnabled
+    public TerraformLiteralProperty<bool>? PrivateDnsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_dns_enabled")?.Value;
-        set => this.WithProperty("private_dns_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("private_dns_enabled");
+        set => this.WithProperty("private_dns_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_configuration_arn attribute.
     /// </summary>
-    public string? ResourceConfigurationArn
+    public TerraformLiteralProperty<string>? ResourceConfigurationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_configuration_arn")?.Value;
-        set => this.WithProperty("resource_configuration_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_configuration_arn");
+        set => this.WithProperty("resource_configuration_arn", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public HashSet<string>? RouteTableIds
+    public TerraformLiteralProperty<HashSet<string>>? RouteTableIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("route_table_ids")?.Value;
-        set => this.WithProperty("route_table_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("route_table_ids");
+        set => this.WithProperty("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids")?.Value;
-        set => this.WithProperty("security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public string? ServiceName
+    public TerraformLiteralProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name")?.Value;
-        set => this.WithProperty("service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The service_network_arn attribute.
     /// </summary>
-    public string? ServiceNetworkArn
+    public TerraformLiteralProperty<string>? ServiceNetworkArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_network_arn")?.Value;
-        set => this.WithProperty("service_network_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_network_arn");
+        set => this.WithProperty("service_network_arn", value);
     }
 
     /// <summary>
     /// The service_region attribute.
     /// </summary>
-    public string? ServiceRegion
+    public TerraformLiteralProperty<string>? ServiceRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_region")?.Value;
-        set => this.WithProperty("service_region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_region");
+        set => this.WithProperty("service_region", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public HashSet<string>? SubnetIds
+    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids")?.Value;
-        set => this.WithProperty("subnet_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_type attribute.
     /// </summary>
-    public string? VpcEndpointType
+    public TerraformLiteralProperty<string>? VpcEndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_endpoint_type")?.Value;
-        set => this.WithProperty("vpc_endpoint_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_endpoint_type");
+        set => this.WithProperty("vpc_endpoint_type", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>

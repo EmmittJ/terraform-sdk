@@ -21,28 +21,28 @@ public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public List<string>? Scopes
+    public TerraformLiteralProperty<List<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes")?.Value;
-        set => this.WithProperty("scopes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes");
+        set => this.WithProperty("scopes", value);
     }
 
     /// <summary>

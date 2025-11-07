@@ -41,10 +41,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
@@ -52,10 +52,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// When the field is set to true in Terraform state, a &#39;terraform apply&#39;
     /// or &#39;terraform destroy&#39; that would delete the federation will fail.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
@@ -64,19 +64,19 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;. Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
-    public string? ExpireTime
+    public TerraformLiteralProperty<string>? ExpireTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expire_time")?.Value;
-        set => this.WithProperty("expire_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expire_time");
+        set => this.WithProperty("expire_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -97,37 +97,37 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the regional secret. eg us-central1
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public string? SecretId
+    public TerraformLiteralProperty<string>? SecretId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_id")?.Value;
-        set => this.WithProperty("secret_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secret_id");
+        set => this.WithProperty("secret_id", value);
     }
 
     /// <summary>
@@ -135,20 +135,20 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The TTL for the regional secret. A duration in seconds with up to nine fractional digits,
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Only one of &#39;ttl&#39; or &#39;expire_time&#39; can be provided.
     /// </summary>
-    public string? Ttl
+    public TerraformLiteralProperty<string>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ttl")?.Value;
-        set => this.WithProperty("ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ttl");
+        set => this.WithProperty("ttl", value);
     }
 
     /// <summary>
@@ -162,10 +162,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public Dictionary<string, string>? VersionAliases
+    public TerraformLiteralProperty<Dictionary<string, string>>? VersionAliases
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("version_aliases")?.Value;
-        set => this.WithProperty("version_aliases", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("version_aliases");
+        set => this.WithProperty("version_aliases", value);
     }
 
     /// <summary>
@@ -175,10 +175,10 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// on calling destroy instead the version goes to a disabled state and
     /// the actual destruction happens after this TTL expires. It must be atleast 24h.
     /// </summary>
-    public string? VersionDestroyTtl
+    public TerraformLiteralProperty<string>? VersionDestroyTtl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_destroy_ttl")?.Value;
-        set => this.WithProperty("version_destroy_ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version_destroy_ttl");
+        set => this.WithProperty("version_destroy_ttl", value);
     }
 
     /// <summary>

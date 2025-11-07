@@ -32,46 +32,46 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     /// <summary>
     /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
     /// </summary>
-    public string? DataExchangeId
+    public TerraformLiteralProperty<string>? DataExchangeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_exchange_id")?.Value;
-        set => this.WithProperty("data_exchange_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_exchange_id");
+        set => this.WithProperty("data_exchange_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
     /// </summary>
-    public string? ListingId
+    public TerraformLiteralProperty<string>? ListingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("listing_id")?.Value;
-        set => this.WithProperty("listing_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("listing_id");
+        set => this.WithProperty("listing_id", value);
     }
 
     /// <summary>
     /// The name of the location of the data exchange. Distinct from the location of the destination data set.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

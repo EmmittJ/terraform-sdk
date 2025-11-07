@@ -20,83 +20,83 @@ public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
     /// <summary>
     /// Whether the license config should be auto renewed when it reaches the end date.
     /// </summary>
-    public bool? AutoRenew
+    public TerraformLiteralProperty<bool>? AutoRenew
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew")?.Value;
-        set => this.WithProperty("auto_renew", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew");
+        set => this.WithProperty("auto_renew", value);
     }
 
     /// <summary>
     /// Whether the license config is for free trial.
     /// </summary>
-    public bool? FreeTrial
+    public TerraformLiteralProperty<bool>? FreeTrial
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("free_trial")?.Value;
-        set => this.WithProperty("free_trial", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("free_trial");
+        set => this.WithProperty("free_trial", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique id of the license config.
     /// </summary>
-    public string? LicenseConfigId
+    public TerraformLiteralProperty<string>? LicenseConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_config_id")?.Value;
-        set => this.WithProperty("license_config_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_config_id");
+        set => this.WithProperty("license_config_id", value);
     }
 
     /// <summary>
     /// Number of licenses purchased.
     /// </summary>
-    public double? LicenseCount
+    public TerraformLiteralProperty<double>? LicenseCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("license_count")?.Value;
-        set => this.WithProperty("license_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("license_count");
+        set => this.WithProperty("license_count", value);
     }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Subscription term. Possible values: [&amp;quot;SUBSCRIPTION_TERM_UNSPECIFIED&amp;quot;, &amp;quot;SUBSCRIPTION_TERM_ONE_MONTH&amp;quot;, &amp;quot;SUBSCRIPTION_TERM_ONE_YEAR&amp;quot;, &amp;quot;SUBSCRIPTION_TERM_THREE_YEARS&amp;quot;, &amp;quot;SUBSCRIPTION_TERM_THREE_MONTHS&amp;quot;, &amp;quot;SUBSCRIPTION_TERM_FOURTEEN_DAYS&amp;quot;, &amp;quot;SUBSCRIPTION_TERM_CUSTOM&amp;quot;]
     /// </summary>
-    public string? SubscriptionTerm
+    public TerraformLiteralProperty<string>? SubscriptionTerm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_term")?.Value;
-        set => this.WithProperty("subscription_term", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subscription_term");
+        set => this.WithProperty("subscription_term", value);
     }
 
     /// <summary>
     /// Subscription tier information for the license config. Possible values: [&amp;quot;SUBSCRIPTION_TIER_UNSPECIFIED&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_SEARCH&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_NOTEBOOK_LM&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_FRONTLINE_WORKER&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_AGENTSPACE_STARTER&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_ENTERPRISE&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_EDU&amp;quot;, &amp;quot;SUBSCRIPTION_TIER_EDU_PRO&amp;quot;]
     /// </summary>
-    public string? SubscriptionTier
+    public TerraformLiteralProperty<string>? SubscriptionTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_tier")?.Value;
-        set => this.WithProperty("subscription_tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subscription_tier");
+        set => this.WithProperty("subscription_tier", value);
     }
 
     /// <summary>

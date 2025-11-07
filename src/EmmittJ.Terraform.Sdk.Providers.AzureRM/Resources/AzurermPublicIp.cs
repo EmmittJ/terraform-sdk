@@ -21,172 +21,172 @@ public class AzurermPublicIp : TerraformResource
     /// <summary>
     /// The allocation_method attribute.
     /// </summary>
-    public string? AllocationMethod
+    public TerraformLiteralProperty<string>? AllocationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allocation_method")?.Value;
-        set => this.WithProperty("allocation_method", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("allocation_method");
+        set => this.WithProperty("allocation_method", value);
     }
 
     /// <summary>
     /// The ddos_protection_mode attribute.
     /// </summary>
-    public string? DdosProtectionMode
+    public TerraformLiteralProperty<string>? DdosProtectionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ddos_protection_mode")?.Value;
-        set => this.WithProperty("ddos_protection_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ddos_protection_mode");
+        set => this.WithProperty("ddos_protection_mode", value);
     }
 
     /// <summary>
     /// The ddos_protection_plan_id attribute.
     /// </summary>
-    public string? DdosProtectionPlanId
+    public TerraformLiteralProperty<string>? DdosProtectionPlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ddos_protection_plan_id")?.Value;
-        set => this.WithProperty("ddos_protection_plan_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ddos_protection_plan_id");
+        set => this.WithProperty("ddos_protection_plan_id", value);
     }
 
     /// <summary>
     /// The domain_name_label attribute.
     /// </summary>
-    public string? DomainNameLabel
+    public TerraformLiteralProperty<string>? DomainNameLabel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name_label")?.Value;
-        set => this.WithProperty("domain_name_label", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name_label");
+        set => this.WithProperty("domain_name_label", value);
     }
 
     /// <summary>
     /// The domain_name_label_scope attribute.
     /// </summary>
-    public string? DomainNameLabelScope
+    public TerraformLiteralProperty<string>? DomainNameLabelScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name_label_scope")?.Value;
-        set => this.WithProperty("domain_name_label_scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name_label_scope");
+        set => this.WithProperty("domain_name_label_scope", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public string? EdgeZone
+    public TerraformLiteralProperty<string>? EdgeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_zone")?.Value;
-        set => this.WithProperty("edge_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("edge_zone");
+        set => this.WithProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    public double? IdleTimeoutInMinutes
+    public TerraformLiteralProperty<double>? IdleTimeoutInMinutes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_timeout_in_minutes")?.Value;
-        set => this.WithProperty("idle_timeout_in_minutes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("idle_timeout_in_minutes");
+        set => this.WithProperty("idle_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The ip_tags attribute.
     /// </summary>
-    public Dictionary<string, string>? IpTags
+    public TerraformLiteralProperty<Dictionary<string, string>>? IpTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("ip_tags")?.Value;
-        set => this.WithProperty("ip_tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("ip_tags");
+        set => this.WithProperty("ip_tags", value);
     }
 
     /// <summary>
     /// The ip_version attribute.
     /// </summary>
-    public string? IpVersion
+    public TerraformLiteralProperty<string>? IpVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_version")?.Value;
-        set => this.WithProperty("ip_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_version");
+        set => this.WithProperty("ip_version", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_ip_prefix_id attribute.
     /// </summary>
-    public string? PublicIpPrefixId
+    public TerraformLiteralProperty<string>? PublicIpPrefixId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_ip_prefix_id")?.Value;
-        set => this.WithProperty("public_ip_prefix_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("public_ip_prefix_id");
+        set => this.WithProperty("public_ip_prefix_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The reverse_fqdn attribute.
     /// </summary>
-    public string? ReverseFqdn
+    public TerraformLiteralProperty<string>? ReverseFqdn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reverse_fqdn")?.Value;
-        set => this.WithProperty("reverse_fqdn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("reverse_fqdn");
+        set => this.WithProperty("reverse_fqdn", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public string? Sku
+    public TerraformLiteralProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku")?.Value;
-        set => this.WithProperty("sku", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public string? SkuTier
+    public TerraformLiteralProperty<string>? SkuTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_tier")?.Value;
-        set => this.WithProperty("sku_tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku_tier");
+        set => this.WithProperty("sku_tier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<string>? Zones
+    public TerraformLiteralProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones")?.Value;
-        set => this.WithProperty("zones", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        set => this.WithProperty("zones", value);
     }
 
     /// <summary>

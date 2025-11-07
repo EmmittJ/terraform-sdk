@@ -91,253 +91,253 @@ public class AzurermStorageAccount : TerraformResource
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public string? AccessTier
+    public TerraformLiteralProperty<string>? AccessTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_tier")?.Value;
-        set => this.WithProperty("access_tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_tier");
+        set => this.WithProperty("access_tier", value);
     }
 
     /// <summary>
     /// The account_kind attribute.
     /// </summary>
-    public string? AccountKind
+    public TerraformLiteralProperty<string>? AccountKind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_kind")?.Value;
-        set => this.WithProperty("account_kind", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_kind");
+        set => this.WithProperty("account_kind", value);
     }
 
     /// <summary>
     /// The account_replication_type attribute.
     /// </summary>
-    public string? AccountReplicationType
+    public TerraformLiteralProperty<string>? AccountReplicationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_replication_type")?.Value;
-        set => this.WithProperty("account_replication_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_replication_type");
+        set => this.WithProperty("account_replication_type", value);
     }
 
     /// <summary>
     /// The account_tier attribute.
     /// </summary>
-    public string? AccountTier
+    public TerraformLiteralProperty<string>? AccountTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_tier")?.Value;
-        set => this.WithProperty("account_tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_tier");
+        set => this.WithProperty("account_tier", value);
     }
 
     /// <summary>
     /// The allow_nested_items_to_be_public attribute.
     /// </summary>
-    public bool? AllowNestedItemsToBePublic
+    public TerraformLiteralProperty<bool>? AllowNestedItemsToBePublic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_nested_items_to_be_public")?.Value;
-        set => this.WithProperty("allow_nested_items_to_be_public", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_nested_items_to_be_public");
+        set => this.WithProperty("allow_nested_items_to_be_public", value);
     }
 
     /// <summary>
     /// The allowed_copy_scope attribute.
     /// </summary>
-    public string? AllowedCopyScope
+    public TerraformLiteralProperty<string>? AllowedCopyScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allowed_copy_scope")?.Value;
-        set => this.WithProperty("allowed_copy_scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("allowed_copy_scope");
+        set => this.WithProperty("allowed_copy_scope", value);
     }
 
     /// <summary>
     /// The cross_tenant_replication_enabled attribute.
     /// </summary>
-    public bool? CrossTenantReplicationEnabled
+    public TerraformLiteralProperty<bool>? CrossTenantReplicationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cross_tenant_replication_enabled")?.Value;
-        set => this.WithProperty("cross_tenant_replication_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("cross_tenant_replication_enabled");
+        set => this.WithProperty("cross_tenant_replication_enabled", value);
     }
 
     /// <summary>
     /// The default_to_oauth_authentication attribute.
     /// </summary>
-    public bool? DefaultToOauthAuthentication
+    public TerraformLiteralProperty<bool>? DefaultToOauthAuthentication
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_to_oauth_authentication")?.Value;
-        set => this.WithProperty("default_to_oauth_authentication", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("default_to_oauth_authentication");
+        set => this.WithProperty("default_to_oauth_authentication", value);
     }
 
     /// <summary>
     /// The dns_endpoint_type attribute.
     /// </summary>
-    public string? DnsEndpointType
+    public TerraformLiteralProperty<string>? DnsEndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_endpoint_type")?.Value;
-        set => this.WithProperty("dns_endpoint_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_endpoint_type");
+        set => this.WithProperty("dns_endpoint_type", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public string? EdgeZone
+    public TerraformLiteralProperty<string>? EdgeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_zone")?.Value;
-        set => this.WithProperty("edge_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("edge_zone");
+        set => this.WithProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The https_traffic_only_enabled attribute.
     /// </summary>
-    public bool? HttpsTrafficOnlyEnabled
+    public TerraformLiteralProperty<bool>? HttpsTrafficOnlyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_traffic_only_enabled")?.Value;
-        set => this.WithProperty("https_traffic_only_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("https_traffic_only_enabled");
+        set => this.WithProperty("https_traffic_only_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public bool? InfrastructureEncryptionEnabled
+    public TerraformLiteralProperty<bool>? InfrastructureEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("infrastructure_encryption_enabled")?.Value;
-        set => this.WithProperty("infrastructure_encryption_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("infrastructure_encryption_enabled");
+        set => this.WithProperty("infrastructure_encryption_enabled", value);
     }
 
     /// <summary>
     /// The is_hns_enabled attribute.
     /// </summary>
-    public bool? IsHnsEnabled
+    public TerraformLiteralProperty<bool>? IsHnsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_hns_enabled")?.Value;
-        set => this.WithProperty("is_hns_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("is_hns_enabled");
+        set => this.WithProperty("is_hns_enabled", value);
     }
 
     /// <summary>
     /// The large_file_share_enabled attribute.
     /// </summary>
-    public bool? LargeFileShareEnabled
+    public TerraformLiteralProperty<bool>? LargeFileShareEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("large_file_share_enabled")?.Value;
-        set => this.WithProperty("large_file_share_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("large_file_share_enabled");
+        set => this.WithProperty("large_file_share_enabled", value);
     }
 
     /// <summary>
     /// The local_user_enabled attribute.
     /// </summary>
-    public bool? LocalUserEnabled
+    public TerraformLiteralProperty<bool>? LocalUserEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_user_enabled")?.Value;
-        set => this.WithProperty("local_user_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("local_user_enabled");
+        set => this.WithProperty("local_user_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    public string? MinTlsVersion
+    public TerraformLiteralProperty<string>? MinTlsVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("min_tls_version")?.Value;
-        set => this.WithProperty("min_tls_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("min_tls_version");
+        set => this.WithProperty("min_tls_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The nfsv3_enabled attribute.
     /// </summary>
-    public bool? Nfsv3Enabled
+    public TerraformLiteralProperty<bool>? Nfsv3Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("nfsv3_enabled")?.Value;
-        set => this.WithProperty("nfsv3_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("nfsv3_enabled");
+        set => this.WithProperty("nfsv3_enabled", value);
     }
 
     /// <summary>
     /// The provisioned_billing_model_version attribute.
     /// </summary>
-    public string? ProvisionedBillingModelVersion
+    public TerraformLiteralProperty<string>? ProvisionedBillingModelVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provisioned_billing_model_version")?.Value;
-        set => this.WithProperty("provisioned_billing_model_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("provisioned_billing_model_version");
+        set => this.WithProperty("provisioned_billing_model_version", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public bool? PublicNetworkAccessEnabled
+    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled")?.Value;
-        set => this.WithProperty("public_network_access_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The queue_encryption_key_type attribute.
     /// </summary>
-    public string? QueueEncryptionKeyType
+    public TerraformLiteralProperty<string>? QueueEncryptionKeyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("queue_encryption_key_type")?.Value;
-        set => this.WithProperty("queue_encryption_key_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("queue_encryption_key_type");
+        set => this.WithProperty("queue_encryption_key_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sftp_enabled attribute.
     /// </summary>
-    public bool? SftpEnabled
+    public TerraformLiteralProperty<bool>? SftpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sftp_enabled")?.Value;
-        set => this.WithProperty("sftp_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sftp_enabled");
+        set => this.WithProperty("sftp_enabled", value);
     }
 
     /// <summary>
     /// The shared_access_key_enabled attribute.
     /// </summary>
-    public bool? SharedAccessKeyEnabled
+    public TerraformLiteralProperty<bool>? SharedAccessKeyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("shared_access_key_enabled")?.Value;
-        set => this.WithProperty("shared_access_key_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("shared_access_key_enabled");
+        set => this.WithProperty("shared_access_key_enabled", value);
     }
 
     /// <summary>
     /// The table_encryption_key_type attribute.
     /// </summary>
-    public string? TableEncryptionKeyType
+    public TerraformLiteralProperty<string>? TableEncryptionKeyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_encryption_key_type")?.Value;
-        set => this.WithProperty("table_encryption_key_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table_encryption_key_type");
+        set => this.WithProperty("table_encryption_key_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

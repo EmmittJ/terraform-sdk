@@ -20,64 +20,64 @@ public class AzurermOrbitalContact : TerraformResource
     /// <summary>
     /// The contact_profile_id attribute.
     /// </summary>
-    public string? ContactProfileId
+    public TerraformLiteralProperty<string>? ContactProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("contact_profile_id")?.Value;
-        set => this.WithProperty("contact_profile_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("contact_profile_id");
+        set => this.WithProperty("contact_profile_id", value);
     }
 
     /// <summary>
     /// The ground_station_name attribute.
     /// </summary>
-    public string? GroundStationName
+    public TerraformLiteralProperty<string>? GroundStationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ground_station_name")?.Value;
-        set => this.WithProperty("ground_station_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ground_station_name");
+        set => this.WithProperty("ground_station_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The reservation_end_time attribute.
     /// </summary>
-    public string? ReservationEndTime
+    public TerraformLiteralProperty<string>? ReservationEndTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reservation_end_time")?.Value;
-        set => this.WithProperty("reservation_end_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("reservation_end_time");
+        set => this.WithProperty("reservation_end_time", value);
     }
 
     /// <summary>
     /// The reservation_start_time attribute.
     /// </summary>
-    public string? ReservationStartTime
+    public TerraformLiteralProperty<string>? ReservationStartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reservation_start_time")?.Value;
-        set => this.WithProperty("reservation_start_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("reservation_start_time");
+        set => this.WithProperty("reservation_start_time", value);
     }
 
     /// <summary>
     /// The spacecraft_id attribute.
     /// </summary>
-    public string? SpacecraftId
+    public TerraformLiteralProperty<string>? SpacecraftId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spacecraft_id")?.Value;
-        set => this.WithProperty("spacecraft_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spacecraft_id");
+        set => this.WithProperty("spacecraft_id", value);
     }
 
 }

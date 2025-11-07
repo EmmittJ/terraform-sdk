@@ -23,19 +23,19 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -43,19 +43,19 @@ public class GoogleApphubServiceProjectAttachment : TerraformResource
     /// or \&amp;quot;projects/123\&amp;quot;. As input, project name with either project id or number
     /// are accepted. As output, this field will contain project number.&amp;quot;
     /// </summary>
-    public string? ServiceProject
+    public TerraformLiteralProperty<string>? ServiceProject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_project")?.Value;
-        set => this.WithProperty("service_project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_project");
+        set => this.WithProperty("service_project", value);
     }
 
     /// <summary>
     /// Required. The service project attachment identifier must contain the project_id of the service project specified in the service_project_attachment.service_project field. Hint: &amp;quot;projects/{project_id}&amp;quot;
     /// </summary>
-    public string? ServiceProjectAttachmentId
+    public TerraformLiteralProperty<string>? ServiceProjectAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_project_attachment_id")?.Value;
-        set => this.WithProperty("service_project_attachment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_project_attachment_id");
+        set => this.WithProperty("service_project_attachment_id", value);
     }
 
     /// <summary>

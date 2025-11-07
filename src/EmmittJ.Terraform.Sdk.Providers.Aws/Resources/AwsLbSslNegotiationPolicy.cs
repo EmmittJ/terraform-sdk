@@ -19,55 +19,55 @@ public class AwsLbSslNegotiationPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lb_port attribute.
     /// </summary>
-    public double? LbPort
+    public TerraformLiteralProperty<double>? LbPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("lb_port")?.Value;
-        set => this.WithProperty("lb_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("lb_port");
+        set => this.WithProperty("lb_port", value);
     }
 
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
-    public string? LoadBalancer
+    public TerraformLiteralProperty<string>? LoadBalancer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancer")?.Value;
-        set => this.WithProperty("load_balancer", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancer");
+        set => this.WithProperty("load_balancer", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public Dictionary<string, string>? Triggers
+    public TerraformLiteralProperty<Dictionary<string, string>>? Triggers
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("triggers")?.Value;
-        set => this.WithProperty("triggers", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("triggers");
+        set => this.WithProperty("triggers", value);
     }
 
 }

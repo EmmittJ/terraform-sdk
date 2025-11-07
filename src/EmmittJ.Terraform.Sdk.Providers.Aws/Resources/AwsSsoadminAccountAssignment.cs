@@ -19,73 +19,73 @@ public class AwsSsoadminAccountAssignment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public string? InstanceArn
+    public TerraformLiteralProperty<string>? InstanceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_arn")?.Value;
-        set => this.WithProperty("instance_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_arn");
+        set => this.WithProperty("instance_arn", value);
     }
 
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
-    public string? PermissionSetArn
+    public TerraformLiteralProperty<string>? PermissionSetArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("permission_set_arn")?.Value;
-        set => this.WithProperty("permission_set_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("permission_set_arn");
+        set => this.WithProperty("permission_set_arn", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public string? PrincipalId
+    public TerraformLiteralProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id")?.Value;
-        set => this.WithProperty("principal_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public string? PrincipalType
+    public TerraformLiteralProperty<string>? PrincipalType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_type")?.Value;
-        set => this.WithProperty("principal_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_type");
+        set => this.WithProperty("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public string? TargetId
+    public TerraformLiteralProperty<string>? TargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_id")?.Value;
-        set => this.WithProperty("target_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_id");
+        set => this.WithProperty("target_id", value);
     }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public string? TargetType
+    public TerraformLiteralProperty<string>? TargetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_type")?.Value;
-        set => this.WithProperty("target_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_type");
+        set => this.WithProperty("target_type", value);
     }
 
 }

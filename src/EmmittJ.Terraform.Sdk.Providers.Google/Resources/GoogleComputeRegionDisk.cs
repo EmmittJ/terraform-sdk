@@ -35,10 +35,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     ///   * READ_ONLY_SINGLE: The AccessMode means the disk can be attached to multiple instances in RO mode.
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
-    public string? AccessMode
+    public TerraformLiteralProperty<string>? AccessMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_mode")?.Value;
-        set => this.WithProperty("access_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_mode");
+        set => this.WithProperty("access_mode", value);
     }
 
     /// <summary>
@@ -46,38 +46,38 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// If your disk is encrypted with customer managed encryption keys these will be reused for the snapshot creation.
     /// The name of the snapshot by default will be &#39;{{disk-name}}-YYYYMMDD-HHmm&#39;
     /// </summary>
-    public bool? CreateSnapshotBeforeDestroy
+    public TerraformLiteralProperty<bool>? CreateSnapshotBeforeDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_snapshot_before_destroy")?.Value;
-        set => this.WithProperty("create_snapshot_before_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("create_snapshot_before_destroy");
+        set => this.WithProperty("create_snapshot_before_destroy", value);
     }
 
     /// <summary>
     /// This will set a custom name prefix for the snapshot that&#39;s created when the disk is deleted.
     /// </summary>
-    public string? CreateSnapshotBeforeDestroyPrefix
+    public TerraformLiteralProperty<string>? CreateSnapshotBeforeDestroyPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_snapshot_before_destroy_prefix")?.Value;
-        set => this.WithProperty("create_snapshot_before_destroy_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("create_snapshot_before_destroy_prefix");
+        set => this.WithProperty("create_snapshot_before_destroy_prefix", value);
     }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -87,19 +87,19 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public List<string>? Licenses
+    public TerraformLiteralProperty<List<string>>? Licenses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("licenses")?.Value;
-        set => this.WithProperty("licenses", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("licenses");
+        set => this.WithProperty("licenses", value);
     }
 
     /// <summary>
@@ -111,10 +111,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -124,19 +124,19 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// If an unsupported value is requested, the error message will list
     /// the supported values for the caller&#39;s project.
     /// </summary>
-    public double? PhysicalBlockSizeBytes
+    public TerraformLiteralProperty<double>? PhysicalBlockSizeBytes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("physical_block_size_bytes")?.Value;
-        set => this.WithProperty("physical_block_size_bytes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("physical_block_size_bytes");
+        set => this.WithProperty("physical_block_size_bytes", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -144,38 +144,38 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// that the disk can handle. Values must be between 10,000 and 120,000.
     /// For more details, see the Extreme persistent disk [documentation](https://cloud.google.com/compute/docs/disks/extreme-persistent-disk).
     /// </summary>
-    public double? ProvisionedIops
+    public TerraformLiteralProperty<double>? ProvisionedIops
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_iops")?.Value;
-        set => this.WithProperty("provisioned_iops", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_iops");
+        set => this.WithProperty("provisioned_iops", value);
     }
 
     /// <summary>
     /// Indicates how much throughput to provision for the disk. This sets the number of throughput
     /// mb per second that the disk can handle. Values must be greater than or equal to 1.
     /// </summary>
-    public double? ProvisionedThroughput
+    public TerraformLiteralProperty<double>? ProvisionedThroughput
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_throughput")?.Value;
-        set => this.WithProperty("provisioned_throughput", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_throughput");
+        set => this.WithProperty("provisioned_throughput", value);
     }
 
     /// <summary>
     /// A reference to the region where the disk resides.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// URLs of the zones where the disk should be replicated to.
     /// </summary>
-    public List<string>? ReplicaZones
+    public TerraformLiteralProperty<List<string>>? ReplicaZones
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("replica_zones")?.Value;
-        set => this.WithProperty("replica_zones", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("replica_zones");
+        set => this.WithProperty("replica_zones", value);
     }
 
     /// <summary>
@@ -188,10 +188,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// the value of sizeGb must not be less than the size of the sourceImage
     /// or the size of the snapshot.
     /// </summary>
-    public double? Size
+    public TerraformLiteralProperty<double>? Size
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("size")?.Value;
-        set => this.WithProperty("size", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("size");
+        set => this.WithProperty("size", value);
     }
 
     /// <summary>
@@ -204,10 +204,10 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// * &#39;global/snapshots/snapshot&#39;
     /// * &#39;snapshot&#39;
     /// </summary>
-    public string? Snapshot
+    public TerraformLiteralProperty<string>? Snapshot
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot")?.Value;
-        set => this.WithProperty("snapshot", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("snapshot");
+        set => this.WithProperty("snapshot", value);
     }
 
     /// <summary>
@@ -221,20 +221,20 @@ public class GoogleComputeRegionDisk : TerraformResource
     /// * zones/{zone}/disks/{disk}
     /// * regions/{region}/disks/{disk}
     /// </summary>
-    public string? SourceDisk
+    public TerraformLiteralProperty<string>? SourceDisk
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_disk")?.Value;
-        set => this.WithProperty("source_disk", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_disk");
+        set => this.WithProperty("source_disk", value);
     }
 
     /// <summary>
     /// URL of the disk type resource describing which disk type to use to
     /// create the disk. Provide this when creating the disk.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

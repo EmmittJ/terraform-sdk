@@ -24,64 +24,64 @@ public class AwsBedrockagentcoreAgentRuntime : TerraformResource
     /// <summary>
     /// The agent_runtime_name attribute.
     /// </summary>
-    public string? AgentRuntimeName
+    public TerraformLiteralProperty<string>? AgentRuntimeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_runtime_name")?.Value;
-        set => this.WithProperty("agent_runtime_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_runtime_name");
+        set => this.WithProperty("agent_runtime_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public Dictionary<string, string>? EnvironmentVariables
+    public TerraformLiteralProperty<Dictionary<string, string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("environment_variables")?.Value;
-        set => this.WithProperty("environment_variables", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("environment_variables");
+        set => this.WithProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The lifecycle_configuration attribute.
     /// </summary>
-    public List<object>? LifecycleConfiguration
+    public TerraformLiteralProperty<List<object>>? LifecycleConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("lifecycle_configuration")?.Value;
-        set => this.WithProperty("lifecycle_configuration", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("lifecycle_configuration");
+        set => this.WithProperty("lifecycle_configuration", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -19,82 +19,82 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public string? ApiManagementName
+    public TerraformLiteralProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name")?.Value;
-        set => this.WithProperty("api_management_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
-    public string? ApiName
+    public TerraformLiteralProperty<string>? ApiName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_name")?.Value;
-        set => this.WithProperty("api_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_name");
+        set => this.WithProperty("api_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    public string? Method
+    public TerraformLiteralProperty<string>? Method
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("method")?.Value;
-        set => this.WithProperty("method", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("method");
+        set => this.WithProperty("method", value);
     }
 
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
-    public string? OperationId
+    public TerraformLiteralProperty<string>? OperationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operation_id")?.Value;
-        set => this.WithProperty("operation_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("operation_id");
+        set => this.WithProperty("operation_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The url_template attribute.
     /// </summary>
-    public string? UrlTemplate
+    public TerraformLiteralProperty<string>? UrlTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_template")?.Value;
-        set => this.WithProperty("url_template", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url_template");
+        set => this.WithProperty("url_template", value);
     }
 
 }

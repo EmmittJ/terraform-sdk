@@ -19,46 +19,46 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     /// <summary>
     /// The api_tag_id attribute.
     /// </summary>
-    public string? ApiTagId
+    public TerraformLiteralProperty<string>? ApiTagId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_tag_id")?.Value;
-        set => this.WithProperty("api_tag_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_tag_id");
+        set => this.WithProperty("api_tag_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The external_documentation_description attribute.
     /// </summary>
-    public string? ExternalDocumentationDescription
+    public TerraformLiteralProperty<string>? ExternalDocumentationDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_documentation_description")?.Value;
-        set => this.WithProperty("external_documentation_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("external_documentation_description");
+        set => this.WithProperty("external_documentation_description", value);
     }
 
     /// <summary>
     /// The external_documentation_url attribute.
     /// </summary>
-    public string? ExternalDocumentationUrl
+    public TerraformLiteralProperty<string>? ExternalDocumentationUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_documentation_url")?.Value;
-        set => this.WithProperty("external_documentation_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("external_documentation_url");
+        set => this.WithProperty("external_documentation_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

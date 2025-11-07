@@ -23,10 +23,10 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// <summary>
     /// User-provided description for this network policy.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -34,19 +34,19 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// An RFC 1918 CIDR block, with a &amp;quot;/26&amp;quot; prefix, is required. The range cannot overlap with any
     /// prefixes either in the consumer VPC network or in use by the private clouds attached to that VPC network.
     /// </summary>
-    public string? EdgeServicesCidr
+    public TerraformLiteralProperty<string>? EdgeServicesCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_services_cidr")?.Value;
-        set => this.WithProperty("edge_services_cidr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("edge_services_cidr");
+        set => this.WithProperty("edge_services_cidr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -54,28 +54,28 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
     /// For example: projects/my-project/locations/us-central1
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the Network Policy.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -83,10 +83,10 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
     /// can either be a project number or a project ID.
     /// </summary>
-    public string? VmwareEngineNetwork
+    public TerraformLiteralProperty<string>? VmwareEngineNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vmware_engine_network")?.Value;
-        set => this.WithProperty("vmware_engine_network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vmware_engine_network");
+        set => this.WithProperty("vmware_engine_network", value);
     }
 
     /// <summary>

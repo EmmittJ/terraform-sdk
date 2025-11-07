@@ -29,91 +29,91 @@ public class AzurermKeyVaultKey : TerraformResource
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    public string? Curve
+    public TerraformLiteralProperty<string>? Curve
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("curve")?.Value;
-        set => this.WithProperty("curve", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("curve");
+        set => this.WithProperty("curve", value);
     }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public string? ExpirationDate
+    public TerraformLiteralProperty<string>? ExpirationDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_date")?.Value;
-        set => this.WithProperty("expiration_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expiration_date");
+        set => this.WithProperty("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
-    public List<string>? KeyOpts
+    public TerraformLiteralProperty<List<string>>? KeyOpts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("key_opts")?.Value;
-        set => this.WithProperty("key_opts", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("key_opts");
+        set => this.WithProperty("key_opts", value);
     }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public double? KeySize
+    public TerraformLiteralProperty<double>? KeySize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("key_size")?.Value;
-        set => this.WithProperty("key_size", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("key_size");
+        set => this.WithProperty("key_size", value);
     }
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
-    public string? KeyType
+    public TerraformLiteralProperty<string>? KeyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_type")?.Value;
-        set => this.WithProperty("key_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_type");
+        set => this.WithProperty("key_type", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public string? KeyVaultId
+    public TerraformLiteralProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id")?.Value;
-        set => this.WithProperty("key_vault_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    public string? NotBeforeDate
+    public TerraformLiteralProperty<string>? NotBeforeDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("not_before_date")?.Value;
-        set => this.WithProperty("not_before_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("not_before_date");
+        set => this.WithProperty("not_before_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

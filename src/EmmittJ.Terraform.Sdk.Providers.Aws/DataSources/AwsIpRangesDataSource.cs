@@ -23,37 +23,37 @@ public class AwsIpRangesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public HashSet<string>? Regions
+    public TerraformLiteralProperty<HashSet<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions")?.Value;
-        set => this.WithProperty("regions", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions");
+        set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The services attribute.
     /// </summary>
-    public HashSet<string>? Services
+    public TerraformLiteralProperty<HashSet<string>>? Services
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("services")?.Value;
-        set => this.WithProperty("services", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("services");
+        set => this.WithProperty("services", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public string? Url
+    public TerraformLiteralProperty<string>? Url
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url")?.Value;
-        set => this.WithProperty("url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url");
+        set => this.WithProperty("url", value);
     }
 
     /// <summary>

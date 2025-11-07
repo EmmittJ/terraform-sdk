@@ -23,28 +23,28 @@ public class GoogleIapClientDataSource : TerraformDataSource
     /// is attached to. The format is
     /// &#39;projects/{project_number}/brands/{brand_id}&#39;.
     /// </summary>
-    public string? Brand
+    public TerraformLiteralProperty<string>? Brand
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("brand")?.Value;
-        set => this.WithProperty("brand", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("brand");
+        set => this.WithProperty("brand", value);
     }
 
     /// <summary>
     /// Output only. Unique identifier of the OAuth client.
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

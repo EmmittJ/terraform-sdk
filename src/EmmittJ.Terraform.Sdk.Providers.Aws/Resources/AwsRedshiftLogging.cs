@@ -20,55 +20,55 @@ public class AwsRedshiftLogging : TerraformResource
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
-    public string? BucketName
+    public TerraformLiteralProperty<string>? BucketName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket_name")?.Value;
-        set => this.WithProperty("bucket_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bucket_name");
+        set => this.WithProperty("bucket_name", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public string? ClusterIdentifier
+    public TerraformLiteralProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier")?.Value;
-        set => this.WithProperty("cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The log_destination_type attribute.
     /// </summary>
-    public string? LogDestinationType
+    public TerraformLiteralProperty<string>? LogDestinationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_destination_type")?.Value;
-        set => this.WithProperty("log_destination_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_destination_type");
+        set => this.WithProperty("log_destination_type", value);
     }
 
     /// <summary>
     /// The log_exports attribute.
     /// </summary>
-    public HashSet<string>? LogExports
+    public TerraformLiteralProperty<HashSet<string>>? LogExports
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("log_exports")?.Value;
-        set => this.WithProperty("log_exports", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("log_exports");
+        set => this.WithProperty("log_exports", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    public string? S3KeyPrefix
+    public TerraformLiteralProperty<string>? S3KeyPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_key_prefix")?.Value;
-        set => this.WithProperty("s3_key_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("s3_key_prefix");
+        set => this.WithProperty("s3_key_prefix", value);
     }
 
     /// <summary>

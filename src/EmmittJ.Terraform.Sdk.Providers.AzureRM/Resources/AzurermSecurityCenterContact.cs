@@ -19,55 +19,55 @@ public class AzurermSecurityCenterContact : TerraformResource
     /// <summary>
     /// The alert_notifications attribute.
     /// </summary>
-    public bool? AlertNotifications
+    public TerraformLiteralProperty<bool>? AlertNotifications
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("alert_notifications")?.Value;
-        set => this.WithProperty("alert_notifications", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("alert_notifications");
+        set => this.WithProperty("alert_notifications", value);
     }
 
     /// <summary>
     /// The alerts_to_admins attribute.
     /// </summary>
-    public bool? AlertsToAdmins
+    public TerraformLiteralProperty<bool>? AlertsToAdmins
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("alerts_to_admins")?.Value;
-        set => this.WithProperty("alerts_to_admins", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("alerts_to_admins");
+        set => this.WithProperty("alerts_to_admins", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public string? Email
+    public TerraformLiteralProperty<string>? Email
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email")?.Value;
-        set => this.WithProperty("email", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("email");
+        set => this.WithProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The phone attribute.
     /// </summary>
-    public string? Phone
+    public TerraformLiteralProperty<string>? Phone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("phone")?.Value;
-        set => this.WithProperty("phone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("phone");
+        set => this.WithProperty("phone", value);
     }
 
 }

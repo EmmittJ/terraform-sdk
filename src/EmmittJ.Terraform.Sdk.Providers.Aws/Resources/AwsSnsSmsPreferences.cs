@@ -19,73 +19,73 @@ public class AwsSnsSmsPreferences : TerraformResource
     /// <summary>
     /// The default_sender_id attribute.
     /// </summary>
-    public string? DefaultSenderId
+    public TerraformLiteralProperty<string>? DefaultSenderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_sender_id")?.Value;
-        set => this.WithProperty("default_sender_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_sender_id");
+        set => this.WithProperty("default_sender_id", value);
     }
 
     /// <summary>
     /// The default_sms_type attribute.
     /// </summary>
-    public string? DefaultSmsType
+    public TerraformLiteralProperty<string>? DefaultSmsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_sms_type")?.Value;
-        set => this.WithProperty("default_sms_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_sms_type");
+        set => this.WithProperty("default_sms_type", value);
     }
 
     /// <summary>
     /// The delivery_status_iam_role_arn attribute.
     /// </summary>
-    public string? DeliveryStatusIamRoleArn
+    public TerraformLiteralProperty<string>? DeliveryStatusIamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_status_iam_role_arn")?.Value;
-        set => this.WithProperty("delivery_status_iam_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_status_iam_role_arn");
+        set => this.WithProperty("delivery_status_iam_role_arn", value);
     }
 
     /// <summary>
     /// The delivery_status_success_sampling_rate attribute.
     /// </summary>
-    public string? DeliveryStatusSuccessSamplingRate
+    public TerraformLiteralProperty<string>? DeliveryStatusSuccessSamplingRate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_status_success_sampling_rate")?.Value;
-        set => this.WithProperty("delivery_status_success_sampling_rate", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_status_success_sampling_rate");
+        set => this.WithProperty("delivery_status_success_sampling_rate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The monthly_spend_limit attribute.
     /// </summary>
-    public double? MonthlySpendLimit
+    public TerraformLiteralProperty<double>? MonthlySpendLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("monthly_spend_limit")?.Value;
-        set => this.WithProperty("monthly_spend_limit", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("monthly_spend_limit");
+        set => this.WithProperty("monthly_spend_limit", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The usage_report_s3_bucket attribute.
     /// </summary>
-    public string? UsageReportS3Bucket
+    public TerraformLiteralProperty<string>? UsageReportS3Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("usage_report_s3_bucket")?.Value;
-        set => this.WithProperty("usage_report_s3_bucket", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("usage_report_s3_bucket");
+        set => this.WithProperty("usage_report_s3_bucket", value);
     }
 
 }

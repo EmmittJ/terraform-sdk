@@ -19,28 +19,28 @@ public class AzurermBillingMpaAccountScopeDataSource : TerraformDataSource
     /// <summary>
     /// The billing_account_name attribute.
     /// </summary>
-    public string? BillingAccountName
+    public TerraformLiteralProperty<string>? BillingAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account_name")?.Value;
-        set => this.WithProperty("billing_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("billing_account_name");
+        set => this.WithProperty("billing_account_name", value);
     }
 
     /// <summary>
     /// The customer_name attribute.
     /// </summary>
-    public string? CustomerName
+    public TerraformLiteralProperty<string>? CustomerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_name")?.Value;
-        set => this.WithProperty("customer_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_name");
+        set => this.WithProperty("customer_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

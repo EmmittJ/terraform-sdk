@@ -19,37 +19,37 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     /// <summary>
     /// The cosmosdb_account_id attribute.
     /// </summary>
-    public string? CosmosdbAccountId
+    public TerraformLiteralProperty<string>? CosmosdbAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_account_id")?.Value;
-        set => this.WithProperty("cosmosdb_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_account_id");
+        set => this.WithProperty("cosmosdb_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public double? InstanceCount
+    public TerraformLiteralProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count")?.Value;
-        set => this.WithProperty("instance_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The instance_size attribute.
     /// </summary>
-    public string? InstanceSize
+    public TerraformLiteralProperty<string>? InstanceSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_size")?.Value;
-        set => this.WithProperty("instance_size", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_size");
+        set => this.WithProperty("instance_size", value);
     }
 
 }

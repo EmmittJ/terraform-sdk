@@ -19,37 +19,37 @@ public class AzurermCognitiveAccountCustomerManagedKey : TerraformResource
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
-    public string? CognitiveAccountId
+    public TerraformLiteralProperty<string>? CognitiveAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_account_id")?.Value;
-        set => this.WithProperty("cognitive_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_account_id");
+        set => this.WithProperty("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_client_id attribute.
     /// </summary>
-    public string? IdentityClientId
+    public TerraformLiteralProperty<string>? IdentityClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_client_id")?.Value;
-        set => this.WithProperty("identity_client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity_client_id");
+        set => this.WithProperty("identity_client_id", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public string? KeyVaultKeyId
+    public TerraformLiteralProperty<string>? KeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_key_id")?.Value;
-        set => this.WithProperty("key_vault_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_key_id");
+        set => this.WithProperty("key_vault_key_id", value);
     }
 
 }

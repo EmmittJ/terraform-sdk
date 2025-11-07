@@ -34,82 +34,82 @@ public class AwsMskCluster : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public string? ClusterName
+    public TerraformLiteralProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name")?.Value;
-        set => this.WithProperty("cluster_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The enhanced_monitoring attribute.
     /// </summary>
-    public string? EnhancedMonitoring
+    public TerraformLiteralProperty<string>? EnhancedMonitoring
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enhanced_monitoring")?.Value;
-        set => this.WithProperty("enhanced_monitoring", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("enhanced_monitoring");
+        set => this.WithProperty("enhanced_monitoring", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kafka_version attribute.
     /// </summary>
-    public string? KafkaVersion
+    public TerraformLiteralProperty<string>? KafkaVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kafka_version")?.Value;
-        set => this.WithProperty("kafka_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kafka_version");
+        set => this.WithProperty("kafka_version", value);
     }
 
     /// <summary>
     /// The number_of_broker_nodes attribute.
     /// </summary>
-    public double? NumberOfBrokerNodes
+    public TerraformLiteralProperty<double>? NumberOfBrokerNodes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("number_of_broker_nodes")?.Value;
-        set => this.WithProperty("number_of_broker_nodes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("number_of_broker_nodes");
+        set => this.WithProperty("number_of_broker_nodes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The storage_mode attribute.
     /// </summary>
-    public string? StorageMode
+    public TerraformLiteralProperty<string>? StorageMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_mode")?.Value;
-        set => this.WithProperty("storage_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_mode");
+        set => this.WithProperty("storage_mode", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

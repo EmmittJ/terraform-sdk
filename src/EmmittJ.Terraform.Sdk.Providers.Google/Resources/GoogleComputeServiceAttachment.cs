@@ -24,29 +24,29 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// The connection preference to use for this service attachment. Valid
     /// values include &amp;quot;ACCEPT_AUTOMATIC&amp;quot;, &amp;quot;ACCEPT_MANUAL&amp;quot;.
     /// </summary>
-    public string? ConnectionPreference
+    public TerraformLiteralProperty<string>? ConnectionPreference
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_preference")?.Value;
-        set => this.WithProperty("connection_preference", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_preference");
+        set => this.WithProperty("connection_preference", value);
     }
 
     /// <summary>
     /// An array of projects that are not allowed to connect to this service
     /// attachment.
     /// </summary>
-    public List<string>? ConsumerRejectLists
+    public TerraformLiteralProperty<List<string>>? ConsumerRejectLists
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("consumer_reject_lists")?.Value;
-        set => this.WithProperty("consumer_reject_lists", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("consumer_reject_lists");
+        set => this.WithProperty("consumer_reject_lists", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -55,10 +55,10 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// valid domain name: &amp;quot;p.mycompany.com.&amp;quot;. Current max number of domain names
     /// supported is 1.
     /// </summary>
-    public List<string>? DomainNames
+    public TerraformLiteralProperty<List<string>>? DomainNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("domain_names")?.Value;
-        set => this.WithProperty("domain_names", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("domain_names");
+        set => this.WithProperty("domain_names", value);
     }
 
     /// <summary>
@@ -66,19 +66,19 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// address data in TCP connections that traverse proxies on their way to
     /// destination servers.
     /// </summary>
-    public bool? EnableProxyProtocol
+    public TerraformLiteralProperty<bool>? EnableProxyProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_proxy_protocol")?.Value;
-        set => this.WithProperty("enable_proxy_protocol", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_proxy_protocol");
+        set => this.WithProperty("enable_proxy_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -89,28 +89,28 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// An array of subnets that is provided for NAT in this service attachment.
     /// </summary>
-    public List<string>? NatSubnets
+    public TerraformLiteralProperty<List<string>>? NatSubnets
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("nat_subnets")?.Value;
-        set => this.WithProperty("nat_subnets", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("nat_subnets");
+        set => this.WithProperty("nat_subnets", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -122,10 +122,10 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// 
     /// If unspecified, the default propagated connection limit is 250. To explicitly send a zero value, set &#39;send_propagated_connection_limit_if_zero = true&#39;.
     /// </summary>
-    public double? PropagatedConnectionLimit
+    public TerraformLiteralProperty<double>? PropagatedConnectionLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("propagated_connection_limit")?.Value;
-        set => this.WithProperty("propagated_connection_limit", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("propagated_connection_limit");
+        set => this.WithProperty("propagated_connection_limit", value);
     }
 
     /// <summary>
@@ -134,19 +134,19 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// If false, connection policy update will only affect existing PENDING PSC endpoints. Existing ACCEPTED/REJECTED endpoints will remain untouched regardless how the connection policy is modified .
     /// If true, update will affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to the reject list.
     /// </summary>
-    public bool? ReconcileConnections
+    public TerraformLiteralProperty<bool>? ReconcileConnections
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("reconcile_connections")?.Value;
-        set => this.WithProperty("reconcile_connections", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("reconcile_connections");
+        set => this.WithProperty("reconcile_connections", value);
     }
 
     /// <summary>
     /// URL of the region where the resource resides.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -155,19 +155,19 @@ public class GoogleComputeServiceAttachment : TerraformResource
     /// When true, the provider will set propagated_connection_limit to zero.
     /// Defaults to false.
     /// </summary>
-    public bool? SendPropagatedConnectionLimitIfZero
+    public TerraformLiteralProperty<bool>? SendPropagatedConnectionLimitIfZero
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("send_propagated_connection_limit_if_zero")?.Value;
-        set => this.WithProperty("send_propagated_connection_limit_if_zero", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("send_propagated_connection_limit_if_zero");
+        set => this.WithProperty("send_propagated_connection_limit_if_zero", value);
     }
 
     /// <summary>
     /// The URL of a service serving the endpoint identified by this service attachment.
     /// </summary>
-    public string? TargetService
+    public TerraformLiteralProperty<string>? TargetService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_service")?.Value;
-        set => this.WithProperty("target_service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_service");
+        set => this.WithProperty("target_service", value);
     }
 
     /// <summary>

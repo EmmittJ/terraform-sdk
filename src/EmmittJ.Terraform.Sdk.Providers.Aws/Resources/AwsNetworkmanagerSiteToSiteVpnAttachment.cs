@@ -28,46 +28,46 @@ public class AwsNetworkmanagerSiteToSiteVpnAttachment : TerraformResource
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
-    public string? CoreNetworkId
+    public TerraformLiteralProperty<string>? CoreNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_id")?.Value;
-        set => this.WithProperty("core_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("core_network_id");
+        set => this.WithProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpn_connection_arn attribute.
     /// </summary>
-    public string? VpnConnectionArn
+    public TerraformLiteralProperty<string>? VpnConnectionArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_connection_arn")?.Value;
-        set => this.WithProperty("vpn_connection_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpn_connection_arn");
+        set => this.WithProperty("vpn_connection_arn", value);
     }
 
     /// <summary>

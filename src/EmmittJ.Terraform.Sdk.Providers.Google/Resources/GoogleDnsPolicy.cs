@@ -19,10 +19,10 @@ public class GoogleDnsPolicy : TerraformResource
     /// <summary>
     /// A textual description field. Defaults to &#39;Managed by Terraform&#39;.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -31,47 +31,47 @@ public class GoogleDnsPolicy : TerraformResource
     /// virtual IP address will be allocated from each of the sub-networks
     /// that are bound to this policy.
     /// </summary>
-    public bool? EnableInboundForwarding
+    public TerraformLiteralProperty<bool>? EnableInboundForwarding
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_inbound_forwarding")?.Value;
-        set => this.WithProperty("enable_inbound_forwarding", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_inbound_forwarding");
+        set => this.WithProperty("enable_inbound_forwarding", value);
     }
 
     /// <summary>
     /// Controls whether logging is enabled for the networks bound to this policy.
     /// Defaults to no logging if not set.
     /// </summary>
-    public bool? EnableLogging
+    public TerraformLiteralProperty<bool>? EnableLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging")?.Value;
-        set => this.WithProperty("enable_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging");
+        set => this.WithProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// User assigned name for this policy.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
 }

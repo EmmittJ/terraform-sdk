@@ -22,10 +22,10 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -35,19 +35,19 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// HTTP(S) load balancer, the minimum allowed value is 5 seconds and the
     /// maximum allowed value is 600 seconds.
     /// </summary>
-    public double? HttpKeepAliveTimeoutSec
+    public TerraformLiteralProperty<double>? HttpKeepAliveTimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec")?.Value;
-        set => this.WithProperty("http_keep_alive_timeout_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec");
+        set => this.WithProperty("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -59,39 +59,39 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The Region in which the created target https proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// A reference to the RegionUrlMap resource that defines the mapping from URL
     /// to the BackendService.
     /// </summary>
-    public string? UrlMap
+    public TerraformLiteralProperty<string>? UrlMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_map")?.Value;
-        set => this.WithProperty("url_map", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url_map");
+        set => this.WithProperty("url_map", value);
     }
 
     /// <summary>

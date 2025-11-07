@@ -19,109 +19,109 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    public bool? Activated
+    public TerraformLiteralProperty<bool>? Activated
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("activated")?.Value;
-        set => this.WithProperty("activated", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("activated");
+        set => this.WithProperty("activated", value);
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalProperties
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties")?.Value;
-        set => this.WithProperty("additional_properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties");
+        set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<string>? Annotations
+    public TerraformLiteralProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The blob_path_begins_with attribute.
     /// </summary>
-    public string? BlobPathBeginsWith
+    public TerraformLiteralProperty<string>? BlobPathBeginsWith
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("blob_path_begins_with")?.Value;
-        set => this.WithProperty("blob_path_begins_with", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("blob_path_begins_with");
+        set => this.WithProperty("blob_path_begins_with", value);
     }
 
     /// <summary>
     /// The blob_path_ends_with attribute.
     /// </summary>
-    public string? BlobPathEndsWith
+    public TerraformLiteralProperty<string>? BlobPathEndsWith
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("blob_path_ends_with")?.Value;
-        set => this.WithProperty("blob_path_ends_with", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("blob_path_ends_with");
+        set => this.WithProperty("blob_path_ends_with", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The events attribute.
     /// </summary>
-    public HashSet<string>? Events
+    public TerraformLiteralProperty<HashSet<string>>? Events
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("events")?.Value;
-        set => this.WithProperty("events", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("events");
+        set => this.WithProperty("events", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_empty_blobs attribute.
     /// </summary>
-    public bool? IgnoreEmptyBlobs
+    public TerraformLiteralProperty<bool>? IgnoreEmptyBlobs
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_empty_blobs")?.Value;
-        set => this.WithProperty("ignore_empty_blobs", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_empty_blobs");
+        set => this.WithProperty("ignore_empty_blobs", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public string? StorageAccountId
+    public TerraformLiteralProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id")?.Value;
-        set => this.WithProperty("storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        set => this.WithProperty("storage_account_id", value);
     }
 
 }

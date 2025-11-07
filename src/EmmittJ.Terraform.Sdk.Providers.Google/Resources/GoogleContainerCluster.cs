@@ -28,289 +28,289 @@ public class GoogleContainerCluster : TerraformResource
     /// <summary>
     /// Enable NET_ADMIN for this cluster.
     /// </summary>
-    public bool? AllowNetAdmin
+    public TerraformLiteralProperty<bool>? AllowNetAdmin
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_net_admin")?.Value;
-        set => this.WithProperty("allow_net_admin", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_net_admin");
+        set => this.WithProperty("allow_net_admin", value);
     }
 
     /// <summary>
     /// The IP address range of the Kubernetes pods in this cluster in CIDR notation (e.g. 10.96.0.0/14). Leave blank to have one automatically chosen or specify a /14 block in 10.0.0.0/8. This field will only work for routes-based clusters, where ip_allocation_policy is not defined.
     /// </summary>
-    public string? ClusterIpv4Cidr
+    public TerraformLiteralProperty<string>? ClusterIpv4Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_ipv4_cidr")?.Value;
-        set => this.WithProperty("cluster_ipv4_cidr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_ipv4_cidr");
+        set => this.WithProperty("cluster_ipv4_cidr", value);
     }
 
     /// <summary>
     /// The desired datapath provider for this cluster. By default, uses the IPTables-based kube-proxy implementation.
     /// </summary>
-    public string? DatapathProvider
+    public TerraformLiteralProperty<string>? DatapathProvider
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("datapath_provider")?.Value;
-        set => this.WithProperty("datapath_provider", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("datapath_provider");
+        set => this.WithProperty("datapath_provider", value);
     }
 
     /// <summary>
     /// The default maximum number of pods per node in this cluster. This doesn&#39;t work on &amp;quot;routes-based&amp;quot; clusters, clusters that don&#39;t have IP Aliasing enabled.
     /// </summary>
-    public double? DefaultMaxPodsPerNode
+    public TerraformLiteralProperty<double>? DefaultMaxPodsPerNode
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_max_pods_per_node")?.Value;
-        set => this.WithProperty("default_max_pods_per_node", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("default_max_pods_per_node");
+        set => this.WithProperty("default_max_pods_per_node", value);
     }
 
     /// <summary>
     /// When the field is set to true or unset in Terraform state, a terraform apply or terraform destroy that would delete the cluster will fail. When the field is set to false, deleting the cluster is allowed.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     ///  Description of the cluster.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Disable L4 load balancer VPC firewalls to enable firewall policies.
     /// </summary>
-    public bool? DisableL4LbFirewallReconciliation
+    public TerraformLiteralProperty<bool>? DisableL4LbFirewallReconciliation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_l4_lb_firewall_reconciliation")?.Value;
-        set => this.WithProperty("disable_l4_lb_firewall_reconciliation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_l4_lb_firewall_reconciliation");
+        set => this.WithProperty("disable_l4_lb_firewall_reconciliation", value);
     }
 
     /// <summary>
     /// Enable Autopilot for this cluster.
     /// </summary>
-    public bool? EnableAutopilot
+    public TerraformLiteralProperty<bool>? EnableAutopilot
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_autopilot")?.Value;
-        set => this.WithProperty("enable_autopilot", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_autopilot");
+        set => this.WithProperty("enable_autopilot", value);
     }
 
     /// <summary>
     /// Whether Cilium cluster-wide network policy is enabled on this cluster.
     /// </summary>
-    public bool? EnableCiliumClusterwideNetworkPolicy
+    public TerraformLiteralProperty<bool>? EnableCiliumClusterwideNetworkPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_cilium_clusterwide_network_policy")?.Value;
-        set => this.WithProperty("enable_cilium_clusterwide_network_policy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_cilium_clusterwide_network_policy");
+        set => this.WithProperty("enable_cilium_clusterwide_network_policy", value);
     }
 
     /// <summary>
     /// Whether FQDN Network Policy is enabled on this cluster.
     /// </summary>
-    public bool? EnableFqdnNetworkPolicy
+    public TerraformLiteralProperty<bool>? EnableFqdnNetworkPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_fqdn_network_policy")?.Value;
-        set => this.WithProperty("enable_fqdn_network_policy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_fqdn_network_policy");
+        set => this.WithProperty("enable_fqdn_network_policy", value);
     }
 
     /// <summary>
     /// Whether Intra-node visibility is enabled for this cluster. This makes same node pod to pod traffic visible for VPC network.
     /// </summary>
-    public bool? EnableIntranodeVisibility
+    public TerraformLiteralProperty<bool>? EnableIntranodeVisibility
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_intranode_visibility")?.Value;
-        set => this.WithProperty("enable_intranode_visibility", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_intranode_visibility");
+        set => this.WithProperty("enable_intranode_visibility", value);
     }
 
     /// <summary>
     /// Whether to enable Kubernetes Alpha features for this cluster. Note that when this option is enabled, the cluster cannot be upgraded and will be automatically deleted after 30 days.
     /// </summary>
-    public bool? EnableKubernetesAlpha
+    public TerraformLiteralProperty<bool>? EnableKubernetesAlpha
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_kubernetes_alpha")?.Value;
-        set => this.WithProperty("enable_kubernetes_alpha", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_kubernetes_alpha");
+        set => this.WithProperty("enable_kubernetes_alpha", value);
     }
 
     /// <summary>
     /// Whether L4ILB Subsetting is enabled for this cluster.
     /// </summary>
-    public bool? EnableL4IlbSubsetting
+    public TerraformLiteralProperty<bool>? EnableL4IlbSubsetting
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_l4_ilb_subsetting")?.Value;
-        set => this.WithProperty("enable_l4_ilb_subsetting", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_l4_ilb_subsetting");
+        set => this.WithProperty("enable_l4_ilb_subsetting", value);
     }
 
     /// <summary>
     /// Whether the ABAC authorizer is enabled for this cluster. When enabled, identities in the system, including service accounts, nodes, and controllers, will have statically granted permissions beyond those provided by the RBAC configuration or IAM. Defaults to false.
     /// </summary>
-    public bool? EnableLegacyAbac
+    public TerraformLiteralProperty<bool>? EnableLegacyAbac
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_legacy_abac")?.Value;
-        set => this.WithProperty("enable_legacy_abac", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_legacy_abac");
+        set => this.WithProperty("enable_legacy_abac", value);
     }
 
     /// <summary>
     /// Whether multi-networking is enabled for this cluster.
     /// </summary>
-    public bool? EnableMultiNetworking
+    public TerraformLiteralProperty<bool>? EnableMultiNetworking
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_multi_networking")?.Value;
-        set => this.WithProperty("enable_multi_networking", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_multi_networking");
+        set => this.WithProperty("enable_multi_networking", value);
     }
 
     /// <summary>
     /// Enable Shielded Nodes features on all nodes in this cluster. Defaults to true.
     /// </summary>
-    public bool? EnableShieldedNodes
+    public TerraformLiteralProperty<bool>? EnableShieldedNodes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_shielded_nodes")?.Value;
-        set => this.WithProperty("enable_shielded_nodes", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_shielded_nodes");
+        set => this.WithProperty("enable_shielded_nodes", value);
     }
 
     /// <summary>
     /// Whether to enable Cloud TPU resources in this cluster.
     /// </summary>
-    public bool? EnableTpu
+    public TerraformLiteralProperty<bool>? EnableTpu
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_tpu")?.Value;
-        set => this.WithProperty("enable_tpu", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_tpu");
+        set => this.WithProperty("enable_tpu", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Defines the config of in-transit encryption
     /// </summary>
-    public string? InTransitEncryptionConfig
+    public TerraformLiteralProperty<string>? InTransitEncryptionConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("in_transit_encryption_config")?.Value;
-        set => this.WithProperty("in_transit_encryption_config", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("in_transit_encryption_config");
+        set => this.WithProperty("in_transit_encryption_config", value);
     }
 
     /// <summary>
     /// The number of nodes to create in this cluster&#39;s default node pool. In regional or multi-zonal clusters, this is the number of nodes per zone. Must be set if node_pool is not set. If you&#39;re using google_container_node_pool objects with no default node pool, you&#39;ll need to set this to a value of at least 1, alongside setting remove_default_node_pool to true.
     /// </summary>
-    public double? InitialNodeCount
+    public TerraformLiteralProperty<double>? InitialNodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("initial_node_count")?.Value;
-        set => this.WithProperty("initial_node_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("initial_node_count");
+        set => this.WithProperty("initial_node_count", value);
     }
 
     /// <summary>
     /// The location (region or zone) in which the cluster master will be created, as well as the default node location. If you specify a zone (such as us-central1-a), the cluster will be a zonal cluster with a single cluster master. If you specify a region (such as us-west1), the cluster will be a regional cluster with multiple masters spread across zones in the region, and with default node locations in those zones as well.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The logging service that the cluster should write logs to. Available options include logging.googleapis.com(Legacy Stackdriver), logging.googleapis.com/kubernetes(Stackdriver Kubernetes Engine Logging), and none. Defaults to logging.googleapis.com/kubernetes.
     /// </summary>
-    public string? LoggingService
+    public TerraformLiteralProperty<string>? LoggingService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logging_service")?.Value;
-        set => this.WithProperty("logging_service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("logging_service");
+        set => this.WithProperty("logging_service", value);
     }
 
     /// <summary>
     /// The minimum version of the master. GKE will auto-update the master to new versions, so this does not guarantee the current master version--use the read-only master_version field to obtain that. If unset, the cluster&#39;s version will be set by GKE to the version of the most recent official release (which is not necessarily the latest version).
     /// </summary>
-    public string? MinMasterVersion
+    public TerraformLiteralProperty<string>? MinMasterVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("min_master_version")?.Value;
-        set => this.WithProperty("min_master_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("min_master_version");
+        set => this.WithProperty("min_master_version", value);
     }
 
     /// <summary>
     /// The monitoring service that the cluster should write metrics to. Automatically send metrics from pods in the cluster to the Google Cloud Monitoring API. VM metrics will be collected by Google Compute Engine regardless of this setting Available options include monitoring.googleapis.com(Legacy Stackdriver), monitoring.googleapis.com/kubernetes(Stackdriver Kubernetes Engine Monitoring), and none. Defaults to monitoring.googleapis.com/kubernetes.
     /// </summary>
-    public string? MonitoringService
+    public TerraformLiteralProperty<string>? MonitoringService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("monitoring_service")?.Value;
-        set => this.WithProperty("monitoring_service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("monitoring_service");
+        set => this.WithProperty("monitoring_service", value);
     }
 
     /// <summary>
     /// The name of the cluster, unique within the project and location.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name or self_link of the Google Compute Engine network to which the cluster is connected. For Shared VPC, set this to the self link of the shared network.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// Determines whether alias IPs or routes will be used for pod IPs in the cluster. Defaults to VPC_NATIVE for new clusters.
     /// </summary>
-    public string? NetworkingMode
+    public TerraformLiteralProperty<string>? NetworkingMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("networking_mode")?.Value;
-        set => this.WithProperty("networking_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("networking_mode");
+        set => this.WithProperty("networking_mode", value);
     }
 
     /// <summary>
     /// The list of zones in which the cluster&#39;s nodes are located. Nodes must be in the region of their regional cluster or in the same region as their cluster&#39;s zone for zonal clusters. If this is specified for a zonal cluster, omit the cluster&#39;s zone.
     /// </summary>
-    public HashSet<string>? NodeLocations
+    public TerraformLiteralProperty<HashSet<string>>? NodeLocations
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("node_locations")?.Value;
-        set => this.WithProperty("node_locations", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("node_locations");
+        set => this.WithProperty("node_locations", value);
     }
 
     /// <summary>
     /// The Kubernetes version on the nodes. Must either be unset or set to the same value as min_master_version on create. Defaults to the default version set by GKE which is not necessarily the latest version. This only affects nodes in the default node pool. While a fuzzy version can be specified, it&#39;s recommended that you specify explicit versions as Terraform will see spurious diffs when fuzzy versions are used. See the google_container_engine_versions data source&#39;s version_prefix field to approximate fuzzy versions in a Terraform-compatible way. To update nodes in other node pools, use the version attribute on the node pool.
     /// </summary>
-    public string? NodeVersion
+    public TerraformLiteralProperty<string>? NodeVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_version")?.Value;
-        set => this.WithProperty("node_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("node_version");
+        set => this.WithProperty("node_version", value);
     }
 
     /// <summary>
     /// The desired state of IPv6 connectivity to Google Services. By default, no private IPv6 access to or from Google Services (all access will be via IPv4).
     /// </summary>
-    public string? PrivateIpv6GoogleAccess
+    public TerraformLiteralProperty<string>? PrivateIpv6GoogleAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_ipv6_google_access")?.Value;
-        set => this.WithProperty("private_ipv6_google_access", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("private_ipv6_google_access");
+        set => this.WithProperty("private_ipv6_google_access", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// If true, deletes the default node pool upon cluster creation. If you&#39;re using google_container_node_pool resources with no default node pool, this should be set to true, alongside setting initial_node_count to at least 1.
     /// </summary>
-    public bool? RemoveDefaultNodePool
+    public TerraformLiteralProperty<bool>? RemoveDefaultNodePool
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("remove_default_node_pool")?.Value;
-        set => this.WithProperty("remove_default_node_pool", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("remove_default_node_pool");
+        set => this.WithProperty("remove_default_node_pool", value);
     }
 
     /// <summary>
@@ -319,19 +319,19 @@ public class GoogleContainerCluster : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? ResourceLabels
+    public TerraformLiteralProperty<Dictionary<string, string>>? ResourceLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("resource_labels")?.Value;
-        set => this.WithProperty("resource_labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("resource_labels");
+        set => this.WithProperty("resource_labels", value);
     }
 
     /// <summary>
     /// The name or self_link of the Google Compute Engine subnetwork in which the cluster&#39;s instances are launched.
     /// </summary>
-    public string? Subnetwork
+    public TerraformLiteralProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork")?.Value;
-        set => this.WithProperty("subnetwork", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork");
+        set => this.WithProperty("subnetwork", value);
     }
 
     /// <summary>

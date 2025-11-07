@@ -19,46 +19,46 @@ public class AzurermKubernetesFleetMember : TerraformResource
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public string? Group
+    public TerraformLiteralProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group")?.Value;
-        set => this.WithProperty("group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
     /// </summary>
-    public string? KubernetesClusterId
+    public TerraformLiteralProperty<string>? KubernetesClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_cluster_id")?.Value;
-        set => this.WithProperty("kubernetes_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_cluster_id");
+        set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
     /// <summary>
     /// The kubernetes_fleet_id attribute.
     /// </summary>
-    public string? KubernetesFleetId
+    public TerraformLiteralProperty<string>? KubernetesFleetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_fleet_id")?.Value;
-        set => this.WithProperty("kubernetes_fleet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_fleet_id");
+        set => this.WithProperty("kubernetes_fleet_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

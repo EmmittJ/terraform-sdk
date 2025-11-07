@@ -30,37 +30,37 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The express_route_circuit_name attribute.
     /// </summary>
-    public string? ExpressRouteCircuitName
+    public TerraformLiteralProperty<string>? ExpressRouteCircuitName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("express_route_circuit_name")?.Value;
-        set => this.WithProperty("express_route_circuit_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("express_route_circuit_name");
+        set => this.WithProperty("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
-    public string? PeeringType
+    public TerraformLiteralProperty<string>? PeeringType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering_type")?.Value;
-        set => this.WithProperty("peering_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("peering_type");
+        set => this.WithProperty("peering_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>

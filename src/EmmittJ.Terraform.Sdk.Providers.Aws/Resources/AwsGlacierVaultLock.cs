@@ -19,55 +19,55 @@ public class AwsGlacierVaultLock : TerraformResource
     /// <summary>
     /// The complete_lock attribute.
     /// </summary>
-    public bool? CompleteLock
+    public TerraformLiteralProperty<bool>? CompleteLock
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("complete_lock")?.Value;
-        set => this.WithProperty("complete_lock", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("complete_lock");
+        set => this.WithProperty("complete_lock", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ignore_deletion_error attribute.
     /// </summary>
-    public bool? IgnoreDeletionError
+    public TerraformLiteralProperty<bool>? IgnoreDeletionError
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_deletion_error")?.Value;
-        set => this.WithProperty("ignore_deletion_error", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_deletion_error");
+        set => this.WithProperty("ignore_deletion_error", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public string? Policy
+    public TerraformLiteralProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy")?.Value;
-        set => this.WithProperty("policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The vault_name attribute.
     /// </summary>
-    public string? VaultName
+    public TerraformLiteralProperty<string>? VaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_name")?.Value;
-        set => this.WithProperty("vault_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vault_name");
+        set => this.WithProperty("vault_name", value);
     }
 
 }

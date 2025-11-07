@@ -23,55 +23,55 @@ public class AwsBedrockagentAgentAlias : TerraformResource
     /// <summary>
     /// The agent_alias_name attribute.
     /// </summary>
-    public string? AgentAliasName
+    public TerraformLiteralProperty<string>? AgentAliasName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_alias_name")?.Value;
-        set => this.WithProperty("agent_alias_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_alias_name");
+        set => this.WithProperty("agent_alias_name", value);
     }
 
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
-    public string? AgentId
+    public TerraformLiteralProperty<string>? AgentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_id")?.Value;
-        set => this.WithProperty("agent_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_id");
+        set => this.WithProperty("agent_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The routing_configuration attribute.
     /// </summary>
-    public List<object>? RoutingConfiguration
+    public TerraformLiteralProperty<List<object>>? RoutingConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("routing_configuration")?.Value;
-        set => this.WithProperty("routing_configuration", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("routing_configuration");
+        set => this.WithProperty("routing_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

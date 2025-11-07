@@ -20,55 +20,55 @@ public class GoogleBigqueryAnalyticsHubListingIamPolicy : TerraformResource
     /// <summary>
     /// The data_exchange_id attribute.
     /// </summary>
-    public string? DataExchangeId
+    public TerraformLiteralProperty<string>? DataExchangeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_exchange_id")?.Value;
-        set => this.WithProperty("data_exchange_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_exchange_id");
+        set => this.WithProperty("data_exchange_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The listing_id attribute.
     /// </summary>
-    public string? ListingId
+    public TerraformLiteralProperty<string>? ListingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("listing_id")?.Value;
-        set => this.WithProperty("listing_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("listing_id");
+        set => this.WithProperty("listing_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public string? PolicyData
+    public TerraformLiteralProperty<string>? PolicyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_data")?.Value;
-        set => this.WithProperty("policy_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_data");
+        set => this.WithProperty("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

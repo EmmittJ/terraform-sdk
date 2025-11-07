@@ -25,48 +25,48 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     /// The name of the canonical service underlying this service.. 
     ///                         Corresponds to the destination_service_name metric label in Istio metrics.
     /// </summary>
-    public string? CanonicalService
+    public TerraformLiteralProperty<string>? CanonicalService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("canonical_service")?.Value;
-        set => this.WithProperty("canonical_service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("canonical_service");
+        set => this.WithProperty("canonical_service", value);
     }
 
     /// <summary>
     /// The namespace of the canonical service underlying this service.
     ///                         Corresponds to the destination_service_namespace metric label in Istio metrics.
     /// </summary>
-    public string? CanonicalServiceNamespace
+    public TerraformLiteralProperty<string>? CanonicalServiceNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("canonical_service_namespace")?.Value;
-        set => this.WithProperty("canonical_service_namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("canonical_service_namespace");
+        set => this.WithProperty("canonical_service_namespace", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Identifier for the Istio mesh in which this canonical service is defined.
     ///                         Corresponds to the meshUid metric label in Istio metrics.
     /// </summary>
-    public string? MeshUid
+    public TerraformLiteralProperty<string>? MeshUid
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mesh_uid")?.Value;
-        set => this.WithProperty("mesh_uid", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mesh_uid");
+        set => this.WithProperty("mesh_uid", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

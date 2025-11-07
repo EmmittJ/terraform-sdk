@@ -27,10 +27,10 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// executions of this workflow. If both the workflow and the execution specify a logging level,
     /// the execution level takes precedence. Possible values: [&amp;quot;CALL_LOG_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;LOG_ALL_CALLS&amp;quot;, &amp;quot;LOG_ERRORS_ONLY&amp;quot;, &amp;quot;LOG_NONE&amp;quot;]
     /// </summary>
-    public string? CallLogLevel
+    public TerraformLiteralProperty<string>? CallLogLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("call_log_level")?.Value;
-        set => this.WithProperty("call_log_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("call_log_level");
+        set => this.WithProperty("call_log_level", value);
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// 
     /// Format: projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey}
     /// </summary>
-    public string? CryptoKeyName
+    public TerraformLiteralProperty<string>? CryptoKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_name")?.Value;
-        set => this.WithProperty("crypto_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_name");
+        set => this.WithProperty("crypto_key_name", value);
     }
 
     /// <summary>
@@ -52,19 +52,19 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the workflow will fail.
     /// When the field is set to false, deleting the workflow is allowed.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// Description of the workflow provided by the user. Must be at most 1000 unicode characters long.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -72,19 +72,19 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// determines how much information about workflow executions is preserved. If not specified,
     /// defaults to EXECUTION_HISTORY_LEVEL_UNSPECIFIED. Possible values: [&amp;quot;EXECUTION_HISTORY_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;EXECUTION_HISTORY_BASIC&amp;quot;, &amp;quot;EXECUTION_HISTORY_DETAILED&amp;quot;]
     /// </summary>
-    public string? ExecutionHistoryLevel
+    public TerraformLiteralProperty<string>? ExecutionHistoryLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_history_level")?.Value;
-        set => this.WithProperty("execution_history_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("execution_history_level");
+        set => this.WithProperty("execution_history_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -94,46 +94,46 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of the Workflow.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region of the workflow.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -145,19 +145,19 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// If not provided, workflow will use the project&#39;s default service account.
     /// Modifying this field for an existing workflow results in a new workflow revision.
     /// </summary>
-    public string? ServiceAccount
+    public TerraformLiteralProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account")?.Value;
-        set => this.WithProperty("service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        set => this.WithProperty("service_account", value);
     }
 
     /// <summary>
     /// Workflow code to be executed. The size limit is 128KB.
     /// </summary>
-    public string? SourceContents
+    public TerraformLiteralProperty<string>? SourceContents
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_contents")?.Value;
-        set => this.WithProperty("source_contents", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_contents");
+        set => this.WithProperty("source_contents", value);
     }
 
     /// <summary>
@@ -165,19 +165,19 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in
     /// the format tagValues/456. The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// User-defined environment variables associated with this workflow revision. This map has a maximum length of 20. Each string can take up to 4KiB. Keys cannot be empty strings and cannot start with &amp;quot;GOOGLE&amp;quot; or &amp;quot;WORKFLOWS&amp;quot;.
     /// </summary>
-    public Dictionary<string, string>? UserEnvVars
+    public TerraformLiteralProperty<Dictionary<string, string>>? UserEnvVars
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_env_vars")?.Value;
-        set => this.WithProperty("user_env_vars", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_env_vars");
+        set => this.WithProperty("user_env_vars", value);
     }
 
     /// <summary>

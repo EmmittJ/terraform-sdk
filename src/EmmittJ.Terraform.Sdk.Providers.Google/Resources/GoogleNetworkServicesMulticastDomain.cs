@@ -27,28 +27,28 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// Use the following format:
     /// &#39;projects/{project}/locations/global/networks/{network}&#39;.
     /// </summary>
-    public string? AdminNetwork
+    public TerraformLiteralProperty<string>? AdminNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_network")?.Value;
-        set => this.WithProperty("admin_network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("admin_network");
+        set => this.WithProperty("admin_network", value);
     }
 
     /// <summary>
     /// An optional text description of the multicast domain.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -57,19 +57,19 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -77,10 +77,10 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// Use the following format:
     /// &#39;projects/{project}/locations/global/multicastDomainGroups/{multicast_domain_group}&#39;.
     /// </summary>
-    public string? MulticastDomainGroup
+    public TerraformLiteralProperty<string>? MulticastDomainGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multicast_domain_group")?.Value;
-        set => this.WithProperty("multicast_domain_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("multicast_domain_group");
+        set => this.WithProperty("multicast_domain_group", value);
     }
 
     /// <summary>
@@ -89,19 +89,19 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// character a letter, and the last a letter or a number. The name must not
     /// exceed 48 characters.
     /// </summary>
-    public string? MulticastDomainId
+    public TerraformLiteralProperty<string>? MulticastDomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multicast_domain_id")?.Value;
-        set => this.WithProperty("multicast_domain_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("multicast_domain_id");
+        set => this.WithProperty("multicast_domain_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

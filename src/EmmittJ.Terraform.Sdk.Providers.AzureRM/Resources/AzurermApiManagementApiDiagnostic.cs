@@ -19,109 +19,109 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     /// <summary>
     /// The always_log_errors attribute.
     /// </summary>
-    public bool? AlwaysLogErrors
+    public TerraformLiteralProperty<bool>? AlwaysLogErrors
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("always_log_errors")?.Value;
-        set => this.WithProperty("always_log_errors", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("always_log_errors");
+        set => this.WithProperty("always_log_errors", value);
     }
 
     /// <summary>
     /// The api_management_logger_id attribute.
     /// </summary>
-    public string? ApiManagementLoggerId
+    public TerraformLiteralProperty<string>? ApiManagementLoggerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_logger_id")?.Value;
-        set => this.WithProperty("api_management_logger_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_logger_id");
+        set => this.WithProperty("api_management_logger_id", value);
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public string? ApiManagementName
+    public TerraformLiteralProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name")?.Value;
-        set => this.WithProperty("api_management_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
-    public string? ApiName
+    public TerraformLiteralProperty<string>? ApiName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_name")?.Value;
-        set => this.WithProperty("api_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_name");
+        set => this.WithProperty("api_name", value);
     }
 
     /// <summary>
     /// The http_correlation_protocol attribute.
     /// </summary>
-    public string? HttpCorrelationProtocol
+    public TerraformLiteralProperty<string>? HttpCorrelationProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_correlation_protocol")?.Value;
-        set => this.WithProperty("http_correlation_protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("http_correlation_protocol");
+        set => this.WithProperty("http_correlation_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public string? Identifier
+    public TerraformLiteralProperty<string>? Identifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier")?.Value;
-        set => this.WithProperty("identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identifier");
+        set => this.WithProperty("identifier", value);
     }
 
     /// <summary>
     /// The log_client_ip attribute.
     /// </summary>
-    public bool? LogClientIp
+    public TerraformLiteralProperty<bool>? LogClientIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_client_ip")?.Value;
-        set => this.WithProperty("log_client_ip", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("log_client_ip");
+        set => this.WithProperty("log_client_ip", value);
     }
 
     /// <summary>
     /// The operation_name_format attribute.
     /// </summary>
-    public string? OperationNameFormat
+    public TerraformLiteralProperty<string>? OperationNameFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operation_name_format")?.Value;
-        set => this.WithProperty("operation_name_format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("operation_name_format");
+        set => this.WithProperty("operation_name_format", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public double? SamplingPercentage
+    public TerraformLiteralProperty<double>? SamplingPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_percentage")?.Value;
-        set => this.WithProperty("sampling_percentage", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("sampling_percentage");
+        set => this.WithProperty("sampling_percentage", value);
     }
 
     /// <summary>
     /// The verbosity attribute.
     /// </summary>
-    public string? Verbosity
+    public TerraformLiteralProperty<string>? Verbosity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("verbosity")?.Value;
-        set => this.WithProperty("verbosity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("verbosity");
+        set => this.WithProperty("verbosity", value);
     }
 
 }

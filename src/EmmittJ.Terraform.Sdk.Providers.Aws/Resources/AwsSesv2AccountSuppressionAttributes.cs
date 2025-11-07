@@ -20,19 +20,19 @@ public class AwsSesv2AccountSuppressionAttributes : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The suppressed_reasons attribute.
     /// </summary>
-    public HashSet<string>? SuppressedReasons
+    public TerraformLiteralProperty<HashSet<string>>? SuppressedReasons
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("suppressed_reasons")?.Value;
-        set => this.WithProperty("suppressed_reasons", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("suppressed_reasons");
+        set => this.WithProperty("suppressed_reasons", value);
     }
 
     /// <summary>

@@ -24,20 +24,20 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The name of delegated administrator account used to perform Active Directory operations.
     /// If not specified, setupadmin will be used.
     /// </summary>
-    public string? Admin
+    public TerraformLiteralProperty<string>? Admin
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin")?.Value;
-        set => this.WithProperty("admin", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("admin");
+        set => this.WithProperty("admin", value);
     }
 
     /// <summary>
     /// The full names of the Google Compute Engine networks the domain instance is connected to. The domain is only available on networks listed in authorizedNetworks.
     /// If CIDR subnets overlap between networks, domain creation will fail.
     /// </summary>
-    public HashSet<string>? AuthorizedNetworks
+    public TerraformLiteralProperty<HashSet<string>>? AuthorizedNetworks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("authorized_networks")?.Value;
-        set => this.WithProperty("authorized_networks", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("authorized_networks");
+        set => this.WithProperty("authorized_networks", value);
     }
 
     /// <summary>
@@ -48,29 +48,29 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the domain will fail.
     /// When the field is set to false, deleting the domain is allowed.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The fully qualified domain name. e.g. mydomain.myorganization.com, with the restrictions
     /// of https://cloud.google.com/managed-microsoft-ad/reference/rest/v1/projects.locations.global.domains.
     /// </summary>
-    public string? DomainName
+    public TerraformLiteralProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name")?.Value;
-        set => this.WithProperty("domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -79,39 +79,39 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Locations where domain needs to be provisioned. [regions][compute/docs/regions-zones/]
     /// e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block.
     /// </summary>
-    public List<string>? Locations
+    public TerraformLiteralProperty<List<string>>? Locations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("locations")?.Value;
-        set => this.WithProperty("locations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("locations");
+        set => this.WithProperty("locations", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger.
     /// Ranges must be unique and non-overlapping with existing subnets in authorizedNetworks
     /// </summary>
-    public string? ReservedIpRange
+    public TerraformLiteralProperty<string>? ReservedIpRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reserved_ip_range")?.Value;
-        set => this.WithProperty("reserved_ip_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("reserved_ip_range");
+        set => this.WithProperty("reserved_ip_range", value);
     }
 
     /// <summary>

@@ -19,64 +19,64 @@ public class AwsDirectoryServiceRegion : TerraformResource
     /// <summary>
     /// The desired_number_of_domain_controllers attribute.
     /// </summary>
-    public double? DesiredNumberOfDomainControllers
+    public TerraformLiteralProperty<double>? DesiredNumberOfDomainControllers
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("desired_number_of_domain_controllers")?.Value;
-        set => this.WithProperty("desired_number_of_domain_controllers", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("desired_number_of_domain_controllers");
+        set => this.WithProperty("desired_number_of_domain_controllers", value);
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public string? DirectoryId
+    public TerraformLiteralProperty<string>? DirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_id")?.Value;
-        set => this.WithProperty("directory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("directory_id");
+        set => this.WithProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The region_name attribute.
     /// </summary>
-    public string? RegionName
+    public TerraformLiteralProperty<string>? RegionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region_name")?.Value;
-        set => this.WithProperty("region_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region_name");
+        set => this.WithProperty("region_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
 }

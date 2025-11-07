@@ -19,82 +19,82 @@ public class AzurermBotChannelDirectLineSpeech : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public string? BotName
+    public TerraformLiteralProperty<string>? BotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_name")?.Value;
-        set => this.WithProperty("bot_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bot_name");
+        set => this.WithProperty("bot_name", value);
     }
 
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
-    public string? CognitiveAccountId
+    public TerraformLiteralProperty<string>? CognitiveAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_account_id")?.Value;
-        set => this.WithProperty("cognitive_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_account_id");
+        set => this.WithProperty("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The cognitive_service_access_key attribute.
     /// </summary>
-    public string? CognitiveServiceAccessKey
+    public TerraformLiteralProperty<string>? CognitiveServiceAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_service_access_key")?.Value;
-        set => this.WithProperty("cognitive_service_access_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_service_access_key");
+        set => this.WithProperty("cognitive_service_access_key", value);
     }
 
     /// <summary>
     /// The cognitive_service_location attribute.
     /// </summary>
-    public string? CognitiveServiceLocation
+    public TerraformLiteralProperty<string>? CognitiveServiceLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_service_location")?.Value;
-        set => this.WithProperty("cognitive_service_location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_service_location");
+        set => this.WithProperty("cognitive_service_location", value);
     }
 
     /// <summary>
     /// The custom_speech_model_id attribute.
     /// </summary>
-    public string? CustomSpeechModelId
+    public TerraformLiteralProperty<string>? CustomSpeechModelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_speech_model_id")?.Value;
-        set => this.WithProperty("custom_speech_model_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_speech_model_id");
+        set => this.WithProperty("custom_speech_model_id", value);
     }
 
     /// <summary>
     /// The custom_voice_deployment_id attribute.
     /// </summary>
-    public string? CustomVoiceDeploymentId
+    public TerraformLiteralProperty<string>? CustomVoiceDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_voice_deployment_id")?.Value;
-        set => this.WithProperty("custom_voice_deployment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_voice_deployment_id");
+        set => this.WithProperty("custom_voice_deployment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
 }

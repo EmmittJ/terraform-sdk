@@ -20,37 +20,37 @@ public class GoogleApigeeApiDeployment : TerraformResource
     /// <summary>
     /// The Apigee Environment associated with the Apigee API deployment.
     /// </summary>
-    public string? Environment
+    public TerraformLiteralProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment")?.Value;
-        set => this.WithProperty("environment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee API deployment.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// The Apigee API associated with the Apigee API deployment.
     /// </summary>
-    public string? ProxyId
+    public TerraformLiteralProperty<string>? ProxyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proxy_id")?.Value;
-        set => this.WithProperty("proxy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("proxy_id");
+        set => this.WithProperty("proxy_id", value);
     }
 
     /// <summary>
     /// The revision of the API proxy to be deployed.
     /// </summary>
-    public string? Revision
+    public TerraformLiteralProperty<string>? Revision
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revision")?.Value;
-        set => this.WithProperty("revision", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("revision");
+        set => this.WithProperty("revision", value);
     }
 
     /// <summary>

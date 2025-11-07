@@ -26,28 +26,28 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// <summary>
     /// The App Engine integration mode to use for this database. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public string? AppEngineIntegrationMode
+    public TerraformLiteralProperty<string>? AppEngineIntegrationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_engine_integration_mode")?.Value;
-        set => this.WithProperty("app_engine_integration_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_engine_integration_mode");
+        set => this.WithProperty("app_engine_integration_mode", value);
     }
 
     /// <summary>
     /// The concurrency control mode to use for this database. Possible values: [&amp;quot;OPTIMISTIC&amp;quot;, &amp;quot;PESSIMISTIC&amp;quot;, &amp;quot;OPTIMISTIC_WITH_ENTITY_GROUPS&amp;quot;]
     /// </summary>
-    public string? ConcurrencyMode
+    public TerraformLiteralProperty<string>? ConcurrencyMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("concurrency_mode")?.Value;
-        set => this.WithProperty("concurrency_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("concurrency_mode");
+        set => this.WithProperty("concurrency_mode", value);
     }
 
     /// <summary>
     /// The database edition. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;]
     /// </summary>
-    public string? DatabaseEdition
+    public TerraformLiteralProperty<string>? DatabaseEdition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_edition")?.Value;
-        set => this.WithProperty("database_edition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_edition");
+        set => this.WithProperty("database_edition", value);
     }
 
     /// <summary>
@@ -56,10 +56,10 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// The default value is &#39;DELETE_PROTECTION_STATE_UNSPECIFIED&#39;, which is currently equivalent to &#39;DELETE_PROTECTION_DISABLED&#39;.
     /// **Note:** Additionally, to delete this database using &#39;terraform destroy&#39;, &#39;deletion_policy&#39; must be set to &#39;DELETE&#39;. Possible values: [&amp;quot;DELETE_PROTECTION_STATE_UNSPECIFIED&amp;quot;, &amp;quot;DELETE_PROTECTION_ENABLED&amp;quot;, &amp;quot;DELETE_PROTECTION_DISABLED&amp;quot;]
     /// </summary>
-    public string? DeleteProtectionState
+    public TerraformLiteralProperty<string>? DeleteProtectionState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delete_protection_state")?.Value;
-        set => this.WithProperty("delete_protection_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delete_protection_state");
+        set => this.WithProperty("delete_protection_state", value);
     }
 
     /// <summary>
@@ -69,29 +69,29 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// The default value is &#39;ABANDON&#39;.
     /// See also &#39;delete_protection&#39;.
     /// </summary>
-    public string? DeletionPolicy
+    public TerraformLiteralProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy")?.Value;
-        set => this.WithProperty("deletion_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the database. Available locations are listed at
     /// https://cloud.google.com/firestore/docs/locations.
     /// </summary>
-    public string? LocationId
+    public TerraformLiteralProperty<string>? LocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_id")?.Value;
-        set => this.WithProperty("location_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location_id");
+        set => this.WithProperty("location_id", value);
     }
 
     /// <summary>
@@ -102,10 +102,10 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
     /// &amp;quot;(default)&amp;quot; database id is also valid.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -115,19 +115,19 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// and reads against 1-minute snapshots beyond 1 hour and within 7 days.
     /// If &#39;POINT_IN_TIME_RECOVERY_DISABLED&#39; is selected, reads are supported on any version of the data from within the past 1 hour. Default value: &amp;quot;POINT_IN_TIME_RECOVERY_DISABLED&amp;quot; Possible values: [&amp;quot;POINT_IN_TIME_RECOVERY_ENABLED&amp;quot;, &amp;quot;POINT_IN_TIME_RECOVERY_DISABLED&amp;quot;]
     /// </summary>
-    public string? PointInTimeRecoveryEnablement
+    public TerraformLiteralProperty<string>? PointInTimeRecoveryEnablement
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("point_in_time_recovery_enablement")?.Value;
-        set => this.WithProperty("point_in_time_recovery_enablement", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("point_in_time_recovery_enablement");
+        set => this.WithProperty("point_in_time_recovery_enablement", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -138,10 +138,10 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// resource replacement when mutated. To apply tags to an existing resource, see
     /// the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
@@ -149,10 +149,10 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// See https://cloud.google.com/datastore/docs/firestore-or-datastore
     /// for information about how to choose. Possible values: [&amp;quot;FIRESTORE_NATIVE&amp;quot;, &amp;quot;DATASTORE_MODE&amp;quot;]
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

@@ -19,172 +19,172 @@ public class AzurermNetworkSecurityRule : TerraformResource
     /// <summary>
     /// The access attribute.
     /// </summary>
-    public string? Access
+    public TerraformLiteralProperty<string>? Access
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access")?.Value;
-        set => this.WithProperty("access", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access");
+        set => this.WithProperty("access", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The destination_address_prefix attribute.
     /// </summary>
-    public string? DestinationAddressPrefix
+    public TerraformLiteralProperty<string>? DestinationAddressPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_address_prefix")?.Value;
-        set => this.WithProperty("destination_address_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_address_prefix");
+        set => this.WithProperty("destination_address_prefix", value);
     }
 
     /// <summary>
     /// The destination_address_prefixes attribute.
     /// </summary>
-    public HashSet<string>? DestinationAddressPrefixes
+    public TerraformLiteralProperty<HashSet<string>>? DestinationAddressPrefixes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_address_prefixes")?.Value;
-        set => this.WithProperty("destination_address_prefixes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_address_prefixes");
+        set => this.WithProperty("destination_address_prefixes", value);
     }
 
     /// <summary>
     /// The destination_application_security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? DestinationApplicationSecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? DestinationApplicationSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_application_security_group_ids")?.Value;
-        set => this.WithProperty("destination_application_security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_application_security_group_ids");
+        set => this.WithProperty("destination_application_security_group_ids", value);
     }
 
     /// <summary>
     /// The destination_port_range attribute.
     /// </summary>
-    public string? DestinationPortRange
+    public TerraformLiteralProperty<string>? DestinationPortRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_port_range")?.Value;
-        set => this.WithProperty("destination_port_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_port_range");
+        set => this.WithProperty("destination_port_range", value);
     }
 
     /// <summary>
     /// The destination_port_ranges attribute.
     /// </summary>
-    public HashSet<string>? DestinationPortRanges
+    public TerraformLiteralProperty<HashSet<string>>? DestinationPortRanges
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_port_ranges")?.Value;
-        set => this.WithProperty("destination_port_ranges", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_port_ranges");
+        set => this.WithProperty("destination_port_ranges", value);
     }
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
-    public string? Direction
+    public TerraformLiteralProperty<string>? Direction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direction")?.Value;
-        set => this.WithProperty("direction", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("direction");
+        set => this.WithProperty("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_security_group_name attribute.
     /// </summary>
-    public string? NetworkSecurityGroupName
+    public TerraformLiteralProperty<string>? NetworkSecurityGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_security_group_name")?.Value;
-        set => this.WithProperty("network_security_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_security_group_name");
+        set => this.WithProperty("network_security_group_name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_address_prefix attribute.
     /// </summary>
-    public string? SourceAddressPrefix
+    public TerraformLiteralProperty<string>? SourceAddressPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_address_prefix")?.Value;
-        set => this.WithProperty("source_address_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_address_prefix");
+        set => this.WithProperty("source_address_prefix", value);
     }
 
     /// <summary>
     /// The source_address_prefixes attribute.
     /// </summary>
-    public HashSet<string>? SourceAddressPrefixes
+    public TerraformLiteralProperty<HashSet<string>>? SourceAddressPrefixes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_address_prefixes")?.Value;
-        set => this.WithProperty("source_address_prefixes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_address_prefixes");
+        set => this.WithProperty("source_address_prefixes", value);
     }
 
     /// <summary>
     /// The source_application_security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SourceApplicationSecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SourceApplicationSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_application_security_group_ids")?.Value;
-        set => this.WithProperty("source_application_security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_application_security_group_ids");
+        set => this.WithProperty("source_application_security_group_ids", value);
     }
 
     /// <summary>
     /// The source_port_range attribute.
     /// </summary>
-    public string? SourcePortRange
+    public TerraformLiteralProperty<string>? SourcePortRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_port_range")?.Value;
-        set => this.WithProperty("source_port_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_port_range");
+        set => this.WithProperty("source_port_range", value);
     }
 
     /// <summary>
     /// The source_port_ranges attribute.
     /// </summary>
-    public HashSet<string>? SourcePortRanges
+    public TerraformLiteralProperty<HashSet<string>>? SourcePortRanges
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_port_ranges")?.Value;
-        set => this.WithProperty("source_port_ranges", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_port_ranges");
+        set => this.WithProperty("source_port_ranges", value);
     }
 
 }

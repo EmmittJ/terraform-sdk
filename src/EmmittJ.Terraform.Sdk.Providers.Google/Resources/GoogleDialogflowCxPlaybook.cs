@@ -25,56 +25,56 @@ public class GoogleDialogflowCxPlaybook : TerraformResource
     /// <summary>
     /// The human-readable name of the playbook, unique within an agent.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// High level description of the goal the playbook intend to accomplish. A goal should be concise since it&#39;s visible to other playbooks that may reference this playbook.
     /// </summary>
-    public string? Goal
+    public TerraformLiteralProperty<string>? Goal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("goal")?.Value;
-        set => this.WithProperty("goal", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("goal");
+        set => this.WithProperty("goal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The agent to create a Playbook for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Type of the playbook. Possible values: [&amp;quot;PLAYBOOK_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;TASK&amp;quot;, &amp;quot;ROUTINE&amp;quot;]
     /// </summary>
-    public string? PlaybookType
+    public TerraformLiteralProperty<string>? PlaybookType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("playbook_type")?.Value;
-        set => this.WithProperty("playbook_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("playbook_type");
+        set => this.WithProperty("playbook_type", value);
     }
 
     /// <summary>
     /// The resource name of tools referenced by the current playbook in the instructions. If not provided explicitly, they are will be implied using the tool being referenced in goal and steps.
     /// </summary>
-    public List<string>? ReferencedTools
+    public TerraformLiteralProperty<List<string>>? ReferencedTools
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("referenced_tools")?.Value;
-        set => this.WithProperty("referenced_tools", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("referenced_tools");
+        set => this.WithProperty("referenced_tools", value);
     }
 
     /// <summary>

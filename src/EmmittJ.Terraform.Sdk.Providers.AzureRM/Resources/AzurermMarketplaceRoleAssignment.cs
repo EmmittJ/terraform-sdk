@@ -20,91 +20,91 @@ public class AzurermMarketplaceRoleAssignment : TerraformResource
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public string? Condition
+    public TerraformLiteralProperty<string>? Condition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition")?.Value;
-        set => this.WithProperty("condition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    public string? ConditionVersion
+    public TerraformLiteralProperty<string>? ConditionVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition_version")?.Value;
-        set => this.WithProperty("condition_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("condition_version");
+        set => this.WithProperty("condition_version", value);
     }
 
     /// <summary>
     /// The delegated_managed_identity_resource_id attribute.
     /// </summary>
-    public string? DelegatedManagedIdentityResourceId
+    public TerraformLiteralProperty<string>? DelegatedManagedIdentityResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delegated_managed_identity_resource_id")?.Value;
-        set => this.WithProperty("delegated_managed_identity_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delegated_managed_identity_resource_id");
+        set => this.WithProperty("delegated_managed_identity_resource_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public string? PrincipalId
+    public TerraformLiteralProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id")?.Value;
-        set => this.WithProperty("principal_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public string? RoleDefinitionId
+    public TerraformLiteralProperty<string>? RoleDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id")?.Value;
-        set => this.WithProperty("role_definition_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id");
+        set => this.WithProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// The role_definition_name attribute.
     /// </summary>
-    public string? RoleDefinitionName
+    public TerraformLiteralProperty<string>? RoleDefinitionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_name")?.Value;
-        set => this.WithProperty("role_definition_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_name");
+        set => this.WithProperty("role_definition_name", value);
     }
 
     /// <summary>
     /// The skip_service_principal_aad_check attribute.
     /// </summary>
-    public bool? SkipServicePrincipalAadCheck
+    public TerraformLiteralProperty<bool>? SkipServicePrincipalAadCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_service_principal_aad_check")?.Value;
-        set => this.WithProperty("skip_service_principal_aad_check", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_service_principal_aad_check");
+        set => this.WithProperty("skip_service_principal_aad_check", value);
     }
 
     /// <summary>

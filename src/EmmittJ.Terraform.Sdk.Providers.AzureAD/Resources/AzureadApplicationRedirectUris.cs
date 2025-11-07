@@ -19,37 +19,37 @@ public class AzureadApplicationRedirectUris : TerraformResource
     /// <summary>
     /// The resource ID of the application to which these redirect URIs belong
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A set of redirect URIs
     /// </summary>
-    public HashSet<string>? RedirectUris
+    public TerraformLiteralProperty<HashSet<string>>? RedirectUris
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("redirect_uris")?.Value;
-        set => this.WithProperty("redirect_uris", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("redirect_uris");
+        set => this.WithProperty("redirect_uris", value);
     }
 
     /// <summary>
     /// The type of redirect URIs to assign to the application
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
 }

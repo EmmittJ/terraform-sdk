@@ -19,82 +19,82 @@ public class AzurermVirtualWan : TerraformResource
     /// <summary>
     /// The allow_branch_to_branch_traffic attribute.
     /// </summary>
-    public bool? AllowBranchToBranchTraffic
+    public TerraformLiteralProperty<bool>? AllowBranchToBranchTraffic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_branch_to_branch_traffic")?.Value;
-        set => this.WithProperty("allow_branch_to_branch_traffic", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_branch_to_branch_traffic");
+        set => this.WithProperty("allow_branch_to_branch_traffic", value);
     }
 
     /// <summary>
     /// The disable_vpn_encryption attribute.
     /// </summary>
-    public bool? DisableVpnEncryption
+    public TerraformLiteralProperty<bool>? DisableVpnEncryption
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_vpn_encryption")?.Value;
-        set => this.WithProperty("disable_vpn_encryption", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_vpn_encryption");
+        set => this.WithProperty("disable_vpn_encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The office365_local_breakout_category attribute.
     /// </summary>
-    public string? Office365LocalBreakoutCategory
+    public TerraformLiteralProperty<string>? Office365LocalBreakoutCategory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("office365_local_breakout_category")?.Value;
-        set => this.WithProperty("office365_local_breakout_category", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("office365_local_breakout_category");
+        set => this.WithProperty("office365_local_breakout_category", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
 }

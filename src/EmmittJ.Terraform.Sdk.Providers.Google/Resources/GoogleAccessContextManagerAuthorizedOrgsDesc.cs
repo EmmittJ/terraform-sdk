@@ -23,10 +23,10 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// evaluation, such as a device. Valid values are &amp;quot;ASSET_TYPE_DEVICE&amp;quot; and
     /// &amp;quot;ASSET_TYPE_CREDENTIAL_STRENGTH&amp;quot;. Possible values: [&amp;quot;ASSET_TYPE_DEVICE&amp;quot;, &amp;quot;ASSET_TYPE_CREDENTIAL_STRENGTH&amp;quot;]
     /// </summary>
-    public string? AssetType
+    public TerraformLiteralProperty<string>? AssetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("asset_type")?.Value;
-        set => this.WithProperty("asset_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("asset_type");
+        set => this.WithProperty("asset_type", value);
     }
 
     /// <summary>
@@ -48,28 +48,28 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// &amp;quot;AUTHORIZATION_DIRECTION_FROM&amp;quot; as the authorization direction in their
     /// &amp;quot;AuthorizedOrgsDesc&amp;quot; resource. Possible values: [&amp;quot;AUTHORIZATION_DIRECTION_TO&amp;quot;, &amp;quot;AUTHORIZATION_DIRECTION_FROM&amp;quot;]
     /// </summary>
-    public string? AuthorizationDirection
+    public TerraformLiteralProperty<string>? AuthorizationDirection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_direction")?.Value;
-        set => this.WithProperty("authorization_direction", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorization_direction");
+        set => this.WithProperty("authorization_direction", value);
     }
 
     /// <summary>
     /// A granular control type for authorization levels. Valid value is &amp;quot;AUTHORIZATION_TYPE_TRUST&amp;quot;. Possible values: [&amp;quot;AUTHORIZATION_TYPE_TRUST&amp;quot;]
     /// </summary>
-    public string? AuthorizationType
+    public TerraformLiteralProperty<string>? AuthorizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_type")?.Value;
-        set => this.WithProperty("authorization_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorization_type");
+        set => this.WithProperty("authorization_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -79,10 +79,10 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// alphanumeric characters or &#39;_&#39;.
     /// After you create an &#39;AuthorizedOrgsDesc&#39;, you cannot change its &#39;name&#39;.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -90,19 +90,19 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// Format: &#39;organizations/&amp;lt;org_number&amp;gt;&#39;
     /// Example: &#39;organizations/123456&#39;
     /// </summary>
-    public List<string>? Orgs
+    public TerraformLiteralProperty<List<string>>? Orgs
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("orgs")?.Value;
-        set => this.WithProperty("orgs", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("orgs");
+        set => this.WithProperty("orgs", value);
     }
 
     /// <summary>
     /// Required. Resource name for the access policy which owns this &#39;AuthorizedOrgsDesc&#39;.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>

@@ -19,55 +19,55 @@ public class AwsGuarddutyPublishingDestination : TerraformResource
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
-    public string? DestinationArn
+    public TerraformLiteralProperty<string>? DestinationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_arn")?.Value;
-        set => this.WithProperty("destination_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_arn");
+        set => this.WithProperty("destination_arn", value);
     }
 
     /// <summary>
     /// The destination_type attribute.
     /// </summary>
-    public string? DestinationType
+    public TerraformLiteralProperty<string>? DestinationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_type")?.Value;
-        set => this.WithProperty("destination_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destination_type");
+        set => this.WithProperty("destination_type", value);
     }
 
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public string? DetectorId
+    public TerraformLiteralProperty<string>? DetectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detector_id")?.Value;
-        set => this.WithProperty("detector_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("detector_id");
+        set => this.WithProperty("detector_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public string? KmsKeyArn
+    public TerraformLiteralProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_arn")?.Value;
-        set => this.WithProperty("kms_key_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_arn");
+        set => this.WithProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

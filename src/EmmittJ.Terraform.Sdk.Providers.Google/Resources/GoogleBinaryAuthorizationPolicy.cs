@@ -19,10 +19,10 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// <summary>
     /// A descriptive comment.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -30,28 +30,28 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// for common system-level images. Images not covered by the global
     /// policy will be subject to the project admission policy. Possible values: [&amp;quot;ENABLE&amp;quot;, &amp;quot;DISABLE&amp;quot;]
     /// </summary>
-    public string? GlobalPolicyEvaluationMode
+    public TerraformLiteralProperty<string>? GlobalPolicyEvaluationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_policy_evaluation_mode")?.Value;
-        set => this.WithProperty("global_policy_evaluation_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_policy_evaluation_mode");
+        set => this.WithProperty("global_policy_evaluation_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
 }

@@ -22,19 +22,19 @@ public class AzurermStorageTableDataSource : TerraformDataSource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public string? StorageAccountName
+    public TerraformLiteralProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name")?.Value;
-        set => this.WithProperty("storage_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        set => this.WithProperty("storage_account_name", value);
     }
 
     /// <summary>

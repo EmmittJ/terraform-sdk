@@ -19,163 +19,163 @@ public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public Dictionary<string, string>? AdditionalProperties
+    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties")?.Value;
-        set => this.WithProperty("additional_properties", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties");
+        set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public List<string>? Annotations
+    public TerraformLiteralProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The column_delimiter attribute.
     /// </summary>
-    public string? ColumnDelimiter
+    public TerraformLiteralProperty<string>? ColumnDelimiter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("column_delimiter")?.Value;
-        set => this.WithProperty("column_delimiter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("column_delimiter");
+        set => this.WithProperty("column_delimiter", value);
     }
 
     /// <summary>
     /// The compression_codec attribute.
     /// </summary>
-    public string? CompressionCodec
+    public TerraformLiteralProperty<string>? CompressionCodec
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compression_codec")?.Value;
-        set => this.WithProperty("compression_codec", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compression_codec");
+        set => this.WithProperty("compression_codec", value);
     }
 
     /// <summary>
     /// The compression_level attribute.
     /// </summary>
-    public string? CompressionLevel
+    public TerraformLiteralProperty<string>? CompressionLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compression_level")?.Value;
-        set => this.WithProperty("compression_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compression_level");
+        set => this.WithProperty("compression_level", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public string? Encoding
+    public TerraformLiteralProperty<string>? Encoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encoding")?.Value;
-        set => this.WithProperty("encoding", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encoding");
+        set => this.WithProperty("encoding", value);
     }
 
     /// <summary>
     /// The escape_character attribute.
     /// </summary>
-    public string? EscapeCharacter
+    public TerraformLiteralProperty<string>? EscapeCharacter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("escape_character")?.Value;
-        set => this.WithProperty("escape_character", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("escape_character");
+        set => this.WithProperty("escape_character", value);
     }
 
     /// <summary>
     /// The first_row_as_header attribute.
     /// </summary>
-    public bool? FirstRowAsHeader
+    public TerraformLiteralProperty<bool>? FirstRowAsHeader
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("first_row_as_header")?.Value;
-        set => this.WithProperty("first_row_as_header", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("first_row_as_header");
+        set => this.WithProperty("first_row_as_header", value);
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public string? Folder
+    public TerraformLiteralProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder")?.Value;
-        set => this.WithProperty("folder", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
-    public string? LinkedServiceName
+    public TerraformLiteralProperty<string>? LinkedServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("linked_service_name")?.Value;
-        set => this.WithProperty("linked_service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("linked_service_name");
+        set => this.WithProperty("linked_service_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The null_value attribute.
     /// </summary>
-    public string? NullValue
+    public TerraformLiteralProperty<string>? NullValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("null_value")?.Value;
-        set => this.WithProperty("null_value", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("null_value");
+        set => this.WithProperty("null_value", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, string>? Parameters
+    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters")?.Value;
-        set => this.WithProperty("parameters", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The quote_character attribute.
     /// </summary>
-    public string? QuoteCharacter
+    public TerraformLiteralProperty<string>? QuoteCharacter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quote_character")?.Value;
-        set => this.WithProperty("quote_character", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("quote_character");
+        set => this.WithProperty("quote_character", value);
     }
 
     /// <summary>
     /// The row_delimiter attribute.
     /// </summary>
-    public string? RowDelimiter
+    public TerraformLiteralProperty<string>? RowDelimiter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("row_delimiter")?.Value;
-        set => this.WithProperty("row_delimiter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("row_delimiter");
+        set => this.WithProperty("row_delimiter", value);
     }
 
 }

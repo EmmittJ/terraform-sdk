@@ -20,37 +20,37 @@ public class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig : TerraformRe
     /// <summary>
     /// OAuth client ID
     /// </summary>
-    public string? ClientId
+    public TerraformLiteralProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id")?.Value;
-        set => this.WithProperty("client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// OAuth client secret
     /// </summary>
-    public string? ClientSecret
+    public TerraformLiteralProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret")?.Value;
-        set => this.WithProperty("client_secret", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        set => this.WithProperty("client_secret", value);
     }
 
     /// <summary>
     /// If this IDP allows the user to sign in
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -76,28 +76,28 @@ public class GoogleIdentityPlatformTenantDefaultSupportedIdpConfig : TerraformRe
     /// 
     /// * &#39;yahoo.com&#39;
     /// </summary>
-    public string? IdpId
+    public TerraformLiteralProperty<string>? IdpId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("idp_id")?.Value;
-        set => this.WithProperty("idp_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("idp_id");
+        set => this.WithProperty("idp_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the tenant where this DefaultSupportedIdpConfig resource exists
     /// </summary>
-    public string? Tenant
+    public TerraformLiteralProperty<string>? Tenant
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant")?.Value;
-        set => this.WithProperty("tenant", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tenant");
+        set => this.WithProperty("tenant", value);
     }
 
     /// <summary>

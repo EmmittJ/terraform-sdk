@@ -31,163 +31,163 @@ public class AwsLightsailDatabase : TerraformResource
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public bool? ApplyImmediately
+    public TerraformLiteralProperty<bool>? ApplyImmediately
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("apply_immediately")?.Value;
-        set => this.WithProperty("apply_immediately", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("apply_immediately");
+        set => this.WithProperty("apply_immediately", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The backup_retention_enabled attribute.
     /// </summary>
-    public bool? BackupRetentionEnabled
+    public TerraformLiteralProperty<bool>? BackupRetentionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("backup_retention_enabled")?.Value;
-        set => this.WithProperty("backup_retention_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("backup_retention_enabled");
+        set => this.WithProperty("backup_retention_enabled", value);
     }
 
     /// <summary>
     /// The blueprint_id attribute.
     /// </summary>
-    public string? BlueprintId
+    public TerraformLiteralProperty<string>? BlueprintId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("blueprint_id")?.Value;
-        set => this.WithProperty("blueprint_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("blueprint_id");
+        set => this.WithProperty("blueprint_id", value);
     }
 
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public string? BundleId
+    public TerraformLiteralProperty<string>? BundleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bundle_id")?.Value;
-        set => this.WithProperty("bundle_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bundle_id");
+        set => this.WithProperty("bundle_id", value);
     }
 
     /// <summary>
     /// The final_snapshot_name attribute.
     /// </summary>
-    public string? FinalSnapshotName
+    public TerraformLiteralProperty<string>? FinalSnapshotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("final_snapshot_name")?.Value;
-        set => this.WithProperty("final_snapshot_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("final_snapshot_name");
+        set => this.WithProperty("final_snapshot_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The master_database_name attribute.
     /// </summary>
-    public string? MasterDatabaseName
+    public TerraformLiteralProperty<string>? MasterDatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_database_name")?.Value;
-        set => this.WithProperty("master_database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_database_name");
+        set => this.WithProperty("master_database_name", value);
     }
 
     /// <summary>
     /// The master_password attribute.
     /// </summary>
-    public string? MasterPassword
+    public TerraformLiteralProperty<string>? MasterPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_password")?.Value;
-        set => this.WithProperty("master_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_password");
+        set => this.WithProperty("master_password", value);
     }
 
     /// <summary>
     /// The master_username attribute.
     /// </summary>
-    public string? MasterUsername
+    public TerraformLiteralProperty<string>? MasterUsername
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_username")?.Value;
-        set => this.WithProperty("master_username", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("master_username");
+        set => this.WithProperty("master_username", value);
     }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public string? PreferredBackupWindow
+    public TerraformLiteralProperty<string>? PreferredBackupWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_backup_window")?.Value;
-        set => this.WithProperty("preferred_backup_window", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("preferred_backup_window");
+        set => this.WithProperty("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public string? PreferredMaintenanceWindow
+    public TerraformLiteralProperty<string>? PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window")?.Value;
-        set => this.WithProperty("preferred_maintenance_window", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window");
+        set => this.WithProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public bool? PubliclyAccessible
+    public TerraformLiteralProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible")?.Value;
-        set => this.WithProperty("publicly_accessible", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The relational_database_name attribute.
     /// </summary>
-    public string? RelationalDatabaseName
+    public TerraformLiteralProperty<string>? RelationalDatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relational_database_name")?.Value;
-        set => this.WithProperty("relational_database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("relational_database_name");
+        set => this.WithProperty("relational_database_name", value);
     }
 
     /// <summary>
     /// The skip_final_snapshot attribute.
     /// </summary>
-    public bool? SkipFinalSnapshot
+    public TerraformLiteralProperty<bool>? SkipFinalSnapshot
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_snapshot")?.Value;
-        set => this.WithProperty("skip_final_snapshot", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_snapshot");
+        set => this.WithProperty("skip_final_snapshot", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

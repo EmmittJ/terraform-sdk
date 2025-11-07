@@ -23,48 +23,48 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
     /// The resource name is in the format &amp;quot;projects/*/locations/*/ekmConnections/*&amp;quot; and only applies to &amp;quot;EXTERNAL_VPC&amp;quot; keys.
     /// </summary>
-    public string? CryptoKeyBackend
+    public TerraformLiteralProperty<string>? CryptoKeyBackend
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_backend")?.Value;
-        set => this.WithProperty("crypto_key_backend", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_backend");
+        set => this.WithProperty("crypto_key_backend", value);
     }
 
     /// <summary>
     /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
     /// If not specified at creation time, the default duration is 30 days.
     /// </summary>
-    public string? DestroyScheduledDuration
+    public TerraformLiteralProperty<string>? DestroyScheduledDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destroy_scheduled_duration")?.Value;
-        set => this.WithProperty("destroy_scheduled_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("destroy_scheduled_duration");
+        set => this.WithProperty("destroy_scheduled_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Whether this key may contain imported versions only.
     /// </summary>
-    public bool? ImportOnly
+    public TerraformLiteralProperty<bool>? ImportOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("import_only")?.Value;
-        set => this.WithProperty("import_only", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("import_only");
+        set => this.WithProperty("import_only", value);
     }
 
     /// <summary>
     /// The KeyRing that this key belongs to.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;&#39;.
     /// </summary>
-    public string? KeyRing
+    public TerraformLiteralProperty<string>? KeyRing
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_ring")?.Value;
-        set => this.WithProperty("key_ring", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_ring");
+        set => this.WithProperty("key_ring", value);
     }
 
     /// <summary>
@@ -74,19 +74,19 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The resource name for the CryptoKey.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -95,10 +95,10 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// for possible inputs.
     /// Default value is &amp;quot;ENCRYPT_DECRYPT&amp;quot;.
     /// </summary>
-    public string? Purpose
+    public TerraformLiteralProperty<string>? Purpose
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("purpose")?.Value;
-        set => this.WithProperty("purpose", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("purpose");
+        set => this.WithProperty("purpose", value);
     }
 
     /// <summary>
@@ -107,10 +107,10 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// the format of a decimal number with up to 9 fractional digits, followed by the
     /// letter &#39;s&#39; (seconds). It must be greater than a day (ie, 86400).
     /// </summary>
-    public string? RotationPeriod
+    public TerraformLiteralProperty<string>? RotationPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rotation_period")?.Value;
-        set => this.WithProperty("rotation_period", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rotation_period");
+        set => this.WithProperty("rotation_period", value);
     }
 
     /// <summary>
@@ -119,10 +119,10 @@ public class GoogleKmsCryptoKey : TerraformResource
     /// or &#39;google_kms_key_ring_import_job&#39; resource to import the CryptoKeyVersion.
     /// This field is only applicable during initial CryptoKey creation.
     /// </summary>
-    public bool? SkipInitialVersionCreation
+    public TerraformLiteralProperty<bool>? SkipInitialVersionCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_initial_version_creation")?.Value;
-        set => this.WithProperty("skip_initial_version_creation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_initial_version_creation");
+        set => this.WithProperty("skip_initial_version_creation", value);
     }
 
     /// <summary>

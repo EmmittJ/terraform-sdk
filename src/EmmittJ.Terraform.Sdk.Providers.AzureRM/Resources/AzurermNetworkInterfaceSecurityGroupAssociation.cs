@@ -19,28 +19,28 @@ public class AzurermNetworkInterfaceSecurityGroupAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public string? NetworkInterfaceId
+    public TerraformLiteralProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id")?.Value;
-        set => this.WithProperty("network_interface_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id");
+        set => this.WithProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
-    public string? NetworkSecurityGroupId
+    public TerraformLiteralProperty<string>? NetworkSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_security_group_id")?.Value;
-        set => this.WithProperty("network_security_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_security_group_id");
+        set => this.WithProperty("network_security_group_id", value);
     }
 
 }

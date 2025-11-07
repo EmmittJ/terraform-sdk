@@ -19,28 +19,28 @@ public class AwsWorkspaceswebDataProtectionSettingsAssociation : TerraformResour
     /// <summary>
     /// The data_protection_settings_arn attribute.
     /// </summary>
-    public string? DataProtectionSettingsArn
+    public TerraformLiteralProperty<string>? DataProtectionSettingsArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_protection_settings_arn")?.Value;
-        set => this.WithProperty("data_protection_settings_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_protection_settings_arn");
+        set => this.WithProperty("data_protection_settings_arn", value);
     }
 
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public string? PortalArn
+    public TerraformLiteralProperty<string>? PortalArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("portal_arn")?.Value;
-        set => this.WithProperty("portal_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("portal_arn");
+        set => this.WithProperty("portal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

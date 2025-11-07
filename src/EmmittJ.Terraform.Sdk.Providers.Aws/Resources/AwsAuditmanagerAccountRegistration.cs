@@ -21,37 +21,37 @@ public class AwsAuditmanagerAccountRegistration : TerraformResource
     /// <summary>
     /// The delegated_admin_account attribute.
     /// </summary>
-    public string? DelegatedAdminAccount
+    public TerraformLiteralProperty<string>? DelegatedAdminAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delegated_admin_account")?.Value;
-        set => this.WithProperty("delegated_admin_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delegated_admin_account");
+        set => this.WithProperty("delegated_admin_account", value);
     }
 
     /// <summary>
     /// The deregister_on_destroy attribute.
     /// </summary>
-    public bool? DeregisterOnDestroy
+    public TerraformLiteralProperty<bool>? DeregisterOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deregister_on_destroy")?.Value;
-        set => this.WithProperty("deregister_on_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deregister_on_destroy");
+        set => this.WithProperty("deregister_on_destroy", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public string? KmsKey
+    public TerraformLiteralProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key")?.Value;
-        set => this.WithProperty("kms_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        set => this.WithProperty("kms_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

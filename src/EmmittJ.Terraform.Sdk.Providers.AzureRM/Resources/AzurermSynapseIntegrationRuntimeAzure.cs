@@ -19,73 +19,73 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public string? ComputeType
+    public TerraformLiteralProperty<string>? ComputeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_type")?.Value;
-        set => this.WithProperty("compute_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("compute_type");
+        set => this.WithProperty("compute_type", value);
     }
 
     /// <summary>
     /// The core_count attribute.
     /// </summary>
-    public double? CoreCount
+    public TerraformLiteralProperty<double>? CoreCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("core_count")?.Value;
-        set => this.WithProperty("core_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("core_count");
+        set => this.WithProperty("core_count", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    public string? SynapseWorkspaceId
+    public TerraformLiteralProperty<string>? SynapseWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("synapse_workspace_id")?.Value;
-        set => this.WithProperty("synapse_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("synapse_workspace_id");
+        set => this.WithProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
     /// The time_to_live_min attribute.
     /// </summary>
-    public double? TimeToLiveMin
+    public TerraformLiteralProperty<double>? TimeToLiveMin
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("time_to_live_min")?.Value;
-        set => this.WithProperty("time_to_live_min", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("time_to_live_min");
+        set => this.WithProperty("time_to_live_min", value);
     }
 
 }

@@ -20,82 +20,82 @@ public class AzurermManagementGroupTemplateDeployment : TerraformResource
     /// <summary>
     /// The debug_level attribute.
     /// </summary>
-    public string? DebugLevel
+    public TerraformLiteralProperty<string>? DebugLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("debug_level")?.Value;
-        set => this.WithProperty("debug_level", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("debug_level");
+        set => this.WithProperty("debug_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public string? ManagementGroupId
+    public TerraformLiteralProperty<string>? ManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id")?.Value;
-        set => this.WithProperty("management_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id");
+        set => this.WithProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
-    public string? ParametersContent
+    public TerraformLiteralProperty<string>? ParametersContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameters_content")?.Value;
-        set => this.WithProperty("parameters_content", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameters_content");
+        set => this.WithProperty("parameters_content", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The template_content attribute.
     /// </summary>
-    public string? TemplateContent
+    public TerraformLiteralProperty<string>? TemplateContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_content")?.Value;
-        set => this.WithProperty("template_content", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_content");
+        set => this.WithProperty("template_content", value);
     }
 
     /// <summary>
     /// The template_spec_version_id attribute.
     /// </summary>
-    public string? TemplateSpecVersionId
+    public TerraformLiteralProperty<string>? TemplateSpecVersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_spec_version_id")?.Value;
-        set => this.WithProperty("template_spec_version_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_spec_version_id");
+        set => this.WithProperty("template_spec_version_id", value);
     }
 
     /// <summary>

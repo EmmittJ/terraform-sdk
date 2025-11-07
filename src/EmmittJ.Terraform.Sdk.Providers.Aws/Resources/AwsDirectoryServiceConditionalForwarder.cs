@@ -19,46 +19,46 @@ public class AwsDirectoryServiceConditionalForwarder : TerraformResource
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public string? DirectoryId
+    public TerraformLiteralProperty<string>? DirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_id")?.Value;
-        set => this.WithProperty("directory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("directory_id");
+        set => this.WithProperty("directory_id", value);
     }
 
     /// <summary>
     /// The dns_ips attribute.
     /// </summary>
-    public List<string>? DnsIps
+    public TerraformLiteralProperty<List<string>>? DnsIps
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("dns_ips")?.Value;
-        set => this.WithProperty("dns_ips", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("dns_ips");
+        set => this.WithProperty("dns_ips", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The remote_domain_name attribute.
     /// </summary>
-    public string? RemoteDomainName
+    public TerraformLiteralProperty<string>? RemoteDomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_domain_name")?.Value;
-        set => this.WithProperty("remote_domain_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remote_domain_name");
+        set => this.WithProperty("remote_domain_name", value);
     }
 
 }

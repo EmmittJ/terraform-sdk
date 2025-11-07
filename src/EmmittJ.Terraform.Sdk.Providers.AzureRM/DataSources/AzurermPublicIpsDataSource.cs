@@ -20,46 +20,46 @@ public class AzurermPublicIpsDataSource : TerraformDataSource
     /// <summary>
     /// The allocation_type attribute.
     /// </summary>
-    public string? AllocationType
+    public TerraformLiteralProperty<string>? AllocationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allocation_type")?.Value;
-        set => this.WithProperty("allocation_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("allocation_type");
+        set => this.WithProperty("allocation_type", value);
     }
 
     /// <summary>
     /// The attachment_status attribute.
     /// </summary>
-    public string? AttachmentStatus
+    public TerraformLiteralProperty<string>? AttachmentStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attachment_status")?.Value;
-        set => this.WithProperty("attachment_status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("attachment_status");
+        set => this.WithProperty("attachment_status", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>

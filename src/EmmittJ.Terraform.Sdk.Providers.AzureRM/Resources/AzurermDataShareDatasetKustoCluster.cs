@@ -21,37 +21,37 @@ public class AzurermDataShareDatasetKustoCluster : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kusto_cluster_id attribute.
     /// </summary>
-    public string? KustoClusterId
+    public TerraformLiteralProperty<string>? KustoClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_id")?.Value;
-        set => this.WithProperty("kusto_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_id");
+        set => this.WithProperty("kusto_cluster_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
-    public string? ShareId
+    public TerraformLiteralProperty<string>? ShareId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("share_id")?.Value;
-        set => this.WithProperty("share_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("share_id");
+        set => this.WithProperty("share_id", value);
     }
 
     /// <summary>

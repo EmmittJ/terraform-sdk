@@ -22,20 +22,20 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// <summary>
     /// Enable parsing of references within complex FHIR data types such as Extensions. If this value is set to ENABLED, then features like referential integrity and Bundle reference rewriting apply to all references. If this flag has not been specified the behavior of the FHIR store will not change, references in complex data types will not be parsed. New stores will have this value set to ENABLED by default after a notification period. Warning: turning on this flag causes processing existing resources to fail if they contain references to non-existent resources. Possible values: [&amp;quot;COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;]
     /// </summary>
-    public string? ComplexDataTypeReferenceParsing
+    public TerraformLiteralProperty<string>? ComplexDataTypeReferenceParsing
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("complex_data_type_reference_parsing")?.Value;
-        set => this.WithProperty("complex_data_type_reference_parsing", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("complex_data_type_reference_parsing");
+        set => this.WithProperty("complex_data_type_reference_parsing", value);
     }
 
     /// <summary>
     /// Identifies the dataset addressed by this request. Must be in the format
     /// &#39;projects/{project}/locations/{location}/datasets/{dataset}&#39;
     /// </summary>
-    public string? Dataset
+    public TerraformLiteralProperty<string>? Dataset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset")?.Value;
-        set => this.WithProperty("dataset", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset");
+        set => this.WithProperty("dataset", value);
     }
 
     /// <summary>
@@ -43,10 +43,10 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// If false, uses the FHIR specification default handling=lenient which ignores unrecognized search parameters.
     /// The handling can always be changed from the default on an individual API call by setting the HTTP header Prefer: handling=strict or Prefer: handling=lenient.
     /// </summary>
-    public bool? DefaultSearchHandlingStrict
+    public TerraformLiteralProperty<bool>? DefaultSearchHandlingStrict
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_search_handling_strict")?.Value;
-        set => this.WithProperty("default_search_handling_strict", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("default_search_handling_strict");
+        set => this.WithProperty("default_search_handling_strict", value);
     }
 
     /// <summary>
@@ -58,10 +58,10 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** Changing this property may recreate the FHIR store (removing all data) **
     /// </summary>
-    public bool? DisableReferentialIntegrity
+    public TerraformLiteralProperty<bool>? DisableReferentialIntegrity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_referential_integrity")?.Value;
-        set => this.WithProperty("disable_referential_integrity", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_referential_integrity");
+        set => this.WithProperty("disable_referential_integrity", value);
     }
 
     /// <summary>
@@ -73,10 +73,10 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** Changing this property may recreate the FHIR store (removing all data) **
     /// </summary>
-    public bool? DisableResourceVersioning
+    public TerraformLiteralProperty<bool>? DisableResourceVersioning
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_resource_versioning")?.Value;
-        set => this.WithProperty("disable_resource_versioning", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_resource_versioning");
+        set => this.WithProperty("disable_resource_versioning", value);
     }
 
     /// <summary>
@@ -89,10 +89,10 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** This property can be changed manually in the Google Cloud Healthcare admin console without recreating the FHIR store **
     /// </summary>
-    public bool? EnableHistoryImport
+    public TerraformLiteralProperty<bool>? EnableHistoryImport
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_history_import")?.Value;
-        set => this.WithProperty("enable_history_import", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_history_import");
+        set => this.WithProperty("enable_history_import", value);
     }
 
     /// <summary>
@@ -103,19 +103,19 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// identifiers, those IDs will be part of the FHIR resource path recorded in Cloud audit logs and Cloud Pub/Sub
     /// notifications.
     /// </summary>
-    public bool? EnableUpdateCreate
+    public TerraformLiteralProperty<bool>? EnableUpdateCreate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_update_create")?.Value;
-        set => this.WithProperty("enable_update_create", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_update_create");
+        set => this.WithProperty("enable_update_create", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -136,10 +136,10 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -147,19 +147,19 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** Changing this property may recreate the FHIR store (removing all data) **
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The FHIR specification version. Possible values: [&amp;quot;DSTU2&amp;quot;, &amp;quot;STU3&amp;quot;, &amp;quot;R4&amp;quot;]
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>

@@ -23,73 +23,73 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public string? Domain
+    public TerraformLiteralProperty<string>? Domain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain")?.Value;
-        set => this.WithProperty("domain", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain");
+        set => this.WithProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_types attribute.
     /// </summary>
-    public HashSet<string>? KeyTypes
+    public TerraformLiteralProperty<HashSet<string>>? KeyTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_types")?.Value;
-        set => this.WithProperty("key_types", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_types");
+        set => this.WithProperty("key_types", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public bool? MostRecent
+    public TerraformLiteralProperty<bool>? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent")?.Value;
-        set => this.WithProperty("most_recent", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent");
+        set => this.WithProperty("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The statuses attribute.
     /// </summary>
-    public List<string>? Statuses
+    public TerraformLiteralProperty<List<string>>? Statuses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("statuses")?.Value;
-        set => this.WithProperty("statuses", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("statuses");
+        set => this.WithProperty("statuses", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The types attribute.
     /// </summary>
-    public List<string>? Types
+    public TerraformLiteralProperty<List<string>>? Types
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("types")?.Value;
-        set => this.WithProperty("types", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("types");
+        set => this.WithProperty("types", value);
     }
 
     /// <summary>

@@ -22,64 +22,64 @@ public class AwsAppsyncSourceApiAssociation : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The merged_api_arn attribute.
     /// </summary>
-    public string? MergedApiArn
+    public TerraformLiteralProperty<string>? MergedApiArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_arn")?.Value;
-        set => this.WithProperty("merged_api_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_arn");
+        set => this.WithProperty("merged_api_arn", value);
     }
 
     /// <summary>
     /// The merged_api_id attribute.
     /// </summary>
-    public string? MergedApiId
+    public TerraformLiteralProperty<string>? MergedApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_id")?.Value;
-        set => this.WithProperty("merged_api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_id");
+        set => this.WithProperty("merged_api_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_api_arn attribute.
     /// </summary>
-    public string? SourceApiArn
+    public TerraformLiteralProperty<string>? SourceApiArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_api_arn")?.Value;
-        set => this.WithProperty("source_api_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_api_arn");
+        set => this.WithProperty("source_api_arn", value);
     }
 
     /// <summary>
     /// The source_api_association_config attribute.
     /// </summary>
-    public List<object>? SourceApiAssociationConfig
+    public TerraformLiteralProperty<List<object>>? SourceApiAssociationConfig
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("source_api_association_config")?.Value;
-        set => this.WithProperty("source_api_association_config", value == null ? null : new TerraformLiteralProperty<List<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<object>>>("source_api_association_config");
+        set => this.WithProperty("source_api_association_config", value);
     }
 
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    public string? SourceApiId
+    public TerraformLiteralProperty<string>? SourceApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_api_id")?.Value;
-        set => this.WithProperty("source_api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_api_id");
+        set => this.WithProperty("source_api_id", value);
     }
 
     /// <summary>

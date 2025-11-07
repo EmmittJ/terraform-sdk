@@ -19,55 +19,55 @@ public class AwsDbInstanceAutomatedBackupsReplication : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The pre_signed_url attribute.
     /// </summary>
-    public string? PreSignedUrl
+    public TerraformLiteralProperty<string>? PreSignedUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pre_signed_url")?.Value;
-        set => this.WithProperty("pre_signed_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pre_signed_url");
+        set => this.WithProperty("pre_signed_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public double? RetentionPeriod
+    public TerraformLiteralProperty<double>? RetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_period")?.Value;
-        set => this.WithProperty("retention_period", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("retention_period");
+        set => this.WithProperty("retention_period", value);
     }
 
     /// <summary>
     /// The source_db_instance_arn attribute.
     /// </summary>
-    public string? SourceDbInstanceArn
+    public TerraformLiteralProperty<string>? SourceDbInstanceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_db_instance_arn")?.Value;
-        set => this.WithProperty("source_db_instance_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_db_instance_arn");
+        set => this.WithProperty("source_db_instance_arn", value);
     }
 
 }

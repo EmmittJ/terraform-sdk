@@ -21,28 +21,28 @@ public class AwsIamRolesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public string? NameRegex
+    public TerraformLiteralProperty<string>? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_regex")?.Value;
-        set => this.WithProperty("name_regex", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_regex");
+        set => this.WithProperty("name_regex", value);
     }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public string? PathPrefix
+    public TerraformLiteralProperty<string>? PathPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path_prefix")?.Value;
-        set => this.WithProperty("path_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("path_prefix");
+        set => this.WithProperty("path_prefix", value);
     }
 
     /// <summary>

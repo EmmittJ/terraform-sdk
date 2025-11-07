@@ -20,55 +20,55 @@ public class GoogleBigtableSchemaBundle : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If true, allow backwards incompatible changes.
     /// </summary>
-    public bool? IgnoreWarnings
+    public TerraformLiteralProperty<bool>? IgnoreWarnings
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_warnings")?.Value;
-        set => this.WithProperty("ignore_warnings", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_warnings");
+        set => this.WithProperty("ignore_warnings", value);
     }
 
     /// <summary>
     /// The name of the instance to create the schema bundle within.
     /// </summary>
-    public string? Instance
+    public TerraformLiteralProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance")?.Value;
-        set => this.WithProperty("instance", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The unique name of the schema bundle in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
     /// </summary>
-    public string? SchemaBundleId
+    public TerraformLiteralProperty<string>? SchemaBundleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema_bundle_id")?.Value;
-        set => this.WithProperty("schema_bundle_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("schema_bundle_id");
+        set => this.WithProperty("schema_bundle_id", value);
     }
 
     /// <summary>
     /// The name of the table to create the schema bundle within.
     /// </summary>
-    public string? Table
+    public TerraformLiteralProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table")?.Value;
-        set => this.WithProperty("table", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        set => this.WithProperty("table", value);
     }
 
     /// <summary>

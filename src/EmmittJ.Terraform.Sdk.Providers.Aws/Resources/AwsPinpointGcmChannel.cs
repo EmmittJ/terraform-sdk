@@ -19,64 +19,64 @@ public class AwsPinpointGcmChannel : TerraformResource
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public string? ApiKey
+    public TerraformLiteralProperty<string>? ApiKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_key")?.Value;
-        set => this.WithProperty("api_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_key");
+        set => this.WithProperty("api_key", value);
     }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The default_authentication_method attribute.
     /// </summary>
-    public string? DefaultAuthenticationMethod
+    public TerraformLiteralProperty<string>? DefaultAuthenticationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_authentication_method")?.Value;
-        set => this.WithProperty("default_authentication_method", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_authentication_method");
+        set => this.WithProperty("default_authentication_method", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_json attribute.
     /// </summary>
-    public string? ServiceJson
+    public TerraformLiteralProperty<string>? ServiceJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_json")?.Value;
-        set => this.WithProperty("service_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_json");
+        set => this.WithProperty("service_json", value);
     }
 
 }

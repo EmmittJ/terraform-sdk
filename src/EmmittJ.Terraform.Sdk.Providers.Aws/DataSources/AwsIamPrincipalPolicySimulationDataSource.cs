@@ -22,82 +22,82 @@ public class AwsIamPrincipalPolicySimulationDataSource : TerraformDataSource
     /// <summary>
     /// One or more names of actions, like &amp;quot;iam:CreateUser&amp;quot;, that should be included in the simulation.
     /// </summary>
-    public HashSet<string>? ActionNames
+    public TerraformLiteralProperty<HashSet<string>>? ActionNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("action_names")?.Value;
-        set => this.WithProperty("action_names", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("action_names");
+        set => this.WithProperty("action_names", value);
     }
 
     /// <summary>
     /// Additional principal-based policies to use in the simulation.
     /// </summary>
-    public HashSet<string>? AdditionalPoliciesJson
+    public TerraformLiteralProperty<HashSet<string>>? AdditionalPoliciesJson
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_policies_json")?.Value;
-        set => this.WithProperty("additional_policies_json", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_policies_json");
+        set => this.WithProperty("additional_policies_json", value);
     }
 
     /// <summary>
     /// ARN of a user to use as the caller of the simulated requests. If not specified, defaults to the principal specified in policy_source_arn, if it is a user ARN.
     /// </summary>
-    public string? CallerArn
+    public TerraformLiteralProperty<string>? CallerArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("caller_arn")?.Value;
-        set => this.WithProperty("caller_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("caller_arn");
+        set => this.WithProperty("caller_arn", value);
     }
 
     /// <summary>
     /// Additional permission boundary policies to use in the simulation.
     /// </summary>
-    public HashSet<string>? PermissionsBoundaryPoliciesJson
+    public TerraformLiteralProperty<HashSet<string>>? PermissionsBoundaryPoliciesJson
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("permissions_boundary_policies_json")?.Value;
-        set => this.WithProperty("permissions_boundary_policies_json", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("permissions_boundary_policies_json");
+        set => this.WithProperty("permissions_boundary_policies_json", value);
     }
 
     /// <summary>
     /// ARN of the principal (e.g. user, role) whose existing configured access policies will be used as the basis for the simulation. If you specify a role ARN here, you can also set caller_arn to simulate a particular user acting with the given role.
     /// </summary>
-    public string? PolicySourceArn
+    public TerraformLiteralProperty<string>? PolicySourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_source_arn")?.Value;
-        set => this.WithProperty("policy_source_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_source_arn");
+        set => this.WithProperty("policy_source_arn", value);
     }
 
     /// <summary>
     /// ARNs of specific resources to use as the targets of the specified actions during simulation. If not specified, the simulator assumes &amp;quot;*&amp;quot; which represents general access across all resources.
     /// </summary>
-    public HashSet<string>? ResourceArns
+    public TerraformLiteralProperty<HashSet<string>>? ResourceArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_arns")?.Value;
-        set => this.WithProperty("resource_arns", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_arns");
+        set => this.WithProperty("resource_arns", value);
     }
 
     /// <summary>
     /// Specifies the type of simulation to run. Some API operations need a particular resource handling option in order to produce a correct reesult.
     /// </summary>
-    public string? ResourceHandlingOption
+    public TerraformLiteralProperty<string>? ResourceHandlingOption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_handling_option")?.Value;
-        set => this.WithProperty("resource_handling_option", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_handling_option");
+        set => this.WithProperty("resource_handling_option", value);
     }
 
     /// <summary>
     /// An AWS account ID to use as the simulated owner for any resource whose ARN does not include a specific owner account ID. Defaults to the account given as part of caller_arn.
     /// </summary>
-    public string? ResourceOwnerAccountId
+    public TerraformLiteralProperty<string>? ResourceOwnerAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_owner_account_id")?.Value;
-        set => this.WithProperty("resource_owner_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_owner_account_id");
+        set => this.WithProperty("resource_owner_account_id", value);
     }
 
     /// <summary>
     /// A resource policy to associate with all of the target resources for simulation purposes. The policy simulator does not automatically retrieve resource-level policies, so if a resource policy is crucial to your test then you must specify here the same policy document associated with your target resource(s).
     /// </summary>
-    public string? ResourcePolicyJson
+    public TerraformLiteralProperty<string>? ResourcePolicyJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_policy_json")?.Value;
-        set => this.WithProperty("resource_policy_json", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_policy_json");
+        set => this.WithProperty("resource_policy_json", value);
     }
 
     /// <summary>

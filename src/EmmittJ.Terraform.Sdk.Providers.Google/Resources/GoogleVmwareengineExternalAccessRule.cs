@@ -23,55 +23,55 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// <summary>
     /// The action that the external access rule performs. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
-    public string? Action
+    public TerraformLiteralProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action")?.Value;
-        set => this.WithProperty("action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
-    public List<string>? DestinationPorts
+    public TerraformLiteralProperty<List<string>>? DestinationPorts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("destination_ports")?.Value;
-        set => this.WithProperty("destination_ports", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("destination_ports");
+        set => this.WithProperty("destination_ports", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
     /// </summary>
-    public string? IpProtocol
+    public TerraformLiteralProperty<string>? IpProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_protocol")?.Value;
-        set => this.WithProperty("ip_protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_protocol");
+        set => this.WithProperty("ip_protocol", value);
     }
 
     /// <summary>
     /// The ID of the external access rule.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -79,28 +79,28 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
     /// For example: projects/my-project/locations/us-west1-a/networkPolicies/my-policy
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
-    public List<string>? SourcePorts
+    public TerraformLiteralProperty<List<string>>? SourcePorts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("source_ports")?.Value;
-        set => this.WithProperty("source_ports", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("source_ports");
+        set => this.WithProperty("source_ports", value);
     }
 
     /// <summary>

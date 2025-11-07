@@ -20,37 +20,37 @@ public class GoogleHealthcareHl7V2StoreIamBinding : TerraformResource
     /// <summary>
     /// The hl7_v2_store_id attribute.
     /// </summary>
-    public string? Hl7V2StoreId
+    public TerraformLiteralProperty<string>? Hl7V2StoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hl7_v2_store_id")?.Value;
-        set => this.WithProperty("hl7_v2_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("hl7_v2_store_id");
+        set => this.WithProperty("hl7_v2_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public HashSet<string>? Members
+    public TerraformLiteralProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members")?.Value;
-        set => this.WithProperty("members", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public string? Role
+    public TerraformLiteralProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role")?.Value;
-        set => this.WithProperty("role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        set => this.WithProperty("role", value);
     }
 
     /// <summary>

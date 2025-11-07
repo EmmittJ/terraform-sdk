@@ -23,37 +23,37 @@ public class AwsVpclatticeServiceNetworkResourceAssociation : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_configuration_identifier attribute.
     /// </summary>
-    public string? ResourceConfigurationIdentifier
+    public TerraformLiteralProperty<string>? ResourceConfigurationIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_configuration_identifier")?.Value;
-        set => this.WithProperty("resource_configuration_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_configuration_identifier");
+        set => this.WithProperty("resource_configuration_identifier", value);
     }
 
     /// <summary>
     /// The service_network_identifier attribute.
     /// </summary>
-    public string? ServiceNetworkIdentifier
+    public TerraformLiteralProperty<string>? ServiceNetworkIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_network_identifier")?.Value;
-        set => this.WithProperty("service_network_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_network_identifier");
+        set => this.WithProperty("service_network_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

@@ -19,64 +19,64 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoring : Terrafo
     /// <summary>
     /// The application_packages attribute.
     /// </summary>
-    public List<string>? ApplicationPackages
+    public TerraformLiteralProperty<List<string>>? ApplicationPackages
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("application_packages")?.Value;
-        set => this.WithProperty("application_packages", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("application_packages");
+        set => this.WithProperty("application_packages", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public bool? GloballyEnabled
+    public TerraformLiteralProperty<bool>? GloballyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled")?.Value;
-        set => this.WithProperty("globally_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled");
+        set => this.WithProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The server_url attribute.
     /// </summary>
-    public string? ServerUrl
+    public TerraformLiteralProperty<string>? ServerUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_url")?.Value;
-        set => this.WithProperty("server_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_url");
+        set => this.WithProperty("server_url", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public string? ServiceName
+    public TerraformLiteralProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name")?.Value;
-        set => this.WithProperty("service_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public string? SpringCloudServiceId
+    public TerraformLiteralProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id")?.Value;
-        set => this.WithProperty("spring_cloud_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        set => this.WithProperty("spring_cloud_service_id", value);
     }
 
 }

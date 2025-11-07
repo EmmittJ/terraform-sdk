@@ -21,82 +21,82 @@ public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
     /// <summary>
     /// The asserted_controls attribute.
     /// </summary>
-    public List<string>? AssertedControls
+    public TerraformLiteralProperty<List<string>>? AssertedControls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("asserted_controls")?.Value;
-        set => this.WithProperty("asserted_controls", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("asserted_controls");
+        set => this.WithProperty("asserted_controls", value);
     }
 
     /// <summary>
     /// The control_panel_arn attribute.
     /// </summary>
-    public string? ControlPanelArn
+    public TerraformLiteralProperty<string>? ControlPanelArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_panel_arn")?.Value;
-        set => this.WithProperty("control_panel_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("control_panel_arn");
+        set => this.WithProperty("control_panel_arn", value);
     }
 
     /// <summary>
     /// The gating_controls attribute.
     /// </summary>
-    public List<string>? GatingControls
+    public TerraformLiteralProperty<List<string>>? GatingControls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("gating_controls")?.Value;
-        set => this.WithProperty("gating_controls", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("gating_controls");
+        set => this.WithProperty("gating_controls", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_controls attribute.
     /// </summary>
-    public List<string>? TargetControls
+    public TerraformLiteralProperty<List<string>>? TargetControls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_controls")?.Value;
-        set => this.WithProperty("target_controls", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_controls");
+        set => this.WithProperty("target_controls", value);
     }
 
     /// <summary>
     /// The wait_period_ms attribute.
     /// </summary>
-    public double? WaitPeriodMs
+    public TerraformLiteralProperty<double>? WaitPeriodMs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("wait_period_ms")?.Value;
-        set => this.WithProperty("wait_period_ms", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("wait_period_ms");
+        set => this.WithProperty("wait_period_ms", value);
     }
 
     /// <summary>

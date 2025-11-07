@@ -21,55 +21,55 @@ public class AwsCloudfrontCachePolicy : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public string? Comment
+    public TerraformLiteralProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment")?.Value;
-        set => this.WithProperty("comment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public double? DefaultTtl
+    public TerraformLiteralProperty<double>? DefaultTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_ttl")?.Value;
-        set => this.WithProperty("default_ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("default_ttl");
+        set => this.WithProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public double? MaxTtl
+    public TerraformLiteralProperty<double>? MaxTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_ttl")?.Value;
-        set => this.WithProperty("max_ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_ttl");
+        set => this.WithProperty("max_ttl", value);
     }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    public double? MinTtl
+    public TerraformLiteralProperty<double>? MinTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_ttl")?.Value;
-        set => this.WithProperty("min_ttl", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_ttl");
+        set => this.WithProperty("min_ttl", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>

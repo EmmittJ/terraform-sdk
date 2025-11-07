@@ -19,37 +19,37 @@ public class AwsBackupRegionSettings : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_type_management_preference attribute.
     /// </summary>
-    public Dictionary<string, bool>? ResourceTypeManagementPreference
+    public TerraformLiteralProperty<Dictionary<string, bool>>? ResourceTypeManagementPreference
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, bool>>>("resource_type_management_preference")?.Value;
-        set => this.WithProperty("resource_type_management_preference", value == null ? null : new TerraformLiteralProperty<Dictionary<string, bool>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, bool>>>("resource_type_management_preference");
+        set => this.WithProperty("resource_type_management_preference", value);
     }
 
     /// <summary>
     /// The resource_type_opt_in_preference attribute.
     /// </summary>
-    public Dictionary<string, bool>? ResourceTypeOptInPreference
+    public TerraformLiteralProperty<Dictionary<string, bool>>? ResourceTypeOptInPreference
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, bool>>>("resource_type_opt_in_preference")?.Value;
-        set => this.WithProperty("resource_type_opt_in_preference", value == null ? null : new TerraformLiteralProperty<Dictionary<string, bool>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, bool>>>("resource_type_opt_in_preference");
+        set => this.WithProperty("resource_type_opt_in_preference", value);
     }
 
 }

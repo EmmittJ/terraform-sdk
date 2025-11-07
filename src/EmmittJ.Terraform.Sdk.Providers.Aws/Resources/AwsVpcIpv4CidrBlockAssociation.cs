@@ -19,55 +19,55 @@ public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public string? CidrBlock
+    public TerraformLiteralProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block")?.Value;
-        set => this.WithProperty("cidr_block", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block");
+        set => this.WithProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv4_ipam_pool_id attribute.
     /// </summary>
-    public string? Ipv4IpamPoolId
+    public TerraformLiteralProperty<string>? Ipv4IpamPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv4_ipam_pool_id")?.Value;
-        set => this.WithProperty("ipv4_ipam_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ipv4_ipam_pool_id");
+        set => this.WithProperty("ipv4_ipam_pool_id", value);
     }
 
     /// <summary>
     /// The ipv4_netmask_length attribute.
     /// </summary>
-    public double? Ipv4NetmaskLength
+    public TerraformLiteralProperty<double>? Ipv4NetmaskLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ipv4_netmask_length")?.Value;
-        set => this.WithProperty("ipv4_netmask_length", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("ipv4_netmask_length");
+        set => this.WithProperty("ipv4_netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
 }

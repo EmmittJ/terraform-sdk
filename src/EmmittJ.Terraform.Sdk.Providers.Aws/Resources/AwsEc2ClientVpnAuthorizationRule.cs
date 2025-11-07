@@ -19,64 +19,64 @@ public class AwsEc2ClientVpnAuthorizationRule : TerraformResource
     /// <summary>
     /// The access_group_id attribute.
     /// </summary>
-    public string? AccessGroupId
+    public TerraformLiteralProperty<string>? AccessGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_group_id")?.Value;
-        set => this.WithProperty("access_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("access_group_id");
+        set => this.WithProperty("access_group_id", value);
     }
 
     /// <summary>
     /// The authorize_all_groups attribute.
     /// </summary>
-    public bool? AuthorizeAllGroups
+    public TerraformLiteralProperty<bool>? AuthorizeAllGroups
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("authorize_all_groups")?.Value;
-        set => this.WithProperty("authorize_all_groups", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("authorize_all_groups");
+        set => this.WithProperty("authorize_all_groups", value);
     }
 
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
-    public string? ClientVpnEndpointId
+    public TerraformLiteralProperty<string>? ClientVpnEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_vpn_endpoint_id")?.Value;
-        set => this.WithProperty("client_vpn_endpoint_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_vpn_endpoint_id");
+        set => this.WithProperty("client_vpn_endpoint_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The target_network_cidr attribute.
     /// </summary>
-    public string? TargetNetworkCidr
+    public TerraformLiteralProperty<string>? TargetNetworkCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_network_cidr")?.Value;
-        set => this.WithProperty("target_network_cidr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_network_cidr");
+        set => this.WithProperty("target_network_cidr", value);
     }
 
 }

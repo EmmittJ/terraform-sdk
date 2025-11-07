@@ -19,55 +19,55 @@ public class AzurermMysqlFlexibleServerFirewallRule : TerraformResource
     /// <summary>
     /// The end_ip_address attribute.
     /// </summary>
-    public string? EndIpAddress
+    public TerraformLiteralProperty<string>? EndIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_ip_address")?.Value;
-        set => this.WithProperty("end_ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_ip_address");
+        set => this.WithProperty("end_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public string? ServerName
+    public TerraformLiteralProperty<string>? ServerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_name")?.Value;
-        set => this.WithProperty("server_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_name");
+        set => this.WithProperty("server_name", value);
     }
 
     /// <summary>
     /// The start_ip_address attribute.
     /// </summary>
-    public string? StartIpAddress
+    public TerraformLiteralProperty<string>? StartIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_ip_address")?.Value;
-        set => this.WithProperty("start_ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_ip_address");
+        set => this.WithProperty("start_ip_address", value);
     }
 
 }

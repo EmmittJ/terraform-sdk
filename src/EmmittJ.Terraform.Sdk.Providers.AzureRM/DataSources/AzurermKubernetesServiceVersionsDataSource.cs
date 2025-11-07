@@ -22,37 +22,37 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_preview attribute.
     /// </summary>
-    public bool? IncludePreview
+    public TerraformLiteralProperty<bool>? IncludePreview
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_preview")?.Value;
-        set => this.WithProperty("include_preview", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_preview");
+        set => this.WithProperty("include_preview", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
-    public string? VersionPrefix
+    public TerraformLiteralProperty<string>? VersionPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_prefix")?.Value;
-        set => this.WithProperty("version_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version_prefix");
+        set => this.WithProperty("version_prefix", value);
     }
 
     /// <summary>

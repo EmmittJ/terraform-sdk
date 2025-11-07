@@ -19,64 +19,64 @@ public class AzurermDevTestGlobalVmShutdownSchedule : TerraformResource
     /// <summary>
     /// The daily_recurrence_time attribute.
     /// </summary>
-    public string? DailyRecurrenceTime
+    public TerraformLiteralProperty<string>? DailyRecurrenceTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("daily_recurrence_time")?.Value;
-        set => this.WithProperty("daily_recurrence_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("daily_recurrence_time");
+        set => this.WithProperty("daily_recurrence_time", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public string? Timezone
+    public TerraformLiteralProperty<string>? Timezone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timezone")?.Value;
-        set => this.WithProperty("timezone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timezone");
+        set => this.WithProperty("timezone", value);
     }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public string? VirtualMachineId
+    public TerraformLiteralProperty<string>? VirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_id")?.Value;
-        set => this.WithProperty("virtual_machine_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_id");
+        set => this.WithProperty("virtual_machine_id", value);
     }
 
 }

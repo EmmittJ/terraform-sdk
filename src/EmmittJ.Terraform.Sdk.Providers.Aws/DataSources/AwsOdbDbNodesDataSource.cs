@@ -20,19 +20,19 @@ public class AwsOdbDbNodesDataSource : TerraformDataSource
     /// <summary>
     /// Id of the cloud VM cluster. The unique identifier of the VM cluster.
     /// </summary>
-    public string? CloudVmClusterId
+    public TerraformLiteralProperty<string>? CloudVmClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_vm_cluster_id")?.Value;
-        set => this.WithProperty("cloud_vm_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloud_vm_cluster_id");
+        set => this.WithProperty("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

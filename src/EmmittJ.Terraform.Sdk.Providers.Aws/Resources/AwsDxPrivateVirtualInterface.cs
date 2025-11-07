@@ -23,145 +23,145 @@ public class AwsDxPrivateVirtualInterface : TerraformResource
     /// <summary>
     /// The address_family attribute.
     /// </summary>
-    public string? AddressFamily
+    public TerraformLiteralProperty<string>? AddressFamily
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_family")?.Value;
-        set => this.WithProperty("address_family", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("address_family");
+        set => this.WithProperty("address_family", value);
     }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    public string? AmazonAddress
+    public TerraformLiteralProperty<string>? AmazonAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("amazon_address")?.Value;
-        set => this.WithProperty("amazon_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("amazon_address");
+        set => this.WithProperty("amazon_address", value);
     }
 
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
-    public double? BgpAsn
+    public TerraformLiteralProperty<double>? BgpAsn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("bgp_asn")?.Value;
-        set => this.WithProperty("bgp_asn", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("bgp_asn");
+        set => this.WithProperty("bgp_asn", value);
     }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    public string? BgpAuthKey
+    public TerraformLiteralProperty<string>? BgpAuthKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bgp_auth_key")?.Value;
-        set => this.WithProperty("bgp_auth_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bgp_auth_key");
+        set => this.WithProperty("bgp_auth_key", value);
     }
 
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public string? ConnectionId
+    public TerraformLiteralProperty<string>? ConnectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_id")?.Value;
-        set => this.WithProperty("connection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_id");
+        set => this.WithProperty("connection_id", value);
     }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    public string? CustomerAddress
+    public TerraformLiteralProperty<string>? CustomerAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_address")?.Value;
-        set => this.WithProperty("customer_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_address");
+        set => this.WithProperty("customer_address", value);
     }
 
     /// <summary>
     /// The dx_gateway_id attribute.
     /// </summary>
-    public string? DxGatewayId
+    public TerraformLiteralProperty<string>? DxGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dx_gateway_id")?.Value;
-        set => this.WithProperty("dx_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dx_gateway_id");
+        set => this.WithProperty("dx_gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mtu attribute.
     /// </summary>
-    public double? Mtu
+    public TerraformLiteralProperty<double>? Mtu
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("mtu")?.Value;
-        set => this.WithProperty("mtu", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("mtu");
+        set => this.WithProperty("mtu", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The sitelink_enabled attribute.
     /// </summary>
-    public bool? SitelinkEnabled
+    public TerraformLiteralProperty<bool>? SitelinkEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sitelink_enabled")?.Value;
-        set => this.WithProperty("sitelink_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sitelink_enabled");
+        set => this.WithProperty("sitelink_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
-    public double? Vlan
+    public TerraformLiteralProperty<double>? Vlan
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vlan")?.Value;
-        set => this.WithProperty("vlan", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("vlan");
+        set => this.WithProperty("vlan", value);
     }
 
     /// <summary>
     /// The vpn_gateway_id attribute.
     /// </summary>
-    public string? VpnGatewayId
+    public TerraformLiteralProperty<string>? VpnGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_gateway_id")?.Value;
-        set => this.WithProperty("vpn_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpn_gateway_id");
+        set => this.WithProperty("vpn_gateway_id", value);
     }
 
     /// <summary>

@@ -21,46 +21,46 @@ public class AwsCloudwatchContributorInsightRule : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rule_definition attribute.
     /// </summary>
-    public string? RuleDefinition
+    public TerraformLiteralProperty<string>? RuleDefinition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_definition")?.Value;
-        set => this.WithProperty("rule_definition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_definition");
+        set => this.WithProperty("rule_definition", value);
     }
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
-    public string? RuleName
+    public TerraformLiteralProperty<string>? RuleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_name")?.Value;
-        set => this.WithProperty("rule_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_name");
+        set => this.WithProperty("rule_name", value);
     }
 
     /// <summary>
     /// The rule_state attribute.
     /// </summary>
-    public string? RuleState
+    public TerraformLiteralProperty<string>? RuleState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_state")?.Value;
-        set => this.WithProperty("rule_state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_state");
+        set => this.WithProperty("rule_state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

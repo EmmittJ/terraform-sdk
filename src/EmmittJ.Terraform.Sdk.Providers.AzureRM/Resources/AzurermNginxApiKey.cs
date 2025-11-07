@@ -20,46 +20,46 @@ public class AzurermNginxApiKey : TerraformResource
     /// <summary>
     /// The end_date_time attribute.
     /// </summary>
-    public string? EndDateTime
+    public TerraformLiteralProperty<string>? EndDateTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date_time")?.Value;
-        set => this.WithProperty("end_date_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date_time");
+        set => this.WithProperty("end_date_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
-    public string? NginxDeploymentId
+    public TerraformLiteralProperty<string>? NginxDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nginx_deployment_id")?.Value;
-        set => this.WithProperty("nginx_deployment_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("nginx_deployment_id");
+        set => this.WithProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
     /// The secret_text attribute.
     /// </summary>
-    public string? SecretText
+    public TerraformLiteralProperty<string>? SecretText
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_text")?.Value;
-        set => this.WithProperty("secret_text", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secret_text");
+        set => this.WithProperty("secret_text", value);
     }
 
     /// <summary>

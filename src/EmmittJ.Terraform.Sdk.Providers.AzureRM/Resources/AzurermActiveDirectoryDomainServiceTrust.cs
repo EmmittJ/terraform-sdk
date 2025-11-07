@@ -19,55 +19,55 @@ public class AzurermActiveDirectoryDomainServiceTrust : TerraformResource
     /// <summary>
     /// The domain_service_id attribute.
     /// </summary>
-    public string? DomainServiceId
+    public TerraformLiteralProperty<string>? DomainServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_service_id")?.Value;
-        set => this.WithProperty("domain_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_service_id");
+        set => this.WithProperty("domain_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public string? Password
+    public TerraformLiteralProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password")?.Value;
-        set => this.WithProperty("password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The trusted_domain_dns_ips attribute.
     /// </summary>
-    public List<string>? TrustedDomainDnsIps
+    public TerraformLiteralProperty<List<string>>? TrustedDomainDnsIps
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("trusted_domain_dns_ips")?.Value;
-        set => this.WithProperty("trusted_domain_dns_ips", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("trusted_domain_dns_ips");
+        set => this.WithProperty("trusted_domain_dns_ips", value);
     }
 
     /// <summary>
     /// The trusted_domain_fqdn attribute.
     /// </summary>
-    public string? TrustedDomainFqdn
+    public TerraformLiteralProperty<string>? TrustedDomainFqdn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trusted_domain_fqdn")?.Value;
-        set => this.WithProperty("trusted_domain_fqdn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("trusted_domain_fqdn");
+        set => this.WithProperty("trusted_domain_fqdn", value);
     }
 
 }

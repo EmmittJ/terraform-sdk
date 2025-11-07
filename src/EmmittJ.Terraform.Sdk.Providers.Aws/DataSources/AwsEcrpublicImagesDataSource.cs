@@ -20,28 +20,28 @@ public class AwsEcrpublicImagesDataSource : TerraformDataSource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
     /// </summary>
-    public string? RegistryId
+    public TerraformLiteralProperty<string>? RegistryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("registry_id")?.Value;
-        set => this.WithProperty("registry_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("registry_id");
+        set => this.WithProperty("registry_id", value);
     }
 
     /// <summary>
     /// Name of the public repository.
     /// </summary>
-    public string? RepositoryName
+    public TerraformLiteralProperty<string>? RepositoryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_name")?.Value;
-        set => this.WithProperty("repository_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repository_name");
+        set => this.WithProperty("repository_name", value);
     }
 
     /// <summary>

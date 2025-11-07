@@ -20,28 +20,28 @@ public class AwsPaymentcryptographyKeyAlias : TerraformResource
     /// <summary>
     /// The alias_name attribute.
     /// </summary>
-    public string? AliasName
+    public TerraformLiteralProperty<string>? AliasName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias_name")?.Value;
-        set => this.WithProperty("alias_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alias_name");
+        set => this.WithProperty("alias_name", value);
     }
 
     /// <summary>
     /// The key_arn attribute.
     /// </summary>
-    public string? KeyArn
+    public TerraformLiteralProperty<string>? KeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_arn")?.Value;
-        set => this.WithProperty("key_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_arn");
+        set => this.WithProperty("key_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

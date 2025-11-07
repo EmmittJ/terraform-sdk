@@ -19,46 +19,46 @@ public class GoogleProjectService : TerraformResource
     /// <summary>
     /// The disable_dependent_services attribute.
     /// </summary>
-    public bool? DisableDependentServices
+    public TerraformLiteralProperty<bool>? DisableDependentServices
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_dependent_services")?.Value;
-        set => this.WithProperty("disable_dependent_services", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_dependent_services");
+        set => this.WithProperty("disable_dependent_services", value);
     }
 
     /// <summary>
     /// The disable_on_destroy attribute.
     /// </summary>
-    public bool? DisableOnDestroy
+    public TerraformLiteralProperty<bool>? DisableOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_on_destroy")?.Value;
-        set => this.WithProperty("disable_on_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_on_destroy");
+        set => this.WithProperty("disable_on_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
 }

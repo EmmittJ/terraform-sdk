@@ -28,91 +28,91 @@ public class AzurermAppServiceEnvironmentV3 : TerraformResource
     /// <summary>
     /// The allow_new_private_endpoint_connections attribute.
     /// </summary>
-    public bool? AllowNewPrivateEndpointConnections
+    public TerraformLiteralProperty<bool>? AllowNewPrivateEndpointConnections
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_new_private_endpoint_connections")?.Value;
-        set => this.WithProperty("allow_new_private_endpoint_connections", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_new_private_endpoint_connections");
+        set => this.WithProperty("allow_new_private_endpoint_connections", value);
     }
 
     /// <summary>
     /// The dedicated_host_count attribute.
     /// </summary>
-    public double? DedicatedHostCount
+    public TerraformLiteralProperty<double>? DedicatedHostCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("dedicated_host_count")?.Value;
-        set => this.WithProperty("dedicated_host_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("dedicated_host_count");
+        set => this.WithProperty("dedicated_host_count", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The internal_load_balancing_mode attribute.
     /// </summary>
-    public string? InternalLoadBalancingMode
+    public TerraformLiteralProperty<string>? InternalLoadBalancingMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("internal_load_balancing_mode")?.Value;
-        set => this.WithProperty("internal_load_balancing_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("internal_load_balancing_mode");
+        set => this.WithProperty("internal_load_balancing_mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The remote_debugging_enabled attribute.
     /// </summary>
-    public bool? RemoteDebuggingEnabled
+    public TerraformLiteralProperty<bool>? RemoteDebuggingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("remote_debugging_enabled")?.Value;
-        set => this.WithProperty("remote_debugging_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("remote_debugging_enabled");
+        set => this.WithProperty("remote_debugging_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public string? SubnetId
+    public TerraformLiteralProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id")?.Value;
-        set => this.WithProperty("subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public bool? ZoneRedundant
+    public TerraformLiteralProperty<bool>? ZoneRedundant
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundant")?.Value;
-        set => this.WithProperty("zone_redundant", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundant");
+        set => this.WithProperty("zone_redundant", value);
     }
 
     /// <summary>

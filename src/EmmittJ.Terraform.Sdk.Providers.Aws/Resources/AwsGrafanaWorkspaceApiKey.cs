@@ -20,55 +20,55 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public string? KeyName
+    public TerraformLiteralProperty<string>? KeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_name")?.Value;
-        set => this.WithProperty("key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_name");
+        set => this.WithProperty("key_name", value);
     }
 
     /// <summary>
     /// The key_role attribute.
     /// </summary>
-    public string? KeyRole
+    public TerraformLiteralProperty<string>? KeyRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_role")?.Value;
-        set => this.WithProperty("key_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_role");
+        set => this.WithProperty("key_role", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The seconds_to_live attribute.
     /// </summary>
-    public double? SecondsToLive
+    public TerraformLiteralProperty<double>? SecondsToLive
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("seconds_to_live")?.Value;
-        set => this.WithProperty("seconds_to_live", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("seconds_to_live");
+        set => this.WithProperty("seconds_to_live", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
     /// <summary>

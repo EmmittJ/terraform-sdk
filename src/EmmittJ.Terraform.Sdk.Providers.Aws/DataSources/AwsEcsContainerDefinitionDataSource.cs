@@ -27,37 +27,37 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public string? ContainerName
+    public TerraformLiteralProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name")?.Value;
-        set => this.WithProperty("container_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
-    public string? TaskDefinition
+    public TerraformLiteralProperty<string>? TaskDefinition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_definition")?.Value;
-        set => this.WithProperty("task_definition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("task_definition");
+        set => this.WithProperty("task_definition", value);
     }
 
     /// <summary>

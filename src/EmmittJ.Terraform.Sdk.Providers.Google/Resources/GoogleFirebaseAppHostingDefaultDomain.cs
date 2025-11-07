@@ -24,55 +24,55 @@ public class GoogleFirebaseAppHostingDefaultDomain : TerraformResource
     /// <summary>
     /// The ID of the Backend that this Domain is associated with
     /// </summary>
-    public string? Backend
+    public TerraformLiteralProperty<string>? Backend
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend")?.Value;
-        set => this.WithProperty("backend", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backend");
+        set => this.WithProperty("backend", value);
     }
 
     /// <summary>
     /// Whether the domain is disabled. Defaults to false.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// Id of the domain. For default domain, it should be {{backend}}--{{project_id}}.{{location}}.hosted.app
     /// </summary>
-    public string? DomainId
+    public TerraformLiteralProperty<string>? DomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_id")?.Value;
-        set => this.WithProperty("domain_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_id");
+        set => this.WithProperty("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the Backend that this Domain is associated with
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

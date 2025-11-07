@@ -41,91 +41,91 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The bootstrap cluster this VMware admin cluster belongs to.
     /// </summary>
-    public string? BootstrapClusterMembership
+    public TerraformLiteralProperty<string>? BootstrapClusterMembership
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bootstrap_cluster_membership")?.Value;
-        set => this.WithProperty("bootstrap_cluster_membership", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bootstrap_cluster_membership");
+        set => this.WithProperty("bootstrap_cluster_membership", value);
     }
 
     /// <summary>
     /// A human readable description of this VMware admin cluster.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// If set, the advanced cluster feature is enabled.
     /// </summary>
-    public bool? EnableAdvancedCluster
+    public TerraformLiteralProperty<bool>? EnableAdvancedCluster
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_advanced_cluster")?.Value;
-        set => this.WithProperty("enable_advanced_cluster", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_advanced_cluster");
+        set => this.WithProperty("enable_advanced_cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The OS image type for the VMware admin cluster.
     /// </summary>
-    public string? ImageType
+    public TerraformLiteralProperty<string>? ImageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_type")?.Value;
-        set => this.WithProperty("image_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("image_type");
+        set => this.WithProperty("image_type", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The VMware admin cluster resource name.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Anthos clusters on the VMware version for the admin cluster.
     /// </summary>
-    public string? OnPremVersion
+    public TerraformLiteralProperty<string>? OnPremVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("on_prem_version")?.Value;
-        set => this.WithProperty("on_prem_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("on_prem_version");
+        set => this.WithProperty("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

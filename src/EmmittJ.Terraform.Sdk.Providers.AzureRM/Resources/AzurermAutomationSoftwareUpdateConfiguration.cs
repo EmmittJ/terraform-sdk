@@ -22,55 +22,55 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    public string? AutomationAccountId
+    public TerraformLiteralProperty<string>? AutomationAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id")?.Value;
-        set => this.WithProperty("automation_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id");
+        set => this.WithProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public string? Duration
+    public TerraformLiteralProperty<string>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("duration")?.Value;
-        set => this.WithProperty("duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("duration");
+        set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The non_azure_computer_names attribute.
     /// </summary>
-    public List<string>? NonAzureComputerNames
+    public TerraformLiteralProperty<List<string>>? NonAzureComputerNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("non_azure_computer_names")?.Value;
-        set => this.WithProperty("non_azure_computer_names", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("non_azure_computer_names");
+        set => this.WithProperty("non_azure_computer_names", value);
     }
 
     /// <summary>
     /// The virtual_machine_ids attribute.
     /// </summary>
-    public List<string>? VirtualMachineIds
+    public TerraformLiteralProperty<List<string>>? VirtualMachineIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("virtual_machine_ids")?.Value;
-        set => this.WithProperty("virtual_machine_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("virtual_machine_ids");
+        set => this.WithProperty("virtual_machine_ids", value);
     }
 
     /// <summary>

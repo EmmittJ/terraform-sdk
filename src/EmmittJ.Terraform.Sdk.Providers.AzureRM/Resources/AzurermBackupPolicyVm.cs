@@ -19,64 +19,64 @@ public class AzurermBackupPolicyVm : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instant_restore_retention_days attribute.
     /// </summary>
-    public double? InstantRestoreRetentionDays
+    public TerraformLiteralProperty<double>? InstantRestoreRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instant_restore_retention_days")?.Value;
-        set => this.WithProperty("instant_restore_retention_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("instant_restore_retention_days");
+        set => this.WithProperty("instant_restore_retention_days", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public string? PolicyType
+    public TerraformLiteralProperty<string>? PolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_type")?.Value;
-        set => this.WithProperty("policy_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_type");
+        set => this.WithProperty("policy_type", value);
     }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
-    public string? RecoveryVaultName
+    public TerraformLiteralProperty<string>? RecoveryVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name")?.Value;
-        set => this.WithProperty("recovery_vault_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name");
+        set => this.WithProperty("recovery_vault_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public string? Timezone
+    public TerraformLiteralProperty<string>? Timezone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timezone")?.Value;
-        set => this.WithProperty("timezone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timezone");
+        set => this.WithProperty("timezone", value);
     }
 
 }

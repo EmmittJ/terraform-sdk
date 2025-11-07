@@ -23,100 +23,100 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public string? Engine
+    public TerraformLiteralProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine")?.Value;
-        set => this.WithProperty("engine", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public string? EngineVersion
+    public TerraformLiteralProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version")?.Value;
-        set => this.WithProperty("engine_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The multi_region_cluster_name_suffix attribute.
     /// </summary>
-    public string? MultiRegionClusterNameSuffix
+    public TerraformLiteralProperty<string>? MultiRegionClusterNameSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multi_region_cluster_name_suffix")?.Value;
-        set => this.WithProperty("multi_region_cluster_name_suffix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("multi_region_cluster_name_suffix");
+        set => this.WithProperty("multi_region_cluster_name_suffix", value);
     }
 
     /// <summary>
     /// The multi_region_parameter_group_name attribute.
     /// </summary>
-    public string? MultiRegionParameterGroupName
+    public TerraformLiteralProperty<string>? MultiRegionParameterGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multi_region_parameter_group_name")?.Value;
-        set => this.WithProperty("multi_region_parameter_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("multi_region_parameter_group_name");
+        set => this.WithProperty("multi_region_parameter_group_name", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public string? NodeType
+    public TerraformLiteralProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type")?.Value;
-        set => this.WithProperty("node_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    public double? NumShards
+    public TerraformLiteralProperty<double>? NumShards
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("num_shards")?.Value;
-        set => this.WithProperty("num_shards", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("num_shards");
+        set => this.WithProperty("num_shards", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public bool? TlsEnabled
+    public TerraformLiteralProperty<bool>? TlsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls_enabled")?.Value;
-        set => this.WithProperty("tls_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("tls_enabled");
+        set => this.WithProperty("tls_enabled", value);
     }
 
     /// <summary>
     /// The update_strategy attribute.
     /// </summary>
-    public string? UpdateStrategy
+    public TerraformLiteralProperty<string>? UpdateStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("update_strategy")?.Value;
-        set => this.WithProperty("update_strategy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("update_strategy");
+        set => this.WithProperty("update_strategy", value);
     }
 
     /// <summary>

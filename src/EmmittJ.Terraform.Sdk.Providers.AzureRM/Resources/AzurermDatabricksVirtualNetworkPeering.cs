@@ -21,91 +21,91 @@ public class AzurermDatabricksVirtualNetworkPeering : TerraformResource
     /// <summary>
     /// The allow_forwarded_traffic attribute.
     /// </summary>
-    public bool? AllowForwardedTraffic
+    public TerraformLiteralProperty<bool>? AllowForwardedTraffic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_forwarded_traffic")?.Value;
-        set => this.WithProperty("allow_forwarded_traffic", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_forwarded_traffic");
+        set => this.WithProperty("allow_forwarded_traffic", value);
     }
 
     /// <summary>
     /// The allow_gateway_transit attribute.
     /// </summary>
-    public bool? AllowGatewayTransit
+    public TerraformLiteralProperty<bool>? AllowGatewayTransit
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_gateway_transit")?.Value;
-        set => this.WithProperty("allow_gateway_transit", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_gateway_transit");
+        set => this.WithProperty("allow_gateway_transit", value);
     }
 
     /// <summary>
     /// The allow_virtual_network_access attribute.
     /// </summary>
-    public bool? AllowVirtualNetworkAccess
+    public TerraformLiteralProperty<bool>? AllowVirtualNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_virtual_network_access")?.Value;
-        set => this.WithProperty("allow_virtual_network_access", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_virtual_network_access");
+        set => this.WithProperty("allow_virtual_network_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The remote_address_space_prefixes attribute.
     /// </summary>
-    public List<string>? RemoteAddressSpacePrefixes
+    public TerraformLiteralProperty<List<string>>? RemoteAddressSpacePrefixes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("remote_address_space_prefixes")?.Value;
-        set => this.WithProperty("remote_address_space_prefixes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("remote_address_space_prefixes");
+        set => this.WithProperty("remote_address_space_prefixes", value);
     }
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
-    public string? RemoteVirtualNetworkId
+    public TerraformLiteralProperty<string>? RemoteVirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_virtual_network_id")?.Value;
-        set => this.WithProperty("remote_virtual_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remote_virtual_network_id");
+        set => this.WithProperty("remote_virtual_network_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The use_remote_gateways attribute.
     /// </summary>
-    public bool? UseRemoteGateways
+    public TerraformLiteralProperty<bool>? UseRemoteGateways
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_remote_gateways")?.Value;
-        set => this.WithProperty("use_remote_gateways", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("use_remote_gateways");
+        set => this.WithProperty("use_remote_gateways", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
     /// <summary>

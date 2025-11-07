@@ -21,28 +21,28 @@ public class GoogleAccessContextManagerServicePerimeterDryRunIngressPolicy : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
-    public string? Perimeter
+    public TerraformLiteralProperty<string>? Perimeter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("perimeter")?.Value;
-        set => this.WithProperty("perimeter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("perimeter");
+        set => this.WithProperty("perimeter", value);
     }
 
     /// <summary>
     /// Human readable title. Must be unique within the perimeter. Does not affect behavior.
     /// </summary>
-    public string? Title
+    public TerraformLiteralProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title")?.Value;
-        set => this.WithProperty("title", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        set => this.WithProperty("title", value);
     }
 
     /// <summary>

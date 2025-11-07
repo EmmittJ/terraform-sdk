@@ -20,55 +20,55 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     /// <summary>
     /// The expression_attribute_names attribute.
     /// </summary>
-    public Dictionary<string, string>? ExpressionAttributeNames
+    public TerraformLiteralProperty<Dictionary<string, string>>? ExpressionAttributeNames
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("expression_attribute_names")?.Value;
-        set => this.WithProperty("expression_attribute_names", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("expression_attribute_names");
+        set => this.WithProperty("expression_attribute_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public string? Key
+    public TerraformLiteralProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key")?.Value;
-        set => this.WithProperty("key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The projection_expression attribute.
     /// </summary>
-    public string? ProjectionExpression
+    public TerraformLiteralProperty<string>? ProjectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("projection_expression")?.Value;
-        set => this.WithProperty("projection_expression", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("projection_expression");
+        set => this.WithProperty("projection_expression", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public string? TableName
+    public TerraformLiteralProperty<string>? TableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_name")?.Value;
-        set => this.WithProperty("table_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table_name");
+        set => this.WithProperty("table_name", value);
     }
 
     /// <summary>

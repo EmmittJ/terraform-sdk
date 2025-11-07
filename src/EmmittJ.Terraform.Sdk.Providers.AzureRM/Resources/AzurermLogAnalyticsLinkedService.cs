@@ -20,46 +20,46 @@ public class AzurermLogAnalyticsLinkedService : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The read_access_id attribute.
     /// </summary>
-    public string? ReadAccessId
+    public TerraformLiteralProperty<string>? ReadAccessId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("read_access_id")?.Value;
-        set => this.WithProperty("read_access_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("read_access_id");
+        set => this.WithProperty("read_access_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public string? WorkspaceId
+    public TerraformLiteralProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id")?.Value;
-        set => this.WithProperty("workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        set => this.WithProperty("workspace_id", value);
     }
 
     /// <summary>
     /// The write_access_id attribute.
     /// </summary>
-    public string? WriteAccessId
+    public TerraformLiteralProperty<string>? WriteAccessId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("write_access_id")?.Value;
-        set => this.WithProperty("write_access_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("write_access_id");
+        set => this.WithProperty("write_access_id", value);
     }
 
     /// <summary>

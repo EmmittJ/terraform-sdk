@@ -23,10 +23,10 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// <summary>
     /// The user specified ID of the DeployedIndex. The ID can be up to 128 characters long and must start with a letter and only contain letters, numbers, and underscores. The ID must be unique within the project it is created in.
     /// </summary>
-    public string? DeployedIndexId
+    public TerraformLiteralProperty<string>? DeployedIndexId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployed_index_id")?.Value;
-        set => this.WithProperty("deployed_index_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployed_index_id");
+        set => this.WithProperty("deployed_index_id", value);
     }
 
     /// <summary>
@@ -34,65 +34,65 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// Creating deployment_groups with reserved_ip_ranges is a recommended practice when the peered network has multiple peering ranges. This creates your deployments from predictable IP spaces for easier traffic administration. Also, one deployment_group (except &#39;default&#39;) can only be used with the same reserved_ip_ranges which means if the deployment_group has been used with reserved_ip_ranges: [a, b, c], using it with [a, b] or [d, e] is disallowed. [See the official documentation here](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexEndpoints#DeployedIndex.FIELDS.deployment_group).
     /// Note: we only support up to 5 deployment groups (not including &#39;default&#39;).
     /// </summary>
-    public string? DeploymentGroup
+    public TerraformLiteralProperty<string>? DeploymentGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_group")?.Value;
-        set => this.WithProperty("deployment_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_group");
+        set => this.WithProperty("deployment_group", value);
     }
 
     /// <summary>
     /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// If true, private endpoint&#39;s access logs are sent to Cloud Logging.
     /// </summary>
-    public bool? EnableAccessLogging
+    public TerraformLiteralProperty<bool>? EnableAccessLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_access_logging")?.Value;
-        set => this.WithProperty("enable_access_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_access_logging");
+        set => this.WithProperty("enable_access_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Index this is the deployment of.
     /// </summary>
-    public string? Index
+    public TerraformLiteralProperty<string>? Index
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("index")?.Value;
-        set => this.WithProperty("index", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("index");
+        set => this.WithProperty("index", value);
     }
 
     /// <summary>
     /// Identifies the index endpoint. Must be in the format
     /// &#39;projects/{{project}}/locations/{{region}}/indexEndpoints/{{indexEndpoint}}&#39;
     /// </summary>
-    public string? IndexEndpoint
+    public TerraformLiteralProperty<string>? IndexEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("index_endpoint")?.Value;
-        set => this.WithProperty("index_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("index_endpoint");
+        set => this.WithProperty("index_endpoint", value);
     }
 
     /// <summary>
     /// The region of the index endpoint deployment. eg us-central1
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -103,10 +103,10 @@ public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
     /// 
     /// For more information about subnets and network IP ranges, please see https://cloud.google.com/vpc/docs/subnets#manually_created_subnet_ip_ranges.
     /// </summary>
-    public List<string>? ReservedIpRanges
+    public TerraformLiteralProperty<List<string>>? ReservedIpRanges
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("reserved_ip_ranges")?.Value;
-        set => this.WithProperty("reserved_ip_ranges", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("reserved_ip_ranges");
+        set => this.WithProperty("reserved_ip_ranges", value);
     }
 
     /// <summary>

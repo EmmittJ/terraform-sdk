@@ -21,19 +21,19 @@ public class GoogleAccessApprovalProjectServiceAccountDataSource : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project_id attribute.
     /// </summary>
-    public string? ProjectId
+    public TerraformLiteralProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_id")?.Value;
-        set => this.WithProperty("project_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project_id");
+        set => this.WithProperty("project_id", value);
     }
 
     /// <summary>

@@ -19,46 +19,46 @@ public class AzureadAccessPackageCatalog : TerraformResource
     /// <summary>
     /// The description of the access package catalog
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name of the access package catalog
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether the access packages in this catalog can be requested by users outside the tenant
     /// </summary>
-    public bool? ExternallyVisible
+    public TerraformLiteralProperty<bool>? ExternallyVisible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("externally_visible")?.Value;
-        set => this.WithProperty("externally_visible", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("externally_visible");
+        set => this.WithProperty("externally_visible", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Whether the access packages in this catalog are available for management
     /// </summary>
-    public bool? Published
+    public TerraformLiteralProperty<bool>? Published
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("published")?.Value;
-        set => this.WithProperty("published", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("published");
+        set => this.WithProperty("published", value);
     }
 
 }

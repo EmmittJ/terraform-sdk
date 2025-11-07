@@ -20,84 +20,84 @@ public class GoogleDiscoveryEngineControl : TerraformResource
     /// <summary>
     /// The collection ID. Currently only accepts &amp;quot;default_collection&amp;quot;.
     /// </summary>
-    public string? CollectionId
+    public TerraformLiteralProperty<string>? CollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection_id")?.Value;
-        set => this.WithProperty("collection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collection_id");
+        set => this.WithProperty("collection_id", value);
     }
 
     /// <summary>
     /// The unique id of the control.
     /// </summary>
-    public string? ControlId
+    public TerraformLiteralProperty<string>? ControlId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_id")?.Value;
-        set => this.WithProperty("control_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("control_id");
+        set => this.WithProperty("control_id", value);
     }
 
     /// <summary>
     /// The display name of the control. This field must be a UTF-8 encoded
     /// string with a length limit of 128 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The engine to add the control to.
     /// </summary>
-    public string? EngineId
+    public TerraformLiteralProperty<string>? EngineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_id")?.Value;
-        set => this.WithProperty("engine_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_id");
+        set => this.WithProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The solution type that the control belongs to. Possible values: [&amp;quot;SOLUTION_TYPE_RECOMMENDATION&amp;quot;, &amp;quot;SOLUTION_TYPE_SEARCH&amp;quot;, &amp;quot;SOLUTION_TYPE_CHAT&amp;quot;, &amp;quot;SOLUTION_TYPE_GENERATIVE_CHAT&amp;quot;]
     /// </summary>
-    public string? SolutionType
+    public TerraformLiteralProperty<string>? SolutionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("solution_type")?.Value;
-        set => this.WithProperty("solution_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("solution_type");
+        set => this.WithProperty("solution_type", value);
     }
 
     /// <summary>
     /// The use cases that the control is used for. Possible values: [&amp;quot;SEARCH_USE_CASE_SEARCH&amp;quot;, &amp;quot;SEARCH_USE_CASE_BROWSE&amp;quot;]
     /// </summary>
-    public List<string>? UseCases
+    public TerraformLiteralProperty<List<string>>? UseCases
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("use_cases")?.Value;
-        set => this.WithProperty("use_cases", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("use_cases");
+        set => this.WithProperty("use_cases", value);
     }
 
     /// <summary>

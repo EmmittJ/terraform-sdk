@@ -20,19 +20,19 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     /// <summary>
     /// The folder for which to retrieve config.
     /// </summary>
-    public string? Folder
+    public TerraformLiteralProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder")?.Value;
-        set => this.WithProperty("folder", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -40,10 +40,10 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     /// CryptoKey for any new KeyHandle the Developer creates. Should have the form
     /// &#39;projects/&amp;lt;project_id_or_number&amp;gt;&#39;.
     /// </summary>
-    public string? KeyProject
+    public TerraformLiteralProperty<string>? KeyProject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_project")?.Value;
-        set => this.WithProperty("key_project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_project");
+        set => this.WithProperty("key_project", value);
     }
 
     /// <summary>

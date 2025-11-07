@@ -21,46 +21,46 @@ public class GoogleGeminiRepositoryGroupIamPolicyDataSource : TerraformDataSourc
     /// <summary>
     /// The code_repository_index attribute.
     /// </summary>
-    public string? CodeRepositoryIndex
+    public TerraformLiteralProperty<string>? CodeRepositoryIndex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("code_repository_index")?.Value;
-        set => this.WithProperty("code_repository_index", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("code_repository_index");
+        set => this.WithProperty("code_repository_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The repository_group_id attribute.
     /// </summary>
-    public string? RepositoryGroupId
+    public TerraformLiteralProperty<string>? RepositoryGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_group_id")?.Value;
-        set => this.WithProperty("repository_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("repository_group_id");
+        set => this.WithProperty("repository_group_id", value);
     }
 
     /// <summary>

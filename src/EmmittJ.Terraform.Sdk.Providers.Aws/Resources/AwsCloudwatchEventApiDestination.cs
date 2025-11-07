@@ -20,73 +20,73 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     /// <summary>
     /// The connection_arn attribute.
     /// </summary>
-    public string? ConnectionArn
+    public TerraformLiteralProperty<string>? ConnectionArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_arn")?.Value;
-        set => this.WithProperty("connection_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connection_arn");
+        set => this.WithProperty("connection_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public string? HttpMethod
+    public TerraformLiteralProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_method")?.Value;
-        set => this.WithProperty("http_method", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("http_method");
+        set => this.WithProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The invocation_endpoint attribute.
     /// </summary>
-    public string? InvocationEndpoint
+    public TerraformLiteralProperty<string>? InvocationEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("invocation_endpoint")?.Value;
-        set => this.WithProperty("invocation_endpoint", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("invocation_endpoint");
+        set => this.WithProperty("invocation_endpoint", value);
     }
 
     /// <summary>
     /// The invocation_rate_limit_per_second attribute.
     /// </summary>
-    public double? InvocationRateLimitPerSecond
+    public TerraformLiteralProperty<double>? InvocationRateLimitPerSecond
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("invocation_rate_limit_per_second")?.Value;
-        set => this.WithProperty("invocation_rate_limit_per_second", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("invocation_rate_limit_per_second");
+        set => this.WithProperty("invocation_rate_limit_per_second", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

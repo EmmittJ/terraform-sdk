@@ -21,82 +21,82 @@ public class AwsKmsGrant : TerraformResource
     /// <summary>
     /// The grant_creation_tokens attribute.
     /// </summary>
-    public HashSet<string>? GrantCreationTokens
+    public TerraformLiteralProperty<HashSet<string>>? GrantCreationTokens
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("grant_creation_tokens")?.Value;
-        set => this.WithProperty("grant_creation_tokens", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("grant_creation_tokens");
+        set => this.WithProperty("grant_creation_tokens", value);
     }
 
     /// <summary>
     /// The grantee_principal attribute.
     /// </summary>
-    public string? GranteePrincipal
+    public TerraformLiteralProperty<string>? GranteePrincipal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("grantee_principal")?.Value;
-        set => this.WithProperty("grantee_principal", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("grantee_principal");
+        set => this.WithProperty("grantee_principal", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public string? KeyId
+    public TerraformLiteralProperty<string>? KeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_id")?.Value;
-        set => this.WithProperty("key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_id");
+        set => this.WithProperty("key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The operations attribute.
     /// </summary>
-    public HashSet<string>? Operations
+    public TerraformLiteralProperty<HashSet<string>>? Operations
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("operations")?.Value;
-        set => this.WithProperty("operations", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("operations");
+        set => this.WithProperty("operations", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The retire_on_delete attribute.
     /// </summary>
-    public bool? RetireOnDelete
+    public TerraformLiteralProperty<bool>? RetireOnDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("retire_on_delete")?.Value;
-        set => this.WithProperty("retire_on_delete", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("retire_on_delete");
+        set => this.WithProperty("retire_on_delete", value);
     }
 
     /// <summary>
     /// The retiring_principal attribute.
     /// </summary>
-    public string? RetiringPrincipal
+    public TerraformLiteralProperty<string>? RetiringPrincipal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retiring_principal")?.Value;
-        set => this.WithProperty("retiring_principal", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("retiring_principal");
+        set => this.WithProperty("retiring_principal", value);
     }
 
     /// <summary>

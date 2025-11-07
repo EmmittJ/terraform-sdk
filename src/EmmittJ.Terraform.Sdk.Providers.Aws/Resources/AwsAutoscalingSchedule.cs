@@ -20,100 +20,100 @@ public class AwsAutoscalingSchedule : TerraformResource
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
-    public string? AutoscalingGroupName
+    public TerraformLiteralProperty<string>? AutoscalingGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_group_name")?.Value;
-        set => this.WithProperty("autoscaling_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_group_name");
+        set => this.WithProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
-    public double? DesiredCapacity
+    public TerraformLiteralProperty<double>? DesiredCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("desired_capacity")?.Value;
-        set => this.WithProperty("desired_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("desired_capacity");
+        set => this.WithProperty("desired_capacity", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public string? EndTime
+    public TerraformLiteralProperty<string>? EndTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_time")?.Value;
-        set => this.WithProperty("end_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_time");
+        set => this.WithProperty("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public double? MaxSize
+    public TerraformLiteralProperty<double>? MaxSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_size")?.Value;
-        set => this.WithProperty("max_size", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_size");
+        set => this.WithProperty("max_size", value);
     }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public double? MinSize
+    public TerraformLiteralProperty<double>? MinSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_size")?.Value;
-        set => this.WithProperty("min_size", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_size");
+        set => this.WithProperty("min_size", value);
     }
 
     /// <summary>
     /// The recurrence attribute.
     /// </summary>
-    public string? Recurrence
+    public TerraformLiteralProperty<string>? Recurrence
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recurrence")?.Value;
-        set => this.WithProperty("recurrence", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("recurrence");
+        set => this.WithProperty("recurrence", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The scheduled_action_name attribute.
     /// </summary>
-    public string? ScheduledActionName
+    public TerraformLiteralProperty<string>? ScheduledActionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scheduled_action_name")?.Value;
-        set => this.WithProperty("scheduled_action_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scheduled_action_name");
+        set => this.WithProperty("scheduled_action_name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public string? StartTime
+    public TerraformLiteralProperty<string>? StartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_time")?.Value;
-        set => this.WithProperty("start_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_time");
+        set => this.WithProperty("start_time", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public string? TimeZone
+    public TerraformLiteralProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone")?.Value;
-        set => this.WithProperty("time_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        set => this.WithProperty("time_zone", value);
     }
 
     /// <summary>

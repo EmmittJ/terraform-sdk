@@ -19,109 +19,109 @@ public class AzurermAutomationSchedule : TerraformResource
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
-    public string? AutomationAccountName
+    public TerraformLiteralProperty<string>? AutomationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_name")?.Value;
-        set => this.WithProperty("automation_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_name");
+        set => this.WithProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    public string? ExpiryTime
+    public TerraformLiteralProperty<string>? ExpiryTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiry_time")?.Value;
-        set => this.WithProperty("expiry_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("expiry_time");
+        set => this.WithProperty("expiry_time", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public string? Frequency
+    public TerraformLiteralProperty<string>? Frequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frequency")?.Value;
-        set => this.WithProperty("frequency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("frequency");
+        set => this.WithProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public double? Interval
+    public TerraformLiteralProperty<double>? Interval
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("interval")?.Value;
-        set => this.WithProperty("interval", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("interval");
+        set => this.WithProperty("interval", value);
     }
 
     /// <summary>
     /// The month_days attribute.
     /// </summary>
-    public HashSet<double>? MonthDays
+    public TerraformLiteralProperty<HashSet<double>>? MonthDays
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("month_days")?.Value;
-        set => this.WithProperty("month_days", value == null ? null : new TerraformLiteralProperty<HashSet<double>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("month_days");
+        set => this.WithProperty("month_days", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public string? StartTime
+    public TerraformLiteralProperty<string>? StartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_time")?.Value;
-        set => this.WithProperty("start_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_time");
+        set => this.WithProperty("start_time", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public string? Timezone
+    public TerraformLiteralProperty<string>? Timezone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timezone")?.Value;
-        set => this.WithProperty("timezone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timezone");
+        set => this.WithProperty("timezone", value);
     }
 
     /// <summary>
     /// The week_days attribute.
     /// </summary>
-    public HashSet<string>? WeekDays
+    public TerraformLiteralProperty<HashSet<string>>? WeekDays
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("week_days")?.Value;
-        set => this.WithProperty("week_days", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("week_days");
+        set => this.WithProperty("week_days", value);
     }
 
 }

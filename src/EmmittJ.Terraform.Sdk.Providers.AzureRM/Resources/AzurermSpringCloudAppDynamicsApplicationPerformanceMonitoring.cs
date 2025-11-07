@@ -19,118 +19,118 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// <summary>
     /// The agent_account_access_key attribute.
     /// </summary>
-    public string? AgentAccountAccessKey
+    public TerraformLiteralProperty<string>? AgentAccountAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_account_access_key")?.Value;
-        set => this.WithProperty("agent_account_access_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_account_access_key");
+        set => this.WithProperty("agent_account_access_key", value);
     }
 
     /// <summary>
     /// The agent_account_name attribute.
     /// </summary>
-    public string? AgentAccountName
+    public TerraformLiteralProperty<string>? AgentAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_account_name")?.Value;
-        set => this.WithProperty("agent_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_account_name");
+        set => this.WithProperty("agent_account_name", value);
     }
 
     /// <summary>
     /// The agent_application_name attribute.
     /// </summary>
-    public string? AgentApplicationName
+    public TerraformLiteralProperty<string>? AgentApplicationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_application_name")?.Value;
-        set => this.WithProperty("agent_application_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_application_name");
+        set => this.WithProperty("agent_application_name", value);
     }
 
     /// <summary>
     /// The agent_node_name attribute.
     /// </summary>
-    public string? AgentNodeName
+    public TerraformLiteralProperty<string>? AgentNodeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_node_name")?.Value;
-        set => this.WithProperty("agent_node_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_node_name");
+        set => this.WithProperty("agent_node_name", value);
     }
 
     /// <summary>
     /// The agent_tier_name attribute.
     /// </summary>
-    public string? AgentTierName
+    public TerraformLiteralProperty<string>? AgentTierName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_tier_name")?.Value;
-        set => this.WithProperty("agent_tier_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_tier_name");
+        set => this.WithProperty("agent_tier_name", value);
     }
 
     /// <summary>
     /// The agent_unique_host_id attribute.
     /// </summary>
-    public string? AgentUniqueHostId
+    public TerraformLiteralProperty<string>? AgentUniqueHostId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_unique_host_id")?.Value;
-        set => this.WithProperty("agent_unique_host_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("agent_unique_host_id");
+        set => this.WithProperty("agent_unique_host_id", value);
     }
 
     /// <summary>
     /// The controller_host_name attribute.
     /// </summary>
-    public string? ControllerHostName
+    public TerraformLiteralProperty<string>? ControllerHostName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("controller_host_name")?.Value;
-        set => this.WithProperty("controller_host_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("controller_host_name");
+        set => this.WithProperty("controller_host_name", value);
     }
 
     /// <summary>
     /// The controller_port attribute.
     /// </summary>
-    public double? ControllerPort
+    public TerraformLiteralProperty<double>? ControllerPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("controller_port")?.Value;
-        set => this.WithProperty("controller_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("controller_port");
+        set => this.WithProperty("controller_port", value);
     }
 
     /// <summary>
     /// The controller_ssl_enabled attribute.
     /// </summary>
-    public bool? ControllerSslEnabled
+    public TerraformLiteralProperty<bool>? ControllerSslEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("controller_ssl_enabled")?.Value;
-        set => this.WithProperty("controller_ssl_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("controller_ssl_enabled");
+        set => this.WithProperty("controller_ssl_enabled", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public bool? GloballyEnabled
+    public TerraformLiteralProperty<bool>? GloballyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled")?.Value;
-        set => this.WithProperty("globally_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled");
+        set => this.WithProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public string? SpringCloudServiceId
+    public TerraformLiteralProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id")?.Value;
-        set => this.WithProperty("spring_cloud_service_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        set => this.WithProperty("spring_cloud_service_id", value);
     }
 
 }

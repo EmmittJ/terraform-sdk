@@ -22,46 +22,46 @@ public class GoogleBillingAccountDataSource : TerraformDataSource
     /// <summary>
     /// The billing_account attribute.
     /// </summary>
-    public string? BillingAccount
+    public TerraformLiteralProperty<string>? BillingAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account")?.Value;
-        set => this.WithProperty("billing_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("billing_account");
+        set => this.WithProperty("billing_account", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lookup_projects attribute.
     /// </summary>
-    public bool? LookupProjects
+    public TerraformLiteralProperty<bool>? LookupProjects
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("lookup_projects")?.Value;
-        set => this.WithProperty("lookup_projects", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("lookup_projects");
+        set => this.WithProperty("lookup_projects", value);
     }
 
     /// <summary>
     /// The open attribute.
     /// </summary>
-    public bool? Open
+    public TerraformLiteralProperty<bool>? Open
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("open")?.Value;
-        set => this.WithProperty("open", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("open");
+        set => this.WithProperty("open", value);
     }
 
     /// <summary>

@@ -22,28 +22,28 @@ public class AwsResourceexplorer2SearchDataSource : TerraformDataSource
     /// <summary>
     /// The query_string attribute.
     /// </summary>
-    public string? QueryString
+    public TerraformLiteralProperty<string>? QueryString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_string")?.Value;
-        set => this.WithProperty("query_string", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("query_string");
+        set => this.WithProperty("query_string", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The view_arn attribute.
     /// </summary>
-    public string? ViewArn
+    public TerraformLiteralProperty<string>? ViewArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("view_arn")?.Value;
-        set => this.WithProperty("view_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("view_arn");
+        set => this.WithProperty("view_arn", value);
     }
 
     /// <summary>

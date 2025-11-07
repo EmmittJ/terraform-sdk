@@ -20,64 +20,64 @@ public class AwsEcrPullThroughCacheRule : TerraformResource
     /// <summary>
     /// The credential_arn attribute.
     /// </summary>
-    public string? CredentialArn
+    public TerraformLiteralProperty<string>? CredentialArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("credential_arn")?.Value;
-        set => this.WithProperty("credential_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("credential_arn");
+        set => this.WithProperty("credential_arn", value);
     }
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
-    public string? CustomRoleArn
+    public TerraformLiteralProperty<string>? CustomRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_role_arn")?.Value;
-        set => this.WithProperty("custom_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("custom_role_arn");
+        set => this.WithProperty("custom_role_arn", value);
     }
 
     /// <summary>
     /// The ecr_repository_prefix attribute.
     /// </summary>
-    public string? EcrRepositoryPrefix
+    public TerraformLiteralProperty<string>? EcrRepositoryPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ecr_repository_prefix")?.Value;
-        set => this.WithProperty("ecr_repository_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ecr_repository_prefix");
+        set => this.WithProperty("ecr_repository_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The upstream_registry_url attribute.
     /// </summary>
-    public string? UpstreamRegistryUrl
+    public TerraformLiteralProperty<string>? UpstreamRegistryUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("upstream_registry_url")?.Value;
-        set => this.WithProperty("upstream_registry_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("upstream_registry_url");
+        set => this.WithProperty("upstream_registry_url", value);
     }
 
     /// <summary>
     /// The upstream_repository_prefix attribute.
     /// </summary>
-    public string? UpstreamRepositoryPrefix
+    public TerraformLiteralProperty<string>? UpstreamRepositoryPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("upstream_repository_prefix")?.Value;
-        set => this.WithProperty("upstream_repository_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("upstream_repository_prefix");
+        set => this.WithProperty("upstream_repository_prefix", value);
     }
 
     /// <summary>

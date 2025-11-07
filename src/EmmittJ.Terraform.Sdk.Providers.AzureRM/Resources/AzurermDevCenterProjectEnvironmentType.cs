@@ -19,64 +19,64 @@ public class AzurermDevCenterProjectEnvironmentType : TerraformResource
     /// <summary>
     /// The creator_role_assignment_roles attribute.
     /// </summary>
-    public HashSet<string>? CreatorRoleAssignmentRoles
+    public TerraformLiteralProperty<HashSet<string>>? CreatorRoleAssignmentRoles
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("creator_role_assignment_roles")?.Value;
-        set => this.WithProperty("creator_role_assignment_roles", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("creator_role_assignment_roles");
+        set => this.WithProperty("creator_role_assignment_roles", value);
     }
 
     /// <summary>
     /// The deployment_target_id attribute.
     /// </summary>
-    public string? DeploymentTargetId
+    public TerraformLiteralProperty<string>? DeploymentTargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_target_id")?.Value;
-        set => this.WithProperty("deployment_target_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_target_id");
+        set => this.WithProperty("deployment_target_id", value);
     }
 
     /// <summary>
     /// The dev_center_project_id attribute.
     /// </summary>
-    public string? DevCenterProjectId
+    public TerraformLiteralProperty<string>? DevCenterProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_project_id")?.Value;
-        set => this.WithProperty("dev_center_project_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_project_id");
+        set => this.WithProperty("dev_center_project_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

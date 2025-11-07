@@ -24,19 +24,19 @@ public class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -44,10 +44,10 @@ public class GoogleIamWorkloadIdentityPoolDataSource : TerraformDataSource
     /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public string? WorkloadIdentityPoolId
+    public TerraformLiteralProperty<string>? WorkloadIdentityPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_id")?.Value;
-        set => this.WithProperty("workload_identity_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_id");
+        set => this.WithProperty("workload_identity_pool_id", value);
     }
 
     /// <summary>

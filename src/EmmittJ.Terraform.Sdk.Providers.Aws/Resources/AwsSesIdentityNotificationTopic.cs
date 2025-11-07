@@ -19,55 +19,55 @@ public class AwsSesIdentityNotificationTopic : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    public string? Identity
+    public TerraformLiteralProperty<string>? Identity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity")?.Value;
-        set => this.WithProperty("identity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("identity");
+        set => this.WithProperty("identity", value);
     }
 
     /// <summary>
     /// The include_original_headers attribute.
     /// </summary>
-    public bool? IncludeOriginalHeaders
+    public TerraformLiteralProperty<bool>? IncludeOriginalHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_original_headers")?.Value;
-        set => this.WithProperty("include_original_headers", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("include_original_headers");
+        set => this.WithProperty("include_original_headers", value);
     }
 
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
-    public string? NotificationType
+    public TerraformLiteralProperty<string>? NotificationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_type")?.Value;
-        set => this.WithProperty("notification_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("notification_type");
+        set => this.WithProperty("notification_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
-    public string? TopicArn
+    public TerraformLiteralProperty<string>? TopicArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic_arn")?.Value;
-        set => this.WithProperty("topic_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("topic_arn");
+        set => this.WithProperty("topic_arn", value);
     }
 
 }

@@ -23,46 +23,46 @@ public class GoogleApigeeSharedflow : TerraformResource
     /// <summary>
     /// Path to the config zip bundle
     /// </summary>
-    public string? ConfigBundle
+    public TerraformLiteralProperty<string>? ConfigBundle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config_bundle")?.Value;
-        set => this.WithProperty("config_bundle", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config_bundle");
+        set => this.WithProperty("config_bundle", value);
     }
 
     /// <summary>
     /// A hash of local config bundle in string, user needs to use a Terraform Hash function of their choice. A change in hash will trigger an update.
     /// </summary>
-    public string? DetectMd5hash
+    public TerraformLiteralProperty<string>? DetectMd5hash
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detect_md5hash")?.Value;
-        set => this.WithProperty("detect_md5hash", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("detect_md5hash");
+        set => this.WithProperty("detect_md5hash", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the shared flow.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Apigee Organization name associated with the Apigee instance.
     /// </summary>
-    public string? OrgId
+    public TerraformLiteralProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id")?.Value;
-        set => this.WithProperty("org_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        set => this.WithProperty("org_id", value);
     }
 
     /// <summary>

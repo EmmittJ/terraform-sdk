@@ -24,127 +24,127 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// <summary>
     /// The container_type attribute.
     /// </summary>
-    public string? ContainerType
+    public TerraformLiteralProperty<string>? ContainerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_type")?.Value;
-        set => this.WithProperty("container_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_type");
+        set => this.WithProperty("container_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The dockerfile_template_data attribute.
     /// </summary>
-    public string? DockerfileTemplateData
+    public TerraformLiteralProperty<string>? DockerfileTemplateData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dockerfile_template_data")?.Value;
-        set => this.WithProperty("dockerfile_template_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dockerfile_template_data");
+        set => this.WithProperty("dockerfile_template_data", value);
     }
 
     /// <summary>
     /// The dockerfile_template_uri attribute.
     /// </summary>
-    public string? DockerfileTemplateUri
+    public TerraformLiteralProperty<string>? DockerfileTemplateUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dockerfile_template_uri")?.Value;
-        set => this.WithProperty("dockerfile_template_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dockerfile_template_uri");
+        set => this.WithProperty("dockerfile_template_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
-    public string? ParentImage
+    public TerraformLiteralProperty<string>? ParentImage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_image")?.Value;
-        set => this.WithProperty("parent_image", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_image");
+        set => this.WithProperty("parent_image", value);
     }
 
     /// <summary>
     /// The platform_override attribute.
     /// </summary>
-    public string? PlatformOverride
+    public TerraformLiteralProperty<string>? PlatformOverride
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform_override")?.Value;
-        set => this.WithProperty("platform_override", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("platform_override");
+        set => this.WithProperty("platform_override", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public string? Version
+    public TerraformLiteralProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version")?.Value;
-        set => this.WithProperty("version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        set => this.WithProperty("version", value);
     }
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
-    public string? WorkingDirectory
+    public TerraformLiteralProperty<string>? WorkingDirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("working_directory")?.Value;
-        set => this.WithProperty("working_directory", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("working_directory");
+        set => this.WithProperty("working_directory", value);
     }
 
     /// <summary>

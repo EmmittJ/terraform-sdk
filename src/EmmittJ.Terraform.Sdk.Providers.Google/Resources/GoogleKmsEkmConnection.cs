@@ -20,65 +20,65 @@ public class GoogleKmsEkmConnection : TerraformResource
     /// <summary>
     /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if KeyManagementMode is CLOUD_KMS.
     /// </summary>
-    public string? CryptoSpacePath
+    public TerraformLiteralProperty<string>? CryptoSpacePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_space_path")?.Value;
-        set => this.WithProperty("crypto_space_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("crypto_space_path");
+        set => this.WithProperty("crypto_space_path", value);
     }
 
     /// <summary>
     /// Optional. Etag of the currently stored EkmConnection.
     /// </summary>
-    public string? Etag
+    public TerraformLiteralProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag")?.Value;
-        set => this.WithProperty("etag", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        set => this.WithProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL Default value: &amp;quot;MANUAL&amp;quot; Possible values: [&amp;quot;MANUAL&amp;quot;, &amp;quot;CLOUD_KMS&amp;quot;]
     /// </summary>
-    public string? KeyManagementMode
+    public TerraformLiteralProperty<string>? KeyManagementMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_management_mode")?.Value;
-        set => this.WithProperty("key_management_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_management_mode");
+        set => this.WithProperty("key_management_mode", value);
     }
 
     /// <summary>
     /// The location for the EkmConnection.
     /// A full list of valid locations can be found by running &#39;gcloud kms locations list&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource name for the EkmConnection.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

@@ -23,19 +23,19 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// <summary>
     /// The :authority header in the gRPC request sent from Envoy to the extension service.
     /// </summary>
-    public string? Authority
+    public TerraformLiteralProperty<string>? Authority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authority")?.Value;
-        set => this.WithProperty("authority", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authority");
+        set => this.WithProperty("authority", value);
     }
 
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -44,28 +44,28 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// * If response headers have not been delivered to the downstream client, a generic 500 error is returned to the client. The error response can be tailored by configuring a custom error response in the load balancer.
     /// * If response headers have been delivered, then the HTTP stream to the downstream client is reset.
     /// </summary>
-    public bool? FailOpen
+    public TerraformLiteralProperty<bool>? FailOpen
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fail_open")?.Value;
-        set => this.WithProperty("fail_open", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("fail_open");
+        set => this.WithProperty("fail_open", value);
     }
 
     /// <summary>
     /// List of the HTTP headers to forward to the extension (from the client). If omitted, all headers are sent. Each element is a string indicating the header name.
     /// </summary>
-    public List<string>? ForwardHeaders
+    public TerraformLiteralProperty<List<string>>? ForwardHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("forward_headers")?.Value;
-        set => this.WithProperty("forward_headers", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("forward_headers");
+        set => this.WithProperty("forward_headers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -75,29 +75,29 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// All backend services and forwarding rules referenced by this extension must share the same load balancing scheme.
     /// For more information, refer to [Backend services overview](https://cloud.google.com/load-balancing/docs/backend-service). Possible values: [&amp;quot;INTERNAL_MANAGED&amp;quot;, &amp;quot;EXTERNAL_MANAGED&amp;quot;]
     /// </summary>
-    public string? LoadBalancingScheme
+    public TerraformLiteralProperty<string>? LoadBalancingScheme
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme")?.Value;
-        set => this.WithProperty("load_balancing_scheme", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme");
+        set => this.WithProperty("load_balancing_scheme", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -105,28 +105,28 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// 
     /// {forwarding_rule_id} - substituted with the forwarding rule&#39;s fully qualified resource name.
     /// </summary>
-    public Dictionary<string, string>? Metadata
+    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata")?.Value;
-        set => this.WithProperty("metadata", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// Identifier. Name of the AuthzExtension resource.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -134,28 +134,28 @@ public class GoogleNetworkServicesAuthzExtension : TerraformResource
     /// To configure a callout extension, service must be a fully-qualified reference to a [backend service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices) in the format:
     /// https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService} or https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}.
     /// </summary>
-    public string? Service
+    public TerraformLiteralProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service")?.Value;
-        set => this.WithProperty("service", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        set => this.WithProperty("service", value);
     }
 
     /// <summary>
     /// Specifies the timeout for each individual message on the stream. The timeout must be between 10-10000 milliseconds.
     /// </summary>
-    public string? Timeout
+    public TerraformLiteralProperty<string>? Timeout
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timeout")?.Value;
-        set => this.WithProperty("timeout", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("timeout");
+        set => this.WithProperty("timeout", value);
     }
 
     /// <summary>
     /// The format of communication supported by the callout extension. Will be set to EXT_PROC_GRPC by the backend if no value is set. Possible values: [&amp;quot;WIRE_FORMAT_UNSPECIFIED&amp;quot;, &amp;quot;EXT_PROC_GRPC&amp;quot;]
     /// </summary>
-    public string? WireFormat
+    public TerraformLiteralProperty<string>? WireFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("wire_format")?.Value;
-        set => this.WithProperty("wire_format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("wire_format");
+        set => this.WithProperty("wire_format", value);
     }
 
     /// <summary>

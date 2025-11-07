@@ -22,46 +22,46 @@ public class AwsDatazoneUserProfile : TerraformResource
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
-    public string? DomainIdentifier
+    public TerraformLiteralProperty<string>? DomainIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_identifier")?.Value;
-        set => this.WithProperty("domain_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_identifier");
+        set => this.WithProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public string? Status
+    public TerraformLiteralProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status")?.Value;
-        set => this.WithProperty("status", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The user_identifier attribute.
     /// </summary>
-    public string? UserIdentifier
+    public TerraformLiteralProperty<string>? UserIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_identifier")?.Value;
-        set => this.WithProperty("user_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_identifier");
+        set => this.WithProperty("user_identifier", value);
     }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public string? UserType
+    public TerraformLiteralProperty<string>? UserType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_type")?.Value;
-        set => this.WithProperty("user_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_type");
+        set => this.WithProperty("user_type", value);
     }
 
     /// <summary>

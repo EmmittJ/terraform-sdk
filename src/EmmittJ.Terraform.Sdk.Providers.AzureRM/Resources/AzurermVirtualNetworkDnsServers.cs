@@ -19,28 +19,28 @@ public class AzurermVirtualNetworkDnsServers : TerraformResource
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public List<string>? DnsServers
+    public TerraformLiteralProperty<List<string>>? DnsServers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("dns_servers")?.Value;
-        set => this.WithProperty("dns_servers", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("dns_servers");
+        set => this.WithProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public string? VirtualNetworkId
+    public TerraformLiteralProperty<string>? VirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_id")?.Value;
-        set => this.WithProperty("virtual_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_id");
+        set => this.WithProperty("virtual_network_id", value);
     }
 
 }

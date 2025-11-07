@@ -20,91 +20,91 @@ public class AzurermApplicationGateway : TerraformResource
     /// <summary>
     /// The enable_http2 attribute.
     /// </summary>
-    public bool? EnableHttp2
+    public TerraformLiteralProperty<bool>? EnableHttp2
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_http2")?.Value;
-        set => this.WithProperty("enable_http2", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_http2");
+        set => this.WithProperty("enable_http2", value);
     }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
-    public bool? FipsEnabled
+    public TerraformLiteralProperty<bool>? FipsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fips_enabled")?.Value;
-        set => this.WithProperty("fips_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("fips_enabled");
+        set => this.WithProperty("fips_enabled", value);
     }
 
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
-    public string? FirewallPolicyId
+    public TerraformLiteralProperty<string>? FirewallPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy_id")?.Value;
-        set => this.WithProperty("firewall_policy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy_id");
+        set => this.WithProperty("firewall_policy_id", value);
     }
 
     /// <summary>
     /// The force_firewall_policy_association attribute.
     /// </summary>
-    public bool? ForceFirewallPolicyAssociation
+    public TerraformLiteralProperty<bool>? ForceFirewallPolicyAssociation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_firewall_policy_association")?.Value;
-        set => this.WithProperty("force_firewall_policy_association", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_firewall_policy_association");
+        set => this.WithProperty("force_firewall_policy_association", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<string>? Zones
+    public TerraformLiteralProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones")?.Value;
-        set => this.WithProperty("zones", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        set => this.WithProperty("zones", value);
     }
 
     /// <summary>

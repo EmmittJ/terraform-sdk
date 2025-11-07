@@ -19,37 +19,37 @@ public class AzurermCosmosdbSqlFunction : TerraformResource
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public string? Body
+    public TerraformLiteralProperty<string>? Body
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("body")?.Value;
-        set => this.WithProperty("body", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("body");
+        set => this.WithProperty("body", value);
     }
 
     /// <summary>
     /// The container_id attribute.
     /// </summary>
-    public string? ContainerId
+    public TerraformLiteralProperty<string>? ContainerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_id")?.Value;
-        set => this.WithProperty("container_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("container_id");
+        set => this.WithProperty("container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
 }

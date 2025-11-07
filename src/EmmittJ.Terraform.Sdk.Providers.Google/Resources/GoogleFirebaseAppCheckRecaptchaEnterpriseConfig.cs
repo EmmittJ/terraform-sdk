@@ -21,28 +21,28 @@ public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : TerraformResource
     /// The ID of an
     /// [Web App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id).
     /// </summary>
-    public string? AppId
+    public TerraformLiteralProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id")?.Value;
-        set => this.WithProperty("app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -50,10 +50,10 @@ public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : TerraformResource
     /// 
     /// **Important**: This is not the siteSecret (as it is in reCAPTCHA v3), but rather your score-based reCAPTCHA Enterprise site key.
     /// </summary>
-    public string? SiteKey
+    public TerraformLiteralProperty<string>? SiteKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("site_key")?.Value;
-        set => this.WithProperty("site_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("site_key");
+        set => this.WithProperty("site_key", value);
     }
 
     /// <summary>
@@ -62,10 +62,10 @@ public class GoogleFirebaseAppCheckRecaptchaEnterpriseConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public string? TokenTtl
+    public TerraformLiteralProperty<string>? TokenTtl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_ttl")?.Value;
-        set => this.WithProperty("token_ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("token_ttl");
+        set => this.WithProperty("token_ttl", value);
     }
 
     /// <summary>

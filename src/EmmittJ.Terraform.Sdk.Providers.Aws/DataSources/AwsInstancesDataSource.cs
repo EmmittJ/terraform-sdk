@@ -23,37 +23,37 @@ public class AwsInstancesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_state_names attribute.
     /// </summary>
-    public HashSet<string>? InstanceStateNames
+    public TerraformLiteralProperty<HashSet<string>>? InstanceStateNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("instance_state_names")?.Value;
-        set => this.WithProperty("instance_state_names", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("instance_state_names");
+        set => this.WithProperty("instance_state_names", value);
     }
 
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
-    public Dictionary<string, string>? InstanceTags
+    public TerraformLiteralProperty<Dictionary<string, string>>? InstanceTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("instance_tags")?.Value;
-        set => this.WithProperty("instance_tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("instance_tags");
+        set => this.WithProperty("instance_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

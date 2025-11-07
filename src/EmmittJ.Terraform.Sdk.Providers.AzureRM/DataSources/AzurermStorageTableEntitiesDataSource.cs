@@ -20,37 +20,37 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The select attribute.
     /// </summary>
-    public List<string>? Select
+    public TerraformLiteralProperty<List<string>>? Select
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("select")?.Value;
-        set => this.WithProperty("select", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("select");
+        set => this.WithProperty("select", value);
     }
 
     /// <summary>
     /// The storage_table_id attribute.
     /// </summary>
-    public string? StorageTableId
+    public TerraformLiteralProperty<string>? StorageTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_table_id")?.Value;
-        set => this.WithProperty("storage_table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_table_id");
+        set => this.WithProperty("storage_table_id", value);
     }
 
     /// <summary>

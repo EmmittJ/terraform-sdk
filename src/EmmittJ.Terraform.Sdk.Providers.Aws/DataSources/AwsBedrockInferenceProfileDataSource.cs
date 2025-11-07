@@ -27,19 +27,19 @@ public class AwsBedrockInferenceProfileDataSource : TerraformDataSource
     /// <summary>
     /// The inference_profile_id attribute.
     /// </summary>
-    public string? InferenceProfileId
+    public TerraformLiteralProperty<string>? InferenceProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("inference_profile_id")?.Value;
-        set => this.WithProperty("inference_profile_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("inference_profile_id");
+        set => this.WithProperty("inference_profile_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

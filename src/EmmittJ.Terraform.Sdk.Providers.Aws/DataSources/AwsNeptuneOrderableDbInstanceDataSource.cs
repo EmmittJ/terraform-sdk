@@ -34,73 +34,73 @@ public class AwsNeptuneOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public string? Engine
+    public TerraformLiteralProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine")?.Value;
-        set => this.WithProperty("engine", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public string? EngineVersion
+    public TerraformLiteralProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version")?.Value;
-        set => this.WithProperty("engine_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public string? InstanceClass
+    public TerraformLiteralProperty<string>? InstanceClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_class")?.Value;
-        set => this.WithProperty("instance_class", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_class");
+        set => this.WithProperty("instance_class", value);
     }
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public string? LicenseModel
+    public TerraformLiteralProperty<string>? LicenseModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_model")?.Value;
-        set => this.WithProperty("license_model", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_model");
+        set => this.WithProperty("license_model", value);
     }
 
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    public List<string>? PreferredInstanceClasses
+    public TerraformLiteralProperty<List<string>>? PreferredInstanceClasses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_instance_classes")?.Value;
-        set => this.WithProperty("preferred_instance_classes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_instance_classes");
+        set => this.WithProperty("preferred_instance_classes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The vpc attribute.
     /// </summary>
-    public bool? Vpc
+    public TerraformLiteralProperty<bool>? Vpc
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("vpc")?.Value;
-        set => this.WithProperty("vpc", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("vpc");
+        set => this.WithProperty("vpc", value);
     }
 
     /// <summary>

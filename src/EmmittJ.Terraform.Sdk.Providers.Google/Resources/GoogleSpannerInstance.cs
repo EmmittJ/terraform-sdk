@@ -27,10 +27,10 @@ public class GoogleSpannerInstance : TerraformResource
     /// In order to obtain a valid list please consult the
     /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
     /// </summary>
-    public string? Config
+    public TerraformLiteralProperty<string>? Config
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config")?.Value;
-        set => this.WithProperty("config", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("config");
+        set => this.WithProperty("config", value);
     }
 
     /// <summary>
@@ -38,48 +38,48 @@ public class GoogleSpannerInstance : TerraformResource
     /// Note that &#39;AUTOMATIC&#39; is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
     /// if unset or NONE, no default backup schedule will be created for new databases within the instance. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
     /// </summary>
-    public string? DefaultBackupScheduleType
+    public TerraformLiteralProperty<string>? DefaultBackupScheduleType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_backup_schedule_type")?.Value;
-        set => this.WithProperty("default_backup_schedule_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_backup_schedule_type");
+        set => this.WithProperty("default_backup_schedule_type", value);
     }
 
     /// <summary>
     /// The descriptive name for this instance as it appears in UIs. Must be
     /// unique per project and between 4 and 30 characters in length.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The edition selected for this instance. Different editions provide different capabilities at different price points. Possible values: [&amp;quot;EDITION_UNSPECIFIED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    public string? Edition
+    public TerraformLiteralProperty<string>? Edition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edition")?.Value;
-        set => this.WithProperty("edition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("edition");
+        set => this.WithProperty("edition", value);
     }
 
     /// <summary>
     /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
     /// This must be set to true if you created a backup manually in the console.
     /// </summary>
-    public bool? ForceDestroy
+    public TerraformLiteralProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy")?.Value;
-        set => this.WithProperty("force_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -87,10 +87,10 @@ public class GoogleSpannerInstance : TerraformResource
     /// usage restrictions, quotas and billing. Currently this is used to distinguish FREE_INSTANCE vs PROVISIONED instances.
     /// When configured as FREE_INSTANCE, the field &#39;edition&#39; should not be configured. Possible values: [&amp;quot;PROVISIONED&amp;quot;, &amp;quot;FREE_INSTANCE&amp;quot;]
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
@@ -101,10 +101,10 @@ public class GoogleSpannerInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -113,39 +113,39 @@ public class GoogleSpannerInstance : TerraformResource
     /// in length.
     /// If not provided, a random string starting with &#39;tf-&#39; will be selected.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The number of nodes allocated to this instance. Exactly one of either num_nodes, processing_units or
     /// autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public double? NumNodes
+    public TerraformLiteralProperty<double>? NumNodes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("num_nodes")?.Value;
-        set => this.WithProperty("num_nodes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("num_nodes");
+        set => this.WithProperty("num_nodes", value);
     }
 
     /// <summary>
     /// The number of processing units allocated to this instance. Exactly one of either num_nodes,
     /// processing_units or autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    public double? ProcessingUnits
+    public TerraformLiteralProperty<double>? ProcessingUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("processing_units")?.Value;
-        set => this.WithProperty("processing_units", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("processing_units");
+        set => this.WithProperty("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

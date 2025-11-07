@@ -48,100 +48,100 @@ public class AwsOdbCloudExadataInfrastructure : TerraformResource
     /// <summary>
     /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     ///  The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource
     /// </summary>
-    public string? AvailabilityZoneId
+    public TerraformLiteralProperty<string>? AvailabilityZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_id")?.Value;
-        set => this.WithProperty("availability_zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_id");
+        set => this.WithProperty("availability_zone_id", value);
     }
 
     /// <summary>
     ///  The number of compute instances that the Exadata infrastructure is located
     /// </summary>
-    public double? ComputeCount
+    public TerraformLiteralProperty<double>? ComputeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("compute_count")?.Value;
-        set => this.WithProperty("compute_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("compute_count");
+        set => this.WithProperty("compute_count", value);
     }
 
     /// <summary>
     /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource
     /// </summary>
-    public HashSet<object>? CustomerContactsToSendToOci
+    public TerraformLiteralProperty<HashSet<object>>? CustomerContactsToSendToOci
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<object>>>("customer_contacts_to_send_to_oci")?.Value;
-        set => this.WithProperty("customer_contacts_to_send_to_oci", value == null ? null : new TerraformLiteralProperty<HashSet<object>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<object>>>("customer_contacts_to_send_to_oci");
+        set => this.WithProperty("customer_contacts_to_send_to_oci", value);
     }
 
     /// <summary>
     /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
     /// </summary>
-    public string? DatabaseServerType
+    public TerraformLiteralProperty<string>? DatabaseServerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_server_type")?.Value;
-        set => this.WithProperty("database_server_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database_server_type");
+        set => this.WithProperty("database_server_type", value);
     }
 
     /// <summary>
     /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource
     /// </summary>
-    public string? Shape
+    public TerraformLiteralProperty<string>? Shape
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shape")?.Value;
-        set => this.WithProperty("shape", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shape");
+        set => this.WithProperty("shape", value);
     }
 
     /// <summary>
     /// TThe number of storage servers that are activated for the Exadata infrastructure
     /// </summary>
-    public double? StorageCount
+    public TerraformLiteralProperty<double>? StorageCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_count")?.Value;
-        set => this.WithProperty("storage_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("storage_count");
+        set => this.WithProperty("storage_count", value);
     }
 
     /// <summary>
     /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
     /// </summary>
-    public string? StorageServerType
+    public TerraformLiteralProperty<string>? StorageServerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_server_type")?.Value;
-        set => this.WithProperty("storage_server_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_server_type");
+        set => this.WithProperty("storage_server_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

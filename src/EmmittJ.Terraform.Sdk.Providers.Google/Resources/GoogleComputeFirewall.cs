@@ -22,10 +22,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -33,10 +33,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// traffic that has destination IP address in these ranges. These ranges
     /// must be expressed in CIDR format. IPv4 or IPv6 ranges are supported.
     /// </summary>
-    public HashSet<string>? DestinationRanges
+    public TerraformLiteralProperty<HashSet<string>>? DestinationRanges
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_ranges")?.Value;
-        set => this.WithProperty("destination_ranges", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("destination_ranges");
+        set => this.WithProperty("destination_ranges", value);
     }
 
     /// <summary>
@@ -44,10 +44,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// INGRESS. Note: For INGRESS traffic, one of &#39;source_ranges&#39;,
     /// &#39;source_tags&#39; or &#39;source_service_accounts&#39; is required. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
-    public string? Direction
+    public TerraformLiteralProperty<string>? Direction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direction")?.Value;
-        set => this.WithProperty("direction", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("direction");
+        set => this.WithProperty("direction", value);
     }
 
     /// <summary>
@@ -56,29 +56,29 @@ public class GoogleComputeFirewall : TerraformResource
     /// not enforced and the network behaves as if it did not exist. If this
     /// is unspecified, the firewall rule will be enabled.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// This field denotes whether to enable logging for a particular firewall rule. If logging is enabled, logs will be exported to Stackdriver.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public bool? EnableLogging
+    public TerraformLiteralProperty<bool>? EnableLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging")?.Value;
-        set => this.WithProperty("enable_logging", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging");
+        set => this.WithProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -90,19 +90,19 @@ public class GoogleComputeFirewall : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name or self_link of the network to attach this firewall to.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
@@ -113,19 +113,19 @@ public class GoogleComputeFirewall : TerraformResource
     /// higher precedence than a rule with priority 1). DENY rules take
     /// precedence over ALLOW rules having equal priority.
     /// </summary>
-    public double? Priority
+    public TerraformLiteralProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -139,10 +139,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// apply. IPv4 or IPv6 ranges are supported. For INGRESS traffic, one of
     /// &#39;source_ranges&#39;, &#39;source_tags&#39; or &#39;source_service_accounts&#39; is required.
     /// </summary>
-    public HashSet<string>? SourceRanges
+    public TerraformLiteralProperty<HashSet<string>>? SourceRanges
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_ranges")?.Value;
-        set => this.WithProperty("source_ranges", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_ranges");
+        set => this.WithProperty("source_ranges", value);
     }
 
     /// <summary>
@@ -159,10 +159,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// used at the same time as sourceTags or targetTags. For INGRESS traffic,
     /// one of &#39;source_ranges&#39;, &#39;source_tags&#39; or &#39;source_service_accounts&#39; is required.
     /// </summary>
-    public HashSet<string>? SourceServiceAccounts
+    public TerraformLiteralProperty<HashSet<string>>? SourceServiceAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_service_accounts")?.Value;
-        set => this.WithProperty("source_service_accounts", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_service_accounts");
+        set => this.WithProperty("source_service_accounts", value);
     }
 
     /// <summary>
@@ -177,10 +177,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// to match both properties for the firewall to apply. For INGRESS traffic,
     /// one of &#39;source_ranges&#39;, &#39;source_tags&#39; or &#39;source_service_accounts&#39; is required.
     /// </summary>
-    public HashSet<string>? SourceTags
+    public TerraformLiteralProperty<HashSet<string>>? SourceTags
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_tags")?.Value;
-        set => this.WithProperty("source_tags", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("source_tags");
+        set => this.WithProperty("source_tags", value);
     }
 
     /// <summary>
@@ -191,10 +191,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// specified, the firewall rule applies to all instances on the specified
     /// network.
     /// </summary>
-    public HashSet<string>? TargetServiceAccounts
+    public TerraformLiteralProperty<HashSet<string>>? TargetServiceAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("target_service_accounts")?.Value;
-        set => this.WithProperty("target_service_accounts", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("target_service_accounts");
+        set => this.WithProperty("target_service_accounts", value);
     }
 
     /// <summary>
@@ -203,10 +203,10 @@ public class GoogleComputeFirewall : TerraformResource
     /// If no targetTags are specified, the firewall rule applies to all
     /// instances on the specified network.
     /// </summary>
-    public HashSet<string>? TargetTags
+    public TerraformLiteralProperty<HashSet<string>>? TargetTags
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("target_tags")?.Value;
-        set => this.WithProperty("target_tags", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("target_tags");
+        set => this.WithProperty("target_tags", value);
     }
 
     /// <summary>

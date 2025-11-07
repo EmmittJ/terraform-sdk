@@ -35,10 +35,10 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     /// In the future, references to other resource types might be allowed if
     /// admin clusters are modeled as their own resources.
     /// </summary>
-    public string? AdminClusterMembership
+    public TerraformLiteralProperty<string>? AdminClusterMembership
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_cluster_membership")?.Value;
-        set => this.WithProperty("admin_cluster_membership", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("admin_cluster_membership");
+        set => this.WithProperty("admin_cluster_membership", value);
     }
 
     /// <summary>
@@ -55,100 +55,100 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// A human readable description of this VMware User Cluster.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Disable bundled ingress.
     /// </summary>
-    public bool? DisableBundledIngress
+    public TerraformLiteralProperty<bool>? DisableBundledIngress
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_bundled_ingress")?.Value;
-        set => this.WithProperty("disable_bundled_ingress", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_bundled_ingress");
+        set => this.WithProperty("disable_bundled_ingress", value);
     }
 
     /// <summary>
     /// Enable advanced cluster. Default to false.
     /// </summary>
-    public bool? EnableAdvancedCluster
+    public TerraformLiteralProperty<bool>? EnableAdvancedCluster
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_advanced_cluster")?.Value;
-        set => this.WithProperty("enable_advanced_cluster", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_advanced_cluster");
+        set => this.WithProperty("enable_advanced_cluster", value);
     }
 
     /// <summary>
     /// Enable control plane V2. Default to false.
     /// </summary>
-    public bool? EnableControlPlaneV2
+    public TerraformLiteralProperty<bool>? EnableControlPlaneV2
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_control_plane_v2")?.Value;
-        set => this.WithProperty("enable_control_plane_v2", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_control_plane_v2");
+        set => this.WithProperty("enable_control_plane_v2", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The VMware cluster name.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Anthos clusters on the VMware version for your user cluster.
     /// </summary>
-    public string? OnPremVersion
+    public TerraformLiteralProperty<string>? OnPremVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("on_prem_version")?.Value;
-        set => this.WithProperty("on_prem_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("on_prem_version");
+        set => this.WithProperty("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Enable VM tracking.
     /// </summary>
-    public bool? VmTrackingEnabled
+    public TerraformLiteralProperty<bool>? VmTrackingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("vm_tracking_enabled")?.Value;
-        set => this.WithProperty("vm_tracking_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("vm_tracking_enabled");
+        set => this.WithProperty("vm_tracking_enabled", value);
     }
 
     /// <summary>

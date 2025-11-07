@@ -19,37 +19,37 @@ public class GoogleResourceManagerCapability : TerraformResource
     /// <summary>
     /// Capability name that should be updated on the folder.
     /// </summary>
-    public string? CapabilityName
+    public TerraformLiteralProperty<string>? CapabilityName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capability_name")?.Value;
-        set => this.WithProperty("capability_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("capability_name");
+        set => this.WithProperty("capability_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Folder on which Capability needs to be updated in the format folders/folder_id.
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Capability Value.
     /// </summary>
-    public bool? Value
+    public TerraformLiteralProperty<bool>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("value")?.Value;
-        set => this.WithProperty("value", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("value");
+        set => this.WithProperty("value", value);
     }
 
 }

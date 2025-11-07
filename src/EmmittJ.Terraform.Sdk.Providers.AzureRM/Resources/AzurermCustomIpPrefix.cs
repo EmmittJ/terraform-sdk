@@ -19,109 +19,109 @@ public class AzurermCustomIpPrefix : TerraformResource
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    public string? Cidr
+    public TerraformLiteralProperty<string>? Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr")?.Value;
-        set => this.WithProperty("cidr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr");
+        set => this.WithProperty("cidr", value);
     }
 
     /// <summary>
     /// The commissioning_enabled attribute.
     /// </summary>
-    public bool? CommissioningEnabled
+    public TerraformLiteralProperty<bool>? CommissioningEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("commissioning_enabled")?.Value;
-        set => this.WithProperty("commissioning_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("commissioning_enabled");
+        set => this.WithProperty("commissioning_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The internet_advertising_disabled attribute.
     /// </summary>
-    public bool? InternetAdvertisingDisabled
+    public TerraformLiteralProperty<bool>? InternetAdvertisingDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internet_advertising_disabled")?.Value;
-        set => this.WithProperty("internet_advertising_disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("internet_advertising_disabled");
+        set => this.WithProperty("internet_advertising_disabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_custom_ip_prefix_id attribute.
     /// </summary>
-    public string? ParentCustomIpPrefixId
+    public TerraformLiteralProperty<string>? ParentCustomIpPrefixId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_custom_ip_prefix_id")?.Value;
-        set => this.WithProperty("parent_custom_ip_prefix_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_custom_ip_prefix_id");
+        set => this.WithProperty("parent_custom_ip_prefix_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The roa_validity_end_date attribute.
     /// </summary>
-    public string? RoaValidityEndDate
+    public TerraformLiteralProperty<string>? RoaValidityEndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("roa_validity_end_date")?.Value;
-        set => this.WithProperty("roa_validity_end_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("roa_validity_end_date");
+        set => this.WithProperty("roa_validity_end_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The wan_validation_signed_message attribute.
     /// </summary>
-    public string? WanValidationSignedMessage
+    public TerraformLiteralProperty<string>? WanValidationSignedMessage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("wan_validation_signed_message")?.Value;
-        set => this.WithProperty("wan_validation_signed_message", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("wan_validation_signed_message");
+        set => this.WithProperty("wan_validation_signed_message", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public HashSet<string>? Zones
+    public TerraformLiteralProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones")?.Value;
-        set => this.WithProperty("zones", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        set => this.WithProperty("zones", value);
     }
 
 }

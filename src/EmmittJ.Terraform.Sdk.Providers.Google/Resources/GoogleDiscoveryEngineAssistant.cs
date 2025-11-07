@@ -20,29 +20,29 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// <summary>
     /// The unique id of the assistant.
     /// </summary>
-    public string? AssistantId
+    public TerraformLiteralProperty<string>? AssistantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assistant_id")?.Value;
-        set => this.WithProperty("assistant_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("assistant_id");
+        set => this.WithProperty("assistant_id", value);
     }
 
     /// <summary>
     /// The unique id of the collection.
     /// </summary>
-    public string? CollectionId
+    public TerraformLiteralProperty<string>? CollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection_id")?.Value;
-        set => this.WithProperty("collection_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("collection_id");
+        set => this.WithProperty("collection_id", value);
     }
 
     /// <summary>
     /// Description for additional information. Expected to be shown on the
     /// configuration UI, not to the users of the assistant.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -50,57 +50,57 @@ public class GoogleDiscoveryEngineAssistant : TerraformResource
     /// 
     /// It must be a UTF-8 encoded string with a length limit of 128 characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The unique id of the engine.
     /// </summary>
-    public string? EngineId
+    public TerraformLiteralProperty<string>? EngineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_id")?.Value;
-        set => this.WithProperty("engine_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_id");
+        set => this.WithProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The type of web grounding to use.
     /// The supported values: &#39;WEB_GROUNDING_TYPE_DISABLED&#39;, &#39;WEB_GROUNDING_TYPE_GOOGLE_SEARCH&#39;, &#39;WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH&#39;.
     /// </summary>
-    public string? WebGroundingType
+    public TerraformLiteralProperty<string>? WebGroundingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_grounding_type")?.Value;
-        set => this.WithProperty("web_grounding_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("web_grounding_type");
+        set => this.WithProperty("web_grounding_type", value);
     }
 
     /// <summary>

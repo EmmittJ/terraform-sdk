@@ -25,55 +25,55 @@ public class AwsPaymentcryptographyKey : TerraformResource
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    public double? DeletionWindowInDays
+    public TerraformLiteralProperty<double>? DeletionWindowInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("deletion_window_in_days")?.Value;
-        set => this.WithProperty("deletion_window_in_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("deletion_window_in_days");
+        set => this.WithProperty("deletion_window_in_days", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The exportable attribute.
     /// </summary>
-    public bool? Exportable
+    public TerraformLiteralProperty<bool>? Exportable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exportable")?.Value;
-        set => this.WithProperty("exportable", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("exportable");
+        set => this.WithProperty("exportable", value);
     }
 
     /// <summary>
     /// The key_check_value_algorithm attribute.
     /// </summary>
-    public string? KeyCheckValueAlgorithm
+    public TerraformLiteralProperty<string>? KeyCheckValueAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_check_value_algorithm")?.Value;
-        set => this.WithProperty("key_check_value_algorithm", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_check_value_algorithm");
+        set => this.WithProperty("key_check_value_algorithm", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

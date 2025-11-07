@@ -25,181 +25,181 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public double? AutomaticBackupRetentionDays
+    public TerraformLiteralProperty<double>? AutomaticBackupRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("automatic_backup_retention_days")?.Value;
-        set => this.WithProperty("automatic_backup_retention_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("automatic_backup_retention_days");
+        set => this.WithProperty("automatic_backup_retention_days", value);
     }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public string? DailyAutomaticBackupStartTime
+    public TerraformLiteralProperty<string>? DailyAutomaticBackupStartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("daily_automatic_backup_start_time")?.Value;
-        set => this.WithProperty("daily_automatic_backup_start_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("daily_automatic_backup_start_time");
+        set => this.WithProperty("daily_automatic_backup_start_time", value);
     }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    public string? DeploymentType
+    public TerraformLiteralProperty<string>? DeploymentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_type")?.Value;
-        set => this.WithProperty("deployment_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deployment_type");
+        set => this.WithProperty("deployment_type", value);
     }
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
-    public string? EndpointIpAddressRange
+    public TerraformLiteralProperty<string>? EndpointIpAddressRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_ip_address_range")?.Value;
-        set => this.WithProperty("endpoint_ip_address_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_ip_address_range");
+        set => this.WithProperty("endpoint_ip_address_range", value);
     }
 
     /// <summary>
     /// The fsx_admin_password attribute.
     /// </summary>
-    public string? FsxAdminPassword
+    public TerraformLiteralProperty<string>? FsxAdminPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fsx_admin_password")?.Value;
-        set => this.WithProperty("fsx_admin_password", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("fsx_admin_password");
+        set => this.WithProperty("fsx_admin_password", value);
     }
 
     /// <summary>
     /// The ha_pairs attribute.
     /// </summary>
-    public double? HaPairs
+    public TerraformLiteralProperty<double>? HaPairs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ha_pairs")?.Value;
-        set => this.WithProperty("ha_pairs", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("ha_pairs");
+        set => this.WithProperty("ha_pairs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
-    public string? PreferredSubnetId
+    public TerraformLiteralProperty<string>? PreferredSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_subnet_id")?.Value;
-        set => this.WithProperty("preferred_subnet_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("preferred_subnet_id");
+        set => this.WithProperty("preferred_subnet_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    public HashSet<string>? RouteTableIds
+    public TerraformLiteralProperty<HashSet<string>>? RouteTableIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("route_table_ids")?.Value;
-        set => this.WithProperty("route_table_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("route_table_ids");
+        set => this.WithProperty("route_table_ids", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public HashSet<string>? SecurityGroupIds
+    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids")?.Value;
-        set => this.WithProperty("security_group_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public double? StorageCapacity
+    public TerraformLiteralProperty<double>? StorageCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_capacity")?.Value;
-        set => this.WithProperty("storage_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("storage_capacity");
+        set => this.WithProperty("storage_capacity", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public string? StorageType
+    public TerraformLiteralProperty<string>? StorageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_type")?.Value;
-        set => this.WithProperty("storage_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_type");
+        set => this.WithProperty("storage_type", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public List<string>? SubnetIds
+    public TerraformLiteralProperty<List<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("subnet_ids")?.Value;
-        set => this.WithProperty("subnet_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("subnet_ids");
+        set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public double? ThroughputCapacity
+    public TerraformLiteralProperty<double>? ThroughputCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("throughput_capacity")?.Value;
-        set => this.WithProperty("throughput_capacity", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("throughput_capacity");
+        set => this.WithProperty("throughput_capacity", value);
     }
 
     /// <summary>
     /// The throughput_capacity_per_ha_pair attribute.
     /// </summary>
-    public double? ThroughputCapacityPerHaPair
+    public TerraformLiteralProperty<double>? ThroughputCapacityPerHaPair
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("throughput_capacity_per_ha_pair")?.Value;
-        set => this.WithProperty("throughput_capacity_per_ha_pair", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("throughput_capacity_per_ha_pair");
+        set => this.WithProperty("throughput_capacity_per_ha_pair", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public string? WeeklyMaintenanceStartTime
+    public TerraformLiteralProperty<string>? WeeklyMaintenanceStartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("weekly_maintenance_start_time")?.Value;
-        set => this.WithProperty("weekly_maintenance_start_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("weekly_maintenance_start_time");
+        set => this.WithProperty("weekly_maintenance_start_time", value);
     }
 
     /// <summary>

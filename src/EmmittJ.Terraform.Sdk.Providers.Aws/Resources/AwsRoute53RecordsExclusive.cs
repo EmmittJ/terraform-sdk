@@ -19,10 +19,10 @@ public class AwsRoute53RecordsExclusive : TerraformResource
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public string? ZoneId
+    public TerraformLiteralProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id")?.Value;
-        set => this.WithProperty("zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        set => this.WithProperty("zone_id", value);
     }
 
 }

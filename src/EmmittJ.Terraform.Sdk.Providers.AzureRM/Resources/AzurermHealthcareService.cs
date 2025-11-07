@@ -19,100 +19,100 @@ public class AzurermHealthcareService : TerraformResource
     /// <summary>
     /// The access_policy_object_ids attribute.
     /// </summary>
-    public HashSet<string>? AccessPolicyObjectIds
+    public TerraformLiteralProperty<HashSet<string>>? AccessPolicyObjectIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("access_policy_object_ids")?.Value;
-        set => this.WithProperty("access_policy_object_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("access_policy_object_ids");
+        set => this.WithProperty("access_policy_object_ids", value);
     }
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
-    public string? ConfigurationExportStorageAccountName
+    public TerraformLiteralProperty<string>? ConfigurationExportStorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_export_storage_account_name")?.Value;
-        set => this.WithProperty("configuration_export_storage_account_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("configuration_export_storage_account_name");
+        set => this.WithProperty("configuration_export_storage_account_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_key_vault_key_versionless_id attribute.
     /// </summary>
-    public string? CosmosdbKeyVaultKeyVersionlessId
+    public TerraformLiteralProperty<string>? CosmosdbKeyVaultKeyVersionlessId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_key_vault_key_versionless_id")?.Value;
-        set => this.WithProperty("cosmosdb_key_vault_key_versionless_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_key_vault_key_versionless_id");
+        set => this.WithProperty("cosmosdb_key_vault_key_versionless_id", value);
     }
 
     /// <summary>
     /// The cosmosdb_throughput attribute.
     /// </summary>
-    public double? CosmosdbThroughput
+    public TerraformLiteralProperty<double>? CosmosdbThroughput
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cosmosdb_throughput")?.Value;
-        set => this.WithProperty("cosmosdb_throughput", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("cosmosdb_throughput");
+        set => this.WithProperty("cosmosdb_throughput", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public string? Kind
+    public TerraformLiteralProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind")?.Value;
-        set => this.WithProperty("kind", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public bool? PublicNetworkAccessEnabled
+    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled")?.Value;
-        set => this.WithProperty("public_network_access_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
 }

@@ -27,100 +27,100 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
-    public bool? AutomaticFailoverEnabled
+    public TerraformLiteralProperty<bool>? AutomaticFailoverEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_failover_enabled")?.Value;
-        set => this.WithProperty("automatic_failover_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_failover_enabled");
+        set => this.WithProperty("automatic_failover_enabled", value);
     }
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    public string? CacheNodeType
+    public TerraformLiteralProperty<string>? CacheNodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_node_type")?.Value;
-        set => this.WithProperty("cache_node_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cache_node_type");
+        set => this.WithProperty("cache_node_type", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public string? Engine
+    public TerraformLiteralProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine")?.Value;
-        set => this.WithProperty("engine", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public string? EngineVersion
+    public TerraformLiteralProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version")?.Value;
-        set => this.WithProperty("engine_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The global_replication_group_description attribute.
     /// </summary>
-    public string? GlobalReplicationGroupDescription
+    public TerraformLiteralProperty<string>? GlobalReplicationGroupDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_replication_group_description")?.Value;
-        set => this.WithProperty("global_replication_group_description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_replication_group_description");
+        set => this.WithProperty("global_replication_group_description", value);
     }
 
     /// <summary>
     /// The global_replication_group_id_suffix attribute.
     /// </summary>
-    public string? GlobalReplicationGroupIdSuffix
+    public TerraformLiteralProperty<string>? GlobalReplicationGroupIdSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_replication_group_id_suffix")?.Value;
-        set => this.WithProperty("global_replication_group_id_suffix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("global_replication_group_id_suffix");
+        set => this.WithProperty("global_replication_group_id_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The num_node_groups attribute.
     /// </summary>
-    public double? NumNodeGroups
+    public TerraformLiteralProperty<double>? NumNodeGroups
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("num_node_groups")?.Value;
-        set => this.WithProperty("num_node_groups", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("num_node_groups");
+        set => this.WithProperty("num_node_groups", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public string? ParameterGroupName
+    public TerraformLiteralProperty<string>? ParameterGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_group_name")?.Value;
-        set => this.WithProperty("parameter_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameter_group_name");
+        set => this.WithProperty("parameter_group_name", value);
     }
 
     /// <summary>
     /// The primary_replication_group_id attribute.
     /// </summary>
-    public string? PrimaryReplicationGroupId
+    public TerraformLiteralProperty<string>? PrimaryReplicationGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_replication_group_id")?.Value;
-        set => this.WithProperty("primary_replication_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("primary_replication_group_id");
+        set => this.WithProperty("primary_replication_group_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

@@ -22,46 +22,46 @@ public class GoogleLoggingOrganizationSettings : TerraformResource
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
-    public bool? DisableDefaultSink
+    public TerraformLiteralProperty<bool>? DisableDefaultSink
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_default_sink")?.Value;
-        set => this.WithProperty("disable_default_sink", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_default_sink");
+        set => this.WithProperty("disable_default_sink", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
     /// </summary>
-    public string? KmsKeyName
+    public TerraformLiteralProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name")?.Value;
-        set => this.WithProperty("kms_key_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name");
+        set => this.WithProperty("kms_key_name", value);
     }
 
     /// <summary>
     /// The organization for which to retrieve or configure settings.
     /// </summary>
-    public string? Organization
+    public TerraformLiteralProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization")?.Value;
-        set => this.WithProperty("organization", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        set => this.WithProperty("organization", value);
     }
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
-    public string? StorageLocation
+    public TerraformLiteralProperty<string>? StorageLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_location")?.Value;
-        set => this.WithProperty("storage_location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_location");
+        set => this.WithProperty("storage_location", value);
     }
 
     /// <summary>

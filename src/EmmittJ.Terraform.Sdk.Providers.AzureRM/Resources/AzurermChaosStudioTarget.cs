@@ -19,37 +19,37 @@ public class AzurermChaosStudioTarget : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public string? TargetResourceId
+    public TerraformLiteralProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id")?.Value;
-        set => this.WithProperty("target_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id");
+        set => this.WithProperty("target_resource_id", value);
     }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public string? TargetType
+    public TerraformLiteralProperty<string>? TargetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_type")?.Value;
-        set => this.WithProperty("target_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_type");
+        set => this.WithProperty("target_type", value);
     }
 
 }

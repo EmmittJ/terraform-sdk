@@ -41,47 +41,47 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// <summary>
     /// The user provided Resource ID for this Certificate Authority.
     /// </summary>
-    public string? CertificateAuthorityId
+    public TerraformLiteralProperty<string>? CertificateAuthorityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_id")?.Value;
-        set => this.WithProperty("certificate_authority_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_id");
+        set => this.WithProperty("certificate_authority_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location of the CertificateAuthority. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the CaPool this Certificate Authority belongs to.
     /// </summary>
-    public string? Pool
+    public TerraformLiteralProperty<string>? Pool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool")?.Value;
-        set => this.WithProperty("pool", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("pool");
+        set => this.WithProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

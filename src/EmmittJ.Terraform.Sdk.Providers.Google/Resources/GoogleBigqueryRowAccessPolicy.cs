@@ -21,10 +21,10 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// <summary>
     /// The ID of the dataset containing this row access policy.
     /// </summary>
-    public string? DatasetId
+    public TerraformLiteralProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id")?.Value;
-        set => this.WithProperty("dataset_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        set => this.WithProperty("dataset_id", value);
     }
 
     /// <summary>
@@ -39,10 +39,10 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// nullable_field is not NULL
     /// numeric_field BETWEEN 1.0 AND 5.0
     /// </summary>
-    public string? FilterPredicate
+    public TerraformLiteralProperty<string>? FilterPredicate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_predicate")?.Value;
-        set => this.WithProperty("filter_predicate", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter_predicate");
+        set => this.WithProperty("filter_predicate", value);
     }
 
     /// <summary>
@@ -69,19 +69,19 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// BigQuery requires authentication before a user can access the service,
     /// allUsers includes only authenticated users.
     /// </summary>
-    public List<string>? Grantees
+    public TerraformLiteralProperty<List<string>>? Grantees
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("grantees")?.Value;
-        set => this.WithProperty("grantees", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("grantees");
+        set => this.WithProperty("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -89,28 +89,28 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum
     /// length is 256 characters.
     /// </summary>
-    public string? PolicyId
+    public TerraformLiteralProperty<string>? PolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_id")?.Value;
-        set => this.WithProperty("policy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_id");
+        set => this.WithProperty("policy_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The ID of the table containing this row access policy.
     /// </summary>
-    public string? TableId
+    public TerraformLiteralProperty<string>? TableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_id")?.Value;
-        set => this.WithProperty("table_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("table_id");
+        set => this.WithProperty("table_id", value);
     }
 
     /// <summary>

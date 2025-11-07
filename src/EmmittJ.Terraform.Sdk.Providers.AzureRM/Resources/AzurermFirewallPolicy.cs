@@ -22,100 +22,100 @@ public class AzurermFirewallPolicy : TerraformResource
     /// <summary>
     /// The auto_learn_private_ranges_enabled attribute.
     /// </summary>
-    public bool? AutoLearnPrivateRangesEnabled
+    public TerraformLiteralProperty<bool>? AutoLearnPrivateRangesEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_learn_private_ranges_enabled")?.Value;
-        set => this.WithProperty("auto_learn_private_ranges_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auto_learn_private_ranges_enabled");
+        set => this.WithProperty("auto_learn_private_ranges_enabled", value);
     }
 
     /// <summary>
     /// The base_policy_id attribute.
     /// </summary>
-    public string? BasePolicyId
+    public TerraformLiteralProperty<string>? BasePolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("base_policy_id")?.Value;
-        set => this.WithProperty("base_policy_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("base_policy_id");
+        set => this.WithProperty("base_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The private_ip_ranges attribute.
     /// </summary>
-    public List<string>? PrivateIpRanges
+    public TerraformLiteralProperty<List<string>>? PrivateIpRanges
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("private_ip_ranges")?.Value;
-        set => this.WithProperty("private_ip_ranges", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("private_ip_ranges");
+        set => this.WithProperty("private_ip_ranges", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public string? Sku
+    public TerraformLiteralProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku")?.Value;
-        set => this.WithProperty("sku", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The sql_redirect_allowed attribute.
     /// </summary>
-    public bool? SqlRedirectAllowed
+    public TerraformLiteralProperty<bool>? SqlRedirectAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sql_redirect_allowed")?.Value;
-        set => this.WithProperty("sql_redirect_allowed", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sql_redirect_allowed");
+        set => this.WithProperty("sql_redirect_allowed", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The threat_intelligence_mode attribute.
     /// </summary>
-    public string? ThreatIntelligenceMode
+    public TerraformLiteralProperty<string>? ThreatIntelligenceMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("threat_intelligence_mode")?.Value;
-        set => this.WithProperty("threat_intelligence_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("threat_intelligence_mode");
+        set => this.WithProperty("threat_intelligence_mode", value);
     }
 
     /// <summary>

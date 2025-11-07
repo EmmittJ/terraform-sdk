@@ -35,10 +35,10 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// Whether the VLAN attachment is enabled or disabled.  When using
     /// PARTNER type this will Pre-Activate the interconnect attachment
     /// </summary>
-    public bool? AdminEnabled
+    public TerraformLiteralProperty<bool>? AdminEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("admin_enabled")?.Value;
-        set => this.WithProperty("admin_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("admin_enabled");
+        set => this.WithProperty("admin_enabled", value);
     }
 
     /// <summary>
@@ -48,10 +48,10 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// Output only for PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED,
     /// Defaults to BPS_10G Possible values: [&amp;quot;BPS_50M&amp;quot;, &amp;quot;BPS_100M&amp;quot;, &amp;quot;BPS_200M&amp;quot;, &amp;quot;BPS_300M&amp;quot;, &amp;quot;BPS_400M&amp;quot;, &amp;quot;BPS_500M&amp;quot;, &amp;quot;BPS_1G&amp;quot;, &amp;quot;BPS_2G&amp;quot;, &amp;quot;BPS_5G&amp;quot;, &amp;quot;BPS_10G&amp;quot;, &amp;quot;BPS_20G&amp;quot;, &amp;quot;BPS_50G&amp;quot;, &amp;quot;BPS_100G&amp;quot;]
     /// </summary>
-    public string? Bandwidth
+    public TerraformLiteralProperty<string>? Bandwidth
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bandwidth")?.Value;
-        set => this.WithProperty("bandwidth", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("bandwidth");
+        set => this.WithProperty("bandwidth", value);
     }
 
     /// <summary>
@@ -63,19 +63,19 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// fail if all possible /29s are in use on Google&#39;s edge. If not supplied,
     /// Google will randomly select an unused /29 from all of link-local space.
     /// </summary>
-    public List<string>? CandidateSubnets
+    public TerraformLiteralProperty<List<string>>? CandidateSubnets
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("candidate_subnets")?.Value;
-        set => this.WithProperty("candidate_subnets", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("candidate_subnets");
+        set => this.WithProperty("candidate_subnets", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -86,10 +86,10 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// pairing key so that the provisioned circuit will lie in the specified
     /// domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
     /// </summary>
-    public string? EdgeAvailabilityDomain
+    public TerraformLiteralProperty<string>? EdgeAvailabilityDomain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_availability_domain")?.Value;
-        set => this.WithProperty("edge_availability_domain", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("edge_availability_domain");
+        set => this.WithProperty("edge_availability_domain", value);
     }
 
     /// <summary>
@@ -105,19 +105,19 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// such a VLAN attachment. To use HA VPN over Cloud Interconnect, the VLAN
     /// attachment must be created with this option. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;IPSEC&amp;quot;]
     /// </summary>
-    public string? Encryption
+    public TerraformLiteralProperty<string>? Encryption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption")?.Value;
-        set => this.WithProperty("encryption", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("encryption");
+        set => this.WithProperty("encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -125,10 +125,10 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// traffic will traverse through. Required if type is DEDICATED, must not
     /// be set if type is PARTNER.
     /// </summary>
-    public string? Interconnect
+    public TerraformLiteralProperty<string>? Interconnect
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect")?.Value;
-        set => this.WithProperty("interconnect", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("interconnect");
+        set => this.WithProperty("interconnect", value);
     }
 
     /// <summary>
@@ -148,10 +148,10 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// interconnect attachment, the HA VPN gateway&#39;s IP address will be
     /// allocated from regional external IP address pool.
     /// </summary>
-    public List<string>? IpsecInternalAddresses
+    public TerraformLiteralProperty<List<string>>? IpsecInternalAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ipsec_internal_addresses")?.Value;
-        set => this.WithProperty("ipsec_internal_addresses", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("ipsec_internal_addresses");
+        set => this.WithProperty("ipsec_internal_addresses", value);
     }
 
     /// <summary>
@@ -162,20 +162,20 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Maximum Transmission Unit (MTU), in bytes, of packets passing through this interconnect attachment.
     /// Valid values are 1440, 1460, 1500, and 8896. If not specified, the value will default to 1440.
     /// </summary>
-    public string? Mtu
+    public TerraformLiteralProperty<string>? Mtu
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mtu")?.Value;
-        set => this.WithProperty("mtu", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mtu");
+        set => this.WithProperty("mtu", value);
     }
 
     /// <summary>
@@ -186,28 +186,28 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// lowercase letter, and all following characters must be a dash, lowercase
     /// letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Region where the regional interconnect attachment resides.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -216,10 +216,10 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// automatically connect the Interconnect to the network &amp;amp; region within which the
     /// Cloud Router is configured.
     /// </summary>
-    public string? Router
+    public TerraformLiteralProperty<string>? Router
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("router")?.Value;
-        set => this.WithProperty("router", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("router");
+        set => this.WithProperty("router", value);
     }
 
     /// <summary>
@@ -228,10 +228,10 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// This field can be both set at interconnect attachments creation and update
     /// interconnect attachment operations. Possible values: [&amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV4_ONLY&amp;quot;]
     /// </summary>
-    public string? StackType
+    public TerraformLiteralProperty<string>? StackType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_type")?.Value;
-        set => this.WithProperty("stack_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stack_type");
+        set => this.WithProperty("stack_type", value);
     }
 
     /// <summary>
@@ -242,30 +242,30 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// requesting 29 returns an error. Where both 29 and 30 are allowed, 29 is preferred, because it
     /// gives Google Cloud Support more debugging visibility.
     /// </summary>
-    public double? SubnetLength
+    public TerraformLiteralProperty<double>? SubnetLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("subnet_length")?.Value;
-        set => this.WithProperty("subnet_length", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("subnet_length");
+        set => this.WithProperty("subnet_length", value);
     }
 
     /// <summary>
     /// The type of InterconnectAttachment you wish to create. Defaults to
     /// DEDICATED. Possible values: [&amp;quot;DEDICATED&amp;quot;, &amp;quot;PARTNER&amp;quot;, &amp;quot;PARTNER_PROVIDER&amp;quot;]
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. When
     /// using PARTNER type this will be managed upstream.
     /// </summary>
-    public double? VlanTag8021q
+    public TerraformLiteralProperty<double>? VlanTag8021q
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vlan_tag8021q")?.Value;
-        set => this.WithProperty("vlan_tag8021q", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("vlan_tag8021q");
+        set => this.WithProperty("vlan_tag8021q", value);
     }
 
     /// <summary>

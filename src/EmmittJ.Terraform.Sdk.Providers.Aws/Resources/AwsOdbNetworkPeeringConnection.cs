@@ -29,46 +29,46 @@ public class AwsOdbNetworkPeeringConnection : TerraformResource
     /// <summary>
     /// Display name of the odb network peering connection. Changing this will force terraform to create new resource
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Required field. The unique identifier of the ODB network that initiates the peering connection. A sample ID is odbpcx-abcdefgh12345678. Changing this will force terraform to create new resource.
     /// </summary>
-    public string? OdbNetworkId
+    public TerraformLiteralProperty<string>? OdbNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_network_id")?.Value;
-        set => this.WithProperty("odb_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("odb_network_id");
+        set => this.WithProperty("odb_network_id", value);
     }
 
     /// <summary>
     /// Required field. The unique identifier of the ODB peering connection. Changing this will force terraform to create new resource
     /// </summary>
-    public string? PeerNetworkId
+    public TerraformLiteralProperty<string>? PeerNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_network_id")?.Value;
-        set => this.WithProperty("peer_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("peer_network_id");
+        set => this.WithProperty("peer_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

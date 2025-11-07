@@ -19,28 +19,28 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : Terrafo
     /// <summary>
     /// The application_security_group_id attribute.
     /// </summary>
-    public string? ApplicationSecurityGroupId
+    public TerraformLiteralProperty<string>? ApplicationSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_security_group_id")?.Value;
-        set => this.WithProperty("application_security_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_security_group_id");
+        set => this.WithProperty("application_security_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The private_endpoint_id attribute.
     /// </summary>
-    public string? PrivateEndpointId
+    public TerraformLiteralProperty<string>? PrivateEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_endpoint_id")?.Value;
-        set => this.WithProperty("private_endpoint_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("private_endpoint_id");
+        set => this.WithProperty("private_endpoint_id", value);
     }
 
 }

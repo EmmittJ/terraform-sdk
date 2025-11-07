@@ -29,19 +29,19 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// is required). Updating one will unset the other automatically.
     /// group is the group, as seen by the kubernetes cluster.
     /// </summary>
-    public string? Group
+    public TerraformLiteralProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group")?.Value;
-        set => this.WithProperty("group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -51,37 +51,37 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Id of the scope
     /// </summary>
-    public string? ScopeId
+    public TerraformLiteralProperty<string>? ScopeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_id")?.Value;
-        set => this.WithProperty("scope_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope_id");
+        set => this.WithProperty("scope_id", value);
     }
 
     /// <summary>
     /// The client-provided identifier of the RBAC Role Binding.
     /// </summary>
-    public string? ScopeRbacRoleBindingId
+    public TerraformLiteralProperty<string>? ScopeRbacRoleBindingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_rbac_role_binding_id")?.Value;
-        set => this.WithProperty("scope_rbac_role_binding_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope_rbac_role_binding_id");
+        set => this.WithProperty("scope_rbac_role_binding_id", value);
     }
 
     /// <summary>
@@ -90,10 +90,10 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// user is the name of the user as seen by the kubernetes cluster, example
     /// &amp;quot;alice&amp;quot; or &amp;quot;alice@domain.tld&amp;quot;
     /// </summary>
-    public string? User
+    public TerraformLiteralProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user")?.Value;
-        set => this.WithProperty("user", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        set => this.WithProperty("user", value);
     }
 
     /// <summary>

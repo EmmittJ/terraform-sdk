@@ -19,28 +19,28 @@ public class AzureadApplicationKnownClients : TerraformResource
     /// <summary>
     /// The resource ID of the application to which this API access is granted
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A list of known client IDs, used for bundling consent if you have a solution that includes an API and a client application
     /// </summary>
-    public HashSet<string>? KnownClientIds
+    public TerraformLiteralProperty<HashSet<string>>? KnownClientIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("known_client_ids")?.Value;
-        set => this.WithProperty("known_client_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("known_client_ids");
+        set => this.WithProperty("known_client_ids", value);
     }
 
 }

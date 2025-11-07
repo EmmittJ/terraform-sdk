@@ -21,82 +21,82 @@ public class AwsCloudwatchLogAnomalyDetector : TerraformResource
     /// <summary>
     /// The anomaly_visibility_time attribute.
     /// </summary>
-    public double? AnomalyVisibilityTime
+    public TerraformLiteralProperty<double>? AnomalyVisibilityTime
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("anomaly_visibility_time")?.Value;
-        set => this.WithProperty("anomaly_visibility_time", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("anomaly_visibility_time");
+        set => this.WithProperty("anomaly_visibility_time", value);
     }
 
     /// <summary>
     /// The detector_name attribute.
     /// </summary>
-    public string? DetectorName
+    public TerraformLiteralProperty<string>? DetectorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detector_name")?.Value;
-        set => this.WithProperty("detector_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("detector_name");
+        set => this.WithProperty("detector_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The evaluation_frequency attribute.
     /// </summary>
-    public string? EvaluationFrequency
+    public TerraformLiteralProperty<string>? EvaluationFrequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("evaluation_frequency")?.Value;
-        set => this.WithProperty("evaluation_frequency", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("evaluation_frequency");
+        set => this.WithProperty("evaluation_frequency", value);
     }
 
     /// <summary>
     /// The filter_pattern attribute.
     /// </summary>
-    public string? FilterPattern
+    public TerraformLiteralProperty<string>? FilterPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_pattern")?.Value;
-        set => this.WithProperty("filter_pattern", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter_pattern");
+        set => this.WithProperty("filter_pattern", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public string? KmsKeyId
+    public TerraformLiteralProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id")?.Value;
-        set => this.WithProperty("kms_key_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The log_group_arn_list attribute.
     /// </summary>
-    public List<string>? LogGroupArnList
+    public TerraformLiteralProperty<List<string>>? LogGroupArnList
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("log_group_arn_list")?.Value;
-        set => this.WithProperty("log_group_arn_list", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("log_group_arn_list");
+        set => this.WithProperty("log_group_arn_list", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

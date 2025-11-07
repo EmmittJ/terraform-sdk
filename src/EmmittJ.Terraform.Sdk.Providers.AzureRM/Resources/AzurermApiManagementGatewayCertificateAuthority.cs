@@ -19,46 +19,46 @@ public class AzurermApiManagementGatewayCertificateAuthority : TerraformResource
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
-    public string? ApiManagementId
+    public TerraformLiteralProperty<string>? ApiManagementId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_id")?.Value;
-        set => this.WithProperty("api_management_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_management_id");
+        set => this.WithProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The certificate_name attribute.
     /// </summary>
-    public string? CertificateName
+    public TerraformLiteralProperty<string>? CertificateName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_name")?.Value;
-        set => this.WithProperty("certificate_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_name");
+        set => this.WithProperty("certificate_name", value);
     }
 
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
-    public string? GatewayName
+    public TerraformLiteralProperty<string>? GatewayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_name")?.Value;
-        set => this.WithProperty("gateway_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("gateway_name");
+        set => this.WithProperty("gateway_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_trusted attribute.
     /// </summary>
-    public bool? IsTrusted
+    public TerraformLiteralProperty<bool>? IsTrusted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_trusted")?.Value;
-        set => this.WithProperty("is_trusted", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("is_trusted");
+        set => this.WithProperty("is_trusted", value);
     }
 
 }

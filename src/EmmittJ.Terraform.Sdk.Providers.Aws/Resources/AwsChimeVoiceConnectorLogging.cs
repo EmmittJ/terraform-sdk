@@ -19,46 +19,46 @@ public class AwsChimeVoiceConnectorLogging : TerraformResource
     /// <summary>
     /// The enable_media_metric_logs attribute.
     /// </summary>
-    public bool? EnableMediaMetricLogs
+    public TerraformLiteralProperty<bool>? EnableMediaMetricLogs
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_media_metric_logs")?.Value;
-        set => this.WithProperty("enable_media_metric_logs", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_media_metric_logs");
+        set => this.WithProperty("enable_media_metric_logs", value);
     }
 
     /// <summary>
     /// The enable_sip_logs attribute.
     /// </summary>
-    public bool? EnableSipLogs
+    public TerraformLiteralProperty<bool>? EnableSipLogs
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_sip_logs")?.Value;
-        set => this.WithProperty("enable_sip_logs", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_sip_logs");
+        set => this.WithProperty("enable_sip_logs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public string? VoiceConnectorId
+    public TerraformLiteralProperty<string>? VoiceConnectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("voice_connector_id")?.Value;
-        set => this.WithProperty("voice_connector_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("voice_connector_id");
+        set => this.WithProperty("voice_connector_id", value);
     }
 
 }

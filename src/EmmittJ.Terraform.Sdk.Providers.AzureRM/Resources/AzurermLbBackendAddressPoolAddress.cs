@@ -20,55 +20,55 @@ public class AzurermLbBackendAddressPoolAddress : TerraformResource
     /// <summary>
     /// For global load balancer, user needs to specify the `backend_address_ip_configuration_id` of the added regional load balancers
     /// </summary>
-    public string? BackendAddressIpConfigurationId
+    public TerraformLiteralProperty<string>? BackendAddressIpConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend_address_ip_configuration_id")?.Value;
-        set => this.WithProperty("backend_address_ip_configuration_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backend_address_ip_configuration_id");
+        set => this.WithProperty("backend_address_ip_configuration_id", value);
     }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
-    public string? BackendAddressPoolId
+    public TerraformLiteralProperty<string>? BackendAddressPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend_address_pool_id")?.Value;
-        set => this.WithProperty("backend_address_pool_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backend_address_pool_id");
+        set => this.WithProperty("backend_address_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public string? IpAddress
+    public TerraformLiteralProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address")?.Value;
-        set => this.WithProperty("ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public string? VirtualNetworkId
+    public TerraformLiteralProperty<string>? VirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_id")?.Value;
-        set => this.WithProperty("virtual_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_id");
+        set => this.WithProperty("virtual_network_id", value);
     }
 
     /// <summary>

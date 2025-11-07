@@ -28,55 +28,55 @@ public class AzurermServicebusQueueAuthorizationRuleDataSource : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    public string? NamespaceName
+    public TerraformLiteralProperty<string>? NamespaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace_name")?.Value;
-        set => this.WithProperty("namespace_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("namespace_name");
+        set => this.WithProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The queue_id attribute.
     /// </summary>
-    public string? QueueId
+    public TerraformLiteralProperty<string>? QueueId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("queue_id")?.Value;
-        set => this.WithProperty("queue_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("queue_id");
+        set => this.WithProperty("queue_id", value);
     }
 
     /// <summary>
     /// The queue_name attribute.
     /// </summary>
-    public string? QueueName
+    public TerraformLiteralProperty<string>? QueueName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("queue_name")?.Value;
-        set => this.WithProperty("queue_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("queue_name");
+        set => this.WithProperty("queue_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>

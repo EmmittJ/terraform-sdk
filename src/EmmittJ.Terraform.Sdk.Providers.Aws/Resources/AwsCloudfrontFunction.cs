@@ -23,64 +23,64 @@ public class AwsCloudfrontFunction : TerraformResource
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public string? Code
+    public TerraformLiteralProperty<string>? Code
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("code")?.Value;
-        set => this.WithProperty("code", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("code");
+        set => this.WithProperty("code", value);
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public string? Comment
+    public TerraformLiteralProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment")?.Value;
-        set => this.WithProperty("comment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_value_store_associations attribute.
     /// </summary>
-    public HashSet<string>? KeyValueStoreAssociations
+    public TerraformLiteralProperty<HashSet<string>>? KeyValueStoreAssociations
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_value_store_associations")?.Value;
-        set => this.WithProperty("key_value_store_associations", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_value_store_associations");
+        set => this.WithProperty("key_value_store_associations", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The publish attribute.
     /// </summary>
-    public bool? Publish
+    public TerraformLiteralProperty<bool>? Publish
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publish")?.Value;
-        set => this.WithProperty("publish", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("publish");
+        set => this.WithProperty("publish", value);
     }
 
     /// <summary>
     /// The runtime attribute.
     /// </summary>
-    public string? Runtime
+    public TerraformLiteralProperty<string>? Runtime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime")?.Value;
-        set => this.WithProperty("runtime", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("runtime");
+        set => this.WithProperty("runtime", value);
     }
 
     /// <summary>

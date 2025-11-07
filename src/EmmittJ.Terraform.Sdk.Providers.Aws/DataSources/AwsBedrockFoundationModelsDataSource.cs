@@ -21,46 +21,46 @@ public class AwsBedrockFoundationModelsDataSource : TerraformDataSource
     /// <summary>
     /// The by_customization_type attribute.
     /// </summary>
-    public string? ByCustomizationType
+    public TerraformLiteralProperty<string>? ByCustomizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_customization_type")?.Value;
-        set => this.WithProperty("by_customization_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("by_customization_type");
+        set => this.WithProperty("by_customization_type", value);
     }
 
     /// <summary>
     /// The by_inference_type attribute.
     /// </summary>
-    public string? ByInferenceType
+    public TerraformLiteralProperty<string>? ByInferenceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_inference_type")?.Value;
-        set => this.WithProperty("by_inference_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("by_inference_type");
+        set => this.WithProperty("by_inference_type", value);
     }
 
     /// <summary>
     /// The by_output_modality attribute.
     /// </summary>
-    public string? ByOutputModality
+    public TerraformLiteralProperty<string>? ByOutputModality
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_output_modality")?.Value;
-        set => this.WithProperty("by_output_modality", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("by_output_modality");
+        set => this.WithProperty("by_output_modality", value);
     }
 
     /// <summary>
     /// The by_provider attribute.
     /// </summary>
-    public string? ByProvider
+    public TerraformLiteralProperty<string>? ByProvider
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_provider")?.Value;
-        set => this.WithProperty("by_provider", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("by_provider");
+        set => this.WithProperty("by_provider", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

@@ -21,145 +21,145 @@ public class AwsEc2CapacityReservation : TerraformResource
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public string? AvailabilityZone
+    public TerraformLiteralProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone")?.Value;
-        set => this.WithProperty("availability_zone", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public bool? EbsOptimized
+    public TerraformLiteralProperty<bool>? EbsOptimized
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ebs_optimized")?.Value;
-        set => this.WithProperty("ebs_optimized", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ebs_optimized");
+        set => this.WithProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public string? EndDate
+    public TerraformLiteralProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date")?.Value;
-        set => this.WithProperty("end_date", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        set => this.WithProperty("end_date", value);
     }
 
     /// <summary>
     /// The end_date_type attribute.
     /// </summary>
-    public string? EndDateType
+    public TerraformLiteralProperty<string>? EndDateType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date_type")?.Value;
-        set => this.WithProperty("end_date_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("end_date_type");
+        set => this.WithProperty("end_date_type", value);
     }
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    public bool? EphemeralStorage
+    public TerraformLiteralProperty<bool>? EphemeralStorage
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ephemeral_storage")?.Value;
-        set => this.WithProperty("ephemeral_storage", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("ephemeral_storage");
+        set => this.WithProperty("ephemeral_storage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public double? InstanceCount
+    public TerraformLiteralProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count")?.Value;
-        set => this.WithProperty("instance_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The instance_match_criteria attribute.
     /// </summary>
-    public string? InstanceMatchCriteria
+    public TerraformLiteralProperty<string>? InstanceMatchCriteria
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_match_criteria")?.Value;
-        set => this.WithProperty("instance_match_criteria", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_match_criteria");
+        set => this.WithProperty("instance_match_criteria", value);
     }
 
     /// <summary>
     /// The instance_platform attribute.
     /// </summary>
-    public string? InstancePlatform
+    public TerraformLiteralProperty<string>? InstancePlatform
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_platform")?.Value;
-        set => this.WithProperty("instance_platform", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_platform");
+        set => this.WithProperty("instance_platform", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public string? OutpostArn
+    public TerraformLiteralProperty<string>? OutpostArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("outpost_arn")?.Value;
-        set => this.WithProperty("outpost_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("outpost_arn");
+        set => this.WithProperty("outpost_arn", value);
     }
 
     /// <summary>
     /// The placement_group_arn attribute.
     /// </summary>
-    public string? PlacementGroupArn
+    public TerraformLiteralProperty<string>? PlacementGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("placement_group_arn")?.Value;
-        set => this.WithProperty("placement_group_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("placement_group_arn");
+        set => this.WithProperty("placement_group_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    public string? Tenancy
+    public TerraformLiteralProperty<string>? Tenancy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenancy")?.Value;
-        set => this.WithProperty("tenancy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tenancy");
+        set => this.WithProperty("tenancy", value);
     }
 
     /// <summary>

@@ -21,19 +21,19 @@ public class GoogleServiceAccountIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
-    public string? ServiceAccountId
+    public TerraformLiteralProperty<string>? ServiceAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id")?.Value;
-        set => this.WithProperty("service_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_account_id");
+        set => this.WithProperty("service_account_id", value);
     }
 
     /// <summary>

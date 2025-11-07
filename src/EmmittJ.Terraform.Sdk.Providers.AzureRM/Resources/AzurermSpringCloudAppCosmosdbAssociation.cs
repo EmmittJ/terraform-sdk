@@ -19,100 +19,100 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     /// <summary>
     /// The api_type attribute.
     /// </summary>
-    public string? ApiType
+    public TerraformLiteralProperty<string>? ApiType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_type")?.Value;
-        set => this.WithProperty("api_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_type");
+        set => this.WithProperty("api_type", value);
     }
 
     /// <summary>
     /// The cosmosdb_access_key attribute.
     /// </summary>
-    public string? CosmosdbAccessKey
+    public TerraformLiteralProperty<string>? CosmosdbAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_access_key")?.Value;
-        set => this.WithProperty("cosmosdb_access_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_access_key");
+        set => this.WithProperty("cosmosdb_access_key", value);
     }
 
     /// <summary>
     /// The cosmosdb_account_id attribute.
     /// </summary>
-    public string? CosmosdbAccountId
+    public TerraformLiteralProperty<string>? CosmosdbAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_account_id")?.Value;
-        set => this.WithProperty("cosmosdb_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_account_id");
+        set => this.WithProperty("cosmosdb_account_id", value);
     }
 
     /// <summary>
     /// The cosmosdb_cassandra_keyspace_name attribute.
     /// </summary>
-    public string? CosmosdbCassandraKeyspaceName
+    public TerraformLiteralProperty<string>? CosmosdbCassandraKeyspaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_cassandra_keyspace_name")?.Value;
-        set => this.WithProperty("cosmosdb_cassandra_keyspace_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_cassandra_keyspace_name");
+        set => this.WithProperty("cosmosdb_cassandra_keyspace_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_gremlin_database_name attribute.
     /// </summary>
-    public string? CosmosdbGremlinDatabaseName
+    public TerraformLiteralProperty<string>? CosmosdbGremlinDatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_gremlin_database_name")?.Value;
-        set => this.WithProperty("cosmosdb_gremlin_database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_gremlin_database_name");
+        set => this.WithProperty("cosmosdb_gremlin_database_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_gremlin_graph_name attribute.
     /// </summary>
-    public string? CosmosdbGremlinGraphName
+    public TerraformLiteralProperty<string>? CosmosdbGremlinGraphName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_gremlin_graph_name")?.Value;
-        set => this.WithProperty("cosmosdb_gremlin_graph_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_gremlin_graph_name");
+        set => this.WithProperty("cosmosdb_gremlin_graph_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_mongo_database_name attribute.
     /// </summary>
-    public string? CosmosdbMongoDatabaseName
+    public TerraformLiteralProperty<string>? CosmosdbMongoDatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_mongo_database_name")?.Value;
-        set => this.WithProperty("cosmosdb_mongo_database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_mongo_database_name");
+        set => this.WithProperty("cosmosdb_mongo_database_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_sql_database_name attribute.
     /// </summary>
-    public string? CosmosdbSqlDatabaseName
+    public TerraformLiteralProperty<string>? CosmosdbSqlDatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_sql_database_name")?.Value;
-        set => this.WithProperty("cosmosdb_sql_database_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_sql_database_name");
+        set => this.WithProperty("cosmosdb_sql_database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public string? SpringCloudAppId
+    public TerraformLiteralProperty<string>? SpringCloudAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id")?.Value;
-        set => this.WithProperty("spring_cloud_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id");
+        set => this.WithProperty("spring_cloud_app_id", value);
     }
 
 }

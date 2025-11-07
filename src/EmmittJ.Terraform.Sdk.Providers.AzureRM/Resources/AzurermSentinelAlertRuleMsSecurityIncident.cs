@@ -19,100 +19,100 @@ public class AzurermSentinelAlertRuleMsSecurityIncident : TerraformResource
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
-    public string? AlertRuleTemplateGuid
+    public TerraformLiteralProperty<string>? AlertRuleTemplateGuid
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alert_rule_template_guid")?.Value;
-        set => this.WithProperty("alert_rule_template_guid", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alert_rule_template_guid");
+        set => this.WithProperty("alert_rule_template_guid", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The display_name_exclude_filter attribute.
     /// </summary>
-    public HashSet<string>? DisplayNameExcludeFilter
+    public TerraformLiteralProperty<HashSet<string>>? DisplayNameExcludeFilter
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("display_name_exclude_filter")?.Value;
-        set => this.WithProperty("display_name_exclude_filter", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("display_name_exclude_filter");
+        set => this.WithProperty("display_name_exclude_filter", value);
     }
 
     /// <summary>
     /// The display_name_filter attribute.
     /// </summary>
-    public HashSet<string>? DisplayNameFilter
+    public TerraformLiteralProperty<HashSet<string>>? DisplayNameFilter
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("display_name_filter")?.Value;
-        set => this.WithProperty("display_name_filter", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("display_name_filter");
+        set => this.WithProperty("display_name_filter", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public string? LogAnalyticsWorkspaceId
+    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id")?.Value;
-        set => this.WithProperty("log_analytics_workspace_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The product_filter attribute.
     /// </summary>
-    public string? ProductFilter
+    public TerraformLiteralProperty<string>? ProductFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_filter")?.Value;
-        set => this.WithProperty("product_filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("product_filter");
+        set => this.WithProperty("product_filter", value);
     }
 
     /// <summary>
     /// The severity_filter attribute.
     /// </summary>
-    public HashSet<string>? SeverityFilter
+    public TerraformLiteralProperty<HashSet<string>>? SeverityFilter
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("severity_filter")?.Value;
-        set => this.WithProperty("severity_filter", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("severity_filter");
+        set => this.WithProperty("severity_filter", value);
     }
 
 }

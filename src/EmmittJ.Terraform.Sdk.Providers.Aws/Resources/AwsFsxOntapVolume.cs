@@ -23,172 +23,172 @@ public class AwsFsxOntapVolume : TerraformResource
     /// <summary>
     /// The bypass_snaplock_enterprise_retention attribute.
     /// </summary>
-    public bool? BypassSnaplockEnterpriseRetention
+    public TerraformLiteralProperty<bool>? BypassSnaplockEnterpriseRetention
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bypass_snaplock_enterprise_retention")?.Value;
-        set => this.WithProperty("bypass_snaplock_enterprise_retention", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("bypass_snaplock_enterprise_retention");
+        set => this.WithProperty("bypass_snaplock_enterprise_retention", value);
     }
 
     /// <summary>
     /// The copy_tags_to_backups attribute.
     /// </summary>
-    public bool? CopyTagsToBackups
+    public TerraformLiteralProperty<bool>? CopyTagsToBackups
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("copy_tags_to_backups")?.Value;
-        set => this.WithProperty("copy_tags_to_backups", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("copy_tags_to_backups");
+        set => this.WithProperty("copy_tags_to_backups", value);
     }
 
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public Dictionary<string, string>? FinalBackupTags
+    public TerraformLiteralProperty<Dictionary<string, string>>? FinalBackupTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("final_backup_tags")?.Value;
-        set => this.WithProperty("final_backup_tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("final_backup_tags");
+        set => this.WithProperty("final_backup_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The junction_path attribute.
     /// </summary>
-    public string? JunctionPath
+    public TerraformLiteralProperty<string>? JunctionPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("junction_path")?.Value;
-        set => this.WithProperty("junction_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("junction_path");
+        set => this.WithProperty("junction_path", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The ontap_volume_type attribute.
     /// </summary>
-    public string? OntapVolumeType
+    public TerraformLiteralProperty<string>? OntapVolumeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ontap_volume_type")?.Value;
-        set => this.WithProperty("ontap_volume_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ontap_volume_type");
+        set => this.WithProperty("ontap_volume_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_style attribute.
     /// </summary>
-    public string? SecurityStyle
+    public TerraformLiteralProperty<string>? SecurityStyle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_style")?.Value;
-        set => this.WithProperty("security_style", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_style");
+        set => this.WithProperty("security_style", value);
     }
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
-    public string? SizeInBytes
+    public TerraformLiteralProperty<string>? SizeInBytes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("size_in_bytes")?.Value;
-        set => this.WithProperty("size_in_bytes", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("size_in_bytes");
+        set => this.WithProperty("size_in_bytes", value);
     }
 
     /// <summary>
     /// The size_in_megabytes attribute.
     /// </summary>
-    public double? SizeInMegabytes
+    public TerraformLiteralProperty<double>? SizeInMegabytes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("size_in_megabytes")?.Value;
-        set => this.WithProperty("size_in_megabytes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("size_in_megabytes");
+        set => this.WithProperty("size_in_megabytes", value);
     }
 
     /// <summary>
     /// The skip_final_backup attribute.
     /// </summary>
-    public bool? SkipFinalBackup
+    public TerraformLiteralProperty<bool>? SkipFinalBackup
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_backup")?.Value;
-        set => this.WithProperty("skip_final_backup", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_backup");
+        set => this.WithProperty("skip_final_backup", value);
     }
 
     /// <summary>
     /// The snapshot_policy attribute.
     /// </summary>
-    public string? SnapshotPolicy
+    public TerraformLiteralProperty<string>? SnapshotPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_policy")?.Value;
-        set => this.WithProperty("snapshot_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_policy");
+        set => this.WithProperty("snapshot_policy", value);
     }
 
     /// <summary>
     /// The storage_efficiency_enabled attribute.
     /// </summary>
-    public bool? StorageEfficiencyEnabled
+    public TerraformLiteralProperty<bool>? StorageEfficiencyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("storage_efficiency_enabled")?.Value;
-        set => this.WithProperty("storage_efficiency_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("storage_efficiency_enabled");
+        set => this.WithProperty("storage_efficiency_enabled", value);
     }
 
     /// <summary>
     /// The storage_virtual_machine_id attribute.
     /// </summary>
-    public string? StorageVirtualMachineId
+    public TerraformLiteralProperty<string>? StorageVirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_virtual_machine_id")?.Value;
-        set => this.WithProperty("storage_virtual_machine_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_virtual_machine_id");
+        set => this.WithProperty("storage_virtual_machine_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The volume_style attribute.
     /// </summary>
-    public string? VolumeStyle
+    public TerraformLiteralProperty<string>? VolumeStyle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_style")?.Value;
-        set => this.WithProperty("volume_style", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("volume_style");
+        set => this.WithProperty("volume_style", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public string? VolumeType
+    public TerraformLiteralProperty<string>? VolumeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_type")?.Value;
-        set => this.WithProperty("volume_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("volume_type");
+        set => this.WithProperty("volume_type", value);
     }
 
     /// <summary>

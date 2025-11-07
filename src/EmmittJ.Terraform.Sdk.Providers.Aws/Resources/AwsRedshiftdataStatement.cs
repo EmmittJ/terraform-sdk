@@ -19,91 +19,91 @@ public class AwsRedshiftdataStatement : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public string? ClusterIdentifier
+    public TerraformLiteralProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier")?.Value;
-        set => this.WithProperty("cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public string? Database
+    public TerraformLiteralProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database")?.Value;
-        set => this.WithProperty("database", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
-    public string? DbUser
+    public TerraformLiteralProperty<string>? DbUser
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_user")?.Value;
-        set => this.WithProperty("db_user", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("db_user");
+        set => this.WithProperty("db_user", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
-    public string? SecretArn
+    public TerraformLiteralProperty<string>? SecretArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_arn")?.Value;
-        set => this.WithProperty("secret_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secret_arn");
+        set => this.WithProperty("secret_arn", value);
     }
 
     /// <summary>
     /// The sql attribute.
     /// </summary>
-    public string? Sql
+    public TerraformLiteralProperty<string>? Sql
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql")?.Value;
-        set => this.WithProperty("sql", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sql");
+        set => this.WithProperty("sql", value);
     }
 
     /// <summary>
     /// The statement_name attribute.
     /// </summary>
-    public string? StatementName
+    public TerraformLiteralProperty<string>? StatementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("statement_name")?.Value;
-        set => this.WithProperty("statement_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("statement_name");
+        set => this.WithProperty("statement_name", value);
     }
 
     /// <summary>
     /// The with_event attribute.
     /// </summary>
-    public bool? WithEvent
+    public TerraformLiteralProperty<bool>? WithEvent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("with_event")?.Value;
-        set => this.WithProperty("with_event", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("with_event");
+        set => this.WithProperty("with_event", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public string? WorkgroupName
+    public TerraformLiteralProperty<string>? WorkgroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name")?.Value;
-        set => this.WithProperty("workgroup_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name");
+        set => this.WithProperty("workgroup_name", value);
     }
 
 }

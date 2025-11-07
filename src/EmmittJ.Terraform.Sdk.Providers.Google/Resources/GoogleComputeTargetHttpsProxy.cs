@@ -27,10 +27,10 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// sslCertificates and certificateManagerCertificates fields can not be defined together.
     /// Accepted format is &#39;//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificates/{resourceName}&#39; or just the self_link &#39;projects/{project}/locations/{location}/certificates/{resourceName}&#39;
     /// </summary>
-    public List<string>? CertificateManagerCertificates
+    public TerraformLiteralProperty<List<string>>? CertificateManagerCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificate_manager_certificates")?.Value;
-        set => this.WithProperty("certificate_manager_certificates", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificate_manager_certificates");
+        set => this.WithProperty("certificate_manager_certificates", value);
     }
 
     /// <summary>
@@ -39,19 +39,19 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// For INTERNAL_MANAGED, use certificate_manager_certificates instead.
     /// Accepted format is &#39;//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificateMaps/{resourceName}&#39;.
     /// </summary>
-    public string? CertificateMap
+    public TerraformLiteralProperty<string>? CertificateMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_map")?.Value;
-        set => this.WithProperty("certificate_map", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_map");
+        set => this.WithProperty("certificate_map", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -65,19 +65,19 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// maximum allowed value is 600 seconds. For Global external HTTP(S) load
     /// balancer (classic), this option is not available publicly.
     /// </summary>
-    public double? HttpKeepAliveTimeoutSec
+    public TerraformLiteralProperty<double>? HttpKeepAliveTimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec")?.Value;
-        set => this.WithProperty("http_keep_alive_timeout_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec");
+        set => this.WithProperty("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -89,29 +89,29 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public bool? ProxyBind
+    public TerraformLiteralProperty<bool>? ProxyBind
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_bind")?.Value;
-        set => this.WithProperty("proxy_bind", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_bind");
+        set => this.WithProperty("proxy_bind", value);
     }
 
     /// <summary>
@@ -120,10 +120,10 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// or not. Can specify one of NONE, ENABLE, or DISABLE. If NONE is
     /// specified, Google manages whether QUIC is used. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;ENABLE&amp;quot;, &amp;quot;DISABLE&amp;quot;]
     /// </summary>
-    public string? QuicOverride
+    public TerraformLiteralProperty<string>? QuicOverride
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quic_override")?.Value;
-        set => this.WithProperty("quic_override", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("quic_override");
+        set => this.WithProperty("quic_override", value);
     }
 
     /// <summary>
@@ -142,10 +142,10 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// receive a resourceInUseByAnotherResource error. Use lifecycle.create_before_destroy
     /// within the ServerTlsPolicy resource to avoid this.
     /// </summary>
-    public string? ServerTlsPolicy
+    public TerraformLiteralProperty<string>? ServerTlsPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy")?.Value;
-        set => this.WithProperty("server_tls_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy");
+        set => this.WithProperty("server_tls_policy", value);
     }
 
     /// <summary>
@@ -153,10 +153,10 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// Currently, you may specify up to 15 SSL certificates. sslCertificates do not apply when the load balancing scheme is set to INTERNAL_SELF_MANAGED.
     /// sslCertificates and certificateManagerCertificates can not be defined together.
     /// </summary>
-    public List<string>? SslCertificates
+    public TerraformLiteralProperty<List<string>>? SslCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ssl_certificates")?.Value;
-        set => this.WithProperty("ssl_certificates", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("ssl_certificates");
+        set => this.WithProperty("ssl_certificates", value);
     }
 
     /// <summary>
@@ -164,10 +164,10 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// the TargetHttpsProxy resource. If not set, the TargetHttpsProxy
     /// resource will not have any SSL policy configured.
     /// </summary>
-    public string? SslPolicy
+    public TerraformLiteralProperty<string>? SslPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy")?.Value;
-        set => this.WithProperty("ssl_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy");
+        set => this.WithProperty("ssl_policy", value);
     }
 
     /// <summary>
@@ -176,20 +176,20 @@ public class GoogleComputeTargetHttpsProxy : TerraformResource
     /// (a HTTP request) alongside the handshake, reducing the effective round trips to “zero”.
     /// This applies to TLS 1.3 connections over TCP (HTTP/2) as well as over UDP (QUIC/h3). Possible values: [&amp;quot;STRICT&amp;quot;, &amp;quot;PERMISSIVE&amp;quot;, &amp;quot;UNRESTRICTED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public string? TlsEarlyData
+    public TerraformLiteralProperty<string>? TlsEarlyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tls_early_data")?.Value;
-        set => this.WithProperty("tls_early_data", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tls_early_data");
+        set => this.WithProperty("tls_early_data", value);
     }
 
     /// <summary>
     /// A reference to the UrlMap resource that defines the mapping from URL
     /// to the BackendService.
     /// </summary>
-    public string? UrlMap
+    public TerraformLiteralProperty<string>? UrlMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_map")?.Value;
-        set => this.WithProperty("url_map", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url_map");
+        set => this.WithProperty("url_map", value);
     }
 
     /// <summary>

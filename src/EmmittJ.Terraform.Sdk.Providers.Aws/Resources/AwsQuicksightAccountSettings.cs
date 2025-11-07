@@ -19,28 +19,28 @@ public class AwsQuicksightAccountSettings : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public string? AwsAccountId
+    public TerraformLiteralProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id")?.Value;
-        set => this.WithProperty("aws_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The default_namespace attribute.
     /// </summary>
-    public string? DefaultNamespace
+    public TerraformLiteralProperty<string>? DefaultNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_namespace")?.Value;
-        set => this.WithProperty("default_namespace", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_namespace");
+        set => this.WithProperty("default_namespace", value);
     }
 
     /// <summary>
     /// The termination_protection_enabled attribute.
     /// </summary>
-    public bool? TerminationProtectionEnabled
+    public TerraformLiteralProperty<bool>? TerminationProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("termination_protection_enabled")?.Value;
-        set => this.WithProperty("termination_protection_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("termination_protection_enabled");
+        set => this.WithProperty("termination_protection_enabled", value);
     }
 
 }

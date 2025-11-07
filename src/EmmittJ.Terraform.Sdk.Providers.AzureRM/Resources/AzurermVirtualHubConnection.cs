@@ -19,46 +19,46 @@ public class AzurermVirtualHubConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
-    public bool? InternetSecurityEnabled
+    public TerraformLiteralProperty<bool>? InternetSecurityEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internet_security_enabled")?.Value;
-        set => this.WithProperty("internet_security_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("internet_security_enabled");
+        set => this.WithProperty("internet_security_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
-    public string? RemoteVirtualNetworkId
+    public TerraformLiteralProperty<string>? RemoteVirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_virtual_network_id")?.Value;
-        set => this.WithProperty("remote_virtual_network_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("remote_virtual_network_id");
+        set => this.WithProperty("remote_virtual_network_id", value);
     }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public string? VirtualHubId
+    public TerraformLiteralProperty<string>? VirtualHubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_hub_id")?.Value;
-        set => this.WithProperty("virtual_hub_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("virtual_hub_id");
+        set => this.WithProperty("virtual_hub_id", value);
     }
 
 }

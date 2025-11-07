@@ -21,91 +21,91 @@ public class AwsLicensemanagerLicenseConfiguration : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The license_count attribute.
     /// </summary>
-    public double? LicenseCount
+    public TerraformLiteralProperty<double>? LicenseCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("license_count")?.Value;
-        set => this.WithProperty("license_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("license_count");
+        set => this.WithProperty("license_count", value);
     }
 
     /// <summary>
     /// The license_count_hard_limit attribute.
     /// </summary>
-    public bool? LicenseCountHardLimit
+    public TerraformLiteralProperty<bool>? LicenseCountHardLimit
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("license_count_hard_limit")?.Value;
-        set => this.WithProperty("license_count_hard_limit", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("license_count_hard_limit");
+        set => this.WithProperty("license_count_hard_limit", value);
     }
 
     /// <summary>
     /// The license_counting_type attribute.
     /// </summary>
-    public string? LicenseCountingType
+    public TerraformLiteralProperty<string>? LicenseCountingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_counting_type")?.Value;
-        set => this.WithProperty("license_counting_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_counting_type");
+        set => this.WithProperty("license_counting_type", value);
     }
 
     /// <summary>
     /// The license_rules attribute.
     /// </summary>
-    public List<string>? LicenseRules
+    public TerraformLiteralProperty<List<string>>? LicenseRules
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("license_rules")?.Value;
-        set => this.WithProperty("license_rules", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("license_rules");
+        set => this.WithProperty("license_rules", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

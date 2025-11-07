@@ -19,46 +19,46 @@ public class AzureadApplicationApiAccess : TerraformResource
     /// <summary>
     /// The client ID of the API to which access is being granted
     /// </summary>
-    public string? ApiClientId
+    public TerraformLiteralProperty<string>? ApiClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_client_id")?.Value;
-        set => this.WithProperty("api_client_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("api_client_id");
+        set => this.WithProperty("api_client_id", value);
     }
 
     /// <summary>
     /// The resource ID of the application to which this API access is granted
     /// </summary>
-    public string? ApplicationId
+    public TerraformLiteralProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id")?.Value;
-        set => this.WithProperty("application_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A set of role IDs to be granted to the application, as published by the API
     /// </summary>
-    public HashSet<string>? RoleIds
+    public TerraformLiteralProperty<HashSet<string>>? RoleIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_ids")?.Value;
-        set => this.WithProperty("role_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_ids");
+        set => this.WithProperty("role_ids", value);
     }
 
     /// <summary>
     /// A set of scope IDs to be granted to the application, as published by the API
     /// </summary>
-    public HashSet<string>? ScopeIds
+    public TerraformLiteralProperty<HashSet<string>>? ScopeIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scope_ids")?.Value;
-        set => this.WithProperty("scope_ids", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scope_ids");
+        set => this.WithProperty("scope_ids", value);
     }
 
 }

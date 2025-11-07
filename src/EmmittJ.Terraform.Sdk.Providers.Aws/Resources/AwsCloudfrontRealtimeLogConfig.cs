@@ -20,37 +20,37 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     /// <summary>
     /// The fields attribute.
     /// </summary>
-    public HashSet<string>? Fields
+    public TerraformLiteralProperty<HashSet<string>>? Fields
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("fields")?.Value;
-        set => this.WithProperty("fields", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("fields");
+        set => this.WithProperty("fields", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
-    public double? SamplingRate
+    public TerraformLiteralProperty<double>? SamplingRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_rate")?.Value;
-        set => this.WithProperty("sampling_rate", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("sampling_rate");
+        set => this.WithProperty("sampling_rate", value);
     }
 
     /// <summary>

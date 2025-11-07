@@ -19,37 +19,37 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public string? ResourceType
+    public TerraformLiteralProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type")?.Value;
-        set => this.WithProperty("resource_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        set => this.WithProperty("resource_type", value);
     }
 
     /// <summary>
     /// The subplan attribute.
     /// </summary>
-    public string? Subplan
+    public TerraformLiteralProperty<string>? Subplan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subplan")?.Value;
-        set => this.WithProperty("subplan", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subplan");
+        set => this.WithProperty("subplan", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public string? Tier
+    public TerraformLiteralProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier")?.Value;
-        set => this.WithProperty("tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        set => this.WithProperty("tier", value);
     }
 
 }

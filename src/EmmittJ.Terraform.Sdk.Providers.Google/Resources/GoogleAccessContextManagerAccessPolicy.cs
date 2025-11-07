@@ -22,39 +22,39 @@ public class GoogleAccessContextManagerAccessPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent of this AccessPolicy in the Cloud Resource Hierarchy.
     /// Format: &#39;organizations/{{organization_id}}&#39;
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Folder or project on which this policy is applicable.
     /// Format: &#39;folders/{{folder_id}}&#39; or &#39;projects/{{project_number}}&#39;
     /// </summary>
-    public List<string>? Scopes
+    public TerraformLiteralProperty<List<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes")?.Value;
-        set => this.WithProperty("scopes", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes");
+        set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// Human readable title. Does not affect behavior.
     /// </summary>
-    public string? Title
+    public TerraformLiteralProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title")?.Value;
-        set => this.WithProperty("title", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        set => this.WithProperty("title", value);
     }
 
     /// <summary>

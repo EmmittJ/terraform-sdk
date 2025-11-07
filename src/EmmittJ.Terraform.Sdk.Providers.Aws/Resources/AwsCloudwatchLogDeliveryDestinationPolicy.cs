@@ -19,28 +19,28 @@ public class AwsCloudwatchLogDeliveryDestinationPolicy : TerraformResource
     /// <summary>
     /// The delivery_destination_name attribute.
     /// </summary>
-    public string? DeliveryDestinationName
+    public TerraformLiteralProperty<string>? DeliveryDestinationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_destination_name")?.Value;
-        set => this.WithProperty("delivery_destination_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_destination_name");
+        set => this.WithProperty("delivery_destination_name", value);
     }
 
     /// <summary>
     /// The delivery_destination_policy attribute.
     /// </summary>
-    public string? DeliveryDestinationPolicy
+    public TerraformLiteralProperty<string>? DeliveryDestinationPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_destination_policy")?.Value;
-        set => this.WithProperty("delivery_destination_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("delivery_destination_policy");
+        set => this.WithProperty("delivery_destination_policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

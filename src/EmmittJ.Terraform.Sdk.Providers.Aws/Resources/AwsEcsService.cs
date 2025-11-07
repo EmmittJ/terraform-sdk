@@ -20,217 +20,217 @@ public class AwsEcsService : TerraformResource
     /// <summary>
     /// The availability_zone_rebalancing attribute.
     /// </summary>
-    public string? AvailabilityZoneRebalancing
+    public TerraformLiteralProperty<string>? AvailabilityZoneRebalancing
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_rebalancing")?.Value;
-        set => this.WithProperty("availability_zone_rebalancing", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_rebalancing");
+        set => this.WithProperty("availability_zone_rebalancing", value);
     }
 
     /// <summary>
     /// The cluster attribute.
     /// </summary>
-    public string? Cluster
+    public TerraformLiteralProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster")?.Value;
-        set => this.WithProperty("cluster", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// The deployment_maximum_percent attribute.
     /// </summary>
-    public double? DeploymentMaximumPercent
+    public TerraformLiteralProperty<double>? DeploymentMaximumPercent
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("deployment_maximum_percent")?.Value;
-        set => this.WithProperty("deployment_maximum_percent", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("deployment_maximum_percent");
+        set => this.WithProperty("deployment_maximum_percent", value);
     }
 
     /// <summary>
     /// The deployment_minimum_healthy_percent attribute.
     /// </summary>
-    public double? DeploymentMinimumHealthyPercent
+    public TerraformLiteralProperty<double>? DeploymentMinimumHealthyPercent
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("deployment_minimum_healthy_percent")?.Value;
-        set => this.WithProperty("deployment_minimum_healthy_percent", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("deployment_minimum_healthy_percent");
+        set => this.WithProperty("deployment_minimum_healthy_percent", value);
     }
 
     /// <summary>
     /// The desired_count attribute.
     /// </summary>
-    public double? DesiredCount
+    public TerraformLiteralProperty<double>? DesiredCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("desired_count")?.Value;
-        set => this.WithProperty("desired_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("desired_count");
+        set => this.WithProperty("desired_count", value);
     }
 
     /// <summary>
     /// The enable_ecs_managed_tags attribute.
     /// </summary>
-    public bool? EnableEcsManagedTags
+    public TerraformLiteralProperty<bool>? EnableEcsManagedTags
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_ecs_managed_tags")?.Value;
-        set => this.WithProperty("enable_ecs_managed_tags", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_ecs_managed_tags");
+        set => this.WithProperty("enable_ecs_managed_tags", value);
     }
 
     /// <summary>
     /// The enable_execute_command attribute.
     /// </summary>
-    public bool? EnableExecuteCommand
+    public TerraformLiteralProperty<bool>? EnableExecuteCommand
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_execute_command")?.Value;
-        set => this.WithProperty("enable_execute_command", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_execute_command");
+        set => this.WithProperty("enable_execute_command", value);
     }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public bool? ForceDelete
+    public TerraformLiteralProperty<bool>? ForceDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete")?.Value;
-        set => this.WithProperty("force_delete", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete");
+        set => this.WithProperty("force_delete", value);
     }
 
     /// <summary>
     /// The force_new_deployment attribute.
     /// </summary>
-    public bool? ForceNewDeployment
+    public TerraformLiteralProperty<bool>? ForceNewDeployment
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_new_deployment")?.Value;
-        set => this.WithProperty("force_new_deployment", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_new_deployment");
+        set => this.WithProperty("force_new_deployment", value);
     }
 
     /// <summary>
     /// The health_check_grace_period_seconds attribute.
     /// </summary>
-    public double? HealthCheckGracePeriodSeconds
+    public TerraformLiteralProperty<double>? HealthCheckGracePeriodSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("health_check_grace_period_seconds")?.Value;
-        set => this.WithProperty("health_check_grace_period_seconds", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("health_check_grace_period_seconds");
+        set => this.WithProperty("health_check_grace_period_seconds", value);
     }
 
     /// <summary>
     /// The iam_role attribute.
     /// </summary>
-    public string? IamRole
+    public TerraformLiteralProperty<string>? IamRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role")?.Value;
-        set => this.WithProperty("iam_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("iam_role");
+        set => this.WithProperty("iam_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    public string? LaunchType
+    public TerraformLiteralProperty<string>? LaunchType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("launch_type")?.Value;
-        set => this.WithProperty("launch_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("launch_type");
+        set => this.WithProperty("launch_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public string? PlatformVersion
+    public TerraformLiteralProperty<string>? PlatformVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform_version")?.Value;
-        set => this.WithProperty("platform_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("platform_version");
+        set => this.WithProperty("platform_version", value);
     }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
-    public string? PropagateTags
+    public TerraformLiteralProperty<string>? PropagateTags
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("propagate_tags")?.Value;
-        set => this.WithProperty("propagate_tags", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("propagate_tags");
+        set => this.WithProperty("propagate_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The scheduling_strategy attribute.
     /// </summary>
-    public string? SchedulingStrategy
+    public TerraformLiteralProperty<string>? SchedulingStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scheduling_strategy")?.Value;
-        set => this.WithProperty("scheduling_strategy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scheduling_strategy");
+        set => this.WithProperty("scheduling_strategy", value);
     }
 
     /// <summary>
     /// The sigint_rollback attribute.
     /// </summary>
-    public bool? SigintRollback
+    public TerraformLiteralProperty<bool>? SigintRollback
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sigint_rollback")?.Value;
-        set => this.WithProperty("sigint_rollback", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sigint_rollback");
+        set => this.WithProperty("sigint_rollback", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
-    public string? TaskDefinition
+    public TerraformLiteralProperty<string>? TaskDefinition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_definition")?.Value;
-        set => this.WithProperty("task_definition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("task_definition");
+        set => this.WithProperty("task_definition", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public Dictionary<string, string>? Triggers
+    public TerraformLiteralProperty<Dictionary<string, string>>? Triggers
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("triggers")?.Value;
-        set => this.WithProperty("triggers", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("triggers");
+        set => this.WithProperty("triggers", value);
     }
 
     /// <summary>
     /// The wait_for_steady_state attribute.
     /// </summary>
-    public bool? WaitForSteadyState
+    public TerraformLiteralProperty<bool>? WaitForSteadyState
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_steady_state")?.Value;
-        set => this.WithProperty("wait_for_steady_state", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_steady_state");
+        set => this.WithProperty("wait_for_steady_state", value);
     }
 
     /// <summary>

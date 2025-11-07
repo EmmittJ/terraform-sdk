@@ -20,37 +20,37 @@ public class AzurermStreamAnalyticsJobSchedule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The start_mode attribute.
     /// </summary>
-    public string? StartMode
+    public TerraformLiteralProperty<string>? StartMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_mode")?.Value;
-        set => this.WithProperty("start_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_mode");
+        set => this.WithProperty("start_mode", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public string? StartTime
+    public TerraformLiteralProperty<string>? StartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_time")?.Value;
-        set => this.WithProperty("start_time", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("start_time");
+        set => this.WithProperty("start_time", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
-    public string? StreamAnalyticsJobId
+    public TerraformLiteralProperty<string>? StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id")?.Value;
-        set => this.WithProperty("stream_analytics_job_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id");
+        set => this.WithProperty("stream_analytics_job_id", value);
     }
 
     /// <summary>

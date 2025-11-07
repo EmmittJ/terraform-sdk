@@ -23,100 +23,100 @@ public class AwsVpcSecurityGroupEgressRule : TerraformResource
     /// <summary>
     /// The cidr_ipv4 attribute.
     /// </summary>
-    public string? CidrIpv4
+    public TerraformLiteralProperty<string>? CidrIpv4
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_ipv4")?.Value;
-        set => this.WithProperty("cidr_ipv4", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr_ipv4");
+        set => this.WithProperty("cidr_ipv4", value);
     }
 
     /// <summary>
     /// The cidr_ipv6 attribute.
     /// </summary>
-    public string? CidrIpv6
+    public TerraformLiteralProperty<string>? CidrIpv6
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_ipv6")?.Value;
-        set => this.WithProperty("cidr_ipv6", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cidr_ipv6");
+        set => this.WithProperty("cidr_ipv6", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    public double? FromPort
+    public TerraformLiteralProperty<double>? FromPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("from_port")?.Value;
-        set => this.WithProperty("from_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("from_port");
+        set => this.WithProperty("from_port", value);
     }
 
     /// <summary>
     /// The ip_protocol attribute.
     /// </summary>
-    public string? IpProtocol
+    public TerraformLiteralProperty<string>? IpProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_protocol")?.Value;
-        set => this.WithProperty("ip_protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_protocol");
+        set => this.WithProperty("ip_protocol", value);
     }
 
     /// <summary>
     /// The prefix_list_id attribute.
     /// </summary>
-    public string? PrefixListId
+    public TerraformLiteralProperty<string>? PrefixListId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("prefix_list_id")?.Value;
-        set => this.WithProperty("prefix_list_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("prefix_list_id");
+        set => this.WithProperty("prefix_list_id", value);
     }
 
     /// <summary>
     /// The referenced_security_group_id attribute.
     /// </summary>
-    public string? ReferencedSecurityGroupId
+    public TerraformLiteralProperty<string>? ReferencedSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("referenced_security_group_id")?.Value;
-        set => this.WithProperty("referenced_security_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("referenced_security_group_id");
+        set => this.WithProperty("referenced_security_group_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public string? SecurityGroupId
+    public TerraformLiteralProperty<string>? SecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_group_id")?.Value;
-        set => this.WithProperty("security_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_group_id");
+        set => this.WithProperty("security_group_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    public double? ToPort
+    public TerraformLiteralProperty<double>? ToPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("to_port")?.Value;
-        set => this.WithProperty("to_port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("to_port");
+        set => this.WithProperty("to_port", value);
     }
 
     /// <summary>

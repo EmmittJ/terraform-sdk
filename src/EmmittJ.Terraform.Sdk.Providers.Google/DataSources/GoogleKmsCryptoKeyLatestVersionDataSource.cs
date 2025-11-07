@@ -25,10 +25,10 @@ public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
     /// <summary>
     /// The crypto_key attribute.
     /// </summary>
-    public string? CryptoKey
+    public TerraformLiteralProperty<string>? CryptoKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key")?.Value;
-        set => this.WithProperty("crypto_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key");
+        set => this.WithProperty("crypto_key", value);
     }
 
     /// <summary>
@@ -42,19 +42,19 @@ public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    public string? Filter
+    public TerraformLiteralProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter")?.Value;
-        set => this.WithProperty("filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

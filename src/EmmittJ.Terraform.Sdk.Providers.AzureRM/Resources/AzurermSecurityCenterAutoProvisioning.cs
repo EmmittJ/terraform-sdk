@@ -20,19 +20,19 @@ public class AzurermSecurityCenterAutoProvisioning : TerraformResource
     /// <summary>
     /// The auto_provision attribute.
     /// </summary>
-    public string? AutoProvision
+    public TerraformLiteralProperty<string>? AutoProvision
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auto_provision")?.Value;
-        set => this.WithProperty("auto_provision", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("auto_provision");
+        set => this.WithProperty("auto_provision", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
 }

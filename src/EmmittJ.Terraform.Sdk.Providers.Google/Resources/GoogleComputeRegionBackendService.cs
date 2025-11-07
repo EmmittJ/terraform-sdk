@@ -28,38 +28,38 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// 
     /// When the load balancing scheme is INTERNAL, this field is not used.
     /// </summary>
-    public double? AffinityCookieTtlSec
+    public TerraformLiteralProperty<double>? AffinityCookieTtlSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("affinity_cookie_ttl_sec")?.Value;
-        set => this.WithProperty("affinity_cookie_ttl_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("affinity_cookie_ttl_sec");
+        set => this.WithProperty("affinity_cookie_ttl_sec", value);
     }
 
     /// <summary>
     /// Time for which instance will be drained (not accept new
     /// connections, but still work to finish started).
     /// </summary>
-    public double? ConnectionDrainingTimeoutSec
+    public TerraformLiteralProperty<double>? ConnectionDrainingTimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("connection_draining_timeout_sec")?.Value;
-        set => this.WithProperty("connection_draining_timeout_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("connection_draining_timeout_sec");
+        set => this.WithProperty("connection_draining_timeout_sec", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// If true, enable Cloud CDN for this RegionBackendService.
     /// </summary>
-    public bool? EnableCdn
+    public TerraformLiteralProperty<bool>? EnableCdn
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_cdn")?.Value;
-        set => this.WithProperty("enable_cdn", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_cdn");
+        set => this.WithProperty("enable_cdn", value);
     }
 
     /// <summary>
@@ -70,28 +70,28 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// A health check must be specified unless the backend service uses an internet
     /// or serverless NEG as a backend.
     /// </summary>
-    public HashSet<string>? HealthChecks
+    public TerraformLiteralProperty<HashSet<string>>? HealthChecks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("health_checks")?.Value;
-        set => this.WithProperty("health_checks", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("health_checks");
+        set => this.WithProperty("health_checks", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC). Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;PREFER_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
-    public string? IpAddressSelectionPolicy
+    public TerraformLiteralProperty<string>? IpAddressSelectionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_selection_policy")?.Value;
-        set => this.WithProperty("ip_address_selection_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_selection_policy");
+        set => this.WithProperty("ip_address_selection_policy", value);
     }
 
     /// <summary>
@@ -100,10 +100,10 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// balancing cannot be used with the other(s). For more information, refer to
     /// [Choosing a load balancer](https://cloud.google.com/load-balancing/docs/backend-service). Default value: &amp;quot;INTERNAL&amp;quot; Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;EXTERNAL_MANAGED&amp;quot;, &amp;quot;INTERNAL&amp;quot;, &amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
-    public string? LoadBalancingScheme
+    public TerraformLiteralProperty<string>? LoadBalancingScheme
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme")?.Value;
-        set => this.WithProperty("load_balancing_scheme", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme");
+        set => this.WithProperty("load_balancing_scheme", value);
     }
 
     /// <summary>
@@ -171,10 +171,10 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// by a URL map that is bound to target gRPC proxy that has validate_for_proxyless
     /// field set to true. Possible values: [&amp;quot;ROUND_ROBIN&amp;quot;, &amp;quot;LEAST_REQUEST&amp;quot;, &amp;quot;RING_HASH&amp;quot;, &amp;quot;RANDOM&amp;quot;, &amp;quot;ORIGINAL_DESTINATION&amp;quot;, &amp;quot;MAGLEV&amp;quot;, &amp;quot;WEIGHTED_MAGLEV&amp;quot;, &amp;quot;WEIGHTED_ROUND_ROBIN&amp;quot;]
     /// </summary>
-    public string? LocalityLbPolicy
+    public TerraformLiteralProperty<string>? LocalityLbPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("locality_lb_policy")?.Value;
-        set => this.WithProperty("locality_lb_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("locality_lb_policy");
+        set => this.WithProperty("locality_lb_policy", value);
     }
 
     /// <summary>
@@ -186,10 +186,10 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -198,10 +198,10 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// This field can only be specified when the load balancing scheme is set to INTERNAL, or when the load balancing scheme is set to EXTERNAL and haPolicy fastIpMove is enabled.
     /// Changes to this field force recreation of the resource.
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
@@ -213,19 +213,19 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// default of &amp;quot;http&amp;quot; if not given.
     /// Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP Load Balancing).
     /// </summary>
-    public string? PortName
+    public TerraformLiteralProperty<string>? PortName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("port_name")?.Value;
-        set => this.WithProperty("port_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("port_name");
+        set => this.WithProperty("port_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -234,39 +234,39 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// or GRPC. Refer to the documentation for the load balancers or for Traffic Director
     /// for more information. Possible values: [&amp;quot;HTTP&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP2&amp;quot;, &amp;quot;TCP&amp;quot;, &amp;quot;SSL&amp;quot;, &amp;quot;UDP&amp;quot;, &amp;quot;GRPC&amp;quot;, &amp;quot;UNSPECIFIED&amp;quot;, &amp;quot;H2C&amp;quot;]
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The Region in which the created backend service should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security policy associated with this backend service.
     /// </summary>
-    public string? SecurityPolicy
+    public TerraformLiteralProperty<string>? SecurityPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_policy")?.Value;
-        set => this.WithProperty("security_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("security_policy");
+        set => this.WithProperty("security_policy", value);
     }
 
     /// <summary>
     /// Type of session affinity to use. The default is NONE. Session affinity is
     /// not applicable if the protocol is UDP. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;CLIENT_IP&amp;quot;, &amp;quot;CLIENT_IP_PORT_PROTO&amp;quot;, &amp;quot;CLIENT_IP_PROTO&amp;quot;, &amp;quot;GENERATED_COOKIE&amp;quot;, &amp;quot;HEADER_FIELD&amp;quot;, &amp;quot;HTTP_COOKIE&amp;quot;, &amp;quot;CLIENT_IP_NO_DESTINATION&amp;quot;, &amp;quot;STRONG_COOKIE_AFFINITY&amp;quot;]
     /// </summary>
-    public string? SessionAffinity
+    public TerraformLiteralProperty<string>? SessionAffinity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("session_affinity")?.Value;
-        set => this.WithProperty("session_affinity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("session_affinity");
+        set => this.WithProperty("session_affinity", value);
     }
 
     /// <summary>
@@ -275,10 +275,10 @@ public class GoogleComputeRegionBackendService : TerraformResource
     /// The default is 30 seconds.
     /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
     /// </summary>
-    public double? TimeoutSec
+    public TerraformLiteralProperty<double>? TimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("timeout_sec")?.Value;
-        set => this.WithProperty("timeout_sec", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("timeout_sec");
+        set => this.WithProperty("timeout_sec", value);
     }
 
     /// <summary>

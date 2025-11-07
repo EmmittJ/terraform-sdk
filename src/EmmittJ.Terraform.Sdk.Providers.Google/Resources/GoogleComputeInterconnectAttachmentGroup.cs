@@ -22,19 +22,19 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -42,10 +42,10 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// Interconnects. Customers do not need to set this unless directed by
     /// Google Support.
     /// </summary>
-    public string? InterconnectGroup
+    public TerraformLiteralProperty<string>? InterconnectGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_group")?.Value;
-        set => this.WithProperty("interconnect_group", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_group");
+        set => this.WithProperty("interconnect_group", value);
     }
 
     /// <summary>
@@ -55,19 +55,19 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// character must be a lowercase letter, and all following characters must be a dash,
     /// lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

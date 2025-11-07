@@ -22,55 +22,55 @@ public class AwsCodebuildWebhook : TerraformResource
     /// <summary>
     /// The branch_filter attribute.
     /// </summary>
-    public string? BranchFilter
+    public TerraformLiteralProperty<string>? BranchFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch_filter")?.Value;
-        set => this.WithProperty("branch_filter", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("branch_filter");
+        set => this.WithProperty("branch_filter", value);
     }
 
     /// <summary>
     /// The build_type attribute.
     /// </summary>
-    public string? BuildType
+    public TerraformLiteralProperty<string>? BuildType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("build_type")?.Value;
-        set => this.WithProperty("build_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("build_type");
+        set => this.WithProperty("build_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The manual_creation attribute.
     /// </summary>
-    public bool? ManualCreation
+    public TerraformLiteralProperty<bool>? ManualCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("manual_creation")?.Value;
-        set => this.WithProperty("manual_creation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("manual_creation");
+        set => this.WithProperty("manual_creation", value);
     }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
-    public string? ProjectName
+    public TerraformLiteralProperty<string>? ProjectName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_name")?.Value;
-        set => this.WithProperty("project_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project_name");
+        set => this.WithProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

@@ -19,73 +19,73 @@ public class AwsEipAssociation : TerraformResource
     /// <summary>
     /// The allocation_id attribute.
     /// </summary>
-    public string? AllocationId
+    public TerraformLiteralProperty<string>? AllocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allocation_id")?.Value;
-        set => this.WithProperty("allocation_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("allocation_id");
+        set => this.WithProperty("allocation_id", value);
     }
 
     /// <summary>
     /// The allow_reassociation attribute.
     /// </summary>
-    public bool? AllowReassociation
+    public TerraformLiteralProperty<bool>? AllowReassociation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_reassociation")?.Value;
-        set => this.WithProperty("allow_reassociation", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_reassociation");
+        set => this.WithProperty("allow_reassociation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public string? InstanceId
+    public TerraformLiteralProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id")?.Value;
-        set => this.WithProperty("instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public string? NetworkInterfaceId
+    public TerraformLiteralProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id")?.Value;
-        set => this.WithProperty("network_interface_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id");
+        set => this.WithProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public string? PrivateIpAddress
+    public TerraformLiteralProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_ip_address")?.Value;
-        set => this.WithProperty("private_ip_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("private_ip_address");
+        set => this.WithProperty("private_ip_address", value);
     }
 
     /// <summary>
     /// The public_ip attribute.
     /// </summary>
-    public string? PublicIp
+    public TerraformLiteralProperty<string>? PublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_ip")?.Value;
-        set => this.WithProperty("public_ip", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("public_ip");
+        set => this.WithProperty("public_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

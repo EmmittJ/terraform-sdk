@@ -36,10 +36,10 @@ public class GoogleRedisInstance : TerraformResource
     /// If provided, it must be a different zone from the one provided in
     /// [locationId].
     /// </summary>
-    public string? AlternativeLocationId
+    public TerraformLiteralProperty<string>? AlternativeLocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alternative_location_id")?.Value;
-        set => this.WithProperty("alternative_location_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alternative_location_id");
+        set => this.WithProperty("alternative_location_id", value);
     }
 
     /// <summary>
@@ -47,10 +47,10 @@ public class GoogleRedisInstance : TerraformResource
     /// instance. If set to &amp;quot;true&amp;quot; AUTH is enabled on the instance.
     /// Default value is &amp;quot;false&amp;quot; meaning AUTH is disabled.
     /// </summary>
-    public bool? AuthEnabled
+    public TerraformLiteralProperty<bool>? AuthEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auth_enabled")?.Value;
-        set => this.WithProperty("auth_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("auth_enabled");
+        set => this.WithProperty("auth_enabled", value);
     }
 
     /// <summary>
@@ -58,29 +58,29 @@ public class GoogleRedisInstance : TerraformResource
     /// instance is connected. If left unspecified, the default network
     /// will be used.
     /// </summary>
-    public string? AuthorizedNetwork
+    public TerraformLiteralProperty<string>? AuthorizedNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorized_network")?.Value;
-        set => this.WithProperty("authorized_network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("authorized_network");
+        set => this.WithProperty("authorized_network", value);
     }
 
     /// <summary>
     /// The connection mode of the Redis instance. Default value: &amp;quot;DIRECT_PEERING&amp;quot; Possible values: [&amp;quot;DIRECT_PEERING&amp;quot;, &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;]
     /// </summary>
-    public string? ConnectMode
+    public TerraformLiteralProperty<string>? ConnectMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connect_mode")?.Value;
-        set => this.WithProperty("connect_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("connect_mode");
+        set => this.WithProperty("connect_mode", value);
     }
 
     /// <summary>
     /// Optional. The KMS key reference that you want to use to encrypt the data at rest for this Redis
     /// instance. If this is provided, CMEK is enabled.
     /// </summary>
-    public string? CustomerManagedKey
+    public TerraformLiteralProperty<string>? CustomerManagedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key")?.Value;
-        set => this.WithProperty("customer_managed_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key");
+        set => this.WithProperty("customer_managed_key", value);
     }
 
     /// <summary>
@@ -91,28 +91,28 @@ public class GoogleRedisInstance : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the instance will fail.
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
-    public bool? DeletionProtection
+    public TerraformLiteralProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection")?.Value;
-        set => this.WithProperty("deletion_protection", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// An arbitrary and optional user-provided name for the instance.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -121,10 +121,10 @@ public class GoogleRedisInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -134,46 +134,46 @@ public class GoogleRedisInstance : TerraformResource
     /// zonal failures. If [alternativeLocationId] is also provided, it must
     /// be different from [locationId].
     /// </summary>
-    public string? LocationId
+    public TerraformLiteralProperty<string>? LocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_id")?.Value;
-        set => this.WithProperty("location_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location_id");
+        set => this.WithProperty("location_id", value);
     }
 
     /// <summary>
     /// The self service update maintenance version.
     /// </summary>
-    public string? MaintenanceVersion
+    public TerraformLiteralProperty<string>? MaintenanceVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_version")?.Value;
-        set => this.WithProperty("maintenance_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_version");
+        set => this.WithProperty("maintenance_version", value);
     }
 
     /// <summary>
     /// Redis memory size in GiB.
     /// </summary>
-    public double? MemorySizeGb
+    public TerraformLiteralProperty<double>? MemorySizeGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("memory_size_gb")?.Value;
-        set => this.WithProperty("memory_size_gb", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("memory_size_gb");
+        set => this.WithProperty("memory_size_gb", value);
     }
 
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -184,10 +184,10 @@ public class GoogleRedisInstance : TerraformResource
     /// - READ_REPLICAS_ENABLED: If enabled, read endpoint will be provided and the instance
     /// can scale up and down the number of replicas. Possible values: [&amp;quot;READ_REPLICAS_DISABLED&amp;quot;, &amp;quot;READ_REPLICAS_ENABLED&amp;quot;]
     /// </summary>
-    public string? ReadReplicasMode
+    public TerraformLiteralProperty<string>? ReadReplicasMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("read_replicas_mode")?.Value;
-        set => this.WithProperty("read_replicas_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("read_replicas_mode");
+        set => this.WithProperty("read_replicas_mode", value);
     }
 
     /// <summary>
@@ -195,10 +195,10 @@ public class GoogleRedisInstance : TerraformResource
     /// Please check Memorystore documentation for the list of supported parameters:
     /// https://cloud.google.com/memorystore/docs/redis/reference/rest/v1/projects.locations.instances#Instance.FIELDS.redis_configs
     /// </summary>
-    public Dictionary<string, string>? RedisConfigs
+    public TerraformLiteralProperty<Dictionary<string, string>>? RedisConfigs
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("redis_configs")?.Value;
-        set => this.WithProperty("redis_configs", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("redis_configs");
+        set => this.WithProperty("redis_configs", value);
     }
 
     /// <summary>
@@ -206,19 +206,19 @@ public class GoogleRedisInstance : TerraformResource
     /// version will be used. Please check the API documentation linked
     /// at the top for the latest valid values.
     /// </summary>
-    public string? RedisVersion
+    public TerraformLiteralProperty<string>? RedisVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redis_version")?.Value;
-        set => this.WithProperty("redis_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("redis_version");
+        set => this.WithProperty("redis_version", value);
     }
 
     /// <summary>
     /// The name of the Redis region of the instance.
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
@@ -227,10 +227,10 @@ public class GoogleRedisInstance : TerraformResource
     /// for a Standard Tier instance, the only valid value is 1 and the default is 1.
     /// The valid value for basic tier is 0 and the default is also 0.
     /// </summary>
-    public double? ReplicaCount
+    public TerraformLiteralProperty<double>? ReplicaCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replica_count")?.Value;
-        set => this.WithProperty("replica_count", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("replica_count");
+        set => this.WithProperty("replica_count", value);
     }
 
     /// <summary>
@@ -240,10 +240,10 @@ public class GoogleRedisInstance : TerraformResource
     /// unique and non-overlapping with existing subnets in an authorized
     /// network.
     /// </summary>
-    public string? ReservedIpRange
+    public TerraformLiteralProperty<string>? ReservedIpRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reserved_ip_range")?.Value;
-        set => this.WithProperty("reserved_ip_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("reserved_ip_range");
+        set => this.WithProperty("reserved_ip_range", value);
     }
 
     /// <summary>
@@ -252,10 +252,10 @@ public class GoogleRedisInstance : TerraformResource
     /// &amp;quot;auto&amp;quot;. For PRIVATE_SERVICE_ACCESS mode value must be the name of an allocated address
     /// range associated with the private service access connection, or &amp;quot;auto&amp;quot;.
     /// </summary>
-    public string? SecondaryIpRange
+    public TerraformLiteralProperty<string>? SecondaryIpRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secondary_ip_range")?.Value;
-        set => this.WithProperty("secondary_ip_range", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("secondary_ip_range");
+        set => this.WithProperty("secondary_ip_range", value);
     }
 
     /// <summary>
@@ -264,10 +264,10 @@ public class GoogleRedisInstance : TerraformResource
     /// - BASIC: standalone instance
     /// - STANDARD_HA: highly available primary/replica instances Default value: &amp;quot;BASIC&amp;quot; Possible values: [&amp;quot;BASIC&amp;quot;, &amp;quot;STANDARD_HA&amp;quot;]
     /// </summary>
-    public string? Tier
+    public TerraformLiteralProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier")?.Value;
-        set => this.WithProperty("tier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        set => this.WithProperty("tier", value);
     }
 
     /// <summary>
@@ -275,10 +275,10 @@ public class GoogleRedisInstance : TerraformResource
     /// 
     /// - SERVER_AUTHENTICATION: Client to Server traffic encryption enabled with server authentication Default value: &amp;quot;DISABLED&amp;quot; Possible values: [&amp;quot;SERVER_AUTHENTICATION&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public string? TransitEncryptionMode
+    public TerraformLiteralProperty<string>? TransitEncryptionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_encryption_mode")?.Value;
-        set => this.WithProperty("transit_encryption_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("transit_encryption_mode");
+        set => this.WithProperty("transit_encryption_mode", value);
     }
 
     /// <summary>

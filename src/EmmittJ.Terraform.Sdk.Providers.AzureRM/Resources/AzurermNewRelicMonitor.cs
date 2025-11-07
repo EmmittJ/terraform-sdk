@@ -19,91 +19,91 @@ public class AzurermNewRelicMonitor : TerraformResource
     /// <summary>
     /// The account_creation_source attribute.
     /// </summary>
-    public string? AccountCreationSource
+    public TerraformLiteralProperty<string>? AccountCreationSource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_creation_source")?.Value;
-        set => this.WithProperty("account_creation_source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_creation_source");
+        set => this.WithProperty("account_creation_source", value);
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public string? AccountId
+    public TerraformLiteralProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id")?.Value;
-        set => this.WithProperty("account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ingestion_key attribute.
     /// </summary>
-    public string? IngestionKey
+    public TerraformLiteralProperty<string>? IngestionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ingestion_key")?.Value;
-        set => this.WithProperty("ingestion_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ingestion_key");
+        set => this.WithProperty("ingestion_key", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The org_creation_source attribute.
     /// </summary>
-    public string? OrgCreationSource
+    public TerraformLiteralProperty<string>? OrgCreationSource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_creation_source")?.Value;
-        set => this.WithProperty("org_creation_source", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("org_creation_source");
+        set => this.WithProperty("org_creation_source", value);
     }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public string? OrganizationId
+    public TerraformLiteralProperty<string>? OrganizationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization_id")?.Value;
-        set => this.WithProperty("organization_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("organization_id");
+        set => this.WithProperty("organization_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public string? UserId
+    public TerraformLiteralProperty<string>? UserId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_id")?.Value;
-        set => this.WithProperty("user_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_id");
+        set => this.WithProperty("user_id", value);
     }
 
 }

@@ -26,29 +26,29 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// Optional. The aggregation interval for the logs. Default value is
     /// INTERVAL_5_SEC.   Possible values:  AGGREGATION_INTERVAL_UNSPECIFIED INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
     /// </summary>
-    public string? AggregationInterval
+    public TerraformLiteralProperty<string>? AggregationInterval
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aggregation_interval")?.Value;
-        set => this.WithProperty("aggregation_interval", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("aggregation_interval");
+        set => this.WithProperty("aggregation_interval", value);
     }
 
     /// <summary>
     /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
     /// of 512 characters.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Optional. Export filter used to define which VPC Flow Logs should be logged.
     /// </summary>
-    public string? FilterExpr
+    public TerraformLiteralProperty<string>? FilterExpr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_expr")?.Value;
-        set => this.WithProperty("filter_expr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("filter_expr");
+        set => this.WithProperty("filter_expr", value);
     }
 
     /// <summary>
@@ -57,28 +57,28 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
     /// the state field instead. Default value is 1.0.
     /// </summary>
-    public double? FlowSampling
+    public TerraformLiteralProperty<double>? FlowSampling
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("flow_sampling")?.Value;
-        set => this.WithProperty("flow_sampling", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("flow_sampling");
+        set => this.WithProperty("flow_sampling", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Traffic will be logged from the Interconnect Attachment. Format: projects/{project_id}/regions/{region}/interconnectAttachments/{name}
     /// </summary>
-    public string? InterconnectAttachment
+    public TerraformLiteralProperty<string>? InterconnectAttachment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_attachment")?.Value;
-        set => this.WithProperty("interconnect_attachment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_attachment");
+        set => this.WithProperty("interconnect_attachment", value);
     }
 
     /// <summary>
@@ -88,10 +88,10 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -99,10 +99,10 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// within its parent collection as described in https://google.aip.dev/122. See documentation
     /// for resource type &#39;networkmanagement.googleapis.com/VpcFlowLogsConfig&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -110,38 +110,38 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
     ///   Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
     /// </summary>
-    public string? Metadata
+    public TerraformLiteralProperty<string>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata")?.Value;
-        set => this.WithProperty("metadata", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("metadata");
+        set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// Optional. Custom metadata fields to include in the reported VPC flow
     /// logs. Can only be specified if \&amp;quot;metadata\&amp;quot; was set to CUSTOM_METADATA.
     /// </summary>
-    public List<string>? MetadataFields
+    public TerraformLiteralProperty<List<string>>? MetadataFields
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("metadata_fields")?.Value;
-        set => this.WithProperty("metadata_fields", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("metadata_fields");
+        set => this.WithProperty("metadata_fields", value);
     }
 
     /// <summary>
     /// Traffic will be logged from VMs, VPN tunnels and Interconnect Attachments within the network. Format: projects/{project_id}/global/networks/{name}
     /// </summary>
-    public string? Network
+    public TerraformLiteralProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network")?.Value;
-        set => this.WithProperty("network", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -149,37 +149,37 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// is ENABLED. When creating a new configuration, it must be enabled.
     /// Possible values: STATE_UNSPECIFIED ENABLED DISABLED
     /// </summary>
-    public string? State
+    public TerraformLiteralProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state")?.Value;
-        set => this.WithProperty("state", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// Traffic will be logged from VMs within the subnetwork. Format: projects/{project_id}/regions/{region}/subnetworks/{name}
     /// </summary>
-    public string? Subnet
+    public TerraformLiteralProperty<string>? Subnet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet")?.Value;
-        set => this.WithProperty("subnet", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subnet");
+        set => this.WithProperty("subnet", value);
     }
 
     /// <summary>
     /// Required. ID of the &#39;VpcFlowLogsConfig&#39;.
     /// </summary>
-    public string? VpcFlowLogsConfigId
+    public TerraformLiteralProperty<string>? VpcFlowLogsConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_flow_logs_config_id")?.Value;
-        set => this.WithProperty("vpc_flow_logs_config_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_flow_logs_config_id");
+        set => this.WithProperty("vpc_flow_logs_config_id", value);
     }
 
     /// <summary>
     /// Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name}
     /// </summary>
-    public string? VpnTunnel
+    public TerraformLiteralProperty<string>? VpnTunnel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_tunnel")?.Value;
-        set => this.WithProperty("vpn_tunnel", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpn_tunnel");
+        set => this.WithProperty("vpn_tunnel", value);
     }
 
     /// <summary>

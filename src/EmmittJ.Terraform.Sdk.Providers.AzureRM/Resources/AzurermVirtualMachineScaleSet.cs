@@ -20,136 +20,136 @@ public class AzurermVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The automatic_os_upgrade attribute.
     /// </summary>
-    public bool? AutomaticOsUpgrade
+    public TerraformLiteralProperty<bool>? AutomaticOsUpgrade
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_os_upgrade")?.Value;
-        set => this.WithProperty("automatic_os_upgrade", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_os_upgrade");
+        set => this.WithProperty("automatic_os_upgrade", value);
     }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public string? EvictionPolicy
+    public TerraformLiteralProperty<string>? EvictionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eviction_policy")?.Value;
-        set => this.WithProperty("eviction_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("eviction_policy");
+        set => this.WithProperty("eviction_policy", value);
     }
 
     /// <summary>
     /// The health_probe_id attribute.
     /// </summary>
-    public string? HealthProbeId
+    public TerraformLiteralProperty<string>? HealthProbeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("health_probe_id")?.Value;
-        set => this.WithProperty("health_probe_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("health_probe_id");
+        set => this.WithProperty("health_probe_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public string? LicenseType
+    public TerraformLiteralProperty<string>? LicenseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_type")?.Value;
-        set => this.WithProperty("license_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("license_type");
+        set => this.WithProperty("license_type", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The overprovision attribute.
     /// </summary>
-    public bool? Overprovision
+    public TerraformLiteralProperty<bool>? Overprovision
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("overprovision")?.Value;
-        set => this.WithProperty("overprovision", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("overprovision");
+        set => this.WithProperty("overprovision", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public string? Priority
+    public TerraformLiteralProperty<string>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("priority")?.Value;
-        set => this.WithProperty("priority", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("priority");
+        set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public string? ProximityPlacementGroupId
+    public TerraformLiteralProperty<string>? ProximityPlacementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proximity_placement_group_id")?.Value;
-        set => this.WithProperty("proximity_placement_group_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("proximity_placement_group_id");
+        set => this.WithProperty("proximity_placement_group_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The single_placement_group attribute.
     /// </summary>
-    public bool? SinglePlacementGroup
+    public TerraformLiteralProperty<bool>? SinglePlacementGroup
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("single_placement_group")?.Value;
-        set => this.WithProperty("single_placement_group", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("single_placement_group");
+        set => this.WithProperty("single_placement_group", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The upgrade_policy_mode attribute.
     /// </summary>
-    public string? UpgradePolicyMode
+    public TerraformLiteralProperty<string>? UpgradePolicyMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("upgrade_policy_mode")?.Value;
-        set => this.WithProperty("upgrade_policy_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("upgrade_policy_mode");
+        set => this.WithProperty("upgrade_policy_mode", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public List<string>? Zones
+    public TerraformLiteralProperty<List<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("zones")?.Value;
-        set => this.WithProperty("zones", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("zones");
+        set => this.WithProperty("zones", value);
     }
 
 }

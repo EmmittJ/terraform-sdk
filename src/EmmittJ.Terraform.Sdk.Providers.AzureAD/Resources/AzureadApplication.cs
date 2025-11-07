@@ -26,181 +26,181 @@ public class AzureadApplication : TerraformResource
     /// <summary>
     /// Description of the application as shown to end users
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Specifies whether this application supports device authentication without a user.
     /// </summary>
-    public bool? DeviceOnlyAuthEnabled
+    public TerraformLiteralProperty<bool>? DeviceOnlyAuthEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("device_only_auth_enabled")?.Value;
-        set => this.WithProperty("device_only_auth_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("device_only_auth_enabled");
+        set => this.WithProperty("device_only_auth_enabled", value);
     }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Specifies whether the application is a public client. Appropriate for apps using token grant flows that don&#39;t use a redirect URI
     /// </summary>
-    public bool? FallbackPublicClientEnabled
+    public TerraformLiteralProperty<bool>? FallbackPublicClientEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fallback_public_client_enabled")?.Value;
-        set => this.WithProperty("fallback_public_client_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("fallback_public_client_enabled");
+        set => this.WithProperty("fallback_public_client_enabled", value);
     }
 
     /// <summary>
     /// Configures the `groups` claim issued in a user or OAuth 2.0 access token that the app expects
     /// </summary>
-    public HashSet<string>? GroupMembershipClaims
+    public TerraformLiteralProperty<HashSet<string>>? GroupMembershipClaims
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("group_membership_claims")?.Value;
-        set => this.WithProperty("group_membership_claims", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("group_membership_claims");
+        set => this.WithProperty("group_membership_claims", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The user-defined URI(s) that uniquely identify an application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant
     /// </summary>
-    public HashSet<string>? IdentifierUris
+    public TerraformLiteralProperty<HashSet<string>>? IdentifierUris
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("identifier_uris")?.Value;
-        set => this.WithProperty("identifier_uris", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("identifier_uris");
+        set => this.WithProperty("identifier_uris", value);
     }
 
     /// <summary>
     /// Base64 encoded logo image in gif, png or jpeg format
     /// </summary>
-    public string? LogoImage
+    public TerraformLiteralProperty<string>? LogoImage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logo_image")?.Value;
-        set => this.WithProperty("logo_image", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("logo_image");
+        set => this.WithProperty("logo_image", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s marketing page
     /// </summary>
-    public string? MarketingUrl
+    public TerraformLiteralProperty<string>? MarketingUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("marketing_url")?.Value;
-        set => this.WithProperty("marketing_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("marketing_url");
+        set => this.WithProperty("marketing_url", value);
     }
 
     /// <summary>
     /// User-specified notes relevant for the management of the application
     /// </summary>
-    public string? Notes
+    public TerraformLiteralProperty<string>? Notes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notes")?.Value;
-        set => this.WithProperty("notes", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("notes");
+        set => this.WithProperty("notes", value);
     }
 
     /// <summary>
     /// Specifies whether, as part of OAuth 2.0 token requests, Azure AD allows POST requests, as opposed to GET requests.
     /// </summary>
-    public bool? Oauth2PostResponseRequired
+    public TerraformLiteralProperty<bool>? Oauth2PostResponseRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("oauth2_post_response_required")?.Value;
-        set => this.WithProperty("oauth2_post_response_required", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("oauth2_post_response_required");
+        set => this.WithProperty("oauth2_post_response_required", value);
     }
 
     /// <summary>
     /// A list of object IDs of principals that will be granted ownership of the application
     /// </summary>
-    public HashSet<string>? Owners
+    public TerraformLiteralProperty<HashSet<string>>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("owners")?.Value;
-        set => this.WithProperty("owners", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("owners");
+        set => this.WithProperty("owners", value);
     }
 
     /// <summary>
     /// If `true`, will return an error if an existing application is found with the same name
     /// </summary>
-    public bool? PreventDuplicateNames
+    public TerraformLiteralProperty<bool>? PreventDuplicateNames
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("prevent_duplicate_names")?.Value;
-        set => this.WithProperty("prevent_duplicate_names", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("prevent_duplicate_names");
+        set => this.WithProperty("prevent_duplicate_names", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s privacy statement
     /// </summary>
-    public string? PrivacyStatementUrl
+    public TerraformLiteralProperty<string>? PrivacyStatementUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("privacy_statement_url")?.Value;
-        set => this.WithProperty("privacy_statement_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("privacy_statement_url");
+        set => this.WithProperty("privacy_statement_url", value);
     }
 
     /// <summary>
     /// References application or service contact information from a Service or Asset Management database
     /// </summary>
-    public string? ServiceManagementReference
+    public TerraformLiteralProperty<string>? ServiceManagementReference
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_management_reference")?.Value;
-        set => this.WithProperty("service_management_reference", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_management_reference");
+        set => this.WithProperty("service_management_reference", value);
     }
 
     /// <summary>
     /// The Microsoft account types that are supported for the current application
     /// </summary>
-    public string? SignInAudience
+    public TerraformLiteralProperty<string>? SignInAudience
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sign_in_audience")?.Value;
-        set => this.WithProperty("sign_in_audience", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("sign_in_audience");
+        set => this.WithProperty("sign_in_audience", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s support page
     /// </summary>
-    public string? SupportUrl
+    public TerraformLiteralProperty<string>? SupportUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("support_url")?.Value;
-        set => this.WithProperty("support_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("support_url");
+        set => this.WithProperty("support_url", value);
     }
 
     /// <summary>
     /// A set of tags to apply to the application
     /// </summary>
-    public HashSet<string>? Tags
+    public TerraformLiteralProperty<HashSet<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// Unique ID of the application template from which this application is created
     /// </summary>
-    public string? TemplateId
+    public TerraformLiteralProperty<string>? TemplateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_id")?.Value;
-        set => this.WithProperty("template_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("template_id");
+        set => this.WithProperty("template_id", value);
     }
 
     /// <summary>
     /// URL of the application&#39;s terms of service statement
     /// </summary>
-    public string? TermsOfServiceUrl
+    public TerraformLiteralProperty<string>? TermsOfServiceUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("terms_of_service_url")?.Value;
-        set => this.WithProperty("terms_of_service_url", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("terms_of_service_url");
+        set => this.WithProperty("terms_of_service_url", value);
     }
 
     /// <summary>

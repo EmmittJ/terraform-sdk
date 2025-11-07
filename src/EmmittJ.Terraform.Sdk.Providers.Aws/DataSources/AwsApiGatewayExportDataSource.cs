@@ -22,64 +22,64 @@ public class AwsApiGatewayExportDataSource : TerraformDataSource
     /// <summary>
     /// The accepts attribute.
     /// </summary>
-    public string? Accepts
+    public TerraformLiteralProperty<string>? Accepts
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("accepts")?.Value;
-        set => this.WithProperty("accepts", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("accepts");
+        set => this.WithProperty("accepts", value);
     }
 
     /// <summary>
     /// The export_type attribute.
     /// </summary>
-    public string? ExportType
+    public TerraformLiteralProperty<string>? ExportType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("export_type")?.Value;
-        set => this.WithProperty("export_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("export_type");
+        set => this.WithProperty("export_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public Dictionary<string, string>? Parameters
+    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters")?.Value;
-        set => this.WithProperty("parameters", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public string? RestApiId
+    public TerraformLiteralProperty<string>? RestApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rest_api_id")?.Value;
-        set => this.WithProperty("rest_api_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rest_api_id");
+        set => this.WithProperty("rest_api_id", value);
     }
 
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
-    public string? StageName
+    public TerraformLiteralProperty<string>? StageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stage_name")?.Value;
-        set => this.WithProperty("stage_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("stage_name");
+        set => this.WithProperty("stage_name", value);
     }
 
     /// <summary>

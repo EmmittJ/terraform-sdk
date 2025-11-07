@@ -22,190 +22,190 @@ public class AwsAlbTargetGroup : TerraformResource
     /// <summary>
     /// The connection_termination attribute.
     /// </summary>
-    public bool? ConnectionTermination
+    public TerraformLiteralProperty<bool>? ConnectionTermination
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("connection_termination")?.Value;
-        set => this.WithProperty("connection_termination", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("connection_termination");
+        set => this.WithProperty("connection_termination", value);
     }
 
     /// <summary>
     /// The deregistration_delay attribute.
     /// </summary>
-    public string? DeregistrationDelay
+    public TerraformLiteralProperty<string>? DeregistrationDelay
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deregistration_delay")?.Value;
-        set => this.WithProperty("deregistration_delay", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("deregistration_delay");
+        set => this.WithProperty("deregistration_delay", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public string? IpAddressType
+    public TerraformLiteralProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type")?.Value;
-        set => this.WithProperty("ip_address_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type");
+        set => this.WithProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The lambda_multi_value_headers_enabled attribute.
     /// </summary>
-    public bool? LambdaMultiValueHeadersEnabled
+    public TerraformLiteralProperty<bool>? LambdaMultiValueHeadersEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("lambda_multi_value_headers_enabled")?.Value;
-        set => this.WithProperty("lambda_multi_value_headers_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("lambda_multi_value_headers_enabled");
+        set => this.WithProperty("lambda_multi_value_headers_enabled", value);
     }
 
     /// <summary>
     /// The load_balancing_algorithm_type attribute.
     /// </summary>
-    public string? LoadBalancingAlgorithmType
+    public TerraformLiteralProperty<string>? LoadBalancingAlgorithmType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_algorithm_type")?.Value;
-        set => this.WithProperty("load_balancing_algorithm_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_algorithm_type");
+        set => this.WithProperty("load_balancing_algorithm_type", value);
     }
 
     /// <summary>
     /// The load_balancing_anomaly_mitigation attribute.
     /// </summary>
-    public string? LoadBalancingAnomalyMitigation
+    public TerraformLiteralProperty<string>? LoadBalancingAnomalyMitigation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_anomaly_mitigation")?.Value;
-        set => this.WithProperty("load_balancing_anomaly_mitigation", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_anomaly_mitigation");
+        set => this.WithProperty("load_balancing_anomaly_mitigation", value);
     }
 
     /// <summary>
     /// The load_balancing_cross_zone_enabled attribute.
     /// </summary>
-    public string? LoadBalancingCrossZoneEnabled
+    public TerraformLiteralProperty<string>? LoadBalancingCrossZoneEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_cross_zone_enabled")?.Value;
-        set => this.WithProperty("load_balancing_cross_zone_enabled", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_cross_zone_enabled");
+        set => this.WithProperty("load_balancing_cross_zone_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public string? NamePrefix
+    public TerraformLiteralProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix")?.Value;
-        set => this.WithProperty("name_prefix", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
-    public string? PreserveClientIp
+    public TerraformLiteralProperty<string>? PreserveClientIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preserve_client_ip")?.Value;
-        set => this.WithProperty("preserve_client_ip", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("preserve_client_ip");
+        set => this.WithProperty("preserve_client_ip", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The protocol_version attribute.
     /// </summary>
-    public string? ProtocolVersion
+    public TerraformLiteralProperty<string>? ProtocolVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol_version")?.Value;
-        set => this.WithProperty("protocol_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol_version");
+        set => this.WithProperty("protocol_version", value);
     }
 
     /// <summary>
     /// The proxy_protocol_v2 attribute.
     /// </summary>
-    public bool? ProxyProtocolV2
+    public TerraformLiteralProperty<bool>? ProxyProtocolV2
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_protocol_v2")?.Value;
-        set => this.WithProperty("proxy_protocol_v2", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_protocol_v2");
+        set => this.WithProperty("proxy_protocol_v2", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The slow_start attribute.
     /// </summary>
-    public double? SlowStart
+    public TerraformLiteralProperty<double>? SlowStart
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("slow_start")?.Value;
-        set => this.WithProperty("slow_start", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("slow_start");
+        set => this.WithProperty("slow_start", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public string? TargetType
+    public TerraformLiteralProperty<string>? TargetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_type")?.Value;
-        set => this.WithProperty("target_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_type");
+        set => this.WithProperty("target_type", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public string? VpcId
+    public TerraformLiteralProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id")?.Value;
-        set => this.WithProperty("vpc_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>

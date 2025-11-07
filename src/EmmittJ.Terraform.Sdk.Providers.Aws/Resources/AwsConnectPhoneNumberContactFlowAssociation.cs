@@ -19,37 +19,37 @@ public class AwsConnectPhoneNumberContactFlowAssociation : TerraformResource
     /// <summary>
     /// The contact_flow_id attribute.
     /// </summary>
-    public string? ContactFlowId
+    public TerraformLiteralProperty<string>? ContactFlowId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("contact_flow_id")?.Value;
-        set => this.WithProperty("contact_flow_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("contact_flow_id");
+        set => this.WithProperty("contact_flow_id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public string? InstanceId
+    public TerraformLiteralProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id")?.Value;
-        set => this.WithProperty("instance_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The phone_number_id attribute.
     /// </summary>
-    public string? PhoneNumberId
+    public TerraformLiteralProperty<string>? PhoneNumberId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("phone_number_id")?.Value;
-        set => this.WithProperty("phone_number_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("phone_number_id");
+        set => this.WithProperty("phone_number_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
 }

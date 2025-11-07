@@ -19,64 +19,64 @@ public class AzurermPaloAltoLocalRulestackCertificate : TerraformResource
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    public string? AuditComment
+    public TerraformLiteralProperty<string>? AuditComment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("audit_comment")?.Value;
-        set => this.WithProperty("audit_comment", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("audit_comment");
+        set => this.WithProperty("audit_comment", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public string? KeyVaultCertificateId
+    public TerraformLiteralProperty<string>? KeyVaultCertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_certificate_id")?.Value;
-        set => this.WithProperty("key_vault_certificate_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_certificate_id");
+        set => this.WithProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
-    public string? RulestackId
+    public TerraformLiteralProperty<string>? RulestackId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rulestack_id")?.Value;
-        set => this.WithProperty("rulestack_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rulestack_id");
+        set => this.WithProperty("rulestack_id", value);
     }
 
     /// <summary>
     /// The self_signed attribute.
     /// </summary>
-    public bool? SelfSigned
+    public TerraformLiteralProperty<bool>? SelfSigned
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("self_signed")?.Value;
-        set => this.WithProperty("self_signed", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("self_signed");
+        set => this.WithProperty("self_signed", value);
     }
 
 }

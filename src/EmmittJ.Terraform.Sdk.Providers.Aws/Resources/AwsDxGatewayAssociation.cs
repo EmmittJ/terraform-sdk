@@ -23,64 +23,64 @@ public class AwsDxGatewayAssociation : TerraformResource
     /// <summary>
     /// The allowed_prefixes attribute.
     /// </summary>
-    public HashSet<string>? AllowedPrefixes
+    public TerraformLiteralProperty<HashSet<string>>? AllowedPrefixes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_prefixes")?.Value;
-        set => this.WithProperty("allowed_prefixes", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_prefixes");
+        set => this.WithProperty("allowed_prefixes", value);
     }
 
     /// <summary>
     /// The associated_gateway_id attribute.
     /// </summary>
-    public string? AssociatedGatewayId
+    public TerraformLiteralProperty<string>? AssociatedGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("associated_gateway_id")?.Value;
-        set => this.WithProperty("associated_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("associated_gateway_id");
+        set => this.WithProperty("associated_gateway_id", value);
     }
 
     /// <summary>
     /// The associated_gateway_owner_account_id attribute.
     /// </summary>
-    public string? AssociatedGatewayOwnerAccountId
+    public TerraformLiteralProperty<string>? AssociatedGatewayOwnerAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("associated_gateway_owner_account_id")?.Value;
-        set => this.WithProperty("associated_gateway_owner_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("associated_gateway_owner_account_id");
+        set => this.WithProperty("associated_gateway_owner_account_id", value);
     }
 
     /// <summary>
     /// The dx_gateway_id attribute.
     /// </summary>
-    public string? DxGatewayId
+    public TerraformLiteralProperty<string>? DxGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dx_gateway_id")?.Value;
-        set => this.WithProperty("dx_gateway_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dx_gateway_id");
+        set => this.WithProperty("dx_gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The proposal_id attribute.
     /// </summary>
-    public string? ProposalId
+    public TerraformLiteralProperty<string>? ProposalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proposal_id")?.Value;
-        set => this.WithProperty("proposal_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("proposal_id");
+        set => this.WithProperty("proposal_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

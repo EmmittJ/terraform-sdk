@@ -20,46 +20,46 @@ public class AzurermAdvisorSuppression : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recommendation_id attribute.
     /// </summary>
-    public string? RecommendationId
+    public TerraformLiteralProperty<string>? RecommendationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recommendation_id")?.Value;
-        set => this.WithProperty("recommendation_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("recommendation_id");
+        set => this.WithProperty("recommendation_id", value);
     }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public string? ResourceId
+    public TerraformLiteralProperty<string>? ResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_id")?.Value;
-        set => this.WithProperty("resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_id");
+        set => this.WithProperty("resource_id", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public string? Ttl
+    public TerraformLiteralProperty<string>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ttl")?.Value;
-        set => this.WithProperty("ttl", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ttl");
+        set => this.WithProperty("ttl", value);
     }
 
     /// <summary>

@@ -25,29 +25,29 @@ public class GoogleParameterManagerParameter : TerraformResource
     /// <summary>
     /// The format type of the parameter resource. Default value: &amp;quot;UNFORMATTED&amp;quot; Possible values: [&amp;quot;UNFORMATTED&amp;quot;, &amp;quot;YAML&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
-    public string? Format
+    public TerraformLiteralProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format")?.Value;
-        set => this.WithProperty("format", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey used to encrypt parameter version payload. Format
     /// &#39;projects/{{project}}/locations/global/keyRings/{{key_ring}}/cryptoKeys/{{crypto_key}}&#39;
     /// </summary>
-    public string? KmsKey
+    public TerraformLiteralProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key")?.Value;
-        set => this.WithProperty("kms_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        set => this.WithProperty("kms_key", value);
     }
 
     /// <summary>
@@ -68,28 +68,28 @@ public class GoogleParameterManagerParameter : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public string? ParameterId
+    public TerraformLiteralProperty<string>? ParameterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_id")?.Value;
-        set => this.WithProperty("parameter_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parameter_id");
+        set => this.WithProperty("parameter_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

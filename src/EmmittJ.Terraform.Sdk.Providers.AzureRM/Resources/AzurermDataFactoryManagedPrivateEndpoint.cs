@@ -19,55 +19,55 @@ public class AzurermDataFactoryManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public string? DataFactoryId
+    public TerraformLiteralProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id")?.Value;
-        set => this.WithProperty("data_factory_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public List<string>? Fqdns
+    public TerraformLiteralProperty<List<string>>? Fqdns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("fqdns")?.Value;
-        set => this.WithProperty("fqdns", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("fqdns");
+        set => this.WithProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The subresource_name attribute.
     /// </summary>
-    public string? SubresourceName
+    public TerraformLiteralProperty<string>? SubresourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subresource_name")?.Value;
-        set => this.WithProperty("subresource_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("subresource_name");
+        set => this.WithProperty("subresource_name", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public string? TargetResourceId
+    public TerraformLiteralProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id")?.Value;
-        set => this.WithProperty("target_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id");
+        set => this.WithProperty("target_resource_id", value);
     }
 
 }

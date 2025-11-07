@@ -21,82 +21,82 @@ public class AwsNeptuneClusterEndpoint : TerraformResource
     /// <summary>
     /// The cluster_endpoint_identifier attribute.
     /// </summary>
-    public string? ClusterEndpointIdentifier
+    public TerraformLiteralProperty<string>? ClusterEndpointIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_endpoint_identifier")?.Value;
-        set => this.WithProperty("cluster_endpoint_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_endpoint_identifier");
+        set => this.WithProperty("cluster_endpoint_identifier", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public string? ClusterIdentifier
+    public TerraformLiteralProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier")?.Value;
-        set => this.WithProperty("cluster_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
-    public string? EndpointType
+    public TerraformLiteralProperty<string>? EndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_type")?.Value;
-        set => this.WithProperty("endpoint_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_type");
+        set => this.WithProperty("endpoint_type", value);
     }
 
     /// <summary>
     /// The excluded_members attribute.
     /// </summary>
-    public HashSet<string>? ExcludedMembers
+    public TerraformLiteralProperty<HashSet<string>>? ExcludedMembers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("excluded_members")?.Value;
-        set => this.WithProperty("excluded_members", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("excluded_members");
+        set => this.WithProperty("excluded_members", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The static_members attribute.
     /// </summary>
-    public HashSet<string>? StaticMembers
+    public TerraformLiteralProperty<HashSet<string>>? StaticMembers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("static_members")?.Value;
-        set => this.WithProperty("static_members", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("static_members");
+        set => this.WithProperty("static_members", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>

@@ -20,28 +20,28 @@ public class AzureadDirectoryRoleMember : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the member
     /// </summary>
-    public string? MemberObjectId
+    public TerraformLiteralProperty<string>? MemberObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member_object_id")?.Value;
-        set => this.WithProperty("member_object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("member_object_id");
+        set => this.WithProperty("member_object_id", value);
     }
 
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
-    public string? RoleObjectId
+    public TerraformLiteralProperty<string>? RoleObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_object_id")?.Value;
-        set => this.WithProperty("role_object_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_object_id");
+        set => this.WithProperty("role_object_id", value);
     }
 
 }

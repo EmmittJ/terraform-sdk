@@ -19,55 +19,55 @@ public class AzurermRelayHybridConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The relay_namespace_name attribute.
     /// </summary>
-    public string? RelayNamespaceName
+    public TerraformLiteralProperty<string>? RelayNamespaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relay_namespace_name")?.Value;
-        set => this.WithProperty("relay_namespace_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("relay_namespace_name");
+        set => this.WithProperty("relay_namespace_name", value);
     }
 
     /// <summary>
     /// The requires_client_authorization attribute.
     /// </summary>
-    public bool? RequiresClientAuthorization
+    public TerraformLiteralProperty<bool>? RequiresClientAuthorization
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("requires_client_authorization")?.Value;
-        set => this.WithProperty("requires_client_authorization", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("requires_client_authorization");
+        set => this.WithProperty("requires_client_authorization", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The user_metadata attribute.
     /// </summary>
-    public string? UserMetadata
+    public TerraformLiteralProperty<string>? UserMetadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_metadata")?.Value;
-        set => this.WithProperty("user_metadata", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("user_metadata");
+        set => this.WithProperty("user_metadata", value);
     }
 
 }

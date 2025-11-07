@@ -19,91 +19,91 @@ public class AwsCloudwatchEventTarget : TerraformResource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public string? Arn
+    public TerraformLiteralProperty<string>? Arn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arn")?.Value;
-        set => this.WithProperty("arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("arn");
+        set => this.WithProperty("arn", value);
     }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
-    public string? EventBusName
+    public TerraformLiteralProperty<string>? EventBusName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_bus_name")?.Value;
-        set => this.WithProperty("event_bus_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("event_bus_name");
+        set => this.WithProperty("event_bus_name", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public bool? ForceDestroy
+    public TerraformLiteralProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy")?.Value;
-        set => this.WithProperty("force_destroy", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
-    public string? Input
+    public TerraformLiteralProperty<string>? Input
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("input")?.Value;
-        set => this.WithProperty("input", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("input");
+        set => this.WithProperty("input", value);
     }
 
     /// <summary>
     /// The input_path attribute.
     /// </summary>
-    public string? InputPath
+    public TerraformLiteralProperty<string>? InputPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("input_path")?.Value;
-        set => this.WithProperty("input_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("input_path");
+        set => this.WithProperty("input_path", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public string? RoleArn
+    public TerraformLiteralProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn")?.Value;
-        set => this.WithProperty("role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The rule attribute.
     /// </summary>
-    public string? Rule
+    public TerraformLiteralProperty<string>? Rule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule")?.Value;
-        set => this.WithProperty("rule", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule");
+        set => this.WithProperty("rule", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public string? TargetId
+    public TerraformLiteralProperty<string>? TargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_id")?.Value;
-        set => this.WithProperty("target_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_id");
+        set => this.WithProperty("target_id", value);
     }
 
 }

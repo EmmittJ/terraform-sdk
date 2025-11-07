@@ -21,20 +21,20 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The verification method for the Site Verification system to use to verify
     /// this site or domain. Possible values: [&amp;quot;ANALYTICS&amp;quot;, &amp;quot;DNS_CNAME&amp;quot;, &amp;quot;DNS_TXT&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;META&amp;quot;, &amp;quot;TAG_MANAGER&amp;quot;]
     /// </summary>
-    public string? VerificationMethod
+    public TerraformLiteralProperty<string>? VerificationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("verification_method")?.Value;
-        set => this.WithProperty("verification_method", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("verification_method");
+        set => this.WithProperty("verification_method", value);
     }
 
     /// <summary>

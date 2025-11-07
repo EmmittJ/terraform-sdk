@@ -20,19 +20,19 @@ public class AwsOdbGiVersionsDataSource : TerraformDataSource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The system shape.
     /// </summary>
-    public string? Shape
+    public TerraformLiteralProperty<string>? Shape
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shape")?.Value;
-        set => this.WithProperty("shape", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("shape");
+        set => this.WithProperty("shape", value);
     }
 
     /// <summary>

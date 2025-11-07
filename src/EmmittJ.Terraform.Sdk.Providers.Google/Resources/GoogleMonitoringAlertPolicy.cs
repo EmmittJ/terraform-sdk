@@ -22,10 +22,10 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// How to combine the results of multiple conditions to
     /// determine if an incident should be opened. Possible values: [&amp;quot;AND&amp;quot;, &amp;quot;OR&amp;quot;, &amp;quot;AND_WITH_MATCHING_RESOURCE&amp;quot;]
     /// </summary>
-    public string? Combiner
+    public TerraformLiteralProperty<string>? Combiner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("combiner")?.Value;
-        set => this.WithProperty("combiner", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("combiner");
+        set => this.WithProperty("combiner", value);
     }
 
     /// <summary>
@@ -34,28 +34,28 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// the same display name for multiple policies in the same project. The
     /// name is limited to 512 Unicode characters.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether or not the policy is enabled. The default is true.
     /// </summary>
-    public bool? Enabled
+    public TerraformLiteralProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled")?.Value;
-        set => this.WithProperty("enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -67,19 +67,19 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// entries in this field is
     /// &#39;projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]&#39;
     /// </summary>
-    public List<string>? NotificationChannels
+    public TerraformLiteralProperty<List<string>>? NotificationChannels
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("notification_channels")?.Value;
-        set => this.WithProperty("notification_channels", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("notification_channels");
+        set => this.WithProperty("notification_channels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -87,10 +87,10 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// by that policy are. The severity level will be displayed on the Incident
     /// detail page and in notifications. Possible values: [&amp;quot;CRITICAL&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;WARNING&amp;quot;]
     /// </summary>
-    public string? Severity
+    public TerraformLiteralProperty<string>? Severity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("severity")?.Value;
-        set => this.WithProperty("severity", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("severity");
+        set => this.WithProperty("severity", value);
     }
 
     /// <summary>
@@ -100,10 +100,10 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    public Dictionary<string, string>? UserLabels
+    public TerraformLiteralProperty<Dictionary<string, string>>? UserLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_labels")?.Value;
-        set => this.WithProperty("user_labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_labels");
+        set => this.WithProperty("user_labels", value);
     }
 
     /// <summary>

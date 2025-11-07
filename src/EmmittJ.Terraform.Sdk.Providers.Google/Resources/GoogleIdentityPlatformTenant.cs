@@ -20,10 +20,10 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// <summary>
     /// Whether to allow email/password user authentication.
     /// </summary>
-    public bool? AllowPasswordSignup
+    public TerraformLiteralProperty<bool>? AllowPasswordSignup
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_password_signup")?.Value;
-        set => this.WithProperty("allow_password_signup", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("allow_password_signup");
+        set => this.WithProperty("allow_password_signup", value);
     }
 
     /// <summary>
@@ -31,46 +31,46 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// the disabled tenant are not allowed to sign-in. Admins of the disabled tenant
     /// are not able to manage its users.
     /// </summary>
-    public bool? DisableAuth
+    public TerraformLiteralProperty<bool>? DisableAuth
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_auth")?.Value;
-        set => this.WithProperty("disable_auth", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disable_auth");
+        set => this.WithProperty("disable_auth", value);
     }
 
     /// <summary>
     /// Human friendly display name of the tenant.
     /// </summary>
-    public string? DisplayName
+    public TerraformLiteralProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name")?.Value;
-        set => this.WithProperty("display_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether to enable email link user authentication.
     /// </summary>
-    public bool? EnableEmailLinkSignin
+    public TerraformLiteralProperty<bool>? EnableEmailLinkSignin
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_email_link_signin")?.Value;
-        set => this.WithProperty("enable_email_link_signin", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("enable_email_link_signin");
+        set => this.WithProperty("enable_email_link_signin", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

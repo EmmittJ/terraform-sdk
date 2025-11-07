@@ -21,10 +21,10 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
@@ -34,19 +34,19 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// The value of timeout.maxAttemptsTimeout dictates the timeout across all origins.
     /// A reference to a Topic resource.
     /// </summary>
-    public string? FailoverOrigin
+    public TerraformLiteralProperty<string>? FailoverOrigin
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("failover_origin")?.Value;
-        set => this.WithProperty("failover_origin", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("failover_origin");
+        set => this.WithProperty("failover_origin", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -55,10 +55,10 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
@@ -75,10 +75,10 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// 
     /// Defaults to 1. Must be a value greater than 0 and less than 4.
     /// </summary>
-    public double? MaxAttempts
+    public TerraformLiteralProperty<double>? MaxAttempts
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_attempts")?.Value;
-        set => this.WithProperty("max_attempts", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_attempts");
+        set => this.WithProperty("max_attempts", value);
     }
 
     /// <summary>
@@ -86,10 +86,10 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
     /// and all following characters must be a dash, underscore, letter or digit.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
@@ -100,29 +100,29 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// When providing an FQDN (hostname), it must be publicly resolvable (e.g. via Google public DNS) and IP addresses must be publicly routable.  It must not contain a protocol (e.g., https://) and it must not contain any slashes.
     /// If a Cloud Storage bucket is provided, it must be in the canonical &amp;quot;gs://bucketname&amp;quot; format. Other forms, such as &amp;quot;storage.googleapis.com&amp;quot;, will be rejected.
     /// </summary>
-    public string? OriginAddress
+    public TerraformLiteralProperty<string>? OriginAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("origin_address")?.Value;
-        set => this.WithProperty("origin_address", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("origin_address");
+        set => this.WithProperty("origin_address", value);
     }
 
     /// <summary>
     /// The port to connect to the origin on.
     /// Defaults to port 443 for HTTP2 and HTTPS protocols, and port 80 for HTTP.
     /// </summary>
-    public double? Port
+    public TerraformLiteralProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port")?.Value;
-        set => this.WithProperty("port", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
@@ -130,10 +130,10 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// 
     /// When using HTTP2 or HTTPS as the protocol, a valid, publicly-signed, unexpired TLS (SSL) certificate must be presented by the origin server. Possible values: [&amp;quot;HTTP2&amp;quot;, &amp;quot;HTTPS&amp;quot;, &amp;quot;HTTP&amp;quot;]
     /// </summary>
-    public string? Protocol
+    public TerraformLiteralProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol")?.Value;
-        set => this.WithProperty("protocol", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
@@ -156,10 +156,10 @@ public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
     /// - NOT_FOUND: Retry if the origin returns a HTTP 404 (Not Found). This can be useful when generating video content, and the segment is not available yet.
     /// - FORBIDDEN: Retry if the origin returns a HTTP 403 (Forbidden). Possible values: [&amp;quot;CONNECT_FAILURE&amp;quot;, &amp;quot;HTTP_5XX&amp;quot;, &amp;quot;GATEWAY_ERROR&amp;quot;, &amp;quot;RETRIABLE_4XX&amp;quot;, &amp;quot;NOT_FOUND&amp;quot;, &amp;quot;FORBIDDEN&amp;quot;]
     /// </summary>
-    public List<string>? RetryConditions
+    public TerraformLiteralProperty<List<string>>? RetryConditions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("retry_conditions")?.Value;
-        set => this.WithProperty("retry_conditions", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("retry_conditions");
+        set => this.WithProperty("retry_conditions", value);
     }
 
     /// <summary>

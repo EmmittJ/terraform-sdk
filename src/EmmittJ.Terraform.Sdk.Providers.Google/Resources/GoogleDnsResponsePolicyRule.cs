@@ -19,46 +19,46 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// <summary>
     /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
     /// </summary>
-    public string? DnsName
+    public TerraformLiteralProperty<string>? DnsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_name")?.Value;
-        set => this.WithProperty("dns_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_name");
+        set => this.WithProperty("dns_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Identifies the response policy addressed by this request.
     /// </summary>
-    public string? ResponsePolicy
+    public TerraformLiteralProperty<string>? ResponsePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("response_policy")?.Value;
-        set => this.WithProperty("response_policy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("response_policy");
+        set => this.WithProperty("response_policy", value);
     }
 
     /// <summary>
     /// An identifier for this rule. Must be unique with the ResponsePolicy.
     /// </summary>
-    public string? RuleName
+    public TerraformLiteralProperty<string>? RuleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_name")?.Value;
-        set => this.WithProperty("rule_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("rule_name");
+        set => this.WithProperty("rule_name", value);
     }
 
 }

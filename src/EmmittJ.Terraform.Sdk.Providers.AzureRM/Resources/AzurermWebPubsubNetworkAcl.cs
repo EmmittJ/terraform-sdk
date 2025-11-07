@@ -19,28 +19,28 @@ public class AzurermWebPubsubNetworkAcl : TerraformResource
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public string? DefaultAction
+    public TerraformLiteralProperty<string>? DefaultAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_action")?.Value;
-        set => this.WithProperty("default_action", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("default_action");
+        set => this.WithProperty("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
-    public string? WebPubsubId
+    public TerraformLiteralProperty<string>? WebPubsubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_pubsub_id")?.Value;
-        set => this.WithProperty("web_pubsub_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("web_pubsub_id");
+        set => this.WithProperty("web_pubsub_id", value);
     }
 
 }

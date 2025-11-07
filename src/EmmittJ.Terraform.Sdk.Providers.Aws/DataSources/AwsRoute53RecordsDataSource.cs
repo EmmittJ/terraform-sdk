@@ -20,19 +20,19 @@ public class AwsRoute53RecordsDataSource : TerraformDataSource
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public string? NameRegex
+    public TerraformLiteralProperty<string>? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_regex")?.Value;
-        set => this.WithProperty("name_regex", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name_regex");
+        set => this.WithProperty("name_regex", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public string? ZoneId
+    public TerraformLiteralProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id")?.Value;
-        set => this.WithProperty("zone_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        set => this.WithProperty("zone_id", value);
     }
 
     /// <summary>

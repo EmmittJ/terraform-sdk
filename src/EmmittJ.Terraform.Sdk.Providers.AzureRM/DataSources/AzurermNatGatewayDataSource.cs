@@ -25,46 +25,46 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_ip_address_ids attribute.
     /// </summary>
-    public List<string>? PublicIpAddressIds
+    public TerraformLiteralProperty<List<string>>? PublicIpAddressIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("public_ip_address_ids")?.Value;
-        set => this.WithProperty("public_ip_address_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("public_ip_address_ids");
+        set => this.WithProperty("public_ip_address_ids", value);
     }
 
     /// <summary>
     /// The public_ip_prefix_ids attribute.
     /// </summary>
-    public List<string>? PublicIpPrefixIds
+    public TerraformLiteralProperty<List<string>>? PublicIpPrefixIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("public_ip_prefix_ids")?.Value;
-        set => this.WithProperty("public_ip_prefix_ids", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("public_ip_prefix_ids");
+        set => this.WithProperty("public_ip_prefix_ids", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>

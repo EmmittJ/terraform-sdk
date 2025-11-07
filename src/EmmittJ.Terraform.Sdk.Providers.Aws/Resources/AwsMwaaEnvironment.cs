@@ -27,244 +27,244 @@ public class AwsMwaaEnvironment : TerraformResource
     /// <summary>
     /// The airflow_configuration_options attribute.
     /// </summary>
-    public Dictionary<string, string>? AirflowConfigurationOptions
+    public TerraformLiteralProperty<Dictionary<string, string>>? AirflowConfigurationOptions
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("airflow_configuration_options")?.Value;
-        set => this.WithProperty("airflow_configuration_options", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("airflow_configuration_options");
+        set => this.WithProperty("airflow_configuration_options", value);
     }
 
     /// <summary>
     /// The airflow_version attribute.
     /// </summary>
-    public string? AirflowVersion
+    public TerraformLiteralProperty<string>? AirflowVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("airflow_version")?.Value;
-        set => this.WithProperty("airflow_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("airflow_version");
+        set => this.WithProperty("airflow_version", value);
     }
 
     /// <summary>
     /// The dag_s3_path attribute.
     /// </summary>
-    public string? DagS3Path
+    public TerraformLiteralProperty<string>? DagS3Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dag_s3_path")?.Value;
-        set => this.WithProperty("dag_s3_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dag_s3_path");
+        set => this.WithProperty("dag_s3_path", value);
     }
 
     /// <summary>
     /// The endpoint_management attribute.
     /// </summary>
-    public string? EndpointManagement
+    public TerraformLiteralProperty<string>? EndpointManagement
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_management")?.Value;
-        set => this.WithProperty("endpoint_management", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_management");
+        set => this.WithProperty("endpoint_management", value);
     }
 
     /// <summary>
     /// The environment_class attribute.
     /// </summary>
-    public string? EnvironmentClass
+    public TerraformLiteralProperty<string>? EnvironmentClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_class")?.Value;
-        set => this.WithProperty("environment_class", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("environment_class");
+        set => this.WithProperty("environment_class", value);
     }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public string? ExecutionRoleArn
+    public TerraformLiteralProperty<string>? ExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn")?.Value;
-        set => this.WithProperty("execution_role_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn");
+        set => this.WithProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public string? KmsKey
+    public TerraformLiteralProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key")?.Value;
-        set => this.WithProperty("kms_key", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        set => this.WithProperty("kms_key", value);
     }
 
     /// <summary>
     /// The max_webservers attribute.
     /// </summary>
-    public double? MaxWebservers
+    public TerraformLiteralProperty<double>? MaxWebservers
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_webservers")?.Value;
-        set => this.WithProperty("max_webservers", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_webservers");
+        set => this.WithProperty("max_webservers", value);
     }
 
     /// <summary>
     /// The max_workers attribute.
     /// </summary>
-    public double? MaxWorkers
+    public TerraformLiteralProperty<double>? MaxWorkers
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_workers")?.Value;
-        set => this.WithProperty("max_workers", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("max_workers");
+        set => this.WithProperty("max_workers", value);
     }
 
     /// <summary>
     /// The min_webservers attribute.
     /// </summary>
-    public double? MinWebservers
+    public TerraformLiteralProperty<double>? MinWebservers
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_webservers")?.Value;
-        set => this.WithProperty("min_webservers", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_webservers");
+        set => this.WithProperty("min_webservers", value);
     }
 
     /// <summary>
     /// The min_workers attribute.
     /// </summary>
-    public double? MinWorkers
+    public TerraformLiteralProperty<double>? MinWorkers
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_workers")?.Value;
-        set => this.WithProperty("min_workers", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("min_workers");
+        set => this.WithProperty("min_workers", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The plugins_s3_object_version attribute.
     /// </summary>
-    public string? PluginsS3ObjectVersion
+    public TerraformLiteralProperty<string>? PluginsS3ObjectVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plugins_s3_object_version")?.Value;
-        set => this.WithProperty("plugins_s3_object_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plugins_s3_object_version");
+        set => this.WithProperty("plugins_s3_object_version", value);
     }
 
     /// <summary>
     /// The plugins_s3_path attribute.
     /// </summary>
-    public string? PluginsS3Path
+    public TerraformLiteralProperty<string>? PluginsS3Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plugins_s3_path")?.Value;
-        set => this.WithProperty("plugins_s3_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("plugins_s3_path");
+        set => this.WithProperty("plugins_s3_path", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The requirements_s3_object_version attribute.
     /// </summary>
-    public string? RequirementsS3ObjectVersion
+    public TerraformLiteralProperty<string>? RequirementsS3ObjectVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("requirements_s3_object_version")?.Value;
-        set => this.WithProperty("requirements_s3_object_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("requirements_s3_object_version");
+        set => this.WithProperty("requirements_s3_object_version", value);
     }
 
     /// <summary>
     /// The requirements_s3_path attribute.
     /// </summary>
-    public string? RequirementsS3Path
+    public TerraformLiteralProperty<string>? RequirementsS3Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("requirements_s3_path")?.Value;
-        set => this.WithProperty("requirements_s3_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("requirements_s3_path");
+        set => this.WithProperty("requirements_s3_path", value);
     }
 
     /// <summary>
     /// The schedulers attribute.
     /// </summary>
-    public double? Schedulers
+    public TerraformLiteralProperty<double>? Schedulers
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("schedulers")?.Value;
-        set => this.WithProperty("schedulers", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("schedulers");
+        set => this.WithProperty("schedulers", value);
     }
 
     /// <summary>
     /// The source_bucket_arn attribute.
     /// </summary>
-    public string? SourceBucketArn
+    public TerraformLiteralProperty<string>? SourceBucketArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_bucket_arn")?.Value;
-        set => this.WithProperty("source_bucket_arn", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("source_bucket_arn");
+        set => this.WithProperty("source_bucket_arn", value);
     }
 
     /// <summary>
     /// The startup_script_s3_object_version attribute.
     /// </summary>
-    public string? StartupScriptS3ObjectVersion
+    public TerraformLiteralProperty<string>? StartupScriptS3ObjectVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("startup_script_s3_object_version")?.Value;
-        set => this.WithProperty("startup_script_s3_object_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("startup_script_s3_object_version");
+        set => this.WithProperty("startup_script_s3_object_version", value);
     }
 
     /// <summary>
     /// The startup_script_s3_path attribute.
     /// </summary>
-    public string? StartupScriptS3Path
+    public TerraformLiteralProperty<string>? StartupScriptS3Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("startup_script_s3_path")?.Value;
-        set => this.WithProperty("startup_script_s3_path", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("startup_script_s3_path");
+        set => this.WithProperty("startup_script_s3_path", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public Dictionary<string, string>? TagsAll
+    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all")?.Value;
-        set => this.WithProperty("tags_all", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The webserver_access_mode attribute.
     /// </summary>
-    public string? WebserverAccessMode
+    public TerraformLiteralProperty<string>? WebserverAccessMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("webserver_access_mode")?.Value;
-        set => this.WithProperty("webserver_access_mode", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("webserver_access_mode");
+        set => this.WithProperty("webserver_access_mode", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_window_start attribute.
     /// </summary>
-    public string? WeeklyMaintenanceWindowStart
+    public TerraformLiteralProperty<string>? WeeklyMaintenanceWindowStart
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("weekly_maintenance_window_start")?.Value;
-        set => this.WithProperty("weekly_maintenance_window_start", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("weekly_maintenance_window_start");
+        set => this.WithProperty("weekly_maintenance_window_start", value);
     }
 
     /// <summary>
     /// The worker_replacement_strategy attribute.
     /// </summary>
-    public string? WorkerReplacementStrategy
+    public TerraformLiteralProperty<string>? WorkerReplacementStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("worker_replacement_strategy")?.Value;
-        set => this.WithProperty("worker_replacement_strategy", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("worker_replacement_strategy");
+        set => this.WithProperty("worker_replacement_strategy", value);
     }
 
     /// <summary>

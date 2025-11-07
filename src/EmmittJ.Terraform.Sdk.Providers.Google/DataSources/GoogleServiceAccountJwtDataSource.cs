@@ -20,46 +20,46 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public HashSet<string>? Delegates
+    public TerraformLiteralProperty<HashSet<string>>? Delegates
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("delegates")?.Value;
-        set => this.WithProperty("delegates", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("delegates");
+        set => this.WithProperty("delegates", value);
     }
 
     /// <summary>
     /// Number of seconds until the JWT expires. If set and non-zero an `exp` claim will be added to the payload derived from the current timestamp plus expires_in seconds.
     /// </summary>
-    public double? ExpiresIn
+    public TerraformLiteralProperty<double>? ExpiresIn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("expires_in")?.Value;
-        set => this.WithProperty("expires_in", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("expires_in");
+        set => this.WithProperty("expires_in", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A JSON-encoded JWT claims set that will be included in the signed JWT.
     /// </summary>
-    public string? Payload
+    public TerraformLiteralProperty<string>? Payload
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("payload")?.Value;
-        set => this.WithProperty("payload", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("payload");
+        set => this.WithProperty("payload", value);
     }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public string? TargetServiceAccount
+    public TerraformLiteralProperty<string>? TargetServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_service_account")?.Value;
-        set => this.WithProperty("target_service_account", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_service_account");
+        set => this.WithProperty("target_service_account", value);
     }
 
     /// <summary>

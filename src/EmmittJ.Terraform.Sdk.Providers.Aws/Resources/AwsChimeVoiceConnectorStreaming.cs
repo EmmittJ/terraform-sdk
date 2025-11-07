@@ -19,55 +19,55 @@ public class AwsChimeVoiceConnectorStreaming : TerraformResource
     /// <summary>
     /// The data_retention attribute.
     /// </summary>
-    public double? DataRetention
+    public TerraformLiteralProperty<double>? DataRetention
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("data_retention")?.Value;
-        set => this.WithProperty("data_retention", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("data_retention");
+        set => this.WithProperty("data_retention", value);
     }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public bool? Disabled
+    public TerraformLiteralProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled")?.Value;
-        set => this.WithProperty("disabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The streaming_notification_targets attribute.
     /// </summary>
-    public HashSet<string>? StreamingNotificationTargets
+    public TerraformLiteralProperty<HashSet<string>>? StreamingNotificationTargets
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("streaming_notification_targets")?.Value;
-        set => this.WithProperty("streaming_notification_targets", value == null ? null : new TerraformLiteralProperty<HashSet<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("streaming_notification_targets");
+        set => this.WithProperty("streaming_notification_targets", value);
     }
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public string? VoiceConnectorId
+    public TerraformLiteralProperty<string>? VoiceConnectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("voice_connector_id")?.Value;
-        set => this.WithProperty("voice_connector_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("voice_connector_id");
+        set => this.WithProperty("voice_connector_id", value);
     }
 
 }

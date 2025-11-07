@@ -23,64 +23,64 @@ public class AwsAuditmanagerControl : TerraformResource
     /// <summary>
     /// The action_plan_instructions attribute.
     /// </summary>
-    public string? ActionPlanInstructions
+    public TerraformLiteralProperty<string>? ActionPlanInstructions
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action_plan_instructions")?.Value;
-        set => this.WithProperty("action_plan_instructions", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action_plan_instructions");
+        set => this.WithProperty("action_plan_instructions", value);
     }
 
     /// <summary>
     /// The action_plan_title attribute.
     /// </summary>
-    public string? ActionPlanTitle
+    public TerraformLiteralProperty<string>? ActionPlanTitle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action_plan_title")?.Value;
-        set => this.WithProperty("action_plan_title", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("action_plan_title");
+        set => this.WithProperty("action_plan_title", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The testing_information attribute.
     /// </summary>
-    public string? TestingInformation
+    public TerraformLiteralProperty<string>? TestingInformation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("testing_information")?.Value;
-        set => this.WithProperty("testing_information", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("testing_information");
+        set => this.WithProperty("testing_information", value);
     }
 
     /// <summary>

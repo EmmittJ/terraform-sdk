@@ -19,100 +19,100 @@ public class AzurermPaloAltoLocalRulestack : TerraformResource
     /// <summary>
     /// The anti_spyware_profile attribute.
     /// </summary>
-    public string? AntiSpywareProfile
+    public TerraformLiteralProperty<string>? AntiSpywareProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("anti_spyware_profile")?.Value;
-        set => this.WithProperty("anti_spyware_profile", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("anti_spyware_profile");
+        set => this.WithProperty("anti_spyware_profile", value);
     }
 
     /// <summary>
     /// The anti_virus_profile attribute.
     /// </summary>
-    public string? AntiVirusProfile
+    public TerraformLiteralProperty<string>? AntiVirusProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("anti_virus_profile")?.Value;
-        set => this.WithProperty("anti_virus_profile", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("anti_virus_profile");
+        set => this.WithProperty("anti_virus_profile", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The dns_subscription attribute.
     /// </summary>
-    public string? DnsSubscription
+    public TerraformLiteralProperty<string>? DnsSubscription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_subscription")?.Value;
-        set => this.WithProperty("dns_subscription", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dns_subscription");
+        set => this.WithProperty("dns_subscription", value);
     }
 
     /// <summary>
     /// The file_blocking_profile attribute.
     /// </summary>
-    public string? FileBlockingProfile
+    public TerraformLiteralProperty<string>? FileBlockingProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_blocking_profile")?.Value;
-        set => this.WithProperty("file_blocking_profile", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("file_blocking_profile");
+        set => this.WithProperty("file_blocking_profile", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public string? ResourceGroupName
+    public TerraformLiteralProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name")?.Value;
-        set => this.WithProperty("resource_group_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The url_filtering_profile attribute.
     /// </summary>
-    public string? UrlFilteringProfile
+    public TerraformLiteralProperty<string>? UrlFilteringProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_filtering_profile")?.Value;
-        set => this.WithProperty("url_filtering_profile", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("url_filtering_profile");
+        set => this.WithProperty("url_filtering_profile", value);
     }
 
     /// <summary>
     /// The vulnerability_profile attribute.
     /// </summary>
-    public string? VulnerabilityProfile
+    public TerraformLiteralProperty<string>? VulnerabilityProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vulnerability_profile")?.Value;
-        set => this.WithProperty("vulnerability_profile", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vulnerability_profile");
+        set => this.WithProperty("vulnerability_profile", value);
     }
 
 }

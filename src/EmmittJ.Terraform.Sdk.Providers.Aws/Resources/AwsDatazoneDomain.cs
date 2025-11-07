@@ -23,82 +23,82 @@ public class AwsDatazoneDomain : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The domain_execution_role attribute.
     /// </summary>
-    public string? DomainExecutionRole
+    public TerraformLiteralProperty<string>? DomainExecutionRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_execution_role")?.Value;
-        set => this.WithProperty("domain_execution_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_execution_role");
+        set => this.WithProperty("domain_execution_role", value);
     }
 
     /// <summary>
     /// The domain_version attribute.
     /// </summary>
-    public string? DomainVersion
+    public TerraformLiteralProperty<string>? DomainVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_version")?.Value;
-        set => this.WithProperty("domain_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("domain_version");
+        set => this.WithProperty("domain_version", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public string? KmsKeyIdentifier
+    public TerraformLiteralProperty<string>? KmsKeyIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_identifier")?.Value;
-        set => this.WithProperty("kms_key_identifier", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_identifier");
+        set => this.WithProperty("kms_key_identifier", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public string? ServiceRole
+    public TerraformLiteralProperty<string>? ServiceRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_role")?.Value;
-        set => this.WithProperty("service_role", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("service_role");
+        set => this.WithProperty("service_role", value);
     }
 
     /// <summary>
     /// The skip_deletion_check attribute.
     /// </summary>
-    public bool? SkipDeletionCheck
+    public TerraformLiteralProperty<bool>? SkipDeletionCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_deletion_check")?.Value;
-        set => this.WithProperty("skip_deletion_check", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("skip_deletion_check");
+        set => this.WithProperty("skip_deletion_check", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public Dictionary<string, string>? Tags
+    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags")?.Value;
-        set => this.WithProperty("tags", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        set => this.WithProperty("tags", value);
     }
 
     /// <summary>

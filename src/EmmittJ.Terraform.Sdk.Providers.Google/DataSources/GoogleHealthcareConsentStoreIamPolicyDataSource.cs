@@ -21,28 +21,28 @@ public class GoogleHealthcareConsentStoreIamPolicyDataSource : TerraformDataSour
     /// <summary>
     /// The consent_store_id attribute.
     /// </summary>
-    public string? ConsentStoreId
+    public TerraformLiteralProperty<string>? ConsentStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consent_store_id")?.Value;
-        set => this.WithProperty("consent_store_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("consent_store_id");
+        set => this.WithProperty("consent_store_id", value);
     }
 
     /// <summary>
     /// The dataset attribute.
     /// </summary>
-    public string? Dataset
+    public TerraformLiteralProperty<string>? Dataset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset")?.Value;
-        set => this.WithProperty("dataset", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("dataset");
+        set => this.WithProperty("dataset", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

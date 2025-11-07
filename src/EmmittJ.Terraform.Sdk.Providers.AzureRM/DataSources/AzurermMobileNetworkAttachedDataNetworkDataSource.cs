@@ -29,28 +29,28 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mobile_network_data_network_name attribute.
     /// </summary>
-    public string? MobileNetworkDataNetworkName
+    public TerraformLiteralProperty<string>? MobileNetworkDataNetworkName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_data_network_name")?.Value;
-        set => this.WithProperty("mobile_network_data_network_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_data_network_name");
+        set => this.WithProperty("mobile_network_data_network_name", value);
     }
 
     /// <summary>
     /// The mobile_network_packet_core_data_plane_id attribute.
     /// </summary>
-    public string? MobileNetworkPacketCoreDataPlaneId
+    public TerraformLiteralProperty<string>? MobileNetworkPacketCoreDataPlaneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_packet_core_data_plane_id")?.Value;
-        set => this.WithProperty("mobile_network_packet_core_data_plane_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_packet_core_data_plane_id");
+        set => this.WithProperty("mobile_network_packet_core_data_plane_id", value);
     }
 
     /// <summary>

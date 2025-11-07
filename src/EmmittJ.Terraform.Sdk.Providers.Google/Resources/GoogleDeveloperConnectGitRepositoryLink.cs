@@ -31,19 +31,19 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Annotations
+    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations")?.Value;
-        set => this.WithProperty("annotations", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Required. Git Clone URI.
     /// </summary>
-    public string? CloneUri
+    public TerraformLiteralProperty<string>? CloneUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("clone_uri")?.Value;
-        set => this.WithProperty("clone_uri", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("clone_uri");
+        set => this.WithProperty("clone_uri", value);
     }
 
     /// <summary>
@@ -51,10 +51,10 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     /// fields, and may be sent on update and delete requests to ensure the
     /// client has an up-to-date value before proceeding.
     /// </summary>
-    public string? Etag
+    public TerraformLiteralProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag")?.Value;
-        set => this.WithProperty("etag", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        set => this.WithProperty("etag", value);
     }
 
     /// <summary>
@@ -62,19 +62,19 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     /// the repository&#39;s resource name. This ID should be unique in the connection.
     /// Allows alphanumeric characters and any of -._~%!$&amp;amp;&#39;()*+,;=@.
     /// </summary>
-    public string? GitRepositoryLinkId
+    public TerraformLiteralProperty<string>? GitRepositoryLinkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("git_repository_link_id")?.Value;
-        set => this.WithProperty("git_repository_link_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("git_repository_link_id");
+        set => this.WithProperty("git_repository_link_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -83,37 +83,37 @@ public class GoogleDeveloperConnectGitRepositoryLink : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type &#39;developerconnect.googleapis.com/GitRepositoryLink&#39;.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type &#39;developerconnect.googleapis.com/GitRepositoryLink&#39;.
     /// </summary>
-    public string? ParentConnection
+    public TerraformLiteralProperty<string>? ParentConnection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_connection")?.Value;
-        set => this.WithProperty("parent_connection", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent_connection");
+        set => this.WithProperty("parent_connection", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>

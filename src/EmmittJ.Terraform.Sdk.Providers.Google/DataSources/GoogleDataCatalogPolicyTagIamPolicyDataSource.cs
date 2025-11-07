@@ -21,19 +21,19 @@ public class GoogleDataCatalogPolicyTagIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_tag attribute.
     /// </summary>
-    public string? PolicyTag
+    public TerraformLiteralProperty<string>? PolicyTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_tag")?.Value;
-        set => this.WithProperty("policy_tag", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("policy_tag");
+        set => this.WithProperty("policy_tag", value);
     }
 
     /// <summary>

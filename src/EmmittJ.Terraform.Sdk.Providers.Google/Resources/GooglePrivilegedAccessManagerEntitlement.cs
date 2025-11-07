@@ -26,28 +26,28 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     /// This value should be 4-63 characters, and valid characters are &amp;quot;[a-z]&amp;quot;, &amp;quot;[0-9]&amp;quot;, and &amp;quot;-&amp;quot;. The first character should be from [a-z].
     /// This value should be unique among all other Entitlements under the specified &#39;parent&#39;.
     /// </summary>
-    public string? EntitlementId
+    public TerraformLiteralProperty<string>? EntitlementId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entitlement_id")?.Value;
-        set => this.WithProperty("entitlement_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("entitlement_id");
+        set => this.WithProperty("entitlement_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The region of the Entitlement resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
@@ -55,19 +55,19 @@ public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
     /// A requester can choose to ask for access for less than this duration but never more.
     /// Format: calculate the time in seconds and concatenate it with &#39;s&#39; i.e. 2 hours = &amp;quot;7200s&amp;quot;, 45 minutes = &amp;quot;2700s&amp;quot;
     /// </summary>
-    public string? MaxRequestDuration
+    public TerraformLiteralProperty<string>? MaxRequestDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("max_request_duration")?.Value;
-        set => this.WithProperty("max_request_duration", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("max_request_duration");
+        set => this.WithProperty("max_request_duration", value);
     }
 
     /// <summary>
     /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
     /// </summary>
-    public string? Parent
+    public TerraformLiteralProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent")?.Value;
-        set => this.WithProperty("parent", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        set => this.WithProperty("parent", value);
     }
 
     /// <summary>

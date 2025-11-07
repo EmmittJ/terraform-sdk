@@ -19,64 +19,64 @@ public class AwsCodecatalystDevEnvironment : TerraformResource
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public string? Alias
+    public TerraformLiteralProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias")?.Value;
-        set => this.WithProperty("alias", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        set => this.WithProperty("alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
-    public double? InactivityTimeoutMinutes
+    public TerraformLiteralProperty<double>? InactivityTimeoutMinutes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("inactivity_timeout_minutes")?.Value;
-        set => this.WithProperty("inactivity_timeout_minutes", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("inactivity_timeout_minutes");
+        set => this.WithProperty("inactivity_timeout_minutes", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public string? InstanceType
+    public TerraformLiteralProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type")?.Value;
-        set => this.WithProperty("instance_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
-    public string? ProjectName
+    public TerraformLiteralProperty<string>? ProjectName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_name")?.Value;
-        set => this.WithProperty("project_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project_name");
+        set => this.WithProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
-    public string? SpaceName
+    public TerraformLiteralProperty<string>? SpaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("space_name")?.Value;
-        set => this.WithProperty("space_name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("space_name");
+        set => this.WithProperty("space_name", value);
     }
 
 }

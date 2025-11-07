@@ -22,64 +22,64 @@ public class AzurermApplicationInsightsAnalyticsItem : TerraformResource
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public string? ApplicationInsightsId
+    public TerraformLiteralProperty<string>? ApplicationInsightsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id")?.Value;
-        set => this.WithProperty("application_insights_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id");
+        set => this.WithProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public string? Content
+    public TerraformLiteralProperty<string>? Content
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content")?.Value;
-        set => this.WithProperty("content", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("content");
+        set => this.WithProperty("content", value);
     }
 
     /// <summary>
     /// The function_alias attribute.
     /// </summary>
-    public string? FunctionAlias
+    public TerraformLiteralProperty<string>? FunctionAlias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_alias")?.Value;
-        set => this.WithProperty("function_alias", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_alias");
+        set => this.WithProperty("function_alias", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public string? Type
+    public TerraformLiteralProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type")?.Value;
-        set => this.WithProperty("type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        set => this.WithProperty("type", value);
     }
 
     /// <summary>

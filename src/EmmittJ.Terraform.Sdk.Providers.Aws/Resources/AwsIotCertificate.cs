@@ -23,55 +23,55 @@ public class AwsIotCertificate : TerraformResource
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public bool? Active
+    public TerraformLiteralProperty<bool>? Active
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("active")?.Value;
-        set => this.WithProperty("active", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("active");
+        set => this.WithProperty("active", value);
     }
 
     /// <summary>
     /// The ca_pem attribute.
     /// </summary>
-    public string? CaPem
+    public TerraformLiteralProperty<string>? CaPem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ca_pem")?.Value;
-        set => this.WithProperty("ca_pem", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("ca_pem");
+        set => this.WithProperty("ca_pem", value);
     }
 
     /// <summary>
     /// The certificate_pem attribute.
     /// </summary>
-    public string? CertificatePem
+    public TerraformLiteralProperty<string>? CertificatePem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_pem")?.Value;
-        set => this.WithProperty("certificate_pem", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("certificate_pem");
+        set => this.WithProperty("certificate_pem", value);
     }
 
     /// <summary>
     /// The csr attribute.
     /// </summary>
-    public string? Csr
+    public TerraformLiteralProperty<string>? Csr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("csr")?.Value;
-        set => this.WithProperty("csr", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("csr");
+        set => this.WithProperty("csr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public string? Region
+    public TerraformLiteralProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region")?.Value;
-        set => this.WithProperty("region", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        set => this.WithProperty("region", value);
     }
 
     /// <summary>

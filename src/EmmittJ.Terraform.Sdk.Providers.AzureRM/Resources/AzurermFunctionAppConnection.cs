@@ -19,55 +19,55 @@ public class AzurermFunctionAppConnection : TerraformResource
     /// <summary>
     /// The client_type attribute.
     /// </summary>
-    public string? ClientType
+    public TerraformLiteralProperty<string>? ClientType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_type")?.Value;
-        set => this.WithProperty("client_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("client_type");
+        set => this.WithProperty("client_type", value);
     }
 
     /// <summary>
     /// The function_app_id attribute.
     /// </summary>
-    public string? FunctionAppId
+    public TerraformLiteralProperty<string>? FunctionAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id")?.Value;
-        set => this.WithProperty("function_app_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id");
+        set => this.WithProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public string? TargetResourceId
+    public TerraformLiteralProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id")?.Value;
-        set => this.WithProperty("target_resource_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id");
+        set => this.WithProperty("target_resource_id", value);
     }
 
     /// <summary>
     /// The vnet_solution attribute.
     /// </summary>
-    public string? VnetSolution
+    public TerraformLiteralProperty<string>? VnetSolution
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vnet_solution")?.Value;
-        set => this.WithProperty("vnet_solution", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("vnet_solution");
+        set => this.WithProperty("vnet_solution", value);
     }
 
 }

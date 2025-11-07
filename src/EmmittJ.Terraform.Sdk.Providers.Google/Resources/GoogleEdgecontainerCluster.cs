@@ -32,28 +32,28 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// specified explicitly for a node pool in this cluster. If unspecified, the
     /// Kubernetes default value will be used.
     /// </summary>
-    public double? DefaultMaxPodsPerNode
+    public TerraformLiteralProperty<double>? DefaultMaxPodsPerNode
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_max_pods_per_node")?.Value;
-        set => this.WithProperty("default_max_pods_per_node", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("default_max_pods_per_node");
+        set => this.WithProperty("default_max_pods_per_node", value);
     }
 
     /// <summary>
     /// Address pools for cluster data plane external load balancing.
     /// </summary>
-    public List<string>? ExternalLoadBalancerIpv4AddressPools
+    public TerraformLiteralProperty<List<string>>? ExternalLoadBalancerIpv4AddressPools
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("external_load_balancer_ipv4_address_pools")?.Value;
-        set => this.WithProperty("external_load_balancer_ipv4_address_pools", value == null ? null : new TerraformLiteralProperty<List<string>>(value));
+        get => GetProperty<TerraformLiteralProperty<List<string>>>("external_load_balancer_ipv4_address_pools");
+        set => this.WithProperty("external_load_balancer_ipv4_address_pools", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
@@ -62,55 +62,55 @@ public class GoogleEdgecontainerCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public Dictionary<string, string>? Labels
+    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels")?.Value;
-        set => this.WithProperty("labels", value == null ? null : new TerraformLiteralProperty<Dictionary<string, string>>(value));
+        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The GDCE cluster name.
     /// </summary>
-    public string? Name
+    public TerraformLiteralProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name")?.Value;
-        set => this.WithProperty("name", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The release channel a cluster is subscribed to. Possible values: [&amp;quot;RELEASE_CHANNEL_UNSPECIFIED&amp;quot;, &amp;quot;NONE&amp;quot;, &amp;quot;REGULAR&amp;quot;]
     /// </summary>
-    public string? ReleaseChannel
+    public TerraformLiteralProperty<string>? ReleaseChannel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_channel")?.Value;
-        set => this.WithProperty("release_channel", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("release_channel");
+        set => this.WithProperty("release_channel", value);
     }
 
     /// <summary>
     /// The target cluster version. For example: &amp;quot;1.5.0&amp;quot;.
     /// </summary>
-    public string? TargetVersion
+    public TerraformLiteralProperty<string>? TargetVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_version")?.Value;
-        set => this.WithProperty("target_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("target_version");
+        set => this.WithProperty("target_version", value);
     }
 
     /// <summary>

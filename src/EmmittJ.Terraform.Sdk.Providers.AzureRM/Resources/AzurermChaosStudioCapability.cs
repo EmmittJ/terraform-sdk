@@ -20,28 +20,28 @@ public class AzurermChaosStudioCapability : TerraformResource
     /// <summary>
     /// The capability_type attribute.
     /// </summary>
-    public string? CapabilityType
+    public TerraformLiteralProperty<string>? CapabilityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capability_type")?.Value;
-        set => this.WithProperty("capability_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("capability_type");
+        set => this.WithProperty("capability_type", value);
     }
 
     /// <summary>
     /// The chaos_studio_target_id attribute.
     /// </summary>
-    public string? ChaosStudioTargetId
+    public TerraformLiteralProperty<string>? ChaosStudioTargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("chaos_studio_target_id")?.Value;
-        set => this.WithProperty("chaos_studio_target_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("chaos_studio_target_id");
+        set => this.WithProperty("chaos_studio_target_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

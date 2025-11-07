@@ -20,19 +20,19 @@ public class AzurermOracleDbNodesDataSource : TerraformDataSource
     /// <summary>
     /// The cloud_vm_cluster_id attribute.
     /// </summary>
-    public string? CloudVmClusterId
+    public TerraformLiteralProperty<string>? CloudVmClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_vm_cluster_id")?.Value;
-        set => this.WithProperty("cloud_vm_cluster_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("cloud_vm_cluster_id");
+        set => this.WithProperty("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>

@@ -20,64 +20,64 @@ public class AzurermPimEligibleRoleAssignment : TerraformResource
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public string? Condition
+    public TerraformLiteralProperty<string>? Condition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition")?.Value;
-        set => this.WithProperty("condition", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("condition");
+        set => this.WithProperty("condition", value);
     }
 
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    public string? ConditionVersion
+    public TerraformLiteralProperty<string>? ConditionVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition_version")?.Value;
-        set => this.WithProperty("condition_version", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("condition_version");
+        set => this.WithProperty("condition_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The justification for this eligible role assignment
     /// </summary>
-    public string? Justification
+    public TerraformLiteralProperty<string>? Justification
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("justification")?.Value;
-        set => this.WithProperty("justification", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("justification");
+        set => this.WithProperty("justification", value);
     }
 
     /// <summary>
     /// Object ID of the principal for this eligible role assignment
     /// </summary>
-    public string? PrincipalId
+    public TerraformLiteralProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id")?.Value;
-        set => this.WithProperty("principal_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// Role definition ID for this eligible role assignment
     /// </summary>
-    public string? RoleDefinitionId
+    public TerraformLiteralProperty<string>? RoleDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id")?.Value;
-        set => this.WithProperty("role_definition_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id");
+        set => this.WithProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// Scope for this eligible role assignment, should be a valid resource ID
     /// </summary>
-    public string? Scope
+    public TerraformLiteralProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope")?.Value;
-        set => this.WithProperty("scope", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        set => this.WithProperty("scope", value);
     }
 
     /// <summary>

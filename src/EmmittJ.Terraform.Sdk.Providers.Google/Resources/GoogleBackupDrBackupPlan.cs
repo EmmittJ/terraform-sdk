@@ -24,74 +24,74 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     /// <summary>
     /// The ID of the backup plan
     /// </summary>
-    public string? BackupPlanId
+    public TerraformLiteralProperty<string>? BackupPlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_plan_id")?.Value;
-        set => this.WithProperty("backup_plan_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backup_plan_id");
+        set => this.WithProperty("backup_plan_id", value);
     }
 
     /// <summary>
     /// Backup vault where the backups gets stored using this Backup plan.
     /// </summary>
-    public string? BackupVault
+    public TerraformLiteralProperty<string>? BackupVault
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_vault")?.Value;
-        set => this.WithProperty("backup_vault", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("backup_vault");
+        set => this.WithProperty("backup_vault", value);
     }
 
     /// <summary>
     /// The description allows for additional details about &#39;BackupPlan&#39; and its use cases to be provided.
     /// </summary>
-    public string? Description
+    public TerraformLiteralProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description")?.Value;
-        set => this.WithProperty("description", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the backup plan
     /// </summary>
-    public string? Location
+    public TerraformLiteralProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location")?.Value;
-        set => this.WithProperty("location", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// This is only applicable for CloudSql resource. Days for which logs will be stored. This value should be greater than or equal to minimum enforced log retention duration of the backup vault.
     /// </summary>
-    public double? LogRetentionDays
+    public TerraformLiteralProperty<double>? LogRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("log_retention_days")?.Value;
-        set => this.WithProperty("log_retention_days", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("log_retention_days");
+        set => this.WithProperty("log_retention_days", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public string? Project
+    public TerraformLiteralProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project")?.Value;
-        set => this.WithProperty("project", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The resource type to which the &#39;BackupPlan&#39; will be applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, &amp;quot;sqladmin.googleapis.com/Instance&amp;quot; and &amp;quot;storage.googleapis.com/Bucket&amp;quot;.
     /// </summary>
-    public string? ResourceType
+    public TerraformLiteralProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type")?.Value;
-        set => this.WithProperty("resource_type", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        set => this.WithProperty("resource_type", value);
     }
 
     /// <summary>

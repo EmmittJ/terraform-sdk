@@ -19,64 +19,64 @@ public class AzurermSecurityCenterStorageDefender : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public string? Id
+    public TerraformLiteralProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id")?.Value;
-        set => this.WithProperty("id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The malware_scanning_on_upload_cap_gb_per_month attribute.
     /// </summary>
-    public double? MalwareScanningOnUploadCapGbPerMonth
+    public TerraformLiteralProperty<double>? MalwareScanningOnUploadCapGbPerMonth
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("malware_scanning_on_upload_cap_gb_per_month")?.Value;
-        set => this.WithProperty("malware_scanning_on_upload_cap_gb_per_month", value == null ? null : new TerraformLiteralProperty<double>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<double>>("malware_scanning_on_upload_cap_gb_per_month");
+        set => this.WithProperty("malware_scanning_on_upload_cap_gb_per_month", value);
     }
 
     /// <summary>
     /// The malware_scanning_on_upload_enabled attribute.
     /// </summary>
-    public bool? MalwareScanningOnUploadEnabled
+    public TerraformLiteralProperty<bool>? MalwareScanningOnUploadEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("malware_scanning_on_upload_enabled")?.Value;
-        set => this.WithProperty("malware_scanning_on_upload_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("malware_scanning_on_upload_enabled");
+        set => this.WithProperty("malware_scanning_on_upload_enabled", value);
     }
 
     /// <summary>
     /// The override_subscription_settings_enabled attribute.
     /// </summary>
-    public bool? OverrideSubscriptionSettingsEnabled
+    public TerraformLiteralProperty<bool>? OverrideSubscriptionSettingsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("override_subscription_settings_enabled")?.Value;
-        set => this.WithProperty("override_subscription_settings_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("override_subscription_settings_enabled");
+        set => this.WithProperty("override_subscription_settings_enabled", value);
     }
 
     /// <summary>
     /// The scan_results_event_grid_topic_id attribute.
     /// </summary>
-    public string? ScanResultsEventGridTopicId
+    public TerraformLiteralProperty<string>? ScanResultsEventGridTopicId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scan_results_event_grid_topic_id")?.Value;
-        set => this.WithProperty("scan_results_event_grid_topic_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("scan_results_event_grid_topic_id");
+        set => this.WithProperty("scan_results_event_grid_topic_id", value);
     }
 
     /// <summary>
     /// The sensitive_data_discovery_enabled attribute.
     /// </summary>
-    public bool? SensitiveDataDiscoveryEnabled
+    public TerraformLiteralProperty<bool>? SensitiveDataDiscoveryEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sensitive_data_discovery_enabled")?.Value;
-        set => this.WithProperty("sensitive_data_discovery_enabled", value == null ? null : new TerraformLiteralProperty<bool>(value.Value));
+        get => GetProperty<TerraformLiteralProperty<bool>>("sensitive_data_discovery_enabled");
+        set => this.WithProperty("sensitive_data_discovery_enabled", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public string? StorageAccountId
+    public TerraformLiteralProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id")?.Value;
-        set => this.WithProperty("storage_account_id", value == null ? null : new TerraformLiteralProperty<string>(value));
+        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        set => this.WithProperty("storage_account_id", value);
     }
 
 }
