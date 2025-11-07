@@ -14,7 +14,7 @@ public class ProviderSchemaRoot
 public class ProviderSchema
 {
     [JsonPropertyName("provider")]
-    public SchemaBlock? Provider { get; set; }
+    public ResourceSchema? Provider { get; set; }
 
     [JsonPropertyName("resource_schemas")]
     public Dictionary<string, ResourceSchema> ResourceSchemas { get; set; } = new();

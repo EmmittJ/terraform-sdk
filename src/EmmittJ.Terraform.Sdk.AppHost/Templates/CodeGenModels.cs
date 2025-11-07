@@ -6,6 +6,10 @@ public class ProviderConfig
     public required string Namespace { get; set; }
     public required string FolderPath { get; set; }
     public required string Version { get; set; }
+    public string? Description { get; set; }
+    public int ResourceCount { get; set; }
+    public int DataSourceCount { get; set; }
+    public List<PropertyModel> ConfigurationAttributes { get; set; } = new();
 }
 
 public class ResourceModel

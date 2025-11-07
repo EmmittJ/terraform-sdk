@@ -34,7 +34,11 @@ public class ProviderTemplate
             Namespace = providerConfig.Namespace,
             ClassName = GetProviderClassName(providerConfig.Namespace),
             ProviderName = providerConfig.Name,
-            Version = providerConfig.Version
+            Version = providerConfig.Version,
+            Description = providerConfig.Description != null ? TemplateHelpers.EscapeXmlDoc(providerConfig.Description) : null,
+            ResourceCount = providerConfig.ResourceCount,
+            DataSourceCount = providerConfig.DataSourceCount,
+            ConfigurationAttributes = providerConfig.ConfigurationAttributes.Select(TemplateHelpers.PreparePropertyForTemplate).ToList()
         };
 
         return Renderer.Render(template, data);

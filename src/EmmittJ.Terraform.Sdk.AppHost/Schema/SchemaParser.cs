@@ -149,7 +149,7 @@ public class SchemaParser
         return model;
     }
 
-    private string MapTerraformTypeToCSharp(object? type)
+    public string MapTerraformTypeToCSharp(object? type)
     {
         if (type == null)
             return "string?";
@@ -198,14 +198,14 @@ public class SchemaParser
         };
     }
 
-    private string ToClassName(string terraformType)
+    public string ToClassName(string terraformType)
     {
         // Convert aws_instance to AwsInstance
         return string.Join("", terraformType.Split('_')
             .Select(part => char.ToUpper(part[0]) + part.Substring(1)));
     }
 
-    private string ToPascalCase(string name)
+    public string ToPascalCase(string name)
     {
         // Convert snake_case to PascalCase
         return string.Join("", name.Split('_')

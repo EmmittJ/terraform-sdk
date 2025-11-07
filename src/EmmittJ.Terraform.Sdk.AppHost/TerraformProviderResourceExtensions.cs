@@ -263,20 +263,61 @@ public static class TerraformProviderResourceExtensions
             var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
             var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
 
+            // Parse schema to get provider configuration and counts
+            var schemaPath = Path.Combine(workingDir, "schema.json");
+            var schemaJson = await File.ReadAllTextAsync(schemaPath, stepContext.CancellationToken);
+            var parser = new SchemaParser();
+            var schemaRoot = parser.ParseSchema(schemaJson);
+            var providerSchema = schemaRoot.ProviderSchemas.Values.FirstOrDefault()
+                ?? throw new InvalidOperationException($"No provider schema found in {schemaPath}");
+
+            // Extract provider configuration attributes
+            var configurationAttributes = new List<Models.PropertyModel>();
+            if (providerSchema.Provider?.Block != null)
+            {
+                foreach (var (attrName, attr) in providerSchema.Provider.Block.Attributes)
+                {
+                    var csharpType = parser.MapTerraformTypeToCSharp(attr.Type);
+                    var isCollection = csharpType.Contains("List<") || csharpType.Contains("Dictionary<") || csharpType.Contains("HashSet<");
+                    var baseType = csharpType.TrimEnd('?');
+                    var isValueType = baseType == "bool" || baseType == "double" || baseType == "int" || baseType == "long" || baseType == "float";
+
+                    configurationAttributes.Add(new Models.PropertyModel
+                    {
+                        Name = parser.ToPascalCase(attrName),
+                        TerraformName = attrName,
+                        CSharpType = csharpType,
+                        Description = attr.Description ?? $"The {attrName} configuration.",
+                        IsRequired = attr.Required,
+                        IsOptional = attr.Optional,
+                        IsComputed = attr.Computed,
+                        IsSensitive = attr.Sensitive,
+                        IsDeprecated = attr.Deprecated,
+                        IsCollection = isCollection,
+                        IsValueType = isValueType
+                    });
+                }
+            }
+
             var providerTemplate = new ProviderTemplate(templatePath);
             var providerConfig = new Models.ProviderConfig
             {
                 Name = provider.ProviderName,
                 Namespace = provider.Namespace,
                 FolderPath = outputFolder,
-                Version = provider.Version
+                Version = provider.Version,
+                Description = providerSchema.Provider?.Block?.Description,
+                ResourceCount = providerSchema.ResourceSchemas.Count,
+                DataSourceCount = providerSchema.DataSourceSchemas.Count,
+                ConfigurationAttributes = configurationAttributes
             };
             var providerCode = providerTemplate.Generate(providerConfig);
             var providerClassName = GetProviderClassName(provider.Namespace);
             var providerClassPath = Path.Combine(outputFolder, $"{providerClassName}.cs");
             await File.WriteAllTextAsync(providerClassPath, providerCode, stepContext.CancellationToken);
 
-            logger.LogInformation("Generated provider class: {ProviderClassPath}", providerClassPath);
+            logger.LogInformation("Generated provider class: {ProviderClassPath} ({ResourceCount} resources, {DataSourceCount} data sources, {ConfigCount} config attributes)",
+                providerClassPath, providerConfig.ResourceCount, providerConfig.DataSourceCount, configurationAttributes.Count);
             await task.CompleteAsync("Provider class generated", CompletionState.Completed, stepContext.CancellationToken);
         }
         catch (Exception ex)

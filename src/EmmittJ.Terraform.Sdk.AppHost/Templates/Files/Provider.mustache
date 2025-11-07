@@ -4,7 +4,12 @@ namespace {{Namespace}};
 
 /// <summary>
 /// Represents the {{ProviderName}} Terraform provider.
+/// {{#Description}}
+/// {{Description}}
+/// {{/Description}}
 /// Version: {{Version}}
+/// Resources: {{ResourceCount}}
+/// Data Sources: {{DataSourceCount}}
 /// </summary>
 public class {{ClassName}} : TerraformProvider
 {
@@ -15,4 +20,19 @@ public class {{ClassName}} : TerraformProvider
     public {{ClassName}}(string name = "{{ProviderName}}") : base(name)
     {
     }
+{{#ConfigurationAttributes}}
+
+    /// <summary>
+    /// {{Description}}
+    /// {{#IsRequired}}(Required){{/IsRequired}}{{#IsOptional}}(Optional){{/IsOptional}}{{#IsComputed}}(Computed){{/IsComputed}}{{#IsSensitive}} (Sensitive){{/IsSensitive}}
+    /// </summary>
+{{#IsDeprecated}}
+    [Obsolete("This property is deprecated.")]
+{{/IsDeprecated}}
+    public {{{PropertyWrapper}}}? {{Name}}
+    {
+        get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        set => this.WithProperty("{{TerraformName}}", value);
+    }
+{{/ConfigurationAttributes}}
 }
