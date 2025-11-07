@@ -104,10 +104,35 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
 }
 
 /// <summary>
-/// Literal property value - wraps a .NET value.
+/// Generic typed property that can hold either a literal value or an expression.
+/// This enables type-safe property assignment while still allowing dynamic expressions.
+/// </summary>
+/// <typeparam name="T">The .NET type of the literal value (e.g., string, bool, int).</typeparam>
+public abstract class TerraformProperty<T> : TerraformProperty
+{
+    /// <summary>
+    /// Gets the literal value if this is a TerraformLiteralProperty, otherwise returns null.
+    /// </summary>
+    public T? LiteralValue => this is TerraformLiteralProperty<T> literal ? literal.Value : default;
+
+    /// <summary>
+    /// Implicit conversion from literal value.
+    /// </summary>
+    public static implicit operator TerraformProperty<T>(T value)
+        => new TerraformLiteralProperty<T>(value);
+
+    /// <summary>
+    /// Implicit conversion from TerraformExpression.
+    /// </summary>
+    public static implicit operator TerraformProperty<T>(TerraformExpression expression)
+        => new TerraformTypedExpressionProperty<T>(expression);
+}
+
+/// <summary>
+/// Literal property value - wraps a .NET value with type information.
 /// No preparation needed since there are no dependencies.
 /// </summary>
-public sealed class TerraformLiteralProperty<T> : TerraformProperty
+public sealed class TerraformLiteralProperty<T> : TerraformProperty<T>
 {
     private readonly T _value;
 
@@ -144,10 +169,48 @@ public sealed class TerraformLiteralProperty<T> : TerraformProperty
 }
 
 /// <summary>
+/// Typed expression property - wraps a TerraformExpression as a TerraformProperty&lt;T&gt;.
+/// The type parameter T is used only for compile-time type safety; runtime expressions are untyped.
+/// </summary>
+public sealed class TerraformTypedExpressionProperty<T> : TerraformProperty<T>
+{
+    private readonly TerraformExpression _expression;
+
+    /// <summary>
+    /// Gets the expression.
+    /// </summary>
+    public TerraformExpression Expression => _expression;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TerraformTypedExpressionProperty{T}"/> class.
+    /// </summary>
+    public TerraformTypedExpressionProperty(TerraformExpression expression)
+    {
+        _expression = expression ?? throw new ArgumentNullException(nameof(expression));
+    }
+
+    /// <inheritdoc/>
+    public override void Prepare(ITerraformContext context)
+    {
+        // Delegate preparation to the expression
+        if (_expression is ITerraformPreparable preparable)
+        {
+            preparable.Prepare(context);
+        }
+    }
+
+    /// <inheritdoc/>
+    public override TerraformExpression Resolve(ITerraformContext? context = null)
+    {
+        return _expression;
+    }
+}
+
+/// <summary>
 /// Expression property value - wraps a TerraformExpression.
 /// Delegates preparation to the wrapped expression.
 /// </summary>
-public sealed class TerraformExpressionProperty : TerraformProperty
+public sealed class TerraformExpressionProperty : TerraformProperty<TerraformExpression>
 {
     private readonly TerraformExpression _expression;
 
@@ -222,74 +285,4 @@ public sealed class TerraformTypeProperty : TerraformProperty
     /// </summary>
     public static implicit operator TerraformTypeProperty?(string? typeConstraint)
         => typeConstraint != null ? new TerraformTypeProperty(typeConstraint) : null;
-}
-
-/// <summary>
-/// Generic typed property that can hold either a literal value or an expression.
-/// This enables type-safe property assignment while still allowing dynamic expressions.
-/// </summary>
-/// <typeparam name="T">The .NET type of the literal value (e.g., string, bool, int).</typeparam>
-public sealed class TerraformProperty<T> : TerraformProperty
-{
-    private readonly TerraformProperty _innerProperty;
-
-    /// <summary>
-    /// Initializes a new instance from a literal value.
-    /// </summary>
-    public TerraformProperty(T value)
-    {
-        _innerProperty = new TerraformLiteralProperty<T>(value);
-    }
-
-    /// <summary>
-    /// Initializes a new instance from an expression.
-    /// </summary>
-    public TerraformProperty(TerraformExpression expression)
-    {
-        _innerProperty = new TerraformExpressionProperty(expression);
-    }
-
-    /// <summary>
-    /// Initializes a new instance from any TerraformProperty.
-    /// </summary>
-    private TerraformProperty(TerraformProperty property)
-    {
-        _innerProperty = property;
-    }
-
-    /// <inheritdoc/>
-    public override void Prepare(ITerraformContext context)
-    {
-        _innerProperty.Prepare(context);
-    }
-
-    /// <inheritdoc/>
-    public override TerraformExpression Resolve(ITerraformContext? context = null)
-    {
-        return _innerProperty.Resolve(context);
-    }
-
-    /// <summary>
-    /// Implicit conversion from literal value.
-    /// </summary>
-    public static implicit operator TerraformProperty<T>?(T? value)
-        => value != null ? new TerraformProperty<T>(value) : null;
-
-    /// <summary>
-    /// Implicit conversion from TerraformExpression.
-    /// </summary>
-    public static implicit operator TerraformProperty<T>?(TerraformExpression? expression)
-        => expression != null ? new TerraformProperty<T>(expression) : null;
-
-    /// <summary>
-    /// Implicit conversion from TerraformLiteralProperty&lt;T&gt;.
-    /// </summary>
-    public static implicit operator TerraformProperty<T>?(TerraformLiteralProperty<T>? literal)
-        => literal != null ? new TerraformProperty<T>(literal) : null;
-
-    /// <summary>
-    /// Implicit conversion from TerraformExpressionProperty.
-    /// </summary>
-    public static implicit operator TerraformProperty<T>?(TerraformExpressionProperty? expression)
-        => expression != null ? new TerraformProperty<T>(expression) : null;
 }

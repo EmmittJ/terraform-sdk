@@ -2,7 +2,7 @@ namespace EmmittJ.Terraform.Sdk.Constructs;
 
 /// <summary>
 /// Represents a Terraform import block for declarative resource import (Terraform 1.5+).
-/// Import blocks allow you to declare which existing infrastructure objects should be 
+/// Import blocks allow you to declare which existing infrastructure objects should be
 /// imported into Terraform's state without requiring separate terraform import commands.
 /// </summary>
 /// <example>
@@ -12,20 +12,20 @@ namespace EmmittJ.Terraform.Sdk.Constructs;
 ///     to: "aws_instance.example",
 ///     id: "i-1234567890abcdef0"
 /// );
-/// 
+///
 /// // With explicit provider
 /// var import = new TerraformImportBlock(
 ///     to: "aws_instance.example",
 ///     id: "i-1234567890abcdef0",
 ///     provider: "aws.west"
 /// );
-/// 
+///
 /// // With count index
 /// var import = new TerraformImportBlock(
 ///     to: "aws_instance.example[0]",
 ///     id: "i-1234567890abcdef0"
 /// );
-/// 
+///
 /// // With for_each key
 /// var import = new TerraformImportBlock(
 ///     to: "aws_instance.web[\"primary\"]",
@@ -79,13 +79,13 @@ public class TerraformImportBlock : TerraformConstruct
         Provider = provider;
 
         // Add properties using special address property for 'to' and string for 'id'
-        WithPropertyInternal("to", new ImportAddressProperty(to), priority: 0);
-        WithPropertyInternal("id", new TerraformLiteralProperty<string>(id), priority: 1);
+        this.WithProperty("to", new ImportAddressProperty(to), priority: 0);
+        this.WithProperty("id", new TerraformLiteralProperty<string>(id), priority: 1);
 
         // Only add provider if specified
         if (!string.IsNullOrWhiteSpace(provider))
         {
-            WithPropertyInternal("provider", new ImportAddressProperty(provider), priority: 2);
+            this.WithProperty("provider", new ImportAddressProperty(provider), priority: 2);
         }
     }
 

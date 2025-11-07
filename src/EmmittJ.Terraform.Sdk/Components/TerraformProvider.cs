@@ -14,13 +14,22 @@ public class TerraformProvider(string name) : NamedTerraformConstruct(name)
     /// <summary>
     /// Gets or sets the alias for this provider instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Alias
+    public TerraformProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        get => GetProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
-        => TerraformExpression.Identifier(Alias?.Value != null ? $"{ConstructName}.{Alias.Value}" : ConstructName);
+    {
+        return TerraformExpression.Identifier(this, provider =>
+        {
+            if (provider.Alias?.LiteralValue is { } aliasValue)
+            {
+                return $"{provider.ConstructName}.{aliasValue}";
+            }
+            return provider.ConstructName;
+        });
+    }
 }

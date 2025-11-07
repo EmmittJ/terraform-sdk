@@ -23,25 +23,25 @@ public class TerraformOutput(string name) : TerraformConstruct
     public TerraformProperty? Value
     {
         get => GetProperty<TerraformProperty>("value");
-        set => WithPropertyInternal("value", value, priority: 0);
+        set => this.WithProperty("value", value, priority: 0);
     }
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
-        set => WithPropertyInternal("description", value, priority: 1);
+        get => GetProperty<TerraformProperty<string>>("description");
+        set => this.WithProperty("description", value, priority: 1);
     }
 
     /// <summary>
     /// Gets or sets whether the output is sensitive.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Sensitive
+    public TerraformProperty<bool>? Sensitive
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sensitive");
-        set => WithPropertyInternal("sensitive", value, priority: 2);
+        get => GetProperty<TerraformProperty<bool>>("sensitive");
+        set => this.WithProperty("sensitive", value, priority: 2);
     }
 
     /// <summary>

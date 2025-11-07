@@ -18,9 +18,9 @@ public class TerraformSettings : ITerraformPreparable
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
     /// </summary>
-    public TerraformLiteralProperty<string>? RequiredVersion
+    public TerraformProperty<string>? RequiredVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("required_version");
+        get => GetProperty<TerraformProperty<string>>("required_version");
         set => SetProperty("required_version", value);
     }
 
@@ -170,7 +170,10 @@ public class TerraformSettings : ITerraformPreparable
 
     private void RenderCloudBlock(StringBuilder sb, ITerraformContext context)
     {
-        if (Cloud == null) return;
+        if (Cloud == null)
+        {
+            return;
+        }
 
         sb.AppendLine($"{context.Indent}cloud {{");
 

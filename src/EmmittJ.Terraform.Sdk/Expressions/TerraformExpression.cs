@@ -49,9 +49,12 @@ public abstract class TerraformExpression : ITerraformResolvable<string>
     public static TerraformExpression Literal<T>(T value) => new LiteralExpression<T>(value);
 
     /// <summary>
-    /// Creates an identifier expression.
+    /// Creates an identifier expression with deferred resolution based on a value's state.
+    /// The resolver function is called during the Resolve phase, not at construction time.
+    /// Example: Identifier(provider, p => p.Alias?.LiteralValue != null ? $"aws.{p.Alias.LiteralValue}" : "aws")
     /// </summary>
-    public static TerraformExpression Identifier(string name) => new IdentifierExpression(name);
+    public static TerraformExpression Identifier<T>(T value, Func<T, string>? resolver = null)
+        => new IdentifierExpression<T>(value, resolver);
 
     /// <summary>
     /// Creates a raw HCL expression (use sparingly - prefer typed expressions).

@@ -19,9 +19,9 @@ public class TerraformVariable(string name) : TerraformConstruct
     /// <summary>
     /// Gets or sets the description of the variable.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value, priority: 0);  // description first
     }
 
@@ -47,9 +47,9 @@ public class TerraformVariable(string name) : TerraformConstruct
     /// <summary>
     /// Gets or sets whether the variable is sensitive.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Sensitive
+    public TerraformProperty<bool>? Sensitive
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sensitive");
+        get => GetProperty<TerraformProperty<bool>>("sensitive");
         set => this.WithProperty("sensitive", value, priority: 3);  // sensitive last
     }
 

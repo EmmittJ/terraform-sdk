@@ -8,13 +8,13 @@ namespace EmmittJ.Terraform.Sdk.Constructs;
 /// <example>
 /// <code>
 /// var check = new TerraformCheckBlock("health_check");
-/// 
+///
 /// // Add a data source
 /// var httpCheck = new TerraformDataSource("http", "example", new {
 ///     url = "https://example.com/health"
 /// });
 /// check.AddDataSource(httpCheck);
-/// 
+///
 /// // Add assertions
 /// check.AddAssert(new TerraformAssertBlock(
 ///     condition: "data.http.example.status_code == 200",
@@ -142,9 +142,9 @@ public class TerraformAssertBlock : TerraformConstruct
     /// <summary>
     /// Gets or sets the error message to display when the condition is false.
     /// </summary>
-    public TerraformLiteralProperty<string>? ErrorMessage
+    public TerraformProperty<string>? ErrorMessage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("error_message");
+        get => GetProperty<TerraformProperty<string>>("error_message");
         set => this.WithProperty("error_message", value, priority: 1);
     }
 

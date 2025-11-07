@@ -44,8 +44,8 @@ public class TerraformMovedBlock : TerraformConstruct
 
         // Set the from and to as properties so they render in HCL
         // Use a custom property that renders addresses without quotes
-        WithPropertyInternal("from", new MovedAddressProperty(from), priority: 0);
-        WithPropertyInternal("to", new MovedAddressProperty(to), priority: 1);
+        this.WithProperty("from", new MovedAddressProperty(from), priority: 0);
+        this.WithProperty("to", new MovedAddressProperty(to), priority: 1);
     }
 
     /// <inheritdoc/>

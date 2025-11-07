@@ -2,14 +2,38 @@ namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// An identifier expression (e.g., "var.region", "aws_vpc.main").
+/// Can be a static string or dynamically resolved from a value.
 /// </summary>
-internal class IdentifierExpression(string name) : TerraformExpression
+internal class IdentifierExpression<T> : TerraformExpression
 {
-    private readonly string _name = name ?? throw new ArgumentNullException(nameof(name));
+    private readonly T _value;
+    private readonly Func<T, string> _resolver;
 
-    public string Name => _name;
+    public IdentifierExpression(T value, Func<T, string>? resolver = null)
+    {
+        _value = value ?? throw new ArgumentNullException(nameof(value));
+        _resolver = resolver ?? (v => v?.ToString() ?? throw new InvalidOperationException("Value.ToString() returned null"));
+    }
 
-    public override string Resolve(ITerraformContext? context = null) => _name;
+    public override void Prepare(ITerraformContext context)
+    {
+        // Ensure the value is prepared before we resolve (only for dynamic identifiers)
+        if (_value is ITerraformPreparable preparable)
+        {
+            preparable.Prepare(context);
+        }
+    }
+
+    public override string Resolve(ITerraformContext? context = null)
+    {
+        // Dynamic identifier
+        if (_resolver != null && _value != null)
+        {
+            return _resolver(_value);
+        }
+
+        throw new InvalidOperationException("IdentifierExpression is in an invalid state.");
+    }
 
     public override bool Equals(object? obj)
     {
@@ -18,12 +42,14 @@ internal class IdentifierExpression(string name) : TerraformExpression
             return true;
         }
 
-        return obj is IdentifierExpression other
-            && string.Equals(_name, other._name, StringComparison.Ordinal);
+        return obj is IdentifierExpression<T> other
+            && EqualityComparer<T>.Default.Equals(_value, other._value);
     }
 
     public override int GetHashCode()
-        => StringComparer.Ordinal.GetHashCode(_name);
+    {
+        return _value is null ? 0 : EqualityComparer<T>.Default.GetHashCode(_value);
+    }
 }
 
 /// <summary>
