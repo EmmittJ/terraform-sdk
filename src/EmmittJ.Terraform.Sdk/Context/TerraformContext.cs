@@ -14,7 +14,7 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     /// Creates a temporary context for testing or one-off resolution.
     /// </summary>
     /// <returns>A temporary context.</returns>
-    public static TerraformContext Temporary() => new(new("temp"));
+    public static TerraformContext Temporary() => new(new() { Name = "temp" });
 
     /// <summary>
     /// Creates a temporary context for testing or one-off resolution.
@@ -24,7 +24,7 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     /// <returns>A temporary context with the resolvable prepared (if provided).</returns>
     public static TerraformContext Temporary<T>(ITerraformResolvable<T>? resolvable = null)
     {
-        var context = new TerraformContext(new("temp"));
+        var context = new TerraformContext(new() { Name = "temp" });
         if (resolvable != null)
         {
             resolvable.Prepare(context);

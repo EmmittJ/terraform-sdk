@@ -53,53 +53,6 @@ public static class TerraformBuilderExtensions
     }
 
     /// <summary>
-    /// Publishes the specified compute resource as Terraform infrastructure with a specific name.
-    /// </summary>
-    /// <typeparam name="T">The type of the compute resource.</typeparam>
-    /// <param name="builder">The compute resource builder.</param>
-    /// <param name="name">The name for the Terraform stack, used for file naming.</param>
-    /// <param name="configure">The configuration action for the Terraform stack.</param>
-    /// <returns>The updated compute resource builder.</returns>
-    /// <remarks>
-    /// This overload allows you to specify a custom name for the stack, which is useful when
-    /// adding multiple Terraform configurations to the same resource.
-    /// <example>
-    /// <code>
-    /// builder.AddContainer("myapp", "image")
-    ///     .PublishAsTerraform("network", stack =>
-    ///     {
-    ///         var vpc = new S3Bucket("vpc");
-    ///         stack.Add(vpc);
-    ///     })
-    ///     .PublishAsTerraform("security", stack =>
-    ///     {
-    ///         var sg = new SecurityGroup("sg");
-    ///         stack.Add(sg);
-    ///     });
-    /// </code>
-    /// </example>
-    /// </remarks>
-    public static IResourceBuilder<T> PublishAsTerraform<T>(
-        this IResourceBuilder<T> builder,
-        string name,
-        Action<TerraformStack> configure)
-        where T : IComputeResource
-    {
-        ArgumentNullException.ThrowIfNull(builder);
-        ArgumentException.ThrowIfNullOrEmpty(name);
-        ArgumentNullException.ThrowIfNull(configure);
-
-        if (!builder.ApplicationBuilder.ExecutionContext.IsPublishMode)
-        {
-            return builder;
-        }
-
-        builder.ApplicationBuilder.AddTerraformInfrastructureCore();
-
-        return builder.WithAnnotation(new TerraformStackAnnotation(configure, name));
-    }
-
-    /// <summary>
     /// Configures Terraform generation settings for a compute resource.
     /// </summary>
     /// <typeparam name="T">The compute resource type.</typeparam>

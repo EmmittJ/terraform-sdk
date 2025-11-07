@@ -10,7 +10,10 @@ public class EnhancedApiTests
     [Fact]
     public Task WithProperty_WithPriority_RendersInOrder()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web")
             .WithProperty("tags", new Dictionary<string, string> { ["Name"] = "Web Server" })
@@ -26,7 +29,10 @@ public class EnhancedApiTests
     [Fact]
     public Task DictionaryImplicitConversion_Works()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web")
             .WithProperty("ami", "ami-12345")
@@ -45,7 +51,10 @@ public class EnhancedApiTests
     [Fact]
     public Task WithReference_WithPriority_Works()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var vpc = new TerraformResource("aws_vpc", "main")
             .WithProperty("cidr_block", "10.0.0.0/16");
@@ -63,7 +72,10 @@ public class EnhancedApiTests
     [Fact]
     public Task MixedTypeDictionary_Works()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("test_resource", "example")
             .WithProperty("config", new Dictionary<string, object>

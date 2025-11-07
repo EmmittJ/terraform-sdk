@@ -8,8 +8,9 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_CloudAndBackendBothSet_ReturnsError()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack()
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
@@ -32,8 +33,9 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_OnlyCloudSet_IsValid()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack()
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
@@ -56,8 +58,9 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_OnlyBackendSet_IsValid()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack()
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("s3")
@@ -73,8 +76,9 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesNameAndTagsBothSet_ReturnsError()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack()
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
@@ -101,8 +105,9 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesOnlyNameSet_IsValid()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack()
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
@@ -125,8 +130,9 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesOnlyTagsSet_IsValid()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack()
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
@@ -149,8 +155,9 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_WorkspacesWithEmptyTags_IsValid()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack()
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Cloud = new TerraformCloudConfig
@@ -174,7 +181,7 @@ public class TerraformValidationTests
     [Fact]
     public void Validate_NoTerraformBlock_IsValid()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack() { Name = "test" };
 
         var result = config.Validate();
 

@@ -8,7 +8,10 @@ public class TerraformCheckBlockTests
     [Fact]
     public Task CheckBlock_SimpleAssert_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var check = new TerraformCheckBlock("health_check");
         check.AddAssert(new TerraformAssertBlock(
@@ -24,7 +27,10 @@ public class TerraformCheckBlockTests
     [Fact]
     public Task CheckBlock_WithDataSource_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var check = new TerraformCheckBlock("api_check");
 
@@ -47,7 +53,10 @@ public class TerraformCheckBlockTests
     [Fact]
     public Task CheckBlock_MultipleAsserts_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var check = new TerraformCheckBlock("resource_validation");
 
@@ -74,7 +83,10 @@ public class TerraformCheckBlockTests
     [Fact]
     public Task CheckBlock_WithDataSourceAndMultipleAsserts_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var check = new TerraformCheckBlock("external_validation");
 
@@ -102,7 +114,10 @@ public class TerraformCheckBlockTests
     [Fact]
     public Task CheckBlock_MultipleDataSources_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var check = new TerraformCheckBlock("multi_source_check");
 
@@ -132,7 +147,10 @@ public class TerraformCheckBlockTests
     [Fact]
     public Task CheckBlock_ComplexConditions_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var check = new TerraformCheckBlock("complex_validation");
 

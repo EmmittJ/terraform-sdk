@@ -56,11 +56,8 @@ internal sealed class TerraformEventingSubscriber(
 
         foreach (var annotation in annotations)
         {
-            // Use annotation name if provided, otherwise default to "main" (Terraform convention)
-            var stackName = annotation.Name ?? "main";
-
             // Create and configure the stack
-            var stack = new TerraformStack(stackName);
+            var stack = new TerraformStack();
             annotation.Configure(stack);
 
             // Validate the stack
@@ -69,12 +66,12 @@ internal sealed class TerraformEventingSubscriber(
             {
                 var errors = string.Join(Environment.NewLine, validationResult.Errors.Select(e => $"  • {e.Message}"));
                 logger.LogError("❌ Terraform validation failed for {StackName}:{NewLine}{Errors}",
-                    stackName, Environment.NewLine, errors);
+                    stack.Name, Environment.NewLine, errors);
                 throw new InvalidOperationException(
-                    $"Terraform stack validation failed for '{stackName}' with {validationResult.Errors.Count} error(s).");
+                    $"Terraform stack validation failed for '{stack.Name}' with {validationResult.Errors.Count} error(s).");
             }
 
-            logger.LogInformation("✅ Terraform validation passed for {StackName}", stackName);
+            logger.LogInformation("✅ Terraform validation passed for {StackName}", stack.Name);
 
             // Generate HCL
             var hclContent = stack.ToHcl();
@@ -84,7 +81,7 @@ internal sealed class TerraformEventingSubscriber(
             Directory.CreateDirectory(workingDirectory);
 
             // Write file
-            var terraformFileName = $"{stackName}.tf";
+            var terraformFileName = $"{stack.Name}.tf";
             var terraformFilePath = Path.Combine(workingDirectory, terraformFileName);
             await File.WriteAllTextAsync(terraformFilePath, hclContent, cancellationToken);
 

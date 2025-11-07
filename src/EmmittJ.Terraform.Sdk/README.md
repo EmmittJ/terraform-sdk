@@ -71,7 +71,7 @@ See [DEFERRED_RESOLUTION.md](DEFERRED_RESOLUTION.md) for comprehensive documenta
 using EmmittJ.Terraform.Sdk;
 
 // Create a configuration
-var config = new TerraformStack("main");
+var config = new TerraformStack();
 
 // Define a local value using fluent API
 var locals = new TerraformLocal()
@@ -112,7 +112,7 @@ The SDK now includes comprehensive support for Terraform's configuration blocks 
 
 ```csharp
 // Configure S3 backend
-var config = new TerraformStack("main")
+var config = new TerraformStack()
 {
     Backend = new TerraformBackend { Type = "s3" }
 };
@@ -122,7 +122,7 @@ config.Backend.Config["region"] = "us-east-1";
 config.Backend.Config["encrypt"] = true;
 
 // Configure Azure backend
-var config = new TerraformStack("main")
+var config = new TerraformStack()
 {
     Backend = new TerraformBackend { Type = "azurerm" }
 };
@@ -135,7 +135,7 @@ config.Backend.Config["key"] = "prod.terraform.tfstate";
 
 ```csharp
 // Configure Terraform version and providers
-var config = new TerraformStack("main")
+var config = new TerraformStack()
 {
     Settings = new TerraformSettings
     {
@@ -221,7 +221,7 @@ instance.Lifecycle.Postconditions.Add(new LifecycleCheck
 
 ```csharp
 // Build a complete Terraform configuration
-var config = new TerraformStack("main")
+var config = new TerraformStack()
 {
     Settings = new TerraformSettings { RequiredVersion = ">= 1.0" },
     Backend = new TerraformBackend { Type = "s3" }

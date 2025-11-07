@@ -7,8 +7,9 @@ public class TerraformSettingsTests
     [Fact]
     public Task Settings_RequiredVersion_GeneratesHcl()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0"
@@ -21,8 +22,9 @@ public class TerraformSettingsTests
     [Fact]
     public Task Settings_RequiredProviders_GeneratesHcl()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings()
         };
 
@@ -43,8 +45,9 @@ public class TerraformSettingsTests
     [Fact]
     public Task Settings_Complete_GeneratesHcl()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.5.0"
@@ -65,8 +68,9 @@ public class TerraformSettingsTests
     [Fact]
     public Task Settings_WithConstructs_GeneratesHcl()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 RequiredVersion = ">= 1.0"

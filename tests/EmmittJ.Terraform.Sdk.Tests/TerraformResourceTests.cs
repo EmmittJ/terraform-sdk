@@ -5,7 +5,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_MinimalDeclaration()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
         var resource = new TerraformResource("aws_vpc", "main");
         config.Add(resource);
 
@@ -15,7 +15,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithSingleProperty()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
         config.Add(new TerraformResource("aws_vpc", "main")
             .WithProperty("cidr_block", "10.0.0.0/16"));
 
@@ -25,7 +25,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithMultipleProperties()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
         config.Add(new TerraformResource("aws_instance", "web")
             .WithProperty("ami", "ami-12345678")
             .WithProperty("instance_type", "t2.micro"));
@@ -36,7 +36,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithVariableReference()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         var cidrVar = new TerraformVariable("vpc_cidr")
         {
@@ -54,7 +54,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithResourceReference()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         var vpc = new TerraformResource("aws_vpc", "main")
             .WithProperty("cidr_block", "10.0.0.0/16")
@@ -71,7 +71,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithExpression()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         config.Add(new TerraformResource("aws_subnet", "calculated")
             .WithProperty("cidr_block",
@@ -83,7 +83,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithCount()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         var resource = new TerraformResource("aws_subnet", "az")
         {
@@ -99,7 +99,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithForEach()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         var azs = new TerraformVariable("availability_zones")
         {
@@ -121,7 +121,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithProvider()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         var resource = new TerraformResource("aws_instance", "web")
         {
@@ -135,7 +135,7 @@ public class TerraformResourceTests
     [Fact]
     public Task Resource_WithDependsOn()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         config.Add(new TerraformResource("aws_vpc", "main")
             .WithProperty("cidr_block", "10.0.0.0/16"));
@@ -175,7 +175,7 @@ public class TerraformResourceTests
     [Fact]
     public Task CompleteExample_MultipleResourcesWithReferences()
     {
-        var config = new TerraformStack("main");
+        var config = new TerraformStack();
 
         // Variables
         var cidr = new TerraformVariable("vpc_cidr")

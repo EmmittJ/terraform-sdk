@@ -7,7 +7,10 @@ public class LifecycleTests
     [Fact]
     public Task Lifecycle_CreateBeforeDestroy_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
@@ -24,7 +27,10 @@ public class LifecycleTests
     [Fact]
     public Task Lifecycle_PreventDestroy_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_s3_bucket", "data");
         resource.WithProperty("bucket", "my-important-data");
@@ -40,7 +46,10 @@ public class LifecycleTests
     [Fact]
     public Task Lifecycle_IgnoreChanges_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
@@ -57,7 +66,10 @@ public class LifecycleTests
     [Fact]
     public Task Lifecycle_IgnoreChangesAll_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
@@ -73,7 +85,10 @@ public class LifecycleTests
     [Fact]
     public Task Lifecycle_Complete_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
@@ -92,7 +107,10 @@ public class LifecycleTests
     [Fact]
     public Task Lifecycle_WithPrecondition_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");
@@ -114,7 +132,10 @@ public class LifecycleTests
     [Fact]
     public Task Lifecycle_WithPostcondition_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var resource = new TerraformResource("aws_instance", "web");
         resource.WithProperty("ami", "ami-12345678");

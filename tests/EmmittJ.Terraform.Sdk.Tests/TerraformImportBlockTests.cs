@@ -8,7 +8,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_BasicResource_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var import = new TerraformImportBlock(
             to: "aws_instance.example",
@@ -23,7 +26,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_WithProvider_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var import = new TerraformImportBlock(
             to: "aws_instance.example",
@@ -39,7 +45,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_WithCountIndex_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var import = new TerraformImportBlock(
             to: "aws_instance.example[0]",
@@ -54,7 +63,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_WithForEachKey_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var import = new TerraformImportBlock(
             to: "aws_instance.web[\"primary\"]",
@@ -69,7 +81,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_ModuleResource_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var import = new TerraformImportBlock(
             to: "module.web_servers.aws_instance.server",
@@ -84,7 +99,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_AzureResource_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var import = new TerraformImportBlock(
             to: "azurerm_resource_group.example",
@@ -99,7 +117,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_GoogleResource_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var import = new TerraformImportBlock(
             to: "google_compute_instance.default",
@@ -114,7 +135,10 @@ public class TerraformImportBlockTests
     [Fact]
     public Task ImportBlock_MultipleImports_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         config.Add(new TerraformImportBlock(
             to: "aws_instance.web",

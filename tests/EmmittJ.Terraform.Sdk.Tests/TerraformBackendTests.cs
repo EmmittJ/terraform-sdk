@@ -7,8 +7,9 @@ public class TerraformBackendTests
     [Fact]
     public Task Backend_S3_GeneratesHcl()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("s3")
@@ -27,8 +28,9 @@ public class TerraformBackendTests
     [Fact]
     public Task Backend_Azurerm_GeneratesHcl()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("azurerm")
@@ -47,8 +49,9 @@ public class TerraformBackendTests
     [Fact]
     public Task Backend_WithSettings_GeneratesHcl()
     {
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 RequiredVersion = ">=1.0",

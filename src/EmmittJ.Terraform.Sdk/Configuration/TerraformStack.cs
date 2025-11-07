@@ -5,15 +5,14 @@ namespace EmmittJ.Terraform.Sdk;
 /// Similar to Infrastructure in Azure.Provisioning or Stack in AWS CDK/Pulumi.
 /// Manages variables, resources, data sources, and generates Terraform HCL configuration.
 /// </summary>
-public class TerraformStack(string name = "main")
+public class TerraformStack
 {
     private readonly List<TerraformConstruct> _constructs = [];
-    private readonly string _name = name;
 
     /// <summary>
     /// Gets the name of this configuration.
     /// </summary>
-    public string Name => _name;
+    public string Name { get; set; } = "main";
 
     /// <summary>
     /// Gets or sets the terraform {} block configuration.

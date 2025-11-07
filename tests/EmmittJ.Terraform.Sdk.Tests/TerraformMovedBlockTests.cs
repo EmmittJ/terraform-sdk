@@ -7,7 +7,10 @@ public class TerraformMovedBlockTests
     [Fact]
     public Task MovedBlock_RenameResource_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var moved = new TerraformMovedBlock(
             from: "aws_instance.a",
@@ -22,7 +25,10 @@ public class TerraformMovedBlockTests
     [Fact]
     public Task MovedBlock_RenameModule_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var moved = new TerraformMovedBlock(
             from: "module.old_name",
@@ -37,7 +43,10 @@ public class TerraformMovedBlockTests
     [Fact]
     public Task MovedBlock_WithInstanceIndex_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var moved = new TerraformMovedBlock(
             from: "aws_instance.example",
@@ -52,7 +61,10 @@ public class TerraformMovedBlockTests
     [Fact]
     public Task MovedBlock_WithForEachKey_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var moved = new TerraformMovedBlock(
             from: "aws_instance.web",
@@ -67,7 +79,10 @@ public class TerraformMovedBlockTests
     [Fact]
     public Task MovedBlock_ModuleToModuleInstance_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var moved = new TerraformMovedBlock(
             from: "module.vpc",
@@ -82,7 +97,10 @@ public class TerraformMovedBlockTests
     [Fact]
     public Task MovedBlock_ResourceIntoModule_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         var moved = new TerraformMovedBlock(
             from: "aws_instance.example",
@@ -97,7 +115,10 @@ public class TerraformMovedBlockTests
     [Fact]
     public Task MovedBlock_MultipleBlocks_GeneratesHcl()
     {
-        var config = new TerraformStack("test");
+        var config = new TerraformStack()
+        {
+            Name = "test"
+        };
 
         config.Add(new TerraformMovedBlock(
             from: "aws_instance.a",

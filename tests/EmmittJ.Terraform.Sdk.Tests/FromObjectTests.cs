@@ -126,8 +126,9 @@ public class FromObjectTests
     public void TerraformObjectExpression_WithDictionaryOfObject_RendersCorrectly()
     {
         // Arrange
-        var config = new TerraformStack("test")
+        var config = new TerraformStack
         {
+            Name = "test",
             Terraform = new TerraformSettings
             {
                 Backend = new TerraformBackend("s3")

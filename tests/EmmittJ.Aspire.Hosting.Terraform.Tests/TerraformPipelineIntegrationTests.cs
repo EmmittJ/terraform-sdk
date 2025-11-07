@@ -119,8 +119,9 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .PublishAsTerraform("network", stack =>
+                .PublishAsTerraform(stack =>
                 {
+                    stack.Name = "network";
                     var vpc = new TerraformVariable("vpc_cidr")
                     {
                         Type = "string",
@@ -128,8 +129,9 @@ public class TerraformPipelineIntegrationTests
                     };
                     stack.Add(vpc);
                 })
-                .PublishAsTerraform("security", stack =>
+                .PublishAsTerraform(stack =>
                 {
+                    stack.Name = "security";
                     var allowSsh = new TerraformVariable("allow_ssh")
                     {
                         Type = "bool",
@@ -173,16 +175,18 @@ public class TerraformPipelineIntegrationTests
 
             var container = builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputPath = parentOutputDir)
-                .PublishAsTerraform("stack1", stack =>
+                .PublishAsTerraform(stack =>
                 {
+                    stack.Name = "stack1";
                     var var1 = new TerraformVariable("var1")
                     {
                         Type = "string"
                     };
                     stack.Add(var1);
                 })
-                .PublishAsTerraform("stack2", stack =>
+                .PublishAsTerraform(stack =>
                 {
+                    stack.Name = "stack2";
                     var var2 = new TerraformVariable("var2")
                     {
                         Type = "string"
