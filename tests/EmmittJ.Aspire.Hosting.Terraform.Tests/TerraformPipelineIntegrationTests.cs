@@ -1,5 +1,7 @@
 // Licensed under the MIT License.
 
+#pragma warning disable ASPIREPIPELINES001 // Type is for evaluation purposes only and is subject to change or removal in future updates
+
 using Aspire.Hosting;
 using EmmittJ.Terraform.Sdk;
 using Microsoft.Extensions.Hosting;
@@ -30,7 +32,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .PublishAsTerraform(stack =>
+                .WithTerraform(stack =>
                 {
                     var vpc = new TerraformVariable("vpc_cidr")
                     {
@@ -76,7 +78,7 @@ public class TerraformPipelineIntegrationTests
 
             builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputPath = customOutput)
-                .PublishAsTerraform(stack =>
+                .WithTerraform(stack =>
                 {
                     var region = new TerraformVariable("region")
                     {
@@ -119,7 +121,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .PublishAsTerraform(stack =>
+                .WithTerraform(stack =>
                 {
                     stack.Name = "network";
                     var vpc = new TerraformVariable("vpc_cidr")
@@ -129,7 +131,7 @@ public class TerraformPipelineIntegrationTests
                     };
                     stack.Add(vpc);
                 })
-                .PublishAsTerraform(stack =>
+                .WithTerraform(stack =>
                 {
                     stack.Name = "security";
                     var allowSsh = new TerraformVariable("allow_ssh")
@@ -175,7 +177,7 @@ public class TerraformPipelineIntegrationTests
 
             var container = builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputPath = parentOutputDir)
-                .PublishAsTerraform(stack =>
+                .WithTerraform(stack =>
                 {
                     stack.Name = "stack1";
                     var var1 = new TerraformVariable("var1")
@@ -184,7 +186,7 @@ public class TerraformPipelineIntegrationTests
                     };
                     stack.Add(var1);
                 })
-                .PublishAsTerraform(stack =>
+                .WithTerraform(stack =>
                 {
                     stack.Name = "stack2";
                     var var2 = new TerraformVariable("var2")
@@ -227,7 +229,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .PublishAsTerraform(stack =>
+                .WithTerraform(stack =>
                 {
                     // Add multiple types of constructs
                     var stringVar = new TerraformVariable("environment")
@@ -272,3 +274,4 @@ public class TerraformPipelineIntegrationTests
         }
     }
 }
+

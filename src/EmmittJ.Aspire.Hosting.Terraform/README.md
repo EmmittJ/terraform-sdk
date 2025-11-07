@@ -1,6 +1,6 @@
 # EmmittJ.Aspire.Hosting.Terraform library
 
-Provides extension methods for generating Terraform infrastructure-as-code from Aspire compute resources using the EmmittJ.Terraform.Sdk.
+Provides extension methods for provisioning Terraform infrastructure alongside Aspire resources using the EmmittJ.Terraform.Sdk.
 
 ## Getting started
 
@@ -14,14 +14,14 @@ dotnet add package EmmittJ.Aspire.Hosting.Terraform
 
 ## Usage example
 
-Publish compute resources as Terraform infrastructure:
+Add Terraform infrastructure provisioning to any Aspire resource:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
 
 // Add a container resource with Terraform infrastructure
 var api = builder.AddContainer("api", "myapi")
-    .PublishAsTerraform(stack =>
+    .WithTerraform(stack =>
     {
         // Configure Terraform infrastructure for the API
         var bucket = new S3Bucket("api-storage")
@@ -40,7 +40,7 @@ var api = builder.AddContainer("api", "myapi")
 
 // Or with a project resource
 var webapp = builder.AddProject<Projects.WebApp>("webapp")
-    .PublishAsTerraform(stack =>
+    .WithTerraform(stack =>
     {
         var cdn = new CloudFrontDistribution("webapp-cdn");
         stack.Add(cdn);
@@ -51,31 +51,32 @@ builder.Build().Run();
 
 ## Core Concepts
 
-### Annotation-Based Architecture
+### Infrastructure Provisioning Pattern
 
-This library follows Aspire's established pattern (used by Azure Container Apps, App Service, and Kubernetes) where Terraform configuration is attached to compute resources via annotations, then processed during publish.
+This library follows a pattern similar to `AzureBicepResource` for infrastructure provisioning. Unlike compute environments (Kubernetes, Azure Container Apps), this generates infrastructure-as-code that provisions supporting resources.
 
 **Key Components:**
 
-1. **Extension Method** (`PublishAsTerraform`) - Adds a `TerraformStackAnnotation` to the compute resource
+1. **Extension Method** (`WithTerraform`) - Adds a `TerraformStackAnnotation` to any resource
 2. **Annotation** (`TerraformStackAnnotation`) - Stores the Terraform configuration callback
-3. **Eventing Subscriber** (`TerraformEventingSubscriber`) - Processes annotations during publish and generates `.tf` files
+3. **Pipeline Steps** (`TerraformPipelineStepFactory`) - Processes annotations during publish and generates `.tf` files
 
 **Benefits:**
 
-- ✅ Consistent with other Aspire deployment targets (Azure, Kubernetes)
+- ✅ Similar to Azure Bicep infrastructure provisioning
 - ✅ Only operates in publish mode (no overhead during `dotnet run`)
-- ✅ Clean API with single configuration callback
-- ✅ Works only with compute resources (projects, containers, executables)
-- ✅ Can combine with other deployment targets
+- ✅ Clean API with configuration callback
+- ✅ Works with any resource type (not just compute resources)
+- ✅ Multiple stacks per resource supported
+- ✅ Can combine with compute environments (Kubernetes, ACA, etc.)
 
-### Publishing Compute Resources
+### Adding Terraform Infrastructure
 
-Use `PublishAsTerraform` to configure Terraform infrastructure for a compute resource:
+Use `WithTerraform` to provision infrastructure alongside any resource:
 
 ```csharp
 var redis = builder.AddContainer("cache", "redis")
-    .PublishAsTerraform(stack =>
+    .WithTerraform(stack =>
     {
         // Add AWS provider
         var provider = new AwsProvider("aws")
@@ -105,7 +106,7 @@ Customize where Terraform files are generated:
 
 ```csharp
 var api = builder.AddContainer("api", "myapi")
-    .PublishAsTerraform(stack =>
+    .WithTerraform(stack =>
     {
         // Configure infrastructure
     })
@@ -117,22 +118,24 @@ var api = builder.AddContainer("api", "myapi")
 
 By default, files are generated to `{output-path}/{resource-name}/main.tf`.
 
-### Multiple Terraform Configurations
+### Multiple Terraform Stacks
 
-You can attach multiple Terraform configurations to a single resource using named stacks:
+You can attach multiple Terraform stacks to a single resource:
 
 ```csharp
 var api = builder.AddContainer("api", "myapi")
-    .PublishAsTerraform("network", stack =>
+    .WithTerraform(stack =>
     {
+        stack.Name = "network";
         var vpc = new Vpc("api-vpc")
         {
             CidrBlock = "10.0.0.0/16"
         };
         stack.Add(vpc);
     })
-    .PublishAsTerraform("security", stack =>
+    .WithTerraform(stack =>
     {
+        stack.Name = "security";
         var sg = new SecurityGroup("api-sg")
         {
             Name = "api-security-group"
@@ -161,52 +164,55 @@ Terraform file generation **only occurs during publish mode** (`aspire publish`)
 
 ### Extension Methods
 
-#### `PublishAsTerraform<T>`
+#### `WithTerraform<T>`
 
-Publishes a compute resource with Terraform infrastructure configuration.
+Adds Terraform infrastructure provisioning to any resource.
 
 ```csharp
-// Unnamed version - generates main.tf
-IResourceBuilder<T> PublishAsTerraform<T>(
+IResourceBuilder<T> WithTerraform<T>(
     this IResourceBuilder<T> builder,
     Action<TerraformStack> configure)
-    where T : IComputeResource
-
-// Named version - generates {name}.tf
-IResourceBuilder<T> PublishAsTerraform<T>(
-    this IResourceBuilder<T> builder,
-    string name,
-    Action<TerraformStack> configure)
-    where T : IComputeResource
+    where T : IResource
 ```
 
 **Parameters:**
 
-- `builder` - The compute resource builder (project, container, or executable)
-- `name` - (Optional) Name for the Terraform stack, used in file naming
+- `builder` - The resource builder (any resource type)
 - `configure` - Action to configure the Terraform stack
 
 **Returns:** The resource builder for chaining
 
 **File Output:**
 
-- Unnamed: `{output-path}/{resource-name}/main.tf`
-- Named: `{output-path}/{resource-name}/{name}.tf`
+- Default: `{output-path}/{resource-name}/main.tf`
+- Named stack: `{output-path}/{resource-name}/{stack-name}.tf`
+
+**Example:**
+
+```csharp
+builder.AddContainer("api", "myapi")
+    .WithTerraform(stack =>
+    {
+        stack.Name = "storage"; // Optional: generates storage.tf instead of main.tf
+        var bucket = new S3Bucket("api-bucket");
+        stack.Add(bucket);
+    });
+```
 
 #### `WithTerraformConfiguration<T>`
 
-Configures Terraform generation settings for a compute resource.
+Configures Terraform generation settings for a resource.
 
 ```csharp
 IResourceBuilder<T> WithTerraformConfiguration<T>(
     this IResourceBuilder<T> builder,
     Action<TerraformConfigurationAnnotation> configure)
-    where T : IComputeResource
+    where T : IResource
 ```
 
 **Parameters:**
 
-- `builder` - The compute resource builder
+- `builder` - The resource builder
 - `configure` - Action to configure Terraform settings
 
 **Returns:** The resource builder for chaining
@@ -215,12 +221,11 @@ IResourceBuilder<T> WithTerraformConfiguration<T>(
 
 #### `TerraformStackAnnotation`
 
-Annotation that stores Terraform configuration on a compute resource.
+Annotation that stores Terraform configuration on a resource.
 
 **Properties:**
 
 - `Configure` - Action to configure the Terraform stack
-- `Name` - Optional name for the stack (used in file naming)
 
 #### `TerraformConfigurationAnnotation`
 
