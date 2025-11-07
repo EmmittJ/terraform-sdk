@@ -21,27 +21,27 @@ public class GoogleStorageManagedFolderIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_folder attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedFolder
+    public TerraformProperty<string>? ManagedFolder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_folder");
+        get => GetProperty<TerraformProperty<string>>("managed_folder");
         set => this.WithProperty("managed_folder", value);
     }
 

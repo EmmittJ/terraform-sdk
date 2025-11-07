@@ -22,45 +22,45 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     /// <summary>
     /// The data stores associated with this engine. For SOLUTION_TYPE_RECOMMENDATION type of engines, they can only associate with at most one data store.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DataStoreIds
+    public TerraformProperty<List<string>>? DataStoreIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("data_store_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("data_store_ids");
         set => this.WithProperty("data_store_ids", value);
     }
 
     /// <summary>
     /// Required. The display name of the engine. Should be human readable. UTF-8 encoded string with limit of 1024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Unique ID to use for Recommendation Engine.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineId
+    public TerraformProperty<string>? EngineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_id");
+        get => GetProperty<TerraformProperty<string>>("engine_id");
         set => this.WithProperty("engine_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The industry vertical that the engine registers. The restriction of the Engine industry vertical is based on DataStore: If unspecified, default to GENERIC. Vertical on Engine has to match vertical of the DataStore liniked to the engine. Default value: &amp;quot;GENERIC&amp;quot; Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? IndustryVertical
+    public TerraformProperty<string>? IndustryVertical
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("industry_vertical");
+        get => GetProperty<TerraformProperty<string>>("industry_vertical");
         set => this.WithProperty("industry_vertical", value);
     }
 
@@ -68,18 +68,18 @@ public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

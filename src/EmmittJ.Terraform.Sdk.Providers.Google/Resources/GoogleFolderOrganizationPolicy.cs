@@ -21,36 +21,36 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
-    public TerraformLiteralProperty<string>? Constraint
+    public TerraformProperty<string>? Constraint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("constraint");
+        get => GetProperty<TerraformProperty<string>>("constraint");
         set => this.WithProperty("constraint", value);
     }
 
     /// <summary>
     /// The resource name of the folder to set the policy for. Its format is folders/{folder_id}.
     /// </summary>
-    public TerraformLiteralProperty<string>? Folder
+    public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    public TerraformLiteralProperty<double>? Version
+    public TerraformProperty<double>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("version");
+        get => GetProperty<TerraformProperty<double>>("version");
         set => this.WithProperty("version", value);
     }
 

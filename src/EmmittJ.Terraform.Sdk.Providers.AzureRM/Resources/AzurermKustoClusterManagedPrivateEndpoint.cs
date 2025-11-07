@@ -19,72 +19,72 @@ public class AzurermKustoClusterManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterName
+    public TerraformProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupId
+    public TerraformProperty<string>? GroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_id");
+        get => GetProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The private_link_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateLinkResourceId
+    public TerraformProperty<string>? PrivateLinkResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_link_resource_id");
+        get => GetProperty<TerraformProperty<string>>("private_link_resource_id");
         set => this.WithProperty("private_link_resource_id", value);
     }
 
     /// <summary>
     /// The private_link_resource_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateLinkResourceRegion
+    public TerraformProperty<string>? PrivateLinkResourceRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_link_resource_region");
+        get => GetProperty<TerraformProperty<string>>("private_link_resource_region");
         set => this.WithProperty("private_link_resource_region", value);
     }
 
     /// <summary>
     /// The request_message attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RequestMessage
+    public TerraformProperty<string>? RequestMessage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_message");
+        get => GetProperty<TerraformProperty<string>>("request_message");
         set => this.WithProperty("request_message", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

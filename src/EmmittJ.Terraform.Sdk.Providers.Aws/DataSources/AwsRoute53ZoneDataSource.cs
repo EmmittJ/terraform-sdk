@@ -27,54 +27,54 @@ public class AwsRoute53ZoneDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The private_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrivateZone
+    public TerraformProperty<bool>? PrivateZone
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_zone");
+        get => GetProperty<TerraformProperty<bool>>("private_zone");
         set => this.WithProperty("private_zone", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ZoneId
+    public TerraformProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        get => GetProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

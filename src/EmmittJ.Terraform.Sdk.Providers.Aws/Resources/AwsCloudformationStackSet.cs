@@ -21,126 +21,126 @@ public class AwsCloudformationStackSet : TerraformResource
     /// <summary>
     /// The administration_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdministrationRoleArn
+    public TerraformProperty<string>? AdministrationRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administration_role_arn");
+        get => GetProperty<TerraformProperty<string>>("administration_role_arn");
         set => this.WithProperty("administration_role_arn", value);
     }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CallAs
+    public TerraformProperty<string>? CallAs
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("call_as");
+        get => GetProperty<TerraformProperty<string>>("call_as");
         set => this.WithProperty("call_as", value);
     }
 
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Capabilities
+    public TerraformProperty<HashSet<string>>? Capabilities
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("capabilities");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("capabilities");
         set => this.WithProperty("capabilities", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The execution_role_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExecutionRoleName
+    public TerraformProperty<string>? ExecutionRoleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_name");
+        get => GetProperty<TerraformProperty<string>>("execution_role_name");
         set => this.WithProperty("execution_role_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
+    public TerraformProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The permission_model attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PermissionModel
+    public TerraformProperty<string>? PermissionModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("permission_model");
+        get => GetProperty<TerraformProperty<string>>("permission_model");
         set => this.WithProperty("permission_model", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateBody
+    public TerraformProperty<string>? TemplateBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_body");
+        get => GetProperty<TerraformProperty<string>>("template_body");
         set => this.WithProperty("template_body", value);
     }
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateUrl
+    public TerraformProperty<string>? TemplateUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_url");
+        get => GetProperty<TerraformProperty<string>>("template_url");
         set => this.WithProperty("template_url", value);
     }
 

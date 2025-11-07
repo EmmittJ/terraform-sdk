@@ -22,36 +22,36 @@ public class AwsBackupSelectionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PlanId
+    public TerraformProperty<string>? PlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan_id");
+        get => GetProperty<TerraformProperty<string>>("plan_id");
         set => this.WithProperty("plan_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The selection_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SelectionId
+    public TerraformProperty<string>? SelectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("selection_id");
+        get => GetProperty<TerraformProperty<string>>("selection_id");
         set => this.WithProperty("selection_id", value);
     }
 

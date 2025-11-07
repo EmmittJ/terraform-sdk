@@ -21,45 +21,45 @@ public class AzurermPortalDashboardDataSource : TerraformDataSource
     /// <summary>
     /// The dashboard_properties attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DashboardProperties
+    public TerraformProperty<string>? DashboardProperties
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dashboard_properties");
+        get => GetProperty<TerraformProperty<string>>("dashboard_properties");
         set => this.WithProperty("dashboard_properties", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -21,45 +21,45 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// <summary>
     /// The allocatable prefix length supported by this public delegated prefix. This field is optional and cannot be set for prefixes in DELEGATION mode. It cannot be set for IPv4 prefixes either, and it always defaults to 32.
     /// </summary>
-    public TerraformLiteralProperty<double>? AllocatablePrefixLength
+    public TerraformProperty<double>? AllocatablePrefixLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("allocatable_prefix_length");
+        get => GetProperty<TerraformProperty<double>>("allocatable_prefix_length");
         set => this.WithProperty("allocatable_prefix_length", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IP address range, in CIDR format, represented by this public delegated prefix.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpCidrRange
+    public TerraformProperty<string>? IpCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range");
+        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
     }
 
     /// <summary>
     /// If true, the prefix will be live migrated.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsLiveMigration
+    public TerraformProperty<bool>? IsLiveMigration
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_live_migration");
+        get => GetProperty<TerraformProperty<bool>>("is_live_migration");
         set => this.WithProperty("is_live_migration", value);
     }
 
@@ -67,9 +67,9 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// Specifies the mode of this IPv6 PDP. MODE must be one of: DELEGATION,
     /// EXTERNAL_IPV6_FORWARDING_RULE_CREATION and EXTERNAL_IPV6_SUBNETWORK_CREATION. Possible values: [&amp;quot;DELEGATION&amp;quot;, &amp;quot;EXTERNAL_IPV6_FORWARDING_RULE_CREATION&amp;quot;, &amp;quot;EXTERNAL_IPV6_SUBNETWORK_CREATION&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Mode
+    public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
@@ -81,36 +81,36 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentPrefix
+    public TerraformProperty<string>? ParentPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_prefix");
+        get => GetProperty<TerraformProperty<string>>("parent_prefix");
         set => this.WithProperty("parent_prefix", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A region where the prefix will reside.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -22,36 +22,36 @@ public class GoogleBillingSubaccount : TerraformResource
     /// <summary>
     /// The deletion_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The master_billing_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MasterBillingAccount
+    public TerraformProperty<string>? MasterBillingAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("master_billing_account");
+        get => GetProperty<TerraformProperty<string>>("master_billing_account");
         set => this.WithProperty("master_billing_account", value);
     }
 

@@ -23,9 +23,9 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -34,27 +34,27 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// projects/[PROJECT]/notes/[NOTE_ID]. This field can be used as a
     /// filter in list requests.
     /// </summary>
-    public TerraformLiteralProperty<string>? NoteName
+    public TerraformProperty<string>? NoteName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("note_name");
+        get => GetProperty<TerraformProperty<string>>("note_name");
         set => this.WithProperty("note_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A description of actions that can be taken to remedy the note.
     /// </summary>
-    public TerraformLiteralProperty<string>? Remediation
+    public TerraformProperty<string>? Remediation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remediation");
+        get => GetProperty<TerraformProperty<string>>("remediation");
         set => this.WithProperty("remediation", value);
     }
 
@@ -63,9 +63,9 @@ public class GoogleContainerAnalysisOccurrence : TerraformResource
     /// the occurrence applies. For example,
     /// https://gcr.io/project/image@sha256:123abc for a Docker image.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceUri
+    public TerraformProperty<string>? ResourceUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_uri");
+        get => GetProperty<TerraformProperty<string>>("resource_uri");
         set => this.WithProperty("resource_uri", value);
     }
 

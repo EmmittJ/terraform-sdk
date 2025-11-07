@@ -19,36 +19,36 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcRegion
+    public TerraformProperty<string>? VpcRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_region");
+        get => GetProperty<TerraformProperty<string>>("vpc_region");
         set => this.WithProperty("vpc_region", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ZoneId
+    public TerraformProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        get => GetProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

@@ -19,63 +19,63 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_watcher_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkWatcherId
+    public TerraformProperty<string>? NetworkWatcherId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_watcher_id");
+        get => GetProperty<TerraformProperty<string>>("network_watcher_id");
         set => this.WithProperty("network_watcher_id", value);
     }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Notes
+    public TerraformProperty<string>? Notes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notes");
+        get => GetProperty<TerraformProperty<string>>("notes");
         set => this.WithProperty("notes", value);
     }
 
     /// <summary>
     /// The output_workspace_resource_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? OutputWorkspaceResourceIds
+    public TerraformProperty<HashSet<string>>? OutputWorkspaceResourceIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("output_workspace_resource_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("output_workspace_resource_ids");
         set => this.WithProperty("output_workspace_resource_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

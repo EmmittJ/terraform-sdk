@@ -19,351 +19,351 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The auto_scaling_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoScalingEnabled
+    public TerraformProperty<bool>? AutoScalingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_scaling_enabled");
+        get => GetProperty<TerraformProperty<bool>>("auto_scaling_enabled");
         set => this.WithProperty("auto_scaling_enabled", value);
     }
 
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CapacityReservationGroupId
+    public TerraformProperty<string>? CapacityReservationGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_reservation_group_id");
+        get => GetProperty<TerraformProperty<string>>("capacity_reservation_group_id");
         set => this.WithProperty("capacity_reservation_group_id", value);
     }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EvictionPolicy
+    public TerraformProperty<string>? EvictionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eviction_policy");
+        get => GetProperty<TerraformProperty<string>>("eviction_policy");
         set => this.WithProperty("eviction_policy", value);
     }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? FipsEnabled
+    public TerraformProperty<bool>? FipsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fips_enabled");
+        get => GetProperty<TerraformProperty<bool>>("fips_enabled");
         set => this.WithProperty("fips_enabled", value);
     }
 
     /// <summary>
     /// The gpu_driver attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GpuDriver
+    public TerraformProperty<string>? GpuDriver
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gpu_driver");
+        get => GetProperty<TerraformProperty<string>>("gpu_driver");
         set => this.WithProperty("gpu_driver", value);
     }
 
     /// <summary>
     /// The gpu_instance attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GpuInstance
+    public TerraformProperty<string>? GpuInstance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gpu_instance");
+        get => GetProperty<TerraformProperty<string>>("gpu_instance");
         set => this.WithProperty("gpu_instance", value);
     }
 
     /// <summary>
     /// The host_encryption_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? HostEncryptionEnabled
+    public TerraformProperty<bool>? HostEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("host_encryption_enabled");
+        get => GetProperty<TerraformProperty<bool>>("host_encryption_enabled");
         set => this.WithProperty("host_encryption_enabled", value);
     }
 
     /// <summary>
     /// The host_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostGroupId
+    public TerraformProperty<string>? HostGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_group_id");
+        get => GetProperty<TerraformProperty<string>>("host_group_id");
         set => this.WithProperty("host_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kubelet_disk_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KubeletDiskType
+    public TerraformProperty<string>? KubeletDiskType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubelet_disk_type");
+        get => GetProperty<TerraformProperty<string>>("kubelet_disk_type");
         set => this.WithProperty("kubelet_disk_type", value);
     }
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KubernetesClusterId
+    public TerraformProperty<string>? KubernetesClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("kubernetes_cluster_id");
         set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
     /// <summary>
     /// The max_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxCount
+    public TerraformProperty<double>? MaxCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_count");
+        get => GetProperty<TerraformProperty<double>>("max_count");
         set => this.WithProperty("max_count", value);
     }
 
     /// <summary>
     /// The max_pods attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxPods
+    public TerraformProperty<double>? MaxPods
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_pods");
+        get => GetProperty<TerraformProperty<double>>("max_pods");
         set => this.WithProperty("max_pods", value);
     }
 
     /// <summary>
     /// The min_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinCount
+    public TerraformProperty<double>? MinCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_count");
+        get => GetProperty<TerraformProperty<double>>("min_count");
         set => this.WithProperty("min_count", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Mode
+    public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The node_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NodeCount
+    public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("node_count");
+        get => GetProperty<TerraformProperty<double>>("node_count");
         set => this.WithProperty("node_count", value);
     }
 
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? NodeLabels
+    public TerraformProperty<Dictionary<string, string>>? NodeLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("node_labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("node_labels");
         set => this.WithProperty("node_labels", value);
     }
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? NodePublicIpEnabled
+    public TerraformProperty<bool>? NodePublicIpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("node_public_ip_enabled");
+        get => GetProperty<TerraformProperty<bool>>("node_public_ip_enabled");
         set => this.WithProperty("node_public_ip_enabled", value);
     }
 
     /// <summary>
     /// The node_public_ip_prefix_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NodePublicIpPrefixId
+    public TerraformProperty<string>? NodePublicIpPrefixId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_public_ip_prefix_id");
+        get => GetProperty<TerraformProperty<string>>("node_public_ip_prefix_id");
         set => this.WithProperty("node_public_ip_prefix_id", value);
     }
 
     /// <summary>
     /// The node_taints attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? NodeTaints
+    public TerraformProperty<List<string>>? NodeTaints
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("node_taints");
+        get => GetProperty<TerraformProperty<List<string>>>("node_taints");
         set => this.WithProperty("node_taints", value);
     }
 
     /// <summary>
     /// The orchestrator_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrchestratorVersion
+    public TerraformProperty<string>? OrchestratorVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("orchestrator_version");
+        get => GetProperty<TerraformProperty<string>>("orchestrator_version");
         set => this.WithProperty("orchestrator_version", value);
     }
 
     /// <summary>
     /// The os_disk_size_gb attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? OsDiskSizeGb
+    public TerraformProperty<double>? OsDiskSizeGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("os_disk_size_gb");
+        get => GetProperty<TerraformProperty<double>>("os_disk_size_gb");
         set => this.WithProperty("os_disk_size_gb", value);
     }
 
     /// <summary>
     /// The os_disk_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OsDiskType
+    public TerraformProperty<string>? OsDiskType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("os_disk_type");
+        get => GetProperty<TerraformProperty<string>>("os_disk_type");
         set => this.WithProperty("os_disk_type", value);
     }
 
     /// <summary>
     /// The os_sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OsSku
+    public TerraformProperty<string>? OsSku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("os_sku");
+        get => GetProperty<TerraformProperty<string>>("os_sku");
         set => this.WithProperty("os_sku", value);
     }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OsType
+    public TerraformProperty<string>? OsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("os_type");
+        get => GetProperty<TerraformProperty<string>>("os_type");
         set => this.WithProperty("os_type", value);
     }
 
     /// <summary>
     /// The pod_subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PodSubnetId
+    public TerraformProperty<string>? PodSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pod_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("pod_subnet_id");
         set => this.WithProperty("pod_subnet_id", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Priority
+    public TerraformProperty<string>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("priority");
+        get => GetProperty<TerraformProperty<string>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProximityPlacementGroupId
+    public TerraformProperty<string>? ProximityPlacementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proximity_placement_group_id");
+        get => GetProperty<TerraformProperty<string>>("proximity_placement_group_id");
         set => this.WithProperty("proximity_placement_group_id", value);
     }
 
     /// <summary>
     /// The scale_down_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScaleDownMode
+    public TerraformProperty<string>? ScaleDownMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scale_down_mode");
+        get => GetProperty<TerraformProperty<string>>("scale_down_mode");
         set => this.WithProperty("scale_down_mode", value);
     }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SnapshotId
+    public TerraformProperty<string>? SnapshotId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_id");
+        get => GetProperty<TerraformProperty<string>>("snapshot_id");
         set => this.WithProperty("snapshot_id", value);
     }
 
     /// <summary>
     /// The spot_max_price attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SpotMaxPrice
+    public TerraformProperty<double>? SpotMaxPrice
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("spot_max_price");
+        get => GetProperty<TerraformProperty<double>>("spot_max_price");
         set => this.WithProperty("spot_max_price", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The temporary_name_for_rotation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemporaryNameForRotation
+    public TerraformProperty<string>? TemporaryNameForRotation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("temporary_name_for_rotation");
+        get => GetProperty<TerraformProperty<string>>("temporary_name_for_rotation");
         set => this.WithProperty("temporary_name_for_rotation", value);
     }
 
     /// <summary>
     /// The ultra_ssd_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UltraSsdEnabled
+    public TerraformProperty<bool>? UltraSsdEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ultra_ssd_enabled");
+        get => GetProperty<TerraformProperty<bool>>("ultra_ssd_enabled");
         set => this.WithProperty("ultra_ssd_enabled", value);
     }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VmSize
+    public TerraformProperty<string>? VmSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vm_size");
+        get => GetProperty<TerraformProperty<string>>("vm_size");
         set => this.WithProperty("vm_size", value);
     }
 
     /// <summary>
     /// The vnet_subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VnetSubnetId
+    public TerraformProperty<string>? VnetSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vnet_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("vnet_subnet_id");
         set => this.WithProperty("vnet_subnet_id", value);
     }
 
     /// <summary>
     /// The workload_runtime attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkloadRuntime
+    public TerraformProperty<string>? WorkloadRuntime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_runtime");
+        get => GetProperty<TerraformProperty<string>>("workload_runtime");
         set => this.WithProperty("workload_runtime", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Zones
+    public TerraformProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("zones");
         set => this.WithProperty("zones", value);
     }
 

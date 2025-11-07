@@ -24,36 +24,36 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// <summary>
     /// Reference to a SecurityProfile with the CustomIntercept configuration.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomInterceptProfile
+    public TerraformProperty<string>? CustomInterceptProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_intercept_profile");
+        get => GetProperty<TerraformProperty<string>>("custom_intercept_profile");
         set => this.WithProperty("custom_intercept_profile", value);
     }
 
     /// <summary>
     /// Reference to a SecurityProfile with the custom mirroring configuration for the SecurityProfileGroup.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomMirroringProfile
+    public TerraformProperty<string>? CustomMirroringProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_mirroring_profile");
+        get => GetProperty<TerraformProperty<string>>("custom_mirroring_profile");
         set => this.WithProperty("custom_mirroring_profile", value);
     }
 
     /// <summary>
     /// An optional description of the profile. The Max length is 512 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -64,9 +64,9 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -74,18 +74,18 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// The location of the security profile group.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the security profile group resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -93,18 +93,18 @@ public class GoogleNetworkSecuritySecurityProfileGroup : TerraformResource
     /// The name of the parent this security profile group belongs to.
     /// Format: organizations/{organization_id}.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Reference to a SecurityProfile with the threat prevention configuration for the SecurityProfileGroup.
     /// </summary>
-    public TerraformLiteralProperty<string>? ThreatPreventionProfile
+    public TerraformProperty<string>? ThreatPreventionProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("threat_prevention_profile");
+        get => GetProperty<TerraformProperty<string>>("threat_prevention_profile");
         set => this.WithProperty("threat_prevention_profile", value);
     }
 

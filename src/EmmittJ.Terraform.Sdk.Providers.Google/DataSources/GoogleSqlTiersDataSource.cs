@@ -20,18 +20,18 @@ public class GoogleSqlTiersDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Project ID of the project for which to list tiers.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

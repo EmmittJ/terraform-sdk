@@ -19,108 +19,108 @@ public class AzurermMssqlElasticpool : TerraformResource
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnclaveType
+    public TerraformProperty<string>? EnclaveType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enclave_type");
+        get => GetProperty<TerraformProperty<string>>("enclave_type");
         set => this.WithProperty("enclave_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LicenseType
+    public TerraformProperty<string>? LicenseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_type");
+        get => GetProperty<TerraformProperty<string>>("license_type");
         set => this.WithProperty("license_type", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenanceConfigurationName
+    public TerraformProperty<string>? MaintenanceConfigurationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_name");
+        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_name");
         set => this.WithProperty("maintenance_configuration_name", value);
     }
 
     /// <summary>
     /// The max_size_bytes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxSizeBytes
+    public TerraformProperty<double>? MaxSizeBytes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_size_bytes");
+        get => GetProperty<TerraformProperty<double>>("max_size_bytes");
         set => this.WithProperty("max_size_bytes", value);
     }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxSizeGb
+    public TerraformProperty<double>? MaxSizeGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_size_gb");
+        get => GetProperty<TerraformProperty<double>>("max_size_gb");
         set => this.WithProperty("max_size_gb", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerName
+    public TerraformProperty<string>? ServerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_name");
+        get => GetProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZoneRedundant
+    public TerraformProperty<bool>? ZoneRedundant
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundant");
+        get => GetProperty<TerraformProperty<bool>>("zone_redundant");
         set => this.WithProperty("zone_redundant", value);
     }
 

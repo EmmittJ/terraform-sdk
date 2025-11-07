@@ -26,180 +26,180 @@ public class AzurermRedisCache : TerraformResource
     /// <summary>
     /// The access_keys_authentication_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AccessKeysAuthenticationEnabled
+    public TerraformProperty<bool>? AccessKeysAuthenticationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("access_keys_authentication_enabled");
+        get => GetProperty<TerraformProperty<bool>>("access_keys_authentication_enabled");
         set => this.WithProperty("access_keys_authentication_enabled", value);
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Capacity
+    public TerraformProperty<double>? Capacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("capacity");
+        get => GetProperty<TerraformProperty<double>>("capacity");
         set => this.WithProperty("capacity", value);
     }
 
     /// <summary>
     /// The family attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Family
+    public TerraformProperty<string>? Family
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("family");
+        get => GetProperty<TerraformProperty<string>>("family");
         set => this.WithProperty("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The minimum_tls_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MinimumTlsVersion
+    public TerraformProperty<string>? MinimumTlsVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("minimum_tls_version");
+        get => GetProperty<TerraformProperty<string>>("minimum_tls_version");
         set => this.WithProperty("minimum_tls_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The non_ssl_port_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? NonSslPortEnabled
+    public TerraformProperty<bool>? NonSslPortEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("non_ssl_port_enabled");
+        get => GetProperty<TerraformProperty<bool>>("non_ssl_port_enabled");
         set => this.WithProperty("non_ssl_port_enabled", value);
     }
 
     /// <summary>
     /// The private_static_ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateStaticIpAddress
+    public TerraformProperty<string>? PrivateStaticIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_static_ip_address");
+        get => GetProperty<TerraformProperty<string>>("private_static_ip_address");
         set => this.WithProperty("private_static_ip_address", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The redis_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RedisVersion
+    public TerraformProperty<string>? RedisVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redis_version");
+        get => GetProperty<TerraformProperty<string>>("redis_version");
         set => this.WithProperty("redis_version", value);
     }
 
     /// <summary>
     /// The replicas_per_master attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicasPerMaster
+    public TerraformProperty<double>? ReplicasPerMaster
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replicas_per_master");
+        get => GetProperty<TerraformProperty<double>>("replicas_per_master");
         set => this.WithProperty("replicas_per_master", value);
     }
 
     /// <summary>
     /// The replicas_per_primary attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicasPerPrimary
+    public TerraformProperty<double>? ReplicasPerPrimary
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replicas_per_primary");
+        get => GetProperty<TerraformProperty<double>>("replicas_per_primary");
         set => this.WithProperty("replicas_per_primary", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ShardCount
+    public TerraformProperty<double>? ShardCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("shard_count");
+        get => GetProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tenant_settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TenantSettings
+    public TerraformProperty<Dictionary<string, string>>? TenantSettings
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tenant_settings");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tenant_settings");
         set => this.WithProperty("tenant_settings", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Zones
+    public TerraformProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("zones");
         set => this.WithProperty("zones", value);
     }
 

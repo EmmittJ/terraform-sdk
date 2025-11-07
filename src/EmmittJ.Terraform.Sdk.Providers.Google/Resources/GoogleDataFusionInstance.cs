@@ -30,63 +30,63 @@ public class GoogleDataFusionInstance : TerraformResource
     /// <summary>
     /// User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run data processing pipelines.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataprocServiceAccount
+    public TerraformProperty<string>? DataprocServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataproc_service_account");
+        get => GetProperty<TerraformProperty<string>>("dataproc_service_account");
         set => this.WithProperty("dataproc_service_account", value);
     }
 
     /// <summary>
     /// An optional description of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Display name for an instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Option to enable granular role-based access control.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableRbac
+    public TerraformProperty<bool>? EnableRbac
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_rbac");
+        get => GetProperty<TerraformProperty<bool>>("enable_rbac");
         set => this.WithProperty("enable_rbac", value);
     }
 
     /// <summary>
     /// Option to enable Stackdriver Logging.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableStackdriverLogging
+    public TerraformProperty<bool>? EnableStackdriverLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_stackdriver_logging");
+        get => GetProperty<TerraformProperty<bool>>("enable_stackdriver_logging");
         set => this.WithProperty("enable_stackdriver_logging", value);
     }
 
     /// <summary>
     /// Option to enable Stackdriver Monitoring.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableStackdriverMonitoring
+    public TerraformProperty<bool>? EnableStackdriverMonitoring
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_stackdriver_monitoring");
+        get => GetProperty<TerraformProperty<bool>>("enable_stackdriver_monitoring");
         set => this.WithProperty("enable_stackdriver_monitoring", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -98,27 +98,27 @@ public class GoogleDataFusionInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Map of additional options used to configure the behavior of Data Fusion instance.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Options
+    public TerraformProperty<Dictionary<string, string>>? Options
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("options");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("options");
         set => this.WithProperty("options", value);
     }
 
@@ -127,27 +127,27 @@ public class GoogleDataFusionInstance : TerraformResource
     /// true, all Data Fusion nodes will have private IP addresses and will not be
     /// able to access the public internet.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrivateInstance
+    public TerraformProperty<bool>? PrivateInstance
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_instance");
+        get => GetProperty<TerraformProperty<bool>>("private_instance");
         set => this.WithProperty("private_instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region of the Data Fusion instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -157,9 +157,9 @@ public class GoogleDataFusionInstance : TerraformResource
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -175,27 +175,27 @@ public class GoogleDataFusionInstance : TerraformResource
     /// with restrictive capabilities. This is to help enterprises design and develop their data ingestion and integration
     /// pipelines at low cost. Possible values: [&amp;quot;BASIC&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;DEVELOPER&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// Current version of the Data Fusion.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 
     /// <summary>
     /// Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances use this field.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

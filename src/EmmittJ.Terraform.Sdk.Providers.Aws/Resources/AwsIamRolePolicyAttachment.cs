@@ -19,27 +19,27 @@ public class AwsIamRolePolicyAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyArn
+    public TerraformProperty<string>? PolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_arn");
+        get => GetProperty<TerraformProperty<string>>("policy_arn");
         set => this.WithProperty("policy_arn", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

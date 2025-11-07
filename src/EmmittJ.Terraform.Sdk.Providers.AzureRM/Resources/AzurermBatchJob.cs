@@ -19,63 +19,63 @@ public class AzurermBatchJob : TerraformResource
     /// <summary>
     /// The batch_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BatchPoolId
+    public TerraformProperty<string>? BatchPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("batch_pool_id");
+        get => GetProperty<TerraformProperty<string>>("batch_pool_id");
         set => this.WithProperty("batch_pool_id", value);
     }
 
     /// <summary>
     /// The common_environment_properties attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? CommonEnvironmentProperties
+    public TerraformProperty<Dictionary<string, string>>? CommonEnvironmentProperties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("common_environment_properties");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("common_environment_properties");
         set => this.WithProperty("common_environment_properties", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The task_retry_maximum attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TaskRetryMaximum
+    public TerraformProperty<double>? TaskRetryMaximum
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("task_retry_maximum");
+        get => GetProperty<TerraformProperty<double>>("task_retry_maximum");
         set => this.WithProperty("task_retry_maximum", value);
     }
 

@@ -19,63 +19,63 @@ public class AzurermStorageDataLakeGen2Path : TerraformResource
     /// <summary>
     /// The filesystem_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FilesystemName
+    public TerraformProperty<string>? FilesystemName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filesystem_name");
+        get => GetProperty<TerraformProperty<string>>("filesystem_name");
         set => this.WithProperty("filesystem_name", value);
     }
 
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Group
+    public TerraformProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Owner
+    public TerraformProperty<string>? Owner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner");
+        get => GetProperty<TerraformProperty<string>>("owner");
         set => this.WithProperty("owner", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Path
+    public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path");
+        get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
     }
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Resource
+    public TerraformProperty<string>? Resource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource");
+        get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

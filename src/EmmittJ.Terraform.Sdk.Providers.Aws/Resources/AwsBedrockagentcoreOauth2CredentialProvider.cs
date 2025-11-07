@@ -21,27 +21,27 @@ public class AwsBedrockagentcoreOauth2CredentialProvider : TerraformResource
     /// <summary>
     /// The credential_provider_vendor attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CredentialProviderVendor
+    public TerraformProperty<string>? CredentialProviderVendor
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("credential_provider_vendor");
+        get => GetProperty<TerraformProperty<string>>("credential_provider_vendor");
         set => this.WithProperty("credential_provider_vendor", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -20,27 +20,27 @@ public class AzurermEventhubSasDataSource : TerraformDataSource
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionString
+    public TerraformProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Expiry
+    public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiry");
+        get => GetProperty<TerraformProperty<string>>("expiry");
         set => this.WithProperty("expiry", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

@@ -24,45 +24,45 @@ public class GoogleArtifactRegistryNpmPackageDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The region of the Artifact Registry repository.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the Npm package.
     /// </summary>
-    public TerraformLiteralProperty<string>? PackageName
+    public TerraformProperty<string>? PackageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_name");
+        get => GetProperty<TerraformProperty<string>>("package_name");
         set => this.WithProperty("package_name", value);
     }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The repository ID containing the Npm package.
     /// </summary>
-    public TerraformLiteralProperty<string>? RepositoryId
+    public TerraformProperty<string>? RepositoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_id");
+        get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 

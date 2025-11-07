@@ -19,36 +19,36 @@ public class AzurermCosmosdbSqlDedicatedGateway : TerraformResource
     /// <summary>
     /// The cosmosdb_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CosmosdbAccountId
+    public TerraformProperty<string>? CosmosdbAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_account_id");
+        get => GetProperty<TerraformProperty<string>>("cosmosdb_account_id");
         set => this.WithProperty("cosmosdb_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? InstanceCount
+    public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        get => GetProperty<TerraformProperty<double>>("instance_count");
         set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The instance_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceSize
+    public TerraformProperty<string>? InstanceSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_size");
+        get => GetProperty<TerraformProperty<string>>("instance_size");
         set => this.WithProperty("instance_size", value);
     }
 

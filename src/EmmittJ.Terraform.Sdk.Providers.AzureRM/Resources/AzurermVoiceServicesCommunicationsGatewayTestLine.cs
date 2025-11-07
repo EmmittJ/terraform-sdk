@@ -19,63 +19,63 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLine : TerraformResour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PhoneNumber
+    public TerraformProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("phone_number");
+        get => GetProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
     }
 
     /// <summary>
     /// The purpose attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Purpose
+    public TerraformProperty<string>? Purpose
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("purpose");
+        get => GetProperty<TerraformProperty<string>>("purpose");
         set => this.WithProperty("purpose", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The voice_services_communications_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VoiceServicesCommunicationsGatewayId
+    public TerraformProperty<string>? VoiceServicesCommunicationsGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("voice_services_communications_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("voice_services_communications_gateway_id");
         set => this.WithProperty("voice_services_communications_gateway_id", value);
     }
 

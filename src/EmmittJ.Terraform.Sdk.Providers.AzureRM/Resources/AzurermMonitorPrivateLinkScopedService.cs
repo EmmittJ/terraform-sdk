@@ -19,45 +19,45 @@ public class AzurermMonitorPrivateLinkScopedService : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The linked_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LinkedResourceId
+    public TerraformProperty<string>? LinkedResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("linked_resource_id");
+        get => GetProperty<TerraformProperty<string>>("linked_resource_id");
         set => this.WithProperty("linked_resource_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scope_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScopeName
+    public TerraformProperty<string>? ScopeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_name");
+        get => GetProperty<TerraformProperty<string>>("scope_name");
         set => this.WithProperty("scope_name", value);
     }
 

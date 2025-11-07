@@ -25,27 +25,27 @@ public class GoogleProjectOrganizationPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
-    public TerraformLiteralProperty<string>? Constraint
+    public TerraformProperty<string>? Constraint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("constraint");
+        get => GetProperty<TerraformProperty<string>>("constraint");
         set => this.WithProperty("constraint", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

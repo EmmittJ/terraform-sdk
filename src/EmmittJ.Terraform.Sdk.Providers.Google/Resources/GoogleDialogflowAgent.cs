@@ -25,9 +25,9 @@ public class GoogleDialogflowAgent : TerraformResource
     /// * API_VERSION_V2: V2 API.
     /// * API_VERSION_V2_BETA_1: V2beta1 API. Possible values: [&amp;quot;API_VERSION_V1&amp;quot;, &amp;quot;API_VERSION_V2&amp;quot;, &amp;quot;API_VERSION_V2_BETA_1&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiVersion
+    public TerraformProperty<string>? ApiVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_version");
+        get => GetProperty<TerraformProperty<string>>("api_version");
         set => this.WithProperty("api_version", value);
     }
 
@@ -36,9 +36,9 @@ public class GoogleDialogflowAgent : TerraformResource
     /// into this field, the Dialogflow will save the image in the backend. The address of the backend image returned
     /// from the API will be shown in the [avatarUriBackend] field.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvatarUri
+    public TerraformProperty<string>? AvatarUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("avatar_uri");
+        get => GetProperty<TerraformProperty<string>>("avatar_uri");
         set => this.WithProperty("avatar_uri", value);
     }
 
@@ -49,9 +49,9 @@ public class GoogleDialogflowAgent : TerraformResource
     /// triggered. The score values range from 0.0 (completely uncertain) to 1.0 (completely certain). If set to 0.0, the
     /// default of 0.3 is used.
     /// </summary>
-    public TerraformLiteralProperty<double>? ClassificationThreshold
+    public TerraformProperty<double>? ClassificationThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("classification_threshold");
+        get => GetProperty<TerraformProperty<double>>("classification_threshold");
         set => this.WithProperty("classification_threshold", value);
     }
 
@@ -59,45 +59,45 @@ public class GoogleDialogflowAgent : TerraformResource
     /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/docs/reference/language)
     /// for a list of the currently supported language codes. This field cannot be updated after creation.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultLanguageCode
+    public TerraformProperty<string>? DefaultLanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_language_code");
+        get => GetProperty<TerraformProperty<string>>("default_language_code");
         set => this.WithProperty("default_language_code", value);
     }
 
     /// <summary>
     /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name of this agent.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Determines whether this agent should log conversation queries.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableLogging
+    public TerraformProperty<bool>? EnableLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging");
+        get => GetProperty<TerraformProperty<bool>>("enable_logging");
         set => this.WithProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -108,27 +108,27 @@ public class GoogleDialogflowAgent : TerraformResource
     /// * MATCH_MODE_ML_ONLY: Can be used for agents with a large number of examples in intents, especially the ones
     /// using @sys.any or very large developer entities. Possible values: [&amp;quot;MATCH_MODE_HYBRID&amp;quot;, &amp;quot;MATCH_MODE_ML_ONLY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? MatchMode
+    public TerraformProperty<string>? MatchMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("match_mode");
+        get => GetProperty<TerraformProperty<string>>("match_mode");
         set => this.WithProperty("match_mode", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The list of all languages supported by this agent (except for the defaultLanguageCode).
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SupportedLanguageCodes
+    public TerraformProperty<List<string>>? SupportedLanguageCodes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("supported_language_codes");
+        get => GetProperty<TerraformProperty<List<string>>>("supported_language_codes");
         set => this.WithProperty("supported_language_codes", value);
     }
 
@@ -140,9 +140,9 @@ public class GoogleDialogflowAgent : TerraformResource
     /// NOTE: Due to consistency issues, the provider will not read this field from the API. Drift is possible between
     /// the Terraform state and Dialogflow if the agent tier is changed outside of Terraform. Possible values: [&amp;quot;TIER_STANDARD&amp;quot;, &amp;quot;TIER_ENTERPRISE&amp;quot;, &amp;quot;TIER_ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Tier
+    public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        get => GetProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 
@@ -150,9 +150,9 @@ public class GoogleDialogflowAgent : TerraformResource
     /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
     /// Europe/Paris.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeZone
+    public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        get => GetProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 

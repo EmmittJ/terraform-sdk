@@ -24,81 +24,81 @@ public class AwsS3BucketObjectsDataSource : TerraformDataSource
     /// The bucket attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The delimiter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Delimiter
+    public TerraformProperty<string>? Delimiter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delimiter");
+        get => GetProperty<TerraformProperty<string>>("delimiter");
         set => this.WithProperty("delimiter", value);
     }
 
     /// <summary>
     /// The encoding_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EncodingType
+    public TerraformProperty<string>? EncodingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encoding_type");
+        get => GetProperty<TerraformProperty<string>>("encoding_type");
         set => this.WithProperty("encoding_type", value);
     }
 
     /// <summary>
     /// The fetch_owner attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? FetchOwner
+    public TerraformProperty<bool>? FetchOwner
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fetch_owner");
+        get => GetProperty<TerraformProperty<bool>>("fetch_owner");
         set => this.WithProperty("fetch_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_keys attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxKeys
+    public TerraformProperty<double>? MaxKeys
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_keys");
+        get => GetProperty<TerraformProperty<double>>("max_keys");
         set => this.WithProperty("max_keys", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Prefix
+    public TerraformProperty<string>? Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("prefix");
+        get => GetProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The start_after attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartAfter
+    public TerraformProperty<string>? StartAfter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_after");
+        get => GetProperty<TerraformProperty<string>>("start_after");
         set => this.WithProperty("start_after", value);
     }
 

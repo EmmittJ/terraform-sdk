@@ -19,36 +19,36 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn : TerraformR
     /// <summary>
     /// The destination_fqdn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationFqdn
+    public TerraformProperty<string>? DestinationFqdn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_fqdn");
+        get => GetProperty<TerraformProperty<string>>("destination_fqdn");
         set => this.WithProperty("destination_fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceId
+    public TerraformProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

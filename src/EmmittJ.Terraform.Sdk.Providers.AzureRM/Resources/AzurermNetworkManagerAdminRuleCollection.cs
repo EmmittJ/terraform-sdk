@@ -19,45 +19,45 @@ public class AzurermNetworkManagerAdminRuleCollection : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? NetworkGroupIds
+    public TerraformProperty<List<string>>? NetworkGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("network_group_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("network_group_ids");
         set => this.WithProperty("network_group_ids", value);
     }
 
     /// <summary>
     /// The security_admin_configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecurityAdminConfigurationId
+    public TerraformProperty<string>? SecurityAdminConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_admin_configuration_id");
+        get => GetProperty<TerraformProperty<string>>("security_admin_configuration_id");
         set => this.WithProperty("security_admin_configuration_id", value);
     }
 

@@ -19,72 +19,72 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupPolicyId
+    public TerraformProperty<string>? BackupPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_policy_id");
+        get => GetProperty<TerraformProperty<string>>("backup_policy_id");
         set => this.WithProperty("backup_policy_id", value);
     }
 
     /// <summary>
     /// The exclude_disk_luns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<double>>? ExcludeDiskLuns
+    public TerraformProperty<HashSet<double>>? ExcludeDiskLuns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("exclude_disk_luns");
+        get => GetProperty<TerraformProperty<HashSet<double>>>("exclude_disk_luns");
         set => this.WithProperty("exclude_disk_luns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_disk_luns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<double>>? IncludeDiskLuns
+    public TerraformProperty<HashSet<double>>? IncludeDiskLuns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("include_disk_luns");
+        get => GetProperty<TerraformProperty<HashSet<double>>>("include_disk_luns");
         set => this.WithProperty("include_disk_luns", value);
     }
 
     /// <summary>
     /// The protection_state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtectionState
+    public TerraformProperty<string>? ProtectionState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protection_state");
+        get => GetProperty<TerraformProperty<string>>("protection_state");
         set => this.WithProperty("protection_state", value);
     }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryVaultName
+    public TerraformProperty<string>? RecoveryVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name");
+        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceVmId
+    public TerraformProperty<string>? SourceVmId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_vm_id");
+        get => GetProperty<TerraformProperty<string>>("source_vm_id");
         set => this.WithProperty("source_vm_id", value);
     }
 

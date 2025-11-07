@@ -19,9 +19,9 @@ public class GoogleAccessContextManagerAccessLevels : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -29,9 +29,9 @@ public class GoogleAccessContextManagerAccessLevels : TerraformResource
     /// The AccessPolicy this AccessLevel lives in.
     /// Format: accessPolicies/{policy_id}
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

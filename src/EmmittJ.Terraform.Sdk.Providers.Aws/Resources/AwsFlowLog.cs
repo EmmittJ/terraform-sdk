@@ -20,144 +20,144 @@ public class AwsFlowLog : TerraformResource
     /// <summary>
     /// The deliver_cross_account_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeliverCrossAccountRole
+    public TerraformProperty<string>? DeliverCrossAccountRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deliver_cross_account_role");
+        get => GetProperty<TerraformProperty<string>>("deliver_cross_account_role");
         set => this.WithProperty("deliver_cross_account_role", value);
     }
 
     /// <summary>
     /// The eni_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EniId
+    public TerraformProperty<string>? EniId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eni_id");
+        get => GetProperty<TerraformProperty<string>>("eni_id");
         set => this.WithProperty("eni_id", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_destination attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogDestination
+    public TerraformProperty<string>? LogDestination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_destination");
+        get => GetProperty<TerraformProperty<string>>("log_destination");
         set => this.WithProperty("log_destination", value);
     }
 
     /// <summary>
     /// The log_destination_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogDestinationType
+    public TerraformProperty<string>? LogDestinationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_destination_type");
+        get => GetProperty<TerraformProperty<string>>("log_destination_type");
         set => this.WithProperty("log_destination_type", value);
     }
 
     /// <summary>
     /// The log_format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogFormat
+    public TerraformProperty<string>? LogFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_format");
+        get => GetProperty<TerraformProperty<string>>("log_format");
         set => this.WithProperty("log_format", value);
     }
 
     /// <summary>
     /// The max_aggregation_interval attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxAggregationInterval
+    public TerraformProperty<double>? MaxAggregationInterval
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_aggregation_interval");
+        get => GetProperty<TerraformProperty<double>>("max_aggregation_interval");
         set => this.WithProperty("max_aggregation_interval", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The traffic_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrafficType
+    public TerraformProperty<string>? TrafficType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_type");
+        get => GetProperty<TerraformProperty<string>>("traffic_type");
         set => this.WithProperty("traffic_type", value);
     }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayAttachmentId
+    public TerraformProperty<string>? TransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
         set => this.WithProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayId
+    public TerraformProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

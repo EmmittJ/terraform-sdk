@@ -30,9 +30,9 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// When the field is set to true in Terraform state, a &#39;terraform apply&#39;
     /// or &#39;terraform destroy&#39; that would delete the federation will fail.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
@@ -41,18 +41,18 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between
     /// 3 and 63 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? FederationId
+    public TerraformProperty<string>? FederationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("federation_id");
+        get => GetProperty<TerraformProperty<string>>("federation_id");
         set => this.WithProperty("federation_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -62,27 +62,27 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the metastore federation should reside.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -91,18 +91,18 @@ public class GoogleDataprocMetastoreFederation : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The Apache Hive metastore version of the federation. All backend metastore versions must be compatible with the federation version.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

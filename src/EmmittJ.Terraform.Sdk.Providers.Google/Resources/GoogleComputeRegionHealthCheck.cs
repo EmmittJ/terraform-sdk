@@ -24,9 +24,9 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// How often (in seconds) to send a health check. The default value is 5
     /// seconds.
     /// </summary>
-    public TerraformLiteralProperty<double>? CheckIntervalSec
+    public TerraformProperty<double>? CheckIntervalSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("check_interval_sec");
+        get => GetProperty<TerraformProperty<double>>("check_interval_sec");
         set => this.WithProperty("check_interval_sec", value);
     }
 
@@ -34,9 +34,9 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -44,18 +44,18 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
-    public TerraformLiteralProperty<double>? HealthyThreshold
+    public TerraformProperty<double>? HealthyThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("healthy_threshold");
+        get => GetProperty<TerraformProperty<double>>("healthy_threshold");
         set => this.WithProperty("healthy_threshold", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -68,18 +68,18 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -87,9 +87,9 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// The Region in which the created health check should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -98,9 +98,9 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// The default value is 5 seconds.  It is invalid for timeoutSec to have
     /// greater value than checkIntervalSec.
     /// </summary>
-    public TerraformLiteralProperty<double>? TimeoutSec
+    public TerraformProperty<double>? TimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("timeout_sec");
+        get => GetProperty<TerraformProperty<double>>("timeout_sec");
         set => this.WithProperty("timeout_sec", value);
     }
 
@@ -108,9 +108,9 @@ public class GoogleComputeRegionHealthCheck : TerraformResource
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
-    public TerraformLiteralProperty<double>? UnhealthyThreshold
+    public TerraformProperty<double>? UnhealthyThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("unhealthy_threshold");
+        get => GetProperty<TerraformProperty<double>>("unhealthy_threshold");
         set => this.WithProperty("unhealthy_threshold", value);
     }
 

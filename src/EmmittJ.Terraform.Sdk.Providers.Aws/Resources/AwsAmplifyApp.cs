@@ -22,189 +22,189 @@ public class AwsAmplifyApp : TerraformResource
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessToken
+    public TerraformProperty<string>? AccessToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_token");
+        get => GetProperty<TerraformProperty<string>>("access_token");
         set => this.WithProperty("access_token", value);
     }
 
     /// <summary>
     /// The auto_branch_creation_patterns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AutoBranchCreationPatterns
+    public TerraformProperty<HashSet<string>>? AutoBranchCreationPatterns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("auto_branch_creation_patterns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("auto_branch_creation_patterns");
         set => this.WithProperty("auto_branch_creation_patterns", value);
     }
 
     /// <summary>
     /// The basic_auth_credentials attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BasicAuthCredentials
+    public TerraformProperty<string>? BasicAuthCredentials
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("basic_auth_credentials");
+        get => GetProperty<TerraformProperty<string>>("basic_auth_credentials");
         set => this.WithProperty("basic_auth_credentials", value);
     }
 
     /// <summary>
     /// The build_spec attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BuildSpec
+    public TerraformProperty<string>? BuildSpec
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("build_spec");
+        get => GetProperty<TerraformProperty<string>>("build_spec");
         set => this.WithProperty("build_spec", value);
     }
 
     /// <summary>
     /// The compute_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ComputeRoleArn
+    public TerraformProperty<string>? ComputeRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_role_arn");
+        get => GetProperty<TerraformProperty<string>>("compute_role_arn");
         set => this.WithProperty("compute_role_arn", value);
     }
 
     /// <summary>
     /// The custom_headers attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomHeaders
+    public TerraformProperty<string>? CustomHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_headers");
+        get => GetProperty<TerraformProperty<string>>("custom_headers");
         set => this.WithProperty("custom_headers", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enable_auto_branch_creation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableAutoBranchCreation
+    public TerraformProperty<bool>? EnableAutoBranchCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_auto_branch_creation");
+        get => GetProperty<TerraformProperty<bool>>("enable_auto_branch_creation");
         set => this.WithProperty("enable_auto_branch_creation", value);
     }
 
     /// <summary>
     /// The enable_basic_auth attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableBasicAuth
+    public TerraformProperty<bool>? EnableBasicAuth
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_basic_auth");
+        get => GetProperty<TerraformProperty<bool>>("enable_basic_auth");
         set => this.WithProperty("enable_basic_auth", value);
     }
 
     /// <summary>
     /// The enable_branch_auto_build attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableBranchAutoBuild
+    public TerraformProperty<bool>? EnableBranchAutoBuild
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_branch_auto_build");
+        get => GetProperty<TerraformProperty<bool>>("enable_branch_auto_build");
         set => this.WithProperty("enable_branch_auto_build", value);
     }
 
     /// <summary>
     /// The enable_branch_auto_deletion attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableBranchAutoDeletion
+    public TerraformProperty<bool>? EnableBranchAutoDeletion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_branch_auto_deletion");
+        get => GetProperty<TerraformProperty<bool>>("enable_branch_auto_deletion");
         set => this.WithProperty("enable_branch_auto_deletion", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? EnvironmentVariables
+    public TerraformProperty<Dictionary<string, string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("environment_variables");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The iam_service_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamServiceRoleArn
+    public TerraformProperty<string>? IamServiceRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_service_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_service_role_arn");
         set => this.WithProperty("iam_service_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The oauth_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OauthToken
+    public TerraformProperty<string>? OauthToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oauth_token");
+        get => GetProperty<TerraformProperty<string>>("oauth_token");
         set => this.WithProperty("oauth_token", value);
     }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Platform
+    public TerraformProperty<string>? Platform
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform");
+        get => GetProperty<TerraformProperty<string>>("platform");
         set => this.WithProperty("platform", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Repository
+    public TerraformProperty<string>? Repository
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository");
+        get => GetProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

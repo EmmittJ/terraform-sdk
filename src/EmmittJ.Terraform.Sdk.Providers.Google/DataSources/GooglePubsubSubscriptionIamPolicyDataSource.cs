@@ -21,27 +21,27 @@ public class GooglePubsubSubscriptionIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The subscription attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subscription
+    public TerraformProperty<string>? Subscription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription");
+        get => GetProperty<TerraformProperty<string>>("subscription");
         set => this.WithProperty("subscription", value);
     }
 

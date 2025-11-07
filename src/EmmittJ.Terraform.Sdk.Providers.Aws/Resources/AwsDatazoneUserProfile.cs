@@ -22,45 +22,45 @@ public class AwsDatazoneUserProfile : TerraformResource
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainIdentifier
+    public TerraformProperty<string>? DomainIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_identifier");
+        get => GetProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The user_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserIdentifier
+    public TerraformProperty<string>? UserIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_identifier");
+        get => GetProperty<TerraformProperty<string>>("user_identifier");
         set => this.WithProperty("user_identifier", value);
     }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserType
+    public TerraformProperty<string>? UserType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_type");
+        get => GetProperty<TerraformProperty<string>>("user_type");
         set => this.WithProperty("user_type", value);
     }
 

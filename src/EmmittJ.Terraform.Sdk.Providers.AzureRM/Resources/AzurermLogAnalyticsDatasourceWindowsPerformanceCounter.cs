@@ -19,72 +19,72 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounter : TerraformR
     /// <summary>
     /// The counter_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CounterName
+    public TerraformProperty<string>? CounterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("counter_name");
+        get => GetProperty<TerraformProperty<string>>("counter_name");
         set => this.WithProperty("counter_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceName
+    public TerraformProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// The interval_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? IntervalSeconds
+    public TerraformProperty<double>? IntervalSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("interval_seconds");
+        get => GetProperty<TerraformProperty<double>>("interval_seconds");
         set => this.WithProperty("interval_seconds", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The object_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ObjectName
+    public TerraformProperty<string>? ObjectName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_name");
+        get => GetProperty<TerraformProperty<string>>("object_name");
         set => this.WithProperty("object_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The workspace_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceName
+    public TerraformProperty<string>? WorkspaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_name");
+        get => GetProperty<TerraformProperty<string>>("workspace_name");
         set => this.WithProperty("workspace_name", value);
     }
 

@@ -22,117 +22,117 @@ public class AwsAppstreamImageBuilder : TerraformResource
     /// <summary>
     /// The appstream_agent_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppstreamAgentVersion
+    public TerraformProperty<string>? AppstreamAgentVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("appstream_agent_version");
+        get => GetProperty<TerraformProperty<string>>("appstream_agent_version");
         set => this.WithProperty("appstream_agent_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enable_default_internet_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableDefaultInternetAccess
+    public TerraformProperty<bool>? EnableDefaultInternetAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_default_internet_access");
+        get => GetProperty<TerraformProperty<bool>>("enable_default_internet_access");
         set => this.WithProperty("enable_default_internet_access", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageArn
+    public TerraformProperty<string>? ImageArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_arn");
+        get => GetProperty<TerraformProperty<string>>("image_arn");
         set => this.WithProperty("image_arn", value);
     }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageName
+    public TerraformProperty<string>? ImageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_name");
+        get => GetProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

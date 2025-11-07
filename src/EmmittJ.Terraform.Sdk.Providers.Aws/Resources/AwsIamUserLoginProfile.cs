@@ -22,45 +22,45 @@ public class AwsIamUserLoginProfile : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The password_length attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PasswordLength
+    public TerraformProperty<double>? PasswordLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("password_length");
+        get => GetProperty<TerraformProperty<double>>("password_length");
         set => this.WithProperty("password_length", value);
     }
 
     /// <summary>
     /// The password_reset_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PasswordResetRequired
+    public TerraformProperty<bool>? PasswordResetRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("password_reset_required");
+        get => GetProperty<TerraformProperty<bool>>("password_reset_required");
         set => this.WithProperty("password_reset_required", value);
     }
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PgpKey
+    public TerraformProperty<string>? PgpKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pgp_key");
+        get => GetProperty<TerraformProperty<string>>("pgp_key");
         set => this.WithProperty("pgp_key", value);
     }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? User
+    public TerraformProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

@@ -19,27 +19,27 @@ public class AzurermSubnetRouteTableAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RouteTableId
+    public TerraformProperty<string>? RouteTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_table_id");
+        get => GetProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

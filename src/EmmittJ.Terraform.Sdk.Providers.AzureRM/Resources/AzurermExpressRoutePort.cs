@@ -22,81 +22,81 @@ public class AzurermExpressRoutePort : TerraformResource
     /// <summary>
     /// The bandwidth_in_gbps attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BandwidthInGbps
+    public TerraformProperty<double>? BandwidthInGbps
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("bandwidth_in_gbps");
+        get => GetProperty<TerraformProperty<double>>("bandwidth_in_gbps");
         set => this.WithProperty("bandwidth_in_gbps", value);
     }
 
     /// <summary>
     /// The billing_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingType
+    public TerraformProperty<string>? BillingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_type");
+        get => GetProperty<TerraformProperty<string>>("billing_type");
         set => this.WithProperty("billing_type", value);
     }
 
     /// <summary>
     /// The encapsulation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Encapsulation
+    public TerraformProperty<string>? Encapsulation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encapsulation");
+        get => GetProperty<TerraformProperty<string>>("encapsulation");
         set => this.WithProperty("encapsulation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The peering_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeeringLocation
+    public TerraformProperty<string>? PeeringLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering_location");
+        get => GetProperty<TerraformProperty<string>>("peering_location");
         set => this.WithProperty("peering_location", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

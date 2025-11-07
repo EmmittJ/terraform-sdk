@@ -35,9 +35,9 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     /// In the future, references to other resource types might be allowed if
     /// admin clusters are modeled as their own resources.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdminClusterMembership
+    public TerraformProperty<string>? AdminClusterMembership
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_cluster_membership");
+        get => GetProperty<TerraformProperty<string>>("admin_cluster_membership");
         set => this.WithProperty("admin_cluster_membership", value);
     }
 
@@ -55,99 +55,99 @@ public class GoogleGkeonpremVmwareCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// A human readable description of this VMware User Cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Disable bundled ingress.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableBundledIngress
+    public TerraformProperty<bool>? DisableBundledIngress
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_bundled_ingress");
+        get => GetProperty<TerraformProperty<bool>>("disable_bundled_ingress");
         set => this.WithProperty("disable_bundled_ingress", value);
     }
 
     /// <summary>
     /// Enable advanced cluster. Default to false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableAdvancedCluster
+    public TerraformProperty<bool>? EnableAdvancedCluster
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_advanced_cluster");
+        get => GetProperty<TerraformProperty<bool>>("enable_advanced_cluster");
         set => this.WithProperty("enable_advanced_cluster", value);
     }
 
     /// <summary>
     /// Enable control plane V2. Default to false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableControlPlaneV2
+    public TerraformProperty<bool>? EnableControlPlaneV2
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_control_plane_v2");
+        get => GetProperty<TerraformProperty<bool>>("enable_control_plane_v2");
         set => this.WithProperty("enable_control_plane_v2", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The VMware cluster name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Anthos clusters on the VMware version for your user cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? OnPremVersion
+    public TerraformProperty<string>? OnPremVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("on_prem_version");
+        get => GetProperty<TerraformProperty<string>>("on_prem_version");
         set => this.WithProperty("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Enable VM tracking.
     /// </summary>
-    public TerraformLiteralProperty<bool>? VmTrackingEnabled
+    public TerraformProperty<bool>? VmTrackingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("vm_tracking_enabled");
+        get => GetProperty<TerraformProperty<bool>>("vm_tracking_enabled");
         set => this.WithProperty("vm_tracking_enabled", value);
     }
 

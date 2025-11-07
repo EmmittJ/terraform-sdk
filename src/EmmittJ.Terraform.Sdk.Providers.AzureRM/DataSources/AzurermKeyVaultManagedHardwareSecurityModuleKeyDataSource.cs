@@ -28,27 +28,27 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyDataSource : Terrafo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_hsm_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedHsmId
+    public TerraformProperty<string>? ManagedHsmId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_id");
+        get => GetProperty<TerraformProperty<string>>("managed_hsm_id");
         set => this.WithProperty("managed_hsm_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

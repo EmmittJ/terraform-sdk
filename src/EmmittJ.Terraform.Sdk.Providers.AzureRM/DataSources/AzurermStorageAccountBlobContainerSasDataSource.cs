@@ -20,108 +20,108 @@ public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSour
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CacheControl
+    public TerraformProperty<string>? CacheControl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_control");
+        get => GetProperty<TerraformProperty<string>>("cache_control");
         set => this.WithProperty("cache_control", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionString
+    public TerraformProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerName
+    public TerraformProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        get => GetProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentDisposition
+    public TerraformProperty<string>? ContentDisposition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_disposition");
+        get => GetProperty<TerraformProperty<string>>("content_disposition");
         set => this.WithProperty("content_disposition", value);
     }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentEncoding
+    public TerraformProperty<string>? ContentEncoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_encoding");
+        get => GetProperty<TerraformProperty<string>>("content_encoding");
         set => this.WithProperty("content_encoding", value);
     }
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentLanguage
+    public TerraformProperty<string>? ContentLanguage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_language");
+        get => GetProperty<TerraformProperty<string>>("content_language");
         set => this.WithProperty("content_language", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Expiry
+    public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiry");
+        get => GetProperty<TerraformProperty<string>>("expiry");
         set => this.WithProperty("expiry", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? HttpsOnly
+    public TerraformProperty<bool>? HttpsOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_only");
+        get => GetProperty<TerraformProperty<bool>>("https_only");
         set => this.WithProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddress
+    public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        get => GetProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Start
+    public TerraformProperty<string>? Start
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start");
+        get => GetProperty<TerraformProperty<string>>("start");
         set => this.WithProperty("start", value);
     }
 

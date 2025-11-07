@@ -28,27 +28,27 @@ public class GoogleParameterManagerParameterDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParameterId
+    public TerraformProperty<string>? ParameterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_id");
+        get => GetProperty<TerraformProperty<string>>("parameter_id");
         set => this.WithProperty("parameter_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

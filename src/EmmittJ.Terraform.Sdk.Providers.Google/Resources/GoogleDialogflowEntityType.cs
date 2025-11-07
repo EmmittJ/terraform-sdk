@@ -20,27 +20,27 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// <summary>
     /// The name of this entity type to be displayed on the console.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableFuzzyExtraction
+    public TerraformProperty<bool>? EnableFuzzyExtraction
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_fuzzy_extraction");
+        get => GetProperty<TerraformProperty<bool>>("enable_fuzzy_extraction");
         set => this.WithProperty("enable_fuzzy_extraction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -51,18 +51,18 @@ public class GoogleDialogflowEntityType : TerraformResource
     /// types can contain references to other entity types (with or without aliases).
     /// * KIND_REGEXP: Regexp entity types allow to specify regular expressions in entries values. Possible values: [&amp;quot;KIND_MAP&amp;quot;, &amp;quot;KIND_LIST&amp;quot;, &amp;quot;KIND_REGEXP&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

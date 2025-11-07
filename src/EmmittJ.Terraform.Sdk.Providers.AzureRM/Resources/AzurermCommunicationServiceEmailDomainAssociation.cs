@@ -19,27 +19,27 @@ public class AzurermCommunicationServiceEmailDomainAssociation : TerraformResour
     /// <summary>
     /// The communication_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CommunicationServiceId
+    public TerraformProperty<string>? CommunicationServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("communication_service_id");
+        get => GetProperty<TerraformProperty<string>>("communication_service_id");
         set => this.WithProperty("communication_service_id", value);
     }
 
     /// <summary>
     /// The email_service_domain_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailServiceDomainId
+    public TerraformProperty<string>? EmailServiceDomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_service_domain_id");
+        get => GetProperty<TerraformProperty<string>>("email_service_domain_id");
         set => this.WithProperty("email_service_domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

@@ -26,9 +26,9 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// the deployment will fail. Note that updating this field does not
     /// actually affect the deployment, just how it is updated. Default value: &amp;quot;CREATE_OR_ACQUIRE&amp;quot; Possible values: [&amp;quot;ACQUIRE&amp;quot;, &amp;quot;CREATE_OR_ACQUIRE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? CreatePolicy
+    public TerraformProperty<string>? CreatePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_policy");
+        get => GetProperty<TerraformProperty<string>>("create_policy");
         set => this.WithProperty("create_policy", value);
     }
 
@@ -40,36 +40,36 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// and is not actually deleted. Note that updating this field does not
     /// actually change the deployment, just how it is updated. Default value: &amp;quot;DELETE&amp;quot; Possible values: [&amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletePolicy
+    public TerraformProperty<string>? DeletePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delete_policy");
+        get => GetProperty<TerraformProperty<string>>("delete_policy");
         set => this.WithProperty("delete_policy", value);
     }
 
     /// <summary>
     /// Optional user-provided description of deployment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Unique name for the deployment
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -83,18 +83,18 @@ public class GoogleDeploymentManagerDeployment : TerraformResource
     /// Terraform will force-recreate deployments if either preview is updated
     /// to true or if other fields are updated while preview is true.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Preview
+    public TerraformProperty<bool>? Preview
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("preview");
+        get => GetProperty<TerraformProperty<bool>>("preview");
         set => this.WithProperty("preview", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

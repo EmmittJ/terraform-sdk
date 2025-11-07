@@ -23,36 +23,36 @@ public class AwsCloudhsmV2ClusterDataSource : TerraformDataSource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterId
+    public TerraformProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The cluster_state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterState
+    public TerraformProperty<string>? ClusterState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_state");
+        get => GetProperty<TerraformProperty<string>>("cluster_state");
         set => this.WithProperty("cluster_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -31,63 +31,63 @@ public class GoogleSecureSourceManagerRepository : TerraformResource
     ///   * PREVENT
     ///   * ABANDON
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// Description of the repository, which cannot exceed 500 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the instance in which the repository is hosted.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location for the Repository.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The ID for the Repository.
     /// </summary>
-    public TerraformLiteralProperty<string>? RepositoryId
+    public TerraformProperty<string>? RepositoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_id");
+        get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 

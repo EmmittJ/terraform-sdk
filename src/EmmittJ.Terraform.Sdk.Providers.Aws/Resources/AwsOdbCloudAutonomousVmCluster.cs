@@ -54,144 +54,144 @@ public class AwsOdbCloudAutonomousVmCluster : TerraformResource
     /// <summary>
     /// The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<double>? AutonomousDataStorageSizeInTbs
+    public TerraformProperty<double>? AutonomousDataStorageSizeInTbs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("autonomous_data_storage_size_in_tbs");
+        get => GetProperty<TerraformProperty<double>>("autonomous_data_storage_size_in_tbs");
         set => this.WithProperty("autonomous_data_storage_size_in_tbs", value);
     }
 
     /// <summary>
     /// Exadata infrastructure id. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudExadataInfrastructureId
+    public TerraformProperty<string>? CloudExadataInfrastructureId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_exadata_infrastructure_id");
+        get => GetProperty<TerraformProperty<string>>("cloud_exadata_infrastructure_id");
         set => this.WithProperty("cloud_exadata_infrastructure_id", value);
     }
 
     /// <summary>
     /// The number of CPU cores enabled per node in the Autonomous VM cluster.
     /// </summary>
-    public TerraformLiteralProperty<double>? CpuCoreCountPerNode
+    public TerraformProperty<double>? CpuCoreCountPerNode
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cpu_core_count_per_node");
+        get => GetProperty<TerraformProperty<double>>("cpu_core_count_per_node");
         set => this.WithProperty("cpu_core_count_per_node", value);
     }
 
     /// <summary>
     /// The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? DbServers
+    public TerraformProperty<HashSet<string>>? DbServers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("db_servers");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("db_servers");
         set => this.WithProperty("db_servers", value);
     }
 
     /// <summary>
     /// The description of the Autonomous VM cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource. 
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsMtlsEnabledVmCluster
+    public TerraformProperty<bool>? IsMtlsEnabledVmCluster
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_mtls_enabled_vm_cluster");
+        get => GetProperty<TerraformProperty<bool>>("is_mtls_enabled_vm_cluster");
         set => this.WithProperty("is_mtls_enabled_vm_cluster", value);
     }
 
     /// <summary>
     /// The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE . Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? LicenseModel
+    public TerraformProperty<string>? LicenseModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_model");
+        get => GetProperty<TerraformProperty<string>>("license_model");
         set => this.WithProperty("license_model", value);
     }
 
     /// <summary>
     /// The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<double>? MemoryPerOracleComputeUnitInGbs
+    public TerraformProperty<double>? MemoryPerOracleComputeUnitInGbs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("memory_per_oracle_compute_unit_in_gbs");
+        get => GetProperty<TerraformProperty<double>>("memory_per_oracle_compute_unit_in_gbs");
         set => this.WithProperty("memory_per_oracle_compute_unit_in_gbs", value);
     }
 
     /// <summary>
     /// The unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? OdbNetworkId
+    public TerraformProperty<string>? OdbNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_network_id");
+        get => GetProperty<TerraformProperty<string>>("odb_network_id");
         set => this.WithProperty("odb_network_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<double>? ScanListenerPortNonTls
+    public TerraformProperty<double>? ScanListenerPortNonTls
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("scan_listener_port_non_tls");
+        get => GetProperty<TerraformProperty<double>>("scan_listener_port_non_tls");
         set => this.WithProperty("scan_listener_port_non_tls", value);
     }
 
     /// <summary>
     /// The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<double>? ScanListenerPortTls
+    public TerraformProperty<double>? ScanListenerPortTls
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("scan_listener_port_tls");
+        get => GetProperty<TerraformProperty<double>>("scan_listener_port_tls");
         set => this.WithProperty("scan_listener_port_tls", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeZone
+    public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        get => GetProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 
     /// <summary>
     /// The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
     /// </summary>
-    public TerraformLiteralProperty<double>? TotalContainerDatabases
+    public TerraformProperty<double>? TotalContainerDatabases
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("total_container_databases");
+        get => GetProperty<TerraformProperty<double>>("total_container_databases");
         set => this.WithProperty("total_container_databases", value);
     }
 

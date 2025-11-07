@@ -19,54 +19,54 @@ public class AzurermMysqlFlexibleServerActiveDirectoryAdministrator : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityId
+    public TerraformProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_id");
+        get => GetProperty<TerraformProperty<string>>("identity_id");
         set => this.WithProperty("identity_id", value);
     }
 
     /// <summary>
     /// The login attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Login
+    public TerraformProperty<string>? Login
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("login");
+        get => GetProperty<TerraformProperty<string>>("login");
         set => this.WithProperty("login", value);
     }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ObjectId
+    public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerId
+    public TerraformProperty<string>? ServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_id");
+        get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

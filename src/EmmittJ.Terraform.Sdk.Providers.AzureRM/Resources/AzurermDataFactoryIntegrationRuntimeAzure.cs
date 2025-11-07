@@ -19,90 +19,90 @@ public class AzurermDataFactoryIntegrationRuntimeAzure : TerraformResource
     /// <summary>
     /// The cleanup_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CleanupEnabled
+    public TerraformProperty<bool>? CleanupEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cleanup_enabled");
+        get => GetProperty<TerraformProperty<bool>>("cleanup_enabled");
         set => this.WithProperty("cleanup_enabled", value);
     }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ComputeType
+    public TerraformProperty<string>? ComputeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_type");
+        get => GetProperty<TerraformProperty<string>>("compute_type");
         set => this.WithProperty("compute_type", value);
     }
 
     /// <summary>
     /// The core_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? CoreCount
+    public TerraformProperty<double>? CoreCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("core_count");
+        get => GetProperty<TerraformProperty<double>>("core_count");
         set => this.WithProperty("core_count", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataFactoryId
+    public TerraformProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The time_to_live_min attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TimeToLiveMin
+    public TerraformProperty<double>? TimeToLiveMin
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("time_to_live_min");
+        get => GetProperty<TerraformProperty<double>>("time_to_live_min");
         set => this.WithProperty("time_to_live_min", value);
     }
 
     /// <summary>
     /// The virtual_network_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? VirtualNetworkEnabled
+    public TerraformProperty<bool>? VirtualNetworkEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("virtual_network_enabled");
+        get => GetProperty<TerraformProperty<bool>>("virtual_network_enabled");
         set => this.WithProperty("virtual_network_enabled", value);
     }
 

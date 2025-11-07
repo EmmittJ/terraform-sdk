@@ -20,54 +20,54 @@ public class AwsGrafanaWorkspaceApiKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyName
+    public TerraformProperty<string>? KeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_name");
+        get => GetProperty<TerraformProperty<string>>("key_name");
         set => this.WithProperty("key_name", value);
     }
 
     /// <summary>
     /// The key_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyRole
+    public TerraformProperty<string>? KeyRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_role");
+        get => GetProperty<TerraformProperty<string>>("key_role");
         set => this.WithProperty("key_role", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The seconds_to_live attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SecondsToLive
+    public TerraformProperty<double>? SecondsToLive
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("seconds_to_live");
+        get => GetProperty<TerraformProperty<double>>("seconds_to_live");
         set => this.WithProperty("seconds_to_live", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceId
+    public TerraformProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

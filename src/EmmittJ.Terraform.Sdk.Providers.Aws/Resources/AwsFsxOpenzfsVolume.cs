@@ -20,126 +20,126 @@ public class AwsFsxOpenzfsVolume : TerraformResource
     /// <summary>
     /// The copy_tags_to_snapshots attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CopyTagsToSnapshots
+    public TerraformProperty<bool>? CopyTagsToSnapshots
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("copy_tags_to_snapshots");
+        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_snapshots");
         set => this.WithProperty("copy_tags_to_snapshots", value);
     }
 
     /// <summary>
     /// The data_compression_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataCompressionType
+    public TerraformProperty<string>? DataCompressionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_compression_type");
+        get => GetProperty<TerraformProperty<string>>("data_compression_type");
         set => this.WithProperty("data_compression_type", value);
     }
 
     /// <summary>
     /// The delete_volume_options attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DeleteVolumeOptions
+    public TerraformProperty<List<string>>? DeleteVolumeOptions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("delete_volume_options");
+        get => GetProperty<TerraformProperty<List<string>>>("delete_volume_options");
         set => this.WithProperty("delete_volume_options", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_volume_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentVolumeId
+    public TerraformProperty<string>? ParentVolumeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_volume_id");
+        get => GetProperty<TerraformProperty<string>>("parent_volume_id");
         set => this.WithProperty("parent_volume_id", value);
     }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ReadOnly
+    public TerraformProperty<bool>? ReadOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("read_only");
+        get => GetProperty<TerraformProperty<bool>>("read_only");
         set => this.WithProperty("read_only", value);
     }
 
     /// <summary>
     /// The record_size_kib attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RecordSizeKib
+    public TerraformProperty<double>? RecordSizeKib
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("record_size_kib");
+        get => GetProperty<TerraformProperty<double>>("record_size_kib");
         set => this.WithProperty("record_size_kib", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The storage_capacity_quota_gib attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? StorageCapacityQuotaGib
+    public TerraformProperty<double>? StorageCapacityQuotaGib
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_capacity_quota_gib");
+        get => GetProperty<TerraformProperty<double>>("storage_capacity_quota_gib");
         set => this.WithProperty("storage_capacity_quota_gib", value);
     }
 
     /// <summary>
     /// The storage_capacity_reservation_gib attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? StorageCapacityReservationGib
+    public TerraformProperty<double>? StorageCapacityReservationGib
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_capacity_reservation_gib");
+        get => GetProperty<TerraformProperty<double>>("storage_capacity_reservation_gib");
         set => this.WithProperty("storage_capacity_reservation_gib", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VolumeType
+    public TerraformProperty<string>? VolumeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_type");
+        get => GetProperty<TerraformProperty<string>>("volume_type");
         set => this.WithProperty("volume_type", value);
     }
 

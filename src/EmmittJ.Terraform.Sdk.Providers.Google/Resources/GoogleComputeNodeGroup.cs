@@ -22,72 +22,72 @@ public class GoogleComputeNodeGroup : TerraformResource
     /// <summary>
     /// An optional textual description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The initial number of nodes in the node group. One of &#39;initial_size&#39; or &#39;autoscaling_policy&#39; must be configured on resource creation.
     /// </summary>
-    public TerraformLiteralProperty<double>? InitialSize
+    public TerraformProperty<double>? InitialSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("initial_size");
+        get => GetProperty<TerraformProperty<double>>("initial_size");
         set => this.WithProperty("initial_size", value);
     }
 
     /// <summary>
     /// Specifies how to handle instances when a node in the group undergoes maintenance. Set to one of: DEFAULT, RESTART_IN_PLACE, or MIGRATE_WITHIN_NODE_GROUP. The default value is DEFAULT.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenancePolicy
+    public TerraformProperty<string>? MaintenancePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_policy");
+        get => GetProperty<TerraformProperty<string>>("maintenance_policy");
         set => this.WithProperty("maintenance_policy", value);
     }
 
     /// <summary>
     /// Name of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The URL of the node template to which this node group belongs.
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeTemplate
+    public TerraformProperty<string>? NodeTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_template");
+        get => GetProperty<TerraformProperty<string>>("node_template");
         set => this.WithProperty("node_template", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Zone where this node group is located
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

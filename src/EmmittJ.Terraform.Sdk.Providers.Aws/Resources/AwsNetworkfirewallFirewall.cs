@@ -23,126 +23,126 @@ public class AwsNetworkfirewallFirewall : TerraformResource
     /// <summary>
     /// The availability_zone_change_protection attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AvailabilityZoneChangeProtection
+    public TerraformProperty<bool>? AvailabilityZoneChangeProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("availability_zone_change_protection");
+        get => GetProperty<TerraformProperty<bool>>("availability_zone_change_protection");
         set => this.WithProperty("availability_zone_change_protection", value);
     }
 
     /// <summary>
     /// The delete_protection attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteProtection
+    public TerraformProperty<bool>? DeleteProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_protection");
+        get => GetProperty<TerraformProperty<bool>>("delete_protection");
         set => this.WithProperty("delete_protection", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enabled_analysis_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? EnabledAnalysisTypes
+    public TerraformProperty<HashSet<string>>? EnabledAnalysisTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("enabled_analysis_types");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("enabled_analysis_types");
         set => this.WithProperty("enabled_analysis_types", value);
     }
 
     /// <summary>
     /// The firewall_policy_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirewallPolicyArn
+    public TerraformProperty<string>? FirewallPolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy_arn");
+        get => GetProperty<TerraformProperty<string>>("firewall_policy_arn");
         set => this.WithProperty("firewall_policy_arn", value);
     }
 
     /// <summary>
     /// The firewall_policy_change_protection attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? FirewallPolicyChangeProtection
+    public TerraformProperty<bool>? FirewallPolicyChangeProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("firewall_policy_change_protection");
+        get => GetProperty<TerraformProperty<bool>>("firewall_policy_change_protection");
         set => this.WithProperty("firewall_policy_change_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_change_protection attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SubnetChangeProtection
+    public TerraformProperty<bool>? SubnetChangeProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("subnet_change_protection");
+        get => GetProperty<TerraformProperty<bool>>("subnet_change_protection");
         set => this.WithProperty("subnet_change_protection", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayId
+    public TerraformProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

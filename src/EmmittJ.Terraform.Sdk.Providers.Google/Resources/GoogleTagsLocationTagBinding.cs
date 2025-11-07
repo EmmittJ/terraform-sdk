@@ -20,9 +20,9 @@ public class GoogleTagsLocationTagBinding : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -30,27 +30,27 @@ public class GoogleTagsLocationTagBinding : TerraformResource
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The full resource name of the resource the TagValue is bound to. E.g. //cloudresourcemanager.googleapis.com/projects/123
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The TagValue of the TagBinding. Must be of the form tagValues/456.
     /// </summary>
-    public TerraformLiteralProperty<string>? TagValue
+    public TerraformProperty<string>? TagValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_value");
+        get => GetProperty<TerraformProperty<string>>("tag_value");
         set => this.WithProperty("tag_value", value);
     }
 

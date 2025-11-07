@@ -20,72 +20,72 @@ public class AwsCloudwatchEventApiDestination : TerraformResource
     /// <summary>
     /// The connection_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionArn
+    public TerraformProperty<string>? ConnectionArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_arn");
+        get => GetProperty<TerraformProperty<string>>("connection_arn");
         set => this.WithProperty("connection_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpMethod
+    public TerraformProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_method");
+        get => GetProperty<TerraformProperty<string>>("http_method");
         set => this.WithProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The invocation_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InvocationEndpoint
+    public TerraformProperty<string>? InvocationEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("invocation_endpoint");
+        get => GetProperty<TerraformProperty<string>>("invocation_endpoint");
         set => this.WithProperty("invocation_endpoint", value);
     }
 
     /// <summary>
     /// The invocation_rate_limit_per_second attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? InvocationRateLimitPerSecond
+    public TerraformProperty<double>? InvocationRateLimitPerSecond
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("invocation_rate_limit_per_second");
+        get => GetProperty<TerraformProperty<double>>("invocation_rate_limit_per_second");
         set => this.WithProperty("invocation_rate_limit_per_second", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

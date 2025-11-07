@@ -20,36 +20,36 @@ public class AwsSsoadminApplicationAssignment : TerraformResource
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationArn
+    public TerraformProperty<string>? ApplicationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_arn");
+        get => GetProperty<TerraformProperty<string>>("application_arn");
         set => this.WithProperty("application_arn", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalId
+    public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalType
+    public TerraformProperty<string>? PrincipalType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_type");
+        get => GetProperty<TerraformProperty<string>>("principal_type");
         set => this.WithProperty("principal_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

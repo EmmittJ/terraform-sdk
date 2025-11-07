@@ -20,63 +20,63 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinition : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedStorageAccountId
+    public TerraformProperty<string>? ManagedStorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("managed_storage_account_id");
         set => this.WithProperty("managed_storage_account_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sas_template_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SasTemplateUri
+    public TerraformProperty<string>? SasTemplateUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sas_template_uri");
+        get => GetProperty<TerraformProperty<string>>("sas_template_uri");
         set => this.WithProperty("sas_template_uri", value);
     }
 
     /// <summary>
     /// The sas_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SasType
+    public TerraformProperty<string>? SasType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sas_type");
+        get => GetProperty<TerraformProperty<string>>("sas_type");
         set => this.WithProperty("sas_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The validity_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValidityPeriod
+    public TerraformProperty<string>? ValidityPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("validity_period");
+        get => GetProperty<TerraformProperty<string>>("validity_period");
         set => this.WithProperty("validity_period", value);
     }
 

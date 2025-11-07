@@ -20,63 +20,63 @@ public class AzurermOrbitalContact : TerraformResource
     /// <summary>
     /// The contact_profile_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContactProfileId
+    public TerraformProperty<string>? ContactProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("contact_profile_id");
+        get => GetProperty<TerraformProperty<string>>("contact_profile_id");
         set => this.WithProperty("contact_profile_id", value);
     }
 
     /// <summary>
     /// The ground_station_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroundStationName
+    public TerraformProperty<string>? GroundStationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ground_station_name");
+        get => GetProperty<TerraformProperty<string>>("ground_station_name");
         set => this.WithProperty("ground_station_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The reservation_end_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReservationEndTime
+    public TerraformProperty<string>? ReservationEndTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reservation_end_time");
+        get => GetProperty<TerraformProperty<string>>("reservation_end_time");
         set => this.WithProperty("reservation_end_time", value);
     }
 
     /// <summary>
     /// The reservation_start_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReservationStartTime
+    public TerraformProperty<string>? ReservationStartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reservation_start_time");
+        get => GetProperty<TerraformProperty<string>>("reservation_start_time");
         set => this.WithProperty("reservation_start_time", value);
     }
 
     /// <summary>
     /// The spacecraft_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpacecraftId
+    public TerraformProperty<string>? SpacecraftId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spacecraft_id");
+        get => GetProperty<TerraformProperty<string>>("spacecraft_id");
         set => this.WithProperty("spacecraft_id", value);
     }
 

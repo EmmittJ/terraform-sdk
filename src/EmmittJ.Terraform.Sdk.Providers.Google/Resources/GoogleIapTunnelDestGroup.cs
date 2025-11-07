@@ -20,54 +20,54 @@ public class GoogleIapTunnelDestGroup : TerraformResource
     /// <summary>
     /// List of CIDRs that this group applies to.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Cidrs
+    public TerraformProperty<List<string>>? Cidrs
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("cidrs");
+        get => GetProperty<TerraformProperty<List<string>>>("cidrs");
         set => this.WithProperty("cidrs", value);
     }
 
     /// <summary>
     /// List of FQDNs that this group applies to.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Fqdns
+    public TerraformProperty<List<string>>? Fqdns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("fqdns");
+        get => GetProperty<TerraformProperty<List<string>>>("fqdns");
         set => this.WithProperty("fqdns", value);
     }
 
     /// <summary>
     /// Unique tunnel destination group name.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupName
+    public TerraformProperty<string>? GroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_name");
+        get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region of the tunnel group. Must be the same as the network resources in the group.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -20,18 +20,18 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Language for this settings.
     /// </summary>
-    public TerraformLiteralProperty<string>? LanguageCode
+    public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleDialogflowCxGenerativeSettings : TerraformResource
     /// The agent to create a flow for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

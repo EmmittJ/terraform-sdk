@@ -22,63 +22,63 @@ public class GoogleIamWorkforcePoolProviderScimTenant : TerraformResource
     /// <summary>
     /// A user-specified description of the provider. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A user-specified display name for the scim tenant. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the provider.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProviderId
+    public TerraformProperty<string>? ProviderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_id");
+        get => GetProperty<TerraformProperty<string>>("provider_id");
         set => this.WithProperty("provider_id", value);
     }
 
     /// <summary>
     /// The ID to use for the SCIM tenant, which becomes the final component of the resource name. This value must be 4-32 characters, and may contain the characters [a-z0-9-].
     /// </summary>
-    public TerraformLiteralProperty<string>? ScimTenantId
+    public TerraformProperty<string>? ScimTenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scim_tenant_id");
+        get => GetProperty<TerraformProperty<string>>("scim_tenant_id");
         set => this.WithProperty("scim_tenant_id", value);
     }
 
     /// <summary>
     /// The ID of the workforce pool.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkforcePoolId
+    public TerraformProperty<string>? WorkforcePoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id");
+        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

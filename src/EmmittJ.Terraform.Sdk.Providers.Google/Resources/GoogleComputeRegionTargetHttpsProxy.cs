@@ -24,18 +24,18 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// sslCertificates and certificateManagerCertificates can&#39;t be defined together.
     /// Accepted format is &#39;//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificates/{resourceName}&#39; or just the self_link &#39;projects/{project}/locations/{location}/certificates/{resourceName}&#39;
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? CertificateManagerCertificates
+    public TerraformProperty<List<string>>? CertificateManagerCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificate_manager_certificates");
+        get => GetProperty<TerraformProperty<List<string>>>("certificate_manager_certificates");
         set => this.WithProperty("certificate_manager_certificates", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -46,18 +46,18 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// HTTP(S) load balancer, the minimum allowed value is 5 seconds and the
     /// maximum allowed value is 600 seconds.
     /// </summary>
-    public TerraformLiteralProperty<double>? HttpKeepAliveTimeoutSec
+    public TerraformProperty<double>? HttpKeepAliveTimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec");
+        get => GetProperty<TerraformProperty<double>>("http_keep_alive_timeout_sec");
         set => this.WithProperty("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -70,18 +70,18 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -89,9 +89,9 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// The Region in which the created target https proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -111,9 +111,9 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// receive a resourceInUseByAnotherResource error. Use lifecycle.create_before_destroy
     /// within the ServerTlsPolicy resource to avoid this.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerTlsPolicy
+    public TerraformProperty<string>? ServerTlsPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy");
+        get => GetProperty<TerraformProperty<string>>("server_tls_policy");
         set => this.WithProperty("server_tls_policy", value);
     }
 
@@ -122,9 +122,9 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// At least one SSL certificate must be specified. Currently, you may specify up to 15 SSL certificates.
     /// sslCertificates do not apply when the load balancing scheme is set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SslCertificates
+    public TerraformProperty<List<string>>? SslCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ssl_certificates");
+        get => GetProperty<TerraformProperty<List<string>>>("ssl_certificates");
         set => this.WithProperty("ssl_certificates", value);
     }
 
@@ -133,9 +133,9 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// the TargetHttpsProxy resource. If not set, the TargetHttpsProxy
     /// resource will not have any SSL policy configured.
     /// </summary>
-    public TerraformLiteralProperty<string>? SslPolicy
+    public TerraformProperty<string>? SslPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy");
+        get => GetProperty<TerraformProperty<string>>("ssl_policy");
         set => this.WithProperty("ssl_policy", value);
     }
 
@@ -143,9 +143,9 @@ public class GoogleComputeRegionTargetHttpsProxy : TerraformResource
     /// A reference to the RegionUrlMap resource that defines the mapping from URL
     /// to the RegionBackendService.
     /// </summary>
-    public TerraformLiteralProperty<string>? UrlMap
+    public TerraformProperty<string>? UrlMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_map");
+        get => GetProperty<TerraformProperty<string>>("url_map");
         set => this.WithProperty("url_map", value);
     }
 

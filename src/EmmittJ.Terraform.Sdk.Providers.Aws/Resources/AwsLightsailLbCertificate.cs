@@ -23,54 +23,54 @@ public class AwsLightsailLbCertificate : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lb_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LbName
+    public TerraformProperty<string>? LbName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lb_name");
+        get => GetProperty<TerraformProperty<string>>("lb_name");
         set => this.WithProperty("lb_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubjectAlternativeNames
+    public TerraformProperty<HashSet<string>>? SubjectAlternativeNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subject_alternative_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subject_alternative_names");
         set => this.WithProperty("subject_alternative_names", value);
     }
 

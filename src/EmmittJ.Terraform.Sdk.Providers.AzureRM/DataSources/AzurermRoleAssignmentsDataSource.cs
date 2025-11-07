@@ -20,45 +20,45 @@ public class AzurermRoleAssignmentsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The limit_at_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LimitAtScope
+    public TerraformProperty<bool>? LimitAtScope
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("limit_at_scope");
+        get => GetProperty<TerraformProperty<bool>>("limit_at_scope");
         set => this.WithProperty("limit_at_scope", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalId
+    public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

@@ -19,36 +19,36 @@ public class GoogleAppEngineServiceSplitTraffic : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If set to true traffic will be migrated to this version.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MigrateTraffic
+    public TerraformProperty<bool>? MigrateTraffic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("migrate_traffic");
+        get => GetProperty<TerraformProperty<bool>>("migrate_traffic");
         set => this.WithProperty("migrate_traffic", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the service these settings apply to.
     /// </summary>
-    public TerraformLiteralProperty<string>? Service
+    public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

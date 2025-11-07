@@ -21,18 +21,18 @@ public class GoogleComputeTargetInstance : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -44,9 +44,9 @@ public class GoogleComputeTargetInstance : TerraformResource
     /// the provider-default zone and the project will default to the
     /// provider-level project.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -59,9 +59,9 @@ public class GoogleComputeTargetInstance : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -69,27 +69,27 @@ public class GoogleComputeTargetInstance : TerraformResource
     /// NAT option controlling how IPs are NAT&#39;ed to the instance.
     /// Currently only NO_NAT (default value) is supported. Default value: &amp;quot;NO_NAT&amp;quot; Possible values: [&amp;quot;NO_NAT&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? NatPolicy
+    public TerraformProperty<string>? NatPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nat_policy");
+        get => GetProperty<TerraformProperty<string>>("nat_policy");
         set => this.WithProperty("nat_policy", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// URL of the zone where the target instance resides.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

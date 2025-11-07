@@ -19,36 +19,36 @@ public class AzureadApplicationRedirectUris : TerraformResource
     /// <summary>
     /// The resource ID of the application to which these redirect URIs belong
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationId
+    public TerraformProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A set of redirect URIs
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? RedirectUris
+    public TerraformProperty<HashSet<string>>? RedirectUris
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("redirect_uris");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("redirect_uris");
         set => this.WithProperty("redirect_uris", value);
     }
 
     /// <summary>
     /// The type of redirect URIs to assign to the application
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

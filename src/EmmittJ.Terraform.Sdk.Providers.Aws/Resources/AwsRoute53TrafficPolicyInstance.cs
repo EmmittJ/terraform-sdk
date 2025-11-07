@@ -20,54 +20,54 @@ public class AwsRoute53TrafficPolicyInstance : TerraformResource
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostedZoneId
+    public TerraformProperty<string>? HostedZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hosted_zone_id");
+        get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The traffic_policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrafficPolicyId
+    public TerraformProperty<string>? TrafficPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_policy_id");
+        get => GetProperty<TerraformProperty<string>>("traffic_policy_id");
         set => this.WithProperty("traffic_policy_id", value);
     }
 
     /// <summary>
     /// The traffic_policy_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TrafficPolicyVersion
+    public TerraformProperty<double>? TrafficPolicyVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("traffic_policy_version");
+        get => GetProperty<TerraformProperty<double>>("traffic_policy_version");
         set => this.WithProperty("traffic_policy_version", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Ttl
+    public TerraformProperty<double>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ttl");
+        get => GetProperty<TerraformProperty<double>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 

@@ -20,45 +20,45 @@ public class AwsNotificationsEventRule : TerraformResource
     /// <summary>
     /// The event_pattern attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventPattern
+    public TerraformProperty<string>? EventPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_pattern");
+        get => GetProperty<TerraformProperty<string>>("event_pattern");
         set => this.WithProperty("event_pattern", value);
     }
 
     /// <summary>
     /// The event_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventType
+    public TerraformProperty<string>? EventType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_type");
+        get => GetProperty<TerraformProperty<string>>("event_type");
         set => this.WithProperty("event_type", value);
     }
 
     /// <summary>
     /// The notification_configuration_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotificationConfigurationArn
+    public TerraformProperty<string>? NotificationConfigurationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_configuration_arn");
+        get => GetProperty<TerraformProperty<string>>("notification_configuration_arn");
         set => this.WithProperty("notification_configuration_arn", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Regions
+    public TerraformProperty<HashSet<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Source
+    public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 

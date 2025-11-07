@@ -21,99 +21,99 @@ public class AwsConnectQueue : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The hours_of_operation_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HoursOfOperationId
+    public TerraformProperty<string>? HoursOfOperationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hours_of_operation_id");
+        get => GetProperty<TerraformProperty<string>>("hours_of_operation_id");
         set => this.WithProperty("hours_of_operation_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The max_contacts attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxContacts
+    public TerraformProperty<double>? MaxContacts
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_contacts");
+        get => GetProperty<TerraformProperty<double>>("max_contacts");
         set => this.WithProperty("max_contacts", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The quick_connect_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? QuickConnectIds
+    public TerraformProperty<HashSet<string>>? QuickConnectIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("quick_connect_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("quick_connect_ids");
         set => this.WithProperty("quick_connect_ids", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -19,45 +19,45 @@ public class AzureadDirectoryRoleEligibilityScheduleRequest : TerraformResource
     /// <summary>
     /// Identifier of the directory object representing the scope of the role eligibility schedule request
     /// </summary>
-    public TerraformLiteralProperty<string>? DirectoryScopeId
+    public TerraformProperty<string>? DirectoryScopeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_scope_id");
+        get => GetProperty<TerraformProperty<string>>("directory_scope_id");
         set => this.WithProperty("directory_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Justification for why the role is assigned
     /// </summary>
-    public TerraformLiteralProperty<string>? Justification
+    public TerraformProperty<string>? Justification
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("justification");
+        get => GetProperty<TerraformProperty<string>>("justification");
         set => this.WithProperty("justification", value);
     }
 
     /// <summary>
     /// The object ID of the member principal
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalId
+    public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The object ID of the directory role for this role eligibility schedule request
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleDefinitionId
+    public TerraformProperty<string>? RoleDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id");
+        get => GetProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
     }
 

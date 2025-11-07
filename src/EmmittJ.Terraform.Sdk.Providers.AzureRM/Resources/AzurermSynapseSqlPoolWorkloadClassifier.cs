@@ -19,81 +19,81 @@ public class AzurermSynapseSqlPoolWorkloadClassifier : TerraformResource
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Context
+    public TerraformProperty<string>? Context
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("context");
+        get => GetProperty<TerraformProperty<string>>("context");
         set => this.WithProperty("context", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndTime
+    public TerraformProperty<string>? EndTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_time");
+        get => GetProperty<TerraformProperty<string>>("end_time");
         set => this.WithProperty("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The importance attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Importance
+    public TerraformProperty<string>? Importance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("importance");
+        get => GetProperty<TerraformProperty<string>>("importance");
         set => this.WithProperty("importance", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Label
+    public TerraformProperty<string>? Label
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("label");
+        get => GetProperty<TerraformProperty<string>>("label");
         set => this.WithProperty("label", value);
     }
 
     /// <summary>
     /// The member_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MemberName
+    public TerraformProperty<string>? MemberName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member_name");
+        get => GetProperty<TerraformProperty<string>>("member_name");
         set => this.WithProperty("member_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartTime
+    public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_time");
+        get => GetProperty<TerraformProperty<string>>("start_time");
         set => this.WithProperty("start_time", value);
     }
 
     /// <summary>
     /// The workload_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkloadGroupId
+    public TerraformProperty<string>? WorkloadGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_group_id");
+        get => GetProperty<TerraformProperty<string>>("workload_group_id");
         set => this.WithProperty("workload_group_id", value);
     }
 

@@ -19,81 +19,81 @@ public class AzurermLogicAppIntegrationAccountAssembly : TerraformResource
     /// <summary>
     /// The assembly_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AssemblyName
+    public TerraformProperty<string>? AssemblyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assembly_name");
+        get => GetProperty<TerraformProperty<string>>("assembly_name");
         set => this.WithProperty("assembly_name", value);
     }
 
     /// <summary>
     /// The assembly_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AssemblyVersion
+    public TerraformProperty<string>? AssemblyVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assembly_version");
+        get => GetProperty<TerraformProperty<string>>("assembly_version");
         set => this.WithProperty("assembly_version", value);
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Content
+    public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content");
+        get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
     /// <summary>
     /// The content_link_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentLinkUri
+    public TerraformProperty<string>? ContentLinkUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_link_uri");
+        get => GetProperty<TerraformProperty<string>>("content_link_uri");
         set => this.WithProperty("content_link_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationAccountName
+    public TerraformProperty<string>? IntegrationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_account_name");
+        get => GetProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

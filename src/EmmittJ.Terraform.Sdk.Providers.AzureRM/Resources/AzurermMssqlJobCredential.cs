@@ -19,63 +19,63 @@ public class AzurermMssqlJobCredential : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The job_agent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobAgentId
+    public TerraformProperty<string>? JobAgentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_agent_id");
+        get => GetProperty<TerraformProperty<string>>("job_agent_id");
         set => this.WithProperty("job_agent_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The password_wo attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PasswordWo
+    public TerraformProperty<string>? PasswordWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password_wo");
+        get => GetProperty<TerraformProperty<string>>("password_wo");
         set => this.WithProperty("password_wo", value);
     }
 
     /// <summary>
     /// The password_wo_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PasswordWoVersion
+    public TerraformProperty<double>? PasswordWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("password_wo_version");
+        get => GetProperty<TerraformProperty<double>>("password_wo_version");
         set => this.WithProperty("password_wo_version", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

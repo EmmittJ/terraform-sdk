@@ -21,72 +21,72 @@ public class AzurermAppServiceSourceControl : TerraformResource
     /// <summary>
     /// The ID of the Windows or Linux Web App.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppId
+    public TerraformProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The branch name to use for deployments.
     /// </summary>
-    public TerraformLiteralProperty<string>? Branch
+    public TerraformProperty<string>? Branch
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch");
+        get => GetProperty<TerraformProperty<string>>("branch");
         set => this.WithProperty("branch", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The URL for the repository.
     /// </summary>
-    public TerraformLiteralProperty<string>? RepoUrl
+    public TerraformProperty<string>? RepoUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repo_url");
+        get => GetProperty<TerraformProperty<string>>("repo_url");
         set => this.WithProperty("repo_url", value);
     }
 
     /// <summary>
     /// Should the Deployment Rollback be enabled? Defaults to `false`.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RollbackEnabled
+    public TerraformProperty<bool>? RollbackEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("rollback_enabled");
+        get => GetProperty<TerraformProperty<bool>>("rollback_enabled");
         set => this.WithProperty("rollback_enabled", value);
     }
 
     /// <summary>
     /// Should the App use local Git configuration.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseLocalGit
+    public TerraformProperty<bool>? UseLocalGit
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_local_git");
+        get => GetProperty<TerraformProperty<bool>>("use_local_git");
         set => this.WithProperty("use_local_git", value);
     }
 
     /// <summary>
     /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseManualIntegration
+    public TerraformProperty<bool>? UseManualIntegration
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_manual_integration");
+        get => GetProperty<TerraformProperty<bool>>("use_manual_integration");
         set => this.WithProperty("use_manual_integration", value);
     }
 
     /// <summary>
     /// The repository specified is Mercurial. Defaults to `false`.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseMercurial
+    public TerraformProperty<bool>? UseMercurial
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_mercurial");
+        get => GetProperty<TerraformProperty<bool>>("use_mercurial");
         set => this.WithProperty("use_mercurial", value);
     }
 

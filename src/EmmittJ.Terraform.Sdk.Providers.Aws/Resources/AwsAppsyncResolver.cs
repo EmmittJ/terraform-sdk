@@ -20,99 +20,99 @@ public class AwsAppsyncResolver : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiId
+    public TerraformProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Code
+    public TerraformProperty<string>? Code
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("code");
+        get => GetProperty<TerraformProperty<string>>("code");
         set => this.WithProperty("code", value);
     }
 
     /// <summary>
     /// The data_source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataSource
+    public TerraformProperty<string>? DataSource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_source");
+        get => GetProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
     }
 
     /// <summary>
     /// The field attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Field
+    public TerraformProperty<string>? Field
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("field");
+        get => GetProperty<TerraformProperty<string>>("field");
         set => this.WithProperty("field", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The max_batch_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxBatchSize
+    public TerraformProperty<double>? MaxBatchSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_batch_size");
+        get => GetProperty<TerraformProperty<double>>("max_batch_size");
         set => this.WithProperty("max_batch_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The request_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RequestTemplate
+    public TerraformProperty<string>? RequestTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_template");
+        get => GetProperty<TerraformProperty<string>>("request_template");
         set => this.WithProperty("request_template", value);
     }
 
     /// <summary>
     /// The response_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResponseTemplate
+    public TerraformProperty<string>? ResponseTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("response_template");
+        get => GetProperty<TerraformProperty<string>>("response_template");
         set => this.WithProperty("response_template", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

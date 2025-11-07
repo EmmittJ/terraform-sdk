@@ -28,54 +28,54 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// - A Backup Plan configured for &#39;compute.googleapis.com/Instance&#39;, can only protect instance type resources.
     /// - A Backup Plan configured for &#39;compute.googleapis.com/Disk&#39; can be used to protect both standard Disks and Regional Disks resources.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupPlan
+    public TerraformProperty<string>? BackupPlan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_plan");
+        get => GetProperty<TerraformProperty<string>>("backup_plan");
         set => this.WithProperty("backup_plan", value);
     }
 
     /// <summary>
     /// The id of backupplan association
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupPlanAssociationId
+    public TerraformProperty<string>? BackupPlanAssociationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_plan_association_id");
+        get => GetProperty<TerraformProperty<string>>("backup_plan_association_id");
         set => this.WithProperty("backup_plan_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the backupplan association
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The resource for which BPA needs to be created
     /// </summary>
-    public TerraformLiteralProperty<string>? Resource
+    public TerraformProperty<string>? Resource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource");
+        get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 
@@ -83,9 +83,9 @@ public class GoogleBackupDrBackupPlanAssociation : TerraformResource
     /// The resource type of workload on which backupplan is applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, and &amp;quot;compute.googleapis.com/RegionDisk&amp;quot;
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceType
+    public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 

@@ -24,36 +24,36 @@ public class AwsS3controlAccessGrantsInstance : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The identity_center_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityCenterArn
+    public TerraformProperty<string>? IdentityCenterArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_center_arn");
+        get => GetProperty<TerraformProperty<string>>("identity_center_arn");
         set => this.WithProperty("identity_center_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

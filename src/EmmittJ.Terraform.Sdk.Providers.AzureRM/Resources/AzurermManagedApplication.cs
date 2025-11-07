@@ -20,81 +20,81 @@ public class AzurermManagedApplication : TerraformResource
     /// <summary>
     /// The application_definition_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationDefinitionId
+    public TerraformProperty<string>? ApplicationDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_definition_id");
+        get => GetProperty<TerraformProperty<string>>("application_definition_id");
         set => this.WithProperty("application_definition_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedResourceGroupName
+    public TerraformProperty<string>? ManagedResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("managed_resource_group_name");
         set => this.WithProperty("managed_resource_group_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParameterValues
+    public TerraformProperty<string>? ParameterValues
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_values");
+        get => GetProperty<TerraformProperty<string>>("parameter_values");
         set => this.WithProperty("parameter_values", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

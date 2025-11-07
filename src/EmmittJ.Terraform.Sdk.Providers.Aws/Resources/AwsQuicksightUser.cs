@@ -21,90 +21,90 @@ public class AwsQuicksightUser : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AwsAccountId
+    public TerraformProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        get => GetProperty<TerraformProperty<string>>("aws_account_id");
         set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Email
+    public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email");
+        get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamArn
+    public TerraformProperty<string>? IamArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_arn");
         set => this.WithProperty("iam_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityType
+    public TerraformProperty<string>? IdentityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_type");
+        get => GetProperty<TerraformProperty<string>>("identity_type");
         set => this.WithProperty("identity_type", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Namespace
+    public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        get => GetProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The session_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SessionName
+    public TerraformProperty<string>? SessionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("session_name");
+        get => GetProperty<TerraformProperty<string>>("session_name");
         set => this.WithProperty("session_name", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 
     /// <summary>
     /// The user_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserRole
+    public TerraformProperty<string>? UserRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_role");
+        get => GetProperty<TerraformProperty<string>>("user_role");
         set => this.WithProperty("user_role", value);
     }
 

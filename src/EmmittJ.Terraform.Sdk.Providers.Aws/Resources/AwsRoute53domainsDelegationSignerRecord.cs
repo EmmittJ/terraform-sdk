@@ -21,9 +21,9 @@ public class AwsRoute53domainsDelegationSignerRecord : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 

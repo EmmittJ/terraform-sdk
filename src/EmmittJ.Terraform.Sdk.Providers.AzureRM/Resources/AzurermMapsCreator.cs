@@ -20,54 +20,54 @@ public class AzurermMapsCreator : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The maps_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MapsAccountId
+    public TerraformProperty<string>? MapsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maps_account_id");
+        get => GetProperty<TerraformProperty<string>>("maps_account_id");
         set => this.WithProperty("maps_account_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The storage_units attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? StorageUnits
+    public TerraformProperty<double>? StorageUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_units");
+        get => GetProperty<TerraformProperty<double>>("storage_units");
         set => this.WithProperty("storage_units", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

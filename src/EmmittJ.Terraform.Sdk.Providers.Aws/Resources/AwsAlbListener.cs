@@ -20,270 +20,270 @@ public class AwsAlbListener : TerraformResource
     /// <summary>
     /// The alpn_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AlpnPolicy
+    public TerraformProperty<string>? AlpnPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alpn_policy");
+        get => GetProperty<TerraformProperty<string>>("alpn_policy");
         set => this.WithProperty("alpn_policy", value);
     }
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateArn
+    public TerraformProperty<string>? CertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_arn");
+        get => GetProperty<TerraformProperty<string>>("certificate_arn");
         set => this.WithProperty("certificate_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LoadBalancerArn
+    public TerraformProperty<string>? LoadBalancerArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancer_arn");
+        get => GetProperty<TerraformProperty<string>>("load_balancer_arn");
         set => this.WithProperty("load_balancer_arn", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznMtlsClientcertHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznMtlsClientcertHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_mtls_clientcert_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_issuer_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznMtlsClientcertIssuerHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_issuer_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_issuer_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_mtls_clientcert_issuer_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_leaf_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznMtlsClientcertLeafHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_leaf_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_leaf_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_mtls_clientcert_leaf_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_mtls_clientcert_serial_number_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_subject_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznMtlsClientcertSubjectHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_subject_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_subject_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_mtls_clientcert_subject_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_mtls_clientcert_validity_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznMtlsClientcertValidityHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_validity_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_mtls_clientcert_validity_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_mtls_clientcert_validity_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_tls_cipher_suite_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznTlsCipherSuiteHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznTlsCipherSuiteHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_tls_cipher_suite_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_tls_cipher_suite_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_tls_cipher_suite_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_request_x_amzn_tls_version_header_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpRequestXAmznTlsVersionHeaderName
+    public TerraformProperty<string>? RoutingHttpRequestXAmznTlsVersionHeaderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_request_x_amzn_tls_version_header_name");
+        get => GetProperty<TerraformProperty<string>>("routing_http_request_x_amzn_tls_version_header_name");
         set => this.WithProperty("routing_http_request_x_amzn_tls_version_header_name", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_credentials_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseAccessControlAllowCredentialsHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_access_control_allow_credentials_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_access_control_allow_credentials_header_value");
         set => this.WithProperty("routing_http_response_access_control_allow_credentials_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_headers_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseAccessControlAllowHeadersHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseAccessControlAllowHeadersHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_access_control_allow_headers_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_access_control_allow_headers_header_value");
         set => this.WithProperty("routing_http_response_access_control_allow_headers_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_methods_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseAccessControlAllowMethodsHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseAccessControlAllowMethodsHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_access_control_allow_methods_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_access_control_allow_methods_header_value");
         set => this.WithProperty("routing_http_response_access_control_allow_methods_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_allow_origin_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseAccessControlAllowOriginHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseAccessControlAllowOriginHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_access_control_allow_origin_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_access_control_allow_origin_header_value");
         set => this.WithProperty("routing_http_response_access_control_allow_origin_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_expose_headers_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseAccessControlExposeHeadersHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseAccessControlExposeHeadersHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_access_control_expose_headers_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_access_control_expose_headers_header_value");
         set => this.WithProperty("routing_http_response_access_control_expose_headers_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_access_control_max_age_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseAccessControlMaxAgeHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseAccessControlMaxAgeHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_access_control_max_age_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_access_control_max_age_header_value");
         set => this.WithProperty("routing_http_response_access_control_max_age_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_content_security_policy_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseContentSecurityPolicyHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseContentSecurityPolicyHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_content_security_policy_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_content_security_policy_header_value");
         set => this.WithProperty("routing_http_response_content_security_policy_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_server_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RoutingHttpResponseServerEnabled
+    public TerraformProperty<bool>? RoutingHttpResponseServerEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("routing_http_response_server_enabled");
+        get => GetProperty<TerraformProperty<bool>>("routing_http_response_server_enabled");
         set => this.WithProperty("routing_http_response_server_enabled", value);
     }
 
     /// <summary>
     /// The routing_http_response_strict_transport_security_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseStrictTransportSecurityHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseStrictTransportSecurityHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_strict_transport_security_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_strict_transport_security_header_value");
         set => this.WithProperty("routing_http_response_strict_transport_security_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_x_content_type_options_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseXContentTypeOptionsHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseXContentTypeOptionsHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_x_content_type_options_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_x_content_type_options_header_value");
         set => this.WithProperty("routing_http_response_x_content_type_options_header_value", value);
     }
 
     /// <summary>
     /// The routing_http_response_x_frame_options_header_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingHttpResponseXFrameOptionsHeaderValue
+    public TerraformProperty<string>? RoutingHttpResponseXFrameOptionsHeaderValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_http_response_x_frame_options_header_value");
+        get => GetProperty<TerraformProperty<string>>("routing_http_response_x_frame_options_header_value");
         set => this.WithProperty("routing_http_response_x_frame_options_header_value", value);
     }
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SslPolicy
+    public TerraformProperty<string>? SslPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy");
+        get => GetProperty<TerraformProperty<string>>("ssl_policy");
         set => this.WithProperty("ssl_policy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tcp_idle_timeout_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TcpIdleTimeoutSeconds
+    public TerraformProperty<double>? TcpIdleTimeoutSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tcp_idle_timeout_seconds");
+        get => GetProperty<TerraformProperty<double>>("tcp_idle_timeout_seconds");
         set => this.WithProperty("tcp_idle_timeout_seconds", value);
     }
 

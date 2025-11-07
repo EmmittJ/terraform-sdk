@@ -21,72 +21,72 @@ public class AwsCloudformationStackInstances : TerraformResource
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Accounts
+    public TerraformProperty<HashSet<string>>? Accounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("accounts");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("accounts");
         set => this.WithProperty("accounts", value);
     }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CallAs
+    public TerraformProperty<string>? CallAs
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("call_as");
+        get => GetProperty<TerraformProperty<string>>("call_as");
         set => this.WithProperty("call_as", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parameter_overrides attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ParameterOverrides
+    public TerraformProperty<Dictionary<string, string>>? ParameterOverrides
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameter_overrides");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameter_overrides");
         set => this.WithProperty("parameter_overrides", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Regions
+    public TerraformProperty<HashSet<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The retain_stacks attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RetainStacks
+    public TerraformProperty<bool>? RetainStacks
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("retain_stacks");
+        get => GetProperty<TerraformProperty<bool>>("retain_stacks");
         set => this.WithProperty("retain_stacks", value);
     }
 
     /// <summary>
     /// The stack_set_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StackSetName
+    public TerraformProperty<string>? StackSetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_set_name");
+        get => GetProperty<TerraformProperty<string>>("stack_set_name");
         set => this.WithProperty("stack_set_name", value);
     }
 

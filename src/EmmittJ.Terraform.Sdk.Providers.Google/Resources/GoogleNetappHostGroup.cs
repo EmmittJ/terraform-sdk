@@ -23,27 +23,27 @@ public class GoogleNetappHostGroup : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The list of hosts associated with the host group
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Hosts
+    public TerraformProperty<List<string>>? Hosts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("hosts");
+        get => GetProperty<TerraformProperty<List<string>>>("hosts");
         set => this.WithProperty("hosts", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -54,27 +54,27 @@ public class GoogleNetappHostGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location (region) of the Host Group.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of the Host Group. Needs to be unique per location.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -83,27 +83,27 @@ public class GoogleNetappHostGroup : TerraformResource
     /// used by all of the hosts in the HostGroup. All hosts in a HostGroup must be
     /// of the same OS type. This can be set only when creating a HostGroup. Possible values: [&amp;quot;LINUX&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;ESXI&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? OsType
+    public TerraformProperty<string>? OsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("os_type");
+        get => GetProperty<TerraformProperty<string>>("os_type");
         set => this.WithProperty("os_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Type of the host group. Possible values: [&amp;quot;ISCSI_INITIATOR&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

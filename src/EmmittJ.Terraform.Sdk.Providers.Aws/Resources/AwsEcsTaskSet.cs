@@ -23,117 +23,117 @@ public class AwsEcsTaskSet : TerraformResource
     /// <summary>
     /// The cluster attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cluster
+    public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExternalId
+    public TerraformProperty<string>? ExternalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_id");
+        get => GetProperty<TerraformProperty<string>>("external_id");
         set => this.WithProperty("external_id", value);
     }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDelete
+    public TerraformProperty<bool>? ForceDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete");
+        get => GetProperty<TerraformProperty<bool>>("force_delete");
         set => this.WithProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LaunchType
+    public TerraformProperty<string>? LaunchType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("launch_type");
+        get => GetProperty<TerraformProperty<string>>("launch_type");
         set => this.WithProperty("launch_type", value);
     }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PlatformVersion
+    public TerraformProperty<string>? PlatformVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform_version");
+        get => GetProperty<TerraformProperty<string>>("platform_version");
         set => this.WithProperty("platform_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Service
+    public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TaskDefinition
+    public TerraformProperty<string>? TaskDefinition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_definition");
+        get => GetProperty<TerraformProperty<string>>("task_definition");
         set => this.WithProperty("task_definition", value);
     }
 
     /// <summary>
     /// The wait_until_stable attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WaitUntilStable
+    public TerraformProperty<bool>? WaitUntilStable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_until_stable");
+        get => GetProperty<TerraformProperty<bool>>("wait_until_stable");
         set => this.WithProperty("wait_until_stable", value);
     }
 
     /// <summary>
     /// The wait_until_stable_timeout attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WaitUntilStableTimeout
+    public TerraformProperty<string>? WaitUntilStableTimeout
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("wait_until_stable_timeout");
+        get => GetProperty<TerraformProperty<string>>("wait_until_stable_timeout");
         set => this.WithProperty("wait_until_stable_timeout", value);
     }
 

@@ -29,27 +29,27 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The report_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReportName
+    public TerraformProperty<string>? ReportName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("report_name");
+        get => GetProperty<TerraformProperty<string>>("report_name");
         set => this.WithProperty("report_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

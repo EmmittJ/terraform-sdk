@@ -19,99 +19,99 @@ public class AwsDirectoryServiceRadiusSettings : TerraformResource
     /// <summary>
     /// The authentication_protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationProtocol
+    public TerraformProperty<string>? AuthenticationProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_protocol");
+        get => GetProperty<TerraformProperty<string>>("authentication_protocol");
         set => this.WithProperty("authentication_protocol", value);
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DirectoryId
+    public TerraformProperty<string>? DirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_id");
+        get => GetProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
     /// <summary>
     /// The display_label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayLabel
+    public TerraformProperty<string>? DisplayLabel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_label");
+        get => GetProperty<TerraformProperty<string>>("display_label");
         set => this.WithProperty("display_label", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The radius_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RadiusPort
+    public TerraformProperty<double>? RadiusPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("radius_port");
+        get => GetProperty<TerraformProperty<double>>("radius_port");
         set => this.WithProperty("radius_port", value);
     }
 
     /// <summary>
     /// The radius_retries attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RadiusRetries
+    public TerraformProperty<double>? RadiusRetries
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("radius_retries");
+        get => GetProperty<TerraformProperty<double>>("radius_retries");
         set => this.WithProperty("radius_retries", value);
     }
 
     /// <summary>
     /// The radius_servers attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? RadiusServers
+    public TerraformProperty<HashSet<string>>? RadiusServers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("radius_servers");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("radius_servers");
         set => this.WithProperty("radius_servers", value);
     }
 
     /// <summary>
     /// The radius_timeout attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RadiusTimeout
+    public TerraformProperty<double>? RadiusTimeout
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("radius_timeout");
+        get => GetProperty<TerraformProperty<double>>("radius_timeout");
         set => this.WithProperty("radius_timeout", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The shared_secret attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedSecret
+    public TerraformProperty<string>? SharedSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_secret");
+        get => GetProperty<TerraformProperty<string>>("shared_secret");
         set => this.WithProperty("shared_secret", value);
     }
 
     /// <summary>
     /// The use_same_username attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseSameUsername
+    public TerraformProperty<bool>? UseSameUsername
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_same_username");
+        get => GetProperty<TerraformProperty<bool>>("use_same_username");
         set => this.WithProperty("use_same_username", value);
     }
 

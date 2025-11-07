@@ -19,54 +19,54 @@ public class AzurermSiteRecoveryHypervNetworkMapping : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryVaultId
+    public TerraformProperty<string>? RecoveryVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_id");
+        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 
     /// <summary>
     /// The source_network_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceNetworkName
+    public TerraformProperty<string>? SourceNetworkName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_network_name");
+        get => GetProperty<TerraformProperty<string>>("source_network_name");
         set => this.WithProperty("source_network_name", value);
     }
 
     /// <summary>
     /// The source_system_center_virtual_machine_manager_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceSystemCenterVirtualMachineManagerName
+    public TerraformProperty<string>? SourceSystemCenterVirtualMachineManagerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_system_center_virtual_machine_manager_name");
+        get => GetProperty<TerraformProperty<string>>("source_system_center_virtual_machine_manager_name");
         set => this.WithProperty("source_system_center_virtual_machine_manager_name", value);
     }
 
     /// <summary>
     /// The target_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetNetworkId
+    public TerraformProperty<string>? TargetNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_network_id");
+        get => GetProperty<TerraformProperty<string>>("target_network_id");
         set => this.WithProperty("target_network_id", value);
     }
 

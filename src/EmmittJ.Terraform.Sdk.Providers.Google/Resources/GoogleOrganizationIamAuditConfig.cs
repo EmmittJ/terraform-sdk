@@ -20,27 +20,27 @@ public class GoogleOrganizationIamAuditConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The numeric ID of the organization in which you want to manage the audit logging config.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// Service which will be enabled for audit logging. The special value allServices covers all services.
     /// </summary>
-    public TerraformLiteralProperty<string>? Service
+    public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

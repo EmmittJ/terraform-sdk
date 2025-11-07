@@ -23,27 +23,27 @@ public class GoogleCloudIdentityGroupMembership : TerraformResource
     /// <summary>
     /// If set to true, skip group member creation if a membership with the same name already exists. Defaults to false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CreateIgnoreAlreadyExists
+    public TerraformProperty<bool>? CreateIgnoreAlreadyExists
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_ignore_already_exists");
+        get => GetProperty<TerraformProperty<bool>>("create_ignore_already_exists");
         set => this.WithProperty("create_ignore_already_exists", value);
     }
 
     /// <summary>
     /// The name of the Group to create this membership in.
     /// </summary>
-    public TerraformLiteralProperty<string>? Group
+    public TerraformProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

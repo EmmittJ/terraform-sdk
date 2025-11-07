@@ -19,36 +19,36 @@ public class AwsMskScramSecretAssociation : TerraformResource
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterArn
+    public TerraformProperty<string>? ClusterArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_arn");
+        get => GetProperty<TerraformProperty<string>>("cluster_arn");
         set => this.WithProperty("cluster_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The secret_arn_list attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecretArnList
+    public TerraformProperty<HashSet<string>>? SecretArnList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("secret_arn_list");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("secret_arn_list");
         set => this.WithProperty("secret_arn_list", value);
     }
 

@@ -20,27 +20,27 @@ public class AzurermSystemCenterVirtualMachineManagerInventoryItemsDataSource : 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The inventory_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InventoryType
+    public TerraformProperty<string>? InventoryType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("inventory_type");
+        get => GetProperty<TerraformProperty<string>>("inventory_type");
         set => this.WithProperty("inventory_type", value);
     }
 
     /// <summary>
     /// The system_center_virtual_machine_manager_server_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SystemCenterVirtualMachineManagerServerId
+    public TerraformProperty<string>? SystemCenterVirtualMachineManagerServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("system_center_virtual_machine_manager_server_id");
+        get => GetProperty<TerraformProperty<string>>("system_center_virtual_machine_manager_server_id");
         set => this.WithProperty("system_center_virtual_machine_manager_server_id", value);
     }
 

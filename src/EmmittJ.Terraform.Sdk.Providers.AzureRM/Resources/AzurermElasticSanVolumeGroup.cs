@@ -19,45 +19,45 @@ public class AzurermElasticSanVolumeGroup : TerraformResource
     /// <summary>
     /// The elastic_san_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ElasticSanId
+    public TerraformProperty<string>? ElasticSanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("elastic_san_id");
+        get => GetProperty<TerraformProperty<string>>("elastic_san_id");
         set => this.WithProperty("elastic_san_id", value);
     }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EncryptionType
+    public TerraformProperty<string>? EncryptionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption_type");
+        get => GetProperty<TerraformProperty<string>>("encryption_type");
         set => this.WithProperty("encryption_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtocolType
+    public TerraformProperty<string>? ProtocolType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol_type");
+        get => GetProperty<TerraformProperty<string>>("protocol_type");
         set => this.WithProperty("protocol_type", value);
     }
 

@@ -20,144 +20,144 @@ public class AwsXraySamplingRule : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Attributes
+    public TerraformProperty<Dictionary<string, string>>? Attributes
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attributes");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 
     /// <summary>
     /// The fixed_rate attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FixedRate
+    public TerraformProperty<double>? FixedRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("fixed_rate");
+        get => GetProperty<TerraformProperty<double>>("fixed_rate");
         set => this.WithProperty("fixed_rate", value);
     }
 
     /// <summary>
     /// The host attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Host
+    public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host");
+        get => GetProperty<TerraformProperty<string>>("host");
         set => this.WithProperty("host", value);
     }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpMethod
+    public TerraformProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_method");
+        get => GetProperty<TerraformProperty<string>>("http_method");
         set => this.WithProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The reservoir_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReservoirSize
+    public TerraformProperty<double>? ReservoirSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("reservoir_size");
+        get => GetProperty<TerraformProperty<double>>("reservoir_size");
         set => this.WithProperty("reservoir_size", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceArn
+    public TerraformProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuleName
+    public TerraformProperty<string>? RuleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_name");
+        get => GetProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceName
+    public TerraformProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The service_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceType
+    public TerraformProperty<string>? ServiceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_type");
+        get => GetProperty<TerraformProperty<string>>("service_type");
         set => this.WithProperty("service_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The url_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UrlPath
+    public TerraformProperty<string>? UrlPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_path");
+        get => GetProperty<TerraformProperty<string>>("url_path");
         set => this.WithProperty("url_path", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Version
+    public TerraformProperty<double>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("version");
+        get => GetProperty<TerraformProperty<double>>("version");
         set => this.WithProperty("version", value);
     }
 

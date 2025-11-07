@@ -22,54 +22,54 @@ public class AwsCodebuildWebhook : TerraformResource
     /// <summary>
     /// The branch_filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BranchFilter
+    public TerraformProperty<string>? BranchFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch_filter");
+        get => GetProperty<TerraformProperty<string>>("branch_filter");
         set => this.WithProperty("branch_filter", value);
     }
 
     /// <summary>
     /// The build_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BuildType
+    public TerraformProperty<string>? BuildType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("build_type");
+        get => GetProperty<TerraformProperty<string>>("build_type");
         set => this.WithProperty("build_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The manual_creation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ManualCreation
+    public TerraformProperty<bool>? ManualCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("manual_creation");
+        get => GetProperty<TerraformProperty<bool>>("manual_creation");
         set => this.WithProperty("manual_creation", value);
     }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProjectName
+    public TerraformProperty<string>? ProjectName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_name");
+        get => GetProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

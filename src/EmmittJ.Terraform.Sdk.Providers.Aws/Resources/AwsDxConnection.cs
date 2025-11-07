@@ -28,99 +28,99 @@ public class AwsDxConnection : TerraformResource
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bandwidth
+    public TerraformProperty<string>? Bandwidth
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bandwidth");
+        get => GetProperty<TerraformProperty<string>>("bandwidth");
         set => this.WithProperty("bandwidth", value);
     }
 
     /// <summary>
     /// The encryption_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EncryptionMode
+    public TerraformProperty<string>? EncryptionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption_mode");
+        get => GetProperty<TerraformProperty<string>>("encryption_mode");
         set => this.WithProperty("encryption_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProviderName
+    public TerraformProperty<string>? ProviderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_name");
+        get => GetProperty<TerraformProperty<string>>("provider_name");
         set => this.WithProperty("provider_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The request_macsec attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequestMacsec
+    public TerraformProperty<bool>? RequestMacsec
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("request_macsec");
+        get => GetProperty<TerraformProperty<bool>>("request_macsec");
         set => this.WithProperty("request_macsec", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipDestroy
+    public TerraformProperty<bool>? SkipDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy");
+        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
         set => this.WithProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

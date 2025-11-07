@@ -20,36 +20,36 @@ public class AwsSsoadminApplicationAccessScope : TerraformResource
     /// <summary>
     /// The application_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationArn
+    public TerraformProperty<string>? ApplicationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_arn");
+        get => GetProperty<TerraformProperty<string>>("application_arn");
         set => this.WithProperty("application_arn", value);
     }
 
     /// <summary>
     /// The authorized_targets attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AuthorizedTargets
+    public TerraformProperty<List<string>>? AuthorizedTargets
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("authorized_targets");
+        get => GetProperty<TerraformProperty<List<string>>>("authorized_targets");
         set => this.WithProperty("authorized_targets", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

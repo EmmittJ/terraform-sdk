@@ -21,9 +21,9 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// The name of the instance partition&#39;s configuration (similar to a region) which
     /// defines the geographic placement and replication of data in this instance partition.
     /// </summary>
-    public TerraformLiteralProperty<string>? Config
+    public TerraformProperty<string>? Config
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config");
+        get => GetProperty<TerraformProperty<string>>("config");
         set => this.WithProperty("config", value);
     }
 
@@ -31,27 +31,27 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// The descriptive name for this instance partition as it appears in UIs.
     /// Must be unique per project and between 4 and 30 characters in length.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance to create the instance partition in.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -60,9 +60,9 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// the instance partition is created. The name must be between 2 and 64 characters
     /// and match the regular expression [a-z][a-z0-9\\-]{0,61}[a-z0-9].
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -71,9 +71,9 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// 1000 processing units. Exactly one of either node_count or processing_units
     /// must be present.
     /// </summary>
-    public TerraformLiteralProperty<double>? NodeCount
+    public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("node_count");
+        get => GetProperty<TerraformProperty<double>>("node_count");
         set => this.WithProperty("node_count", value);
     }
 
@@ -81,18 +81,18 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// The number of processing units allocated to this instance partition.
     /// Exactly one of either node_count or processing_units must be present.
     /// </summary>
-    public TerraformLiteralProperty<double>? ProcessingUnits
+    public TerraformProperty<double>? ProcessingUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("processing_units");
+        get => GetProperty<TerraformProperty<double>>("processing_units");
         set => this.WithProperty("processing_units", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

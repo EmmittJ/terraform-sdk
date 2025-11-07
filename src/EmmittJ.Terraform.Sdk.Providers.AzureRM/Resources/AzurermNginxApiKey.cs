@@ -20,45 +20,45 @@ public class AzurermNginxApiKey : TerraformResource
     /// <summary>
     /// The end_date_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndDateTime
+    public TerraformProperty<string>? EndDateTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date_time");
+        get => GetProperty<TerraformProperty<string>>("end_date_time");
         set => this.WithProperty("end_date_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NginxDeploymentId
+    public TerraformProperty<string>? NginxDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nginx_deployment_id");
+        get => GetProperty<TerraformProperty<string>>("nginx_deployment_id");
         set => this.WithProperty("nginx_deployment_id", value);
     }
 
     /// <summary>
     /// The secret_text attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecretText
+    public TerraformProperty<string>? SecretText
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_text");
+        get => GetProperty<TerraformProperty<string>>("secret_text");
         set => this.WithProperty("secret_text", value);
     }
 

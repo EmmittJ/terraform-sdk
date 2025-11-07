@@ -23,9 +23,9 @@ public class GoogleIamOauthClient : TerraformResource
     /// <summary>
     /// Required. The list of OAuth grant types is allowed for the OauthClient.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AllowedGrantTypes
+    public TerraformProperty<List<string>>? AllowedGrantTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_grant_types");
+        get => GetProperty<TerraformProperty<List<string>>>("allowed_grant_types");
         set => this.WithProperty("allowed_grant_types", value);
     }
 
@@ -33,9 +33,9 @@ public class GoogleIamOauthClient : TerraformResource
     /// Required. The list of redirect uris that is allowed to redirect back
     /// when authorization process is completed.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AllowedRedirectUris
+    public TerraformProperty<List<string>>? AllowedRedirectUris
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_redirect_uris");
+        get => GetProperty<TerraformProperty<List<string>>>("allowed_redirect_uris");
         set => this.WithProperty("allowed_redirect_uris", value);
     }
 
@@ -53,9 +53,9 @@ public class GoogleIamOauthClient : TerraformResource
     /// * &#39;email&#39;: The OAuth client can read a federated identity&#39;s email address.
     /// * &#39;groups&#39;: The OAuth client can read a federated identity&#39;s groups.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AllowedScopes
+    public TerraformProperty<List<string>>? AllowedScopes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_scopes");
+        get => GetProperty<TerraformProperty<List<string>>>("allowed_scopes");
         set => this.WithProperty("allowed_scopes", value);
     }
 
@@ -68,9 +68,9 @@ public class GoogleIamOauthClient : TerraformResource
     /// PUBLIC_CLIENT
     /// CONFIDENTIAL_CLIENT
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientType
+    public TerraformProperty<string>? ClientType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_type");
+        get => GetProperty<TerraformProperty<string>>("client_type");
         set => this.WithProperty("client_type", value);
     }
 
@@ -79,9 +79,9 @@ public class GoogleIamOauthClient : TerraformResource
     /// 
     /// Cannot exceed 256 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -89,9 +89,9 @@ public class GoogleIamOauthClient : TerraformResource
     /// Whether the OauthClient is disabled. You cannot use a disabled OAuth
     /// client.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
@@ -100,27 +100,27 @@ public class GoogleIamOauthClient : TerraformResource
     /// 
     /// Cannot exceed 32 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -131,18 +131,18 @@ public class GoogleIamOauthClient : TerraformResource
     /// trailing hyphen. The prefix &#39;gcp-&#39; is reserved for use by Google, and may
     /// not be specified.
     /// </summary>
-    public TerraformLiteralProperty<string>? OauthClientId
+    public TerraformProperty<string>? OauthClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oauth_client_id");
+        get => GetProperty<TerraformProperty<string>>("oauth_client_id");
         set => this.WithProperty("oauth_client_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

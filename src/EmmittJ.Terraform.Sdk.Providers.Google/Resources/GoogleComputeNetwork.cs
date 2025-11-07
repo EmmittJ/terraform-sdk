@@ -28,9 +28,9 @@ public class GoogleComputeNetwork : TerraformResource
     /// When set to &#39;false&#39;, the network is created in &amp;quot;custom subnet mode&amp;quot; so
     /// the user can explicitly connect subnetwork resources.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoCreateSubnetworks
+    public TerraformProperty<bool>? AutoCreateSubnetworks
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_create_subnetworks");
+        get => GetProperty<TerraformProperty<bool>>("auto_create_subnetworks");
         set => this.WithProperty("auto_create_subnetworks", value);
     }
 
@@ -38,27 +38,27 @@ public class GoogleComputeNetwork : TerraformResource
     /// Enables/disables the comparison of MED across routes with different Neighbor ASNs.
     /// This value can only be set if the --bgp-best-path-selection-mode is STANDARD
     /// </summary>
-    public TerraformLiteralProperty<bool>? BgpAlwaysCompareMed
+    public TerraformProperty<bool>? BgpAlwaysCompareMed
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bgp_always_compare_med");
+        get => GetProperty<TerraformProperty<bool>>("bgp_always_compare_med");
         set => this.WithProperty("bgp_always_compare_med", value);
     }
 
     /// <summary>
     /// The BGP best selection algorithm to be employed. MODE can be LEGACY or STANDARD. Possible values: [&amp;quot;LEGACY&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? BgpBestPathSelectionMode
+    public TerraformProperty<string>? BgpBestPathSelectionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bgp_best_path_selection_mode");
+        get => GetProperty<TerraformProperty<string>>("bgp_best_path_selection_mode");
         set => this.WithProperty("bgp_best_path_selection_mode", value);
     }
 
     /// <summary>
     /// Choice of the behavior of inter-regional cost and MED in the BPS algorithm. Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;ADD_COST_TO_MED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? BgpInterRegionCost
+    public TerraformProperty<string>? BgpInterRegionCost
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bgp_inter_region_cost");
+        get => GetProperty<TerraformProperty<string>>("bgp_inter_region_cost");
         set => this.WithProperty("bgp_inter_region_cost", value);
     }
 
@@ -66,9 +66,9 @@ public class GoogleComputeNetwork : TerraformResource
     /// If set to &#39;true&#39;, default routes (&#39;0.0.0.0/0&#39;) will be deleted
     /// immediately after network creation. Defaults to &#39;false&#39;.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteDefaultRoutesOnCreate
+    public TerraformProperty<bool>? DeleteDefaultRoutesOnCreate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_default_routes_on_create");
+        get => GetProperty<TerraformProperty<bool>>("delete_default_routes_on_create");
         set => this.WithProperty("delete_default_routes_on_create", value);
     }
 
@@ -76,9 +76,9 @@ public class GoogleComputeNetwork : TerraformResource
     /// An optional description of this resource. The resource must be
     /// recreated to modify this field.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -86,18 +86,18 @@ public class GoogleComputeNetwork : TerraformResource
     /// Enable ULA internal ipv6 on this network. Enabling this feature will assign
     /// a /48 from google defined ULA prefix fd20::/20.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableUlaInternalIpv6
+    public TerraformProperty<bool>? EnableUlaInternalIpv6
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_ula_internal_ipv6");
+        get => GetProperty<TerraformProperty<bool>>("enable_ula_internal_ipv6");
         set => this.WithProperty("enable_ula_internal_ipv6", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -108,9 +108,9 @@ public class GoogleComputeNetwork : TerraformResource
     /// fail if the speficied /48 is already in used by another resource.
     /// If the field is not speficied, then a /48 range will be randomly allocated from fd20::/20 and returned via this field.
     /// </summary>
-    public TerraformLiteralProperty<string>? InternalIpv6Range
+    public TerraformProperty<string>? InternalIpv6Range
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("internal_ipv6_range");
+        get => GetProperty<TerraformProperty<string>>("internal_ipv6_range");
         set => this.WithProperty("internal_ipv6_range", value);
     }
 
@@ -121,9 +121,9 @@ public class GoogleComputeNetwork : TerraformResource
     /// with an ICMP &#39;Fragmentation-Needed&#39; message if the packets are routed to the Internet or other VPCs
     /// with varying MTUs.
     /// </summary>
-    public TerraformLiteralProperty<double>? Mtu
+    public TerraformProperty<double>? Mtu
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("mtu");
+        get => GetProperty<TerraformProperty<double>>("mtu");
         set => this.WithProperty("mtu", value);
     }
 
@@ -136,18 +136,18 @@ public class GoogleComputeNetwork : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Set the order that Firewall Rules and Firewall Policies are evaluated. Default value: &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot; Possible values: [&amp;quot;BEFORE_CLASSIC_FIREWALL&amp;quot;, &amp;quot;AFTER_CLASSIC_FIREWALL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkFirewallPolicyEnforcementOrder
+    public TerraformProperty<string>? NetworkFirewallPolicyEnforcementOrder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_firewall_policy_enforcement_order");
+        get => GetProperty<TerraformProperty<string>>("network_firewall_policy_enforcement_order");
         set => this.WithProperty("network_firewall_policy_enforcement_order", value);
     }
 
@@ -158,18 +158,18 @@ public class GoogleComputeNetwork : TerraformResource
     /// * https://www.googleapis.com/compute/v1/projects/{projectId}/global/networkProfiles/{network_profile_name}
     /// * projects/{projectId}/global/networkProfiles/{network_profile_name}
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkProfile
+    public TerraformProperty<string>? NetworkProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_profile");
+        get => GetProperty<TerraformProperty<string>>("network_profile");
         set => this.WithProperty("network_profile", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -180,9 +180,9 @@ public class GoogleComputeNetwork : TerraformResource
     /// this network&#39;s cloud routers will advertise routes with all
     /// subnetworks of this network, across regions. Possible values: [&amp;quot;REGIONAL&amp;quot;, &amp;quot;GLOBAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingMode
+    public TerraformProperty<string>? RoutingMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_mode");
+        get => GetProperty<TerraformProperty<string>>("routing_mode");
         set => this.WithProperty("routing_mode", value);
     }
 

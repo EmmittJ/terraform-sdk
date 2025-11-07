@@ -19,54 +19,54 @@ public class AzurermCognitiveDeployment : TerraformResource
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CognitiveAccountId
+    public TerraformProperty<string>? CognitiveAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cognitive_account_id");
+        get => GetProperty<TerraformProperty<string>>("cognitive_account_id");
         set => this.WithProperty("cognitive_account_id", value);
     }
 
     /// <summary>
     /// The dynamic_throttling_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DynamicThrottlingEnabled
+    public TerraformProperty<bool>? DynamicThrottlingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("dynamic_throttling_enabled");
+        get => GetProperty<TerraformProperty<bool>>("dynamic_throttling_enabled");
         set => this.WithProperty("dynamic_throttling_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The rai_policy_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RaiPolicyName
+    public TerraformProperty<string>? RaiPolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rai_policy_name");
+        get => GetProperty<TerraformProperty<string>>("rai_policy_name");
         set => this.WithProperty("rai_policy_name", value);
     }
 
     /// <summary>
     /// The version_upgrade_option attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VersionUpgradeOption
+    public TerraformProperty<string>? VersionUpgradeOption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_upgrade_option");
+        get => GetProperty<TerraformProperty<string>>("version_upgrade_option");
         set => this.WithProperty("version_upgrade_option", value);
     }
 

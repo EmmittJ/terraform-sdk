@@ -21,63 +21,63 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// <summary>
     /// A detailed description of the metric, which can be used in documentation.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case without an ending period, for example &amp;quot;Request count&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The launch stage of the metric definition. Possible values: [&amp;quot;LAUNCH_STAGE_UNSPECIFIED&amp;quot;, &amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? LaunchStage
+    public TerraformProperty<string>? LaunchStage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("launch_stage");
+        get => GetProperty<TerraformProperty<string>>("launch_stage");
         set => this.WithProperty("launch_stage", value);
     }
 
     /// <summary>
     /// Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;METRIC_KIND_UNSPECIFIED&amp;quot;, &amp;quot;GAUGE&amp;quot;, &amp;quot;DELTA&amp;quot;, &amp;quot;CUMULATIVE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? MetricKind
+    public TerraformProperty<string>? MetricKind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metric_kind");
+        get => GetProperty<TerraformProperty<string>>("metric_kind");
         set => this.WithProperty("metric_kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The metric type, including its DNS name prefix. The type is not URL-encoded. All service defined metrics must be prefixed with the service name, in the format of {service name}/{relative metric name}, such as cloudsql.googleapis.com/database/cpu/utilization. The relative metric name must have only upper and lower-case letters, digits, &#39;/&#39; and underscores &#39;_&#39; are allowed. Additionally, the maximum number of characters allowed for the relative_metric_name is 100. All user-defined metric types have the DNS name custom.googleapis.com, external.googleapis.com, or logging.googleapis.com/user/.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -103,18 +103,18 @@ public class GoogleMonitoringMetricDescriptor : TerraformResource
     /// More info can be found in the API documentation
     /// (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors).
     /// </summary>
-    public TerraformLiteralProperty<string>? Unit
+    public TerraformProperty<string>? Unit
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("unit");
+        get => GetProperty<TerraformProperty<string>>("unit");
         set => this.WithProperty("unit", value);
     }
 
     /// <summary>
     /// Whether the measurement is an integer, a floating-point number, etc. Some combinations of metricKind and valueType might not be supported. Possible values: [&amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;, &amp;quot;DOUBLE&amp;quot;, &amp;quot;STRING&amp;quot;, &amp;quot;DISTRIBUTION&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ValueType
+    public TerraformProperty<string>? ValueType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value_type");
+        get => GetProperty<TerraformProperty<string>>("value_type");
         set => this.WithProperty("value_type", value);
     }
 

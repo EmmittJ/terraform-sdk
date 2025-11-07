@@ -33,9 +33,9 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// The Admin Cluster this Bare Metal User Cluster belongs to.
     /// This is the full resource name of the Admin Cluster&#39;s hub membership.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdminClusterMembership
+    public TerraformProperty<string>? AdminClusterMembership
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_cluster_membership");
+        get => GetProperty<TerraformProperty<string>>("admin_cluster_membership");
         set => this.WithProperty("admin_cluster_membership", value);
     }
 
@@ -53,63 +53,63 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// A human readable description of this Bare Metal User Cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? BareMetalVersion
+    public TerraformProperty<string>? BareMetalVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bare_metal_version");
+        get => GetProperty<TerraformProperty<string>>("bare_metal_version");
         set => this.WithProperty("bare_metal_version", value);
     }
 
     /// <summary>
     /// A human readable description of this Bare Metal User Cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The bare metal cluster name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

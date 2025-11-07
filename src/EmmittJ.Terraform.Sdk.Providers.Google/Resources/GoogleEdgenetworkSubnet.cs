@@ -25,36 +25,36 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ranges of ipv4 addresses that are owned by this subnetwork, in CIDR format.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Ipv4Cidr
+    public TerraformProperty<List<string>>? Ipv4Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ipv4_cidr");
+        get => GetProperty<TerraformProperty<List<string>>>("ipv4_cidr");
         set => this.WithProperty("ipv4_cidr", value);
     }
 
     /// <summary>
     /// The ranges of ipv6 addresses that are owned by this subnetwork, in CIDR format.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Ipv6Cidr
+    public TerraformProperty<List<string>>? Ipv6Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ipv6_cidr");
+        get => GetProperty<TerraformProperty<List<string>>>("ipv6_cidr");
         set => this.WithProperty("ipv6_cidr", value);
     }
 
@@ -65,18 +65,18 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The Google Cloud region to which the target Distributed Cloud Edge zone belongs.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -84,45 +84,45 @@ public class GoogleEdgenetworkSubnet : TerraformResource
     /// The ID of the network to which this router belongs.
     /// Must be of the form: &#39;projects/{{project}}/locations/{{location}}/zones/{{zone}}/networks/{{network_id}}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A unique ID that identifies this subnet.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// VLAN ID for this subnetwork. If not specified, one is assigned automatically.
     /// </summary>
-    public TerraformLiteralProperty<double>? VlanId
+    public TerraformProperty<double>? VlanId
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vlan_id");
+        get => GetProperty<TerraformProperty<double>>("vlan_id");
         set => this.WithProperty("vlan_id", value);
     }
 
     /// <summary>
     /// The name of the target Distributed Cloud Edge zone.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

@@ -19,117 +19,117 @@ public class AwsApigatewayv2Route : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiId
+    public TerraformProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The api_key_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ApiKeyRequired
+    public TerraformProperty<bool>? ApiKeyRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("api_key_required");
+        get => GetProperty<TerraformProperty<bool>>("api_key_required");
         set => this.WithProperty("api_key_required", value);
     }
 
     /// <summary>
     /// The authorization_scopes attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AuthorizationScopes
+    public TerraformProperty<HashSet<string>>? AuthorizationScopes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("authorization_scopes");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("authorization_scopes");
         set => this.WithProperty("authorization_scopes", value);
     }
 
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizationType
+    public TerraformProperty<string>? AuthorizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_type");
+        get => GetProperty<TerraformProperty<string>>("authorization_type");
         set => this.WithProperty("authorization_type", value);
     }
 
     /// <summary>
     /// The authorizer_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizerId
+    public TerraformProperty<string>? AuthorizerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_id");
+        get => GetProperty<TerraformProperty<string>>("authorizer_id");
         set => this.WithProperty("authorizer_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The model_selection_expression attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ModelSelectionExpression
+    public TerraformProperty<string>? ModelSelectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("model_selection_expression");
+        get => GetProperty<TerraformProperty<string>>("model_selection_expression");
         set => this.WithProperty("model_selection_expression", value);
     }
 
     /// <summary>
     /// The operation_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OperationName
+    public TerraformProperty<string>? OperationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operation_name");
+        get => GetProperty<TerraformProperty<string>>("operation_name");
         set => this.WithProperty("operation_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The request_models attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? RequestModels
+    public TerraformProperty<Dictionary<string, string>>? RequestModels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("request_models");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("request_models");
         set => this.WithProperty("request_models", value);
     }
 
     /// <summary>
     /// The route_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RouteKey
+    public TerraformProperty<string>? RouteKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_key");
+        get => GetProperty<TerraformProperty<string>>("route_key");
         set => this.WithProperty("route_key", value);
     }
 
     /// <summary>
     /// The route_response_selection_expression attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RouteResponseSelectionExpression
+    public TerraformProperty<string>? RouteResponseSelectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_response_selection_expression");
+        get => GetProperty<TerraformProperty<string>>("route_response_selection_expression");
         set => this.WithProperty("route_response_selection_expression", value);
     }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Target
+    public TerraformProperty<string>? Target
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target");
+        get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 

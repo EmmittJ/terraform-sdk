@@ -29,81 +29,81 @@ public class GoogleContainerAzureNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
     /// </summary>
-    public TerraformLiteralProperty<string>? AzureAvailabilityZone
+    public TerraformProperty<string>? AzureAvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("azure_availability_zone");
+        get => GetProperty<TerraformProperty<string>>("azure_availability_zone");
         set => this.WithProperty("azure_availability_zone", value);
     }
 
     /// <summary>
     /// The azureCluster for the resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Cluster
+    public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The ARM ID of the subnet where the node pool VMs run. Make sure it&#39;s a subnet under the virtual network in the cluster configuration.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this node pool.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

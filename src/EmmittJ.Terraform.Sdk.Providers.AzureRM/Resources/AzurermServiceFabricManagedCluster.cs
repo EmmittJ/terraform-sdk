@@ -19,135 +19,135 @@ public class AzurermServiceFabricManagedCluster : TerraformResource
     /// <summary>
     /// The backup_service_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BackupServiceEnabled
+    public TerraformProperty<bool>? BackupServiceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("backup_service_enabled");
+        get => GetProperty<TerraformProperty<bool>>("backup_service_enabled");
         set => this.WithProperty("backup_service_enabled", value);
     }
 
     /// <summary>
     /// The client_connection_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ClientConnectionPort
+    public TerraformProperty<double>? ClientConnectionPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("client_connection_port");
+        get => GetProperty<TerraformProperty<double>>("client_connection_port");
         set => this.WithProperty("client_connection_port", value);
     }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsName
+    public TerraformProperty<string>? DnsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_name");
+        get => GetProperty<TerraformProperty<string>>("dns_name");
         set => this.WithProperty("dns_name", value);
     }
 
     /// <summary>
     /// The dns_service_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DnsServiceEnabled
+    public TerraformProperty<bool>? DnsServiceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("dns_service_enabled");
+        get => GetProperty<TerraformProperty<bool>>("dns_service_enabled");
         set => this.WithProperty("dns_service_enabled", value);
     }
 
     /// <summary>
     /// The http_gateway_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? HttpGatewayPort
+    public TerraformProperty<double>? HttpGatewayPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_gateway_port");
+        get => GetProperty<TerraformProperty<double>>("http_gateway_port");
         set => this.WithProperty("http_gateway_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The upgrade_wave attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UpgradeWave
+    public TerraformProperty<string>? UpgradeWave
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("upgrade_wave");
+        get => GetProperty<TerraformProperty<string>>("upgrade_wave");
         set => this.WithProperty("upgrade_wave", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

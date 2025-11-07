@@ -20,36 +20,36 @@ public class GoogleComputeMachineTypesDataSource : TerraformDataSource
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Project ID for this request.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the zone for this request.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

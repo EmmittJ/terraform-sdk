@@ -20,36 +20,36 @@ public class AwsAccountRegion : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The region_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RegionName
+    public TerraformProperty<string>? RegionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region_name");
+        get => GetProperty<TerraformProperty<string>>("region_name");
         set => this.WithProperty("region_name", value);
     }
 

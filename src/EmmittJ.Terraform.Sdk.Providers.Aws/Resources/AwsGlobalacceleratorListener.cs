@@ -20,36 +20,36 @@ public class AwsGlobalacceleratorListener : TerraformResource
     /// <summary>
     /// The accelerator_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AcceleratorArn
+    public TerraformProperty<string>? AcceleratorArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("accelerator_arn");
+        get => GetProperty<TerraformProperty<string>>("accelerator_arn");
         set => this.WithProperty("accelerator_arn", value);
     }
 
     /// <summary>
     /// The client_affinity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientAffinity
+    public TerraformProperty<string>? ClientAffinity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_affinity");
+        get => GetProperty<TerraformProperty<string>>("client_affinity");
         set => this.WithProperty("client_affinity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 

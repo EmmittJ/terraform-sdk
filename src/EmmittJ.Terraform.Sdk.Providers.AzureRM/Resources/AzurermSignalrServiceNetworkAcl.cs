@@ -19,27 +19,27 @@ public class AzurermSignalrServiceNetworkAcl : TerraformResource
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultAction
+    public TerraformProperty<string>? DefaultAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_action");
+        get => GetProperty<TerraformProperty<string>>("default_action");
         set => this.WithProperty("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The signalr_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SignalrServiceId
+    public TerraformProperty<string>? SignalrServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signalr_service_id");
+        get => GetProperty<TerraformProperty<string>>("signalr_service_id");
         set => this.WithProperty("signalr_service_id", value);
     }
 

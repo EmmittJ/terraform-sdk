@@ -20,36 +20,36 @@ public class AzurermManagedDiskSasToken : TerraformResource
     /// <summary>
     /// The access_level attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessLevel
+    public TerraformProperty<string>? AccessLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_level");
+        get => GetProperty<TerraformProperty<string>>("access_level");
         set => this.WithProperty("access_level", value);
     }
 
     /// <summary>
     /// The duration_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DurationInSeconds
+    public TerraformProperty<double>? DurationInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("duration_in_seconds");
         set => this.WithProperty("duration_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedDiskId
+    public TerraformProperty<string>? ManagedDiskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_disk_id");
+        get => GetProperty<TerraformProperty<string>>("managed_disk_id");
         set => this.WithProperty("managed_disk_id", value);
     }
 

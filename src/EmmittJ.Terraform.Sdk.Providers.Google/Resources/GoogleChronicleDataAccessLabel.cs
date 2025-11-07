@@ -28,63 +28,63 @@ public class GoogleChronicleDataAccessLabel : TerraformResource
     /// maximum number of characters should be 63. Regex pattern is as per AIP:
     /// https://google.aip.dev/122#resource-id-segments
     /// </summary>
-    public TerraformLiteralProperty<string>? DataAccessLabelId
+    public TerraformProperty<string>? DataAccessLabelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_access_label_id");
+        get => GetProperty<TerraformProperty<string>>("data_access_label_id");
         set => this.WithProperty("data_access_label_id", value);
     }
 
     /// <summary>
     /// Optional. A description of the data access label for a human reader.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A UDM query over event data.
     /// </summary>
-    public TerraformLiteralProperty<string>? UdmQuery
+    public TerraformProperty<string>? UdmQuery
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("udm_query");
+        get => GetProperty<TerraformProperty<string>>("udm_query");
         set => this.WithProperty("udm_query", value);
     }
 

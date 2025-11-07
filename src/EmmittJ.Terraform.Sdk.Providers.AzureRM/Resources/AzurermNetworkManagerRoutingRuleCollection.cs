@@ -19,54 +19,54 @@ public class AzurermNetworkManagerRoutingRuleCollection : TerraformResource
     /// <summary>
     /// The bgp_route_propagation_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BgpRoutePropagationEnabled
+    public TerraformProperty<bool>? BgpRoutePropagationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bgp_route_propagation_enabled");
+        get => GetProperty<TerraformProperty<bool>>("bgp_route_propagation_enabled");
         set => this.WithProperty("bgp_route_propagation_enabled", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? NetworkGroupIds
+    public TerraformProperty<List<string>>? NetworkGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("network_group_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("network_group_ids");
         set => this.WithProperty("network_group_ids", value);
     }
 
     /// <summary>
     /// The routing_configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingConfigurationId
+    public TerraformProperty<string>? RoutingConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_configuration_id");
+        get => GetProperty<TerraformProperty<string>>("routing_configuration_id");
         set => this.WithProperty("routing_configuration_id", value);
     }
 

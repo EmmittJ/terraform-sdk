@@ -23,99 +23,99 @@ public class AwsMemorydbMultiRegionCluster : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Engine
+    public TerraformProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineVersion
+    public TerraformProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The multi_region_cluster_name_suffix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MultiRegionClusterNameSuffix
+    public TerraformProperty<string>? MultiRegionClusterNameSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multi_region_cluster_name_suffix");
+        get => GetProperty<TerraformProperty<string>>("multi_region_cluster_name_suffix");
         set => this.WithProperty("multi_region_cluster_name_suffix", value);
     }
 
     /// <summary>
     /// The multi_region_parameter_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MultiRegionParameterGroupName
+    public TerraformProperty<string>? MultiRegionParameterGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multi_region_parameter_group_name");
+        get => GetProperty<TerraformProperty<string>>("multi_region_parameter_group_name");
         set => this.WithProperty("multi_region_parameter_group_name", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeType
+    public TerraformProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        get => GetProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NumShards
+    public TerraformProperty<double>? NumShards
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("num_shards");
+        get => GetProperty<TerraformProperty<double>>("num_shards");
         set => this.WithProperty("num_shards", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TlsEnabled
+    public TerraformProperty<bool>? TlsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls_enabled");
+        get => GetProperty<TerraformProperty<bool>>("tls_enabled");
         set => this.WithProperty("tls_enabled", value);
     }
 
     /// <summary>
     /// The update_strategy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UpdateStrategy
+    public TerraformProperty<string>? UpdateStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("update_strategy");
+        get => GetProperty<TerraformProperty<string>>("update_strategy");
         set => this.WithProperty("update_strategy", value);
     }
 

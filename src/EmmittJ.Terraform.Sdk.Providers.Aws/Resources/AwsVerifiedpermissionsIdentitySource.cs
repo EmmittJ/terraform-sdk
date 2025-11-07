@@ -20,27 +20,27 @@ public class AwsVerifiedpermissionsIdentitySource : TerraformResource
     /// <summary>
     /// The policy_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyStoreId
+    public TerraformProperty<string>? PolicyStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_store_id");
+        get => GetProperty<TerraformProperty<string>>("policy_store_id");
         set => this.WithProperty("policy_store_id", value);
     }
 
     /// <summary>
     /// The principal_entity_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalEntityType
+    public TerraformProperty<string>? PrincipalEntityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_entity_type");
+        get => GetProperty<TerraformProperty<string>>("principal_entity_type");
         set => this.WithProperty("principal_entity_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

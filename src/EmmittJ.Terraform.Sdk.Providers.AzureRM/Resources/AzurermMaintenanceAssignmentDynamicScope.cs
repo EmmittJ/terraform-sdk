@@ -19,27 +19,27 @@ public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenanceConfigurationId
+    public TerraformProperty<string>? MaintenanceConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_id");
+        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_id");
         set => this.WithProperty("maintenance_configuration_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

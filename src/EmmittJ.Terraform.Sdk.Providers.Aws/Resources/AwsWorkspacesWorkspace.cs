@@ -22,90 +22,90 @@ public class AwsWorkspacesWorkspace : TerraformResource
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BundleId
+    public TerraformProperty<string>? BundleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bundle_id");
+        get => GetProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DirectoryId
+    public TerraformProperty<string>? DirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_id");
+        get => GetProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The root_volume_encryption_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RootVolumeEncryptionEnabled
+    public TerraformProperty<bool>? RootVolumeEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("root_volume_encryption_enabled");
+        get => GetProperty<TerraformProperty<bool>>("root_volume_encryption_enabled");
         set => this.WithProperty("root_volume_encryption_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 
     /// <summary>
     /// The user_volume_encryption_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UserVolumeEncryptionEnabled
+    public TerraformProperty<bool>? UserVolumeEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("user_volume_encryption_enabled");
+        get => GetProperty<TerraformProperty<bool>>("user_volume_encryption_enabled");
         set => this.WithProperty("user_volume_encryption_enabled", value);
     }
 
     /// <summary>
     /// The volume_encryption_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VolumeEncryptionKey
+    public TerraformProperty<string>? VolumeEncryptionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_encryption_key");
+        get => GetProperty<TerraformProperty<string>>("volume_encryption_key");
         set => this.WithProperty("volume_encryption_key", value);
     }
 

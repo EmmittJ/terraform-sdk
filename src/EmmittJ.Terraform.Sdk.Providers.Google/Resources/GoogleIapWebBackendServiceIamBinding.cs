@@ -20,45 +20,45 @@ public class GoogleIapWebBackendServiceIamBinding : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Members
+    public TerraformProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
     /// <summary>
     /// The web_backend_service attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebBackendService
+    public TerraformProperty<string>? WebBackendService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_backend_service");
+        get => GetProperty<TerraformProperty<string>>("web_backend_service");
         set => this.WithProperty("web_backend_service", value);
     }
 

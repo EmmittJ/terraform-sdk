@@ -20,36 +20,36 @@ public class AwsAppstreamDirectoryConfig : TerraformResource
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DirectoryName
+    public TerraformProperty<string>? DirectoryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_name");
+        get => GetProperty<TerraformProperty<string>>("directory_name");
         set => this.WithProperty("directory_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The organizational_unit_distinguished_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? OrganizationalUnitDistinguishedNames
+    public TerraformProperty<HashSet<string>>? OrganizationalUnitDistinguishedNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("organizational_unit_distinguished_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("organizational_unit_distinguished_names");
         set => this.WithProperty("organizational_unit_distinguished_names", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

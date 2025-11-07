@@ -23,27 +23,27 @@ public class GoogleVertexAiFeatureGroupFeature : TerraformResource
     /// <summary>
     /// The description of the FeatureGroup.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name of the Feature Group.
     /// </summary>
-    public TerraformLiteralProperty<string>? FeatureGroup
+    public TerraformProperty<string>? FeatureGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("feature_group");
+        get => GetProperty<TerraformProperty<string>>("feature_group");
         set => this.WithProperty("feature_group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -53,45 +53,45 @@ public class GoogleVertexAiFeatureGroupFeature : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The resource name of the Feature Group Feature.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region for the resource. It should be the same as the feature group&#39;s region.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The name of the BigQuery Table/View column hosting data for this version. If no value is provided, will use featureId.
     /// </summary>
-    public TerraformLiteralProperty<string>? VersionColumnName
+    public TerraformProperty<string>? VersionColumnName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_column_name");
+        get => GetProperty<TerraformProperty<string>>("version_column_name");
         set => this.WithProperty("version_column_name", value);
     }
 

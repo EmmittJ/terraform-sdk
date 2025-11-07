@@ -20,18 +20,18 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// <summary>
     /// The human-readable name of the page, unique within the agent.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// Page.transition_routes.trigger_fulfillment.conditional_cases
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformLiteralProperty<string>? LanguageCode
+    public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -60,9 +60,9 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// The flow to create a page for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -72,9 +72,9 @@ public class GoogleDialogflowCxPage : TerraformResource
     /// If multiple transition route groups within a page contain the same intent, then the first group in the ordered list takes precedence.
     /// Format:projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/transitionRouteGroups/&amp;lt;TransitionRouteGroup ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? TransitionRouteGroups
+    public TerraformProperty<List<string>>? TransitionRouteGroups
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("transition_route_groups");
+        get => GetProperty<TerraformProperty<List<string>>>("transition_route_groups");
         set => this.WithProperty("transition_route_groups", value);
     }
 

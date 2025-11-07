@@ -20,18 +20,18 @@ public class AwsCostoptimizationhubPreferences : TerraformResource
     /// <summary>
     /// The member_account_discount_visibility attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MemberAccountDiscountVisibility
+    public TerraformProperty<string>? MemberAccountDiscountVisibility
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member_account_discount_visibility");
+        get => GetProperty<TerraformProperty<string>>("member_account_discount_visibility");
         set => this.WithProperty("member_account_discount_visibility", value);
     }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SavingsEstimationMode
+    public TerraformProperty<string>? SavingsEstimationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("savings_estimation_mode");
+        get => GetProperty<TerraformProperty<string>>("savings_estimation_mode");
         set => this.WithProperty("savings_estimation_mode", value);
     }
 

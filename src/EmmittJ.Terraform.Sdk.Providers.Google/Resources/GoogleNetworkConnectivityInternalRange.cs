@@ -22,9 +22,9 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -32,27 +32,27 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// Optional. List of IP CIDR ranges to be excluded. Resulting reserved Internal Range will not overlap with any CIDR blocks mentioned in this list.
     /// Only IPv4 CIDR ranges are supported.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ExcludeCidrRanges
+    public TerraformProperty<List<string>>? ExcludeCidrRanges
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("exclude_cidr_ranges");
+        get => GetProperty<TerraformProperty<List<string>>>("exclude_cidr_ranges");
         set => this.WithProperty("exclude_cidr_ranges", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Immutable ranges cannot have their fields modified, except for labels and description.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Immutable
+    public TerraformProperty<bool>? Immutable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("immutable");
+        get => GetProperty<TerraformProperty<bool>>("immutable");
         set => this.WithProperty("immutable", value);
     }
 
@@ -61,9 +61,9 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// NOTE: IPv6 ranges are limited to usage=EXTERNAL_TO_VPC and peering=FOR_SELF
     /// NOTE: For IPv6 Ranges this field is compulsory, i.e. the address range must be specified explicitly.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpCidrRange
+    public TerraformProperty<string>? IpCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range");
+        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
     }
 
@@ -74,45 +74,45 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the policy based route.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// Optional. Types of resources that are allowed to overlap with the current internal range. Possible values: [&amp;quot;OVERLAP_ROUTE_RANGE&amp;quot;, &amp;quot;OVERLAP_EXISTING_SUBNET_RANGE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Overlaps
+    public TerraformProperty<List<string>>? Overlaps
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("overlaps");
+        get => GetProperty<TerraformProperty<List<string>>>("overlaps");
         set => this.WithProperty("overlaps", value);
     }
 
     /// <summary>
     /// The type of peering set for this internal range. Possible values: [&amp;quot;FOR_SELF&amp;quot;, &amp;quot;FOR_PEER&amp;quot;, &amp;quot;NOT_SHARED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Peering
+    public TerraformProperty<string>? Peering
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering");
+        get => GetProperty<TerraformProperty<string>>("peering");
         set => this.WithProperty("peering", value);
     }
 
@@ -122,18 +122,18 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// NOTE: For IPv6 this field only works if ip_cidr_range is set as well, and both fields must match. In other words, with IPv6 this field only works as
     /// a redundant parameter.
     /// </summary>
-    public TerraformLiteralProperty<double>? PrefixLength
+    public TerraformProperty<double>? PrefixLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("prefix_length");
+        get => GetProperty<TerraformProperty<double>>("prefix_length");
         set => this.WithProperty("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -141,18 +141,18 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// Optional. Can be set to narrow down or pick a different address space while searching for a free range.
     /// If not set, defaults to the &amp;quot;10.0.0.0/8&amp;quot; address space. This can be used to search in other rfc-1918 address spaces like &amp;quot;172.16.0.0/12&amp;quot; and &amp;quot;192.168.0.0/16&amp;quot; or non-rfc-1918 address spaces used in the VPC.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? TargetCidrRange
+    public TerraformProperty<List<string>>? TargetCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_cidr_range");
+        get => GetProperty<TerraformProperty<List<string>>>("target_cidr_range");
         set => this.WithProperty("target_cidr_range", value);
     }
 
     /// <summary>
     /// The type of usage set for this InternalRange. Possible values: [&amp;quot;FOR_VPC&amp;quot;, &amp;quot;EXTERNAL_TO_VPC&amp;quot;, &amp;quot;FOR_MIGRATION&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Usage
+    public TerraformProperty<string>? Usage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("usage");
+        get => GetProperty<TerraformProperty<string>>("usage");
         set => this.WithProperty("usage", value);
     }
 

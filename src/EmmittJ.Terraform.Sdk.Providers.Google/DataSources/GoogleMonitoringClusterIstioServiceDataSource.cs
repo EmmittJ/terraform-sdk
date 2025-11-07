@@ -25,18 +25,18 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The name of the Kubernetes cluster in which this Istio service is defined. 
     ///                         Corresponds to the clusterName resource label in k8s_cluster resources.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterName
+    public TerraformProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -44,18 +44,18 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The location of the Kubernetes cluster in which this Istio service is defined. 
     ///                         Corresponds to the location resource label in k8s_cluster resources.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -63,9 +63,9 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The name of the Istio service underlying this service. 
     ///                         Corresponds to the destination_service_name metric label in Istio metrics.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceName
+    public TerraformProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 
@@ -73,9 +73,9 @@ public class GoogleMonitoringClusterIstioServiceDataSource : TerraformDataSource
     /// The namespace of the Istio service underlying this service. 
     ///                         Corresponds to the destination_service_namespace metric label in Istio metrics.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceNamespace
+    public TerraformProperty<string>? ServiceNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_namespace");
+        get => GetProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);
     }
 

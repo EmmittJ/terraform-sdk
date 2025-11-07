@@ -19,63 +19,63 @@ public class AzurermBatchApplication : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountName
+    public TerraformProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The allow_updates attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowUpdates
+    public TerraformProperty<bool>? AllowUpdates
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_updates");
+        get => GetProperty<TerraformProperty<bool>>("allow_updates");
         set => this.WithProperty("allow_updates", value);
     }
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultVersion
+    public TerraformProperty<string>? DefaultVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_version");
+        get => GetProperty<TerraformProperty<string>>("default_version");
         set => this.WithProperty("default_version", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

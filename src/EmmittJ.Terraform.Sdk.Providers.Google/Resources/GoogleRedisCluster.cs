@@ -33,9 +33,9 @@ public class GoogleRedisCluster : TerraformResource
     /// <summary>
     /// Optional. The authorization mode of the Redis cluster. If not provided, auth feature is disabled for the cluster. Default value: &amp;quot;AUTH_MODE_DISABLED&amp;quot; Possible values: [&amp;quot;AUTH_MODE_UNSPECIFIED&amp;quot;, &amp;quot;AUTH_MODE_IAM_AUTH&amp;quot;, &amp;quot;AUTH_MODE_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizationMode
+    public TerraformProperty<string>? AuthorizationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_mode");
+        get => GetProperty<TerraformProperty<string>>("authorization_mode");
         set => this.WithProperty("authorization_mode", value);
     }
 
@@ -44,27 +44,27 @@ public class GoogleRedisCluster : TerraformResource
     /// If the value if set to true, any delete cluster operation will fail.
     /// Default value is true.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool>? DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
         set => this.WithProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKey
+    public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        get => GetProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
     }
 
@@ -72,9 +72,9 @@ public class GoogleRedisCluster : TerraformResource
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
     /// *Note*: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenanceVersion
+    public TerraformProperty<string>? MaintenanceVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_version");
+        get => GetProperty<TerraformProperty<string>>("maintenance_version");
         set => this.WithProperty("maintenance_version", value);
     }
 
@@ -82,9 +82,9 @@ public class GoogleRedisCluster : TerraformResource
     /// Unique name of the resource in this scope including project and location using the form:
     /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -92,18 +92,18 @@ public class GoogleRedisCluster : TerraformResource
     /// The nodeType for the Redis cluster.
     /// If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values: [&amp;quot;REDIS_SHARED_CORE_NANO&amp;quot;, &amp;quot;REDIS_HIGHMEM_MEDIUM&amp;quot;, &amp;quot;REDIS_HIGHMEM_XLARGE&amp;quot;, &amp;quot;REDIS_STANDARD_SMALL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeType
+    public TerraformProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        get => GetProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -112,36 +112,36 @@ public class GoogleRedisCluster : TerraformResource
     /// Please check Memorystore documentation for the list of supported parameters:
     /// https://cloud.google.com/memorystore/docs/cluster/supported-instance-configurations
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? RedisConfigs
+    public TerraformProperty<Dictionary<string, string>>? RedisConfigs
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("redis_configs");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("redis_configs");
         set => this.WithProperty("redis_configs", value);
     }
 
     /// <summary>
     /// The name of the region of the Redis cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// Optional. The number of replica nodes per shard.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicaCount
+    public TerraformProperty<double>? ReplicaCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replica_count");
+        get => GetProperty<TerraformProperty<double>>("replica_count");
         set => this.WithProperty("replica_count", value);
     }
 
     /// <summary>
     /// Required. Number of shards for the Redis cluster.
     /// </summary>
-    public TerraformLiteralProperty<double>? ShardCount
+    public TerraformProperty<double>? ShardCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("shard_count");
+        get => GetProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 
@@ -149,9 +149,9 @@ public class GoogleRedisCluster : TerraformResource
     /// Optional. The in-transit encryption for the Redis cluster.
     /// If not provided, encryption is disabled for the cluster. Default value: &amp;quot;TRANSIT_ENCRYPTION_MODE_DISABLED&amp;quot; Possible values: [&amp;quot;TRANSIT_ENCRYPTION_MODE_UNSPECIFIED&amp;quot;, &amp;quot;TRANSIT_ENCRYPTION_MODE_DISABLED&amp;quot;, &amp;quot;TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitEncryptionMode
+    public TerraformProperty<string>? TransitEncryptionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_encryption_mode");
+        get => GetProperty<TerraformProperty<string>>("transit_encryption_mode");
         set => this.WithProperty("transit_encryption_mode", value);
     }
 

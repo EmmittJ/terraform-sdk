@@ -19,63 +19,63 @@ public class AzurermFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The audience attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Audience
+    public TerraformProperty<List<string>>? Audience
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("audience");
+        get => GetProperty<TerraformProperty<List<string>>>("audience");
         set => this.WithProperty("audience", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Issuer
+    public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("issuer");
+        get => GetProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentId
+    public TerraformProperty<string>? ParentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_id");
+        get => GetProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subject attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subject
+    public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subject");
+        get => GetProperty<TerraformProperty<string>>("subject");
         set => this.WithProperty("subject", value);
     }
 

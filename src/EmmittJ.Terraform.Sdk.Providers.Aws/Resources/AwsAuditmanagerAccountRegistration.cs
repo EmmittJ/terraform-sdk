@@ -21,36 +21,36 @@ public class AwsAuditmanagerAccountRegistration : TerraformResource
     /// <summary>
     /// The delegated_admin_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DelegatedAdminAccount
+    public TerraformProperty<string>? DelegatedAdminAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delegated_admin_account");
+        get => GetProperty<TerraformProperty<string>>("delegated_admin_account");
         set => this.WithProperty("delegated_admin_account", value);
     }
 
     /// <summary>
     /// The deregister_on_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeregisterOnDestroy
+    public TerraformProperty<bool>? DeregisterOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deregister_on_destroy");
+        get => GetProperty<TerraformProperty<bool>>("deregister_on_destroy");
         set => this.WithProperty("deregister_on_destroy", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKey
+    public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        get => GetProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -20,45 +20,45 @@ public class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_set_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceSetName
+    public TerraformProperty<string>? ResourceSetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_set_name");
+        get => GetProperty<TerraformProperty<string>>("resource_set_name");
         set => this.WithProperty("resource_set_name", value);
     }
 
     /// <summary>
     /// The resource_set_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceSetType
+    public TerraformProperty<string>? ResourceSetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_set_type");
+        get => GetProperty<TerraformProperty<string>>("resource_set_type");
         set => this.WithProperty("resource_set_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

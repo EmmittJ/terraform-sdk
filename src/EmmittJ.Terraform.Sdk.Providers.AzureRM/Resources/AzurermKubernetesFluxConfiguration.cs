@@ -19,54 +19,54 @@ public class AzurermKubernetesFluxConfiguration : TerraformResource
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterId
+    public TerraformProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The continuous_reconciliation_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ContinuousReconciliationEnabled
+    public TerraformProperty<bool>? ContinuousReconciliationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("continuous_reconciliation_enabled");
+        get => GetProperty<TerraformProperty<bool>>("continuous_reconciliation_enabled");
         set => this.WithProperty("continuous_reconciliation_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Namespace
+    public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        get => GetProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

@@ -21,153 +21,153 @@ public class AwsSsmParameter : TerraformResource
     /// <summary>
     /// The allowed_pattern attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AllowedPattern
+    public TerraformProperty<string>? AllowedPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allowed_pattern");
+        get => GetProperty<TerraformProperty<string>>("allowed_pattern");
         set => this.WithProperty("allowed_pattern", value);
     }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Arn
+    public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arn");
+        get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
     }
 
     /// <summary>
     /// The data_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataType
+    public TerraformProperty<string>? DataType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_type");
+        get => GetProperty<TerraformProperty<string>>("data_type");
         set => this.WithProperty("data_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The insecure_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InsecureValue
+    public TerraformProperty<string>? InsecureValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("insecure_value");
+        get => GetProperty<TerraformProperty<string>>("insecure_value");
         set => this.WithProperty("insecure_value", value);
     }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyId
+    public TerraformProperty<string>? KeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_id");
+        get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The overwrite attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Overwrite
+    public TerraformProperty<bool>? Overwrite
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("overwrite");
+        get => GetProperty<TerraformProperty<bool>>("overwrite");
         set => this.WithProperty("overwrite", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tier
+    public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        get => GetProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Value
+    public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 
     /// <summary>
     /// The value_wo attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValueWo
+    public TerraformProperty<string>? ValueWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value_wo");
+        get => GetProperty<TerraformProperty<string>>("value_wo");
         set => this.WithProperty("value_wo", value);
     }
 
     /// <summary>
     /// The value_wo_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ValueWoVersion
+    public TerraformProperty<double>? ValueWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("value_wo_version");
+        get => GetProperty<TerraformProperty<double>>("value_wo_version");
         set => this.WithProperty("value_wo_version", value);
     }
 

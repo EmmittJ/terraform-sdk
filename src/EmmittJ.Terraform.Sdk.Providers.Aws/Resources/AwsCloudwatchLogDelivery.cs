@@ -22,63 +22,63 @@ public class AwsCloudwatchLogDelivery : TerraformResource
     /// <summary>
     /// The delivery_destination_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeliveryDestinationArn
+    public TerraformProperty<string>? DeliveryDestinationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_destination_arn");
+        get => GetProperty<TerraformProperty<string>>("delivery_destination_arn");
         set => this.WithProperty("delivery_destination_arn", value);
     }
 
     /// <summary>
     /// The delivery_source_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeliverySourceName
+    public TerraformProperty<string>? DeliverySourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delivery_source_name");
+        get => GetProperty<TerraformProperty<string>>("delivery_source_name");
         set => this.WithProperty("delivery_source_name", value);
     }
 
     /// <summary>
     /// The field_delimiter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FieldDelimiter
+    public TerraformProperty<string>? FieldDelimiter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("field_delimiter");
+        get => GetProperty<TerraformProperty<string>>("field_delimiter");
         set => this.WithProperty("field_delimiter", value);
     }
 
     /// <summary>
     /// The record_fields attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? RecordFields
+    public TerraformProperty<List<string>>? RecordFields
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("record_fields");
+        get => GetProperty<TerraformProperty<List<string>>>("record_fields");
         set => this.WithProperty("record_fields", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_delivery_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? S3DeliveryConfiguration
+    public TerraformProperty<List<object>>? S3DeliveryConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("s3_delivery_configuration");
+        get => GetProperty<TerraformProperty<List<object>>>("s3_delivery_configuration");
         set => this.WithProperty("s3_delivery_configuration", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

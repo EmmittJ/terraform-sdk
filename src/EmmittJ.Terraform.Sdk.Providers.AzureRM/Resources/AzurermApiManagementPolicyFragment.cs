@@ -19,54 +19,54 @@ public class AzurermApiManagementPolicyFragment : TerraformResource
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementId
+    public TerraformProperty<string>? ApiManagementId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_id");
+        get => GetProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Format
+    public TerraformProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        get => GetProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Value
+    public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

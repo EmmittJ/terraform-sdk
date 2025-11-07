@@ -23,36 +23,36 @@ public class GoogleStorageHmacKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The email address of the key&#39;s associated service account.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceAccountEmail
+    public TerraformProperty<string>? ServiceAccountEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account_email");
+        get => GetProperty<TerraformProperty<string>>("service_account_email");
         set => this.WithProperty("service_account_email", value);
     }
 
     /// <summary>
     /// The state of the key. Can be set to one of ACTIVE, INACTIVE. Default value: &amp;quot;ACTIVE&amp;quot; Possible values: [&amp;quot;ACTIVE&amp;quot;, &amp;quot;INACTIVE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 

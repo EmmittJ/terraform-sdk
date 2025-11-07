@@ -19,126 +19,126 @@ public class AzurermStreamAnalyticsOutputBlob : TerraformResource
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationMode
+    public TerraformProperty<string>? AuthenticationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_mode");
+        get => GetProperty<TerraformProperty<string>>("authentication_mode");
         set => this.WithProperty("authentication_mode", value);
     }
 
     /// <summary>
     /// The batch_max_wait_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BatchMaxWaitTime
+    public TerraformProperty<string>? BatchMaxWaitTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("batch_max_wait_time");
+        get => GetProperty<TerraformProperty<string>>("batch_max_wait_time");
         set => this.WithProperty("batch_max_wait_time", value);
     }
 
     /// <summary>
     /// The batch_min_rows attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BatchMinRows
+    public TerraformProperty<double>? BatchMinRows
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_min_rows");
+        get => GetProperty<TerraformProperty<double>>("batch_min_rows");
         set => this.WithProperty("batch_min_rows", value);
     }
 
     /// <summary>
     /// The blob_write_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BlobWriteMode
+    public TerraformProperty<string>? BlobWriteMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("blob_write_mode");
+        get => GetProperty<TerraformProperty<string>>("blob_write_mode");
         set => this.WithProperty("blob_write_mode", value);
     }
 
     /// <summary>
     /// The date_format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DateFormat
+    public TerraformProperty<string>? DateFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("date_format");
+        get => GetProperty<TerraformProperty<string>>("date_format");
         set => this.WithProperty("date_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The path_pattern attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PathPattern
+    public TerraformProperty<string>? PathPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path_pattern");
+        get => GetProperty<TerraformProperty<string>>("path_pattern");
         set => this.WithProperty("path_pattern", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountKey
+    public TerraformProperty<string>? StorageAccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key");
+        get => GetProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountName
+    public TerraformProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
     /// <summary>
     /// The storage_container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageContainerName
+    public TerraformProperty<string>? StorageContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_container_name");
+        get => GetProperty<TerraformProperty<string>>("storage_container_name");
         set => this.WithProperty("storage_container_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
+    public TerraformProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
     /// The time_format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeFormat
+    public TerraformProperty<string>? TimeFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_format");
+        get => GetProperty<TerraformProperty<string>>("time_format");
         set => this.WithProperty("time_format", value);
     }
 

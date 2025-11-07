@@ -23,81 +23,81 @@ public class AwsDatazoneDomain : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The domain_execution_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainExecutionRole
+    public TerraformProperty<string>? DomainExecutionRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_execution_role");
+        get => GetProperty<TerraformProperty<string>>("domain_execution_role");
         set => this.WithProperty("domain_execution_role", value);
     }
 
     /// <summary>
     /// The domain_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainVersion
+    public TerraformProperty<string>? DomainVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_version");
+        get => GetProperty<TerraformProperty<string>>("domain_version");
         set => this.WithProperty("domain_version", value);
     }
 
     /// <summary>
     /// The kms_key_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyIdentifier
+    public TerraformProperty<string>? KmsKeyIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_identifier");
+        get => GetProperty<TerraformProperty<string>>("kms_key_identifier");
         set => this.WithProperty("kms_key_identifier", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceRole
+    public TerraformProperty<string>? ServiceRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_role");
+        get => GetProperty<TerraformProperty<string>>("service_role");
         set => this.WithProperty("service_role", value);
     }
 
     /// <summary>
     /// The skip_deletion_check attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipDeletionCheck
+    public TerraformProperty<bool>? SkipDeletionCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_deletion_check");
+        get => GetProperty<TerraformProperty<bool>>("skip_deletion_check");
         set => this.WithProperty("skip_deletion_check", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -20,36 +20,36 @@ public class GoogleBillingAccountIamBinding : TerraformResource
     /// <summary>
     /// The billing_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingAccountId
+    public TerraformProperty<string>? BillingAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account_id");
+        get => GetProperty<TerraformProperty<string>>("billing_account_id");
         set => this.WithProperty("billing_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Members
+    public TerraformProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

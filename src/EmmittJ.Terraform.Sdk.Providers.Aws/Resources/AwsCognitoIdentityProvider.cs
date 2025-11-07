@@ -19,72 +19,72 @@ public class AwsCognitoIdentityProvider : TerraformResource
     /// <summary>
     /// The attribute_mapping attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AttributeMapping
+    public TerraformProperty<Dictionary<string, string>>? AttributeMapping
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attribute_mapping");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attribute_mapping");
         set => this.WithProperty("attribute_mapping", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idp_identifiers attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? IdpIdentifiers
+    public TerraformProperty<List<string>>? IdpIdentifiers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("idp_identifiers");
+        get => GetProperty<TerraformProperty<List<string>>>("idp_identifiers");
         set => this.WithProperty("idp_identifiers", value);
     }
 
     /// <summary>
     /// The provider_details attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ProviderDetails
+    public TerraformProperty<Dictionary<string, string>>? ProviderDetails
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("provider_details");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("provider_details");
         set => this.WithProperty("provider_details", value);
     }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProviderName
+    public TerraformProperty<string>? ProviderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_name");
+        get => GetProperty<TerraformProperty<string>>("provider_name");
         set => this.WithProperty("provider_name", value);
     }
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProviderType
+    public TerraformProperty<string>? ProviderType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provider_type");
+        get => GetProperty<TerraformProperty<string>>("provider_type");
         set => this.WithProperty("provider_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPoolId
+    public TerraformProperty<string>? UserPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id");
+        get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 

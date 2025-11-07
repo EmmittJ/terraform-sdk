@@ -19,36 +19,36 @@ public class AzurermKubernetesFleetUpdateRun : TerraformResource
     /// <summary>
     /// The fleet_update_strategy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FleetUpdateStrategyId
+    public TerraformProperty<string>? FleetUpdateStrategyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fleet_update_strategy_id");
+        get => GetProperty<TerraformProperty<string>>("fleet_update_strategy_id");
         set => this.WithProperty("fleet_update_strategy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kubernetes_fleet_manager_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KubernetesFleetManagerId
+    public TerraformProperty<string>? KubernetesFleetManagerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_fleet_manager_id");
+        get => GetProperty<TerraformProperty<string>>("kubernetes_fleet_manager_id");
         set => this.WithProperty("kubernetes_fleet_manager_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

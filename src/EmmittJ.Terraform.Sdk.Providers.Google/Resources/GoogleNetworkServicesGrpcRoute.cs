@@ -24,36 +24,36 @@ public class GoogleNetworkServicesGrpcRoute : TerraformResource
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// List of gateways this GrpcRoute is attached to, as one of the routing rules to route the requests served by the gateway.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Gateways
+    public TerraformProperty<List<string>>? Gateways
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("gateways");
+        get => GetProperty<TerraformProperty<List<string>>>("gateways");
         set => this.WithProperty("gateways", value);
     }
 
     /// <summary>
     /// Required. Service hostnames with an optional port for which this route describes traffic.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Hostnames
+    public TerraformProperty<List<string>>? Hostnames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("hostnames");
+        get => GetProperty<TerraformProperty<List<string>>>("hostnames");
         set => this.WithProperty("hostnames", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -63,45 +63,45 @@ public class GoogleNetworkServicesGrpcRoute : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location (region) of the GRPCRoute resource to be created. Only the value &#39;global&#39; is currently allowed; defaults to &#39;global&#39; if omitted.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// List of meshes this GrpcRoute is attached to, as one of the routing rules to route the requests served by the mesh.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Meshes
+    public TerraformProperty<List<string>>? Meshes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("meshes");
+        get => GetProperty<TerraformProperty<List<string>>>("meshes");
         set => this.WithProperty("meshes", value);
     }
 
     /// <summary>
     /// Name of the GrpcRoute resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

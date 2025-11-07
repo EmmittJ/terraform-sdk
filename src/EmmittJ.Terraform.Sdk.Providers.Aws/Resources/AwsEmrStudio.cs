@@ -21,153 +21,153 @@ public class AwsEmrStudio : TerraformResource
     /// <summary>
     /// The auth_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthMode
+    public TerraformProperty<string>? AuthMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auth_mode");
+        get => GetProperty<TerraformProperty<string>>("auth_mode");
         set => this.WithProperty("auth_mode", value);
     }
 
     /// <summary>
     /// The default_s3_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultS3Location
+    public TerraformProperty<string>? DefaultS3Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_s3_location");
+        get => GetProperty<TerraformProperty<string>>("default_s3_location");
         set => this.WithProperty("default_s3_location", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The encryption_key_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EncryptionKeyArn
+    public TerraformProperty<string>? EncryptionKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption_key_arn");
+        get => GetProperty<TerraformProperty<string>>("encryption_key_arn");
         set => this.WithProperty("encryption_key_arn", value);
     }
 
     /// <summary>
     /// The engine_security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineSecurityGroupId
+    public TerraformProperty<string>? EngineSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_security_group_id");
+        get => GetProperty<TerraformProperty<string>>("engine_security_group_id");
         set => this.WithProperty("engine_security_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idp_auth_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdpAuthUrl
+    public TerraformProperty<string>? IdpAuthUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("idp_auth_url");
+        get => GetProperty<TerraformProperty<string>>("idp_auth_url");
         set => this.WithProperty("idp_auth_url", value);
     }
 
     /// <summary>
     /// The idp_relay_state_parameter_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdpRelayStateParameterName
+    public TerraformProperty<string>? IdpRelayStateParameterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("idp_relay_state_parameter_name");
+        get => GetProperty<TerraformProperty<string>>("idp_relay_state_parameter_name");
         set => this.WithProperty("idp_relay_state_parameter_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceRole
+    public TerraformProperty<string>? ServiceRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_role");
+        get => GetProperty<TerraformProperty<string>>("service_role");
         set => this.WithProperty("service_role", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
+    public TerraformProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserRole
+    public TerraformProperty<string>? UserRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_role");
+        get => GetProperty<TerraformProperty<string>>("user_role");
         set => this.WithProperty("user_role", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceSecurityGroupId
+    public TerraformProperty<string>? WorkspaceSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_security_group_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_security_group_id");
         set => this.WithProperty("workspace_security_group_id", value);
     }
 

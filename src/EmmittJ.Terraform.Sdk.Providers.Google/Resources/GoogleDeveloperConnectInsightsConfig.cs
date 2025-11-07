@@ -33,9 +33,9 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -44,27 +44,27 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// Format:
     /// projects/{project}/locations/{location}/applications/{application}
     /// </summary>
-    public TerraformLiteralProperty<string>? AppHubApplication
+    public TerraformProperty<string>? AppHubApplication
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_hub_application");
+        get => GetProperty<TerraformProperty<string>>("app_hub_application");
         set => this.WithProperty("app_hub_application", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// ID of the requesting InsightsConfig.
     /// </summary>
-    public TerraformLiteralProperty<string>? InsightsConfigId
+    public TerraformProperty<string>? InsightsConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("insights_config_id");
+        get => GetProperty<TerraformProperty<string>>("insights_config_id");
         set => this.WithProperty("insights_config_id", value);
     }
 
@@ -74,27 +74,27 @@ public class GoogleDeveloperConnectInsightsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

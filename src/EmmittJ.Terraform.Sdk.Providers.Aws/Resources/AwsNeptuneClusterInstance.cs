@@ -27,189 +27,189 @@ public class AwsNeptuneClusterInstance : TerraformResource
     /// <summary>
     /// The apply_immediately attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ApplyImmediately
+    public TerraformProperty<bool>? ApplyImmediately
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("apply_immediately");
+        get => GetProperty<TerraformProperty<bool>>("apply_immediately");
         set => this.WithProperty("apply_immediately", value);
     }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoMinorVersionUpgrade
+    public TerraformProperty<bool>? AutoMinorVersionUpgrade
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_minor_version_upgrade");
+        get => GetProperty<TerraformProperty<bool>>("auto_minor_version_upgrade");
         set => this.WithProperty("auto_minor_version_upgrade", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZone
+    public TerraformProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        get => GetProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterIdentifier
+    public TerraformProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Engine
+    public TerraformProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineVersion
+    public TerraformProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Identifier
+    public TerraformProperty<string>? Identifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier");
+        get => GetProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
     /// <summary>
     /// The identifier_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentifierPrefix
+    public TerraformProperty<string>? IdentifierPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier_prefix");
+        get => GetProperty<TerraformProperty<string>>("identifier_prefix");
         set => this.WithProperty("identifier_prefix", value);
     }
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceClass
+    public TerraformProperty<string>? InstanceClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_class");
+        get => GetProperty<TerraformProperty<string>>("instance_class");
         set => this.WithProperty("instance_class", value);
     }
 
     /// <summary>
     /// The neptune_parameter_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NeptuneParameterGroupName
+    public TerraformProperty<string>? NeptuneParameterGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("neptune_parameter_group_name");
+        get => GetProperty<TerraformProperty<string>>("neptune_parameter_group_name");
         set => this.WithProperty("neptune_parameter_group_name", value);
     }
 
     /// <summary>
     /// The neptune_subnet_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NeptuneSubnetGroupName
+    public TerraformProperty<string>? NeptuneSubnetGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("neptune_subnet_group_name");
+        get => GetProperty<TerraformProperty<string>>("neptune_subnet_group_name");
         set => this.WithProperty("neptune_subnet_group_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PreferredBackupWindow
+    public TerraformProperty<string>? PreferredBackupWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_backup_window");
+        get => GetProperty<TerraformProperty<string>>("preferred_backup_window");
         set => this.WithProperty("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PreferredMaintenanceWindow
+    public TerraformProperty<string>? PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window");
+        get => GetProperty<TerraformProperty<string>>("preferred_maintenance_window");
         set => this.WithProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// The promotion_tier attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PromotionTier
+    public TerraformProperty<double>? PromotionTier
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("promotion_tier");
+        get => GetProperty<TerraformProperty<double>>("promotion_tier");
         set => this.WithProperty("promotion_tier", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
         set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The skip_final_snapshot attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipFinalSnapshot
+    public TerraformProperty<bool>? SkipFinalSnapshot
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_snapshot");
+        get => GetProperty<TerraformProperty<bool>>("skip_final_snapshot");
         set => this.WithProperty("skip_final_snapshot", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

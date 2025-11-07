@@ -20,54 +20,54 @@ public class AwsRedshiftSnapshotCopy : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterIdentifier
+    public TerraformProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The destination_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationRegion
+    public TerraformProperty<string>? DestinationRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_region");
+        get => GetProperty<TerraformProperty<string>>("destination_region");
         set => this.WithProperty("destination_region", value);
     }
 
     /// <summary>
     /// The manual_snapshot_retention_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ManualSnapshotRetentionPeriod
+    public TerraformProperty<double>? ManualSnapshotRetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("manual_snapshot_retention_period");
+        get => GetProperty<TerraformProperty<double>>("manual_snapshot_retention_period");
         set => this.WithProperty("manual_snapshot_retention_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionPeriod
+    public TerraformProperty<double>? RetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_period");
+        get => GetProperty<TerraformProperty<double>>("retention_period");
         set => this.WithProperty("retention_period", value);
     }
 
     /// <summary>
     /// The snapshot_copy_grant_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SnapshotCopyGrantName
+    public TerraformProperty<string>? SnapshotCopyGrantName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_copy_grant_name");
+        get => GetProperty<TerraformProperty<string>>("snapshot_copy_grant_name");
         set => this.WithProperty("snapshot_copy_grant_name", value);
     }
 

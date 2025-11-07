@@ -21,81 +21,81 @@ public class AzurermContainerAppJob : TerraformResource
     /// <summary>
     /// The container_app_environment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
+    public TerraformProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The replica_retry_limit attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicaRetryLimit
+    public TerraformProperty<double>? ReplicaRetryLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replica_retry_limit");
+        get => GetProperty<TerraformProperty<double>>("replica_retry_limit");
         set => this.WithProperty("replica_retry_limit", value);
     }
 
     /// <summary>
     /// The replica_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicaTimeoutInSeconds
+    public TerraformProperty<double>? ReplicaTimeoutInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replica_timeout_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("replica_timeout_in_seconds");
         set => this.WithProperty("replica_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workload_profile_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkloadProfileName
+    public TerraformProperty<string>? WorkloadProfileName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_profile_name");
+        get => GetProperty<TerraformProperty<string>>("workload_profile_name");
         set => this.WithProperty("workload_profile_name", value);
     }
 

@@ -29,144 +29,144 @@ public class AwsCloudfrontDistribution : TerraformResource
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Aliases
+    public TerraformProperty<HashSet<string>>? Aliases
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("aliases");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("aliases");
         set => this.WithProperty("aliases", value);
     }
 
     /// <summary>
     /// The anycast_ip_list_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AnycastIpListId
+    public TerraformProperty<string>? AnycastIpListId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("anycast_ip_list_id");
+        get => GetProperty<TerraformProperty<string>>("anycast_ip_list_id");
         set => this.WithProperty("anycast_ip_list_id", value);
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Comment
+    public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        get => GetProperty<TerraformProperty<string>>("comment");
         set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The continuous_deployment_policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContinuousDeploymentPolicyId
+    public TerraformProperty<string>? ContinuousDeploymentPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("continuous_deployment_policy_id");
+        get => GetProperty<TerraformProperty<string>>("continuous_deployment_policy_id");
         set => this.WithProperty("continuous_deployment_policy_id", value);
     }
 
     /// <summary>
     /// The default_root_object attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultRootObject
+    public TerraformProperty<string>? DefaultRootObject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_root_object");
+        get => GetProperty<TerraformProperty<string>>("default_root_object");
         set => this.WithProperty("default_root_object", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The http_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpVersion
+    public TerraformProperty<string>? HttpVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_version");
+        get => GetProperty<TerraformProperty<string>>("http_version");
         set => this.WithProperty("http_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_ipv6_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsIpv6Enabled
+    public TerraformProperty<bool>? IsIpv6Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_ipv6_enabled");
+        get => GetProperty<TerraformProperty<bool>>("is_ipv6_enabled");
         set => this.WithProperty("is_ipv6_enabled", value);
     }
 
     /// <summary>
     /// The price_class attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PriceClass
+    public TerraformProperty<string>? PriceClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("price_class");
+        get => GetProperty<TerraformProperty<string>>("price_class");
         set => this.WithProperty("price_class", value);
     }
 
     /// <summary>
     /// The retain_on_delete attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RetainOnDelete
+    public TerraformProperty<bool>? RetainOnDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("retain_on_delete");
+        get => GetProperty<TerraformProperty<bool>>("retain_on_delete");
         set => this.WithProperty("retain_on_delete", value);
     }
 
     /// <summary>
     /// The staging attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Staging
+    public TerraformProperty<bool>? Staging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("staging");
+        get => GetProperty<TerraformProperty<bool>>("staging");
         set => this.WithProperty("staging", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The wait_for_deployment attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WaitForDeployment
+    public TerraformProperty<bool>? WaitForDeployment
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_deployment");
+        get => GetProperty<TerraformProperty<bool>>("wait_for_deployment");
         set => this.WithProperty("wait_for_deployment", value);
     }
 
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebAclId
+    public TerraformProperty<string>? WebAclId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_acl_id");
+        get => GetProperty<TerraformProperty<string>>("web_acl_id");
         set => this.WithProperty("web_acl_id", value);
     }
 

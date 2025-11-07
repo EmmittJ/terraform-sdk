@@ -24,27 +24,27 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// Reference to a Certificate resource from the certificatemanager.googleapis.com namespace.
     /// Used by a BackendService to negotiate mTLS when the backend connection uses TLS and the backend requests a client certificate. Must have a CLIENT_AUTH scope.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientCertificate
+    public TerraformProperty<string>? ClientCertificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_certificate");
+        get => GetProperty<TerraformProperty<string>>("client_certificate");
         set => this.WithProperty("client_certificate", value);
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -54,9 +54,9 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -64,27 +64,27 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// The location of the backend authentication config.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of the BackendAuthenticationConfig resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -92,9 +92,9 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// Reference to a TrustConfig resource from the certificatemanager.googleapis.com namespace.
     /// A BackendService uses the chain of trust represented by this TrustConfig, if specified, to validate the server certificates presented by the backend. Required unless wellKnownRoots is set to PUBLIC_ROOTS.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrustConfig
+    public TerraformProperty<string>? TrustConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trust_config");
+        get => GetProperty<TerraformProperty<string>>("trust_config");
         set => this.WithProperty("trust_config", value);
     }
 
@@ -103,9 +103,9 @@ public class GoogleNetworkSecurityBackendAuthenticationConfig : TerraformResourc
     /// If set to PUBLIC_ROOTS, the BackendService uses a set of well-known public roots, in addition to any roots specified in the trustConfig field, when validating the server certificates presented by the backend.
     /// Validation with these roots is only considered when the TlsSettings.sni field in the BackendService is set. The well-known roots are a set of root CAs managed by Google. CAs in this set can be added or removed without notice. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PUBLIC_ROOTS&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? WellKnownRoots
+    public TerraformProperty<string>? WellKnownRoots
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("well_known_roots");
+        get => GetProperty<TerraformProperty<string>>("well_known_roots");
         set => this.WithProperty("well_known_roots", value);
     }
 

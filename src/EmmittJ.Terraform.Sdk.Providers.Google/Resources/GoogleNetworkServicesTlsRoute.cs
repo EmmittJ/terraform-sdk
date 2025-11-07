@@ -22,9 +22,9 @@ public class GoogleNetworkServicesTlsRoute : TerraformResource
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -32,18 +32,18 @@ public class GoogleNetworkServicesTlsRoute : TerraformResource
     /// Gateways defines a list of gateways this TlsRoute is attached to, as one of the routing rules to route the requests served by the gateway.
     /// Each gateway reference should match the pattern: projects/*/locations/global/gateways/&amp;lt;gateway_name&amp;gt;
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Gateways
+    public TerraformProperty<List<string>>? Gateways
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("gateways");
+        get => GetProperty<TerraformProperty<List<string>>>("gateways");
         set => this.WithProperty("gateways", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -52,27 +52,27 @@ public class GoogleNetworkServicesTlsRoute : TerraformResource
     /// Each mesh reference should match the pattern: projects/*/locations/global/meshes/&amp;lt;mesh_name&amp;gt;
     /// The attached Mesh should be of a type SIDECAR
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Meshes
+    public TerraformProperty<List<string>>? Meshes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("meshes");
+        get => GetProperty<TerraformProperty<List<string>>>("meshes");
         set => this.WithProperty("meshes", value);
     }
 
     /// <summary>
     /// Name of the TlsRoute resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

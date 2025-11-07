@@ -22,36 +22,36 @@ public class AwsIamRole : TerraformResource
     /// <summary>
     /// The assume_role_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AssumeRolePolicy
+    public TerraformProperty<string>? AssumeRolePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assume_role_policy");
+        get => GetProperty<TerraformProperty<string>>("assume_role_policy");
         set => this.WithProperty("assume_role_policy", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The force_detach_policies attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDetachPolicies
+    public TerraformProperty<bool>? ForceDetachPolicies
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_detach_policies");
+        get => GetProperty<TerraformProperty<bool>>("force_detach_policies");
         set => this.WithProperty("force_detach_policies", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -59,72 +59,72 @@ public class AwsIamRole : TerraformResource
     /// The managed_policy_arns attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<HashSet<string>>? ManagedPolicyArns
+    public TerraformProperty<HashSet<string>>? ManagedPolicyArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("managed_policy_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("managed_policy_arns");
         set => this.WithProperty("managed_policy_arns", value);
     }
 
     /// <summary>
     /// The max_session_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxSessionDuration
+    public TerraformProperty<double>? MaxSessionDuration
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_session_duration");
+        get => GetProperty<TerraformProperty<double>>("max_session_duration");
         set => this.WithProperty("max_session_duration", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Path
+    public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path");
+        get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
     }
 
     /// <summary>
     /// The permissions_boundary attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PermissionsBoundary
+    public TerraformProperty<string>? PermissionsBoundary
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("permissions_boundary");
+        get => GetProperty<TerraformProperty<string>>("permissions_boundary");
         set => this.WithProperty("permissions_boundary", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

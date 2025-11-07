@@ -23,9 +23,9 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// <summary>
     /// Optional. Description of the watchlist.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -34,36 +34,36 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// Note that it must be at least one character and less than 63 characters
     /// (https://google.aip.dev/148).
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -72,18 +72,18 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// in this watchlist.
     /// The default is 1.0 if it is not specified.
     /// </summary>
-    public TerraformLiteralProperty<double>? MultiplyingFactor
+    public TerraformProperty<double>? MultiplyingFactor
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("multiplying_factor");
+        get => GetProperty<TerraformProperty<double>>("multiplying_factor");
         set => this.WithProperty("multiplying_factor", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -93,9 +93,9 @@ public class GoogleChronicleWatchlist : TerraformResource
     /// This value should be 4-63 characters, and valid characters
     /// are /a-z-/.
     /// </summary>
-    public TerraformLiteralProperty<string>? WatchlistId
+    public TerraformProperty<string>? WatchlistId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("watchlist_id");
+        get => GetProperty<TerraformProperty<string>>("watchlist_id");
         set => this.WithProperty("watchlist_id", value);
     }
 

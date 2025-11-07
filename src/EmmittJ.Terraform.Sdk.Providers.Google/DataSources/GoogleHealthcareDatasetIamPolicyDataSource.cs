@@ -21,18 +21,18 @@ public class GoogleHealthcareDatasetIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The dataset_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatasetId
+    public TerraformProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

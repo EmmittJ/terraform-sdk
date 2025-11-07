@@ -20,45 +20,45 @@ public class AwsRoute53ResolverFirewallRulesDataSource : TerraformDataSource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Action
+    public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The firewall_rule_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirewallRuleGroupId
+    public TerraformProperty<string>? FirewallRuleGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_rule_group_id");
+        get => GetProperty<TerraformProperty<string>>("firewall_rule_group_id");
         set => this.WithProperty("firewall_rule_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

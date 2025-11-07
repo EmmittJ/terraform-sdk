@@ -19,54 +19,54 @@ public class AzurermStorageEncryptionScope : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The infrastructure_encryption_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InfrastructureEncryptionRequired
+    public TerraformProperty<bool>? InfrastructureEncryptionRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("infrastructure_encryption_required");
+        get => GetProperty<TerraformProperty<bool>>("infrastructure_encryption_required");
         set => this.WithProperty("infrastructure_encryption_required", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string>? KeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_key_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Source
+    public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

@@ -28,9 +28,9 @@ public class GoogleLookerInstance : TerraformResource
     /// Note that the consumer network may be in a different GCP project than the consumer
     /// project that is hosting the Looker Instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConsumerNetwork
+    public TerraformProperty<string>? ConsumerNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consumer_network");
+        get => GetProperty<TerraformProperty<string>>("consumer_network");
         set => this.WithProperty("consumer_network", value);
     }
 
@@ -40,45 +40,45 @@ public class GoogleLookerInstance : TerraformResource
     /// of its nested resources. If set to &amp;quot;DEFAULT&amp;quot;, Looker instances that still have
     /// nested resources will return an error. Possible values: DEFAULT, FORCE
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// FIPS 140-2 Encryption enablement for Looker (Google Cloud Core).
     /// </summary>
-    public TerraformLiteralProperty<bool>? FipsEnabled
+    public TerraformProperty<bool>? FipsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("fips_enabled");
+        get => GetProperty<TerraformProperty<bool>>("fips_enabled");
         set => this.WithProperty("fips_enabled", value);
     }
 
     /// <summary>
     /// Gemini enablement for Looker (Google Cloud Core).
     /// </summary>
-    public TerraformLiteralProperty<bool>? GeminiEnabled
+    public TerraformProperty<bool>? GeminiEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("gemini_enabled");
+        get => GetProperty<TerraformProperty<bool>>("gemini_enabled");
         set => this.WithProperty("gemini_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the instance or a fully qualified identifier for the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -96,54 +96,54 @@ public class GoogleLookerInstance : TerraformResource
     /// - LOOKER_CORE_TRIAL_ENTERPRISE: An enterprise trial edition of Looker (Google Cloud core) product.
     /// - LOOKER_CORE_TRIAL_EMBED: An embed trial edition of Looker (Google Cloud core) product. Default value: &amp;quot;LOOKER_CORE_TRIAL&amp;quot; Possible values: [&amp;quot;LOOKER_CORE_TRIAL&amp;quot;, &amp;quot;LOOKER_CORE_STANDARD&amp;quot;, &amp;quot;LOOKER_CORE_STANDARD_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_ENTERPRISE_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_EMBED_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_STANDARD_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_NONPROD_EMBED_ANNUAL&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_STANDARD&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_ENTERPRISE&amp;quot;, &amp;quot;LOOKER_CORE_TRIAL_EMBED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? PlatformEdition
+    public TerraformProperty<string>? PlatformEdition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform_edition");
+        get => GetProperty<TerraformProperty<string>>("platform_edition");
         set => this.WithProperty("platform_edition", value);
     }
 
     /// <summary>
     /// Whether private IP is enabled on the Looker instance.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrivateIpEnabled
+    public TerraformProperty<bool>? PrivateIpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_ip_enabled");
+        get => GetProperty<TerraformProperty<bool>>("private_ip_enabled");
         set => this.WithProperty("private_ip_enabled", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Whether Public Service Connect (PSC) is enabled on the Looker instance
     /// </summary>
-    public TerraformLiteralProperty<bool>? PscEnabled
+    public TerraformProperty<bool>? PscEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("psc_enabled");
+        get => GetProperty<TerraformProperty<bool>>("psc_enabled");
         set => this.WithProperty("psc_enabled", value);
     }
 
     /// <summary>
     /// Whether public IP is enabled on the Looker instance.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicIpEnabled
+    public TerraformProperty<bool>? PublicIpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_ip_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_ip_enabled");
         set => this.WithProperty("public_ip_enabled", value);
     }
 
     /// <summary>
     /// The name of the Looker region of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -151,9 +151,9 @@ public class GoogleLookerInstance : TerraformResource
     /// Name of a reserved IP address range within the consumer network, to be used for
     /// private service access connection. User may or may not specify this in a request.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReservedRange
+    public TerraformProperty<string>? ReservedRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reserved_range");
+        get => GetProperty<TerraformProperty<string>>("reserved_range");
         set => this.WithProperty("reserved_range", value);
     }
 

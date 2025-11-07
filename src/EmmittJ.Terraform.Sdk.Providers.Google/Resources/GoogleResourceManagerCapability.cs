@@ -19,36 +19,36 @@ public class GoogleResourceManagerCapability : TerraformResource
     /// <summary>
     /// Capability name that should be updated on the folder.
     /// </summary>
-    public TerraformLiteralProperty<string>? CapabilityName
+    public TerraformProperty<string>? CapabilityName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capability_name");
+        get => GetProperty<TerraformProperty<string>>("capability_name");
         set => this.WithProperty("capability_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Folder on which Capability needs to be updated in the format folders/folder_id.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Capability Value.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Value
+    public TerraformProperty<bool>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("value");
+        get => GetProperty<TerraformProperty<bool>>("value");
         set => this.WithProperty("value", value);
     }
 

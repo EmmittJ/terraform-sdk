@@ -34,81 +34,81 @@ public class AwsWorkspaceswebPortal : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalEncryptionContext
+    public TerraformProperty<Dictionary<string, string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationType
+    public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BrowserSettingsArn
+    public TerraformProperty<string>? BrowserSettingsArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("browser_settings_arn");
+        get => GetProperty<TerraformProperty<string>>("browser_settings_arn");
         set => this.WithProperty("browser_settings_arn", value);
     }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerManagedKey
+    public TerraformProperty<string>? CustomerManagedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key");
+        get => GetProperty<TerraformProperty<string>>("customer_managed_key");
         set => this.WithProperty("customer_managed_key", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The max_concurrent_sessions attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxConcurrentSessions
+    public TerraformProperty<double>? MaxConcurrentSessions
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_concurrent_sessions");
+        get => GetProperty<TerraformProperty<double>>("max_concurrent_sessions");
         set => this.WithProperty("max_concurrent_sessions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

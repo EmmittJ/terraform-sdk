@@ -25,18 +25,18 @@ public class GoogleApigeeInstance : TerraformResource
     /// which the customers can provide during the instance creation. By default, the customer
     /// project associated with the Apigee organization will be included to the list.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ConsumerAcceptList
+    public TerraformProperty<List<string>>? ConsumerAcceptList
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("consumer_accept_list");
+        get => GetProperty<TerraformProperty<List<string>>>("consumer_accept_list");
         set => this.WithProperty("consumer_accept_list", value);
     }
 
     /// <summary>
     /// Description of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -44,27 +44,27 @@ public class GoogleApigeeInstance : TerraformResource
     /// Customer Managed Encryption Key (CMEK) used for disk and volume encryption. Required for Apigee paid subscriptions only.
     /// Use the following format: &#39;projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? DiskEncryptionKeyName
+    public TerraformProperty<string>? DiskEncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_encryption_key_name");
+        get => GetProperty<TerraformProperty<string>>("disk_encryption_key_name");
         set => this.WithProperty("disk_encryption_key_name", value);
     }
 
     /// <summary>
     /// Display name of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -77,27 +77,27 @@ public class GoogleApigeeInstance : TerraformResource
     /// for configuring their firewall needs to allow traffic from Apigee.
     /// Input format: &amp;quot;a.b.c.d/22&amp;quot;
     /// </summary>
-    public TerraformLiteralProperty<string>? IpRange
+    public TerraformProperty<string>? IpRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_range");
+        get => GetProperty<TerraformProperty<string>>("ip_range");
         set => this.WithProperty("ip_range", value);
     }
 
     /// <summary>
     /// Required. Compute Engine location where the instance resides.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Resource ID of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -105,9 +105,9 @@ public class GoogleApigeeInstance : TerraformResource
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -115,9 +115,9 @@ public class GoogleApigeeInstance : TerraformResource
     /// The size of the CIDR block range that will be reserved by the instance. For valid values,
     /// see [CidrRange](https://cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.instances#CidrRange) on the documentation.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeeringCidrRange
+    public TerraformProperty<string>? PeeringCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering_cidr_range");
+        get => GetProperty<TerraformProperty<string>>("peering_cidr_range");
         set => this.WithProperty("peering_cidr_range", value);
     }
 

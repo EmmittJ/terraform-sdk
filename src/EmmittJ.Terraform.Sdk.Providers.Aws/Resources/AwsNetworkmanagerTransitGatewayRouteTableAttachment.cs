@@ -29,45 +29,45 @@ public class AwsNetworkmanagerTransitGatewayRouteTableAttachment : TerraformReso
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The peering_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeeringId
+    public TerraformProperty<string>? PeeringId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering_id");
+        get => GetProperty<TerraformProperty<string>>("peering_id");
         set => this.WithProperty("peering_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_route_table_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayRouteTableArn
+    public TerraformProperty<string>? TransitGatewayRouteTableArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_route_table_arn");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_route_table_arn");
         set => this.WithProperty("transit_gateway_route_table_arn", value);
     }
 

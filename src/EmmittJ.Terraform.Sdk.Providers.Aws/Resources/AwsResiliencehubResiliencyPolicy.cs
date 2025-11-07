@@ -22,54 +22,54 @@ public class AwsResiliencehubResiliencyPolicy : TerraformResource
     /// <summary>
     /// Specifies a high-level geographical location constraint for where resilience policy data can be stored.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataLocationConstraint
+    public TerraformProperty<string>? DataLocationConstraint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_location_constraint");
+        get => GetProperty<TerraformProperty<string>>("data_location_constraint");
         set => this.WithProperty("data_location_constraint", value);
     }
 
     /// <summary>
     /// The description for the policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name of the policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tier for the resiliency policy, ranging from the highest severity (MissionCritical) to lowest (NonCritical).
     /// </summary>
-    public TerraformLiteralProperty<string>? Tier
+    public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        get => GetProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 

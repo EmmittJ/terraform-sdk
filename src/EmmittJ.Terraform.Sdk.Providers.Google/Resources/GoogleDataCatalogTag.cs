@@ -26,18 +26,18 @@ public class GoogleDataCatalogTag : TerraformResource
     /// For attaching a tag to a nested column, use &#39;.&#39; to separate the column names. Example:
     /// &#39;outer_column.inner_column&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Column
+    public TerraformProperty<string>? Column
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("column");
+        get => GetProperty<TerraformProperty<string>>("column");
         set => this.WithProperty("column", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -45,9 +45,9 @@ public class GoogleDataCatalogTag : TerraformResource
     /// The name of the parent this tag is attached to. This can be the name of an entry or an entry group. If an entry group, the tag will be attached to
     /// all entries in that group.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -56,9 +56,9 @@ public class GoogleDataCatalogTag : TerraformResource
     /// projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}
     /// This field cannot be modified after creation.
     /// </summary>
-    public TerraformLiteralProperty<string>? Template
+    public TerraformProperty<string>? Template
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template");
+        get => GetProperty<TerraformProperty<string>>("template");
         set => this.WithProperty("template", value);
     }
 

@@ -19,45 +19,45 @@ public class AwsChimeVoiceConnectorLogging : TerraformResource
     /// <summary>
     /// The enable_media_metric_logs attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableMediaMetricLogs
+    public TerraformProperty<bool>? EnableMediaMetricLogs
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_media_metric_logs");
+        get => GetProperty<TerraformProperty<bool>>("enable_media_metric_logs");
         set => this.WithProperty("enable_media_metric_logs", value);
     }
 
     /// <summary>
     /// The enable_sip_logs attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableSipLogs
+    public TerraformProperty<bool>? EnableSipLogs
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_sip_logs");
+        get => GetProperty<TerraformProperty<bool>>("enable_sip_logs");
         set => this.WithProperty("enable_sip_logs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VoiceConnectorId
+    public TerraformProperty<string>? VoiceConnectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("voice_connector_id");
+        get => GetProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
     }
 

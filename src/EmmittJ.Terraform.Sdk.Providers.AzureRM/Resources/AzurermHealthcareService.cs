@@ -19,99 +19,99 @@ public class AzurermHealthcareService : TerraformResource
     /// <summary>
     /// The access_policy_object_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AccessPolicyObjectIds
+    public TerraformProperty<HashSet<string>>? AccessPolicyObjectIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("access_policy_object_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("access_policy_object_ids");
         set => this.WithProperty("access_policy_object_ids", value);
     }
 
     /// <summary>
     /// The configuration_export_storage_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationExportStorageAccountName
+    public TerraformProperty<string>? ConfigurationExportStorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_export_storage_account_name");
+        get => GetProperty<TerraformProperty<string>>("configuration_export_storage_account_name");
         set => this.WithProperty("configuration_export_storage_account_name", value);
     }
 
     /// <summary>
     /// The cosmosdb_key_vault_key_versionless_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CosmosdbKeyVaultKeyVersionlessId
+    public TerraformProperty<string>? CosmosdbKeyVaultKeyVersionlessId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_key_vault_key_versionless_id");
+        get => GetProperty<TerraformProperty<string>>("cosmosdb_key_vault_key_versionless_id");
         set => this.WithProperty("cosmosdb_key_vault_key_versionless_id", value);
     }
 
     /// <summary>
     /// The cosmosdb_throughput attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? CosmosdbThroughput
+    public TerraformProperty<double>? CosmosdbThroughput
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cosmosdb_throughput");
+        get => GetProperty<TerraformProperty<double>>("cosmosdb_throughput");
         set => this.WithProperty("cosmosdb_throughput", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

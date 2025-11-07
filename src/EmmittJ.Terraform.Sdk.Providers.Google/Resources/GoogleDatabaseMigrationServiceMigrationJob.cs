@@ -26,18 +26,18 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// <summary>
     /// The name of the destination connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{destinationConnectionProfile}.
     /// </summary>
-    public TerraformLiteralProperty<string>? Destination
+    public TerraformProperty<string>? Destination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination");
+        get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
     /// <summary>
     /// The migration job display name.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -46,9 +46,9 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// in the format: (gs://[BUCKET_NAME]/[OBJECT_NAME]).
     /// This field and the &amp;quot;dump_flags&amp;quot; field are mutually exclusive.
     /// </summary>
-    public TerraformLiteralProperty<string>? DumpPath
+    public TerraformProperty<string>? DumpPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dump_path");
+        get => GetProperty<TerraformProperty<string>>("dump_path");
         set => this.WithProperty("dump_path", value);
     }
 
@@ -56,18 +56,18 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// The type of the data dump. Supported for MySQL to CloudSQL for MySQL
     /// migrations only. Possible values: [&amp;quot;LOGICAL&amp;quot;, &amp;quot;PHYSICAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? DumpType
+    public TerraformProperty<string>? DumpType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dump_type");
+        get => GetProperty<TerraformProperty<string>>("dump_type");
         set => this.WithProperty("dump_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -78,54 +78,54 @@ public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the migration job should reside.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the migration job.
     /// </summary>
-    public TerraformLiteralProperty<string>? MigrationJobId
+    public TerraformProperty<string>? MigrationJobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("migration_job_id");
+        get => GetProperty<TerraformProperty<string>>("migration_job_id");
         set => this.WithProperty("migration_job_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the source connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{sourceConnectionProfile}.
     /// </summary>
-    public TerraformLiteralProperty<string>? Source
+    public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// The type of the migration job. Possible values: [&amp;quot;ONE_TIME&amp;quot;, &amp;quot;CONTINUOUS&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

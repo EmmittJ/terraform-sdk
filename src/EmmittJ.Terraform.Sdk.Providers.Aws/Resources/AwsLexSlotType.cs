@@ -23,54 +23,54 @@ public class AwsLexSlotType : TerraformResource
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CreateVersion
+    public TerraformProperty<bool>? CreateVersion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_version");
+        get => GetProperty<TerraformProperty<bool>>("create_version");
         set => this.WithProperty("create_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The value_selection_strategy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValueSelectionStrategy
+    public TerraformProperty<string>? ValueSelectionStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value_selection_strategy");
+        get => GetProperty<TerraformProperty<string>>("value_selection_strategy");
         set => this.WithProperty("value_selection_strategy", value);
     }
 

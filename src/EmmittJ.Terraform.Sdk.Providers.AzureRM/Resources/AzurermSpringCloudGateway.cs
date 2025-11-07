@@ -20,90 +20,90 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ApplicationPerformanceMonitoringIds
+    public TerraformProperty<List<string>>? ApplicationPerformanceMonitoringIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("application_performance_monitoring_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("application_performance_monitoring_ids");
         set => this.WithProperty("application_performance_monitoring_ids", value);
     }
 
     /// <summary>
     /// The application_performance_monitoring_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ApplicationPerformanceMonitoringTypes
+    public TerraformProperty<List<string>>? ApplicationPerformanceMonitoringTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("application_performance_monitoring_types");
+        get => GetProperty<TerraformProperty<List<string>>>("application_performance_monitoring_types");
         set => this.WithProperty("application_performance_monitoring_types", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? EnvironmentVariables
+    public TerraformProperty<Dictionary<string, string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("environment_variables");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? HttpsOnly
+    public TerraformProperty<bool>? HttpsOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_only");
+        get => GetProperty<TerraformProperty<bool>>("https_only");
         set => this.WithProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? InstanceCount
+    public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        get => GetProperty<TerraformProperty<double>>("instance_count");
         set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The sensitive_environment_variables attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? SensitiveEnvironmentVariables
+    public TerraformProperty<Dictionary<string, string>>? SensitiveEnvironmentVariables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("sensitive_environment_variables");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("sensitive_environment_variables");
         set => this.WithProperty("sensitive_environment_variables", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudServiceId
+    public TerraformProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

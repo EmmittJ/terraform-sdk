@@ -23,63 +23,63 @@ public class AwsAuditmanagerControl : TerraformResource
     /// <summary>
     /// The action_plan_instructions attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActionPlanInstructions
+    public TerraformProperty<string>? ActionPlanInstructions
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action_plan_instructions");
+        get => GetProperty<TerraformProperty<string>>("action_plan_instructions");
         set => this.WithProperty("action_plan_instructions", value);
     }
 
     /// <summary>
     /// The action_plan_title attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActionPlanTitle
+    public TerraformProperty<string>? ActionPlanTitle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action_plan_title");
+        get => GetProperty<TerraformProperty<string>>("action_plan_title");
         set => this.WithProperty("action_plan_title", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The testing_information attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TestingInformation
+    public TerraformProperty<string>? TestingInformation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("testing_information");
+        get => GetProperty<TerraformProperty<string>>("testing_information");
         set => this.WithProperty("testing_information", value);
     }
 

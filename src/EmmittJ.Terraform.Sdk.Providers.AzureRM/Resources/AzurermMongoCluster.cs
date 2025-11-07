@@ -20,153 +20,153 @@ public class AzurermMongoCluster : TerraformResource
     /// <summary>
     /// The administrator_password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdministratorPassword
+    public TerraformProperty<string>? AdministratorPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrator_password");
+        get => GetProperty<TerraformProperty<string>>("administrator_password");
         set => this.WithProperty("administrator_password", value);
     }
 
     /// <summary>
     /// The administrator_username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdministratorUsername
+    public TerraformProperty<string>? AdministratorUsername
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrator_username");
+        get => GetProperty<TerraformProperty<string>>("administrator_username");
         set => this.WithProperty("administrator_username", value);
     }
 
     /// <summary>
     /// The compute_tier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ComputeTier
+    public TerraformProperty<string>? ComputeTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_tier");
+        get => GetProperty<TerraformProperty<string>>("compute_tier");
         set => this.WithProperty("compute_tier", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CreateMode
+    public TerraformProperty<string>? CreateMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_mode");
+        get => GetProperty<TerraformProperty<string>>("create_mode");
         set => this.WithProperty("create_mode", value);
     }
 
     /// <summary>
     /// The high_availability_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HighAvailabilityMode
+    public TerraformProperty<string>? HighAvailabilityMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("high_availability_mode");
+        get => GetProperty<TerraformProperty<string>>("high_availability_mode");
         set => this.WithProperty("high_availability_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The preview_features attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreviewFeatures
+    public TerraformProperty<List<string>>? PreviewFeatures
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preview_features");
+        get => GetProperty<TerraformProperty<List<string>>>("preview_features");
         set => this.WithProperty("preview_features", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        get => GetProperty<TerraformProperty<string>>("public_network_access");
         set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ShardCount
+    public TerraformProperty<double>? ShardCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("shard_count");
+        get => GetProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 
     /// <summary>
     /// The source_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceLocation
+    public TerraformProperty<string>? SourceLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_location");
+        get => GetProperty<TerraformProperty<string>>("source_location");
         set => this.WithProperty("source_location", value);
     }
 
     /// <summary>
     /// The source_server_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceServerId
+    public TerraformProperty<string>? SourceServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_server_id");
+        get => GetProperty<TerraformProperty<string>>("source_server_id");
         set => this.WithProperty("source_server_id", value);
     }
 
     /// <summary>
     /// The storage_size_in_gb attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? StorageSizeInGb
+    public TerraformProperty<double>? StorageSizeInGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_size_in_gb");
+        get => GetProperty<TerraformProperty<double>>("storage_size_in_gb");
         set => this.WithProperty("storage_size_in_gb", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

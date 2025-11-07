@@ -30,54 +30,54 @@ public class AwsDxHostedConnection : TerraformResource
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bandwidth
+    public TerraformProperty<string>? Bandwidth
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bandwidth");
+        get => GetProperty<TerraformProperty<string>>("bandwidth");
         set => this.WithProperty("bandwidth", value);
     }
 
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionId
+    public TerraformProperty<string>? ConnectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_id");
+        get => GetProperty<TerraformProperty<string>>("connection_id");
         set => this.WithProperty("connection_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OwnerAccountId
+    public TerraformProperty<string>? OwnerAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner_account_id");
+        get => GetProperty<TerraformProperty<string>>("owner_account_id");
         set => this.WithProperty("owner_account_id", value);
     }
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Vlan
+    public TerraformProperty<double>? Vlan
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vlan");
+        get => GetProperty<TerraformProperty<double>>("vlan");
         set => this.WithProperty("vlan", value);
     }
 

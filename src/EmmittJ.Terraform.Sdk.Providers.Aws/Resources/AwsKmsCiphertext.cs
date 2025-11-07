@@ -20,45 +20,45 @@ public class AwsKmsCiphertext : TerraformResource
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Context
+    public TerraformProperty<Dictionary<string, string>>? Context
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("context");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("context");
         set => this.WithProperty("context", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyId
+    public TerraformProperty<string>? KeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_id");
+        get => GetProperty<TerraformProperty<string>>("key_id");
         set => this.WithProperty("key_id", value);
     }
 
     /// <summary>
     /// The plaintext attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Plaintext
+    public TerraformProperty<string>? Plaintext
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plaintext");
+        get => GetProperty<TerraformProperty<string>>("plaintext");
         set => this.WithProperty("plaintext", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

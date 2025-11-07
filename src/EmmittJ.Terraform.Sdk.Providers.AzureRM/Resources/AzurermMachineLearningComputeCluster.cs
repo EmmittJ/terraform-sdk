@@ -19,108 +19,108 @@ public class AzurermMachineLearningComputeCluster : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool>? LocalAuthEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_auth_enabled");
+        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
         set => this.WithProperty("local_auth_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The machine_learning_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MachineLearningWorkspaceId
+    public TerraformProperty<string>? MachineLearningWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("machine_learning_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("machine_learning_workspace_id");
         set => this.WithProperty("machine_learning_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? NodePublicIpEnabled
+    public TerraformProperty<bool>? NodePublicIpEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("node_public_ip_enabled");
+        get => GetProperty<TerraformProperty<bool>>("node_public_ip_enabled");
         set => this.WithProperty("node_public_ip_enabled", value);
     }
 
     /// <summary>
     /// The ssh_public_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SshPublicAccessEnabled
+    public TerraformProperty<bool>? SshPublicAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ssh_public_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("ssh_public_access_enabled");
         set => this.WithProperty("ssh_public_access_enabled", value);
     }
 
     /// <summary>
     /// The subnet_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetResourceId
+    public TerraformProperty<string>? SubnetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_resource_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_resource_id");
         set => this.WithProperty("subnet_resource_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The vm_priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VmPriority
+    public TerraformProperty<string>? VmPriority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vm_priority");
+        get => GetProperty<TerraformProperty<string>>("vm_priority");
         set => this.WithProperty("vm_priority", value);
     }
 
     /// <summary>
     /// The vm_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VmSize
+    public TerraformProperty<string>? VmSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vm_size");
+        get => GetProperty<TerraformProperty<string>>("vm_size");
         set => this.WithProperty("vm_size", value);
     }
 

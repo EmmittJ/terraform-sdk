@@ -25,9 +25,9 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     /// The name of the canonical service underlying this service.. 
     ///                         Corresponds to the destination_service_name metric label in Istio metrics.
     /// </summary>
-    public TerraformLiteralProperty<string>? CanonicalService
+    public TerraformProperty<string>? CanonicalService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("canonical_service");
+        get => GetProperty<TerraformProperty<string>>("canonical_service");
         set => this.WithProperty("canonical_service", value);
     }
 
@@ -35,18 +35,18 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     /// The namespace of the canonical service underlying this service.
     ///                         Corresponds to the destination_service_namespace metric label in Istio metrics.
     /// </summary>
-    public TerraformLiteralProperty<string>? CanonicalServiceNamespace
+    public TerraformProperty<string>? CanonicalServiceNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("canonical_service_namespace");
+        get => GetProperty<TerraformProperty<string>>("canonical_service_namespace");
         set => this.WithProperty("canonical_service_namespace", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -54,18 +54,18 @@ public class GoogleMonitoringIstioCanonicalServiceDataSource : TerraformDataSour
     /// Identifier for the Istio mesh in which this canonical service is defined.
     ///                         Corresponds to the meshUid metric label in Istio metrics.
     /// </summary>
-    public TerraformLiteralProperty<string>? MeshUid
+    public TerraformProperty<string>? MeshUid
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mesh_uid");
+        get => GetProperty<TerraformProperty<string>>("mesh_uid");
         set => this.WithProperty("mesh_uid", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -24,9 +24,9 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// unique within a project. Used as {data_policy_id} in part of the resource
     /// name.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataPolicyId
+    public TerraformProperty<string>? DataPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_id");
+        get => GetProperty<TerraformProperty<string>>("data_policy_id");
         set => this.WithProperty("data_policy_id", value);
     }
 
@@ -37,9 +37,9 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// RAW_DATA_ACCESS_POLICY
     /// COLUMN_LEVEL_SECURITY_POLICY
     /// </summary>
-    public TerraformLiteralProperty<string>? DataPolicyType
+    public TerraformProperty<string>? DataPolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_type");
+        get => GetProperty<TerraformProperty<string>>("data_policy_type");
         set => this.WithProperty("data_policy_type", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// populated in the response of GetDataPolicy, CreateDataPolicy, and
     /// UpdateDataPolicy calls.
     /// </summary>
-    public TerraformLiteralProperty<string>? Etag
+    public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        get => GetProperty<TerraformProperty<string>>("etag");
         set => this.WithProperty("etag", value);
     }
 
@@ -66,36 +66,36 @@ public class GoogleBigqueryDatapolicyv2DataPolicy : TerraformResource
     /// This field is supported in V2 Data Policy only. In case of V1 data policies
     /// (i.e. verion = 1 and policy_tag is set), this field is not populated.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Grantees
+    public TerraformProperty<List<string>>? Grantees
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("grantees");
+        get => GetProperty<TerraformProperty<List<string>>>("grantees");
         set => this.WithProperty("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

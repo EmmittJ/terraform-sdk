@@ -19,45 +19,45 @@ public class AwsDynamodbKinesisStreamingDestination : TerraformResource
     /// <summary>
     /// The approximate_creation_date_time_precision attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApproximateCreationDateTimePrecision
+    public TerraformProperty<string>? ApproximateCreationDateTimePrecision
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("approximate_creation_date_time_precision");
+        get => GetProperty<TerraformProperty<string>>("approximate_creation_date_time_precision");
         set => this.WithProperty("approximate_creation_date_time_precision", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamArn
+    public TerraformProperty<string>? StreamArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_arn");
+        get => GetProperty<TerraformProperty<string>>("stream_arn");
         set => this.WithProperty("stream_arn", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableName
+    public TerraformProperty<string>? TableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_name");
+        get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

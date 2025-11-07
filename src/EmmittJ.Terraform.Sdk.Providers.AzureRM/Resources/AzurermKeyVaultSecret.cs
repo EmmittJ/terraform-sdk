@@ -23,90 +23,90 @@ public class AzurermKeyVaultSecret : TerraformResource
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpirationDate
+    public TerraformProperty<string>? ExpirationDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_date");
+        get => GetProperty<TerraformProperty<string>>("expiration_date");
         set => this.WithProperty("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultId
+    public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotBeforeDate
+    public TerraformProperty<string>? NotBeforeDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("not_before_date");
+        get => GetProperty<TerraformProperty<string>>("not_before_date");
         set => this.WithProperty("not_before_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Value
+    public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 
     /// <summary>
     /// The value_wo attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValueWo
+    public TerraformProperty<string>? ValueWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value_wo");
+        get => GetProperty<TerraformProperty<string>>("value_wo");
         set => this.WithProperty("value_wo", value);
     }
 
     /// <summary>
     /// The value_wo_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ValueWoVersion
+    public TerraformProperty<double>? ValueWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("value_wo_version");
+        get => GetProperty<TerraformProperty<double>>("value_wo_version");
         set => this.WithProperty("value_wo_version", value);
     }
 

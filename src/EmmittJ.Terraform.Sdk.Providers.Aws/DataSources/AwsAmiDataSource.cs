@@ -51,90 +51,90 @@ public class AwsAmiDataSource : TerraformDataSource
     /// <summary>
     /// The allow_unsafe_filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowUnsafeFilter
+    public TerraformProperty<bool>? AllowUnsafeFilter
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_unsafe_filter");
+        get => GetProperty<TerraformProperty<bool>>("allow_unsafe_filter");
         set => this.WithProperty("allow_unsafe_filter", value);
     }
 
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ExecutableUsers
+    public TerraformProperty<List<string>>? ExecutableUsers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("executable_users");
+        get => GetProperty<TerraformProperty<List<string>>>("executable_users");
         set => this.WithProperty("executable_users", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_deprecated attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeDeprecated
+    public TerraformProperty<bool>? IncludeDeprecated
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_deprecated");
+        get => GetProperty<TerraformProperty<bool>>("include_deprecated");
         set => this.WithProperty("include_deprecated", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MostRecent
+    public TerraformProperty<bool>? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent");
+        get => GetProperty<TerraformProperty<bool>>("most_recent");
         set => this.WithProperty("most_recent", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NameRegex
+    public TerraformProperty<string>? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_regex");
+        get => GetProperty<TerraformProperty<string>>("name_regex");
         set => this.WithProperty("name_regex", value);
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Owners
+    public TerraformProperty<List<string>>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("owners");
+        get => GetProperty<TerraformProperty<List<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The uefi_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UefiData
+    public TerraformProperty<string>? UefiData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("uefi_data");
+        get => GetProperty<TerraformProperty<string>>("uefi_data");
         set => this.WithProperty("uefi_data", value);
     }
 

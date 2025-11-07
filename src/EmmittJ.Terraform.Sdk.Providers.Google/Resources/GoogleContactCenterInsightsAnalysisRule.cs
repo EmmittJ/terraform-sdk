@@ -23,9 +23,9 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// If true, apply this rule to conversations. Otherwise, this rule is
     /// inactive and saved as a draft.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Active
+    public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("active");
+        get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
     }
 
@@ -35,9 +35,9 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// are sampled in a determenestic way. The original runtime_percentage &amp;amp;
     /// upload percentage will be replaced by defining filters on the conversation.
     /// </summary>
-    public TerraformLiteralProperty<double>? AnalysisPercentage
+    public TerraformProperty<double>? AnalysisPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("analysis_percentage");
+        get => GetProperty<TerraformProperty<double>>("analysis_percentage");
         set => this.WithProperty("analysis_percentage", value);
     }
 
@@ -48,45 +48,45 @@ public class GoogleContactCenterInsightsAnalysisRule : TerraformResource
     /// Refer to https://cloud.google.com/contact-center/insights/docs/filtering
     /// for details.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConversationFilter
+    public TerraformProperty<string>? ConversationFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("conversation_filter");
+        get => GetProperty<TerraformProperty<string>>("conversation_filter");
         set => this.WithProperty("conversation_filter", value);
     }
 
     /// <summary>
     /// Display Name of the analysis rule.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -19,27 +19,27 @@ public class AwsEmrBlockPublicAccessConfiguration : TerraformResource
     /// <summary>
     /// The block_public_security_group_rules attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BlockPublicSecurityGroupRules
+    public TerraformProperty<bool>? BlockPublicSecurityGroupRules
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("block_public_security_group_rules");
+        get => GetProperty<TerraformProperty<bool>>("block_public_security_group_rules");
         set => this.WithProperty("block_public_security_group_rules", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

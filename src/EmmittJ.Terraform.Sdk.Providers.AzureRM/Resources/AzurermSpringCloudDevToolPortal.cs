@@ -19,54 +19,54 @@ public class AzurermSpringCloudDevToolPortal : TerraformResource
     /// <summary>
     /// The application_accelerator_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ApplicationAcceleratorEnabled
+    public TerraformProperty<bool>? ApplicationAcceleratorEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("application_accelerator_enabled");
+        get => GetProperty<TerraformProperty<bool>>("application_accelerator_enabled");
         set => this.WithProperty("application_accelerator_enabled", value);
     }
 
     /// <summary>
     /// The application_live_view_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ApplicationLiveViewEnabled
+    public TerraformProperty<bool>? ApplicationLiveViewEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("application_live_view_enabled");
+        get => GetProperty<TerraformProperty<bool>>("application_live_view_enabled");
         set => this.WithProperty("application_live_view_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudServiceId
+    public TerraformProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

@@ -21,9 +21,9 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The crypto_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CryptoKey
+    public TerraformProperty<string>? CryptoKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key");
+        get => GetProperty<TerraformProperty<string>>("crypto_key");
         set => this.WithProperty("crypto_key", value);
     }
 
@@ -38,18 +38,18 @@ public class GoogleKmsCryptoKeyVersionsDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

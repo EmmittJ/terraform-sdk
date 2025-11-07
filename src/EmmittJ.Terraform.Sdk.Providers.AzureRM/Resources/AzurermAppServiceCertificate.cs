@@ -27,90 +27,90 @@ public class AzurermAppServiceCertificate : TerraformResource
     /// <summary>
     /// The app_service_plan_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppServicePlanId
+    public TerraformProperty<string>? AppServicePlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_plan_id");
+        get => GetProperty<TerraformProperty<string>>("app_service_plan_id");
         set => this.WithProperty("app_service_plan_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultId
+    public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The key_vault_secret_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultSecretId
+    public TerraformProperty<string>? KeyVaultSecretId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_secret_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_secret_id");
         set => this.WithProperty("key_vault_secret_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The pfx_blob attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PfxBlob
+    public TerraformProperty<string>? PfxBlob
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pfx_blob");
+        get => GetProperty<TerraformProperty<string>>("pfx_blob");
         set => this.WithProperty("pfx_blob", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

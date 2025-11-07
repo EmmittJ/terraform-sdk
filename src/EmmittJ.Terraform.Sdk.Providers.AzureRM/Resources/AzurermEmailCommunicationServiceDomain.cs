@@ -22,54 +22,54 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     /// <summary>
     /// The domain_management attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainManagement
+    public TerraformProperty<string>? DomainManagement
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_management");
+        get => GetProperty<TerraformProperty<string>>("domain_management");
         set => this.WithProperty("domain_management", value);
     }
 
     /// <summary>
     /// The email_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailServiceId
+    public TerraformProperty<string>? EmailServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_service_id");
+        get => GetProperty<TerraformProperty<string>>("email_service_id");
         set => this.WithProperty("email_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The user_engagement_tracking_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UserEngagementTrackingEnabled
+    public TerraformProperty<bool>? UserEngagementTrackingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("user_engagement_tracking_enabled");
+        get => GetProperty<TerraformProperty<bool>>("user_engagement_tracking_enabled");
         set => this.WithProperty("user_engagement_tracking_enabled", value);
     }
 

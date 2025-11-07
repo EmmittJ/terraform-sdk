@@ -23,72 +23,72 @@ public class AwsDatazoneEnvironmentProfile : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AwsAccountId
+    public TerraformProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        get => GetProperty<TerraformProperty<string>>("aws_account_id");
         set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The aws_account_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AwsAccountRegion
+    public TerraformProperty<string>? AwsAccountRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_region");
+        get => GetProperty<TerraformProperty<string>>("aws_account_region");
         set => this.WithProperty("aws_account_region", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainIdentifier
+    public TerraformProperty<string>? DomainIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_identifier");
+        get => GetProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// The environment_blueprint_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvironmentBlueprintIdentifier
+    public TerraformProperty<string>? EnvironmentBlueprintIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_blueprint_identifier");
+        get => GetProperty<TerraformProperty<string>>("environment_blueprint_identifier");
         set => this.WithProperty("environment_blueprint_identifier", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProjectIdentifier
+    public TerraformProperty<string>? ProjectIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_identifier");
+        get => GetProperty<TerraformProperty<string>>("project_identifier");
         set => this.WithProperty("project_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

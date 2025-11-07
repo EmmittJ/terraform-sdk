@@ -27,36 +27,36 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerName
+    public TerraformProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        get => GetProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TaskDefinition
+    public TerraformProperty<string>? TaskDefinition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_definition");
+        get => GetProperty<TerraformProperty<string>>("task_definition");
         set => this.WithProperty("task_definition", value);
     }
 

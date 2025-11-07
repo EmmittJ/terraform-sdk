@@ -22,54 +22,54 @@ public class AwsLambdaFunctionUrl : TerraformResource
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizationType
+    public TerraformProperty<string>? AuthorizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_type");
+        get => GetProperty<TerraformProperty<string>>("authorization_type");
         set => this.WithProperty("authorization_type", value);
     }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionName
+    public TerraformProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The invoke_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InvokeMode
+    public TerraformProperty<string>? InvokeMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("invoke_mode");
+        get => GetProperty<TerraformProperty<string>>("invoke_mode");
         set => this.WithProperty("invoke_mode", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Qualifier
+    public TerraformProperty<string>? Qualifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("qualifier");
+        get => GetProperty<TerraformProperty<string>>("qualifier");
         set => this.WithProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

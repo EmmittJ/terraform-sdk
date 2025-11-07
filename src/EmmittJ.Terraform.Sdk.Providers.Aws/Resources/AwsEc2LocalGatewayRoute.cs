@@ -19,45 +19,45 @@ public class AwsEc2LocalGatewayRoute : TerraformResource
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationCidrBlock
+    public TerraformProperty<string>? DestinationCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_gateway_route_table_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocalGatewayRouteTableId
+    public TerraformProperty<string>? LocalGatewayRouteTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("local_gateway_route_table_id");
+        get => GetProperty<TerraformProperty<string>>("local_gateway_route_table_id");
         set => this.WithProperty("local_gateway_route_table_id", value);
     }
 
     /// <summary>
     /// The local_gateway_virtual_interface_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocalGatewayVirtualInterfaceGroupId
+    public TerraformProperty<string>? LocalGatewayVirtualInterfaceGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("local_gateway_virtual_interface_group_id");
+        get => GetProperty<TerraformProperty<string>>("local_gateway_virtual_interface_group_id");
         set => this.WithProperty("local_gateway_virtual_interface_group_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -29,18 +29,18 @@ public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
     /// User-provided description of the endpoint group.
     /// Used as additional context for the endpoint group.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -50,18 +50,18 @@ public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The cloud location of the endpoint group, currently restricted to &#39;global&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -70,9 +70,9 @@ public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
     /// &#39;projects/123456789/locations/global/mirroringDeploymentGroups/my-dg&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public TerraformLiteralProperty<string>? MirroringDeploymentGroup
+    public TerraformProperty<string>? MirroringDeploymentGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mirroring_deployment_group");
+        get => GetProperty<TerraformProperty<string>>("mirroring_deployment_group");
         set => this.WithProperty("mirroring_deployment_group", value);
     }
 
@@ -80,18 +80,18 @@ public class GoogleNetworkSecurityMirroringEndpointGroup : TerraformResource
     /// The ID to use for the endpoint group, which will become the final component
     /// of the endpoint group&#39;s resource name.
     /// </summary>
-    public TerraformLiteralProperty<string>? MirroringEndpointGroupId
+    public TerraformProperty<string>? MirroringEndpointGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mirroring_endpoint_group_id");
+        get => GetProperty<TerraformProperty<string>>("mirroring_endpoint_group_id");
         set => this.WithProperty("mirroring_endpoint_group_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

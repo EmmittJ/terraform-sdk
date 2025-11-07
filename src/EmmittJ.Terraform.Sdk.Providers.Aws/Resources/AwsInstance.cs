@@ -29,333 +29,333 @@ public class AwsInstance : TerraformResource
     /// <summary>
     /// The ami attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ami
+    public TerraformProperty<string>? Ami
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ami");
+        get => GetProperty<TerraformProperty<string>>("ami");
         set => this.WithProperty("ami", value);
     }
 
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AssociatePublicIpAddress
+    public TerraformProperty<bool>? AssociatePublicIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("associate_public_ip_address");
+        get => GetProperty<TerraformProperty<bool>>("associate_public_ip_address");
         set => this.WithProperty("associate_public_ip_address", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZone
+    public TerraformProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        get => GetProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The disable_api_stop attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableApiStop
+    public TerraformProperty<bool>? DisableApiStop
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_api_stop");
+        get => GetProperty<TerraformProperty<bool>>("disable_api_stop");
         set => this.WithProperty("disable_api_stop", value);
     }
 
     /// <summary>
     /// The disable_api_termination attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableApiTermination
+    public TerraformProperty<bool>? DisableApiTermination
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_api_termination");
+        get => GetProperty<TerraformProperty<bool>>("disable_api_termination");
         set => this.WithProperty("disable_api_termination", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EbsOptimized
+    public TerraformProperty<bool>? EbsOptimized
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ebs_optimized");
+        get => GetProperty<TerraformProperty<bool>>("ebs_optimized");
         set => this.WithProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The enable_primary_ipv6 attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnablePrimaryIpv6
+    public TerraformProperty<bool>? EnablePrimaryIpv6
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_primary_ipv6");
+        get => GetProperty<TerraformProperty<bool>>("enable_primary_ipv6");
         set => this.WithProperty("enable_primary_ipv6", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDestroy
+    public TerraformProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        get => GetProperty<TerraformProperty<bool>>("force_destroy");
         set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The get_password_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GetPasswordData
+    public TerraformProperty<bool>? GetPasswordData
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("get_password_data");
+        get => GetProperty<TerraformProperty<bool>>("get_password_data");
         set => this.WithProperty("get_password_data", value);
     }
 
     /// <summary>
     /// The hibernation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Hibernation
+    public TerraformProperty<bool>? Hibernation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("hibernation");
+        get => GetProperty<TerraformProperty<bool>>("hibernation");
         set => this.WithProperty("hibernation", value);
     }
 
     /// <summary>
     /// The host_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostId
+    public TerraformProperty<string>? HostId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_id");
+        get => GetProperty<TerraformProperty<string>>("host_id");
         set => this.WithProperty("host_id", value);
     }
 
     /// <summary>
     /// The host_resource_group_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostResourceGroupArn
+    public TerraformProperty<string>? HostResourceGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_resource_group_arn");
+        get => GetProperty<TerraformProperty<string>>("host_resource_group_arn");
         set => this.WithProperty("host_resource_group_arn", value);
     }
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamInstanceProfile
+    public TerraformProperty<string>? IamInstanceProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_instance_profile");
+        get => GetProperty<TerraformProperty<string>>("iam_instance_profile");
         set => this.WithProperty("iam_instance_profile", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_initiated_shutdown_behavior attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceInitiatedShutdownBehavior
+    public TerraformProperty<string>? InstanceInitiatedShutdownBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_initiated_shutdown_behavior");
+        get => GetProperty<TerraformProperty<string>>("instance_initiated_shutdown_behavior");
         set => this.WithProperty("instance_initiated_shutdown_behavior", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The ipv6_address_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Ipv6AddressCount
+    public TerraformProperty<double>? Ipv6AddressCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ipv6_address_count");
+        get => GetProperty<TerraformProperty<double>>("ipv6_address_count");
         set => this.WithProperty("ipv6_address_count", value);
     }
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Ipv6Addresses
+    public TerraformProperty<List<string>>? Ipv6Addresses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ipv6_addresses");
+        get => GetProperty<TerraformProperty<List<string>>>("ipv6_addresses");
         set => this.WithProperty("ipv6_addresses", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyName
+    public TerraformProperty<string>? KeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_name");
+        get => GetProperty<TerraformProperty<string>>("key_name");
         set => this.WithProperty("key_name", value);
     }
 
     /// <summary>
     /// The monitoring attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Monitoring
+    public TerraformProperty<bool>? Monitoring
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("monitoring");
+        get => GetProperty<TerraformProperty<bool>>("monitoring");
         set => this.WithProperty("monitoring", value);
     }
 
     /// <summary>
     /// The placement_group attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PlacementGroup
+    public TerraformProperty<string>? PlacementGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("placement_group");
+        get => GetProperty<TerraformProperty<string>>("placement_group");
         set => this.WithProperty("placement_group", value);
     }
 
     /// <summary>
     /// The placement_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PlacementGroupId
+    public TerraformProperty<string>? PlacementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("placement_group_id");
+        get => GetProperty<TerraformProperty<string>>("placement_group_id");
         set => this.WithProperty("placement_group_id", value);
     }
 
     /// <summary>
     /// The placement_partition_number attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PlacementPartitionNumber
+    public TerraformProperty<double>? PlacementPartitionNumber
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("placement_partition_number");
+        get => GetProperty<TerraformProperty<double>>("placement_partition_number");
         set => this.WithProperty("placement_partition_number", value);
     }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateIp
+    public TerraformProperty<string>? PrivateIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_ip");
+        get => GetProperty<TerraformProperty<string>>("private_ip");
         set => this.WithProperty("private_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The secondary_private_ips attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecondaryPrivateIps
+    public TerraformProperty<HashSet<string>>? SecondaryPrivateIps
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("secondary_private_ips");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("secondary_private_ips");
         set => this.WithProperty("secondary_private_ips", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroups
+    public TerraformProperty<HashSet<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The source_dest_check attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SourceDestCheck
+    public TerraformProperty<bool>? SourceDestCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("source_dest_check");
+        get => GetProperty<TerraformProperty<bool>>("source_dest_check");
         set => this.WithProperty("source_dest_check", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tenancy
+    public TerraformProperty<string>? Tenancy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenancy");
+        get => GetProperty<TerraformProperty<string>>("tenancy");
         set => this.WithProperty("tenancy", value);
     }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserData
+    public TerraformProperty<string>? UserData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_data");
+        get => GetProperty<TerraformProperty<string>>("user_data");
         set => this.WithProperty("user_data", value);
     }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserDataBase64
+    public TerraformProperty<string>? UserDataBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_data_base64");
+        get => GetProperty<TerraformProperty<string>>("user_data_base64");
         set => this.WithProperty("user_data_base64", value);
     }
 
     /// <summary>
     /// The user_data_replace_on_change attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UserDataReplaceOnChange
+    public TerraformProperty<bool>? UserDataReplaceOnChange
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("user_data_replace_on_change");
+        get => GetProperty<TerraformProperty<bool>>("user_data_replace_on_change");
         set => this.WithProperty("user_data_replace_on_change", value);
     }
 
     /// <summary>
     /// The volume_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? VolumeTags
+    public TerraformProperty<Dictionary<string, string>>? VolumeTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("volume_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("volume_tags");
         set => this.WithProperty("volume_tags", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSecurityGroupIds
+    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 

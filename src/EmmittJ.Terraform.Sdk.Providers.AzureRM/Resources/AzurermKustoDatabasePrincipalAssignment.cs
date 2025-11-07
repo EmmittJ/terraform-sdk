@@ -21,81 +21,81 @@ public class AzurermKustoDatabasePrincipalAssignment : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterName
+    public TerraformProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatabaseName
+    public TerraformProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalId
+    public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalType
+    public TerraformProperty<string>? PrincipalType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_type");
+        get => GetProperty<TerraformProperty<string>>("principal_type");
         set => this.WithProperty("principal_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

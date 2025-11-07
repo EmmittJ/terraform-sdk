@@ -21,9 +21,9 @@ public class AwsCostoptimizationhubEnrollmentStatus : TerraformResource
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeMemberAccounts
+    public TerraformProperty<bool>? IncludeMemberAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_member_accounts");
+        get => GetProperty<TerraformProperty<bool>>("include_member_accounts");
         set => this.WithProperty("include_member_accounts", value);
     }
 

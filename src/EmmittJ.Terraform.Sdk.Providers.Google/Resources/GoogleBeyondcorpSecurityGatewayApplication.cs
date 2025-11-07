@@ -25,9 +25,9 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     /// * Must contain between 4-63 characters from &#39;/a-z-/&#39;.
     /// * Must end with a number or letter.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationId
+    public TerraformProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
@@ -35,45 +35,45 @@ public class GoogleBeyondcorpSecurityGatewayApplication : TerraformResource
     /// Optional. An arbitrary user-provided name for the Application resource.
     /// Cannot exceed 64 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Type of the external application. Possible values: [&amp;quot;PROXY_GATEWAY&amp;quot;, &amp;quot;API_GATEWAY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Schema
+    public TerraformProperty<string>? Schema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema");
+        get => GetProperty<TerraformProperty<string>>("schema");
         set => this.WithProperty("schema", value);
     }
 
     /// <summary>
     /// ID of the Security Gateway resource this belongs to.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecurityGatewayId
+    public TerraformProperty<string>? SecurityGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("security_gateway_id");
         set => this.WithProperty("security_gateway_id", value);
     }
 

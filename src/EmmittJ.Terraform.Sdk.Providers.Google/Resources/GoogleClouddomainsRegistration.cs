@@ -28,36 +28,36 @@ public class GoogleClouddomainsRegistration : TerraformResource
     /// <summary>
     /// The list of contact notices that the caller acknowledges. Possible value is PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ContactNotices
+    public TerraformProperty<List<string>>? ContactNotices
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("contact_notices");
+        get => GetProperty<TerraformProperty<List<string>>>("contact_notices");
         set => this.WithProperty("contact_notices", value);
     }
 
     /// <summary>
     /// Required. The domain name. Unicode domain names must be expressed in Punycode format.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The list of domain notices that you acknowledge. Possible value is HSTS_PRELOADED
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DomainNotices
+    public TerraformProperty<List<string>>? DomainNotices
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("domain_notices");
+        get => GetProperty<TerraformProperty<List<string>>>("domain_notices");
         set => this.WithProperty("domain_notices", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -67,27 +67,27 @@ public class GoogleClouddomainsRegistration : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

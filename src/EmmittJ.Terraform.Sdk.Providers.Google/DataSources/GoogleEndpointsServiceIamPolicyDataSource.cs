@@ -21,18 +21,18 @@ public class GoogleEndpointsServiceIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceName
+    public TerraformProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 

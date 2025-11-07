@@ -20,99 +20,99 @@ public class AwsDatasyncAgent : TerraformResource
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActivationKey
+    public TerraformProperty<string>? ActivationKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("activation_key");
+        get => GetProperty<TerraformProperty<string>>("activation_key");
         set => this.WithProperty("activation_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddress
+    public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        get => GetProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The private_link_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateLinkEndpoint
+    public TerraformProperty<string>? PrivateLinkEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_link_endpoint");
+        get => GetProperty<TerraformProperty<string>>("private_link_endpoint");
         set => this.WithProperty("private_link_endpoint", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupArns
+    public TerraformProperty<HashSet<string>>? SecurityGroupArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_arns");
         set => this.WithProperty("security_group_arns", value);
     }
 
     /// <summary>
     /// The subnet_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetArns
+    public TerraformProperty<HashSet<string>>? SubnetArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_arns");
         set => this.WithProperty("subnet_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcEndpointId
+    public TerraformProperty<string>? VpcEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);
     }
 

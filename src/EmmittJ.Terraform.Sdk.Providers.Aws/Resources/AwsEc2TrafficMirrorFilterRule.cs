@@ -20,90 +20,90 @@ public class AwsEc2TrafficMirrorFilterRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationCidrBlock
+    public TerraformProperty<string>? DestinationCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Protocol
+    public TerraformProperty<double>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("protocol");
+        get => GetProperty<TerraformProperty<double>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rule_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuleAction
+    public TerraformProperty<string>? RuleAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_action");
+        get => GetProperty<TerraformProperty<string>>("rule_action");
         set => this.WithProperty("rule_action", value);
     }
 
     /// <summary>
     /// The rule_number attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RuleNumber
+    public TerraformProperty<double>? RuleNumber
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("rule_number");
+        get => GetProperty<TerraformProperty<double>>("rule_number");
         set => this.WithProperty("rule_number", value);
     }
 
     /// <summary>
     /// The source_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceCidrBlock
+    public TerraformProperty<string>? SourceCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("source_cidr_block");
         set => this.WithProperty("source_cidr_block", value);
     }
 
     /// <summary>
     /// The traffic_direction attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrafficDirection
+    public TerraformProperty<string>? TrafficDirection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_direction");
+        get => GetProperty<TerraformProperty<string>>("traffic_direction");
         set => this.WithProperty("traffic_direction", value);
     }
 
     /// <summary>
     /// The traffic_mirror_filter_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrafficMirrorFilterId
+    public TerraformProperty<string>? TrafficMirrorFilterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_mirror_filter_id");
+        get => GetProperty<TerraformProperty<string>>("traffic_mirror_filter_id");
         set => this.WithProperty("traffic_mirror_filter_id", value);
     }
 

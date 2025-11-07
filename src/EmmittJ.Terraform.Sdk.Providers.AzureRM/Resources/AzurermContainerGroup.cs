@@ -21,81 +21,81 @@ public class AzurermContainerGroup : TerraformResource
     /// <summary>
     /// The dns_name_label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsNameLabel
+    public TerraformProperty<string>? DnsNameLabel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_name_label");
+        get => GetProperty<TerraformProperty<string>>("dns_name_label");
         set => this.WithProperty("dns_name_label", value);
     }
 
     /// <summary>
     /// The dns_name_label_reuse_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsNameLabelReusePolicy
+    public TerraformProperty<string>? DnsNameLabelReusePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_name_label_reuse_policy");
+        get => GetProperty<TerraformProperty<string>>("dns_name_label_reuse_policy");
         set => this.WithProperty("dns_name_label_reuse_policy", value);
     }
 
     /// <summary>
     /// The exposed_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<object>>? ExposedPort
+    public TerraformProperty<HashSet<object>>? ExposedPort
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<object>>>("exposed_port");
+        get => GetProperty<TerraformProperty<HashSet<object>>>("exposed_port");
         set => this.WithProperty("exposed_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddressType
+    public TerraformProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type");
+        get => GetProperty<TerraformProperty<string>>("ip_address_type");
         set => this.WithProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string>? KeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_key_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 
     /// <summary>
     /// The key_vault_user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultUserAssignedIdentityId
+    public TerraformProperty<string>? KeyVaultUserAssignedIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_user_assigned_identity_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_user_assigned_identity_id");
         set => this.WithProperty("key_vault_user_assigned_identity_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -103,81 +103,81 @@ public class AzurermContainerGroup : TerraformResource
     /// The network_profile_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? NetworkProfileId
+    public TerraformProperty<string>? NetworkProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_profile_id");
+        get => GetProperty<TerraformProperty<string>>("network_profile_id");
         set => this.WithProperty("network_profile_id", value);
     }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OsType
+    public TerraformProperty<string>? OsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("os_type");
+        get => GetProperty<TerraformProperty<string>>("os_type");
         set => this.WithProperty("os_type", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Priority
+    public TerraformProperty<string>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("priority");
+        get => GetProperty<TerraformProperty<string>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The restart_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestartPolicy
+    public TerraformProperty<string>? RestartPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("restart_policy");
+        get => GetProperty<TerraformProperty<string>>("restart_policy");
         set => this.WithProperty("restart_policy", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
+    public TerraformProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Zones
+    public TerraformProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("zones");
         set => this.WithProperty("zones", value);
     }
 

@@ -19,27 +19,27 @@ public class AwsIamGroupPolicyAttachment : TerraformResource
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Group
+    public TerraformProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyArn
+    public TerraformProperty<string>? PolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_arn");
+        get => GetProperty<TerraformProperty<string>>("policy_arn");
         set => this.WithProperty("policy_arn", value);
     }
 

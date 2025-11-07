@@ -20,27 +20,27 @@ public class AwsWafv2ApiKey : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are CLOUDFRONT or REGIONAL.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// The domains that you want to be able to use the API key with, for example example.com. Maximum of 5 domains.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? TokenDomains
+    public TerraformProperty<HashSet<string>>? TokenDomains
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("token_domains");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("token_domains");
         set => this.WithProperty("token_domains", value);
     }
 

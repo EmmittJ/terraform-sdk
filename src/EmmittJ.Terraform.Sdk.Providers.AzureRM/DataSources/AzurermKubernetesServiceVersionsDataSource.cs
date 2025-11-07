@@ -22,36 +22,36 @@ public class AzurermKubernetesServiceVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_preview attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludePreview
+    public TerraformProperty<bool>? IncludePreview
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_preview");
+        get => GetProperty<TerraformProperty<bool>>("include_preview");
         set => this.WithProperty("include_preview", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VersionPrefix
+    public TerraformProperty<string>? VersionPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_prefix");
+        get => GetProperty<TerraformProperty<string>>("version_prefix");
         set => this.WithProperty("version_prefix", value);
     }
 

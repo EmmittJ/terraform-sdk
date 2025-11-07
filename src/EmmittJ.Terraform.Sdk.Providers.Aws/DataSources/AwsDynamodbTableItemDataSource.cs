@@ -20,54 +20,54 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     /// <summary>
     /// The expression_attribute_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ExpressionAttributeNames
+    public TerraformProperty<Dictionary<string, string>>? ExpressionAttributeNames
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("expression_attribute_names");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("expression_attribute_names");
         set => this.WithProperty("expression_attribute_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The projection_expression attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProjectionExpression
+    public TerraformProperty<string>? ProjectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("projection_expression");
+        get => GetProperty<TerraformProperty<string>>("projection_expression");
         set => this.WithProperty("projection_expression", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableName
+    public TerraformProperty<string>? TableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_name");
+        get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

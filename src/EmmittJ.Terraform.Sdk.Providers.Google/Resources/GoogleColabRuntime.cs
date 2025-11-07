@@ -23,81 +23,81 @@ public class GoogleColabRuntime : TerraformResource
     /// <summary>
     /// Triggers an upgrade anytime the runtime is started if it is upgradable.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoUpgrade
+    public TerraformProperty<bool>? AutoUpgrade
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_upgrade");
+        get => GetProperty<TerraformProperty<bool>>("auto_upgrade");
         set => this.WithProperty("auto_upgrade", value);
     }
 
     /// <summary>
     /// The description of the Runtime.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Desired state of the Colab Runtime. Set this field to &#39;RUNNING&#39; to start the runtime, and &#39;STOPPED&#39; to stop it.
     /// </summary>
-    public TerraformLiteralProperty<string>? DesiredState
+    public TerraformProperty<string>? DesiredState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("desired_state");
+        get => GetProperty<TerraformProperty<string>>("desired_state");
         set => this.WithProperty("desired_state", value);
     }
 
     /// <summary>
     /// Required. The display name of the Runtime.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource: https://cloud.google.com/colab/docs/locations
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of the Runtime
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The user email of the NotebookRuntime.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuntimeUser
+    public TerraformProperty<string>? RuntimeUser
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime_user");
+        get => GetProperty<TerraformProperty<string>>("runtime_user");
         set => this.WithProperty("runtime_user", value);
     }
 

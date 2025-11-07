@@ -20,54 +20,54 @@ public class AwsCloudcontrolapiResourceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Identifier
+    public TerraformProperty<string>? Identifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier");
+        get => GetProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArn
+    public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TypeName
+    public TerraformProperty<string>? TypeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type_name");
+        get => GetProperty<TerraformProperty<string>>("type_name");
         set => this.WithProperty("type_name", value);
     }
 
     /// <summary>
     /// The type_version_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TypeVersionId
+    public TerraformProperty<string>? TypeVersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type_version_id");
+        get => GetProperty<TerraformProperty<string>>("type_version_id");
         set => this.WithProperty("type_version_id", value);
     }
 

@@ -23,45 +23,45 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     /// <summary>
     /// The alias_authorization_rule_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AliasAuthorizationRuleId
+    public TerraformProperty<string>? AliasAuthorizationRuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias_authorization_rule_id");
+        get => GetProperty<TerraformProperty<string>>("alias_authorization_rule_id");
         set => this.WithProperty("alias_authorization_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partner_namespace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PartnerNamespaceId
+    public TerraformProperty<string>? PartnerNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partner_namespace_id");
+        get => GetProperty<TerraformProperty<string>>("partner_namespace_id");
         set => this.WithProperty("partner_namespace_id", value);
     }
 
     /// <summary>
     /// The primary_namespace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrimaryNamespaceId
+    public TerraformProperty<string>? PrimaryNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_namespace_id");
+        get => GetProperty<TerraformProperty<string>>("primary_namespace_id");
         set => this.WithProperty("primary_namespace_id", value);
     }
 

@@ -19,45 +19,45 @@ public class AwsSesDomainMailFrom : TerraformResource
     /// <summary>
     /// The behavior_on_mx_failure attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BehaviorOnMxFailure
+    public TerraformProperty<string>? BehaviorOnMxFailure
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("behavior_on_mx_failure");
+        get => GetProperty<TerraformProperty<string>>("behavior_on_mx_failure");
         set => this.WithProperty("behavior_on_mx_failure", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Domain
+    public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain");
+        get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mail_from_domain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MailFromDomain
+    public TerraformProperty<string>? MailFromDomain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mail_from_domain");
+        get => GetProperty<TerraformProperty<string>>("mail_from_domain");
         set => this.WithProperty("mail_from_domain", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

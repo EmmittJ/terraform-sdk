@@ -21,18 +21,18 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     /// <summary>
     /// Relative name of the domain serving the application. Example: example.com.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -40,18 +40,18 @@ public class GoogleAppEngineDomainMapping : TerraformResource
     /// Whether the domain creation should override any existing mappings for this domain.
     /// By default, overrides are rejected. Default value: &amp;quot;STRICT&amp;quot; Possible values: [&amp;quot;STRICT&amp;quot;, &amp;quot;OVERRIDE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? OverrideStrategy
+    public TerraformProperty<string>? OverrideStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("override_strategy");
+        get => GetProperty<TerraformProperty<string>>("override_strategy");
         set => this.WithProperty("override_strategy", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

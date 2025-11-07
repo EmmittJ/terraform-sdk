@@ -19,90 +19,90 @@ public class AzurermStorageSyncServerEndpoint : TerraformResource
     /// <summary>
     /// The cloud_tiering_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CloudTieringEnabled
+    public TerraformProperty<bool>? CloudTieringEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cloud_tiering_enabled");
+        get => GetProperty<TerraformProperty<bool>>("cloud_tiering_enabled");
         set => this.WithProperty("cloud_tiering_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The initial_download_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InitialDownloadPolicy
+    public TerraformProperty<string>? InitialDownloadPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("initial_download_policy");
+        get => GetProperty<TerraformProperty<string>>("initial_download_policy");
         set => this.WithProperty("initial_download_policy", value);
     }
 
     /// <summary>
     /// The local_cache_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocalCacheMode
+    public TerraformProperty<string>? LocalCacheMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("local_cache_mode");
+        get => GetProperty<TerraformProperty<string>>("local_cache_mode");
         set => this.WithProperty("local_cache_mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The registered_server_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RegisteredServerId
+    public TerraformProperty<string>? RegisteredServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("registered_server_id");
+        get => GetProperty<TerraformProperty<string>>("registered_server_id");
         set => this.WithProperty("registered_server_id", value);
     }
 
     /// <summary>
     /// The server_local_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerLocalPath
+    public TerraformProperty<string>? ServerLocalPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_local_path");
+        get => GetProperty<TerraformProperty<string>>("server_local_path");
         set => this.WithProperty("server_local_path", value);
     }
 
     /// <summary>
     /// The storage_sync_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageSyncGroupId
+    public TerraformProperty<string>? StorageSyncGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_sync_group_id");
+        get => GetProperty<TerraformProperty<string>>("storage_sync_group_id");
         set => this.WithProperty("storage_sync_group_id", value);
     }
 
     /// <summary>
     /// The tier_files_older_than_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TierFilesOlderThanDays
+    public TerraformProperty<double>? TierFilesOlderThanDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tier_files_older_than_days");
+        get => GetProperty<TerraformProperty<double>>("tier_files_older_than_days");
         set => this.WithProperty("tier_files_older_than_days", value);
     }
 
     /// <summary>
     /// The volume_free_space_percent attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? VolumeFreeSpacePercent
+    public TerraformProperty<double>? VolumeFreeSpacePercent
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("volume_free_space_percent");
+        get => GetProperty<TerraformProperty<double>>("volume_free_space_percent");
         set => this.WithProperty("volume_free_space_percent", value);
     }
 

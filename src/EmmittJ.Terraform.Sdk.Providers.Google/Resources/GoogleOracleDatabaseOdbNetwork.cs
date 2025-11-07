@@ -25,9 +25,9 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
@@ -36,18 +36,18 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// Example: us-east4-b-r2.
     /// If not specified, the system will pick a zone based on availability.
     /// </summary>
-    public TerraformLiteralProperty<string>? GcpOracleZone
+    public TerraformProperty<string>? GcpOracleZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gcp_oracle_zone");
+        get => GetProperty<TerraformProperty<string>>("gcp_oracle_zone");
         set => this.WithProperty("gcp_oracle_zone", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -57,18 +57,18 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -76,9 +76,9 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// The name of the VPC network in the following format:
     /// projects/{project}/global/networks/{network}
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -88,18 +88,18 @@ public class GoogleOracleDatabaseOdbNetwork : TerraformResource
     /// characters in length. The value must start with a letter and end with
     /// a letter or a number.
     /// </summary>
-    public TerraformLiteralProperty<string>? OdbNetworkId
+    public TerraformProperty<string>? OdbNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_network_id");
+        get => GetProperty<TerraformProperty<string>>("odb_network_id");
         set => this.WithProperty("odb_network_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

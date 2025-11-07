@@ -20,63 +20,63 @@ public class AwsTranscribeLanguageModel : TerraformResource
     /// <summary>
     /// The base_model_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BaseModelName
+    public TerraformProperty<string>? BaseModelName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("base_model_name");
+        get => GetProperty<TerraformProperty<string>>("base_model_name");
         set => this.WithProperty("base_model_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LanguageCode
+    public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ModelName
+    public TerraformProperty<string>? ModelName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("model_name");
+        get => GetProperty<TerraformProperty<string>>("model_name");
         set => this.WithProperty("model_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

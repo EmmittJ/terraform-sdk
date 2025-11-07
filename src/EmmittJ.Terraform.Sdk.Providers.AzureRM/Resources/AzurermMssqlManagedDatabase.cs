@@ -19,45 +19,45 @@ public class AzurermMssqlManagedDatabase : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedInstanceId
+    public TerraformProperty<string>? ManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id");
+        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The short_term_retention_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ShortTermRetentionDays
+    public TerraformProperty<double>? ShortTermRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("short_term_retention_days");
+        get => GetProperty<TerraformProperty<double>>("short_term_retention_days");
         set => this.WithProperty("short_term_retention_days", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

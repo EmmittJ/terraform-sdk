@@ -19,63 +19,63 @@ public class AzurermNetappVolumeGroupOracle : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountName
+    public TerraformProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The application_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationIdentifier
+    public TerraformProperty<string>? ApplicationIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_identifier");
+        get => GetProperty<TerraformProperty<string>>("application_identifier");
         set => this.WithProperty("application_identifier", value);
     }
 
     /// <summary>
     /// The group_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupDescription
+    public TerraformProperty<string>? GroupDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_description");
+        get => GetProperty<TerraformProperty<string>>("group_description");
         set => this.WithProperty("group_description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -19,72 +19,72 @@ public class AzurermKustoScript : TerraformResource
     /// <summary>
     /// The continue_on_errors_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ContinueOnErrorsEnabled
+    public TerraformProperty<bool>? ContinueOnErrorsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("continue_on_errors_enabled");
+        get => GetProperty<TerraformProperty<bool>>("continue_on_errors_enabled");
         set => this.WithProperty("continue_on_errors_enabled", value);
     }
 
     /// <summary>
     /// The database_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatabaseId
+    public TerraformProperty<string>? DatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_id");
+        get => GetProperty<TerraformProperty<string>>("database_id");
         set => this.WithProperty("database_id", value);
     }
 
     /// <summary>
     /// The force_an_update_when_value_changed attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ForceAnUpdateWhenValueChanged
+    public TerraformProperty<string>? ForceAnUpdateWhenValueChanged
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("force_an_update_when_value_changed");
+        get => GetProperty<TerraformProperty<string>>("force_an_update_when_value_changed");
         set => this.WithProperty("force_an_update_when_value_changed", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sas_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SasToken
+    public TerraformProperty<string>? SasToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sas_token");
+        get => GetProperty<TerraformProperty<string>>("sas_token");
         set => this.WithProperty("sas_token", value);
     }
 
     /// <summary>
     /// The script_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScriptContent
+    public TerraformProperty<string>? ScriptContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("script_content");
+        get => GetProperty<TerraformProperty<string>>("script_content");
         set => this.WithProperty("script_content", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Url
+    public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url");
+        get => GetProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

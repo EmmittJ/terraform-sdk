@@ -26,117 +26,117 @@ public class AwsLexBot : TerraformResource
     /// <summary>
     /// The child_directed attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ChildDirected
+    public TerraformProperty<bool>? ChildDirected
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("child_directed");
+        get => GetProperty<TerraformProperty<bool>>("child_directed");
         set => this.WithProperty("child_directed", value);
     }
 
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CreateVersion
+    public TerraformProperty<bool>? CreateVersion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_version");
+        get => GetProperty<TerraformProperty<bool>>("create_version");
         set => this.WithProperty("create_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The detect_sentiment attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DetectSentiment
+    public TerraformProperty<bool>? DetectSentiment
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("detect_sentiment");
+        get => GetProperty<TerraformProperty<bool>>("detect_sentiment");
         set => this.WithProperty("detect_sentiment", value);
     }
 
     /// <summary>
     /// The enable_model_improvements attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableModelImprovements
+    public TerraformProperty<bool>? EnableModelImprovements
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_model_improvements");
+        get => GetProperty<TerraformProperty<bool>>("enable_model_improvements");
         set => this.WithProperty("enable_model_improvements", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idle_session_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? IdleSessionTtlInSeconds
+    public TerraformProperty<double>? IdleSessionTtlInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_session_ttl_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("idle_session_ttl_in_seconds");
         set => this.WithProperty("idle_session_ttl_in_seconds", value);
     }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Locale
+    public TerraformProperty<string>? Locale
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("locale");
+        get => GetProperty<TerraformProperty<string>>("locale");
         set => this.WithProperty("locale", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The nlu_intent_confidence_threshold attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NluIntentConfidenceThreshold
+    public TerraformProperty<double>? NluIntentConfidenceThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("nlu_intent_confidence_threshold");
+        get => GetProperty<TerraformProperty<double>>("nlu_intent_confidence_threshold");
         set => this.WithProperty("nlu_intent_confidence_threshold", value);
     }
 
     /// <summary>
     /// The process_behavior attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProcessBehavior
+    public TerraformProperty<string>? ProcessBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("process_behavior");
+        get => GetProperty<TerraformProperty<string>>("process_behavior");
         set => this.WithProperty("process_behavior", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The voice_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VoiceId
+    public TerraformProperty<string>? VoiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("voice_id");
+        get => GetProperty<TerraformProperty<string>>("voice_id");
         set => this.WithProperty("voice_id", value);
     }
 

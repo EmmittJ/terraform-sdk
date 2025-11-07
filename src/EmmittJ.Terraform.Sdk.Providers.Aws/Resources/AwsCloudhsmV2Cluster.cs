@@ -24,72 +24,72 @@ public class AwsCloudhsmV2Cluster : TerraformResource
     /// <summary>
     /// The hsm_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HsmType
+    public TerraformProperty<string>? HsmType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hsm_type");
+        get => GetProperty<TerraformProperty<string>>("hsm_type");
         set => this.WithProperty("hsm_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Mode
+    public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_backup_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceBackupIdentifier
+    public TerraformProperty<string>? SourceBackupIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_backup_identifier");
+        get => GetProperty<TerraformProperty<string>>("source_backup_identifier");
         set => this.WithProperty("source_backup_identifier", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
+    public TerraformProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

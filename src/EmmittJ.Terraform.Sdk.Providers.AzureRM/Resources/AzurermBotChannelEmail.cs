@@ -19,63 +19,63 @@ public class AzurermBotChannelEmail : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BotName
+    public TerraformProperty<string>? BotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_name");
+        get => GetProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailAddress
+    public TerraformProperty<string>? EmailAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_address");
+        get => GetProperty<TerraformProperty<string>>("email_address");
         set => this.WithProperty("email_address", value);
     }
 
     /// <summary>
     /// The email_password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailPassword
+    public TerraformProperty<string>? EmailPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_password");
+        get => GetProperty<TerraformProperty<string>>("email_password");
         set => this.WithProperty("email_password", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The magic_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MagicCode
+    public TerraformProperty<string>? MagicCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("magic_code");
+        get => GetProperty<TerraformProperty<string>>("magic_code");
         set => this.WithProperty("magic_code", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

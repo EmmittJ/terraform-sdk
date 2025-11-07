@@ -20,72 +20,72 @@ public class AzurermAutomationJobSchedule : TerraformResource
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutomationAccountName
+    public TerraformProperty<string>? AutomationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_name");
+        get => GetProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The job_schedule_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobScheduleId
+    public TerraformProperty<string>? JobScheduleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_schedule_id");
+        get => GetProperty<TerraformProperty<string>>("job_schedule_id");
         set => this.WithProperty("job_schedule_id", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
+    public TerraformProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The run_on attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RunOn
+    public TerraformProperty<string>? RunOn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("run_on");
+        get => GetProperty<TerraformProperty<string>>("run_on");
         set => this.WithProperty("run_on", value);
     }
 
     /// <summary>
     /// The runbook_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RunbookName
+    public TerraformProperty<string>? RunbookName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runbook_name");
+        get => GetProperty<TerraformProperty<string>>("runbook_name");
         set => this.WithProperty("runbook_name", value);
     }
 
     /// <summary>
     /// The schedule_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScheduleName
+    public TerraformProperty<string>? ScheduleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schedule_name");
+        get => GetProperty<TerraformProperty<string>>("schedule_name");
         set => this.WithProperty("schedule_name", value);
     }
 

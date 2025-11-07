@@ -19,45 +19,45 @@ public class AzurermNetworkManagerSecurityAdminConfiguration : TerraformResource
     /// <summary>
     /// The apply_on_network_intent_policy_based_services attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ApplyOnNetworkIntentPolicyBasedServices
+    public TerraformProperty<List<string>>? ApplyOnNetworkIntentPolicyBasedServices
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("apply_on_network_intent_policy_based_services");
+        get => GetProperty<TerraformProperty<List<string>>>("apply_on_network_intent_policy_based_services");
         set => this.WithProperty("apply_on_network_intent_policy_based_services", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_manager_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkManagerId
+    public TerraformProperty<string>? NetworkManagerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_manager_id");
+        get => GetProperty<TerraformProperty<string>>("network_manager_id");
         set => this.WithProperty("network_manager_id", value);
     }
 

@@ -20,27 +20,27 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CoreNetworkId
+    public TerraformProperty<string>? CoreNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_id");
+        get => GetProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyDocument
+    public TerraformProperty<string>? PolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_document");
+        get => GetProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 

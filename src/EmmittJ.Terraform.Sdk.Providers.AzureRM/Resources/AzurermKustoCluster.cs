@@ -21,153 +21,153 @@ public class AzurermKustoCluster : TerraformResource
     /// <summary>
     /// The allowed_fqdns attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AllowedFqdns
+    public TerraformProperty<List<string>>? AllowedFqdns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_fqdns");
+        get => GetProperty<TerraformProperty<List<string>>>("allowed_fqdns");
         set => this.WithProperty("allowed_fqdns", value);
     }
 
     /// <summary>
     /// The allowed_ip_ranges attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AllowedIpRanges
+    public TerraformProperty<List<string>>? AllowedIpRanges
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_ip_ranges");
+        get => GetProperty<TerraformProperty<List<string>>>("allowed_ip_ranges");
         set => this.WithProperty("allowed_ip_ranges", value);
     }
 
     /// <summary>
     /// The auto_stop_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoStopEnabled
+    public TerraformProperty<bool>? AutoStopEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_stop_enabled");
+        get => GetProperty<TerraformProperty<bool>>("auto_stop_enabled");
         set => this.WithProperty("auto_stop_enabled", value);
     }
 
     /// <summary>
     /// The disk_encryption_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DiskEncryptionEnabled
+    public TerraformProperty<bool>? DiskEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disk_encryption_enabled");
+        get => GetProperty<TerraformProperty<bool>>("disk_encryption_enabled");
         set => this.WithProperty("disk_encryption_enabled", value);
     }
 
     /// <summary>
     /// The double_encryption_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DoubleEncryptionEnabled
+    public TerraformProperty<bool>? DoubleEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("double_encryption_enabled");
+        get => GetProperty<TerraformProperty<bool>>("double_encryption_enabled");
         set => this.WithProperty("double_encryption_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OutboundNetworkAccessRestricted
+    public TerraformProperty<bool>? OutboundNetworkAccessRestricted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("outbound_network_access_restricted");
+        get => GetProperty<TerraformProperty<bool>>("outbound_network_access_restricted");
         set => this.WithProperty("outbound_network_access_restricted", value);
     }
 
     /// <summary>
     /// The public_ip_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicIpType
+    public TerraformProperty<string>? PublicIpType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_ip_type");
+        get => GetProperty<TerraformProperty<string>>("public_ip_type");
         set => this.WithProperty("public_ip_type", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The purge_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PurgeEnabled
+    public TerraformProperty<bool>? PurgeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("purge_enabled");
+        get => GetProperty<TerraformProperty<bool>>("purge_enabled");
         set => this.WithProperty("purge_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The streaming_ingestion_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? StreamingIngestionEnabled
+    public TerraformProperty<bool>? StreamingIngestionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("streaming_ingestion_enabled");
+        get => GetProperty<TerraformProperty<bool>>("streaming_ingestion_enabled");
         set => this.WithProperty("streaming_ingestion_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The trusted_external_tenants attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? TrustedExternalTenants
+    public TerraformProperty<List<string>>? TrustedExternalTenants
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("trusted_external_tenants");
+        get => GetProperty<TerraformProperty<List<string>>>("trusted_external_tenants");
         set => this.WithProperty("trusted_external_tenants", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Zones
+    public TerraformProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("zones");
         set => this.WithProperty("zones", value);
     }
 

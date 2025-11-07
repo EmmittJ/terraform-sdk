@@ -21,18 +21,18 @@ public class AwsRoute53DelegationSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The reference_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReferenceName
+    public TerraformProperty<string>? ReferenceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reference_name");
+        get => GetProperty<TerraformProperty<string>>("reference_name");
         set => this.WithProperty("reference_name", value);
     }
 

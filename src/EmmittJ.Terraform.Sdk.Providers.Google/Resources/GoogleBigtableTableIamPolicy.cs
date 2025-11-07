@@ -20,45 +20,45 @@ public class GoogleBigtableTableIamPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceName
+    public TerraformProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyData
+    public TerraformProperty<string>? PolicyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_data");
+        get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Table
+    public TerraformProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 

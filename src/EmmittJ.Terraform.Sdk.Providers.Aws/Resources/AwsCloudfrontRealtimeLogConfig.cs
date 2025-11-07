@@ -20,36 +20,36 @@ public class AwsCloudfrontRealtimeLogConfig : TerraformResource
     /// <summary>
     /// The fields attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Fields
+    public TerraformProperty<HashSet<string>>? Fields
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("fields");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("fields");
         set => this.WithProperty("fields", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sampling_rate attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SamplingRate
+    public TerraformProperty<double>? SamplingRate
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_rate");
+        get => GetProperty<TerraformProperty<double>>("sampling_rate");
         set => this.WithProperty("sampling_rate", value);
     }
 

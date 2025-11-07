@@ -20,54 +20,54 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
     /// <summary>
     /// The exclude_compliant_resources attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExcludeCompliantResources
+    public TerraformProperty<bool>? ExcludeCompliantResources
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_compliant_resources");
+        get => GetProperty<TerraformProperty<bool>>("exclude_compliant_resources");
         set => this.WithProperty("exclude_compliant_resources", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_compliance_details attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeComplianceDetails
+    public TerraformProperty<bool>? IncludeComplianceDetails
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_compliance_details");
+        get => GetProperty<TerraformProperty<bool>>("include_compliance_details");
         set => this.WithProperty("include_compliance_details", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn_list attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ResourceArnList
+    public TerraformProperty<HashSet<string>>? ResourceArnList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_arn_list");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_arn_list");
         set => this.WithProperty("resource_arn_list", value);
     }
 
     /// <summary>
     /// The resource_type_filters attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ResourceTypeFilters
+    public TerraformProperty<HashSet<string>>? ResourceTypeFilters
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_type_filters");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_type_filters");
         set => this.WithProperty("resource_type_filters", value);
     }
 

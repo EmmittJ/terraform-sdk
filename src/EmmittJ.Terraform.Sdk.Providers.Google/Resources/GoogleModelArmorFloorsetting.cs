@@ -22,36 +22,36 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     /// <summary>
     /// Floor Settings enforcement status.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableFloorSettingEnforcement
+    public TerraformProperty<bool>? EnableFloorSettingEnforcement
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_floor_setting_enforcement");
+        get => GetProperty<TerraformProperty<bool>>("enable_floor_setting_enforcement");
         set => this.WithProperty("enable_floor_setting_enforcement", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// List of integrated services for which the floor setting is applicable.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? IntegratedServices
+    public TerraformProperty<List<string>>? IntegratedServices
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("integrated_services");
+        get => GetProperty<TerraformProperty<List<string>>>("integrated_services");
         set => this.WithProperty("integrated_services", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -62,9 +62,9 @@ public class GoogleModelArmorFloorsetting : TerraformResource
     /// * &#39;folders/{folder}&#39;
     /// * &#39;organizations/{organizationId}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

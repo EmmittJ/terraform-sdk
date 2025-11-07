@@ -19,9 +19,9 @@ public class AwsNotificationsNotificationHub : TerraformResource
     /// <summary>
     /// The notification_hub_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotificationHubRegion
+    public TerraformProperty<string>? NotificationHubRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_hub_region");
+        get => GetProperty<TerraformProperty<string>>("notification_hub_region");
         set => this.WithProperty("notification_hub_region", value);
     }
 

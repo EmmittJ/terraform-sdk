@@ -26,27 +26,27 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupOdbSubnet
+    public TerraformProperty<string>? BackupOdbSubnet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_odb_subnet");
+        get => GetProperty<TerraformProperty<string>>("backup_odb_subnet");
         set => this.WithProperty("backup_odb_subnet", value);
     }
 
     /// <summary>
     /// CIDR range of the backup subnet.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupSubnetCidr
+    public TerraformProperty<string>? BackupSubnetCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_subnet_cidr");
+        get => GetProperty<TerraformProperty<string>>("backup_subnet_cidr");
         set => this.WithProperty("backup_subnet_cidr", value);
     }
 
     /// <summary>
     /// Network settings. CIDR to use for cluster IP allocation.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cidr
+    public TerraformProperty<string>? Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr");
+        get => GetProperty<TerraformProperty<string>>("cidr");
         set => this.WithProperty("cidr", value);
     }
 
@@ -56,27 +56,27 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// characters in length. The value must start with a letter and end with
     /// a letter or a number.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudVmClusterId
+    public TerraformProperty<string>? CloudVmClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_vm_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster_id");
         set => this.WithProperty("cloud_vm_cluster_id", value);
     }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -85,18 +85,18 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// resource is created, in the following format:
     /// projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
     /// </summary>
-    public TerraformLiteralProperty<string>? ExadataInfrastructure
+    public TerraformProperty<string>? ExadataInfrastructure
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("exadata_infrastructure");
+        get => GetProperty<TerraformProperty<string>>("exadata_infrastructure");
         set => this.WithProperty("exadata_infrastructure", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -106,18 +106,18 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbNode&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -125,9 +125,9 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// The name of the VPC network.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -138,9 +138,9 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    public TerraformLiteralProperty<string>? OdbNetwork
+    public TerraformProperty<string>? OdbNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_network");
+        get => GetProperty<TerraformProperty<string>>("odb_network");
         set => this.WithProperty("odb_network", value);
     }
 
@@ -149,18 +149,18 @@ public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    public TerraformLiteralProperty<string>? OdbSubnet
+    public TerraformProperty<string>? OdbSubnet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_subnet");
+        get => GetProperty<TerraformProperty<string>>("odb_subnet");
         set => this.WithProperty("odb_subnet", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

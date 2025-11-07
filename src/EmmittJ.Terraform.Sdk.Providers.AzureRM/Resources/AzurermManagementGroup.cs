@@ -20,45 +20,45 @@ public class AzurermManagementGroup : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentManagementGroupId
+    public TerraformProperty<string>? ParentManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_management_group_id");
+        get => GetProperty<TerraformProperty<string>>("parent_management_group_id");
         set => this.WithProperty("parent_management_group_id", value);
     }
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubscriptionIds
+    public TerraformProperty<HashSet<string>>? SubscriptionIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subscription_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subscription_ids");
         set => this.WithProperty("subscription_ids", value);
     }
 

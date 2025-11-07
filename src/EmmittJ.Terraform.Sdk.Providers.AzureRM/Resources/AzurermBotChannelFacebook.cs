@@ -19,54 +19,54 @@ public class AzurermBotChannelFacebook : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BotName
+    public TerraformProperty<string>? BotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_name");
+        get => GetProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
     /// <summary>
     /// The facebook_application_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FacebookApplicationId
+    public TerraformProperty<string>? FacebookApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("facebook_application_id");
+        get => GetProperty<TerraformProperty<string>>("facebook_application_id");
         set => this.WithProperty("facebook_application_id", value);
     }
 
     /// <summary>
     /// The facebook_application_secret attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FacebookApplicationSecret
+    public TerraformProperty<string>? FacebookApplicationSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("facebook_application_secret");
+        get => GetProperty<TerraformProperty<string>>("facebook_application_secret");
         set => this.WithProperty("facebook_application_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -19,63 +19,63 @@ public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountName
+    public TerraformProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AssignableScopes
+    public TerraformProperty<HashSet<string>>? AssignableScopes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("assignable_scopes");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("assignable_scopes");
         set => this.WithProperty("assignable_scopes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleDefinitionId
+    public TerraformProperty<string>? RoleDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id");
+        get => GetProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

@@ -20,99 +20,99 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutomationAccountId
+    public TerraformProperty<string>? AutomationAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id");
+        get => GetProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Etag
+    public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        get => GetProperty<TerraformProperty<string>>("etag");
         set => this.WithProperty("etag", value);
     }
 
     /// <summary>
     /// The execution_frequency_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ExecutionFrequencyInSeconds
+    public TerraformProperty<double>? ExecutionFrequencyInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("execution_frequency_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("execution_frequency_in_seconds");
         set => this.WithProperty("execution_frequency_in_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The script_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScriptName
+    public TerraformProperty<string>? ScriptName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("script_name");
+        get => GetProperty<TerraformProperty<string>>("script_name");
         set => this.WithProperty("script_name", value);
     }
 
     /// <summary>
     /// The script_parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ScriptParameters
+    public TerraformProperty<Dictionary<string, string>>? ScriptParameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("script_parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("script_parameters");
         set => this.WithProperty("script_parameters", value);
     }
 
     /// <summary>
     /// The script_run_on attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScriptRunOn
+    public TerraformProperty<string>? ScriptRunOn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("script_run_on");
+        get => GetProperty<TerraformProperty<string>>("script_run_on");
         set => this.WithProperty("script_run_on", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

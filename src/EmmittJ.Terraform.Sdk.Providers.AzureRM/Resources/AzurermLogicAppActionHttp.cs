@@ -19,72 +19,72 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Body
+    public TerraformProperty<string>? Body
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("body");
+        get => GetProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
     }
 
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Headers
+    public TerraformProperty<Dictionary<string, string>>? Headers
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("headers");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("headers");
         set => this.WithProperty("headers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The logic_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogicAppId
+    public TerraformProperty<string>? LogicAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logic_app_id");
+        get => GetProperty<TerraformProperty<string>>("logic_app_id");
         set => this.WithProperty("logic_app_id", value);
     }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Method
+    public TerraformProperty<string>? Method
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("method");
+        get => GetProperty<TerraformProperty<string>>("method");
         set => this.WithProperty("method", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The queries attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Queries
+    public TerraformProperty<Dictionary<string, string>>? Queries
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("queries");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("queries");
         set => this.WithProperty("queries", value);
     }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Uri
+    public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("uri");
+        get => GetProperty<TerraformProperty<string>>("uri");
         set => this.WithProperty("uri", value);
     }
 

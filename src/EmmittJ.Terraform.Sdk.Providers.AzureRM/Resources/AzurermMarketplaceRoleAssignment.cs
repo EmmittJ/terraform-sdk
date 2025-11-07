@@ -20,90 +20,90 @@ public class AzurermMarketplaceRoleAssignment : TerraformResource
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Condition
+    public TerraformProperty<string>? Condition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition");
+        get => GetProperty<TerraformProperty<string>>("condition");
         set => this.WithProperty("condition", value);
     }
 
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConditionVersion
+    public TerraformProperty<string>? ConditionVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition_version");
+        get => GetProperty<TerraformProperty<string>>("condition_version");
         set => this.WithProperty("condition_version", value);
     }
 
     /// <summary>
     /// The delegated_managed_identity_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DelegatedManagedIdentityResourceId
+    public TerraformProperty<string>? DelegatedManagedIdentityResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delegated_managed_identity_resource_id");
+        get => GetProperty<TerraformProperty<string>>("delegated_managed_identity_resource_id");
         set => this.WithProperty("delegated_managed_identity_resource_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalId
+    public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleDefinitionId
+    public TerraformProperty<string>? RoleDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id");
+        get => GetProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// The role_definition_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleDefinitionName
+    public TerraformProperty<string>? RoleDefinitionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_name");
+        get => GetProperty<TerraformProperty<string>>("role_definition_name");
         set => this.WithProperty("role_definition_name", value);
     }
 
     /// <summary>
     /// The skip_service_principal_aad_check attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipServicePrincipalAadCheck
+    public TerraformProperty<bool>? SkipServicePrincipalAadCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_service_principal_aad_check");
+        get => GetProperty<TerraformProperty<bool>>("skip_service_principal_aad_check");
         set => this.WithProperty("skip_service_principal_aad_check", value);
     }
 

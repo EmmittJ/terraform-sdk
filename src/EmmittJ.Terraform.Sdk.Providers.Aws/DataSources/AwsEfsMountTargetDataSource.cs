@@ -31,45 +31,45 @@ public class AwsEfsMountTargetDataSource : TerraformDataSource
     /// <summary>
     /// The access_point_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessPointId
+    public TerraformProperty<string>? AccessPointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_point_id");
+        get => GetProperty<TerraformProperty<string>>("access_point_id");
         set => this.WithProperty("access_point_id", value);
     }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileSystemId
+    public TerraformProperty<string>? FileSystemId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_id");
+        get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mount_target_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MountTargetId
+    public TerraformProperty<string>? MountTargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mount_target_id");
+        get => GetProperty<TerraformProperty<string>>("mount_target_id");
         set => this.WithProperty("mount_target_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

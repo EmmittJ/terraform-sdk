@@ -19,126 +19,126 @@ public class AzurermIothubEndpointCosmosdbAccount : TerraformResource
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationType
+    public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerName
+    public TerraformProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        get => GetProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatabaseName
+    public TerraformProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndpointUri
+    public TerraformProperty<string>? EndpointUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_uri");
+        get => GetProperty<TerraformProperty<string>>("endpoint_uri");
         set => this.WithProperty("endpoint_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityId
+    public TerraformProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_id");
+        get => GetProperty<TerraformProperty<string>>("identity_id");
         set => this.WithProperty("identity_id", value);
     }
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IothubId
+    public TerraformProperty<string>? IothubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id");
+        get => GetProperty<TerraformProperty<string>>("iothub_id");
         set => this.WithProperty("iothub_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partition_key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PartitionKeyName
+    public TerraformProperty<string>? PartitionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partition_key_name");
+        get => GetProperty<TerraformProperty<string>>("partition_key_name");
         set => this.WithProperty("partition_key_name", value);
     }
 
     /// <summary>
     /// The partition_key_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PartitionKeyTemplate
+    public TerraformProperty<string>? PartitionKeyTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partition_key_template");
+        get => GetProperty<TerraformProperty<string>>("partition_key_template");
         set => this.WithProperty("partition_key_template", value);
     }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrimaryKey
+    public TerraformProperty<string>? PrimaryKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_key");
+        get => GetProperty<TerraformProperty<string>>("primary_key");
         set => this.WithProperty("primary_key", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecondaryKey
+    public TerraformProperty<string>? SecondaryKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secondary_key");
+        get => GetProperty<TerraformProperty<string>>("secondary_key");
         set => this.WithProperty("secondary_key", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

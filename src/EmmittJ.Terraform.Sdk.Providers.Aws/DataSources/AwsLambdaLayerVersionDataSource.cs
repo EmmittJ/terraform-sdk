@@ -31,54 +31,54 @@ public class AwsLambdaLayerVersionDataSource : TerraformDataSource
     /// <summary>
     /// The compatible_architecture attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CompatibleArchitecture
+    public TerraformProperty<string>? CompatibleArchitecture
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compatible_architecture");
+        get => GetProperty<TerraformProperty<string>>("compatible_architecture");
         set => this.WithProperty("compatible_architecture", value);
     }
 
     /// <summary>
     /// The compatible_runtime attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CompatibleRuntime
+    public TerraformProperty<string>? CompatibleRuntime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compatible_runtime");
+        get => GetProperty<TerraformProperty<string>>("compatible_runtime");
         set => this.WithProperty("compatible_runtime", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The layer_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LayerName
+    public TerraformProperty<string>? LayerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("layer_name");
+        get => GetProperty<TerraformProperty<string>>("layer_name");
         set => this.WithProperty("layer_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Version
+    public TerraformProperty<double>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("version");
+        get => GetProperty<TerraformProperty<double>>("version");
         set => this.WithProperty("version", value);
     }
 

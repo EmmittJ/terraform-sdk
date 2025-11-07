@@ -23,45 +23,45 @@ public class AwsS3controlAccessGrantsLocation : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The location_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocationScope
+    public TerraformProperty<string>? LocationScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_scope");
+        get => GetProperty<TerraformProperty<string>>("location_scope");
         set => this.WithProperty("location_scope", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

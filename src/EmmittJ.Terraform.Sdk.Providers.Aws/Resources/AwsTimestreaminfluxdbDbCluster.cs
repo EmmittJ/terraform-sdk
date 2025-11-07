@@ -25,9 +25,9 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// <summary>
     /// The amount of storage to allocate for your DB storage type in GiB (gibibytes).
     /// </summary>
-    public TerraformLiteralProperty<double>? AllocatedStorage
+    public TerraformProperty<double>? AllocatedStorage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("allocated_storage");
+        get => GetProperty<TerraformProperty<double>>("allocated_storage");
         set => this.WithProperty("allocated_storage", value);
     }
 
@@ -36,18 +36,18 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					A bucket combines the concept of a database and a retention period (the duration of time 
     /// 					that each data point persists). A bucket belongs to an organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The Timestream for InfluxDB DB instance type to run InfluxDB on.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbInstanceType
+    public TerraformProperty<string>? DbInstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_instance_type");
+        get => GetProperty<TerraformProperty<string>>("db_instance_type");
         set => this.WithProperty("db_instance_type", value);
     }
 
@@ -56,9 +56,9 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					DB parameter groups specify how the database is configured. For example, DB parameter groups 
     /// 					can specify the limit for query concurrency.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbParameterGroupIdentifier
+    public TerraformProperty<string>? DbParameterGroupIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_parameter_group_identifier");
+        get => GetProperty<TerraformProperty<string>>("db_parameter_group_identifier");
         set => this.WithProperty("db_parameter_group_identifier", value);
     }
 
@@ -68,18 +68,18 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, 
     /// 					Influx IO Included 16000 IOPS.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbStorageType
+    public TerraformProperty<string>? DbStorageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_storage_type");
+        get => GetProperty<TerraformProperty<string>>("db_storage_type");
         set => this.WithProperty("db_storage_type", value);
     }
 
     /// <summary>
     /// Specifies the type of cluster to create.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeploymentType
+    public TerraformProperty<string>? DeploymentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_type");
+        get => GetProperty<TerraformProperty<string>>("deployment_type");
         set => this.WithProperty("deployment_type", value);
     }
 
@@ -87,9 +87,9 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// Specifies the behavior of failure recovery when the primary node of the cluster
     /// 					fails.
     /// </summary>
-    public TerraformLiteralProperty<string>? FailoverMode
+    public TerraformProperty<string>? FailoverMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("failover_mode");
+        get => GetProperty<TerraformProperty<string>>("failover_mode");
         set => this.WithProperty("failover_mode", value);
     }
 
@@ -99,9 +99,9 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					prefix included in the endpoint. DB cluster names must be unique per customer 
     /// 					and per region.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -110,9 +110,9 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate 
     /// 					over both IPv4 and IPv6 protocols.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkType
+    public TerraformProperty<string>? NetworkType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_type");
+        get => GetProperty<TerraformProperty<string>>("network_type");
         set => this.WithProperty("network_type", value);
     }
 
@@ -120,9 +120,9 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// The name of the initial organization for the initial admin user in InfluxDB. An 
     /// 					InfluxDB organization is a workspace for a group of users.
     /// </summary>
-    public TerraformLiteralProperty<string>? Organization
+    public TerraformProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -132,45 +132,45 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					also use the InfluxDB CLI to create an operator token. These attributes will be 
     /// 					stored in a Secret created in AWS SecretManager in your account.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The port number on which InfluxDB accepts connections.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// Configures the Timestream for InfluxDB cluster with a public IP to facilitate access.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
         set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -183,18 +183,18 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// 					attributes will be stored in a Secret created in Amazon Secrets 
     /// 					Manager in your account.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 
     /// <summary>
     /// A list of VPC security group IDs to associate with the Timestream for InfluxDB cluster.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSecurityGroupIds
+    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 
@@ -202,9 +202,9 @@ public class AwsTimestreaminfluxdbDbCluster : TerraformResource
     /// A list of VPC subnet IDs to associate with the DB cluster. Provide at least 
     /// 					two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSubnetIds
+    public TerraformProperty<HashSet<string>>? VpcSubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_subnet_ids");
         set => this.WithProperty("vpc_subnet_ids", value);
     }
 

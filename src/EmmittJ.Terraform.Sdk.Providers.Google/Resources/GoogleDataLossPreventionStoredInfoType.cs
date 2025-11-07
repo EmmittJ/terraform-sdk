@@ -20,27 +20,27 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// <summary>
     /// A description of the info type.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// User set display name of the info type.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// * &#39;organizations/{{organization_id}}&#39;
     /// * &#39;organizations/{{organization_id}}/locations/{{location}}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -63,9 +63,9 @@ public class GoogleDataLossPreventionStoredInfoType : TerraformResource
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+. The maximum length is 100
     /// characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformLiteralProperty<string>? StoredInfoTypeId
+    public TerraformProperty<string>? StoredInfoTypeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stored_info_type_id");
+        get => GetProperty<TerraformProperty<string>>("stored_info_type_id");
         set => this.WithProperty("stored_info_type_id", value);
     }
 

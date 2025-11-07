@@ -30,18 +30,18 @@ public class GoogleProjectDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project ID. Changing this forces a new project to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProjectId
+    public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_id");
+        get => GetProperty<TerraformProperty<string>>("project_id");
         set => this.WithProperty("project_id", value);
     }
 

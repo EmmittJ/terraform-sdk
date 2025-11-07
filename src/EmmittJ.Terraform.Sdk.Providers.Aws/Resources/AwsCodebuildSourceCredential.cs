@@ -20,54 +20,54 @@ public class AwsCodebuildSourceCredential : TerraformResource
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthType
+    public TerraformProperty<string>? AuthType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auth_type");
+        get => GetProperty<TerraformProperty<string>>("auth_type");
         set => this.WithProperty("auth_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The server_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerType
+    public TerraformProperty<string>? ServerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_type");
+        get => GetProperty<TerraformProperty<string>>("server_type");
         set => this.WithProperty("server_type", value);
     }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Token
+    public TerraformProperty<string>? Token
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token");
+        get => GetProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

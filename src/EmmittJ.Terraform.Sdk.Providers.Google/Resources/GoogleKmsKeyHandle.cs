@@ -20,9 +20,9 @@ public class GoogleKmsKeyHandle : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -30,27 +30,27 @@ public class GoogleKmsKeyHandle : TerraformResource
     /// The location for the KeyHandle.
     /// A full list of valid locations can be found by running &#39;gcloud kms locations list&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource name for the KeyHandle.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -58,9 +58,9 @@ public class GoogleKmsKeyHandle : TerraformResource
     /// Selector of the resource type where we want to protect resources.
     /// For example, &#39;storage.googleapis.com/Bucket&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceTypeSelector
+    public TerraformProperty<string>? ResourceTypeSelector
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type_selector");
+        get => GetProperty<TerraformProperty<string>>("resource_type_selector");
         set => this.WithProperty("resource_type_selector", value);
     }
 

@@ -25,45 +25,45 @@ public class AwsIamServerCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Latest
+    public TerraformProperty<bool>? Latest
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("latest");
+        get => GetProperty<TerraformProperty<bool>>("latest");
         set => this.WithProperty("latest", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PathPrefix
+    public TerraformProperty<string>? PathPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path_prefix");
+        get => GetProperty<TerraformProperty<string>>("path_prefix");
         set => this.WithProperty("path_prefix", value);
     }
 

@@ -25,117 +25,117 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Attributes
+    public TerraformProperty<Dictionary<string, string>>? Attributes
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("attributes");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 
     /// <summary>
     /// The client_metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ClientMetadata
+    public TerraformProperty<Dictionary<string, string>>? ClientMetadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("client_metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("client_metadata");
         set => this.WithProperty("client_metadata", value);
     }
 
     /// <summary>
     /// The desired_delivery_mediums attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? DesiredDeliveryMediums
+    public TerraformProperty<HashSet<string>>? DesiredDeliveryMediums
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("desired_delivery_mediums");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("desired_delivery_mediums");
         set => this.WithProperty("desired_delivery_mediums", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The force_alias_creation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceAliasCreation
+    public TerraformProperty<bool>? ForceAliasCreation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_alias_creation");
+        get => GetProperty<TerraformProperty<bool>>("force_alias_creation");
         set => this.WithProperty("force_alias_creation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The message_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MessageAction
+    public TerraformProperty<string>? MessageAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message_action");
+        get => GetProperty<TerraformProperty<string>>("message_action");
         set => this.WithProperty("message_action", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The temporary_password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemporaryPassword
+    public TerraformProperty<string>? TemporaryPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("temporary_password");
+        get => GetProperty<TerraformProperty<string>>("temporary_password");
         set => this.WithProperty("temporary_password", value);
     }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPoolId
+    public TerraformProperty<string>? UserPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id");
+        get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 
     /// <summary>
     /// The validation_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ValidationData
+    public TerraformProperty<Dictionary<string, string>>? ValidationData
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("validation_data");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("validation_data");
         set => this.WithProperty("validation_data", value);
     }
 

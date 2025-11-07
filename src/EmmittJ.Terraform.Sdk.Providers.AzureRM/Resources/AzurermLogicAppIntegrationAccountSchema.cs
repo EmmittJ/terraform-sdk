@@ -19,63 +19,63 @@ public class AzurermLogicAppIntegrationAccountSchema : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Content
+    public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content");
+        get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
     /// <summary>
     /// The file_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileName
+    public TerraformProperty<string>? FileName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_name");
+        get => GetProperty<TerraformProperty<string>>("file_name");
         set => this.WithProperty("file_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationAccountName
+    public TerraformProperty<string>? IntegrationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_account_name");
+        get => GetProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Metadata
+    public TerraformProperty<string>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata");
+        get => GetProperty<TerraformProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -20,36 +20,36 @@ public class GoogleOracleDatabaseDbNodesDataSource : TerraformDataSource
     /// <summary>
     /// vmcluster
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudVmCluster
+    public TerraformProperty<string>? CloudVmCluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_vm_cluster");
+        get => GetProperty<TerraformProperty<string>>("cloud_vm_cluster");
         set => this.WithProperty("cloud_vm_cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// location
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID of the project in which the dataset is located. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

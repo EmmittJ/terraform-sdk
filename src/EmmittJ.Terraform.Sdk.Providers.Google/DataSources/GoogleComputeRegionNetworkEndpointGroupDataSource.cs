@@ -28,9 +28,9 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -43,36 +43,36 @@ public class GoogleComputeRegionNetworkEndpointGroupDataSource : TerraformDataSo
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A reference to the region where the regional NEGs reside.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SelfLink
+    public TerraformProperty<string>? SelfLink
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("self_link");
+        get => GetProperty<TerraformProperty<string>>("self_link");
         set => this.WithProperty("self_link", value);
     }
 

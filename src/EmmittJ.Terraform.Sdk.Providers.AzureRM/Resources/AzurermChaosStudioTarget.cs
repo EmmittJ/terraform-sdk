@@ -19,36 +19,36 @@ public class AzurermChaosStudioTarget : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetResourceId
+    public TerraformProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id");
+        get => GetProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetType
+    public TerraformProperty<string>? TargetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_type");
+        get => GetProperty<TerraformProperty<string>>("target_type");
         set => this.WithProperty("target_type", value);
     }
 

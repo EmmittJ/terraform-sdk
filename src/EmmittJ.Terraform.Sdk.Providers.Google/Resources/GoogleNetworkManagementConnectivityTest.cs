@@ -21,9 +21,9 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// <summary>
     /// Whether the analysis should skip firewall checking. Default value is false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BypassFirewallChecks
+    public TerraformProperty<bool>? BypassFirewallChecks
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bypass_firewall_checks");
+        get => GetProperty<TerraformProperty<bool>>("bypass_firewall_checks");
         set => this.WithProperty("bypass_firewall_checks", value);
     }
 
@@ -31,18 +31,18 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// The user-supplied description of the Connectivity Test.
     /// Maximum of 512 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -53,36 +53,36 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Unique name for the connectivity test.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// IP Protocol of the test. When not provided, &amp;quot;TCP&amp;quot; is assumed.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
@@ -91,9 +91,9 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// This is applicable to scenarios where a test can cross project
     /// boundaries.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? RelatedProjects
+    public TerraformProperty<List<string>>? RelatedProjects
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("related_projects");
+        get => GetProperty<TerraformProperty<List<string>>>("related_projects");
         set => this.WithProperty("related_projects", value);
     }
 
@@ -101,9 +101,9 @@ public class GoogleNetworkManagementConnectivityTest : TerraformResource
     /// Whether run analysis for the return path from destination to source.
     /// Default value is false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RoundTrip
+    public TerraformProperty<bool>? RoundTrip
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("round_trip");
+        get => GetProperty<TerraformProperty<bool>>("round_trip");
         set => this.WithProperty("round_trip", value);
     }
 

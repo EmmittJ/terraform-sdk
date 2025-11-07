@@ -32,117 +32,117 @@ public class AwsDbSnapshotCopy : TerraformResource
     /// <summary>
     /// The copy_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CopyTags
+    public TerraformProperty<bool>? CopyTags
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("copy_tags");
+        get => GetProperty<TerraformProperty<bool>>("copy_tags");
         set => this.WithProperty("copy_tags", value);
     }
 
     /// <summary>
     /// The destination_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationRegion
+    public TerraformProperty<string>? DestinationRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_region");
+        get => GetProperty<TerraformProperty<string>>("destination_region");
         set => this.WithProperty("destination_region", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The option_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OptionGroupName
+    public TerraformProperty<string>? OptionGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("option_group_name");
+        get => GetProperty<TerraformProperty<string>>("option_group_name");
         set => this.WithProperty("option_group_name", value);
     }
 
     /// <summary>
     /// The presigned_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PresignedUrl
+    public TerraformProperty<string>? PresignedUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("presigned_url");
+        get => GetProperty<TerraformProperty<string>>("presigned_url");
         set => this.WithProperty("presigned_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SharedAccounts
+    public TerraformProperty<HashSet<string>>? SharedAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("shared_accounts");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("shared_accounts");
         set => this.WithProperty("shared_accounts", value);
     }
 
     /// <summary>
     /// The source_db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceDbSnapshotIdentifier
+    public TerraformProperty<string>? SourceDbSnapshotIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_db_snapshot_identifier");
+        get => GetProperty<TerraformProperty<string>>("source_db_snapshot_identifier");
         set => this.WithProperty("source_db_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_custom_availability_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetCustomAvailabilityZone
+    public TerraformProperty<string>? TargetCustomAvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_custom_availability_zone");
+        get => GetProperty<TerraformProperty<string>>("target_custom_availability_zone");
         set => this.WithProperty("target_custom_availability_zone", value);
     }
 
     /// <summary>
     /// The target_db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetDbSnapshotIdentifier
+    public TerraformProperty<string>? TargetDbSnapshotIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_db_snapshot_identifier");
+        get => GetProperty<TerraformProperty<string>>("target_db_snapshot_identifier");
         set => this.WithProperty("target_db_snapshot_identifier", value);
     }
 

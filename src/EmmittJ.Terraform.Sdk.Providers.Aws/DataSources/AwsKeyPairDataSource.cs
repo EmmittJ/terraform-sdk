@@ -24,54 +24,54 @@ public class AwsKeyPairDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_public_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludePublicKey
+    public TerraformProperty<bool>? IncludePublicKey
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_public_key");
+        get => GetProperty<TerraformProperty<bool>>("include_public_key");
         set => this.WithProperty("include_public_key", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyName
+    public TerraformProperty<string>? KeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_name");
+        get => GetProperty<TerraformProperty<string>>("key_name");
         set => this.WithProperty("key_name", value);
     }
 
     /// <summary>
     /// The key_pair_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyPairId
+    public TerraformProperty<string>? KeyPairId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_pair_id");
+        get => GetProperty<TerraformProperty<string>>("key_pair_id");
         set => this.WithProperty("key_pair_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

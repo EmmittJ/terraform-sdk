@@ -19,72 +19,72 @@ public class AzurermSynapseIntegrationRuntimeAzure : TerraformResource
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ComputeType
+    public TerraformProperty<string>? ComputeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compute_type");
+        get => GetProperty<TerraformProperty<string>>("compute_type");
         set => this.WithProperty("compute_type", value);
     }
 
     /// <summary>
     /// The core_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? CoreCount
+    public TerraformProperty<double>? CoreCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("core_count");
+        get => GetProperty<TerraformProperty<double>>("core_count");
         set => this.WithProperty("core_count", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SynapseWorkspaceId
+    public TerraformProperty<string>? SynapseWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("synapse_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
     /// The time_to_live_min attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TimeToLiveMin
+    public TerraformProperty<double>? TimeToLiveMin
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("time_to_live_min");
+        get => GetProperty<TerraformProperty<double>>("time_to_live_min");
         set => this.WithProperty("time_to_live_min", value);
     }
 

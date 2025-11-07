@@ -19,27 +19,27 @@ public class AwsQuicksightAccountSettings : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AwsAccountId
+    public TerraformProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        get => GetProperty<TerraformProperty<string>>("aws_account_id");
         set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The default_namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultNamespace
+    public TerraformProperty<string>? DefaultNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_namespace");
+        get => GetProperty<TerraformProperty<string>>("default_namespace");
         set => this.WithProperty("default_namespace", value);
     }
 
     /// <summary>
     /// The termination_protection_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TerminationProtectionEnabled
+    public TerraformProperty<bool>? TerminationProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("termination_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("termination_protection_enabled");
         set => this.WithProperty("termination_protection_enabled", value);
     }
 

@@ -21,144 +21,144 @@ public class AwsDatasyncLocationHdfs : TerraformResource
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AgentArns
+    public TerraformProperty<HashSet<string>>? AgentArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("agent_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("agent_arns");
         set => this.WithProperty("agent_arns", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationType
+    public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The block_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BlockSize
+    public TerraformProperty<double>? BlockSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("block_size");
+        get => GetProperty<TerraformProperty<double>>("block_size");
         set => this.WithProperty("block_size", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kerberos_keytab attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KerberosKeytab
+    public TerraformProperty<string>? KerberosKeytab
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kerberos_keytab");
+        get => GetProperty<TerraformProperty<string>>("kerberos_keytab");
         set => this.WithProperty("kerberos_keytab", value);
     }
 
     /// <summary>
     /// The kerberos_keytab_base64 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KerberosKeytabBase64
+    public TerraformProperty<string>? KerberosKeytabBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kerberos_keytab_base64");
+        get => GetProperty<TerraformProperty<string>>("kerberos_keytab_base64");
         set => this.WithProperty("kerberos_keytab_base64", value);
     }
 
     /// <summary>
     /// The kerberos_krb5_conf attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KerberosKrb5Conf
+    public TerraformProperty<string>? KerberosKrb5Conf
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kerberos_krb5_conf");
+        get => GetProperty<TerraformProperty<string>>("kerberos_krb5_conf");
         set => this.WithProperty("kerberos_krb5_conf", value);
     }
 
     /// <summary>
     /// The kerberos_krb5_conf_base64 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KerberosKrb5ConfBase64
+    public TerraformProperty<string>? KerberosKrb5ConfBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kerberos_krb5_conf_base64");
+        get => GetProperty<TerraformProperty<string>>("kerberos_krb5_conf_base64");
         set => this.WithProperty("kerberos_krb5_conf_base64", value);
     }
 
     /// <summary>
     /// The kerberos_principal attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KerberosPrincipal
+    public TerraformProperty<string>? KerberosPrincipal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kerberos_principal");
+        get => GetProperty<TerraformProperty<string>>("kerberos_principal");
         set => this.WithProperty("kerberos_principal", value);
     }
 
     /// <summary>
     /// The kms_key_provider_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyProviderUri
+    public TerraformProperty<string>? KmsKeyProviderUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_provider_uri");
+        get => GetProperty<TerraformProperty<string>>("kms_key_provider_uri");
         set => this.WithProperty("kms_key_provider_uri", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replication_factor attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicationFactor
+    public TerraformProperty<double>? ReplicationFactor
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replication_factor");
+        get => GetProperty<TerraformProperty<double>>("replication_factor");
         set => this.WithProperty("replication_factor", value);
     }
 
     /// <summary>
     /// The simple_user attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SimpleUser
+    public TerraformProperty<string>? SimpleUser
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("simple_user");
+        get => GetProperty<TerraformProperty<string>>("simple_user");
         set => this.WithProperty("simple_user", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subdirectory
+    public TerraformProperty<string>? Subdirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subdirectory");
+        get => GetProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

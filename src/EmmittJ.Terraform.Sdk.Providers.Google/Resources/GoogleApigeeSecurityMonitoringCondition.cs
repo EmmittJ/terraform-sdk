@@ -24,18 +24,18 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     /// <summary>
     /// Resource ID of the security monitoring condition.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConditionId
+    public TerraformProperty<string>? ConditionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition_id");
+        get => GetProperty<TerraformProperty<string>>("condition_id");
         set => this.WithProperty("condition_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -43,27 +43,27 @@ public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
     /// The Apigee Organization associated with the Apigee Security Monitoring Condition,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
     /// </summary>
-    public TerraformLiteralProperty<string>? Profile
+    public TerraformProperty<string>? Profile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile");
+        get => GetProperty<TerraformProperty<string>>("profile");
         set => this.WithProperty("profile", value);
     }
 
     /// <summary>
     /// ID of security profile of the security monitoring condition.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

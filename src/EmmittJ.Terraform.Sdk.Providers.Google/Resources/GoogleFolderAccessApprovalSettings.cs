@@ -25,27 +25,27 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
     /// Empty active_key_version indicates that a Google-managed key should be used for signing.
     /// This property will be ignored if set by an ancestor of the resource, and new non-empty values may not be set.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActiveKeyVersion
+    public TerraformProperty<string>? ActiveKeyVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("active_key_version");
+        get => GetProperty<TerraformProperty<string>>("active_key_version");
         set => this.WithProperty("active_key_version", value);
     }
 
     /// <summary>
     /// ID of the folder of the access approval settings.
     /// </summary>
-    public TerraformLiteralProperty<string>? FolderId
+    public TerraformProperty<string>? FolderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder_id");
+        get => GetProperty<TerraformProperty<string>>("folder_id");
         set => this.WithProperty("folder_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -54,9 +54,9 @@ public class GoogleFolderAccessApprovalSettings : TerraformResource
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? NotificationEmails
+    public TerraformProperty<HashSet<string>>? NotificationEmails
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("notification_emails");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("notification_emails");
         set => this.WithProperty("notification_emails", value);
     }
 

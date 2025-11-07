@@ -22,99 +22,99 @@ public class AzurermVirtualHub : TerraformResource
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AddressPrefix
+    public TerraformProperty<string>? AddressPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_prefix");
+        get => GetProperty<TerraformProperty<string>>("address_prefix");
         set => this.WithProperty("address_prefix", value);
     }
 
     /// <summary>
     /// The branch_to_branch_traffic_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BranchToBranchTrafficEnabled
+    public TerraformProperty<bool>? BranchToBranchTrafficEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("branch_to_branch_traffic_enabled");
+        get => GetProperty<TerraformProperty<bool>>("branch_to_branch_traffic_enabled");
         set => this.WithProperty("branch_to_branch_traffic_enabled", value);
     }
 
     /// <summary>
     /// The hub_routing_preference attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HubRoutingPreference
+    public TerraformProperty<string>? HubRoutingPreference
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hub_routing_preference");
+        get => GetProperty<TerraformProperty<string>>("hub_routing_preference");
         set => this.WithProperty("hub_routing_preference", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_router_auto_scale_min_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? VirtualRouterAutoScaleMinCapacity
+    public TerraformProperty<double>? VirtualRouterAutoScaleMinCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("virtual_router_auto_scale_min_capacity");
+        get => GetProperty<TerraformProperty<double>>("virtual_router_auto_scale_min_capacity");
         set => this.WithProperty("virtual_router_auto_scale_min_capacity", value);
     }
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualWanId
+    public TerraformProperty<string>? VirtualWanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_wan_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_wan_id");
         set => this.WithProperty("virtual_wan_id", value);
     }
 

@@ -24,153 +24,153 @@ public class AwsSyntheticsCanary : TerraformResource
     /// <summary>
     /// The artifact_s3_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ArtifactS3Location
+    public TerraformProperty<string>? ArtifactS3Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("artifact_s3_location");
+        get => GetProperty<TerraformProperty<string>>("artifact_s3_location");
         set => this.WithProperty("artifact_s3_location", value);
     }
 
     /// <summary>
     /// The delete_lambda attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteLambda
+    public TerraformProperty<bool>? DeleteLambda
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_lambda");
+        get => GetProperty<TerraformProperty<bool>>("delete_lambda");
         set => this.WithProperty("delete_lambda", value);
     }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExecutionRoleArn
+    public TerraformProperty<string>? ExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn");
+        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The failure_retention_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FailureRetentionPeriod
+    public TerraformProperty<double>? FailureRetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("failure_retention_period");
+        get => GetProperty<TerraformProperty<double>>("failure_retention_period");
         set => this.WithProperty("failure_retention_period", value);
     }
 
     /// <summary>
     /// The handler attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Handler
+    public TerraformProperty<string>? Handler
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("handler");
+        get => GetProperty<TerraformProperty<string>>("handler");
         set => this.WithProperty("handler", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The runtime_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuntimeVersion
+    public TerraformProperty<string>? RuntimeVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime_version");
+        get => GetProperty<TerraformProperty<string>>("runtime_version");
         set => this.WithProperty("runtime_version", value);
     }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3Bucket
+    public TerraformProperty<string>? S3Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket");
+        get => GetProperty<TerraformProperty<string>>("s3_bucket");
         set => this.WithProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3Key
+    public TerraformProperty<string>? S3Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_key");
+        get => GetProperty<TerraformProperty<string>>("s3_key");
         set => this.WithProperty("s3_key", value);
     }
 
     /// <summary>
     /// The s3_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3Version
+    public TerraformProperty<string>? S3Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_version");
+        get => GetProperty<TerraformProperty<string>>("s3_version");
         set => this.WithProperty("s3_version", value);
     }
 
     /// <summary>
     /// The start_canary attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? StartCanary
+    public TerraformProperty<bool>? StartCanary
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("start_canary");
+        get => GetProperty<TerraformProperty<bool>>("start_canary");
         set => this.WithProperty("start_canary", value);
     }
 
     /// <summary>
     /// The success_retention_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SuccessRetentionPeriod
+    public TerraformProperty<double>? SuccessRetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("success_retention_period");
+        get => GetProperty<TerraformProperty<double>>("success_retention_period");
         set => this.WithProperty("success_retention_period", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The zip_file attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ZipFile
+    public TerraformProperty<string>? ZipFile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zip_file");
+        get => GetProperty<TerraformProperty<string>>("zip_file");
         set => this.WithProperty("zip_file", value);
     }
 

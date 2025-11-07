@@ -25,45 +25,45 @@ public class GoogleParameterManagerRegionalParameterVersionDataSource : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parameter
+    public TerraformProperty<string>? Parameter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter");
+        get => GetProperty<TerraformProperty<string>>("parameter");
         set => this.WithProperty("parameter", value);
     }
 
     /// <summary>
     /// The parameter_version_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParameterVersionId
+    public TerraformProperty<string>? ParameterVersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_version_id");
+        get => GetProperty<TerraformProperty<string>>("parameter_version_id");
         set => this.WithProperty("parameter_version_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

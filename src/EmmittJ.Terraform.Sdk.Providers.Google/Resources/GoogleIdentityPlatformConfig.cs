@@ -20,36 +20,36 @@ public class GoogleIdentityPlatformConfig : TerraformResource
     /// <summary>
     /// List of domains authorized for OAuth redirects.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AuthorizedDomains
+    public TerraformProperty<List<string>>? AuthorizedDomains
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("authorized_domains");
+        get => GetProperty<TerraformProperty<List<string>>>("authorized_domains");
         set => this.WithProperty("authorized_domains", value);
     }
 
     /// <summary>
     /// Whether anonymous users will be auto-deleted after a period of 30 days
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutodeleteAnonymousUsers
+    public TerraformProperty<bool>? AutodeleteAnonymousUsers
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("autodelete_anonymous_users");
+        get => GetProperty<TerraformProperty<bool>>("autodelete_anonymous_users");
         set => this.WithProperty("autodelete_anonymous_users", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

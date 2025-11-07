@@ -21,81 +21,81 @@ public class AwsCloudwatchLogAnomalyDetector : TerraformResource
     /// <summary>
     /// The anomaly_visibility_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? AnomalyVisibilityTime
+    public TerraformProperty<double>? AnomalyVisibilityTime
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("anomaly_visibility_time");
+        get => GetProperty<TerraformProperty<double>>("anomaly_visibility_time");
         set => this.WithProperty("anomaly_visibility_time", value);
     }
 
     /// <summary>
     /// The detector_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DetectorName
+    public TerraformProperty<string>? DetectorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detector_name");
+        get => GetProperty<TerraformProperty<string>>("detector_name");
         set => this.WithProperty("detector_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The evaluation_frequency attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EvaluationFrequency
+    public TerraformProperty<string>? EvaluationFrequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("evaluation_frequency");
+        get => GetProperty<TerraformProperty<string>>("evaluation_frequency");
         set => this.WithProperty("evaluation_frequency", value);
     }
 
     /// <summary>
     /// The filter_pattern attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FilterPattern
+    public TerraformProperty<string>? FilterPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_pattern");
+        get => GetProperty<TerraformProperty<string>>("filter_pattern");
         set => this.WithProperty("filter_pattern", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The log_group_arn_list attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? LogGroupArnList
+    public TerraformProperty<List<string>>? LogGroupArnList
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("log_group_arn_list");
+        get => GetProperty<TerraformProperty<List<string>>>("log_group_arn_list");
         set => this.WithProperty("log_group_arn_list", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -21,72 +21,72 @@ public class AwsAppstreamUser : TerraformResource
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationType
+    public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirstName
+    public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("first_name");
+        get => GetProperty<TerraformProperty<string>>("first_name");
         set => this.WithProperty("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LastName
+    public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("last_name");
+        get => GetProperty<TerraformProperty<string>>("last_name");
         set => this.WithProperty("last_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The send_email_notification attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SendEmailNotification
+    public TerraformProperty<bool>? SendEmailNotification
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("send_email_notification");
+        get => GetProperty<TerraformProperty<bool>>("send_email_notification");
         set => this.WithProperty("send_email_notification", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

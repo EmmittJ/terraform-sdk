@@ -26,171 +26,171 @@ public class GoogleStorageBucketObject : TerraformResource
     /// <summary>
     /// The name of the containing bucket.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// Cache-Control directive to specify caching behavior of object data. If omitted and object is accessible to all anonymous users, the default will be public, max-age=3600
     /// </summary>
-    public TerraformLiteralProperty<string>? CacheControl
+    public TerraformProperty<string>? CacheControl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_control");
+        get => GetProperty<TerraformProperty<string>>("cache_control");
         set => this.WithProperty("cache_control", value);
     }
 
     /// <summary>
     /// Data as string to be uploaded. Must be defined if source is not. Note: The content field is marked as sensitive. To view the raw contents of the object, please define an output.
     /// </summary>
-    public TerraformLiteralProperty<string>? Content
+    public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content");
+        get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
     /// <summary>
     /// Content-Disposition of the object data.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentDisposition
+    public TerraformProperty<string>? ContentDisposition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_disposition");
+        get => GetProperty<TerraformProperty<string>>("content_disposition");
         set => this.WithProperty("content_disposition", value);
     }
 
     /// <summary>
     /// Content-Encoding of the object data.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentEncoding
+    public TerraformProperty<string>? ContentEncoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_encoding");
+        get => GetProperty<TerraformProperty<string>>("content_encoding");
         set => this.WithProperty("content_encoding", value);
     }
 
     /// <summary>
     /// Content-Language of the object data.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentLanguage
+    public TerraformProperty<string>? ContentLanguage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_language");
+        get => GetProperty<TerraformProperty<string>>("content_language");
         set => this.WithProperty("content_language", value);
     }
 
     /// <summary>
     /// Content-Type of the object data. Defaults to &amp;quot;application/octet-stream&amp;quot; or &amp;quot;text/plain; charset=utf-8&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The deletion policy for the object. Setting ABANDON allows the resource to be abandoned rather than deleted when removed from your Terraform configuration.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The detect_md5hash attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DetectMd5hash
+    public TerraformProperty<string>? DetectMd5hash
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detect_md5hash");
+        get => GetProperty<TerraformProperty<string>>("detect_md5hash");
         set => this.WithProperty("detect_md5hash", value);
     }
 
     /// <summary>
     /// Whether an object is under event-based hold. Event-based hold is a way to retain objects until an event occurs, which is signified by the hold&#39;s release (i.e. this value is set to false). After being released (set to false), such objects will be subject to bucket-level retention (if any).
     /// </summary>
-    public TerraformLiteralProperty<bool>? EventBasedHold
+    public TerraformProperty<bool>? EventBasedHold
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("event_based_hold");
+        get => GetProperty<TerraformProperty<bool>>("event_based_hold");
         set => this.WithProperty("event_based_hold", value);
     }
 
     /// <summary>
     /// Flag to set empty Content-Type.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceEmptyContentType
+    public TerraformProperty<bool>? ForceEmptyContentType
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_empty_content_type");
+        get => GetProperty<TerraformProperty<bool>>("force_empty_content_type");
         set => this.WithProperty("force_empty_content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource name of the Cloud KMS key that will be used to encrypt the object. Overrides the object metadata&#39;s kmsKeyName value, if any.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyName
+    public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name");
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
         set => this.WithProperty("kms_key_name", value);
     }
 
     /// <summary>
     /// User-provided metadata, in key/value pairs.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name of the object. If you&#39;re interpolating the name of this object, see output_name instead.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// A path to the data you want to upload. Must be defined if content is not.
     /// </summary>
-    public TerraformLiteralProperty<string>? Source
+    public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// User-provided md5hash, Base 64 MD5 hash of the object data.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceMd5hash
+    public TerraformProperty<string>? SourceMd5hash
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_md5hash");
+        get => GetProperty<TerraformProperty<string>>("source_md5hash");
         set => this.WithProperty("source_md5hash", value);
     }
 
     /// <summary>
     /// The StorageClass of the new bucket object. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE. If not provided, this defaults to the bucket&#39;s default storage class or to a standard class.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageClass
+    public TerraformProperty<string>? StorageClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_class");
+        get => GetProperty<TerraformProperty<string>>("storage_class");
         set => this.WithProperty("storage_class", value);
     }
 
     /// <summary>
     /// Whether an object is under temporary hold. While this flag is set to true, the object is protected against deletion and overwrites.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TemporaryHold
+    public TerraformProperty<bool>? TemporaryHold
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("temporary_hold");
+        get => GetProperty<TerraformProperty<bool>>("temporary_hold");
         set => this.WithProperty("temporary_hold", value);
     }
 

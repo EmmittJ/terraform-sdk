@@ -21,27 +21,27 @@ public class GooglePubsubTopicIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The topic attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Topic
+    public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic");
+        get => GetProperty<TerraformProperty<string>>("topic");
         set => this.WithProperty("topic", value);
     }
 

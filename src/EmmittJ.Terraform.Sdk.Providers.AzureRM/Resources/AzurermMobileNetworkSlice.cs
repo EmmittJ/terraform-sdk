@@ -19,72 +19,72 @@ public class AzurermMobileNetworkSlice : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The mobile_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MobileNetworkId
+    public TerraformProperty<string>? MobileNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_id");
+        get => GetProperty<TerraformProperty<string>>("mobile_network_id");
         set => this.WithProperty("mobile_network_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The slice_differentiator attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SliceDifferentiator
+    public TerraformProperty<string>? SliceDifferentiator
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("slice_differentiator");
+        get => GetProperty<TerraformProperty<string>>("slice_differentiator");
         set => this.WithProperty("slice_differentiator", value);
     }
 
     /// <summary>
     /// The slice_service_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SliceServiceType
+    public TerraformProperty<double>? SliceServiceType
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("slice_service_type");
+        get => GetProperty<TerraformProperty<double>>("slice_service_type");
         set => this.WithProperty("slice_service_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

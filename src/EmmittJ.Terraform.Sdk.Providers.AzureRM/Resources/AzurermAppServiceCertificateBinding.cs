@@ -22,36 +22,36 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateId
+    public TerraformProperty<string>? CertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_id");
+        get => GetProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
     }
 
     /// <summary>
     /// The hostname_binding_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostnameBindingId
+    public TerraformProperty<string>? HostnameBindingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname_binding_id");
+        get => GetProperty<TerraformProperty<string>>("hostname_binding_id");
         set => this.WithProperty("hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SslState
+    public TerraformProperty<string>? SslState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_state");
+        get => GetProperty<TerraformProperty<string>>("ssl_state");
         set => this.WithProperty("ssl_state", value);
     }
 

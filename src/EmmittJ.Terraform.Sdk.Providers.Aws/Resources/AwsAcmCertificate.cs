@@ -29,117 +29,117 @@ public class AwsAcmCertificate : TerraformResource
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateAuthorityArn
+    public TerraformProperty<string>? CertificateAuthorityArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn");
+        get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateBody
+    public TerraformProperty<string>? CertificateBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_body");
+        get => GetProperty<TerraformProperty<string>>("certificate_body");
         set => this.WithProperty("certificate_body", value);
     }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateChain
+    public TerraformProperty<string>? CertificateChain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_chain");
+        get => GetProperty<TerraformProperty<string>>("certificate_chain");
         set => this.WithProperty("certificate_chain", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The early_renewal_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EarlyRenewalDuration
+    public TerraformProperty<string>? EarlyRenewalDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("early_renewal_duration");
+        get => GetProperty<TerraformProperty<string>>("early_renewal_duration");
         set => this.WithProperty("early_renewal_duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_algorithm attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyAlgorithm
+    public TerraformProperty<string>? KeyAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_algorithm");
+        get => GetProperty<TerraformProperty<string>>("key_algorithm");
         set => this.WithProperty("key_algorithm", value);
     }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateKey
+    public TerraformProperty<string>? PrivateKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_key");
+        get => GetProperty<TerraformProperty<string>>("private_key");
         set => this.WithProperty("private_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subject_alternative_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubjectAlternativeNames
+    public TerraformProperty<HashSet<string>>? SubjectAlternativeNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subject_alternative_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subject_alternative_names");
         set => this.WithProperty("subject_alternative_names", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The validation_method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValidationMethod
+    public TerraformProperty<string>? ValidationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("validation_method");
+        get => GetProperty<TerraformProperty<string>>("validation_method");
         set => this.WithProperty("validation_method", value);
     }
 

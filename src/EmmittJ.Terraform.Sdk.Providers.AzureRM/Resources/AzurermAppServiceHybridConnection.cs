@@ -25,63 +25,63 @@ public class AzurermAppServiceHybridConnection : TerraformResource
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppServiceName
+    public TerraformProperty<string>? AppServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_name");
+        get => GetProperty<TerraformProperty<string>>("app_service_name");
         set => this.WithProperty("app_service_name", value);
     }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Hostname
+    public TerraformProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        get => GetProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The relay_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RelayId
+    public TerraformProperty<string>? RelayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relay_id");
+        get => GetProperty<TerraformProperty<string>>("relay_id");
         set => this.WithProperty("relay_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The send_key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SendKeyName
+    public TerraformProperty<string>? SendKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("send_key_name");
+        get => GetProperty<TerraformProperty<string>>("send_key_name");
         set => this.WithProperty("send_key_name", value);
     }
 

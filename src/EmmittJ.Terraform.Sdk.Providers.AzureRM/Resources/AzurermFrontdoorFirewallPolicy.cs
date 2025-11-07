@@ -21,81 +21,81 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     /// <summary>
     /// The custom_block_response_body attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomBlockResponseBody
+    public TerraformProperty<string>? CustomBlockResponseBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_block_response_body");
+        get => GetProperty<TerraformProperty<string>>("custom_block_response_body");
         set => this.WithProperty("custom_block_response_body", value);
     }
 
     /// <summary>
     /// The custom_block_response_status_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? CustomBlockResponseStatusCode
+    public TerraformProperty<double>? CustomBlockResponseStatusCode
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("custom_block_response_status_code");
+        get => GetProperty<TerraformProperty<double>>("custom_block_response_status_code");
         set => this.WithProperty("custom_block_response_status_code", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Mode
+    public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RedirectUrl
+    public TerraformProperty<string>? RedirectUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redirect_url");
+        get => GetProperty<TerraformProperty<string>>("redirect_url");
         set => this.WithProperty("redirect_url", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

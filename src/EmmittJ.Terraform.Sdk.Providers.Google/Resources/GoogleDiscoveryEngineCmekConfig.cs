@@ -25,18 +25,18 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// <summary>
     /// The unique id of the cmek config.
     /// </summary>
-    public TerraformLiteralProperty<string>? CmekConfigId
+    public TerraformProperty<string>? CmekConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cmek_config_id");
+        get => GetProperty<TerraformProperty<string>>("cmek_config_id");
         set => this.WithProperty("cmek_config_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -44,9 +44,9 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// KMS key resource name which will be used to encrypt resources
     /// &#39;projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKey
+    public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        get => GetProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
     }
 
@@ -54,18 +54,18 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// The geographic location where the CMEK config should reside. The value can
     /// only be one of &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -73,9 +73,9 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// Set the following CmekConfig as the default to be used for child resources
     /// if one is not specified. The default value is true.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SetDefault
+    public TerraformProperty<bool>? SetDefault
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("set_default");
+        get => GetProperty<TerraformProperty<bool>>("set_default");
         set => this.WithProperty("set_default", value);
     }
 

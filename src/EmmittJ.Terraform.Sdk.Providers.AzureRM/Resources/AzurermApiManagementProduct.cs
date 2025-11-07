@@ -19,99 +19,99 @@ public class AzurermApiManagementProduct : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementName
+    public TerraformProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The approval_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ApprovalRequired
+    public TerraformProperty<bool>? ApprovalRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("approval_required");
+        get => GetProperty<TerraformProperty<bool>>("approval_required");
         set => this.WithProperty("approval_required", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProductId
+    public TerraformProperty<string>? ProductId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_id");
+        get => GetProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
     }
 
     /// <summary>
     /// The published attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Published
+    public TerraformProperty<bool>? Published
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("published");
+        get => GetProperty<TerraformProperty<bool>>("published");
         set => this.WithProperty("published", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SubscriptionRequired
+    public TerraformProperty<bool>? SubscriptionRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("subscription_required");
+        get => GetProperty<TerraformProperty<bool>>("subscription_required");
         set => this.WithProperty("subscription_required", value);
     }
 
     /// <summary>
     /// The subscriptions_limit attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SubscriptionsLimit
+    public TerraformProperty<double>? SubscriptionsLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("subscriptions_limit");
+        get => GetProperty<TerraformProperty<double>>("subscriptions_limit");
         set => this.WithProperty("subscriptions_limit", value);
     }
 
     /// <summary>
     /// The terms attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Terms
+    public TerraformProperty<string>? Terms
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("terms");
+        get => GetProperty<TerraformProperty<string>>("terms");
         set => this.WithProperty("terms", value);
     }
 

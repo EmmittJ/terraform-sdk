@@ -24,9 +24,9 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The name of delegated administrator account used to perform Active Directory operations.
     /// If not specified, setupadmin will be used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Admin
+    public TerraformProperty<string>? Admin
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin");
+        get => GetProperty<TerraformProperty<string>>("admin");
         set => this.WithProperty("admin", value);
     }
 
@@ -34,9 +34,9 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The full names of the Google Compute Engine networks the domain instance is connected to. The domain is only available on networks listed in authorizedNetworks.
     /// If CIDR subnets overlap between networks, domain creation will fail.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AuthorizedNetworks
+    public TerraformProperty<HashSet<string>>? AuthorizedNetworks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("authorized_networks");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("authorized_networks");
         set => this.WithProperty("authorized_networks", value);
     }
 
@@ -48,9 +48,9 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the domain will fail.
     /// When the field is set to false, deleting the domain is allowed.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
@@ -58,18 +58,18 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The fully qualified domain name. e.g. mydomain.myorganization.com, with the restrictions
     /// of https://cloud.google.com/managed-microsoft-ad/reference/rest/v1/projects.locations.global.domains.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -79,9 +79,9 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -89,18 +89,18 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// Locations where domain needs to be provisioned. [regions][compute/docs/regions-zones/]
     /// e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Locations
+    public TerraformProperty<List<string>>? Locations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("locations");
+        get => GetProperty<TerraformProperty<List<string>>>("locations");
         set => this.WithProperty("locations", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -108,9 +108,9 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger.
     /// Ranges must be unique and non-overlapping with existing subnets in authorizedNetworks
     /// </summary>
-    public TerraformLiteralProperty<string>? ReservedIpRange
+    public TerraformProperty<string>? ReservedIpRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reserved_ip_range");
+        get => GetProperty<TerraformProperty<string>>("reserved_ip_range");
         set => this.WithProperty("reserved_ip_range", value);
     }
 

@@ -19,54 +19,54 @@ public class AzurermFirewallNatRuleCollection : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Action
+    public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The azure_firewall_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AzureFirewallName
+    public TerraformProperty<string>? AzureFirewallName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("azure_firewall_name");
+        get => GetProperty<TerraformProperty<string>>("azure_firewall_name");
         set => this.WithProperty("azure_firewall_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

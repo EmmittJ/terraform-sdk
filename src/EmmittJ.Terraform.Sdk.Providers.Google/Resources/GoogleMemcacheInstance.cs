@@ -27,9 +27,9 @@ public class GoogleMemcacheInstance : TerraformResource
     /// The full name of the GCE network to connect the instance to.  If not provided,
     /// &#39;default&#39; will be used.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizedNetwork
+    public TerraformProperty<string>? AuthorizedNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorized_network");
+        get => GetProperty<TerraformProperty<string>>("authorized_network");
         set => this.WithProperty("authorized_network", value);
     }
 
@@ -41,27 +41,27 @@ public class GoogleMemcacheInstance : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the instance will fail.
     /// When the field is set to false, deleting the instance is allowed.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// A user-visible name for the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -72,9 +72,9 @@ public class GoogleMemcacheInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -83,45 +83,45 @@ public class GoogleMemcacheInstance : TerraformResource
     /// Currently the latest supported major version is MEMCACHE_1_5. The minor version will be automatically
     /// determined by our system based on the latest supported minor version. Default value: &amp;quot;MEMCACHE_1_5&amp;quot; Possible values: [&amp;quot;MEMCACHE_1_5&amp;quot;, &amp;quot;MEMCACHE_1_6_15&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? MemcacheVersion
+    public TerraformProperty<string>? MemcacheVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("memcache_version");
+        get => GetProperty<TerraformProperty<string>>("memcache_version");
         set => this.WithProperty("memcache_version", value);
     }
 
     /// <summary>
     /// The resource name of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Number of nodes in the memcache instance.
     /// </summary>
-    public TerraformLiteralProperty<double>? NodeCount
+    public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("node_count");
+        get => GetProperty<TerraformProperty<double>>("node_count");
         set => this.WithProperty("node_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region of the Memcache instance. If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -130,9 +130,9 @@ public class GoogleMemcacheInstance : TerraformResource
     /// the private service access connection for example, &amp;quot;test-default&amp;quot;
     /// associated with IP range 10.0.0.0/29.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ReservedIpRangeId
+    public TerraformProperty<List<string>>? ReservedIpRangeId
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("reserved_ip_range_id");
+        get => GetProperty<TerraformProperty<List<string>>>("reserved_ip_range_id");
         set => this.WithProperty("reserved_ip_range_id", value);
     }
 
@@ -140,9 +140,9 @@ public class GoogleMemcacheInstance : TerraformResource
     /// Zones where memcache nodes should be provisioned.  If not
     /// provided, all zones will be used.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Zones
+    public TerraformProperty<HashSet<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("zones");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("zones");
         set => this.WithProperty("zones", value);
     }
 

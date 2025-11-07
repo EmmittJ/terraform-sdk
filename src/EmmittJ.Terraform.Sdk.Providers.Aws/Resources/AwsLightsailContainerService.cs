@@ -28,72 +28,72 @@ public class AwsLightsailContainerService : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_disabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsDisabled
+    public TerraformProperty<bool>? IsDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_disabled");
+        get => GetProperty<TerraformProperty<bool>>("is_disabled");
         set => this.WithProperty("is_disabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The power attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Power
+    public TerraformProperty<string>? Power
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("power");
+        get => GetProperty<TerraformProperty<string>>("power");
         set => this.WithProperty("power", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The scale attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Scale
+    public TerraformProperty<double>? Scale
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("scale");
+        get => GetProperty<TerraformProperty<double>>("scale");
         set => this.WithProperty("scale", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

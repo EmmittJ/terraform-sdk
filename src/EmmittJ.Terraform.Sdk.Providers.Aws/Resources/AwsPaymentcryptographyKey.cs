@@ -25,54 +25,54 @@ public class AwsPaymentcryptographyKey : TerraformResource
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DeletionWindowInDays
+    public TerraformProperty<double>? DeletionWindowInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("deletion_window_in_days");
+        get => GetProperty<TerraformProperty<double>>("deletion_window_in_days");
         set => this.WithProperty("deletion_window_in_days", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The exportable attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Exportable
+    public TerraformProperty<bool>? Exportable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exportable");
+        get => GetProperty<TerraformProperty<bool>>("exportable");
         set => this.WithProperty("exportable", value);
     }
 
     /// <summary>
     /// The key_check_value_algorithm attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyCheckValueAlgorithm
+    public TerraformProperty<string>? KeyCheckValueAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_check_value_algorithm");
+        get => GetProperty<TerraformProperty<string>>("key_check_value_algorithm");
         set => this.WithProperty("key_check_value_algorithm", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

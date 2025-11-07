@@ -19,72 +19,72 @@ public class AzurermLogAnalyticsStorageInsights : TerraformResource
     /// <summary>
     /// The blob_container_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? BlobContainerNames
+    public TerraformProperty<HashSet<string>>? BlobContainerNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("blob_container_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("blob_container_names");
         set => this.WithProperty("blob_container_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountKey
+    public TerraformProperty<string>? StorageAccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key");
+        get => GetProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The table_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? TableNames
+    public TerraformProperty<HashSet<string>>? TableNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("table_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("table_names");
         set => this.WithProperty("table_names", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceId
+    public TerraformProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

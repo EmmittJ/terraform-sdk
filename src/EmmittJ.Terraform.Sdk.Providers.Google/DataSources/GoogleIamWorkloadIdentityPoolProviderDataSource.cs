@@ -30,18 +30,18 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkloadIdentityPoolId
+    public TerraformProperty<string>? WorkloadIdentityPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_id");
+        get => GetProperty<TerraformProperty<string>>("workload_identity_pool_id");
         set => this.WithProperty("workload_identity_pool_id", value);
     }
 
@@ -61,9 +61,9 @@ public class GoogleIamWorkloadIdentityPoolProviderDataSource : TerraformDataSour
     /// value must be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
     /// &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkloadIdentityPoolProviderId
+    public TerraformProperty<string>? WorkloadIdentityPoolProviderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload_identity_pool_provider_id");
+        get => GetProperty<TerraformProperty<string>>("workload_identity_pool_provider_id");
         set => this.WithProperty("workload_identity_pool_provider_id", value);
     }
 

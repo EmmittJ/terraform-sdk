@@ -25,45 +25,45 @@ public class AzurermNatGatewayDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_ip_address_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PublicIpAddressIds
+    public TerraformProperty<List<string>>? PublicIpAddressIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("public_ip_address_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("public_ip_address_ids");
         set => this.WithProperty("public_ip_address_ids", value);
     }
 
     /// <summary>
     /// The public_ip_prefix_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PublicIpPrefixIds
+    public TerraformProperty<List<string>>? PublicIpPrefixIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("public_ip_prefix_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("public_ip_prefix_ids");
         set => this.WithProperty("public_ip_prefix_ids", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

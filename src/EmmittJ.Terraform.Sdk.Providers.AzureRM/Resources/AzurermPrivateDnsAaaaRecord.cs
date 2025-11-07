@@ -20,63 +20,63 @@ public class AzurermPrivateDnsAaaaRecord : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The records attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Records
+    public TerraformProperty<HashSet<string>>? Records
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("records");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("records");
         set => this.WithProperty("records", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Ttl
+    public TerraformProperty<double>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ttl");
+        get => GetProperty<TerraformProperty<double>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 
     /// <summary>
     /// The zone_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ZoneName
+    public TerraformProperty<string>? ZoneName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_name");
+        get => GetProperty<TerraformProperty<string>>("zone_name");
         set => this.WithProperty("zone_name", value);
     }
 

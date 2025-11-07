@@ -40,9 +40,9 @@ public class GoogleChronicleRule : TerraformResource
     /// deployment associated with this rule will also be deleted.
     /// Possible values: DEFAULT, FORCE
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
@@ -53,54 +53,54 @@ public class GoogleChronicleRule : TerraformResource
     /// otherwise.
     /// Populated in BASIC view and FULL view.
     /// </summary>
-    public TerraformLiteralProperty<string>? Etag
+    public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        get => GetProperty<TerraformProperty<string>>("etag");
         set => this.WithProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Rule Id is the ID of the Rule.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuleId
+    public TerraformProperty<string>? RuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_id");
+        get => GetProperty<TerraformProperty<string>>("rule_id");
         set => this.WithProperty("rule_id", value);
     }
 
@@ -113,9 +113,9 @@ public class GoogleChronicleRule : TerraformResource
     /// The scope should be in the format:
     /// &amp;quot;projects/{project}/locations/{location}/instances/{instance}/dataAccessScopes/{scope}&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 
@@ -123,9 +123,9 @@ public class GoogleChronicleRule : TerraformResource
     /// The YARA-L content of the rule.
     /// Populated in FULL view.
     /// </summary>
-    public TerraformLiteralProperty<string>? Text
+    public TerraformProperty<string>? Text
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("text");
+        get => GetProperty<TerraformProperty<string>>("text");
         set => this.WithProperty("text", value);
     }
 

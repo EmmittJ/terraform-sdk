@@ -20,81 +20,81 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentMd5
+    public TerraformProperty<string>? ContentMd5
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_md5");
+        get => GetProperty<TerraformProperty<string>>("content_md5");
         set => this.WithProperty("content_md5", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The credentials attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Credentials
+    public TerraformProperty<string>? Credentials
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("credentials");
+        get => GetProperty<TerraformProperty<string>>("credentials");
         set => this.WithProperty("credentials", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Duration
+    public TerraformProperty<string>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("duration");
+        get => GetProperty<TerraformProperty<string>>("duration");
         set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The extension_headers attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ExtensionHeaders
+    public TerraformProperty<Dictionary<string, string>>? ExtensionHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("extension_headers");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("extension_headers");
         set => this.WithProperty("extension_headers", value);
     }
 
     /// <summary>
     /// The http_method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpMethod
+    public TerraformProperty<string>? HttpMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_method");
+        get => GetProperty<TerraformProperty<string>>("http_method");
         set => this.WithProperty("http_method", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Path
+    public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path");
+        get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
     }
 

@@ -23,63 +23,63 @@ public class AwsDxGatewayAssociation : TerraformResource
     /// <summary>
     /// The allowed_prefixes attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AllowedPrefixes
+    public TerraformProperty<HashSet<string>>? AllowedPrefixes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_prefixes");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_prefixes");
         set => this.WithProperty("allowed_prefixes", value);
     }
 
     /// <summary>
     /// The associated_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AssociatedGatewayId
+    public TerraformProperty<string>? AssociatedGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("associated_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("associated_gateway_id");
         set => this.WithProperty("associated_gateway_id", value);
     }
 
     /// <summary>
     /// The associated_gateway_owner_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AssociatedGatewayOwnerAccountId
+    public TerraformProperty<string>? AssociatedGatewayOwnerAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("associated_gateway_owner_account_id");
+        get => GetProperty<TerraformProperty<string>>("associated_gateway_owner_account_id");
         set => this.WithProperty("associated_gateway_owner_account_id", value);
     }
 
     /// <summary>
     /// The dx_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DxGatewayId
+    public TerraformProperty<string>? DxGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dx_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("dx_gateway_id");
         set => this.WithProperty("dx_gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The proposal_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProposalId
+    public TerraformProperty<string>? ProposalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proposal_id");
+        get => GetProperty<TerraformProperty<string>>("proposal_id");
         set => this.WithProperty("proposal_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

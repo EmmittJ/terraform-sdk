@@ -22,18 +22,18 @@ public class AwsShieldProtectionDataSource : TerraformDataSource
     /// <summary>
     /// The protection_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtectionId
+    public TerraformProperty<string>? ProtectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protection_id");
+        get => GetProperty<TerraformProperty<string>>("protection_id");
         set => this.WithProperty("protection_id", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceArn
+    public TerraformProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 

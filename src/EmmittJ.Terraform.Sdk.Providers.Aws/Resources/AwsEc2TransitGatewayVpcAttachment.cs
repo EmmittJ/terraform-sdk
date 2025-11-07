@@ -21,117 +21,117 @@ public class AwsEc2TransitGatewayVpcAttachment : TerraformResource
     /// <summary>
     /// The appliance_mode_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplianceModeSupport
+    public TerraformProperty<string>? ApplianceModeSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("appliance_mode_support");
+        get => GetProperty<TerraformProperty<string>>("appliance_mode_support");
         set => this.WithProperty("appliance_mode_support", value);
     }
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsSupport
+    public TerraformProperty<string>? DnsSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_support");
+        get => GetProperty<TerraformProperty<string>>("dns_support");
         set => this.WithProperty("dns_support", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ipv6Support
+    public TerraformProperty<string>? Ipv6Support
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_support");
+        get => GetProperty<TerraformProperty<string>>("ipv6_support");
         set => this.WithProperty("ipv6_support", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecurityGroupReferencingSupport
+    public TerraformProperty<string>? SecurityGroupReferencingSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_group_referencing_support");
+        get => GetProperty<TerraformProperty<string>>("security_group_referencing_support");
         set => this.WithProperty("security_group_referencing_support", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
+    public TerraformProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_association attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TransitGatewayDefaultRouteTableAssociation
+    public TerraformProperty<bool>? TransitGatewayDefaultRouteTableAssociation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("transit_gateway_default_route_table_association");
+        get => GetProperty<TerraformProperty<bool>>("transit_gateway_default_route_table_association");
         set => this.WithProperty("transit_gateway_default_route_table_association", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_propagation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TransitGatewayDefaultRouteTablePropagation
+    public TerraformProperty<bool>? TransitGatewayDefaultRouteTablePropagation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("transit_gateway_default_route_table_propagation");
+        get => GetProperty<TerraformProperty<bool>>("transit_gateway_default_route_table_propagation");
         set => this.WithProperty("transit_gateway_default_route_table_propagation", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayId
+    public TerraformProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

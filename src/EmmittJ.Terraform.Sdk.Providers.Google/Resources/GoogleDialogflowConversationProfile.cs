@@ -20,63 +20,63 @@ public class GoogleDialogflowConversationProfile : TerraformResource
     /// <summary>
     /// Required. Human readable name for this profile. Max length 1024 bytes.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Language code for the conversation profile. This should be a BCP-47 language tag.
     /// </summary>
-    public TerraformLiteralProperty<string>? LanguageCode
+    public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
     /// <summary>
     /// desc
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Name of the CX SecuritySettings reference for the agent.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecuritySettings
+    public TerraformProperty<string>? SecuritySettings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_settings");
+        get => GetProperty<TerraformProperty<string>>("security_settings");
         set => this.WithProperty("security_settings", value);
     }
 
     /// <summary>
     /// The time zone of this conversational profile.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeZone
+    public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        get => GetProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 

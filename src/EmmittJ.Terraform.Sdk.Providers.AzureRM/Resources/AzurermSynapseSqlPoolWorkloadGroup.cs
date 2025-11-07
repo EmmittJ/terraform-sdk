@@ -19,81 +19,81 @@ public class AzurermSynapseSqlPoolWorkloadGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The importance attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Importance
+    public TerraformProperty<string>? Importance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("importance");
+        get => GetProperty<TerraformProperty<string>>("importance");
         set => this.WithProperty("importance", value);
     }
 
     /// <summary>
     /// The max_resource_percent attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxResourcePercent
+    public TerraformProperty<double>? MaxResourcePercent
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_resource_percent");
+        get => GetProperty<TerraformProperty<double>>("max_resource_percent");
         set => this.WithProperty("max_resource_percent", value);
     }
 
     /// <summary>
     /// The max_resource_percent_per_request attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxResourcePercentPerRequest
+    public TerraformProperty<double>? MaxResourcePercentPerRequest
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_resource_percent_per_request");
+        get => GetProperty<TerraformProperty<double>>("max_resource_percent_per_request");
         set => this.WithProperty("max_resource_percent_per_request", value);
     }
 
     /// <summary>
     /// The min_resource_percent attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinResourcePercent
+    public TerraformProperty<double>? MinResourcePercent
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_resource_percent");
+        get => GetProperty<TerraformProperty<double>>("min_resource_percent");
         set => this.WithProperty("min_resource_percent", value);
     }
 
     /// <summary>
     /// The min_resource_percent_per_request attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinResourcePercentPerRequest
+    public TerraformProperty<double>? MinResourcePercentPerRequest
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_resource_percent_per_request");
+        get => GetProperty<TerraformProperty<double>>("min_resource_percent_per_request");
         set => this.WithProperty("min_resource_percent_per_request", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_execution_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? QueryExecutionTimeoutInSeconds
+    public TerraformProperty<double>? QueryExecutionTimeoutInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("query_execution_timeout_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("query_execution_timeout_in_seconds");
         set => this.WithProperty("query_execution_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The sql_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlPoolId
+    public TerraformProperty<string>? SqlPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_pool_id");
+        get => GetProperty<TerraformProperty<string>>("sql_pool_id");
         set => this.WithProperty("sql_pool_id", value);
     }
 

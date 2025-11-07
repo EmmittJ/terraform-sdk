@@ -36,27 +36,27 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MostRecent
+    public TerraformProperty<bool>? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent");
+        get => GetProperty<TerraformProperty<bool>>("most_recent");
         set => this.WithProperty("most_recent", value);
     }
 
@@ -69,18 +69,18 @@ public class GoogleComputeSnapshotDataSource : TerraformDataSource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

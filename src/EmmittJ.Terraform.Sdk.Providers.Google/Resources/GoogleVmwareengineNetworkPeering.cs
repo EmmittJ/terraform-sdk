@@ -25,63 +25,63 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// <summary>
     /// User-provided description for this network peering.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// True if custom routes are exported to the peered network; false otherwise.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExportCustomRoutes
+    public TerraformProperty<bool>? ExportCustomRoutes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("export_custom_routes");
+        get => GetProperty<TerraformProperty<bool>>("export_custom_routes");
         set => this.WithProperty("export_custom_routes", value);
     }
 
     /// <summary>
     /// True if all subnet routes with a public IP address range are exported; false otherwise.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExportCustomRoutesWithPublicIp
+    public TerraformProperty<bool>? ExportCustomRoutesWithPublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("export_custom_routes_with_public_ip");
+        get => GetProperty<TerraformProperty<bool>>("export_custom_routes_with_public_ip");
         set => this.WithProperty("export_custom_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ImportCustomRoutes
+    public TerraformProperty<bool>? ImportCustomRoutes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("import_custom_routes");
+        get => GetProperty<TerraformProperty<bool>>("import_custom_routes");
         set => this.WithProperty("import_custom_routes", value);
     }
 
     /// <summary>
     /// True if custom routes are imported from the peered network; false otherwise.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ImportCustomRoutesWithPublicIp
+    public TerraformProperty<bool>? ImportCustomRoutesWithPublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("import_custom_routes_with_public_ip");
+        get => GetProperty<TerraformProperty<bool>>("import_custom_routes_with_public_ip");
         set => this.WithProperty("import_custom_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The ID of the Network Peering.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -89,27 +89,27 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// The relative resource name of the network to peer with a standard VMware Engine network.
     /// The provided network can be a consumer VPC network or another standard VMware Engine network.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerNetwork
+    public TerraformProperty<string>? PeerNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_network");
+        get => GetProperty<TerraformProperty<string>>("peer_network");
         set => this.WithProperty("peer_network", value);
     }
 
     /// <summary>
     /// The type of the network to peer with the VMware Engine network. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;VMWARE_ENGINE_NETWORK&amp;quot;, &amp;quot;PRIVATE_SERVICES_ACCESS&amp;quot;, &amp;quot;NETAPP_CLOUD_VOLUMES&amp;quot;, &amp;quot;THIRD_PARTY_SERVICE&amp;quot;, &amp;quot;DELL_POWERSCALE&amp;quot;, &amp;quot;GOOGLE_CLOUD_NETAPP_VOLUMES&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerNetworkType
+    public TerraformProperty<string>? PeerNetworkType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_network_type");
+        get => GetProperty<TerraformProperty<string>>("peer_network_type");
         set => this.WithProperty("peer_network_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -118,9 +118,9 @@ public class GoogleVmwareengineNetworkPeering : TerraformResource
     /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
     /// can either be a project number or a project ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? VmwareEngineNetwork
+    public TerraformProperty<string>? VmwareEngineNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vmware_engine_network");
+        get => GetProperty<TerraformProperty<string>>("vmware_engine_network");
         set => this.WithProperty("vmware_engine_network", value);
     }
 

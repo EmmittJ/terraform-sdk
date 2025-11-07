@@ -21,18 +21,18 @@ public class GoogleApigeeNatAddress : TerraformResource
     /// <summary>
     /// Flag that specifies whether the reserved NAT address should be activate.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Activate
+    public TerraformProperty<bool>? Activate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("activate");
+        get => GetProperty<TerraformProperty<bool>>("activate");
         set => this.WithProperty("activate", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -40,18 +40,18 @@ public class GoogleApigeeNatAddress : TerraformResource
     /// The Apigee instance associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/instances/{{instance_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// Resource ID of the NAT address.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

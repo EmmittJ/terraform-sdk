@@ -19,108 +19,108 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
     /// <summary>
     /// The access_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessToken
+    public TerraformProperty<string>? AccessToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_token");
+        get => GetProperty<TerraformProperty<string>>("access_token");
         set => this.WithProperty("access_token", value);
     }
 
     /// <summary>
     /// The adb_domain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdbDomain
+    public TerraformProperty<string>? AdbDomain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("adb_domain");
+        get => GetProperty<TerraformProperty<string>>("adb_domain");
         set => this.WithProperty("adb_domain", value);
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalProperties
+    public TerraformProperty<Dictionary<string, string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_properties");
         set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Annotations
+    public TerraformProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        get => GetProperty<TerraformProperty<List<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataFactoryId
+    public TerraformProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The existing_cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExistingClusterId
+    public TerraformProperty<string>? ExistingClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("existing_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("existing_cluster_id");
         set => this.WithProperty("existing_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationRuntimeName
+    public TerraformProperty<string>? IntegrationRuntimeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_runtime_name");
+        get => GetProperty<TerraformProperty<string>>("integration_runtime_name");
         set => this.WithProperty("integration_runtime_name", value);
     }
 
     /// <summary>
     /// The msi_work_space_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MsiWorkSpaceResourceId
+    public TerraformProperty<string>? MsiWorkSpaceResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("msi_work_space_resource_id");
+        get => GetProperty<TerraformProperty<string>>("msi_work_space_resource_id");
         set => this.WithProperty("msi_work_space_resource_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
+    public TerraformProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 

@@ -21,36 +21,36 @@ public class AwsEc2InstanceTypeOfferingDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocationType
+    public TerraformProperty<string>? LocationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_type");
+        get => GetProperty<TerraformProperty<string>>("location_type");
         set => this.WithProperty("location_type", value);
     }
 
     /// <summary>
     /// The preferred_instance_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreferredInstanceTypes
+    public TerraformProperty<List<string>>? PreferredInstanceTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_instance_types");
+        get => GetProperty<TerraformProperty<List<string>>>("preferred_instance_types");
         set => this.WithProperty("preferred_instance_types", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

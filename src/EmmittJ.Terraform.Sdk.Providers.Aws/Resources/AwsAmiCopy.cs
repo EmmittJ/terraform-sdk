@@ -43,108 +43,108 @@ public class AwsAmiCopy : TerraformResource
     /// <summary>
     /// The deprecation_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeprecationTime
+    public TerraformProperty<string>? DeprecationTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deprecation_time");
+        get => GetProperty<TerraformProperty<string>>("deprecation_time");
         set => this.WithProperty("deprecation_time", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The destination_outpost_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationOutpostArn
+    public TerraformProperty<string>? DestinationOutpostArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_outpost_arn");
+        get => GetProperty<TerraformProperty<string>>("destination_outpost_arn");
         set => this.WithProperty("destination_outpost_arn", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Encrypted
+    public TerraformProperty<bool>? Encrypted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("encrypted");
+        get => GetProperty<TerraformProperty<bool>>("encrypted");
         set => this.WithProperty("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_ami_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceAmiId
+    public TerraformProperty<string>? SourceAmiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_ami_id");
+        get => GetProperty<TerraformProperty<string>>("source_ami_id");
         set => this.WithProperty("source_ami_id", value);
     }
 
     /// <summary>
     /// The source_ami_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceAmiRegion
+    public TerraformProperty<string>? SourceAmiRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_ami_region");
+        get => GetProperty<TerraformProperty<string>>("source_ami_region");
         set => this.WithProperty("source_ami_region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

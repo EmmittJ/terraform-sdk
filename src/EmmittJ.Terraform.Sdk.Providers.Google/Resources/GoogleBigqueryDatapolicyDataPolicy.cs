@@ -20,54 +20,54 @@ public class GoogleBigqueryDatapolicyDataPolicy : TerraformResource
     /// <summary>
     /// User-assigned (human readable) ID of the data policy that needs to be unique within a project. Used as {dataPolicyId} in part of the resource name.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataPolicyId
+    public TerraformProperty<string>? DataPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_id");
+        get => GetProperty<TerraformProperty<string>>("data_policy_id");
         set => this.WithProperty("data_policy_id", value);
     }
 
     /// <summary>
     /// The enrollment level of the service. Possible values: [&amp;quot;COLUMN_LEVEL_SECURITY_POLICY&amp;quot;, &amp;quot;DATA_MASKING_POLICY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? DataPolicyType
+    public TerraformProperty<string>? DataPolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_policy_type");
+        get => GetProperty<TerraformProperty<string>>("data_policy_type");
         set => this.WithProperty("data_policy_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the location of the data policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Policy tag resource name, in the format of projects/{project_number}/locations/{locationId}/taxonomies/{taxonomyId}/policyTags/{policyTag_id}.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyTag
+    public TerraformProperty<string>? PolicyTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_tag");
+        get => GetProperty<TerraformProperty<string>>("policy_tag");
         set => this.WithProperty("policy_tag", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

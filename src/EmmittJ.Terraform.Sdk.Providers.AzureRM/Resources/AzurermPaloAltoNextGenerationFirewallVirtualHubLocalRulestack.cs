@@ -19,63 +19,63 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestack : Ter
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The marketplace_offer_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MarketplaceOfferId
+    public TerraformProperty<string>? MarketplaceOfferId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("marketplace_offer_id");
+        get => GetProperty<TerraformProperty<string>>("marketplace_offer_id");
         set => this.WithProperty("marketplace_offer_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PlanId
+    public TerraformProperty<string>? PlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan_id");
+        get => GetProperty<TerraformProperty<string>>("plan_id");
         set => this.WithProperty("plan_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RulestackId
+    public TerraformProperty<string>? RulestackId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rulestack_id");
+        get => GetProperty<TerraformProperty<string>>("rulestack_id");
         set => this.WithProperty("rulestack_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

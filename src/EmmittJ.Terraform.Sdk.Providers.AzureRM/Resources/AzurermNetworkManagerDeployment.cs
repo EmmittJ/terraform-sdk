@@ -19,54 +19,54 @@ public class AzurermNetworkManagerDeployment : TerraformResource
     /// <summary>
     /// The configuration_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ConfigurationIds
+    public TerraformProperty<List<string>>? ConfigurationIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("configuration_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("configuration_ids");
         set => this.WithProperty("configuration_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The network_manager_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkManagerId
+    public TerraformProperty<string>? NetworkManagerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_manager_id");
+        get => GetProperty<TerraformProperty<string>>("network_manager_id");
         set => this.WithProperty("network_manager_id", value);
     }
 
     /// <summary>
     /// The scope_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScopeAccess
+    public TerraformProperty<string>? ScopeAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_access");
+        get => GetProperty<TerraformProperty<string>>("scope_access");
         set => this.WithProperty("scope_access", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Triggers
+    public TerraformProperty<Dictionary<string, string>>? Triggers
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("triggers");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 

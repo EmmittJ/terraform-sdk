@@ -20,36 +20,36 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     /// <summary>
     /// OAuth client ID
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientId
+    public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// OAuth client secret
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientSecret
+    public TerraformProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        get => GetProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
     }
 
     /// <summary>
     /// If this IDP allows the user to sign in
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -76,18 +76,18 @@ public class GoogleIdentityPlatformDefaultSupportedIdpConfig : TerraformResource
     /// 
     /// * &#39;yahoo.com&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? IdpId
+    public TerraformProperty<string>? IdpId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("idp_id");
+        get => GetProperty<TerraformProperty<string>>("idp_id");
         set => this.WithProperty("idp_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

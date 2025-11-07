@@ -19,45 +19,45 @@ public class AwsEc2Tag : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceId
+    public TerraformProperty<string>? ResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_id");
+        get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Value
+    public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

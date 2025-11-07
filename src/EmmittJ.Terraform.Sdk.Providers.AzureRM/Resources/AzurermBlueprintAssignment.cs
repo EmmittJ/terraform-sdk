@@ -23,90 +23,90 @@ public class AzurermBlueprintAssignment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The lock_exclude_actions attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? LockExcludeActions
+    public TerraformProperty<List<string>>? LockExcludeActions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("lock_exclude_actions");
+        get => GetProperty<TerraformProperty<List<string>>>("lock_exclude_actions");
         set => this.WithProperty("lock_exclude_actions", value);
     }
 
     /// <summary>
     /// The lock_exclude_principals attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? LockExcludePrincipals
+    public TerraformProperty<List<string>>? LockExcludePrincipals
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("lock_exclude_principals");
+        get => GetProperty<TerraformProperty<List<string>>>("lock_exclude_principals");
         set => this.WithProperty("lock_exclude_principals", value);
     }
 
     /// <summary>
     /// The lock_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LockMode
+    public TerraformProperty<string>? LockMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lock_mode");
+        get => GetProperty<TerraformProperty<string>>("lock_mode");
         set => this.WithProperty("lock_mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParameterValues
+    public TerraformProperty<string>? ParameterValues
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_values");
+        get => GetProperty<TerraformProperty<string>>("parameter_values");
         set => this.WithProperty("parameter_values", value);
     }
 
     /// <summary>
     /// The resource_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroups
+    public TerraformProperty<string>? ResourceGroups
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_groups");
+        get => GetProperty<TerraformProperty<string>>("resource_groups");
         set => this.WithProperty("resource_groups", value);
     }
 
     /// <summary>
     /// The target_subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetSubscriptionId
+    public TerraformProperty<string>? TargetSubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_subscription_id");
+        get => GetProperty<TerraformProperty<string>>("target_subscription_id");
         set => this.WithProperty("target_subscription_id", value);
     }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VersionId
+    public TerraformProperty<string>? VersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_id");
+        get => GetProperty<TerraformProperty<string>>("version_id");
         set => this.WithProperty("version_id", value);
     }
 

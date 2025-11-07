@@ -24,27 +24,27 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// It must be unique within a KeyRing and match the regular expression [a-zA-Z0-9_-]{1,63}
     /// </summary>
-    public TerraformLiteralProperty<string>? ImportJobId
+    public TerraformProperty<string>? ImportJobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("import_job_id");
+        get => GetProperty<TerraformProperty<string>>("import_job_id");
         set => this.WithProperty("import_job_id", value);
     }
 
     /// <summary>
     /// The wrapping method to be used for incoming key material. Possible values: [&amp;quot;RSA_OAEP_3072_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA1_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256_AES_256&amp;quot;, &amp;quot;RSA_OAEP_3072_SHA256&amp;quot;, &amp;quot;RSA_OAEP_4096_SHA256&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ImportMethod
+    public TerraformProperty<string>? ImportMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("import_method");
+        get => GetProperty<TerraformProperty<string>>("import_method");
         set => this.WithProperty("import_method", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// The KeyRing that this import job belongs to.
     /// Format: &#39;&#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyRing
+    public TerraformProperty<string>? KeyRing
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_ring");
+        get => GetProperty<TerraformProperty<string>>("key_ring");
         set => this.WithProperty("key_ring", value);
     }
 
@@ -62,9 +62,9 @@ public class GoogleKmsKeyRingImportJob : TerraformResource
     /// The protection level of the ImportJob. This must match the protectionLevel of the
     /// versionTemplate on the CryptoKey you attempt to import into. Possible values: [&amp;quot;SOFTWARE&amp;quot;, &amp;quot;HSM&amp;quot;, &amp;quot;EXTERNAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtectionLevel
+    public TerraformProperty<string>? ProtectionLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protection_level");
+        get => GetProperty<TerraformProperty<string>>("protection_level");
         set => this.WithProperty("protection_level", value);
     }
 

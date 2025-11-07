@@ -20,45 +20,45 @@ public class GoogleServiceAccountJwtDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Delegates
+    public TerraformProperty<HashSet<string>>? Delegates
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("delegates");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("delegates");
         set => this.WithProperty("delegates", value);
     }
 
     /// <summary>
     /// Number of seconds until the JWT expires. If set and non-zero an `exp` claim will be added to the payload derived from the current timestamp plus expires_in seconds.
     /// </summary>
-    public TerraformLiteralProperty<double>? ExpiresIn
+    public TerraformProperty<double>? ExpiresIn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("expires_in");
+        get => GetProperty<TerraformProperty<double>>("expires_in");
         set => this.WithProperty("expires_in", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A JSON-encoded JWT claims set that will be included in the signed JWT.
     /// </summary>
-    public TerraformLiteralProperty<string>? Payload
+    public TerraformProperty<string>? Payload
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("payload");
+        get => GetProperty<TerraformProperty<string>>("payload");
         set => this.WithProperty("payload", value);
     }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetServiceAccount
+    public TerraformProperty<string>? TargetServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_service_account");
+        get => GetProperty<TerraformProperty<string>>("target_service_account");
         set => this.WithProperty("target_service_account", value);
     }
 

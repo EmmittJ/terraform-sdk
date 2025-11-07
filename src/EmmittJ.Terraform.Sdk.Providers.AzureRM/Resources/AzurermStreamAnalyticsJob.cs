@@ -20,153 +20,153 @@ public class AzurermStreamAnalyticsJob : TerraformResource
     /// <summary>
     /// The compatibility_level attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CompatibilityLevel
+    public TerraformProperty<string>? CompatibilityLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compatibility_level");
+        get => GetProperty<TerraformProperty<string>>("compatibility_level");
         set => this.WithProperty("compatibility_level", value);
     }
 
     /// <summary>
     /// The content_storage_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentStoragePolicy
+    public TerraformProperty<string>? ContentStoragePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_storage_policy");
+        get => GetProperty<TerraformProperty<string>>("content_storage_policy");
         set => this.WithProperty("content_storage_policy", value);
     }
 
     /// <summary>
     /// The data_locale attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataLocale
+    public TerraformProperty<string>? DataLocale
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_locale");
+        get => GetProperty<TerraformProperty<string>>("data_locale");
         set => this.WithProperty("data_locale", value);
     }
 
     /// <summary>
     /// The events_late_arrival_max_delay_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? EventsLateArrivalMaxDelayInSeconds
+    public TerraformProperty<double>? EventsLateArrivalMaxDelayInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("events_late_arrival_max_delay_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("events_late_arrival_max_delay_in_seconds");
         set => this.WithProperty("events_late_arrival_max_delay_in_seconds", value);
     }
 
     /// <summary>
     /// The events_out_of_order_max_delay_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? EventsOutOfOrderMaxDelayInSeconds
+    public TerraformProperty<double>? EventsOutOfOrderMaxDelayInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("events_out_of_order_max_delay_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("events_out_of_order_max_delay_in_seconds");
         set => this.WithProperty("events_out_of_order_max_delay_in_seconds", value);
     }
 
     /// <summary>
     /// The events_out_of_order_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventsOutOfOrderPolicy
+    public TerraformProperty<string>? EventsOutOfOrderPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("events_out_of_order_policy");
+        get => GetProperty<TerraformProperty<string>>("events_out_of_order_policy");
         set => this.WithProperty("events_out_of_order_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The output_error_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OutputErrorPolicy
+    public TerraformProperty<string>? OutputErrorPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("output_error_policy");
+        get => GetProperty<TerraformProperty<string>>("output_error_policy");
         set => this.WithProperty("output_error_policy", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsClusterId
+    public TerraformProperty<string>? StreamAnalyticsClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_cluster_id");
         set => this.WithProperty("stream_analytics_cluster_id", value);
     }
 
     /// <summary>
     /// The streaming_units attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? StreamingUnits
+    public TerraformProperty<double>? StreamingUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("streaming_units");
+        get => GetProperty<TerraformProperty<double>>("streaming_units");
         set => this.WithProperty("streaming_units", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The transformation_query attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransformationQuery
+    public TerraformProperty<string>? TransformationQuery
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transformation_query");
+        get => GetProperty<TerraformProperty<string>>("transformation_query");
         set => this.WithProperty("transformation_query", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

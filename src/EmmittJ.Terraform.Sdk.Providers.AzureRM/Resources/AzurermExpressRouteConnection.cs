@@ -19,63 +19,63 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizationKey
+    public TerraformProperty<string>? AuthorizationKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_key");
+        get => GetProperty<TerraformProperty<string>>("authorization_key");
         set => this.WithProperty("authorization_key", value);
     }
 
     /// <summary>
     /// The enable_internet_security attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableInternetSecurity
+    public TerraformProperty<bool>? EnableInternetSecurity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_internet_security");
+        get => GetProperty<TerraformProperty<bool>>("enable_internet_security");
         set => this.WithProperty("enable_internet_security", value);
     }
 
     /// <summary>
     /// The express_route_circuit_peering_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpressRouteCircuitPeeringId
+    public TerraformProperty<string>? ExpressRouteCircuitPeeringId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("express_route_circuit_peering_id");
+        get => GetProperty<TerraformProperty<string>>("express_route_circuit_peering_id");
         set => this.WithProperty("express_route_circuit_peering_id", value);
     }
 
     /// <summary>
     /// The express_route_gateway_bypass_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExpressRouteGatewayBypassEnabled
+    public TerraformProperty<bool>? ExpressRouteGatewayBypassEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("express_route_gateway_bypass_enabled");
+        get => GetProperty<TerraformProperty<bool>>("express_route_gateway_bypass_enabled");
         set => this.WithProperty("express_route_gateway_bypass_enabled", value);
     }
 
     /// <summary>
     /// The express_route_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpressRouteGatewayId
+    public TerraformProperty<string>? ExpressRouteGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("express_route_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("express_route_gateway_id");
         set => this.WithProperty("express_route_gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -83,18 +83,18 @@ public class AzurermExpressRouteConnection : TerraformResource
     /// The private_link_fast_path_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<bool>? PrivateLinkFastPathEnabled
+    public TerraformProperty<bool>? PrivateLinkFastPathEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_link_fast_path_enabled");
+        get => GetProperty<TerraformProperty<bool>>("private_link_fast_path_enabled");
         set => this.WithProperty("private_link_fast_path_enabled", value);
     }
 
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RoutingWeight
+    public TerraformProperty<double>? RoutingWeight
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("routing_weight");
+        get => GetProperty<TerraformProperty<double>>("routing_weight");
         set => this.WithProperty("routing_weight", value);
     }
 

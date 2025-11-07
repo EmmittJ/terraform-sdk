@@ -27,27 +27,27 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// Use the following format:
     /// &#39;projects/{project}/locations/global/networks/{network}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdminNetwork
+    public TerraformProperty<string>? AdminNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_network");
+        get => GetProperty<TerraformProperty<string>>("admin_network");
         set => this.WithProperty("admin_network", value);
     }
 
     /// <summary>
     /// An optional text description of the multicast domain.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -57,18 +57,18 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -77,9 +77,9 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// Use the following format:
     /// &#39;projects/{project}/locations/global/multicastDomainGroups/{multicast_domain_group}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? MulticastDomainGroup
+    public TerraformProperty<string>? MulticastDomainGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multicast_domain_group");
+        get => GetProperty<TerraformProperty<string>>("multicast_domain_group");
         set => this.WithProperty("multicast_domain_group", value);
     }
 
@@ -89,18 +89,18 @@ public class GoogleNetworkServicesMulticastDomain : TerraformResource
     /// character a letter, and the last a letter or a number. The name must not
     /// exceed 48 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? MulticastDomainId
+    public TerraformProperty<string>? MulticastDomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multicast_domain_id");
+        get => GetProperty<TerraformProperty<string>>("multicast_domain_id");
         set => this.WithProperty("multicast_domain_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

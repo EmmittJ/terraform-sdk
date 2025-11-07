@@ -25,36 +25,36 @@ public class AwsIamAccessKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PgpKey
+    public TerraformProperty<string>? PgpKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pgp_key");
+        get => GetProperty<TerraformProperty<string>>("pgp_key");
         set => this.WithProperty("pgp_key", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? User
+    public TerraformProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

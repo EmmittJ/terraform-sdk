@@ -23,45 +23,45 @@ public class GoogleApigeeApi : TerraformResource
     /// <summary>
     /// Path to the config zip bundle
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigBundle
+    public TerraformProperty<string>? ConfigBundle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config_bundle");
+        get => GetProperty<TerraformProperty<string>>("config_bundle");
         set => this.WithProperty("config_bundle", value);
     }
 
     /// <summary>
     /// A hash of local config bundle in string, user needs to use a Terraform Hash function of their choice. A change in hash will trigger an update.
     /// </summary>
-    public TerraformLiteralProperty<string>? DetectMd5hash
+    public TerraformProperty<string>? DetectMd5hash
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detect_md5hash");
+        get => GetProperty<TerraformProperty<string>>("detect_md5hash");
         set => this.WithProperty("detect_md5hash", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the API proxy. This field only accepts the following characters: A-Za-z0-9._-.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Apigee Organization name associated with the Apigee instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 

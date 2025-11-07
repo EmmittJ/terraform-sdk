@@ -26,189 +26,189 @@ public class AwsFsxWindowsFileSystem : TerraformResource
     /// <summary>
     /// The active_directory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActiveDirectoryId
+    public TerraformProperty<string>? ActiveDirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("active_directory_id");
+        get => GetProperty<TerraformProperty<string>>("active_directory_id");
         set => this.WithProperty("active_directory_id", value);
     }
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Aliases
+    public TerraformProperty<HashSet<string>>? Aliases
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("aliases");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("aliases");
         set => this.WithProperty("aliases", value);
     }
 
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? AutomaticBackupRetentionDays
+    public TerraformProperty<double>? AutomaticBackupRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("automatic_backup_retention_days");
+        get => GetProperty<TerraformProperty<double>>("automatic_backup_retention_days");
         set => this.WithProperty("automatic_backup_retention_days", value);
     }
 
     /// <summary>
     /// The backup_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupId
+    public TerraformProperty<string>? BackupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_id");
+        get => GetProperty<TerraformProperty<string>>("backup_id");
         set => this.WithProperty("backup_id", value);
     }
 
     /// <summary>
     /// The copy_tags_to_backups attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CopyTagsToBackups
+    public TerraformProperty<bool>? CopyTagsToBackups
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("copy_tags_to_backups");
+        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_backups");
         set => this.WithProperty("copy_tags_to_backups", value);
     }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DailyAutomaticBackupStartTime
+    public TerraformProperty<string>? DailyAutomaticBackupStartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("daily_automatic_backup_start_time");
+        get => GetProperty<TerraformProperty<string>>("daily_automatic_backup_start_time");
         set => this.WithProperty("daily_automatic_backup_start_time", value);
     }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeploymentType
+    public TerraformProperty<string>? DeploymentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_type");
+        get => GetProperty<TerraformProperty<string>>("deployment_type");
         set => this.WithProperty("deployment_type", value);
     }
 
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? FinalBackupTags
+    public TerraformProperty<Dictionary<string, string>>? FinalBackupTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("final_backup_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("final_backup_tags");
         set => this.WithProperty("final_backup_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PreferredSubnetId
+    public TerraformProperty<string>? PreferredSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("preferred_subnet_id");
         set => this.WithProperty("preferred_subnet_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
+    public TerraformProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The skip_final_backup attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipFinalBackup
+    public TerraformProperty<bool>? SkipFinalBackup
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_final_backup");
+        get => GetProperty<TerraformProperty<bool>>("skip_final_backup");
         set => this.WithProperty("skip_final_backup", value);
     }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? StorageCapacity
+    public TerraformProperty<double>? StorageCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_capacity");
+        get => GetProperty<TerraformProperty<double>>("storage_capacity");
         set => this.WithProperty("storage_capacity", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageType
+    public TerraformProperty<string>? StorageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_type");
+        get => GetProperty<TerraformProperty<string>>("storage_type");
         set => this.WithProperty("storage_type", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SubnetIds
+    public TerraformProperty<List<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ThroughputCapacity
+    public TerraformProperty<double>? ThroughputCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("throughput_capacity");
+        get => GetProperty<TerraformProperty<double>>("throughput_capacity");
         set => this.WithProperty("throughput_capacity", value);
     }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WeeklyMaintenanceStartTime
+    public TerraformProperty<string>? WeeklyMaintenanceStartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("weekly_maintenance_start_time");
+        get => GetProperty<TerraformProperty<string>>("weekly_maintenance_start_time");
         set => this.WithProperty("weekly_maintenance_start_time", value);
     }
 

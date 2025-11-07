@@ -23,54 +23,54 @@ public class AwsIotCertificate : TerraformResource
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Active
+    public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("active");
+        get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
     }
 
     /// <summary>
     /// The ca_pem attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CaPem
+    public TerraformProperty<string>? CaPem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ca_pem");
+        get => GetProperty<TerraformProperty<string>>("ca_pem");
         set => this.WithProperty("ca_pem", value);
     }
 
     /// <summary>
     /// The certificate_pem attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificatePem
+    public TerraformProperty<string>? CertificatePem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_pem");
+        get => GetProperty<TerraformProperty<string>>("certificate_pem");
         set => this.WithProperty("certificate_pem", value);
     }
 
     /// <summary>
     /// The csr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Csr
+    public TerraformProperty<string>? Csr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("csr");
+        get => GetProperty<TerraformProperty<string>>("csr");
         set => this.WithProperty("csr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

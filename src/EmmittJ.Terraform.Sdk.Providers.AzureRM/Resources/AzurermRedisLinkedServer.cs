@@ -21,54 +21,54 @@ public class AzurermRedisLinkedServer : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The linked_redis_cache_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LinkedRedisCacheId
+    public TerraformProperty<string>? LinkedRedisCacheId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("linked_redis_cache_id");
+        get => GetProperty<TerraformProperty<string>>("linked_redis_cache_id");
         set => this.WithProperty("linked_redis_cache_id", value);
     }
 
     /// <summary>
     /// The linked_redis_cache_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LinkedRedisCacheLocation
+    public TerraformProperty<string>? LinkedRedisCacheLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("linked_redis_cache_location");
+        get => GetProperty<TerraformProperty<string>>("linked_redis_cache_location");
         set => this.WithProperty("linked_redis_cache_location", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The server_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerRole
+    public TerraformProperty<string>? ServerRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_role");
+        get => GetProperty<TerraformProperty<string>>("server_role");
         set => this.WithProperty("server_role", value);
     }
 
     /// <summary>
     /// The target_redis_cache_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetRedisCacheName
+    public TerraformProperty<string>? TargetRedisCacheName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_redis_cache_name");
+        get => GetProperty<TerraformProperty<string>>("target_redis_cache_name");
         set => this.WithProperty("target_redis_cache_name", value);
     }
 

@@ -22,72 +22,72 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
     /// <summary>
     /// The allow_resource_only_permissions attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowResourceOnlyPermissions
+    public TerraformProperty<bool>? AllowResourceOnlyPermissions
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_resource_only_permissions");
+        get => GetProperty<TerraformProperty<bool>>("allow_resource_only_permissions");
         set => this.WithProperty("allow_resource_only_permissions", value);
     }
 
     /// <summary>
     /// The cmk_for_query_forced attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CmkForQueryForced
+    public TerraformProperty<bool>? CmkForQueryForced
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cmk_for_query_forced");
+        get => GetProperty<TerraformProperty<bool>>("cmk_for_query_forced");
         set => this.WithProperty("cmk_for_query_forced", value);
     }
 
     /// <summary>
     /// The daily_quota_gb attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DailyQuotaGb
+    public TerraformProperty<double>? DailyQuotaGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("daily_quota_gb");
+        get => GetProperty<TerraformProperty<double>>("daily_quota_gb");
         set => this.WithProperty("daily_quota_gb", value);
     }
 
     /// <summary>
     /// The data_collection_rule_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataCollectionRuleId
+    public TerraformProperty<string>? DataCollectionRuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_collection_rule_id");
+        get => GetProperty<TerraformProperty<string>>("data_collection_rule_id");
         set => this.WithProperty("data_collection_rule_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The immediate_data_purge_on_30_days_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ImmediateDataPurgeOn30DaysEnabled
+    public TerraformProperty<bool>? ImmediateDataPurgeOn30DaysEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("immediate_data_purge_on_30_days_enabled");
+        get => GetProperty<TerraformProperty<bool>>("immediate_data_purge_on_30_days_enabled");
         set => this.WithProperty("immediate_data_purge_on_30_days_enabled", value);
     }
 
     /// <summary>
     /// The internet_ingestion_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InternetIngestionEnabled
+    public TerraformProperty<bool>? InternetIngestionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internet_ingestion_enabled");
+        get => GetProperty<TerraformProperty<bool>>("internet_ingestion_enabled");
         set => this.WithProperty("internet_ingestion_enabled", value);
     }
 
     /// <summary>
     /// The internet_query_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InternetQueryEnabled
+    public TerraformProperty<bool>? InternetQueryEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internet_query_enabled");
+        get => GetProperty<TerraformProperty<bool>>("internet_query_enabled");
         set => this.WithProperty("internet_query_enabled", value);
     }
 
@@ -95,81 +95,81 @@ public class AzurermLogAnalyticsWorkspace : TerraformResource
     /// The local_authentication_disabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<bool>? LocalAuthenticationDisabled
+    public TerraformProperty<bool>? LocalAuthenticationDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_authentication_disabled");
+        get => GetProperty<TerraformProperty<bool>>("local_authentication_disabled");
         set => this.WithProperty("local_authentication_disabled", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LocalAuthenticationEnabled
+    public TerraformProperty<bool>? LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_authentication_enabled");
+        get => GetProperty<TerraformProperty<bool>>("local_authentication_enabled");
         set => this.WithProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The reservation_capacity_in_gb_per_day attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReservationCapacityInGbPerDay
+    public TerraformProperty<double>? ReservationCapacityInGbPerDay
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("reservation_capacity_in_gb_per_day");
+        get => GetProperty<TerraformProperty<double>>("reservation_capacity_in_gb_per_day");
         set => this.WithProperty("reservation_capacity_in_gb_per_day", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionInDays
+    public TerraformProperty<double>? RetentionInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_in_days");
+        get => GetProperty<TerraformProperty<double>>("retention_in_days");
         set => this.WithProperty("retention_in_days", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

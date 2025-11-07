@@ -21,45 +21,45 @@ public class AwsRoute53recoveryreadinessCell : TerraformResource
     /// <summary>
     /// The cell_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CellName
+    public TerraformProperty<string>? CellName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cell_name");
+        get => GetProperty<TerraformProperty<string>>("cell_name");
         set => this.WithProperty("cell_name", value);
     }
 
     /// <summary>
     /// The cells attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Cells
+    public TerraformProperty<List<string>>? Cells
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("cells");
+        get => GetProperty<TerraformProperty<List<string>>>("cells");
         set => this.WithProperty("cells", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

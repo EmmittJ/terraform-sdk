@@ -19,90 +19,90 @@ public class AzurermSubscriptionPolicyRemediation : TerraformResource
     /// <summary>
     /// The failure_percentage attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FailurePercentage
+    public TerraformProperty<double>? FailurePercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("failure_percentage");
+        get => GetProperty<TerraformProperty<double>>("failure_percentage");
         set => this.WithProperty("failure_percentage", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location_filters attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? LocationFilters
+    public TerraformProperty<List<string>>? LocationFilters
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("location_filters");
+        get => GetProperty<TerraformProperty<List<string>>>("location_filters");
         set => this.WithProperty("location_filters", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parallel_deployments attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ParallelDeployments
+    public TerraformProperty<double>? ParallelDeployments
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("parallel_deployments");
+        get => GetProperty<TerraformProperty<double>>("parallel_deployments");
         set => this.WithProperty("parallel_deployments", value);
     }
 
     /// <summary>
     /// The policy_assignment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyAssignmentId
+    public TerraformProperty<string>? PolicyAssignmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_assignment_id");
+        get => GetProperty<TerraformProperty<string>>("policy_assignment_id");
         set => this.WithProperty("policy_assignment_id", value);
     }
 
     /// <summary>
     /// The policy_definition_reference_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyDefinitionReferenceId
+    public TerraformProperty<string>? PolicyDefinitionReferenceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_definition_reference_id");
+        get => GetProperty<TerraformProperty<string>>("policy_definition_reference_id");
         set => this.WithProperty("policy_definition_reference_id", value);
     }
 
     /// <summary>
     /// The resource_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ResourceCount
+    public TerraformProperty<double>? ResourceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("resource_count");
+        get => GetProperty<TerraformProperty<double>>("resource_count");
         set => this.WithProperty("resource_count", value);
     }
 
     /// <summary>
     /// The resource_discovery_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceDiscoveryMode
+    public TerraformProperty<string>? ResourceDiscoveryMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_discovery_mode");
+        get => GetProperty<TerraformProperty<string>>("resource_discovery_mode");
         set => this.WithProperty("resource_discovery_mode", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

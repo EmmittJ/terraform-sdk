@@ -21,81 +21,81 @@ public class AwsDatasyncLocationEfs : TerraformResource
     /// <summary>
     /// The access_point_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessPointArn
+    public TerraformProperty<string>? AccessPointArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_point_arn");
+        get => GetProperty<TerraformProperty<string>>("access_point_arn");
         set => this.WithProperty("access_point_arn", value);
     }
 
     /// <summary>
     /// The efs_file_system_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EfsFileSystemArn
+    public TerraformProperty<string>? EfsFileSystemArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("efs_file_system_arn");
+        get => GetProperty<TerraformProperty<string>>("efs_file_system_arn");
         set => this.WithProperty("efs_file_system_arn", value);
     }
 
     /// <summary>
     /// The file_system_access_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileSystemAccessRoleArn
+    public TerraformProperty<string>? FileSystemAccessRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_access_role_arn");
+        get => GetProperty<TerraformProperty<string>>("file_system_access_role_arn");
         set => this.WithProperty("file_system_access_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The in_transit_encryption attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InTransitEncryption
+    public TerraformProperty<string>? InTransitEncryption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("in_transit_encryption");
+        get => GetProperty<TerraformProperty<string>>("in_transit_encryption");
         set => this.WithProperty("in_transit_encryption", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subdirectory
+    public TerraformProperty<string>? Subdirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subdirectory");
+        get => GetProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

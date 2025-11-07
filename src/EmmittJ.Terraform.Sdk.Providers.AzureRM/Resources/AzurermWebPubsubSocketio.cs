@@ -27,126 +27,126 @@ public class AzurermWebPubsubSocketio : TerraformResource
     /// <summary>
     /// The aad_auth_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AadAuthEnabled
+    public TerraformProperty<bool>? AadAuthEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("aad_auth_enabled");
+        get => GetProperty<TerraformProperty<bool>>("aad_auth_enabled");
         set => this.WithProperty("aad_auth_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The live_trace_connectivity_logs_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LiveTraceConnectivityLogsEnabled
+    public TerraformProperty<bool>? LiveTraceConnectivityLogsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("live_trace_connectivity_logs_enabled");
+        get => GetProperty<TerraformProperty<bool>>("live_trace_connectivity_logs_enabled");
         set => this.WithProperty("live_trace_connectivity_logs_enabled", value);
     }
 
     /// <summary>
     /// The live_trace_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LiveTraceEnabled
+    public TerraformProperty<bool>? LiveTraceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("live_trace_enabled");
+        get => GetProperty<TerraformProperty<bool>>("live_trace_enabled");
         set => this.WithProperty("live_trace_enabled", value);
     }
 
     /// <summary>
     /// The live_trace_http_request_logs_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LiveTraceHttpRequestLogsEnabled
+    public TerraformProperty<bool>? LiveTraceHttpRequestLogsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("live_trace_http_request_logs_enabled");
+        get => GetProperty<TerraformProperty<bool>>("live_trace_http_request_logs_enabled");
         set => this.WithProperty("live_trace_http_request_logs_enabled", value);
     }
 
     /// <summary>
     /// The live_trace_messaging_logs_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LiveTraceMessagingLogsEnabled
+    public TerraformProperty<bool>? LiveTraceMessagingLogsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("live_trace_messaging_logs_enabled");
+        get => GetProperty<TerraformProperty<bool>>("live_trace_messaging_logs_enabled");
         set => this.WithProperty("live_trace_messaging_logs_enabled", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool>? LocalAuthEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_auth_enabled");
+        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
         set => this.WithProperty("local_auth_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        get => GetProperty<TerraformProperty<string>>("public_network_access");
         set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceMode
+    public TerraformProperty<string>? ServiceMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_mode");
+        get => GetProperty<TerraformProperty<string>>("service_mode");
         set => this.WithProperty("service_mode", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tls_client_cert_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TlsClientCertEnabled
+    public TerraformProperty<bool>? TlsClientCertEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls_client_cert_enabled");
+        get => GetProperty<TerraformProperty<bool>>("tls_client_cert_enabled");
         set => this.WithProperty("tls_client_cert_enabled", value);
     }
 

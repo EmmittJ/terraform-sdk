@@ -21,45 +21,45 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigId
+    public TerraformProperty<string>? ConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config_id");
+        get => GetProperty<TerraformProperty<string>>("config_id");
         set => this.WithProperty("config_id", value);
     }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Numerical ID of the parent folder.
     /// </summary>
-    public TerraformLiteralProperty<string>? Folder
+    public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location ID of the parent organization. If not provided, &#39;global&#39; will be used as the default location.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -67,9 +67,9 @@ public class GoogleSccV2FolderNotificationConfig : TerraformResource
     /// The Pub/Sub topic to send notifications to. Its format is
     /// &amp;quot;projects/[project_id]/topics/[topic]&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? PubsubTopic
+    public TerraformProperty<string>? PubsubTopic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pubsub_topic");
+        get => GetProperty<TerraformProperty<string>>("pubsub_topic");
         set => this.WithProperty("pubsub_topic", value);
     }
 

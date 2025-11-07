@@ -19,36 +19,36 @@ public class AwsIotPolicyAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Policy
+    public TerraformProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Target
+    public TerraformProperty<string>? Target
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target");
+        get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 

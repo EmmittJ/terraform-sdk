@@ -20,18 +20,18 @@ public class AwsOrganizationsOrganizationalUnitDescendantOrganizationalUnitsData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentId
+    public TerraformProperty<string>? ParentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_id");
+        get => GetProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 

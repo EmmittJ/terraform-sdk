@@ -19,36 +19,36 @@ public class AzurermCdnEndpointCustomDomain : TerraformResource
     /// <summary>
     /// The cdn_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CdnEndpointId
+    public TerraformProperty<string>? CdnEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("cdn_endpoint_id");
         set => this.WithProperty("cdn_endpoint_id", value);
     }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostName
+    public TerraformProperty<string>? HostName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_name");
+        get => GetProperty<TerraformProperty<string>>("host_name");
         set => this.WithProperty("host_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

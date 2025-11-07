@@ -19,99 +19,99 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnection : TerraformResource
     /// <summary>
     /// The digital_twins_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DigitalTwinsId
+    public TerraformProperty<string>? DigitalTwinsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("digital_twins_id");
+        get => GetProperty<TerraformProperty<string>>("digital_twins_id");
         set => this.WithProperty("digital_twins_id", value);
     }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubConsumerGroupName
+    public TerraformProperty<string>? EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name");
+        get => GetProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
         set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubName
+    public TerraformProperty<string>? EventhubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name");
+        get => GetProperty<TerraformProperty<string>>("eventhub_name");
         set => this.WithProperty("eventhub_name", value);
     }
 
     /// <summary>
     /// The eventhub_namespace_endpoint_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubNamespaceEndpointUri
+    public TerraformProperty<string>? EventhubNamespaceEndpointUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_endpoint_uri");
+        get => GetProperty<TerraformProperty<string>>("eventhub_namespace_endpoint_uri");
         set => this.WithProperty("eventhub_namespace_endpoint_uri", value);
     }
 
     /// <summary>
     /// The eventhub_namespace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubNamespaceId
+    public TerraformProperty<string>? EventhubNamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_namespace_id");
+        get => GetProperty<TerraformProperty<string>>("eventhub_namespace_id");
         set => this.WithProperty("eventhub_namespace_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kusto_cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KustoClusterId
+    public TerraformProperty<string>? KustoClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("kusto_cluster_id");
         set => this.WithProperty("kusto_cluster_id", value);
     }
 
     /// <summary>
     /// The kusto_cluster_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KustoClusterUri
+    public TerraformProperty<string>? KustoClusterUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_cluster_uri");
+        get => GetProperty<TerraformProperty<string>>("kusto_cluster_uri");
         set => this.WithProperty("kusto_cluster_uri", value);
     }
 
     /// <summary>
     /// The kusto_database_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KustoDatabaseName
+    public TerraformProperty<string>? KustoDatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_database_name");
+        get => GetProperty<TerraformProperty<string>>("kusto_database_name");
         set => this.WithProperty("kusto_database_name", value);
     }
 
     /// <summary>
     /// The kusto_table_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KustoTableName
+    public TerraformProperty<string>? KustoTableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_table_name");
+        get => GetProperty<TerraformProperty<string>>("kusto_table_name");
         set => this.WithProperty("kusto_table_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

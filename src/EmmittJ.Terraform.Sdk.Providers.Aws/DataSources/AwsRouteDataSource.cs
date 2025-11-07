@@ -19,144 +19,144 @@ public class AwsRouteDataSource : TerraformDataSource
     /// <summary>
     /// The carrier_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CarrierGatewayId
+    public TerraformProperty<string>? CarrierGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("carrier_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("carrier_gateway_id");
         set => this.WithProperty("carrier_gateway_id", value);
     }
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CoreNetworkArn
+    public TerraformProperty<string>? CoreNetworkArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_arn");
+        get => GetProperty<TerraformProperty<string>>("core_network_arn");
         set => this.WithProperty("core_network_arn", value);
     }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationCidrBlock
+    public TerraformProperty<string>? DestinationCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The destination_ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationIpv6CidrBlock
+    public TerraformProperty<string>? DestinationIpv6CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_ipv6_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("destination_ipv6_cidr_block");
         set => this.WithProperty("destination_ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// The destination_prefix_list_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationPrefixListId
+    public TerraformProperty<string>? DestinationPrefixListId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_prefix_list_id");
+        get => GetProperty<TerraformProperty<string>>("destination_prefix_list_id");
         set => this.WithProperty("destination_prefix_list_id", value);
     }
 
     /// <summary>
     /// The egress_only_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EgressOnlyGatewayId
+    public TerraformProperty<string>? EgressOnlyGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("egress_only_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("egress_only_gateway_id");
         set => this.WithProperty("egress_only_gateway_id", value);
     }
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewayId
+    public TerraformProperty<string>? GatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_id");
+        get => GetProperty<TerraformProperty<string>>("gateway_id");
         set => this.WithProperty("gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocalGatewayId
+    public TerraformProperty<string>? LocalGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("local_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("local_gateway_id");
         set => this.WithProperty("local_gateway_id", value);
     }
 
     /// <summary>
     /// The nat_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NatGatewayId
+    public TerraformProperty<string>? NatGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nat_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("nat_gateway_id");
         set => this.WithProperty("nat_gateway_id", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkInterfaceId
+    public TerraformProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id");
+        get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RouteTableId
+    public TerraformProperty<string>? RouteTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_table_id");
+        get => GetProperty<TerraformProperty<string>>("route_table_id");
         set => this.WithProperty("route_table_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayId
+    public TerraformProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcPeeringConnectionId
+    public TerraformProperty<string>? VpcPeeringConnectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_peering_connection_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_peering_connection_id");
         set => this.WithProperty("vpc_peering_connection_id", value);
     }
 

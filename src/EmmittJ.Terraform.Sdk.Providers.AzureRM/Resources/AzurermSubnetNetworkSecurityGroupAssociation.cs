@@ -19,27 +19,27 @@ public class AzurermSubnetNetworkSecurityGroupAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkSecurityGroupId
+    public TerraformProperty<string>? NetworkSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_security_group_id");
+        get => GetProperty<TerraformProperty<string>>("network_security_group_id");
         set => this.WithProperty("network_security_group_id", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

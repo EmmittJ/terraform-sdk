@@ -24,18 +24,18 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// <summary>
     /// The name of the target Distributed Cloud Edge Cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cluster
+    public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -45,18 +45,18 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -65,45 +65,45 @@ public class GoogleEdgecontainerNodePool : TerraformResource
     /// The filtering language accepts strings like &amp;quot;name=&amp;lt;name&amp;gt;&amp;quot;, and is
     /// documented in more detail in [AIP-160](https://google.aip.dev/160).
     /// </summary>
-    public TerraformLiteralProperty<string>? MachineFilter
+    public TerraformProperty<string>? MachineFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("machine_filter");
+        get => GetProperty<TerraformProperty<string>>("machine_filter");
         set => this.WithProperty("machine_filter", value);
     }
 
     /// <summary>
     /// The resource name of the node pool.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The number of nodes in the pool.
     /// </summary>
-    public TerraformLiteralProperty<double>? NodeCount
+    public TerraformProperty<double>? NodeCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("node_count");
+        get => GetProperty<TerraformProperty<double>>("node_count");
         set => this.WithProperty("node_count", value);
     }
 
     /// <summary>
     /// Name of the Google Distributed Cloud Edge zone where this node pool will be created. For example: &#39;us-central1-edge-customer-a&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeLocation
+    public TerraformProperty<string>? NodeLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_location");
+        get => GetProperty<TerraformProperty<string>>("node_location");
         set => this.WithProperty("node_location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

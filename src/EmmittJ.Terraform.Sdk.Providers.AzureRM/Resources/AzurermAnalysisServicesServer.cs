@@ -20,90 +20,90 @@ public class AzurermAnalysisServicesServer : TerraformResource
     /// <summary>
     /// The admin_users attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AdminUsers
+    public TerraformProperty<HashSet<string>>? AdminUsers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("admin_users");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("admin_users");
         set => this.WithProperty("admin_users", value);
     }
 
     /// <summary>
     /// The backup_blob_container_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupBlobContainerUri
+    public TerraformProperty<string>? BackupBlobContainerUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_blob_container_uri");
+        get => GetProperty<TerraformProperty<string>>("backup_blob_container_uri");
         set => this.WithProperty("backup_blob_container_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The power_bi_service_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PowerBiServiceEnabled
+    public TerraformProperty<bool>? PowerBiServiceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("power_bi_service_enabled");
+        get => GetProperty<TerraformProperty<bool>>("power_bi_service_enabled");
         set => this.WithProperty("power_bi_service_enabled", value);
     }
 
     /// <summary>
     /// The querypool_connection_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QuerypoolConnectionMode
+    public TerraformProperty<string>? QuerypoolConnectionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("querypool_connection_mode");
+        get => GetProperty<TerraformProperty<string>>("querypool_connection_mode");
         set => this.WithProperty("querypool_connection_mode", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

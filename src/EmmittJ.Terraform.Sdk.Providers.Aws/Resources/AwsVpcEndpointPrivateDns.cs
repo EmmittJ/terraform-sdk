@@ -19,27 +19,27 @@ public class AwsVpcEndpointPrivateDns : TerraformResource
     /// <summary>
     /// The private_dns_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrivateDnsEnabled
+    public TerraformProperty<bool>? PrivateDnsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_dns_enabled");
+        get => GetProperty<TerraformProperty<bool>>("private_dns_enabled");
         set => this.WithProperty("private_dns_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcEndpointId
+    public TerraformProperty<string>? VpcEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_endpoint_id");
         set => this.WithProperty("vpc_endpoint_id", value);
     }
 

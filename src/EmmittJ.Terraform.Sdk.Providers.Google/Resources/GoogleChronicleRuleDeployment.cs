@@ -26,9 +26,9 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// Whether detections resulting from this deployment should be considered
     /// alerts.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Alerting
+    public TerraformProperty<bool>? Alerting
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("alerting");
+        get => GetProperty<TerraformProperty<bool>>("alerting");
         set => this.WithProperty("alerting", value);
     }
 
@@ -41,63 +41,63 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// If currently set to true, enabled, alerting, and run_frequency cannot be
     /// updated.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Archived
+    public TerraformProperty<bool>? Archived
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("archived");
+        get => GetProperty<TerraformProperty<bool>>("archived");
         set => this.WithProperty("archived", value);
     }
 
     /// <summary>
     /// Whether the rule is currently deployed continuously against incoming data.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The Rule ID of the rule.
     /// </summary>
-    public TerraformLiteralProperty<string>? Rule
+    public TerraformProperty<string>? Rule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule");
+        get => GetProperty<TerraformProperty<string>>("rule");
         set => this.WithProperty("rule", value);
     }
 
@@ -108,9 +108,9 @@ public class GoogleChronicleRuleDeployment : TerraformResource
     /// HOURLY
     /// DAILY
     /// </summary>
-    public TerraformLiteralProperty<string>? RunFrequency
+    public TerraformProperty<string>? RunFrequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("run_frequency");
+        get => GetProperty<TerraformProperty<string>>("run_frequency");
         set => this.WithProperty("run_frequency", value);
     }
 

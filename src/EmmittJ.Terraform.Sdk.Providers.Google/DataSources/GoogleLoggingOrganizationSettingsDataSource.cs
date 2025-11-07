@@ -25,18 +25,18 @@ public class GoogleLoggingOrganizationSettingsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The organization for which to retrieve settings.
     /// </summary>
-    public TerraformLiteralProperty<string>? Organization
+    public TerraformProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 

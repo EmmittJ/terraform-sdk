@@ -23,9 +23,9 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -36,27 +36,27 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// 
     /// Some legacy HTTP clients may have issues with HTTP/2 connections due to broken HTTP/2 implementations. Setting this to true will prevent HTTP/2 from being advertised and negotiated.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableHttp2
+    public TerraformProperty<bool>? DisableHttp2
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_http2");
+        get => GetProperty<TerraformProperty<bool>>("disable_http2");
         set => this.WithProperty("disable_http2", value);
     }
 
     /// <summary>
     /// HTTP/3 (IETF QUIC) and Google QUIC are enabled by default.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableQuic
+    public TerraformProperty<bool>? DisableQuic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_quic");
+        get => GetProperty<TerraformProperty<bool>>("disable_quic");
         set => this.WithProperty("disable_quic", value);
     }
 
     /// <summary>
     /// Resource URL that points at the Cloud Armor edge security policy that is applied on each request against the EdgeCacheService.
     /// </summary>
-    public TerraformLiteralProperty<string>? EdgeSecurityPolicy
+    public TerraformProperty<string>? EdgeSecurityPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_security_policy");
+        get => GetProperty<TerraformProperty<string>>("edge_security_policy");
         set => this.WithProperty("edge_security_policy", value);
     }
 
@@ -65,18 +65,18 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// 
     /// Note that only &amp;quot;global&amp;quot; certificates with a &amp;quot;scope&amp;quot; of &amp;quot;EDGE_CACHE&amp;quot; can be attached to an EdgeCacheService.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? EdgeSslCertificates
+    public TerraformProperty<List<string>>? EdgeSslCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("edge_ssl_certificates");
+        get => GetProperty<TerraformProperty<List<string>>>("edge_ssl_certificates");
         set => this.WithProperty("edge_ssl_certificates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -86,9 +86,9 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -97,18 +97,18 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
     /// and all following characters must be a dash, underscore, letter or digit.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -118,9 +118,9 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// Clients who connect over HTTP (port 80) will receive a HTTP 301 to the same URL over HTTPS (port 443).
     /// You must have at least one (1) edgeSslCertificate specified to enable this.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequireTls
+    public TerraformProperty<bool>? RequireTls
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("require_tls");
+        get => GetProperty<TerraformProperty<bool>>("require_tls");
         set => this.WithProperty("require_tls", value);
     }
 
@@ -129,9 +129,9 @@ public class GoogleNetworkServicesEdgeCacheService : TerraformResource
     /// 
     /// If not set, the EdgeCacheService has no SSL policy configured, and will default to the &amp;quot;COMPATIBLE&amp;quot; policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? SslPolicy
+    public TerraformProperty<string>? SslPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy");
+        get => GetProperty<TerraformProperty<string>>("ssl_policy");
         set => this.WithProperty("ssl_policy", value);
     }
 

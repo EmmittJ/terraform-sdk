@@ -19,27 +19,27 @@ public class AzureadServicePrincipalClaimsMappingPolicyAssignment : TerraformRes
     /// <summary>
     /// ID of the claims mapping policy to assign
     /// </summary>
-    public TerraformLiteralProperty<string>? ClaimsMappingPolicyId
+    public TerraformProperty<string>? ClaimsMappingPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("claims_mapping_policy_id");
+        get => GetProperty<TerraformProperty<string>>("claims_mapping_policy_id");
         set => this.WithProperty("claims_mapping_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// ID of the service principal for which to assign the policy
     /// </summary>
-    public TerraformLiteralProperty<string>? ServicePrincipalId
+    public TerraformProperty<string>? ServicePrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_id");
+        get => GetProperty<TerraformProperty<string>>("service_principal_id");
         set => this.WithProperty("service_principal_id", value);
     }
 

@@ -19,90 +19,90 @@ public class AzurermNetworkManagerAdminRule : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Action
+    public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The admin_rule_collection_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdminRuleCollectionId
+    public TerraformProperty<string>? AdminRuleCollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_rule_collection_id");
+        get => GetProperty<TerraformProperty<string>>("admin_rule_collection_id");
         set => this.WithProperty("admin_rule_collection_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The destination_port_ranges attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DestinationPortRanges
+    public TerraformProperty<List<string>>? DestinationPortRanges
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("destination_port_ranges");
+        get => GetProperty<TerraformProperty<List<string>>>("destination_port_ranges");
         set => this.WithProperty("destination_port_ranges", value);
     }
 
     /// <summary>
     /// The direction attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Direction
+    public TerraformProperty<string>? Direction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direction");
+        get => GetProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The source_port_ranges attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SourcePortRanges
+    public TerraformProperty<List<string>>? SourcePortRanges
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("source_port_ranges");
+        get => GetProperty<TerraformProperty<List<string>>>("source_port_ranges");
         set => this.WithProperty("source_port_ranges", value);
     }
 

@@ -24,54 +24,54 @@ public class AzurermFunctionAppHybridConnection : TerraformResource
     /// <summary>
     /// The ID of the Function App for this Hybrid Connection.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionAppId
+    public TerraformProperty<string>? FunctionAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id");
+        get => GetProperty<TerraformProperty<string>>("function_app_id");
         set => this.WithProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The hostname of the endpoint.
     /// </summary>
-    public TerraformLiteralProperty<string>? Hostname
+    public TerraformProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        get => GetProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The port to use for the endpoint
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The ID of the Relay Hybrid Connection to use.
     /// </summary>
-    public TerraformLiteralProperty<string>? RelayId
+    public TerraformProperty<string>? RelayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relay_id");
+        get => GetProperty<TerraformProperty<string>>("relay_id");
         set => this.WithProperty("relay_id", value);
     }
 
     /// <summary>
     /// The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
     /// </summary>
-    public TerraformLiteralProperty<string>? SendKeyName
+    public TerraformProperty<string>? SendKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("send_key_name");
+        get => GetProperty<TerraformProperty<string>>("send_key_name");
         set => this.WithProperty("send_key_name", value);
     }
 

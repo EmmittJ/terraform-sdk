@@ -25,27 +25,27 @@ public class GoogleProjectIamCustomRoleDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The camel case role id to use for this role. Cannot contain - characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleId
+    public TerraformProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 

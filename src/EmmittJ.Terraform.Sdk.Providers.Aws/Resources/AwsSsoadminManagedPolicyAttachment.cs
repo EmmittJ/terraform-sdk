@@ -20,45 +20,45 @@ public class AwsSsoadminManagedPolicyAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceArn
+    public TerraformProperty<string>? InstanceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_arn");
+        get => GetProperty<TerraformProperty<string>>("instance_arn");
         set => this.WithProperty("instance_arn", value);
     }
 
     /// <summary>
     /// The managed_policy_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedPolicyArn
+    public TerraformProperty<string>? ManagedPolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_policy_arn");
+        get => GetProperty<TerraformProperty<string>>("managed_policy_arn");
         set => this.WithProperty("managed_policy_arn", value);
     }
 
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PermissionSetArn
+    public TerraformProperty<string>? PermissionSetArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("permission_set_arn");
+        get => GetProperty<TerraformProperty<string>>("permission_set_arn");
         set => this.WithProperty("permission_set_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

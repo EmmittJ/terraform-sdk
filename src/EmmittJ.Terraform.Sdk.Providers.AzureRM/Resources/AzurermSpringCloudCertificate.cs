@@ -20,63 +20,63 @@ public class AzurermSpringCloudCertificate : TerraformResource
     /// <summary>
     /// The certificate_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateContent
+    public TerraformProperty<string>? CertificateContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_content");
+        get => GetProperty<TerraformProperty<string>>("certificate_content");
         set => this.WithProperty("certificate_content", value);
     }
 
     /// <summary>
     /// The exclude_private_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExcludePrivateKey
+    public TerraformProperty<bool>? ExcludePrivateKey
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_private_key");
+        get => GetProperty<TerraformProperty<bool>>("exclude_private_key");
         set => this.WithProperty("exclude_private_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultCertificateId
+    public TerraformProperty<string>? KeyVaultCertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_certificate_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_certificate_id");
         set => this.WithProperty("key_vault_certificate_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceName
+    public TerraformProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 

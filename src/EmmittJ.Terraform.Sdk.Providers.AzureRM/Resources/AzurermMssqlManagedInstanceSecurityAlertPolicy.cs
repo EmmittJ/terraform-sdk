@@ -19,90 +19,90 @@ public class AzurermMssqlManagedInstanceSecurityAlertPolicy : TerraformResource
     /// <summary>
     /// The disabled_alerts attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? DisabledAlerts
+    public TerraformProperty<HashSet<string>>? DisabledAlerts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("disabled_alerts");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("disabled_alerts");
         set => this.WithProperty("disabled_alerts", value);
     }
 
     /// <summary>
     /// The email_account_admins_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EmailAccountAdminsEnabled
+    public TerraformProperty<bool>? EmailAccountAdminsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("email_account_admins_enabled");
+        get => GetProperty<TerraformProperty<bool>>("email_account_admins_enabled");
         set => this.WithProperty("email_account_admins_enabled", value);
     }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? EmailAddresses
+    public TerraformProperty<HashSet<string>>? EmailAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("email_addresses");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("email_addresses");
         set => this.WithProperty("email_addresses", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_instance_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedInstanceName
+    public TerraformProperty<string>? ManagedInstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_name");
+        get => GetProperty<TerraformProperty<string>>("managed_instance_name");
         set => this.WithProperty("managed_instance_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionDays
+    public TerraformProperty<double>? RetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_days");
+        get => GetProperty<TerraformProperty<double>>("retention_days");
         set => this.WithProperty("retention_days", value);
     }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountAccessKey
+    public TerraformProperty<string>? StorageAccountAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_access_key");
+        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
         set => this.WithProperty("storage_account_access_key", value);
     }
 
     /// <summary>
     /// The storage_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageEndpoint
+    public TerraformProperty<string>? StorageEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_endpoint");
+        get => GetProperty<TerraformProperty<string>>("storage_endpoint");
         set => this.WithProperty("storage_endpoint", value);
     }
 

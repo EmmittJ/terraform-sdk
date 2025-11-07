@@ -23,126 +23,126 @@ public class AwsApiGatewayStage : TerraformResource
     /// <summary>
     /// The cache_cluster_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CacheClusterEnabled
+    public TerraformProperty<bool>? CacheClusterEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cache_cluster_enabled");
+        get => GetProperty<TerraformProperty<bool>>("cache_cluster_enabled");
         set => this.WithProperty("cache_cluster_enabled", value);
     }
 
     /// <summary>
     /// The cache_cluster_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CacheClusterSize
+    public TerraformProperty<string>? CacheClusterSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_cluster_size");
+        get => GetProperty<TerraformProperty<string>>("cache_cluster_size");
         set => this.WithProperty("cache_cluster_size", value);
     }
 
     /// <summary>
     /// The client_certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientCertificateId
+    public TerraformProperty<string>? ClientCertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_certificate_id");
+        get => GetProperty<TerraformProperty<string>>("client_certificate_id");
         set => this.WithProperty("client_certificate_id", value);
     }
 
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeploymentId
+    public TerraformProperty<string>? DeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_id");
+        get => GetProperty<TerraformProperty<string>>("deployment_id");
         set => this.WithProperty("deployment_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The documentation_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DocumentationVersion
+    public TerraformProperty<string>? DocumentationVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("documentation_version");
+        get => GetProperty<TerraformProperty<string>>("documentation_version");
         set => this.WithProperty("documentation_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestApiId
+    public TerraformProperty<string>? RestApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rest_api_id");
+        get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StageName
+    public TerraformProperty<string>? StageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stage_name");
+        get => GetProperty<TerraformProperty<string>>("stage_name");
         set => this.WithProperty("stage_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Variables
+    public TerraformProperty<Dictionary<string, string>>? Variables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("variables");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("variables");
         set => this.WithProperty("variables", value);
     }
 
     /// <summary>
     /// The xray_tracing_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? XrayTracingEnabled
+    public TerraformProperty<bool>? XrayTracingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("xray_tracing_enabled");
+        get => GetProperty<TerraformProperty<bool>>("xray_tracing_enabled");
         set => this.WithProperty("xray_tracing_enabled", value);
     }
 

@@ -21,27 +21,27 @@ public class AwsEipDomainName : TerraformResource
     /// <summary>
     /// The allocation_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AllocationId
+    public TerraformProperty<string>? AllocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allocation_id");
+        get => GetProperty<TerraformProperty<string>>("allocation_id");
         set => this.WithProperty("allocation_id", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

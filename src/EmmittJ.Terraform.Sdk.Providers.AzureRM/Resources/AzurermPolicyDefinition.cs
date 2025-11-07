@@ -20,90 +20,90 @@ public class AzurermPolicyDefinition : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagementGroupId
+    public TerraformProperty<string>? ManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id");
+        get => GetProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Metadata
+    public TerraformProperty<string>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata");
+        get => GetProperty<TerraformProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Mode
+    public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parameters
+    public TerraformProperty<string>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameters");
+        get => GetProperty<TerraformProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The policy_rule attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyRule
+    public TerraformProperty<string>? PolicyRule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_rule");
+        get => GetProperty<TerraformProperty<string>>("policy_rule");
         set => this.WithProperty("policy_rule", value);
     }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyType
+    public TerraformProperty<string>? PolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_type");
+        get => GetProperty<TerraformProperty<string>>("policy_type");
         set => this.WithProperty("policy_type", value);
     }
 

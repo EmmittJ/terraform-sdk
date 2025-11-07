@@ -19,54 +19,54 @@ public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationAccountName
+    public TerraformProperty<string>? IntegrationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_account_name");
+        get => GetProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Metadata
+    public TerraformProperty<string>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata");
+        get => GetProperty<TerraformProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_certificate attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicCertificate
+    public TerraformProperty<string>? PublicCertificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_certificate");
+        get => GetProperty<TerraformProperty<string>>("public_certificate");
         set => this.WithProperty("public_certificate", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

@@ -23,54 +23,54 @@ public class AwsRedshiftEndpointAuthorization : TerraformResource
     /// <summary>
     /// The account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Account
+    public TerraformProperty<string>? Account
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account");
+        get => GetProperty<TerraformProperty<string>>("account");
         set => this.WithProperty("account", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterIdentifier
+    public TerraformProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDelete
+    public TerraformProperty<bool>? ForceDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete");
+        get => GetProperty<TerraformProperty<bool>>("force_delete");
         set => this.WithProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The vpc_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcIds
+    public TerraformProperty<HashSet<string>>? VpcIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_ids");
         set => this.WithProperty("vpc_ids", value);
     }
 

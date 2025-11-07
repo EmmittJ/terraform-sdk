@@ -19,54 +19,54 @@ public class AzurermSentinelDataConnectorMicrosoftCloudAppSecurity : TerraformRe
     /// <summary>
     /// The alerts_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AlertsEnabled
+    public TerraformProperty<bool>? AlertsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("alerts_enabled");
+        get => GetProperty<TerraformProperty<bool>>("alerts_enabled");
         set => this.WithProperty("alerts_enabled", value);
     }
 
     /// <summary>
     /// The discovery_logs_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DiscoveryLogsEnabled
+    public TerraformProperty<bool>? DiscoveryLogsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("discovery_logs_enabled");
+        get => GetProperty<TerraformProperty<bool>>("discovery_logs_enabled");
         set => this.WithProperty("discovery_logs_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

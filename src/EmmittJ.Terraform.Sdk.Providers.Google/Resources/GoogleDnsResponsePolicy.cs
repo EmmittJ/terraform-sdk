@@ -19,36 +19,36 @@ public class GoogleDnsResponsePolicy : TerraformResource
     /// <summary>
     /// The description of the response policy, such as &#39;My new response policy&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The user assigned name for this Response Policy, such as &#39;myresponsepolicy&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResponsePolicyName
+    public TerraformProperty<string>? ResponsePolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("response_policy_name");
+        get => GetProperty<TerraformProperty<string>>("response_policy_name");
         set => this.WithProperty("response_policy_name", value);
     }
 

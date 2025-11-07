@@ -19,63 +19,63 @@ public class AwsAccountAlternateContact : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The alternate_contact_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AlternateContactType
+    public TerraformProperty<string>? AlternateContactType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alternate_contact_type");
+        get => GetProperty<TerraformProperty<string>>("alternate_contact_type");
         set => this.WithProperty("alternate_contact_type", value);
     }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailAddress
+    public TerraformProperty<string>? EmailAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_address");
+        get => GetProperty<TerraformProperty<string>>("email_address");
         set => this.WithProperty("email_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PhoneNumber
+    public TerraformProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("phone_number");
+        get => GetProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
     }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Title
+    public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 

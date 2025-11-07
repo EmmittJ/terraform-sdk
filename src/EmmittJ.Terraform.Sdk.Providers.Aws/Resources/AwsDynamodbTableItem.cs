@@ -19,54 +19,54 @@ public class AwsDynamodbTableItem : TerraformResource
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HashKey
+    public TerraformProperty<string>? HashKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hash_key");
+        get => GetProperty<TerraformProperty<string>>("hash_key");
         set => this.WithProperty("hash_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The item attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Item
+    public TerraformProperty<string>? Item
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("item");
+        get => GetProperty<TerraformProperty<string>>("item");
         set => this.WithProperty("item", value);
     }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RangeKey
+    public TerraformProperty<string>? RangeKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("range_key");
+        get => GetProperty<TerraformProperty<string>>("range_key");
         set => this.WithProperty("range_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableName
+    public TerraformProperty<string>? TableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_name");
+        get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

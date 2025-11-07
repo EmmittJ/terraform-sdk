@@ -19,54 +19,54 @@ public class AwsRumMetricsDestination : TerraformResource
     /// <summary>
     /// The app_monitor_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppMonitorName
+    public TerraformProperty<string>? AppMonitorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_monitor_name");
+        get => GetProperty<TerraformProperty<string>>("app_monitor_name");
         set => this.WithProperty("app_monitor_name", value);
     }
 
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Destination
+    public TerraformProperty<string>? Destination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination");
+        get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationArn
+    public TerraformProperty<string>? DestinationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_arn");
+        get => GetProperty<TerraformProperty<string>>("destination_arn");
         set => this.WithProperty("destination_arn", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

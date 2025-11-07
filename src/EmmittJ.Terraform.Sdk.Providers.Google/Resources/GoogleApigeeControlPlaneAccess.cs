@@ -23,27 +23,27 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     /// 
     /// You might specify multiple service accounts, for example, if you have multiple environments and wish to assign a unique service account to each one.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AnalyticsPublisherIdentities
+    public TerraformProperty<List<string>>? AnalyticsPublisherIdentities
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("analytics_publisher_identities");
+        get => GetProperty<TerraformProperty<List<string>>>("analytics_publisher_identities");
         set => this.WithProperty("analytics_publisher_identities", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the Apigee organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -56,9 +56,9 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     /// 
     /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SynchronizerIdentities
+    public TerraformProperty<List<string>>? SynchronizerIdentities
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("synchronizer_identities");
+        get => GetProperty<TerraformProperty<List<string>>>("synchronizer_identities");
         set => this.WithProperty("synchronizer_identities", value);
     }
 

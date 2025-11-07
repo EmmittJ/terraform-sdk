@@ -19,72 +19,72 @@ public class AzurermIothubRoute : TerraformResource
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Condition
+    public TerraformProperty<string>? Condition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("condition");
+        get => GetProperty<TerraformProperty<string>>("condition");
         set => this.WithProperty("condition", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The endpoint_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? EndpointNames
+    public TerraformProperty<List<string>>? EndpointNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("endpoint_names");
+        get => GetProperty<TerraformProperty<List<string>>>("endpoint_names");
         set => this.WithProperty("endpoint_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IothubName
+    public TerraformProperty<string>? IothubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_name");
+        get => GetProperty<TerraformProperty<string>>("iothub_name");
         set => this.WithProperty("iothub_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Source
+    public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 

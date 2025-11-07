@@ -22,63 +22,63 @@ public class GoogleComputeResizeRequest : TerraformResource
     /// <summary>
     /// An optional description of this resize-request.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The reference of the instance group manager this ResizeRequest is a part of.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceGroupManager
+    public TerraformProperty<string>? InstanceGroupManager
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_group_manager");
+        get => GetProperty<TerraformProperty<string>>("instance_group_manager");
         set => this.WithProperty("instance_group_manager", value);
     }
 
     /// <summary>
     /// The name of this resize request. The name must be 1-63 characters long, and comply with RFC1035.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The number of instances to be created by this resize request. The group&#39;s target size will be increased by this number.
     /// </summary>
-    public TerraformLiteralProperty<double>? ResizeBy
+    public TerraformProperty<double>? ResizeBy
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("resize_by");
+        get => GetProperty<TerraformProperty<double>>("resize_by");
         set => this.WithProperty("resize_by", value);
     }
 
     /// <summary>
     /// The reference of the compute zone scoping this request. If it is not provided, the provider zone is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

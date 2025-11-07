@@ -19,99 +19,99 @@ public class AzurermAppConfigurationFeature : TerraformResource
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationStoreId
+    public TerraformProperty<string>? ConfigurationStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_store_id");
+        get => GetProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Etag
+    public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        get => GetProperty<TerraformProperty<string>>("etag");
         set => this.WithProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Label
+    public TerraformProperty<string>? Label
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("label");
+        get => GetProperty<TerraformProperty<string>>("label");
         set => this.WithProperty("label", value);
     }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Locked
+    public TerraformProperty<bool>? Locked
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("locked");
+        get => GetProperty<TerraformProperty<bool>>("locked");
         set => this.WithProperty("locked", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The percentage_filter_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PercentageFilterValue
+    public TerraformProperty<double>? PercentageFilterValue
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("percentage_filter_value");
+        get => GetProperty<TerraformProperty<double>>("percentage_filter_value");
         set => this.WithProperty("percentage_filter_value", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

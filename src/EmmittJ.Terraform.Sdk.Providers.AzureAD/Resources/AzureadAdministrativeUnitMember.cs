@@ -19,27 +19,27 @@ public class AzureadAdministrativeUnitMember : TerraformResource
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    public TerraformLiteralProperty<string>? AdministrativeUnitObjectId
+    public TerraformProperty<string>? AdministrativeUnitObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("administrative_unit_object_id");
+        get => GetProperty<TerraformProperty<string>>("administrative_unit_object_id");
         set => this.WithProperty("administrative_unit_object_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the member
     /// </summary>
-    public TerraformLiteralProperty<string>? MemberObjectId
+    public TerraformProperty<string>? MemberObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member_object_id");
+        get => GetProperty<TerraformProperty<string>>("member_object_id");
         set => this.WithProperty("member_object_id", value);
     }
 

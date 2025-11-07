@@ -21,108 +21,108 @@ public class AwsServicecatalogProvisioningArtifact : TerraformResource
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AcceptLanguage
+    public TerraformProperty<string>? AcceptLanguage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("accept_language");
+        get => GetProperty<TerraformProperty<string>>("accept_language");
         set => this.WithProperty("accept_language", value);
     }
 
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Active
+    public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("active");
+        get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The disable_template_validation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableTemplateValidation
+    public TerraformProperty<bool>? DisableTemplateValidation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_template_validation");
+        get => GetProperty<TerraformProperty<bool>>("disable_template_validation");
         set => this.WithProperty("disable_template_validation", value);
     }
 
     /// <summary>
     /// The guidance attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Guidance
+    public TerraformProperty<string>? Guidance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("guidance");
+        get => GetProperty<TerraformProperty<string>>("guidance");
         set => this.WithProperty("guidance", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProductId
+    public TerraformProperty<string>? ProductId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_id");
+        get => GetProperty<TerraformProperty<string>>("product_id");
         set => this.WithProperty("product_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The template_physical_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplatePhysicalId
+    public TerraformProperty<string>? TemplatePhysicalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_physical_id");
+        get => GetProperty<TerraformProperty<string>>("template_physical_id");
         set => this.WithProperty("template_physical_id", value);
     }
 
     /// <summary>
     /// The template_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateUrl
+    public TerraformProperty<string>? TemplateUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_url");
+        get => GetProperty<TerraformProperty<string>>("template_url");
         set => this.WithProperty("template_url", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

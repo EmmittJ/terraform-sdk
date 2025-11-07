@@ -19,72 +19,72 @@ public class AzurermSentinelWatchlist : TerraformResource
     /// <summary>
     /// The default_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultDuration
+    public TerraformProperty<string>? DefaultDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_duration");
+        get => GetProperty<TerraformProperty<string>>("default_duration");
         set => this.WithProperty("default_duration", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The item_search_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ItemSearchKey
+    public TerraformProperty<string>? ItemSearchKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("item_search_key");
+        get => GetProperty<TerraformProperty<string>>("item_search_key");
         set => this.WithProperty("item_search_key", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Labels
+    public TerraformProperty<List<string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("labels");
+        get => GetProperty<TerraformProperty<List<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

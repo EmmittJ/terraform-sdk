@@ -20,18 +20,18 @@ public class AwsShieldDrtAccessLogBucketAssociation : TerraformResource
     /// <summary>
     /// The log_bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogBucket
+    public TerraformProperty<string>? LogBucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_bucket");
+        get => GetProperty<TerraformProperty<string>>("log_bucket");
         set => this.WithProperty("log_bucket", value);
     }
 
     /// <summary>
     /// Unused
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArnAssociationId
+    public TerraformProperty<string>? RoleArnAssociationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn_association_id");
+        get => GetProperty<TerraformProperty<string>>("role_arn_association_id");
         set => this.WithProperty("role_arn_association_id", value);
     }
 

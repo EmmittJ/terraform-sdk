@@ -36,63 +36,63 @@ public class AwsDbSnapshot : TerraformResource
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbInstanceIdentifier
+    public TerraformProperty<string>? DbInstanceIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_instance_identifier");
+        get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
         set => this.WithProperty("db_instance_identifier", value);
     }
 
     /// <summary>
     /// The db_snapshot_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbSnapshotIdentifier
+    public TerraformProperty<string>? DbSnapshotIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_snapshot_identifier");
+        get => GetProperty<TerraformProperty<string>>("db_snapshot_identifier");
         set => this.WithProperty("db_snapshot_identifier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The shared_accounts attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SharedAccounts
+    public TerraformProperty<HashSet<string>>? SharedAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("shared_accounts");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("shared_accounts");
         set => this.WithProperty("shared_accounts", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

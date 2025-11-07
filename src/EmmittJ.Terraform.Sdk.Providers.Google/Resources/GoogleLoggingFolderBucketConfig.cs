@@ -21,54 +21,54 @@ public class GoogleLoggingFolderBucketConfig : TerraformResource
     /// <summary>
     /// The name of the logging bucket. Logging automatically creates two log buckets: _Required and _Default.
     /// </summary>
-    public TerraformLiteralProperty<string>? BucketId
+    public TerraformProperty<string>? BucketId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket_id");
+        get => GetProperty<TerraformProperty<string>>("bucket_id");
         set => this.WithProperty("bucket_id", value);
     }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The parent resource that contains the logging bucket.
     /// </summary>
-    public TerraformLiteralProperty<string>? Folder
+    public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the bucket.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionDays
+    public TerraformProperty<double>? RetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_days");
+        get => GetProperty<TerraformProperty<double>>("retention_days");
         set => this.WithProperty("retention_days", value);
     }
 

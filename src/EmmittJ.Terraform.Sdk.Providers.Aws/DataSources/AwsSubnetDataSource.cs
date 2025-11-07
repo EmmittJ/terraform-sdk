@@ -34,90 +34,90 @@ public class AwsSubnetDataSource : TerraformDataSource
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZone
+    public TerraformProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        get => GetProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZoneId
+    public TerraformProperty<string>? AvailabilityZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_id");
+        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
         set => this.WithProperty("availability_zone_id", value);
     }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CidrBlock
+    public TerraformProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block");
+        get => GetProperty<TerraformProperty<string>>("cidr_block");
         set => this.WithProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The default_for_az attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DefaultForAz
+    public TerraformProperty<bool>? DefaultForAz
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_for_az");
+        get => GetProperty<TerraformProperty<bool>>("default_for_az");
         set => this.WithProperty("default_for_az", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ipv6CidrBlock
+    public TerraformProperty<string>? Ipv6CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("ipv6_cidr_block");
         set => this.WithProperty("ipv6_cidr_block", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

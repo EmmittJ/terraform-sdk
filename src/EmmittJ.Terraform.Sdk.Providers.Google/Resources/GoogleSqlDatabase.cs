@@ -24,9 +24,9 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;UTF8&#39; at creation time.
     /// </summary>
-    public TerraformLiteralProperty<string>? Charset
+    public TerraformProperty<string>? Charset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("charset");
+        get => GetProperty<TerraformProperty<string>>("charset");
         set => this.WithProperty("charset", value);
     }
 
@@ -37,9 +37,9 @@ public class GoogleSqlDatabase : TerraformResource
     /// for more details and supported values. Postgres databases only support
     /// a value of &#39;en_US.UTF8&#39; at creation time.
     /// </summary>
-    public TerraformLiteralProperty<string>? Collation
+    public TerraformProperty<string>? Collation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collation");
+        get => GetProperty<TerraformProperty<string>>("collation");
         set => this.WithProperty("collation", value);
     }
 
@@ -49,18 +49,18 @@ public class GoogleSqlDatabase : TerraformResource
     /// deleted from the API if there are users other than cloudsqlsuperuser with access. Possible
     /// values are: &amp;quot;ABANDON&amp;quot;, &amp;quot;DELETE&amp;quot;. Defaults to &amp;quot;DELETE&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -68,9 +68,9 @@ public class GoogleSqlDatabase : TerraformResource
     /// The name of the Cloud SQL instance. This does not include the project
     /// ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -78,18 +78,18 @@ public class GoogleSqlDatabase : TerraformResource
     /// The name of the database in the Cloud SQL instance.
     /// This does not include the project ID or instance name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -19,36 +19,36 @@ public class AwsSesv2EmailIdentityFeedbackAttributes : TerraformResource
     /// <summary>
     /// The email_forwarding_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EmailForwardingEnabled
+    public TerraformProperty<bool>? EmailForwardingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("email_forwarding_enabled");
+        get => GetProperty<TerraformProperty<bool>>("email_forwarding_enabled");
         set => this.WithProperty("email_forwarding_enabled", value);
     }
 
     /// <summary>
     /// The email_identity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailIdentity
+    public TerraformProperty<string>? EmailIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_identity");
+        get => GetProperty<TerraformProperty<string>>("email_identity");
         set => this.WithProperty("email_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

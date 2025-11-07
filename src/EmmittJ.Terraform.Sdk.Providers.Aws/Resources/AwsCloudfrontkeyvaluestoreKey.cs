@@ -21,27 +21,27 @@ public class AwsCloudfrontkeyvaluestoreKey : TerraformResource
     /// <summary>
     /// The key to put.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The Amazon Resource Name (ARN) of the Key Value Store.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyValueStoreArn
+    public TerraformProperty<string>? KeyValueStoreArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_value_store_arn");
+        get => GetProperty<TerraformProperty<string>>("key_value_store_arn");
         set => this.WithProperty("key_value_store_arn", value);
     }
 
     /// <summary>
     /// The value to put.
     /// </summary>
-    public TerraformLiteralProperty<string>? Value
+    public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

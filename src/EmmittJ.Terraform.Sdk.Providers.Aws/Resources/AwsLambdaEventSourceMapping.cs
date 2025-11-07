@@ -26,180 +26,180 @@ public class AwsLambdaEventSourceMapping : TerraformResource
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BatchSize
+    public TerraformProperty<double>? BatchSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_size");
+        get => GetProperty<TerraformProperty<double>>("batch_size");
         set => this.WithProperty("batch_size", value);
     }
 
     /// <summary>
     /// The bisect_batch_on_function_error attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BisectBatchOnFunctionError
+    public TerraformProperty<bool>? BisectBatchOnFunctionError
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bisect_batch_on_function_error");
+        get => GetProperty<TerraformProperty<bool>>("bisect_batch_on_function_error");
         set => this.WithProperty("bisect_batch_on_function_error", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The event_source_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventSourceArn
+    public TerraformProperty<string>? EventSourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_source_arn");
+        get => GetProperty<TerraformProperty<string>>("event_source_arn");
         set => this.WithProperty("event_source_arn", value);
     }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionName
+    public TerraformProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The function_response_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? FunctionResponseTypes
+    public TerraformProperty<HashSet<string>>? FunctionResponseTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("function_response_types");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("function_response_types");
         set => this.WithProperty("function_response_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyArn
+    public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_arn");
+        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
         set => this.WithProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The maximum_batching_window_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaximumBatchingWindowInSeconds
+    public TerraformProperty<double>? MaximumBatchingWindowInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("maximum_batching_window_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("maximum_batching_window_in_seconds");
         set => this.WithProperty("maximum_batching_window_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_record_age_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaximumRecordAgeInSeconds
+    public TerraformProperty<double>? MaximumRecordAgeInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("maximum_record_age_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("maximum_record_age_in_seconds");
         set => this.WithProperty("maximum_record_age_in_seconds", value);
     }
 
     /// <summary>
     /// The maximum_retry_attempts attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaximumRetryAttempts
+    public TerraformProperty<double>? MaximumRetryAttempts
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("maximum_retry_attempts");
+        get => GetProperty<TerraformProperty<double>>("maximum_retry_attempts");
         set => this.WithProperty("maximum_retry_attempts", value);
     }
 
     /// <summary>
     /// The parallelization_factor attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ParallelizationFactor
+    public TerraformProperty<double>? ParallelizationFactor
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("parallelization_factor");
+        get => GetProperty<TerraformProperty<double>>("parallelization_factor");
         set => this.WithProperty("parallelization_factor", value);
     }
 
     /// <summary>
     /// The queues attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Queues
+    public TerraformProperty<List<string>>? Queues
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("queues");
+        get => GetProperty<TerraformProperty<List<string>>>("queues");
         set => this.WithProperty("queues", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The starting_position attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartingPosition
+    public TerraformProperty<string>? StartingPosition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("starting_position");
+        get => GetProperty<TerraformProperty<string>>("starting_position");
         set => this.WithProperty("starting_position", value);
     }
 
     /// <summary>
     /// The starting_position_timestamp attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartingPositionTimestamp
+    public TerraformProperty<string>? StartingPositionTimestamp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("starting_position_timestamp");
+        get => GetProperty<TerraformProperty<string>>("starting_position_timestamp");
         set => this.WithProperty("starting_position_timestamp", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The topics attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Topics
+    public TerraformProperty<HashSet<string>>? Topics
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("topics");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("topics");
         set => this.WithProperty("topics", value);
     }
 
     /// <summary>
     /// The tumbling_window_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TumblingWindowInSeconds
+    public TerraformProperty<double>? TumblingWindowInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tumbling_window_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("tumbling_window_in_seconds");
         set => this.WithProperty("tumbling_window_in_seconds", value);
     }
 

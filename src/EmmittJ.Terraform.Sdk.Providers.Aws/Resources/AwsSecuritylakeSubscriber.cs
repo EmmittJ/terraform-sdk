@@ -28,45 +28,45 @@ public class AwsSecuritylakeSubscriber : TerraformResource
     /// <summary>
     /// The access_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessType
+    public TerraformProperty<string>? AccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_type");
+        get => GetProperty<TerraformProperty<string>>("access_type");
         set => this.WithProperty("access_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subscriber_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriberDescription
+    public TerraformProperty<string>? SubscriberDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscriber_description");
+        get => GetProperty<TerraformProperty<string>>("subscriber_description");
         set => this.WithProperty("subscriber_description", value);
     }
 
     /// <summary>
     /// The subscriber_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriberName
+    public TerraformProperty<string>? SubscriberName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscriber_name");
+        get => GetProperty<TerraformProperty<string>>("subscriber_name");
         set => this.WithProperty("subscriber_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

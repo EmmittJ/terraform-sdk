@@ -20,9 +20,9 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// <summary>
     /// Whether to allow email/password user authentication.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowPasswordSignup
+    public TerraformProperty<bool>? AllowPasswordSignup
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_password_signup");
+        get => GetProperty<TerraformProperty<bool>>("allow_password_signup");
         set => this.WithProperty("allow_password_signup", value);
     }
 
@@ -31,45 +31,45 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// the disabled tenant are not allowed to sign-in. Admins of the disabled tenant
     /// are not able to manage its users.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableAuth
+    public TerraformProperty<bool>? DisableAuth
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_auth");
+        get => GetProperty<TerraformProperty<bool>>("disable_auth");
         set => this.WithProperty("disable_auth", value);
     }
 
     /// <summary>
     /// Human friendly display name of the tenant.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether to enable email link user authentication.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableEmailLinkSignin
+    public TerraformProperty<bool>? EnableEmailLinkSignin
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_email_link_signin");
+        get => GetProperty<TerraformProperty<bool>>("enable_email_link_signin");
         set => this.WithProperty("enable_email_link_signin", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

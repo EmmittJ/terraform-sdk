@@ -20,27 +20,27 @@ public class GoogleAccessContextManagerEgressPolicy : TerraformResource
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
-    public TerraformLiteralProperty<string>? EgressPolicyName
+    public TerraformProperty<string>? EgressPolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("egress_policy_name");
+        get => GetProperty<TerraformProperty<string>>("egress_policy_name");
         set => this.WithProperty("egress_policy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A GCP resource that is inside of the service perimeter.
     /// </summary>
-    public TerraformLiteralProperty<string>? Resource
+    public TerraformProperty<string>? Resource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource");
+        get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 

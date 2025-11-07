@@ -20,81 +20,81 @@ public class AwsGlobalacceleratorEndpointGroup : TerraformResource
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndpointGroupRegion
+    public TerraformProperty<string>? EndpointGroupRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_group_region");
+        get => GetProperty<TerraformProperty<string>>("endpoint_group_region");
         set => this.WithProperty("endpoint_group_region", value);
     }
 
     /// <summary>
     /// The health_check_interval_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? HealthCheckIntervalSeconds
+    public TerraformProperty<double>? HealthCheckIntervalSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("health_check_interval_seconds");
+        get => GetProperty<TerraformProperty<double>>("health_check_interval_seconds");
         set => this.WithProperty("health_check_interval_seconds", value);
     }
 
     /// <summary>
     /// The health_check_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HealthCheckPath
+    public TerraformProperty<string>? HealthCheckPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("health_check_path");
+        get => GetProperty<TerraformProperty<string>>("health_check_path");
         set => this.WithProperty("health_check_path", value);
     }
 
     /// <summary>
     /// The health_check_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? HealthCheckPort
+    public TerraformProperty<double>? HealthCheckPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("health_check_port");
+        get => GetProperty<TerraformProperty<double>>("health_check_port");
         set => this.WithProperty("health_check_port", value);
     }
 
     /// <summary>
     /// The health_check_protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HealthCheckProtocol
+    public TerraformProperty<string>? HealthCheckProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("health_check_protocol");
+        get => GetProperty<TerraformProperty<string>>("health_check_protocol");
         set => this.WithProperty("health_check_protocol", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ListenerArn
+    public TerraformProperty<string>? ListenerArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("listener_arn");
+        get => GetProperty<TerraformProperty<string>>("listener_arn");
         set => this.WithProperty("listener_arn", value);
     }
 
     /// <summary>
     /// The threshold_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ThresholdCount
+    public TerraformProperty<double>? ThresholdCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("threshold_count");
+        get => GetProperty<TerraformProperty<double>>("threshold_count");
         set => this.WithProperty("threshold_count", value);
     }
 
     /// <summary>
     /// The traffic_dial_percentage attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TrafficDialPercentage
+    public TerraformProperty<double>? TrafficDialPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("traffic_dial_percentage");
+        get => GetProperty<TerraformProperty<double>>("traffic_dial_percentage");
         set => this.WithProperty("traffic_dial_percentage", value);
     }
 

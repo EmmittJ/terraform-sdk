@@ -19,81 +19,81 @@ public class AzurermApiManagementApiOperation : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementName
+    public TerraformProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiName
+    public TerraformProperty<string>? ApiName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_name");
+        get => GetProperty<TerraformProperty<string>>("api_name");
         set => this.WithProperty("api_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Method
+    public TerraformProperty<string>? Method
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("method");
+        get => GetProperty<TerraformProperty<string>>("method");
         set => this.WithProperty("method", value);
     }
 
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OperationId
+    public TerraformProperty<string>? OperationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operation_id");
+        get => GetProperty<TerraformProperty<string>>("operation_id");
         set => this.WithProperty("operation_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The url_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UrlTemplate
+    public TerraformProperty<string>? UrlTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_template");
+        get => GetProperty<TerraformProperty<string>>("url_template");
         set => this.WithProperty("url_template", value);
     }
 

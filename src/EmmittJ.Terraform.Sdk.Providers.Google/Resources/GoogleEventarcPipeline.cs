@@ -30,9 +30,9 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -42,27 +42,27 @@ public class GoogleEventarcPipeline : TerraformResource
     /// will be used to encrypt messages. It must match the pattern
     /// &amp;quot;projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? CryptoKeyName
+    public TerraformProperty<string>? CryptoKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key_name");
+        get => GetProperty<TerraformProperty<string>>("crypto_key_name");
         set => this.WithProperty("crypto_key_name", value);
     }
 
     /// <summary>
     /// Display name of resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -74,18 +74,18 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -93,18 +93,18 @@ public class GoogleEventarcPipeline : TerraformResource
     /// The user-provided ID to be assigned to the Pipeline. It should match the
     /// format &#39;^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? PipelineId
+    public TerraformProperty<string>? PipelineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pipeline_id");
+        get => GetProperty<TerraformProperty<string>>("pipeline_id");
         set => this.WithProperty("pipeline_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

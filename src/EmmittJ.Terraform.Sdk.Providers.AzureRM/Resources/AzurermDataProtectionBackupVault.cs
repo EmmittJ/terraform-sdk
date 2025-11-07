@@ -19,99 +19,99 @@ public class AzurermDataProtectionBackupVault : TerraformResource
     /// <summary>
     /// The cross_region_restore_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CrossRegionRestoreEnabled
+    public TerraformProperty<bool>? CrossRegionRestoreEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cross_region_restore_enabled");
+        get => GetProperty<TerraformProperty<bool>>("cross_region_restore_enabled");
         set => this.WithProperty("cross_region_restore_enabled", value);
     }
 
     /// <summary>
     /// The datastore_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatastoreType
+    public TerraformProperty<string>? DatastoreType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("datastore_type");
+        get => GetProperty<TerraformProperty<string>>("datastore_type");
         set => this.WithProperty("datastore_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The immutability attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Immutability
+    public TerraformProperty<string>? Immutability
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("immutability");
+        get => GetProperty<TerraformProperty<string>>("immutability");
         set => this.WithProperty("immutability", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The redundancy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Redundancy
+    public TerraformProperty<string>? Redundancy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redundancy");
+        get => GetProperty<TerraformProperty<string>>("redundancy");
         set => this.WithProperty("redundancy", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_duration_in_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionDurationInDays
+    public TerraformProperty<double>? RetentionDurationInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_duration_in_days");
+        get => GetProperty<TerraformProperty<double>>("retention_duration_in_days");
         set => this.WithProperty("retention_duration_in_days", value);
     }
 
     /// <summary>
     /// The soft_delete attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SoftDelete
+    public TerraformProperty<string>? SoftDelete
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("soft_delete");
+        get => GetProperty<TerraformProperty<string>>("soft_delete");
         set => this.WithProperty("soft_delete", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

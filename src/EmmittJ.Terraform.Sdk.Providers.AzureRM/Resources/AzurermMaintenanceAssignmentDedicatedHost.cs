@@ -19,36 +19,36 @@ public class AzurermMaintenanceAssignmentDedicatedHost : TerraformResource
     /// <summary>
     /// The dedicated_host_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DedicatedHostId
+    public TerraformProperty<string>? DedicatedHostId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dedicated_host_id");
+        get => GetProperty<TerraformProperty<string>>("dedicated_host_id");
         set => this.WithProperty("dedicated_host_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenanceConfigurationId
+    public TerraformProperty<string>? MaintenanceConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_id");
+        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_id");
         set => this.WithProperty("maintenance_configuration_id", value);
     }
 

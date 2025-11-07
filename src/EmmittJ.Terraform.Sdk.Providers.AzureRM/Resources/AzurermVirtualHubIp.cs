@@ -19,63 +19,63 @@ public class AzurermVirtualHubIp : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateIpAddress
+    public TerraformProperty<string>? PrivateIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_ip_address");
+        get => GetProperty<TerraformProperty<string>>("private_ip_address");
         set => this.WithProperty("private_ip_address", value);
     }
 
     /// <summary>
     /// The private_ip_allocation_method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateIpAllocationMethod
+    public TerraformProperty<string>? PrivateIpAllocationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_ip_allocation_method");
+        get => GetProperty<TerraformProperty<string>>("private_ip_allocation_method");
         set => this.WithProperty("private_ip_allocation_method", value);
     }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicIpAddressId
+    public TerraformProperty<string>? PublicIpAddressId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_ip_address_id");
+        get => GetProperty<TerraformProperty<string>>("public_ip_address_id");
         set => this.WithProperty("public_ip_address_id", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualHubId
+    public TerraformProperty<string>? VirtualHubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_hub_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

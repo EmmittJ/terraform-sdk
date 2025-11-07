@@ -21,27 +21,27 @@ public class GoogleApigeeEnvironmentIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The env_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvId
+    public TerraformProperty<string>? EnvId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("env_id");
+        get => GetProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 

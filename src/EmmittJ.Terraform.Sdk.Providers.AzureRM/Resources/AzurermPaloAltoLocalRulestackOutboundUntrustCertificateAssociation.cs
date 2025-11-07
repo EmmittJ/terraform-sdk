@@ -19,18 +19,18 @@ public class AzurermPaloAltoLocalRulestackOutboundUntrustCertificateAssociation 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateId
+    public TerraformProperty<string>? CertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_id");
+        get => GetProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

@@ -20,45 +20,45 @@ public class AwsXrayResourcePolicy : TerraformResource
     /// <summary>
     /// The bypass_policy_lockout_check attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BypassPolicyLockoutCheck
+    public TerraformProperty<bool>? BypassPolicyLockoutCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bypass_policy_lockout_check");
+        get => GetProperty<TerraformProperty<bool>>("bypass_policy_lockout_check");
         set => this.WithProperty("bypass_policy_lockout_check", value);
     }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyDocument
+    public TerraformProperty<string>? PolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_document");
+        get => GetProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 
     /// <summary>
     /// The policy_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyName
+    public TerraformProperty<string>? PolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_name");
+        get => GetProperty<TerraformProperty<string>>("policy_name");
         set => this.WithProperty("policy_name", value);
     }
 
     /// <summary>
     /// The policy_revision_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyRevisionId
+    public TerraformProperty<string>? PolicyRevisionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_revision_id");
+        get => GetProperty<TerraformProperty<string>>("policy_revision_id");
         set => this.WithProperty("policy_revision_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

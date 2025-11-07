@@ -19,81 +19,81 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// <summary>
     /// The cosmosdb_container_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CosmosdbContainerId
+    public TerraformProperty<string>? CosmosdbContainerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmosdb_container_id");
+        get => GetProperty<TerraformProperty<string>>("cosmosdb_container_id");
         set => this.WithProperty("cosmosdb_container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kusto_database_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KustoDatabaseId
+    public TerraformProperty<string>? KustoDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_database_id");
+        get => GetProperty<TerraformProperty<string>>("kusto_database_id");
         set => this.WithProperty("kusto_database_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_identity_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedIdentityId
+    public TerraformProperty<string>? ManagedIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_identity_id");
+        get => GetProperty<TerraformProperty<string>>("managed_identity_id");
         set => this.WithProperty("managed_identity_id", value);
     }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MappingRuleName
+    public TerraformProperty<string>? MappingRuleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mapping_rule_name");
+        get => GetProperty<TerraformProperty<string>>("mapping_rule_name");
         set => this.WithProperty("mapping_rule_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The retrieval_start_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RetrievalStartDate
+    public TerraformProperty<string>? RetrievalStartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retrieval_start_date");
+        get => GetProperty<TerraformProperty<string>>("retrieval_start_date");
         set => this.WithProperty("retrieval_start_date", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableName
+    public TerraformProperty<string>? TableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_name");
+        get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 

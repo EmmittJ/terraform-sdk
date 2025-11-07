@@ -19,18 +19,18 @@ public class AwsIamRolePolicyAttachmentsExclusive : TerraformResource
     /// <summary>
     /// The policy_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? PolicyArns
+    public TerraformProperty<HashSet<string>>? PolicyArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("policy_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("policy_arns");
         set => this.WithProperty("policy_arns", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleName
+    public TerraformProperty<string>? RoleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_name");
+        get => GetProperty<TerraformProperty<string>>("role_name");
         set => this.WithProperty("role_name", value);
     }
 

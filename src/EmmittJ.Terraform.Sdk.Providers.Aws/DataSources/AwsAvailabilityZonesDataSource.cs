@@ -22,54 +22,54 @@ public class AwsAvailabilityZonesDataSource : TerraformDataSource
     /// <summary>
     /// The all_availability_zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllAvailabilityZones
+    public TerraformProperty<bool>? AllAvailabilityZones
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("all_availability_zones");
+        get => GetProperty<TerraformProperty<bool>>("all_availability_zones");
         set => this.WithProperty("all_availability_zones", value);
     }
 
     /// <summary>
     /// The exclude_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ExcludeNames
+    public TerraformProperty<HashSet<string>>? ExcludeNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("exclude_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("exclude_names");
         set => this.WithProperty("exclude_names", value);
     }
 
     /// <summary>
     /// The exclude_zone_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ExcludeZoneIds
+    public TerraformProperty<HashSet<string>>? ExcludeZoneIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("exclude_zone_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("exclude_zone_ids");
         set => this.WithProperty("exclude_zone_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 

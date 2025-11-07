@@ -23,18 +23,18 @@ public class AwsCloudfrontKeyValueStore : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Comment
+    public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        get => GetProperty<TerraformProperty<string>>("comment");
         set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

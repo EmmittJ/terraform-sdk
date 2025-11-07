@@ -19,225 +19,225 @@ public class AzurermSiteRecoveryReplicatedVm : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_disk attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<object>>? ManagedDisk
+    public TerraformProperty<HashSet<object>>? ManagedDisk
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<object>>>("managed_disk");
+        get => GetProperty<TerraformProperty<HashSet<object>>>("managed_disk");
         set => this.WithProperty("managed_disk", value);
     }
 
     /// <summary>
     /// The multi_vm_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MultiVmGroupName
+    public TerraformProperty<string>? MultiVmGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("multi_vm_group_name");
+        get => GetProperty<TerraformProperty<string>>("multi_vm_group_name");
         set => this.WithProperty("multi_vm_group_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_interface attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<object>>? NetworkInterface
+    public TerraformProperty<HashSet<object>>? NetworkInterface
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<object>>>("network_interface");
+        get => GetProperty<TerraformProperty<HashSet<object>>>("network_interface");
         set => this.WithProperty("network_interface", value);
     }
 
     /// <summary>
     /// The recovery_replication_policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryReplicationPolicyId
+    public TerraformProperty<string>? RecoveryReplicationPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_replication_policy_id");
+        get => GetProperty<TerraformProperty<string>>("recovery_replication_policy_id");
         set => this.WithProperty("recovery_replication_policy_id", value);
     }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryVaultName
+    public TerraformProperty<string>? RecoveryVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name");
+        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_recovery_fabric_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceRecoveryFabricName
+    public TerraformProperty<string>? SourceRecoveryFabricName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_recovery_fabric_name");
+        get => GetProperty<TerraformProperty<string>>("source_recovery_fabric_name");
         set => this.WithProperty("source_recovery_fabric_name", value);
     }
 
     /// <summary>
     /// The source_recovery_protection_container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceRecoveryProtectionContainerName
+    public TerraformProperty<string>? SourceRecoveryProtectionContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_recovery_protection_container_name");
+        get => GetProperty<TerraformProperty<string>>("source_recovery_protection_container_name");
         set => this.WithProperty("source_recovery_protection_container_name", value);
     }
 
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceVmId
+    public TerraformProperty<string>? SourceVmId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_vm_id");
+        get => GetProperty<TerraformProperty<string>>("source_vm_id");
         set => this.WithProperty("source_vm_id", value);
     }
 
     /// <summary>
     /// The target_availability_set_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetAvailabilitySetId
+    public TerraformProperty<string>? TargetAvailabilitySetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_availability_set_id");
+        get => GetProperty<TerraformProperty<string>>("target_availability_set_id");
         set => this.WithProperty("target_availability_set_id", value);
     }
 
     /// <summary>
     /// The target_boot_diagnostic_storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetBootDiagnosticStorageAccountId
+    public TerraformProperty<string>? TargetBootDiagnosticStorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_boot_diagnostic_storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("target_boot_diagnostic_storage_account_id");
         set => this.WithProperty("target_boot_diagnostic_storage_account_id", value);
     }
 
     /// <summary>
     /// The target_capacity_reservation_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetCapacityReservationGroupId
+    public TerraformProperty<string>? TargetCapacityReservationGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_capacity_reservation_group_id");
+        get => GetProperty<TerraformProperty<string>>("target_capacity_reservation_group_id");
         set => this.WithProperty("target_capacity_reservation_group_id", value);
     }
 
     /// <summary>
     /// The target_edge_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetEdgeZone
+    public TerraformProperty<string>? TargetEdgeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_edge_zone");
+        get => GetProperty<TerraformProperty<string>>("target_edge_zone");
         set => this.WithProperty("target_edge_zone", value);
     }
 
     /// <summary>
     /// The target_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetNetworkId
+    public TerraformProperty<string>? TargetNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_network_id");
+        get => GetProperty<TerraformProperty<string>>("target_network_id");
         set => this.WithProperty("target_network_id", value);
     }
 
     /// <summary>
     /// The target_proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetProximityPlacementGroupId
+    public TerraformProperty<string>? TargetProximityPlacementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_proximity_placement_group_id");
+        get => GetProperty<TerraformProperty<string>>("target_proximity_placement_group_id");
         set => this.WithProperty("target_proximity_placement_group_id", value);
     }
 
     /// <summary>
     /// The target_recovery_fabric_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetRecoveryFabricId
+    public TerraformProperty<string>? TargetRecoveryFabricId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_recovery_fabric_id");
+        get => GetProperty<TerraformProperty<string>>("target_recovery_fabric_id");
         set => this.WithProperty("target_recovery_fabric_id", value);
     }
 
     /// <summary>
     /// The target_recovery_protection_container_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetRecoveryProtectionContainerId
+    public TerraformProperty<string>? TargetRecoveryProtectionContainerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_recovery_protection_container_id");
+        get => GetProperty<TerraformProperty<string>>("target_recovery_protection_container_id");
         set => this.WithProperty("target_recovery_protection_container_id", value);
     }
 
     /// <summary>
     /// The target_resource_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetResourceGroupId
+    public TerraformProperty<string>? TargetResourceGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_group_id");
+        get => GetProperty<TerraformProperty<string>>("target_resource_group_id");
         set => this.WithProperty("target_resource_group_id", value);
     }
 
     /// <summary>
     /// The target_virtual_machine_scale_set_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetVirtualMachineScaleSetId
+    public TerraformProperty<string>? TargetVirtualMachineScaleSetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_virtual_machine_scale_set_id");
+        get => GetProperty<TerraformProperty<string>>("target_virtual_machine_scale_set_id");
         set => this.WithProperty("target_virtual_machine_scale_set_id", value);
     }
 
     /// <summary>
     /// The target_virtual_machine_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetVirtualMachineSize
+    public TerraformProperty<string>? TargetVirtualMachineSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_virtual_machine_size");
+        get => GetProperty<TerraformProperty<string>>("target_virtual_machine_size");
         set => this.WithProperty("target_virtual_machine_size", value);
     }
 
     /// <summary>
     /// The target_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetZone
+    public TerraformProperty<string>? TargetZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_zone");
+        get => GetProperty<TerraformProperty<string>>("target_zone");
         set => this.WithProperty("target_zone", value);
     }
 
     /// <summary>
     /// The test_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TestNetworkId
+    public TerraformProperty<string>? TestNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("test_network_id");
+        get => GetProperty<TerraformProperty<string>>("test_network_id");
         set => this.WithProperty("test_network_id", value);
     }
 
     /// <summary>
     /// The unmanaged_disk attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<object>>? UnmanagedDisk
+    public TerraformProperty<HashSet<object>>? UnmanagedDisk
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<object>>>("unmanaged_disk");
+        get => GetProperty<TerraformProperty<HashSet<object>>>("unmanaged_disk");
         set => this.WithProperty("unmanaged_disk", value);
     }
 

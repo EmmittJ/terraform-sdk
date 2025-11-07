@@ -19,72 +19,72 @@ public class AzurermSpringCloudGatewayRouteConfig : TerraformResource
     /// <summary>
     /// The filters attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Filters
+    public TerraformProperty<HashSet<string>>? Filters
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filters");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("filters");
         set => this.WithProperty("filters", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The predicates attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Predicates
+    public TerraformProperty<HashSet<string>>? Predicates
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("predicates");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("predicates");
         set => this.WithProperty("predicates", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudAppId
+    public TerraformProperty<string>? SpringCloudAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
     /// The spring_cloud_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudGatewayId
+    public TerraformProperty<string>? SpringCloudGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_gateway_id");
         set => this.WithProperty("spring_cloud_gateway_id", value);
     }
 
     /// <summary>
     /// The sso_validation_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SsoValidationEnabled
+    public TerraformProperty<bool>? SsoValidationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sso_validation_enabled");
+        get => GetProperty<TerraformProperty<bool>>("sso_validation_enabled");
         set => this.WithProperty("sso_validation_enabled", value);
     }
 

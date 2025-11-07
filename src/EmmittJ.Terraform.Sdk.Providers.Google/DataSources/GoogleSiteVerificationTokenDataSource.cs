@@ -20,9 +20,9 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -30,18 +30,18 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// The site identifier. If the type is set to SITE, the identifier is a URL. If the type is
     /// set to INET_DOMAIN, the identifier is a domain name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Identifier
+    public TerraformProperty<string>? Identifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier");
+        get => GetProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
     /// <summary>
     /// The type of resource to be verified, either a domain or a web site. Possible values: [&amp;quot;INET_DOMAIN&amp;quot;, &amp;quot;SITE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -49,9 +49,9 @@ public class GoogleSiteVerificationTokenDataSource : TerraformDataSource
     /// The verification method for the Site Verification system to use to verify
     /// this site or domain. Possible values: [&amp;quot;ANALYTICS&amp;quot;, &amp;quot;DNS_CNAME&amp;quot;, &amp;quot;DNS_TXT&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;META&amp;quot;, &amp;quot;TAG_MANAGER&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? VerificationMethod
+    public TerraformProperty<string>? VerificationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("verification_method");
+        get => GetProperty<TerraformProperty<string>>("verification_method");
         set => this.WithProperty("verification_method", value);
     }
 

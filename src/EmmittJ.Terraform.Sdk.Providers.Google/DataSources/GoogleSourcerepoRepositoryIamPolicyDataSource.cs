@@ -21,27 +21,27 @@ public class GoogleSourcerepoRepositoryIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Repository
+    public TerraformProperty<string>? Repository
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository");
+        get => GetProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
     }
 

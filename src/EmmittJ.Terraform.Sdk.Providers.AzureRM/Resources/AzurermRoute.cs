@@ -19,63 +19,63 @@ public class AzurermRoute : TerraformResource
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AddressPrefix
+    public TerraformProperty<string>? AddressPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_prefix");
+        get => GetProperty<TerraformProperty<string>>("address_prefix");
         set => this.WithProperty("address_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The next_hop_in_ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopInIpAddress
+    public TerraformProperty<string>? NextHopInIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_in_ip_address");
+        get => GetProperty<TerraformProperty<string>>("next_hop_in_ip_address");
         set => this.WithProperty("next_hop_in_ip_address", value);
     }
 
     /// <summary>
     /// The next_hop_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopType
+    public TerraformProperty<string>? NextHopType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_type");
+        get => GetProperty<TerraformProperty<string>>("next_hop_type");
         set => this.WithProperty("next_hop_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The route_table_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RouteTableName
+    public TerraformProperty<string>? RouteTableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("route_table_name");
+        get => GetProperty<TerraformProperty<string>>("route_table_name");
         set => this.WithProperty("route_table_name", value);
     }
 

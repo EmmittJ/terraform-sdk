@@ -19,18 +19,18 @@ public class AzurermPortalTenantConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The private_markdown_storage_enforced attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrivateMarkdownStorageEnforced
+    public TerraformProperty<bool>? PrivateMarkdownStorageEnforced
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_markdown_storage_enforced");
+        get => GetProperty<TerraformProperty<bool>>("private_markdown_storage_enforced");
         set => this.WithProperty("private_markdown_storage_enforced", value);
     }
 

@@ -20,45 +20,45 @@ public class GoogleServiceAccountAccessTokenDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Delegates
+    public TerraformProperty<HashSet<string>>? Delegates
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("delegates");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("delegates");
         set => this.WithProperty("delegates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lifetime attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Lifetime
+    public TerraformProperty<string>? Lifetime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifetime");
+        get => GetProperty<TerraformProperty<string>>("lifetime");
         set => this.WithProperty("lifetime", value);
     }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Scopes
+    public TerraformProperty<HashSet<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("scopes");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("scopes");
         set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetServiceAccount
+    public TerraformProperty<string>? TargetServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_service_account");
+        get => GetProperty<TerraformProperty<string>>("target_service_account");
         set => this.WithProperty("target_service_account", value);
     }
 

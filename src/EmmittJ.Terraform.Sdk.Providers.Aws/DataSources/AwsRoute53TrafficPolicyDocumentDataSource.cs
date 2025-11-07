@@ -20,45 +20,45 @@ public class AwsRoute53TrafficPolicyDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The record_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecordType
+    public TerraformProperty<string>? RecordType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("record_type");
+        get => GetProperty<TerraformProperty<string>>("record_type");
         set => this.WithProperty("record_type", value);
     }
 
     /// <summary>
     /// The start_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartEndpoint
+    public TerraformProperty<string>? StartEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_endpoint");
+        get => GetProperty<TerraformProperty<string>>("start_endpoint");
         set => this.WithProperty("start_endpoint", value);
     }
 
     /// <summary>
     /// The start_rule attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartRule
+    public TerraformProperty<string>? StartRule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_rule");
+        get => GetProperty<TerraformProperty<string>>("start_rule");
         set => this.WithProperty("start_rule", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

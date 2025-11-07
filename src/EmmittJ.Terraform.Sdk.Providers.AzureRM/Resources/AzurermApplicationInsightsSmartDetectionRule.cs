@@ -19,54 +19,54 @@ public class AzurermApplicationInsightsSmartDetectionRule : TerraformResource
     /// <summary>
     /// The additional_email_recipients attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AdditionalEmailRecipients
+    public TerraformProperty<HashSet<string>>? AdditionalEmailRecipients
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_email_recipients");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("additional_email_recipients");
         set => this.WithProperty("additional_email_recipients", value);
     }
 
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationInsightsId
+    public TerraformProperty<string>? ApplicationInsightsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id");
+        get => GetProperty<TerraformProperty<string>>("application_insights_id");
         set => this.WithProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The send_emails_to_subscription_owners attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SendEmailsToSubscriptionOwners
+    public TerraformProperty<bool>? SendEmailsToSubscriptionOwners
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("send_emails_to_subscription_owners");
+        get => GetProperty<TerraformProperty<bool>>("send_emails_to_subscription_owners");
         set => this.WithProperty("send_emails_to_subscription_owners", value);
     }
 

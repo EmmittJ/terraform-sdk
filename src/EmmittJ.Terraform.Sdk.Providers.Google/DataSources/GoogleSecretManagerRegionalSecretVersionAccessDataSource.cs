@@ -21,54 +21,54 @@ public class GoogleSecretManagerRegionalSecretVersionAccessDataSource : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_secret_data_base64 attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsSecretDataBase64
+    public TerraformProperty<bool>? IsSecretDataBase64
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_secret_data_base64");
+        get => GetProperty<TerraformProperty<bool>>("is_secret_data_base64");
         set => this.WithProperty("is_secret_data_base64", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Secret
+    public TerraformProperty<string>? Secret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret");
+        get => GetProperty<TerraformProperty<string>>("secret");
         set => this.WithProperty("secret", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

@@ -26,45 +26,45 @@ public class AwsSecurityhubStandardsControl : TerraformResource
     /// <summary>
     /// The control_status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlStatus
+    public TerraformProperty<string>? ControlStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_status");
+        get => GetProperty<TerraformProperty<string>>("control_status");
         set => this.WithProperty("control_status", value);
     }
 
     /// <summary>
     /// The disabled_reason attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisabledReason
+    public TerraformProperty<string>? DisabledReason
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disabled_reason");
+        get => GetProperty<TerraformProperty<string>>("disabled_reason");
         set => this.WithProperty("disabled_reason", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The standards_control_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StandardsControlArn
+    public TerraformProperty<string>? StandardsControlArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("standards_control_arn");
+        get => GetProperty<TerraformProperty<string>>("standards_control_arn");
         set => this.WithProperty("standards_control_arn", value);
     }
 

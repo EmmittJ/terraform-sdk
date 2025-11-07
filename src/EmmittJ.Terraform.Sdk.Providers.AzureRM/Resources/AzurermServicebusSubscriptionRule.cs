@@ -20,54 +20,54 @@ public class AzurermServicebusSubscriptionRule : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Action
+    public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The filter_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FilterType
+    public TerraformProperty<string>? FilterType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_type");
+        get => GetProperty<TerraformProperty<string>>("filter_type");
         set => this.WithProperty("filter_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The sql_filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlFilter
+    public TerraformProperty<string>? SqlFilter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_filter");
+        get => GetProperty<TerraformProperty<string>>("sql_filter");
         set => this.WithProperty("sql_filter", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

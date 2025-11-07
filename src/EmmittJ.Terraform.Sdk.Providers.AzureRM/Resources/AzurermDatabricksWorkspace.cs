@@ -25,171 +25,171 @@ public class AzurermDatabricksWorkspace : TerraformResource
     /// <summary>
     /// The access_connector_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessConnectorId
+    public TerraformProperty<string>? AccessConnectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_connector_id");
+        get => GetProperty<TerraformProperty<string>>("access_connector_id");
         set => this.WithProperty("access_connector_id", value);
     }
 
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CustomerManagedKeyEnabled
+    public TerraformProperty<bool>? CustomerManagedKeyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("customer_managed_key_enabled");
+        get => GetProperty<TerraformProperty<bool>>("customer_managed_key_enabled");
         set => this.WithProperty("customer_managed_key_enabled", value);
     }
 
     /// <summary>
     /// The default_storage_firewall_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DefaultStorageFirewallEnabled
+    public TerraformProperty<bool>? DefaultStorageFirewallEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_storage_firewall_enabled");
+        get => GetProperty<TerraformProperty<bool>>("default_storage_firewall_enabled");
         set => this.WithProperty("default_storage_firewall_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InfrastructureEncryptionEnabled
+    public TerraformProperty<bool>? InfrastructureEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("infrastructure_encryption_enabled");
+        get => GetProperty<TerraformProperty<bool>>("infrastructure_encryption_enabled");
         set => this.WithProperty("infrastructure_encryption_enabled", value);
     }
 
     /// <summary>
     /// The load_balancer_backend_address_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LoadBalancerBackendAddressPoolId
+    public TerraformProperty<string>? LoadBalancerBackendAddressPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancer_backend_address_pool_id");
+        get => GetProperty<TerraformProperty<string>>("load_balancer_backend_address_pool_id");
         set => this.WithProperty("load_balancer_backend_address_pool_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_disk_cmk_key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedDiskCmkKeyVaultId
+    public TerraformProperty<string>? ManagedDiskCmkKeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_disk_cmk_key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("managed_disk_cmk_key_vault_id");
         set => this.WithProperty("managed_disk_cmk_key_vault_id", value);
     }
 
     /// <summary>
     /// The managed_disk_cmk_key_vault_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedDiskCmkKeyVaultKeyId
+    public TerraformProperty<string>? ManagedDiskCmkKeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_disk_cmk_key_vault_key_id");
+        get => GetProperty<TerraformProperty<string>>("managed_disk_cmk_key_vault_key_id");
         set => this.WithProperty("managed_disk_cmk_key_vault_key_id", value);
     }
 
     /// <summary>
     /// The managed_disk_cmk_rotation_to_latest_version_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ManagedDiskCmkRotationToLatestVersionEnabled
+    public TerraformProperty<bool>? ManagedDiskCmkRotationToLatestVersionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("managed_disk_cmk_rotation_to_latest_version_enabled");
+        get => GetProperty<TerraformProperty<bool>>("managed_disk_cmk_rotation_to_latest_version_enabled");
         set => this.WithProperty("managed_disk_cmk_rotation_to_latest_version_enabled", value);
     }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedResourceGroupName
+    public TerraformProperty<string>? ManagedResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("managed_resource_group_name");
         set => this.WithProperty("managed_resource_group_name", value);
     }
 
     /// <summary>
     /// The managed_services_cmk_key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedServicesCmkKeyVaultId
+    public TerraformProperty<string>? ManagedServicesCmkKeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_services_cmk_key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("managed_services_cmk_key_vault_id");
         set => this.WithProperty("managed_services_cmk_key_vault_id", value);
     }
 
     /// <summary>
     /// The managed_services_cmk_key_vault_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedServicesCmkKeyVaultKeyId
+    public TerraformProperty<string>? ManagedServicesCmkKeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_services_cmk_key_vault_key_id");
+        get => GetProperty<TerraformProperty<string>>("managed_services_cmk_key_vault_key_id");
         set => this.WithProperty("managed_services_cmk_key_vault_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_security_group_rules_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkSecurityGroupRulesRequired
+    public TerraformProperty<string>? NetworkSecurityGroupRulesRequired
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_security_group_rules_required");
+        get => GetProperty<TerraformProperty<string>>("network_security_group_rules_required");
         set => this.WithProperty("network_security_group_rules_required", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

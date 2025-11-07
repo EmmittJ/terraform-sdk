@@ -19,27 +19,27 @@ public class GoogleComputeProjectCloudArmorTier : TerraformResource
     /// <summary>
     /// Managed protection tier to be set. Possible values: [&amp;quot;CA_STANDARD&amp;quot;, &amp;quot;CA_ENTERPRISE_PAYGO&amp;quot;, &amp;quot;CA_ENTERPRISE_ANNUAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudArmorTier
+    public TerraformProperty<string>? CloudArmorTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_armor_tier");
+        get => GetProperty<TerraformProperty<string>>("cloud_armor_tier");
         set => this.WithProperty("cloud_armor_tier", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

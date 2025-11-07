@@ -19,45 +19,45 @@ public class GoogleProjectService : TerraformResource
     /// <summary>
     /// The disable_dependent_services attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableDependentServices
+    public TerraformProperty<bool>? DisableDependentServices
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_dependent_services");
+        get => GetProperty<TerraformProperty<bool>>("disable_dependent_services");
         set => this.WithProperty("disable_dependent_services", value);
     }
 
     /// <summary>
     /// The disable_on_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableOnDestroy
+    public TerraformProperty<bool>? DisableOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_on_destroy");
+        get => GetProperty<TerraformProperty<bool>>("disable_on_destroy");
         set => this.WithProperty("disable_on_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Service
+    public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

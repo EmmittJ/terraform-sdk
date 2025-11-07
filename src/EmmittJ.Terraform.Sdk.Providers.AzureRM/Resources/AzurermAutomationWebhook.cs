@@ -19,90 +19,90 @@ public class AzurermAutomationWebhook : TerraformResource
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutomationAccountName
+    public TerraformProperty<string>? AutomationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_name");
+        get => GetProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpiryTime
+    public TerraformProperty<string>? ExpiryTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiry_time");
+        get => GetProperty<TerraformProperty<string>>("expiry_time");
         set => this.WithProperty("expiry_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
+    public TerraformProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The run_on_worker_group attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RunOnWorkerGroup
+    public TerraformProperty<string>? RunOnWorkerGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("run_on_worker_group");
+        get => GetProperty<TerraformProperty<string>>("run_on_worker_group");
         set => this.WithProperty("run_on_worker_group", value);
     }
 
     /// <summary>
     /// The runbook_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RunbookName
+    public TerraformProperty<string>? RunbookName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runbook_name");
+        get => GetProperty<TerraformProperty<string>>("runbook_name");
         set => this.WithProperty("runbook_name", value);
     }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Uri
+    public TerraformProperty<string>? Uri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("uri");
+        get => GetProperty<TerraformProperty<string>>("uri");
         set => this.WithProperty("uri", value);
     }
 

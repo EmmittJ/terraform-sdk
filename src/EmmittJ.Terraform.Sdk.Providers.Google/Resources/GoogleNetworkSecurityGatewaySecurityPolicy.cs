@@ -22,18 +22,18 @@ public class GoogleNetworkSecurityGatewaySecurityPolicy : TerraformResource
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -41,9 +41,9 @@ public class GoogleNetworkSecurityGatewaySecurityPolicy : TerraformResource
     /// The location of the gateway security policy.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -51,27 +51,27 @@ public class GoogleNetworkSecurityGatewaySecurityPolicy : TerraformResource
     /// Name of the resource. Name is of the form projects/{project}/locations/{location}/gatewaySecurityPolicies/{gatewaySecurityPolicy}
     /// gatewaySecurityPolicy should match the pattern:(^a-z?$).
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Name of a TlsInspectionPolicy resource that defines how TLS inspection is performed for any rule that enables it.
     /// </summary>
-    public TerraformLiteralProperty<string>? TlsInspectionPolicy
+    public TerraformProperty<string>? TlsInspectionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tls_inspection_policy");
+        get => GetProperty<TerraformProperty<string>>("tls_inspection_policy");
         set => this.WithProperty("tls_inspection_policy", value);
     }
 

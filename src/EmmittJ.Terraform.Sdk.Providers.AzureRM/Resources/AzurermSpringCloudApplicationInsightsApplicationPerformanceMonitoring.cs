@@ -19,81 +19,81 @@ public class AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitori
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionString
+    public TerraformProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GloballyEnabled
+    public TerraformProperty<bool>? GloballyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled");
+        get => GetProperty<TerraformProperty<bool>>("globally_enabled");
         set => this.WithProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The role_instance attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleInstance
+    public TerraformProperty<string>? RoleInstance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_instance");
+        get => GetProperty<TerraformProperty<string>>("role_instance");
         set => this.WithProperty("role_instance", value);
     }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleName
+    public TerraformProperty<string>? RoleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_name");
+        get => GetProperty<TerraformProperty<string>>("role_name");
         set => this.WithProperty("role_name", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SamplingPercentage
+    public TerraformProperty<double>? SamplingPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_percentage");
+        get => GetProperty<TerraformProperty<double>>("sampling_percentage");
         set => this.WithProperty("sampling_percentage", value);
     }
 
     /// <summary>
     /// The sampling_requests_per_second attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SamplingRequestsPerSecond
+    public TerraformProperty<double>? SamplingRequestsPerSecond
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_requests_per_second");
+        get => GetProperty<TerraformProperty<double>>("sampling_requests_per_second");
         set => this.WithProperty("sampling_requests_per_second", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudServiceId
+    public TerraformProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

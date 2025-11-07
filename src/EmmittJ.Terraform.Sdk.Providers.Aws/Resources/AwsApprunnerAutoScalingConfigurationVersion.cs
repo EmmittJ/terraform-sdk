@@ -25,72 +25,72 @@ public class AwsApprunnerAutoScalingConfigurationVersion : TerraformResource
     /// <summary>
     /// The auto_scaling_configuration_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutoScalingConfigurationName
+    public TerraformProperty<string>? AutoScalingConfigurationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auto_scaling_configuration_name");
+        get => GetProperty<TerraformProperty<string>>("auto_scaling_configuration_name");
         set => this.WithProperty("auto_scaling_configuration_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxConcurrency
+    public TerraformProperty<double>? MaxConcurrency
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_concurrency");
+        get => GetProperty<TerraformProperty<double>>("max_concurrency");
         set => this.WithProperty("max_concurrency", value);
     }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxSize
+    public TerraformProperty<double>? MaxSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_size");
+        get => GetProperty<TerraformProperty<double>>("max_size");
         set => this.WithProperty("max_size", value);
     }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinSize
+    public TerraformProperty<double>? MinSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_size");
+        get => GetProperty<TerraformProperty<double>>("min_size");
         set => this.WithProperty("min_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

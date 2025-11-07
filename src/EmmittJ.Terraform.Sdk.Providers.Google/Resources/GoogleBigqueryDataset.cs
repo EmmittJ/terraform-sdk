@@ -27,9 +27,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// must contain only letters (a-z, A-Z), numbers (0-9), or
     /// underscores (_). The maximum length is 1,024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatasetId
+    public TerraformProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
@@ -45,9 +45,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// - &#39;und:ci&#39;: undetermined locale, case insensitive.
     /// - &#39;&#39;: empty string. Default to case-sensitive behavior.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultCollation
+    public TerraformProperty<string>? DefaultCollation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_collation");
+        get => GetProperty<TerraformProperty<string>>("default_collation");
         set => this.WithProperty("default_collation", value);
     }
 
@@ -66,9 +66,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// creating or updating a partitioned table, that value takes precedence
     /// over the default partition expiration time indicated by this property.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultPartitionExpirationMs
+    public TerraformProperty<double>? DefaultPartitionExpirationMs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_partition_expiration_ms");
+        get => GetProperty<TerraformProperty<double>>("default_partition_expiration_ms");
         set => this.WithProperty("default_partition_expiration_ms", value);
     }
 
@@ -85,9 +85,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// creating a table, that value takes precedence over the default
     /// expiration time indicated by this property.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultTableExpirationMs
+    public TerraformProperty<double>? DefaultTableExpirationMs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_table_expiration_ms");
+        get => GetProperty<TerraformProperty<double>>("default_table_expiration_ms");
         set => this.WithProperty("default_table_expiration_ms", value);
     }
 
@@ -96,36 +96,36 @@ public class GoogleBigqueryDataset : TerraformResource
     /// dataset when destroying the resource; otherwise,
     /// destroying the resource will fail if tables are present.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteContentsOnDestroy
+    public TerraformProperty<bool>? DeleteContentsOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_contents_on_destroy");
+        get => GetProperty<TerraformProperty<bool>>("delete_contents_on_destroy");
         set => this.WithProperty("delete_contents_on_destroy", value);
     }
 
     /// <summary>
     /// A user-friendly description of the dataset
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A descriptive name for the dataset
     /// </summary>
-    public TerraformLiteralProperty<string>? FriendlyName
+    public TerraformProperty<string>? FriendlyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name");
+        get => GetProperty<TerraformProperty<string>>("friendly_name");
         set => this.WithProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -134,9 +134,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// By default, this is FALSE, which means the dataset and its table names are
     /// case-sensitive. This field does not affect routine references.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsCaseInsensitive
+    public TerraformProperty<bool>? IsCaseInsensitive
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_case_insensitive");
+        get => GetProperty<TerraformProperty<bool>>("is_case_insensitive");
         set => this.WithProperty("is_case_insensitive", value);
     }
 
@@ -148,9 +148,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -164,27 +164,27 @@ public class GoogleBigqueryDataset : TerraformResource
     /// The default value is multi-regional location &#39;US&#39;.
     /// Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
     /// </summary>
-    public TerraformLiteralProperty<string>? MaxTimeTravelHours
+    public TerraformProperty<string>? MaxTimeTravelHours
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("max_time_travel_hours");
+        get => GetProperty<TerraformProperty<string>>("max_time_travel_hours");
         set => this.WithProperty("max_time_travel_hours", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -195,9 +195,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// to be the short name, for example &amp;quot;Production&amp;quot;. See [Tag definitions](https://cloud.google.com/iam/docs/tags-access-control#definitions)
     /// for more details.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ResourceTags
+    public TerraformProperty<Dictionary<string, string>>? ResourceTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("resource_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 
@@ -208,9 +208,9 @@ public class GoogleBigqueryDataset : TerraformResource
     /// 
     /// LOGICAL is the default if this flag isn&#39;t specified.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageBillingModel
+    public TerraformProperty<string>? StorageBillingModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_billing_model");
+        get => GetProperty<TerraformProperty<string>>("storage_billing_model");
         set => this.WithProperty("storage_billing_model", value);
     }
 

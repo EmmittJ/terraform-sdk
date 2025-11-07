@@ -21,36 +21,36 @@ public class AzurermDataShareDatasetKustoDatabase : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kusto_database_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KustoDatabaseId
+    public TerraformProperty<string>? KustoDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kusto_database_id");
+        get => GetProperty<TerraformProperty<string>>("kusto_database_id");
         set => this.WithProperty("kusto_database_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ShareId
+    public TerraformProperty<string>? ShareId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("share_id");
+        get => GetProperty<TerraformProperty<string>>("share_id");
         set => this.WithProperty("share_id", value);
     }
 

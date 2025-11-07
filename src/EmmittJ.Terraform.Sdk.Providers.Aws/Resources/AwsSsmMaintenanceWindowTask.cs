@@ -21,108 +21,108 @@ public class AwsSsmMaintenanceWindowTask : TerraformResource
     /// <summary>
     /// The cutoff_behavior attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CutoffBehavior
+    public TerraformProperty<string>? CutoffBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cutoff_behavior");
+        get => GetProperty<TerraformProperty<string>>("cutoff_behavior");
         set => this.WithProperty("cutoff_behavior", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaxConcurrency
+    public TerraformProperty<string>? MaxConcurrency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("max_concurrency");
+        get => GetProperty<TerraformProperty<string>>("max_concurrency");
         set => this.WithProperty("max_concurrency", value);
     }
 
     /// <summary>
     /// The max_errors attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaxErrors
+    public TerraformProperty<string>? MaxErrors
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("max_errors");
+        get => GetProperty<TerraformProperty<string>>("max_errors");
         set => this.WithProperty("max_errors", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceRoleArn
+    public TerraformProperty<string>? ServiceRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_role_arn");
+        get => GetProperty<TerraformProperty<string>>("service_role_arn");
         set => this.WithProperty("service_role_arn", value);
     }
 
     /// <summary>
     /// The task_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TaskArn
+    public TerraformProperty<string>? TaskArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_arn");
+        get => GetProperty<TerraformProperty<string>>("task_arn");
         set => this.WithProperty("task_arn", value);
     }
 
     /// <summary>
     /// The task_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TaskType
+    public TerraformProperty<string>? TaskType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("task_type");
+        get => GetProperty<TerraformProperty<string>>("task_type");
         set => this.WithProperty("task_type", value);
     }
 
     /// <summary>
     /// The window_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WindowId
+    public TerraformProperty<string>? WindowId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("window_id");
+        get => GetProperty<TerraformProperty<string>>("window_id");
         set => this.WithProperty("window_id", value);
     }
 

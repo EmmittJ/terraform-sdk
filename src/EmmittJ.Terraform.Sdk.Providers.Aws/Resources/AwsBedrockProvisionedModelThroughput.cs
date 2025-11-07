@@ -22,54 +22,54 @@ public class AwsBedrockProvisionedModelThroughput : TerraformResource
     /// <summary>
     /// The commitment_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CommitmentDuration
+    public TerraformProperty<string>? CommitmentDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("commitment_duration");
+        get => GetProperty<TerraformProperty<string>>("commitment_duration");
         set => this.WithProperty("commitment_duration", value);
     }
 
     /// <summary>
     /// The model_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ModelArn
+    public TerraformProperty<string>? ModelArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("model_arn");
+        get => GetProperty<TerraformProperty<string>>("model_arn");
         set => this.WithProperty("model_arn", value);
     }
 
     /// <summary>
     /// The model_units attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ModelUnits
+    public TerraformProperty<double>? ModelUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("model_units");
+        get => GetProperty<TerraformProperty<double>>("model_units");
         set => this.WithProperty("model_units", value);
     }
 
     /// <summary>
     /// The provisioned_model_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProvisionedModelName
+    public TerraformProperty<string>? ProvisionedModelName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provisioned_model_name");
+        get => GetProperty<TerraformProperty<string>>("provisioned_model_name");
         set => this.WithProperty("provisioned_model_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

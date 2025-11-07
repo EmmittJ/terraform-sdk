@@ -22,36 +22,36 @@ public class AwsVerifiedpermissionsPolicyTemplate : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The policy_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyStoreId
+    public TerraformProperty<string>? PolicyStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_store_id");
+        get => GetProperty<TerraformProperty<string>>("policy_store_id");
         set => this.WithProperty("policy_store_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The statement attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Statement
+    public TerraformProperty<string>? Statement
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("statement");
+        get => GetProperty<TerraformProperty<string>>("statement");
         set => this.WithProperty("statement", value);
     }
 

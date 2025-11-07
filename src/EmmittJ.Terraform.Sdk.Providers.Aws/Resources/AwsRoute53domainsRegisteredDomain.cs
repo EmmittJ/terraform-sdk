@@ -29,90 +29,90 @@ public class AwsRoute53domainsRegisteredDomain : TerraformResource
     /// <summary>
     /// The admin_privacy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AdminPrivacy
+    public TerraformProperty<bool>? AdminPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("admin_privacy");
+        get => GetProperty<TerraformProperty<bool>>("admin_privacy");
         set => this.WithProperty("admin_privacy", value);
     }
 
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoRenew
+    public TerraformProperty<bool>? AutoRenew
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew");
+        get => GetProperty<TerraformProperty<bool>>("auto_renew");
         set => this.WithProperty("auto_renew", value);
     }
 
     /// <summary>
     /// The billing_privacy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BillingPrivacy
+    public TerraformProperty<bool>? BillingPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("billing_privacy");
+        get => GetProperty<TerraformProperty<bool>>("billing_privacy");
         set => this.WithProperty("billing_privacy", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The registrant_privacy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RegistrantPrivacy
+    public TerraformProperty<bool>? RegistrantPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registrant_privacy");
+        get => GetProperty<TerraformProperty<bool>>("registrant_privacy");
         set => this.WithProperty("registrant_privacy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tech_privacy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TechPrivacy
+    public TerraformProperty<bool>? TechPrivacy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tech_privacy");
+        get => GetProperty<TerraformProperty<bool>>("tech_privacy");
         set => this.WithProperty("tech_privacy", value);
     }
 
     /// <summary>
     /// The transfer_lock attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TransferLock
+    public TerraformProperty<bool>? TransferLock
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("transfer_lock");
+        get => GetProperty<TerraformProperty<bool>>("transfer_lock");
         set => this.WithProperty("transfer_lock", value);
     }
 

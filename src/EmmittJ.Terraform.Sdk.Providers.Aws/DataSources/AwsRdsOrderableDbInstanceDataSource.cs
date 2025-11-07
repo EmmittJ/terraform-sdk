@@ -28,225 +28,225 @@ public class AwsRdsOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The availability_zone_group attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZoneGroup
+    public TerraformProperty<string>? AvailabilityZoneGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_group");
+        get => GetProperty<TerraformProperty<string>>("availability_zone_group");
         set => this.WithProperty("availability_zone_group", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Engine
+    public TerraformProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_latest_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EngineLatestVersion
+    public TerraformProperty<bool>? EngineLatestVersion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("engine_latest_version");
+        get => GetProperty<TerraformProperty<bool>>("engine_latest_version");
         set => this.WithProperty("engine_latest_version", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineVersion
+    public TerraformProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceClass
+    public TerraformProperty<string>? InstanceClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_class");
+        get => GetProperty<TerraformProperty<string>>("instance_class");
         set => this.WithProperty("instance_class", value);
     }
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LicenseModel
+    public TerraformProperty<string>? LicenseModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_model");
+        get => GetProperty<TerraformProperty<string>>("license_model");
         set => this.WithProperty("license_model", value);
     }
 
     /// <summary>
     /// The preferred_engine_versions attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreferredEngineVersions
+    public TerraformProperty<List<string>>? PreferredEngineVersions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_engine_versions");
+        get => GetProperty<TerraformProperty<List<string>>>("preferred_engine_versions");
         set => this.WithProperty("preferred_engine_versions", value);
     }
 
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreferredInstanceClasses
+    public TerraformProperty<List<string>>? PreferredInstanceClasses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_instance_classes");
+        get => GetProperty<TerraformProperty<List<string>>>("preferred_instance_classes");
         set => this.WithProperty("preferred_instance_classes", value);
     }
 
     /// <summary>
     /// The read_replica_capable attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ReadReplicaCapable
+    public TerraformProperty<bool>? ReadReplicaCapable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("read_replica_capable");
+        get => GetProperty<TerraformProperty<bool>>("read_replica_capable");
         set => this.WithProperty("read_replica_capable", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageType
+    public TerraformProperty<string>? StorageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_type");
+        get => GetProperty<TerraformProperty<string>>("storage_type");
         set => this.WithProperty("storage_type", value);
     }
 
     /// <summary>
     /// The supported_engine_modes attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SupportedEngineModes
+    public TerraformProperty<List<string>>? SupportedEngineModes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("supported_engine_modes");
+        get => GetProperty<TerraformProperty<List<string>>>("supported_engine_modes");
         set => this.WithProperty("supported_engine_modes", value);
     }
 
     /// <summary>
     /// The supported_network_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SupportedNetworkTypes
+    public TerraformProperty<List<string>>? SupportedNetworkTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("supported_network_types");
+        get => GetProperty<TerraformProperty<List<string>>>("supported_network_types");
         set => this.WithProperty("supported_network_types", value);
     }
 
     /// <summary>
     /// The supports_clusters attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsClusters
+    public TerraformProperty<bool>? SupportsClusters
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_clusters");
+        get => GetProperty<TerraformProperty<bool>>("supports_clusters");
         set => this.WithProperty("supports_clusters", value);
     }
 
     /// <summary>
     /// The supports_enhanced_monitoring attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsEnhancedMonitoring
+    public TerraformProperty<bool>? SupportsEnhancedMonitoring
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_enhanced_monitoring");
+        get => GetProperty<TerraformProperty<bool>>("supports_enhanced_monitoring");
         set => this.WithProperty("supports_enhanced_monitoring", value);
     }
 
     /// <summary>
     /// The supports_global_databases attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsGlobalDatabases
+    public TerraformProperty<bool>? SupportsGlobalDatabases
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_global_databases");
+        get => GetProperty<TerraformProperty<bool>>("supports_global_databases");
         set => this.WithProperty("supports_global_databases", value);
     }
 
     /// <summary>
     /// The supports_iam_database_authentication attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsIamDatabaseAuthentication
+    public TerraformProperty<bool>? SupportsIamDatabaseAuthentication
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_iam_database_authentication");
+        get => GetProperty<TerraformProperty<bool>>("supports_iam_database_authentication");
         set => this.WithProperty("supports_iam_database_authentication", value);
     }
 
     /// <summary>
     /// The supports_iops attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsIops
+    public TerraformProperty<bool>? SupportsIops
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_iops");
+        get => GetProperty<TerraformProperty<bool>>("supports_iops");
         set => this.WithProperty("supports_iops", value);
     }
 
     /// <summary>
     /// The supports_kerberos_authentication attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsKerberosAuthentication
+    public TerraformProperty<bool>? SupportsKerberosAuthentication
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_kerberos_authentication");
+        get => GetProperty<TerraformProperty<bool>>("supports_kerberos_authentication");
         set => this.WithProperty("supports_kerberos_authentication", value);
     }
 
     /// <summary>
     /// The supports_multi_az attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsMultiAz
+    public TerraformProperty<bool>? SupportsMultiAz
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_multi_az");
+        get => GetProperty<TerraformProperty<bool>>("supports_multi_az");
         set => this.WithProperty("supports_multi_az", value);
     }
 
     /// <summary>
     /// The supports_performance_insights attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsPerformanceInsights
+    public TerraformProperty<bool>? SupportsPerformanceInsights
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_performance_insights");
+        get => GetProperty<TerraformProperty<bool>>("supports_performance_insights");
         set => this.WithProperty("supports_performance_insights", value);
     }
 
     /// <summary>
     /// The supports_storage_autoscaling attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsStorageAutoscaling
+    public TerraformProperty<bool>? SupportsStorageAutoscaling
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_storage_autoscaling");
+        get => GetProperty<TerraformProperty<bool>>("supports_storage_autoscaling");
         set => this.WithProperty("supports_storage_autoscaling", value);
     }
 
     /// <summary>
     /// The supports_storage_encryption attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SupportsStorageEncryption
+    public TerraformProperty<bool>? SupportsStorageEncryption
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("supports_storage_encryption");
+        get => GetProperty<TerraformProperty<bool>>("supports_storage_encryption");
         set => this.WithProperty("supports_storage_encryption", value);
     }
 
     /// <summary>
     /// The vpc attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Vpc
+    public TerraformProperty<bool>? Vpc
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("vpc");
+        get => GetProperty<TerraformProperty<bool>>("vpc");
         set => this.WithProperty("vpc", value);
     }
 

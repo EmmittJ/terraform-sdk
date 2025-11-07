@@ -20,18 +20,18 @@ public class AwsGlobalacceleratorCustomRoutingListener : TerraformResource
     /// <summary>
     /// The accelerator_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AcceleratorArn
+    public TerraformProperty<string>? AcceleratorArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("accelerator_arn");
+        get => GetProperty<TerraformProperty<string>>("accelerator_arn");
         set => this.WithProperty("accelerator_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

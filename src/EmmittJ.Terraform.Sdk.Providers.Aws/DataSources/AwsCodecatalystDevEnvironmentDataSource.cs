@@ -26,72 +26,72 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Alias
+    public TerraformProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        get => GetProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
     /// <summary>
     /// The creator_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CreatorId
+    public TerraformProperty<string>? CreatorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("creator_id");
+        get => GetProperty<TerraformProperty<string>>("creator_id");
         set => this.WithProperty("creator_id", value);
     }
 
     /// <summary>
     /// The env_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvId
+    public TerraformProperty<string>? EnvId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("env_id");
+        get => GetProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProjectName
+    public TerraformProperty<string>? ProjectName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_name");
+        get => GetProperty<TerraformProperty<string>>("project_name");
         set => this.WithProperty("project_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpaceName
+    public TerraformProperty<string>? SpaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("space_name");
+        get => GetProperty<TerraformProperty<string>>("space_name");
         set => this.WithProperty("space_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

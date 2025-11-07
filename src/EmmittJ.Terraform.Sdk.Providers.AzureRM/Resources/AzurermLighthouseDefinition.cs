@@ -19,54 +19,54 @@ public class AzurermLighthouseDefinition : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lighthouse_definition_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LighthouseDefinitionId
+    public TerraformProperty<string>? LighthouseDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lighthouse_definition_id");
+        get => GetProperty<TerraformProperty<string>>("lighthouse_definition_id");
         set => this.WithProperty("lighthouse_definition_id", value);
     }
 
     /// <summary>
     /// The managing_tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagingTenantId
+    public TerraformProperty<string>? ManagingTenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managing_tenant_id");
+        get => GetProperty<TerraformProperty<string>>("managing_tenant_id");
         set => this.WithProperty("managing_tenant_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

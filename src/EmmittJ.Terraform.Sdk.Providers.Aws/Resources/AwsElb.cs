@@ -23,153 +23,153 @@ public class AwsElb : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AvailabilityZones
+    public TerraformProperty<HashSet<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("availability_zones");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
     /// <summary>
     /// The connection_draining attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ConnectionDraining
+    public TerraformProperty<bool>? ConnectionDraining
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("connection_draining");
+        get => GetProperty<TerraformProperty<bool>>("connection_draining");
         set => this.WithProperty("connection_draining", value);
     }
 
     /// <summary>
     /// The connection_draining_timeout attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ConnectionDrainingTimeout
+    public TerraformProperty<double>? ConnectionDrainingTimeout
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("connection_draining_timeout");
+        get => GetProperty<TerraformProperty<double>>("connection_draining_timeout");
         set => this.WithProperty("connection_draining_timeout", value);
     }
 
     /// <summary>
     /// The cross_zone_load_balancing attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CrossZoneLoadBalancing
+    public TerraformProperty<bool>? CrossZoneLoadBalancing
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cross_zone_load_balancing");
+        get => GetProperty<TerraformProperty<bool>>("cross_zone_load_balancing");
         set => this.WithProperty("cross_zone_load_balancing", value);
     }
 
     /// <summary>
     /// The desync_mitigation_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DesyncMitigationMode
+    public TerraformProperty<string>? DesyncMitigationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("desync_mitigation_mode");
+        get => GetProperty<TerraformProperty<string>>("desync_mitigation_mode");
         set => this.WithProperty("desync_mitigation_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idle_timeout attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? IdleTimeout
+    public TerraformProperty<double>? IdleTimeout
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_timeout");
+        get => GetProperty<TerraformProperty<double>>("idle_timeout");
         set => this.WithProperty("idle_timeout", value);
     }
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Instances
+    public TerraformProperty<HashSet<string>>? Instances
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("instances");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("instances");
         set => this.WithProperty("instances", value);
     }
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Internal
+    public TerraformProperty<bool>? Internal
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internal");
+        get => GetProperty<TerraformProperty<bool>>("internal");
         set => this.WithProperty("internal", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroups
+    public TerraformProperty<HashSet<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The source_security_group attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceSecurityGroup
+    public TerraformProperty<string>? SourceSecurityGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_security_group");
+        get => GetProperty<TerraformProperty<string>>("source_security_group");
         set => this.WithProperty("source_security_group", value);
     }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Subnets
+    public TerraformProperty<HashSet<string>>? Subnets
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnets");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnets");
         set => this.WithProperty("subnets", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

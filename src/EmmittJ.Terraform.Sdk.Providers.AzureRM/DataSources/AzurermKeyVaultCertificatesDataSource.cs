@@ -21,27 +21,27 @@ public class AzurermKeyVaultCertificatesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_pending attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludePending
+    public TerraformProperty<bool>? IncludePending
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_pending");
+        get => GetProperty<TerraformProperty<bool>>("include_pending");
         set => this.WithProperty("include_pending", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultId
+    public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 

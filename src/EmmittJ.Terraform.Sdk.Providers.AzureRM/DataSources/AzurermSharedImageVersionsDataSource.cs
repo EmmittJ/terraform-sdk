@@ -20,45 +20,45 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The gallery_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GalleryName
+    public TerraformProperty<string>? GalleryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gallery_name");
+        get => GetProperty<TerraformProperty<string>>("gallery_name");
         set => this.WithProperty("gallery_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageName
+    public TerraformProperty<string>? ImageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_name");
+        get => GetProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags_filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsFilter
+    public TerraformProperty<Dictionary<string, string>>? TagsFilter
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_filter");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_filter");
         set => this.WithProperty("tags_filter", value);
     }
 

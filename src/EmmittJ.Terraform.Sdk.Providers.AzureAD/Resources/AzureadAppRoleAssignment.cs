@@ -22,36 +22,36 @@ public class AzureadAppRoleAssignment : TerraformResource
     /// <summary>
     /// The ID of the app role to be assigned
     /// </summary>
-    public TerraformLiteralProperty<string>? AppRoleId
+    public TerraformProperty<string>? AppRoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_role_id");
+        get => GetProperty<TerraformProperty<string>>("app_role_id");
         set => this.WithProperty("app_role_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the user, group or service principal to be assigned this app role
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalObjectId
+    public TerraformProperty<string>? PrincipalObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_object_id");
+        get => GetProperty<TerraformProperty<string>>("principal_object_id");
         set => this.WithProperty("principal_object_id", value);
     }
 
     /// <summary>
     /// The object ID of the service principal representing the resource
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceObjectId
+    public TerraformProperty<string>? ResourceObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_object_id");
+        get => GetProperty<TerraformProperty<string>>("resource_object_id");
         set => this.WithProperty("resource_object_id", value);
     }
 

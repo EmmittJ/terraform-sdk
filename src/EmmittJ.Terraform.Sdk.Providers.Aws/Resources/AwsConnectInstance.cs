@@ -23,126 +23,126 @@ public class AwsConnectInstance : TerraformResource
     /// <summary>
     /// The auto_resolve_best_voices_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoResolveBestVoicesEnabled
+    public TerraformProperty<bool>? AutoResolveBestVoicesEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_resolve_best_voices_enabled");
+        get => GetProperty<TerraformProperty<bool>>("auto_resolve_best_voices_enabled");
         set => this.WithProperty("auto_resolve_best_voices_enabled", value);
     }
 
     /// <summary>
     /// The contact_flow_logs_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ContactFlowLogsEnabled
+    public TerraformProperty<bool>? ContactFlowLogsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("contact_flow_logs_enabled");
+        get => GetProperty<TerraformProperty<bool>>("contact_flow_logs_enabled");
         set => this.WithProperty("contact_flow_logs_enabled", value);
     }
 
     /// <summary>
     /// The contact_lens_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ContactLensEnabled
+    public TerraformProperty<bool>? ContactLensEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("contact_lens_enabled");
+        get => GetProperty<TerraformProperty<bool>>("contact_lens_enabled");
         set => this.WithProperty("contact_lens_enabled", value);
     }
 
     /// <summary>
     /// The directory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DirectoryId
+    public TerraformProperty<string>? DirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("directory_id");
+        get => GetProperty<TerraformProperty<string>>("directory_id");
         set => this.WithProperty("directory_id", value);
     }
 
     /// <summary>
     /// The early_media_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EarlyMediaEnabled
+    public TerraformProperty<bool>? EarlyMediaEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("early_media_enabled");
+        get => GetProperty<TerraformProperty<bool>>("early_media_enabled");
         set => this.WithProperty("early_media_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_management_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityManagementType
+    public TerraformProperty<string>? IdentityManagementType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_management_type");
+        get => GetProperty<TerraformProperty<string>>("identity_management_type");
         set => this.WithProperty("identity_management_type", value);
     }
 
     /// <summary>
     /// The inbound_calls_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InboundCallsEnabled
+    public TerraformProperty<bool>? InboundCallsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("inbound_calls_enabled");
+        get => GetProperty<TerraformProperty<bool>>("inbound_calls_enabled");
         set => this.WithProperty("inbound_calls_enabled", value);
     }
 
     /// <summary>
     /// The instance_alias attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceAlias
+    public TerraformProperty<string>? InstanceAlias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_alias");
+        get => GetProperty<TerraformProperty<string>>("instance_alias");
         set => this.WithProperty("instance_alias", value);
     }
 
     /// <summary>
     /// The multi_party_conference_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MultiPartyConferenceEnabled
+    public TerraformProperty<bool>? MultiPartyConferenceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("multi_party_conference_enabled");
+        get => GetProperty<TerraformProperty<bool>>("multi_party_conference_enabled");
         set => this.WithProperty("multi_party_conference_enabled", value);
     }
 
     /// <summary>
     /// The outbound_calls_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OutboundCallsEnabled
+    public TerraformProperty<bool>? OutboundCallsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("outbound_calls_enabled");
+        get => GetProperty<TerraformProperty<bool>>("outbound_calls_enabled");
         set => this.WithProperty("outbound_calls_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

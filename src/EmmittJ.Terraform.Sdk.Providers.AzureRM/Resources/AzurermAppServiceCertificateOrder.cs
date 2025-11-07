@@ -28,99 +28,99 @@ public class AzurermAppServiceCertificateOrder : TerraformResource
     /// <summary>
     /// The auto_renew attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoRenew
+    public TerraformProperty<bool>? AutoRenew
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew");
+        get => GetProperty<TerraformProperty<bool>>("auto_renew");
         set => this.WithProperty("auto_renew", value);
     }
 
     /// <summary>
     /// The csr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Csr
+    public TerraformProperty<string>? Csr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("csr");
+        get => GetProperty<TerraformProperty<string>>("csr");
         set => this.WithProperty("csr", value);
     }
 
     /// <summary>
     /// The distinguished_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DistinguishedName
+    public TerraformProperty<string>? DistinguishedName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("distinguished_name");
+        get => GetProperty<TerraformProperty<string>>("distinguished_name");
         set => this.WithProperty("distinguished_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? KeySize
+    public TerraformProperty<double>? KeySize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("key_size");
+        get => GetProperty<TerraformProperty<double>>("key_size");
         set => this.WithProperty("key_size", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The product_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProductType
+    public TerraformProperty<string>? ProductType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_type");
+        get => GetProperty<TerraformProperty<string>>("product_type");
         set => this.WithProperty("product_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The validity_in_years attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ValidityInYears
+    public TerraformProperty<double>? ValidityInYears
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("validity_in_years");
+        get => GetProperty<TerraformProperty<double>>("validity_in_years");
         set => this.WithProperty("validity_in_years", value);
     }
 

@@ -24,9 +24,9 @@ public class GoogleMonitoringAppEngineServiceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -35,18 +35,18 @@ public class GoogleMonitoringAppEngineServiceDataSource : TerraformDataSource
     /// Corresponds to the &#39;moduleId&#39; resource label for a &#39;gae_app&#39;
     /// monitored resource(see https://cloud.google.com/monitoring/api/resources#tag_gae_app)
     /// </summary>
-    public TerraformLiteralProperty<string>? ModuleId
+    public TerraformProperty<string>? ModuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("module_id");
+        get => GetProperty<TerraformProperty<string>>("module_id");
         set => this.WithProperty("module_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

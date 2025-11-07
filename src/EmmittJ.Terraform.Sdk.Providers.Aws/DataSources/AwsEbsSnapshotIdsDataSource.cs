@@ -20,36 +20,36 @@ public class AwsEbsSnapshotIdsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Owners
+    public TerraformProperty<List<string>>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("owners");
+        get => GetProperty<TerraformProperty<List<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The restorable_by_user_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? RestorableByUserIds
+    public TerraformProperty<List<string>>? RestorableByUserIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("restorable_by_user_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("restorable_by_user_ids");
         set => this.WithProperty("restorable_by_user_ids", value);
     }
 

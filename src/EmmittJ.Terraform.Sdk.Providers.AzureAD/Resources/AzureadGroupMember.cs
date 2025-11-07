@@ -19,27 +19,27 @@ public class AzureadGroupMember : TerraformResource
     /// <summary>
     /// The object ID of the group you want to add the member to
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupObjectId
+    public TerraformProperty<string>? GroupObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_object_id");
+        get => GetProperty<TerraformProperty<string>>("group_object_id");
         set => this.WithProperty("group_object_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the principal you want to add as a member to the group. Supported object types are Users, Groups or Service Principals
     /// </summary>
-    public TerraformLiteralProperty<string>? MemberObjectId
+    public TerraformProperty<string>? MemberObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member_object_id");
+        get => GetProperty<TerraformProperty<string>>("member_object_id");
         set => this.WithProperty("member_object_id", value);
     }
 

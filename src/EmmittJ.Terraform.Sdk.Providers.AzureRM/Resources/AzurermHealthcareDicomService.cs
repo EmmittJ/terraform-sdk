@@ -22,72 +22,72 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// <summary>
     /// The data_partitions_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DataPartitionsEnabled
+    public TerraformProperty<bool>? DataPartitionsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("data_partitions_enabled");
+        get => GetProperty<TerraformProperty<bool>>("data_partitions_enabled");
         set => this.WithProperty("data_partitions_enabled", value);
     }
 
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EncryptionKeyUrl
+    public TerraformProperty<string>? EncryptionKeyUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption_key_url");
+        get => GetProperty<TerraformProperty<string>>("encryption_key_url");
         set => this.WithProperty("encryption_key_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceId
+    public TerraformProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

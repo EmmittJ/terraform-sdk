@@ -21,108 +21,108 @@ public class AzurermAppServicePlan : TerraformResource
     /// <summary>
     /// The app_service_environment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppServiceEnvironmentId
+    public TerraformProperty<string>? AppServiceEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_environment_id");
+        get => GetProperty<TerraformProperty<string>>("app_service_environment_id");
         set => this.WithProperty("app_service_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_xenon attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsXenon
+    public TerraformProperty<bool>? IsXenon
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_xenon");
+        get => GetProperty<TerraformProperty<bool>>("is_xenon");
         set => this.WithProperty("is_xenon", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The maximum_elastic_worker_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaximumElasticWorkerCount
+    public TerraformProperty<double>? MaximumElasticWorkerCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("maximum_elastic_worker_count");
+        get => GetProperty<TerraformProperty<double>>("maximum_elastic_worker_count");
         set => this.WithProperty("maximum_elastic_worker_count", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The per_site_scaling attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PerSiteScaling
+    public TerraformProperty<bool>? PerSiteScaling
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("per_site_scaling");
+        get => GetProperty<TerraformProperty<bool>>("per_site_scaling");
         set => this.WithProperty("per_site_scaling", value);
     }
 
     /// <summary>
     /// The reserved attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Reserved
+    public TerraformProperty<bool>? Reserved
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("reserved");
+        get => GetProperty<TerraformProperty<bool>>("reserved");
         set => this.WithProperty("reserved", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZoneRedundant
+    public TerraformProperty<bool>? ZoneRedundant
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundant");
+        get => GetProperty<TerraformProperty<bool>>("zone_redundant");
         set => this.WithProperty("zone_redundant", value);
     }
 

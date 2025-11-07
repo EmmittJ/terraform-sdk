@@ -19,27 +19,27 @@ public class AzurermApiManagementApiTag : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiId
+    public TerraformProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

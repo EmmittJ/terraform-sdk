@@ -22,108 +22,108 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalEncryptionContext
+    public TerraformProperty<Dictionary<string, string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The copy_allowed attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CopyAllowed
+    public TerraformProperty<string>? CopyAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("copy_allowed");
+        get => GetProperty<TerraformProperty<string>>("copy_allowed");
         set => this.WithProperty("copy_allowed", value);
     }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerManagedKey
+    public TerraformProperty<string>? CustomerManagedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key");
+        get => GetProperty<TerraformProperty<string>>("customer_managed_key");
         set => this.WithProperty("customer_managed_key", value);
     }
 
     /// <summary>
     /// The deep_link_allowed attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeepLinkAllowed
+    public TerraformProperty<string>? DeepLinkAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deep_link_allowed");
+        get => GetProperty<TerraformProperty<string>>("deep_link_allowed");
         set => this.WithProperty("deep_link_allowed", value);
     }
 
     /// <summary>
     /// The disconnect_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DisconnectTimeoutInMinutes
+    public TerraformProperty<double>? DisconnectTimeoutInMinutes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("disconnect_timeout_in_minutes");
+        get => GetProperty<TerraformProperty<double>>("disconnect_timeout_in_minutes");
         set => this.WithProperty("disconnect_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The download_allowed attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DownloadAllowed
+    public TerraformProperty<string>? DownloadAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("download_allowed");
+        get => GetProperty<TerraformProperty<string>>("download_allowed");
         set => this.WithProperty("download_allowed", value);
     }
 
     /// <summary>
     /// The idle_disconnect_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? IdleDisconnectTimeoutInMinutes
+    public TerraformProperty<double>? IdleDisconnectTimeoutInMinutes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_disconnect_timeout_in_minutes");
+        get => GetProperty<TerraformProperty<double>>("idle_disconnect_timeout_in_minutes");
         set => this.WithProperty("idle_disconnect_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The paste_allowed attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PasteAllowed
+    public TerraformProperty<string>? PasteAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("paste_allowed");
+        get => GetProperty<TerraformProperty<string>>("paste_allowed");
         set => this.WithProperty("paste_allowed", value);
     }
 
     /// <summary>
     /// The print_allowed attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrintAllowed
+    public TerraformProperty<string>? PrintAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("print_allowed");
+        get => GetProperty<TerraformProperty<string>>("print_allowed");
         set => this.WithProperty("print_allowed", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The upload_allowed attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UploadAllowed
+    public TerraformProperty<string>? UploadAllowed
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("upload_allowed");
+        get => GetProperty<TerraformProperty<string>>("upload_allowed");
         set => this.WithProperty("upload_allowed", value);
     }
 

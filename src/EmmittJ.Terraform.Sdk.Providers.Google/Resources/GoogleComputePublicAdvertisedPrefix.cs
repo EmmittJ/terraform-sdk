@@ -21,36 +21,36 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The IPv4 address to be used for reverse DNS verification.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsVerificationIp
+    public TerraformProperty<string>? DnsVerificationIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_verification_ip");
+        get => GetProperty<TerraformProperty<string>>("dns_verification_ip");
         set => this.WithProperty("dns_verification_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The address range, in CIDR format, represented by this public advertised prefix.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpCidrRange
+    public TerraformProperty<string>? IpCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range");
+        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
     }
 
@@ -62,9 +62,9 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -76,18 +76,18 @@ public class GoogleComputePublicAdvertisedPrefix : TerraformResource
     /// * GLOBAL: The public delegated prefix is global only. The provisioning
     /// will take ~4 weeks. Possible values: [&amp;quot;GLOBAL&amp;quot;, &amp;quot;REGIONAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? PdpScope
+    public TerraformProperty<string>? PdpScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pdp_scope");
+        get => GetProperty<TerraformProperty<string>>("pdp_scope");
         set => this.WithProperty("pdp_scope", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -19,45 +19,45 @@ public class AzurermContainerAppEnvironmentCustomDomain : TerraformResource
     /// <summary>
     /// The Custom Domain Certificate Private Key as a base64 encoded PFX or PEM.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateBlobBase64
+    public TerraformProperty<string>? CertificateBlobBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_blob_base64");
+        get => GetProperty<TerraformProperty<string>>("certificate_blob_base64");
         set => this.WithProperty("certificate_blob_base64", value);
     }
 
     /// <summary>
     /// The Custom Domain Certificate password.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificatePassword
+    public TerraformProperty<string>? CertificatePassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_password");
+        get => GetProperty<TerraformProperty<string>>("certificate_password");
         set => this.WithProperty("certificate_password", value);
     }
 
     /// <summary>
     /// The Container App Managed Environment ID to configure this Custom Domain on.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
+    public TerraformProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The Custom Domain DNS suffix for this Container App Environment.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsSuffix
+    public TerraformProperty<string>? DnsSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_suffix");
+        get => GetProperty<TerraformProperty<string>>("dns_suffix");
         set => this.WithProperty("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

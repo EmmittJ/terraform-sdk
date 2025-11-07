@@ -19,99 +19,99 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The actions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Actions
+    public TerraformProperty<HashSet<string>>? Actions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("actions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("actions");
         set => this.WithProperty("actions", value);
     }
 
     /// <summary>
     /// The custom_headers attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? CustomHeaders
+    public TerraformProperty<Dictionary<string, string>>? CustomHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("custom_headers");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("custom_headers");
         set => this.WithProperty("custom_headers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The registry_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RegistryName
+    public TerraformProperty<string>? RegistryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("registry_name");
+        get => GetProperty<TerraformProperty<string>>("registry_name");
         set => this.WithProperty("registry_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// The service_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceUri
+    public TerraformProperty<string>? ServiceUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_uri");
+        get => GetProperty<TerraformProperty<string>>("service_uri");
         set => this.WithProperty("service_uri", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

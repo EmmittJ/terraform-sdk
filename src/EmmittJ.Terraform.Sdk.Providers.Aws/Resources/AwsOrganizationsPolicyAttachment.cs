@@ -19,36 +19,36 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyId
+    public TerraformProperty<string>? PolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_id");
+        get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipDestroy
+    public TerraformProperty<bool>? SkipDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy");
+        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
         set => this.WithProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetId
+    public TerraformProperty<string>? TargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_id");
+        get => GetProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);
     }
 

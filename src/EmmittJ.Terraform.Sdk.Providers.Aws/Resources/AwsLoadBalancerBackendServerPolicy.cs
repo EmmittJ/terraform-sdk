@@ -19,45 +19,45 @@ public class AwsLoadBalancerBackendServerPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? InstancePort
+    public TerraformProperty<double>? InstancePort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_port");
+        get => GetProperty<TerraformProperty<double>>("instance_port");
         set => this.WithProperty("instance_port", value);
     }
 
     /// <summary>
     /// The load_balancer_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LoadBalancerName
+    public TerraformProperty<string>? LoadBalancerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancer_name");
+        get => GetProperty<TerraformProperty<string>>("load_balancer_name");
         set => this.WithProperty("load_balancer_name", value);
     }
 
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? PolicyNames
+    public TerraformProperty<HashSet<string>>? PolicyNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("policy_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("policy_names");
         set => this.WithProperty("policy_names", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

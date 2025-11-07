@@ -20,18 +20,18 @@ public class AzurermDataFactoryTriggerSchedulesDataSource : TerraformDataSource
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataFactoryId
+    public TerraformProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

@@ -20,36 +20,36 @@ public class GoogleProjectIamCustomRolesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The show_deleted attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ShowDeleted
+    public TerraformProperty<bool>? ShowDeleted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("show_deleted");
+        get => GetProperty<TerraformProperty<bool>>("show_deleted");
         set => this.WithProperty("show_deleted", value);
     }
 
     /// <summary>
     /// The view attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? View
+    public TerraformProperty<string>? View
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("view");
+        get => GetProperty<TerraformProperty<string>>("view");
         set => this.WithProperty("view", value);
     }
 

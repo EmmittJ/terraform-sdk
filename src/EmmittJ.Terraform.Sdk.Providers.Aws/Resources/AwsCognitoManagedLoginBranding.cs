@@ -21,45 +21,45 @@ public class AwsCognitoManagedLoginBranding : TerraformResource
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientId
+    public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Settings
+    public TerraformProperty<string>? Settings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("settings");
+        get => GetProperty<TerraformProperty<string>>("settings");
         set => this.WithProperty("settings", value);
     }
 
     /// <summary>
     /// The use_cognito_provided_values attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseCognitoProvidedValues
+    public TerraformProperty<bool>? UseCognitoProvidedValues
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_cognito_provided_values");
+        get => GetProperty<TerraformProperty<bool>>("use_cognito_provided_values");
         set => this.WithProperty("use_cognito_provided_values", value);
     }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPoolId
+    public TerraformProperty<string>? UserPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id");
+        get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 

@@ -23,36 +23,36 @@ public class AwsIpRangesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Regions
+    public TerraformProperty<HashSet<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The services attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Services
+    public TerraformProperty<HashSet<string>>? Services
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("services");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("services");
         set => this.WithProperty("services", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Url
+    public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url");
+        get => GetProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

@@ -21,27 +21,27 @@ public class GoogleServiceAccountKeyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_key_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicKeyType
+    public TerraformProperty<string>? PublicKeyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_key_type");
+        get => GetProperty<TerraformProperty<string>>("public_key_type");
         set => this.WithProperty("public_key_type", value);
     }
 

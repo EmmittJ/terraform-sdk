@@ -19,99 +19,99 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Collation
+    public TerraformProperty<string>? Collation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collation");
+        get => GetProperty<TerraformProperty<string>>("collation");
         set => this.WithProperty("collation", value);
     }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CreateMode
+    public TerraformProperty<string>? CreateMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_mode");
+        get => GetProperty<TerraformProperty<string>>("create_mode");
         set => this.WithProperty("create_mode", value);
     }
 
     /// <summary>
     /// The data_encrypted attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DataEncrypted
+    public TerraformProperty<bool>? DataEncrypted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("data_encrypted");
+        get => GetProperty<TerraformProperty<bool>>("data_encrypted");
         set => this.WithProperty("data_encrypted", value);
     }
 
     /// <summary>
     /// The geo_backup_policy_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GeoBackupPolicyEnabled
+    public TerraformProperty<bool>? GeoBackupPolicyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("geo_backup_policy_enabled");
+        get => GetProperty<TerraformProperty<bool>>("geo_backup_policy_enabled");
         set => this.WithProperty("geo_backup_policy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recovery_database_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryDatabaseId
+    public TerraformProperty<string>? RecoveryDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_database_id");
+        get => GetProperty<TerraformProperty<string>>("recovery_database_id");
         set => this.WithProperty("recovery_database_id", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountType
+    public TerraformProperty<string>? StorageAccountType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_type");
+        get => GetProperty<TerraformProperty<string>>("storage_account_type");
         set => this.WithProperty("storage_account_type", value);
     }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SynapseWorkspaceId
+    public TerraformProperty<string>? SynapseWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("synapse_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

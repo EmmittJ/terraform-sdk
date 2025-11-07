@@ -29,18 +29,18 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// is required). Updating one will unset the other automatically.
     /// group is the group, as seen by the kubernetes cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? Group
+    public TerraformProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -51,36 +51,36 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Id of the scope
     /// </summary>
-    public TerraformLiteralProperty<string>? ScopeId
+    public TerraformProperty<string>? ScopeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_id");
+        get => GetProperty<TerraformProperty<string>>("scope_id");
         set => this.WithProperty("scope_id", value);
     }
 
     /// <summary>
     /// The client-provided identifier of the RBAC Role Binding.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScopeRbacRoleBindingId
+    public TerraformProperty<string>? ScopeRbacRoleBindingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope_rbac_role_binding_id");
+        get => GetProperty<TerraformProperty<string>>("scope_rbac_role_binding_id");
         set => this.WithProperty("scope_rbac_role_binding_id", value);
     }
 
@@ -90,9 +90,9 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// user is the name of the user as seen by the kubernetes cluster, example
     /// &amp;quot;alice&amp;quot; or &amp;quot;alice@domain.tld&amp;quot;
     /// </summary>
-    public TerraformLiteralProperty<string>? User
+    public TerraformProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

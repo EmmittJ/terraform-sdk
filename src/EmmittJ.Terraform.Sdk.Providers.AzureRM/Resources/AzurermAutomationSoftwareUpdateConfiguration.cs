@@ -22,54 +22,54 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// <summary>
     /// The automation_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutomationAccountId
+    public TerraformProperty<string>? AutomationAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_id");
+        get => GetProperty<TerraformProperty<string>>("automation_account_id");
         set => this.WithProperty("automation_account_id", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Duration
+    public TerraformProperty<string>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("duration");
+        get => GetProperty<TerraformProperty<string>>("duration");
         set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The non_azure_computer_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? NonAzureComputerNames
+    public TerraformProperty<List<string>>? NonAzureComputerNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("non_azure_computer_names");
+        get => GetProperty<TerraformProperty<List<string>>>("non_azure_computer_names");
         set => this.WithProperty("non_azure_computer_names", value);
     }
 
     /// <summary>
     /// The virtual_machine_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? VirtualMachineIds
+    public TerraformProperty<List<string>>? VirtualMachineIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("virtual_machine_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("virtual_machine_ids");
         set => this.WithProperty("virtual_machine_ids", value);
     }
 

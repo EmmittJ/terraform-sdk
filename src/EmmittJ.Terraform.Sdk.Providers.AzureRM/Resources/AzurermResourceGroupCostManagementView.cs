@@ -19,72 +19,72 @@ public class AzurermResourceGroupCostManagementView : TerraformResource
     /// <summary>
     /// The accumulated attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Accumulated
+    public TerraformProperty<bool>? Accumulated
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("accumulated");
+        get => GetProperty<TerraformProperty<bool>>("accumulated");
         set => this.WithProperty("accumulated", value);
     }
 
     /// <summary>
     /// The chart_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ChartType
+    public TerraformProperty<string>? ChartType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("chart_type");
+        get => GetProperty<TerraformProperty<string>>("chart_type");
         set => this.WithProperty("chart_type", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The report_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReportType
+    public TerraformProperty<string>? ReportType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("report_type");
+        get => GetProperty<TerraformProperty<string>>("report_type");
         set => this.WithProperty("report_type", value);
     }
 
     /// <summary>
     /// The resource_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupId
+    public TerraformProperty<string>? ResourceGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_id");
+        get => GetProperty<TerraformProperty<string>>("resource_group_id");
         set => this.WithProperty("resource_group_id", value);
     }
 
     /// <summary>
     /// The timeframe attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Timeframe
+    public TerraformProperty<string>? Timeframe
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timeframe");
+        get => GetProperty<TerraformProperty<string>>("timeframe");
         set => this.WithProperty("timeframe", value);
     }
 

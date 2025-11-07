@@ -27,9 +27,9 @@ public class GoogleFirebaseAppHostingDomain : TerraformResource
     /// <summary>
     /// The ID of the Backend that this Domain is associated with
     /// </summary>
-    public TerraformLiteralProperty<string>? Backend
+    public TerraformProperty<string>? Backend
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend");
+        get => GetProperty<TerraformProperty<string>>("backend");
         set => this.WithProperty("backend", value);
     }
 
@@ -37,36 +37,36 @@ public class GoogleFirebaseAppHostingDomain : TerraformResource
     /// Id of the domain to create.
     /// Must be a valid domain name, such as &amp;quot;foo.com&amp;quot;
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainId
+    public TerraformProperty<string>? DomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_id");
+        get => GetProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the Backend that this Domain is associated with
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

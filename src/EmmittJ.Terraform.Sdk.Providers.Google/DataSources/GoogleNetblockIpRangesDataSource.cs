@@ -22,18 +22,18 @@ public class GoogleNetblockIpRangesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The range_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RangeType
+    public TerraformProperty<string>? RangeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("range_type");
+        get => GetProperty<TerraformProperty<string>>("range_type");
         set => this.WithProperty("range_type", value);
     }
 

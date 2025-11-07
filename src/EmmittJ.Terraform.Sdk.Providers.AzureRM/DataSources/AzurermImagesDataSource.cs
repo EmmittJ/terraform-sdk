@@ -20,27 +20,27 @@ public class AzurermImagesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags_filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsFilter
+    public TerraformProperty<Dictionary<string, string>>? TagsFilter
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_filter");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_filter");
         set => this.WithProperty("tags_filter", value);
     }
 

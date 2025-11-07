@@ -22,36 +22,36 @@ public class AwsIamUserSshKeyDataSource : TerraformDataSource
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Encoding
+    public TerraformProperty<string>? Encoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encoding");
+        get => GetProperty<TerraformProperty<string>>("encoding");
         set => this.WithProperty("encoding", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ssh_public_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SshPublicKeyId
+    public TerraformProperty<string>? SshPublicKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssh_public_key_id");
+        get => GetProperty<TerraformProperty<string>>("ssh_public_key_id");
         set => this.WithProperty("ssh_public_key_id", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

@@ -28,45 +28,45 @@ public class GoogleManagedKafkaAcl : TerraformResource
     /// For acls on all resources that match a prefix: &#39;topicPrefixed/{resource_name}&#39; &#39;consumerGroupPrefixed/{resource_name}&#39; &#39;transactionalIdPrefixed/{resource_name}&#39;
     /// For acls on all resources of a given type (i.e. the wildcard literal &#39;*&#39;&#39;): &#39;allTopics&#39; (represents &#39;topic/*&#39;) &#39;allConsumerGroups&#39; (represents &#39;consumerGroup/*&#39;) &#39;allTransactionalIds&#39; (represents &#39;transactionalId/*&#39;).
     /// </summary>
-    public TerraformLiteralProperty<string>? AclId
+    public TerraformProperty<string>? AclId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("acl_id");
+        get => GetProperty<TerraformProperty<string>>("acl_id");
         set => this.WithProperty("acl_id", value);
     }
 
     /// <summary>
     /// The cluster name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cluster
+    public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

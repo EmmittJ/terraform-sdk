@@ -20,27 +20,27 @@ public class AwsCeTagsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The search_string attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SearchString
+    public TerraformProperty<string>? SearchString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("search_string");
+        get => GetProperty<TerraformProperty<string>>("search_string");
         set => this.WithProperty("search_string", value);
     }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TagKey
+    public TerraformProperty<string>? TagKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_key");
+        get => GetProperty<TerraformProperty<string>>("tag_key");
         set => this.WithProperty("tag_key", value);
     }
 

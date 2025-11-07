@@ -19,90 +19,90 @@ public class AzurermMssqlVirtualMachine : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The r_services_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RServicesEnabled
+    public TerraformProperty<bool>? RServicesEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("r_services_enabled");
+        get => GetProperty<TerraformProperty<bool>>("r_services_enabled");
         set => this.WithProperty("r_services_enabled", value);
     }
 
     /// <summary>
     /// The sql_connectivity_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SqlConnectivityPort
+    public TerraformProperty<double>? SqlConnectivityPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sql_connectivity_port");
+        get => GetProperty<TerraformProperty<double>>("sql_connectivity_port");
         set => this.WithProperty("sql_connectivity_port", value);
     }
 
     /// <summary>
     /// The sql_connectivity_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlConnectivityType
+    public TerraformProperty<string>? SqlConnectivityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_connectivity_type");
+        get => GetProperty<TerraformProperty<string>>("sql_connectivity_type");
         set => this.WithProperty("sql_connectivity_type", value);
     }
 
     /// <summary>
     /// The sql_connectivity_update_password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlConnectivityUpdatePassword
+    public TerraformProperty<string>? SqlConnectivityUpdatePassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_connectivity_update_password");
+        get => GetProperty<TerraformProperty<string>>("sql_connectivity_update_password");
         set => this.WithProperty("sql_connectivity_update_password", value);
     }
 
     /// <summary>
     /// The sql_connectivity_update_username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlConnectivityUpdateUsername
+    public TerraformProperty<string>? SqlConnectivityUpdateUsername
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_connectivity_update_username");
+        get => GetProperty<TerraformProperty<string>>("sql_connectivity_update_username");
         set => this.WithProperty("sql_connectivity_update_username", value);
     }
 
     /// <summary>
     /// The sql_license_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlLicenseType
+    public TerraformProperty<string>? SqlLicenseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_license_type");
+        get => GetProperty<TerraformProperty<string>>("sql_license_type");
         set => this.WithProperty("sql_license_type", value);
     }
 
     /// <summary>
     /// The sql_virtual_machine_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlVirtualMachineGroupId
+    public TerraformProperty<string>? SqlVirtualMachineGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_virtual_machine_group_id");
+        get => GetProperty<TerraformProperty<string>>("sql_virtual_machine_group_id");
         set => this.WithProperty("sql_virtual_machine_group_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualMachineId
+    public TerraformProperty<string>? VirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

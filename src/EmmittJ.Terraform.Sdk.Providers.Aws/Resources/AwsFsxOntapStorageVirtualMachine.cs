@@ -23,72 +23,72 @@ public class AwsFsxOntapStorageVirtualMachine : TerraformResource
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileSystemId
+    public TerraformProperty<string>? FileSystemId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_id");
+        get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The root_volume_security_style attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RootVolumeSecurityStyle
+    public TerraformProperty<string>? RootVolumeSecurityStyle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("root_volume_security_style");
+        get => GetProperty<TerraformProperty<string>>("root_volume_security_style");
         set => this.WithProperty("root_volume_security_style", value);
     }
 
     /// <summary>
     /// The svm_admin_password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SvmAdminPassword
+    public TerraformProperty<string>? SvmAdminPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("svm_admin_password");
+        get => GetProperty<TerraformProperty<string>>("svm_admin_password");
         set => this.WithProperty("svm_admin_password", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -21,63 +21,63 @@ public class GoogleProjectIamCustomRole : TerraformResource
     /// <summary>
     /// A human-readable description for the role.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Permissions
+    public TerraformProperty<HashSet<string>>? Permissions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("permissions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
     /// <summary>
     /// The project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The camel case role id to use for this role. Cannot contain - characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleId
+    public TerraformProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 
     /// <summary>
     /// The current launch stage of the role. Defaults to GA.
     /// </summary>
-    public TerraformLiteralProperty<string>? Stage
+    public TerraformProperty<string>? Stage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stage");
+        get => GetProperty<TerraformProperty<string>>("stage");
         set => this.WithProperty("stage", value);
     }
 
     /// <summary>
     /// A human-readable title for the role.
     /// </summary>
-    public TerraformLiteralProperty<string>? Title
+    public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 

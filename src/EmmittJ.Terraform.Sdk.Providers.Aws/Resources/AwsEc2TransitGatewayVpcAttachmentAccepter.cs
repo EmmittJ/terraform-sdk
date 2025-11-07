@@ -27,63 +27,63 @@ public class AwsEc2TransitGatewayVpcAttachmentAccepter : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayAttachmentId
+    public TerraformProperty<string>? TransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
         set => this.WithProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_association attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TransitGatewayDefaultRouteTableAssociation
+    public TerraformProperty<bool>? TransitGatewayDefaultRouteTableAssociation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("transit_gateway_default_route_table_association");
+        get => GetProperty<TerraformProperty<bool>>("transit_gateway_default_route_table_association");
         set => this.WithProperty("transit_gateway_default_route_table_association", value);
     }
 
     /// <summary>
     /// The transit_gateway_default_route_table_propagation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TransitGatewayDefaultRouteTablePropagation
+    public TerraformProperty<bool>? TransitGatewayDefaultRouteTablePropagation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("transit_gateway_default_route_table_propagation");
+        get => GetProperty<TerraformProperty<bool>>("transit_gateway_default_route_table_propagation");
         set => this.WithProperty("transit_gateway_default_route_table_propagation", value);
     }
 

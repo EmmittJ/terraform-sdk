@@ -20,27 +20,27 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Database
+    public TerraformProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleFirestoreBackupSchedule : TerraformResource
     /// 
     /// You can set this to a value up to 14 weeks.
     /// </summary>
-    public TerraformLiteralProperty<string>? Retention
+    public TerraformProperty<string>? Retention
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retention");
+        get => GetProperty<TerraformProperty<string>>("retention");
         set => this.WithProperty("retention", value);
     }
 

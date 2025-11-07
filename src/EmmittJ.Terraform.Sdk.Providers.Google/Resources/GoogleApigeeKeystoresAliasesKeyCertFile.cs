@@ -22,63 +22,63 @@ public class GoogleApigeeKeystoresAliasesKeyCertFile : TerraformResource
     /// <summary>
     /// Alias Name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Alias
+    public TerraformProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        get => GetProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
     /// <summary>
     /// Cert content.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cert
+    public TerraformProperty<string>? Cert
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cert");
+        get => GetProperty<TerraformProperty<string>>("cert");
         set => this.WithProperty("cert", value);
     }
 
     /// <summary>
     /// Environment associated with the alias.
     /// </summary>
-    public TerraformLiteralProperty<string>? Environment
+    public TerraformProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// Private Key content, omit if uploading to truststore.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// Keystore Name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Keystore
+    public TerraformProperty<string>? Keystore
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("keystore");
+        get => GetProperty<TerraformProperty<string>>("keystore");
         set => this.WithProperty("keystore", value);
     }
 
     /// <summary>
     /// Organization ID associated with the alias.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// Password for the Private Key if it&#39;s encrypted.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 

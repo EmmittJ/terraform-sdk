@@ -19,36 +19,36 @@ public class AzurermBillingMcaAccountScopeDataSource : TerraformDataSource
     /// <summary>
     /// The billing_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingAccountName
+    public TerraformProperty<string>? BillingAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account_name");
+        get => GetProperty<TerraformProperty<string>>("billing_account_name");
         set => this.WithProperty("billing_account_name", value);
     }
 
     /// <summary>
     /// The billing_profile_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingProfileName
+    public TerraformProperty<string>? BillingProfileName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_profile_name");
+        get => GetProperty<TerraformProperty<string>>("billing_profile_name");
         set => this.WithProperty("billing_profile_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The invoice_section_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InvoiceSectionName
+    public TerraformProperty<string>? InvoiceSectionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("invoice_section_name");
+        get => GetProperty<TerraformProperty<string>>("invoice_section_name");
         set => this.WithProperty("invoice_section_name", value);
     }
 

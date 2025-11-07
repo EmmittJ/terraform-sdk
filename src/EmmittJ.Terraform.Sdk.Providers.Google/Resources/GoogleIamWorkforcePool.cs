@@ -21,9 +21,9 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// <summary>
     /// A user-specified description of the pool. Cannot exceed 256 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -31,45 +31,45 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens,
     /// or use existing tokens to access resources. If the pool is re-enabled, existing tokens grant access again.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// A user-specified display name of the pool in Google Cloud Console. Cannot exceed 32 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Immutable. The resource name of the parent. Format: &#39;organizations/{org-id}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -80,9 +80,9 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// If &#39;sessionDuration&#39; is not configured, minted credentials have a default duration of one hour (3600s).
     /// A duration in seconds with up to nine fractional digits, ending with &#39;&#39;s&#39;&#39;. Example: &amp;quot;&#39;3.5s&#39;&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? SessionDuration
+    public TerraformProperty<string>? SessionDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("session_duration");
+        get => GetProperty<TerraformProperty<string>>("session_duration");
         set => this.WithProperty("session_duration", value);
     }
 
@@ -91,9 +91,9 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// digits, or hyphens. It must start with a letter, and cannot have a trailing hyphen.
     /// The prefix &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkforcePoolId
+    public TerraformProperty<string>? WorkforcePoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workforce_pool_id");
+        get => GetProperty<TerraformProperty<string>>("workforce_pool_id");
         set => this.WithProperty("workforce_pool_id", value);
     }
 

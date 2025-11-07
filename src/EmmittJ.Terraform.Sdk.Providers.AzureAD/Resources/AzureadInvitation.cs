@@ -21,45 +21,45 @@ public class AzureadInvitation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The URL that the user should be redirected to once the invitation is redeemed
     /// </summary>
-    public TerraformLiteralProperty<string>? RedirectUrl
+    public TerraformProperty<string>? RedirectUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redirect_url");
+        get => GetProperty<TerraformProperty<string>>("redirect_url");
         set => this.WithProperty("redirect_url", value);
     }
 
     /// <summary>
     /// The display name of the user being invited
     /// </summary>
-    public TerraformLiteralProperty<string>? UserDisplayName
+    public TerraformProperty<string>? UserDisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_display_name");
+        get => GetProperty<TerraformProperty<string>>("user_display_name");
         set => this.WithProperty("user_display_name", value);
     }
 
     /// <summary>
     /// The email address of the user being invited
     /// </summary>
-    public TerraformLiteralProperty<string>? UserEmailAddress
+    public TerraformProperty<string>? UserEmailAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_email_address");
+        get => GetProperty<TerraformProperty<string>>("user_email_address");
         set => this.WithProperty("user_email_address", value);
     }
 
     /// <summary>
     /// The user type of the user being invited
     /// </summary>
-    public TerraformLiteralProperty<string>? UserType
+    public TerraformProperty<string>? UserType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_type");
+        get => GetProperty<TerraformProperty<string>>("user_type");
         set => this.WithProperty("user_type", value);
     }
 

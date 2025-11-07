@@ -23,117 +23,117 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// <summary>
     /// Determines if allow stale reviews or approvals before merging to the branch.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowStaleReviews
+    public TerraformProperty<bool>? AllowStaleReviews
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_stale_reviews");
+        get => GetProperty<TerraformProperty<bool>>("allow_stale_reviews");
         set => this.WithProperty("allow_stale_reviews", value);
     }
 
     /// <summary>
     /// The ID for the BranchRule.
     /// </summary>
-    public TerraformLiteralProperty<string>? BranchRuleId
+    public TerraformProperty<string>? BranchRuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch_rule_id");
+        get => GetProperty<TerraformProperty<string>>("branch_rule_id");
         set => this.WithProperty("branch_rule_id", value);
     }
 
     /// <summary>
     /// Determines if the branch rule is disabled or not.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The BranchRule matches branches based on the specified regular expression. Use .* to match all branches.
     /// </summary>
-    public TerraformLiteralProperty<string>? IncludePattern
+    public TerraformProperty<string>? IncludePattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("include_pattern");
+        get => GetProperty<TerraformProperty<string>>("include_pattern");
         set => this.WithProperty("include_pattern", value);
     }
 
     /// <summary>
     /// The location for the Repository.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The minimum number of approvals required for the branch rule to be matched.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinimumApprovalsCount
+    public TerraformProperty<double>? MinimumApprovalsCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("minimum_approvals_count");
+        get => GetProperty<TerraformProperty<double>>("minimum_approvals_count");
         set => this.WithProperty("minimum_approvals_count", value);
     }
 
     /// <summary>
     /// The minimum number of reviews required for the branch rule to be matched.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinimumReviewsCount
+    public TerraformProperty<double>? MinimumReviewsCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("minimum_reviews_count");
+        get => GetProperty<TerraformProperty<double>>("minimum_reviews_count");
         set => this.WithProperty("minimum_reviews_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The ID for the Repository.
     /// </summary>
-    public TerraformLiteralProperty<string>? RepositoryId
+    public TerraformProperty<string>? RepositoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_id");
+        get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 
     /// <summary>
     /// Determines if require comments resolved before merging to the branch.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequireCommentsResolved
+    public TerraformProperty<bool>? RequireCommentsResolved
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("require_comments_resolved");
+        get => GetProperty<TerraformProperty<bool>>("require_comments_resolved");
         set => this.WithProperty("require_comments_resolved", value);
     }
 
     /// <summary>
     /// Determines if require linear history before merging to the branch.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequireLinearHistory
+    public TerraformProperty<bool>? RequireLinearHistory
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("require_linear_history");
+        get => GetProperty<TerraformProperty<bool>>("require_linear_history");
         set => this.WithProperty("require_linear_history", value);
     }
 
     /// <summary>
     /// Determines if the branch rule requires a pull request or not.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequirePullRequest
+    public TerraformProperty<bool>? RequirePullRequest
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("require_pull_request");
+        get => GetProperty<TerraformProperty<bool>>("require_pull_request");
         set => this.WithProperty("require_pull_request", value);
     }
 

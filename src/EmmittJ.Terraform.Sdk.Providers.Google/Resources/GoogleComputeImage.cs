@@ -26,18 +26,18 @@ public class GoogleComputeImage : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Size of the image when restored onto a persistent disk (in GB).
     /// </summary>
-    public TerraformLiteralProperty<double>? DiskSizeGb
+    public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("disk_size_gb");
+        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
         set => this.WithProperty("disk_size_gb", value);
     }
 
@@ -48,18 +48,18 @@ public class GoogleComputeImage : TerraformResource
     /// not deprecated. The name of the image family must comply with
     /// RFC1035.
     /// </summary>
-    public TerraformLiteralProperty<string>? Family
+    public TerraformProperty<string>? Family
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("family");
+        get => GetProperty<TerraformProperty<string>>("family");
         set => this.WithProperty("family", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -69,18 +69,18 @@ public class GoogleComputeImage : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Licenses
+    public TerraformProperty<List<string>>? Licenses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("licenses");
+        get => GetProperty<TerraformProperty<List<string>>>("licenses");
         set => this.WithProperty("licenses", value);
     }
 
@@ -93,18 +93,18 @@ public class GoogleComputeImage : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -113,9 +113,9 @@ public class GoogleComputeImage : TerraformResource
     /// You must provide either this property or the
     /// rawDisk.source property but not both to create an image.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceDisk
+    public TerraformProperty<string>? SourceDisk
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_disk");
+        get => GetProperty<TerraformProperty<string>>("source_disk");
         set => this.WithProperty("source_disk", value);
     }
 
@@ -128,9 +128,9 @@ public class GoogleComputeImage : TerraformResource
     /// * The rawDisk.source URL
     /// * The sourceDisk URL
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceImage
+    public TerraformProperty<string>? SourceImage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_image");
+        get => GetProperty<TerraformProperty<string>>("source_image");
         set => this.WithProperty("source_image", value);
     }
 
@@ -145,9 +145,9 @@ public class GoogleComputeImage : TerraformResource
     /// * The rawDisk.source URL
     /// * The sourceDisk URL
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceSnapshot
+    public TerraformProperty<string>? SourceSnapshot
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_snapshot");
+        get => GetProperty<TerraformProperty<string>>("source_snapshot");
         set => this.WithProperty("source_snapshot", value);
     }
 
@@ -156,9 +156,9 @@ public class GoogleComputeImage : TerraformResource
     /// (regional or multi-regional).
     /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? StorageLocations
+    public TerraformProperty<List<string>>? StorageLocations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("storage_locations");
+        get => GetProperty<TerraformProperty<List<string>>>("storage_locations");
         set => this.WithProperty("storage_locations", value);
     }
 

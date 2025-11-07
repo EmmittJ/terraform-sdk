@@ -20,36 +20,36 @@ public class GoogleDnsManagedZoneIamPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedZone
+    public TerraformProperty<string>? ManagedZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_zone");
+        get => GetProperty<TerraformProperty<string>>("managed_zone");
         set => this.WithProperty("managed_zone", value);
     }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyData
+    public TerraformProperty<string>? PolicyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_data");
+        get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

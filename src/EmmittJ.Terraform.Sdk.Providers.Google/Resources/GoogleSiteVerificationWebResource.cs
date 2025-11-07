@@ -21,9 +21,9 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -31,9 +31,9 @@ public class GoogleSiteVerificationWebResource : TerraformResource
     /// The verification method for the Site Verification system to use to verify
     /// this site or domain. Possible values: [&amp;quot;ANALYTICS&amp;quot;, &amp;quot;DNS_CNAME&amp;quot;, &amp;quot;DNS_TXT&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;META&amp;quot;, &amp;quot;TAG_MANAGER&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? VerificationMethod
+    public TerraformProperty<string>? VerificationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("verification_method");
+        get => GetProperty<TerraformProperty<string>>("verification_method");
         set => this.WithProperty("verification_method", value);
     }
 

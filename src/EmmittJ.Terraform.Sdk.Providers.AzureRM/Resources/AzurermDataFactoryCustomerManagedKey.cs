@@ -19,36 +19,36 @@ public class AzurermDataFactoryCustomerManagedKey : TerraformResource
     /// <summary>
     /// The customer_managed_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerManagedKeyId
+    public TerraformProperty<string>? CustomerManagedKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key_id");
+        get => GetProperty<TerraformProperty<string>>("customer_managed_key_id");
         set => this.WithProperty("customer_managed_key_id", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataFactoryId
+    public TerraformProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserAssignedIdentityId
+    public TerraformProperty<string>? UserAssignedIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_assigned_identity_id");
+        get => GetProperty<TerraformProperty<string>>("user_assigned_identity_id");
         set => this.WithProperty("user_assigned_identity_id", value);
     }
 

@@ -19,81 +19,81 @@ public class AzurermBotChannelSlack : TerraformResource
     /// <summary>
     /// The bot_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BotName
+    public TerraformProperty<string>? BotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_name");
+        get => GetProperty<TerraformProperty<string>>("bot_name");
         set => this.WithProperty("bot_name", value);
     }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientId
+    public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientSecret
+    public TerraformProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        get => GetProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The landing_page_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LandingPageUrl
+    public TerraformProperty<string>? LandingPageUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("landing_page_url");
+        get => GetProperty<TerraformProperty<string>>("landing_page_url");
         set => this.WithProperty("landing_page_url", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The signing_secret attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SigningSecret
+    public TerraformProperty<string>? SigningSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signing_secret");
+        get => GetProperty<TerraformProperty<string>>("signing_secret");
         set => this.WithProperty("signing_secret", value);
     }
 
     /// <summary>
     /// The verification_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VerificationToken
+    public TerraformProperty<string>? VerificationToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("verification_token");
+        get => GetProperty<TerraformProperty<string>>("verification_token");
         set => this.WithProperty("verification_token", value);
     }
 

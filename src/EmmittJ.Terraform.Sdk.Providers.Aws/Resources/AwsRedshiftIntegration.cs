@@ -21,72 +21,72 @@ public class AwsRedshiftIntegration : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalEncryptionContext
+    public TerraformProperty<Dictionary<string, string>>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_encryption_context");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The integration_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationName
+    public TerraformProperty<string>? IntegrationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_name");
+        get => GetProperty<TerraformProperty<string>>("integration_name");
         set => this.WithProperty("integration_name", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceArn
+    public TerraformProperty<string>? SourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_arn");
+        get => GetProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetArn
+    public TerraformProperty<string>? TargetArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_arn");
+        get => GetProperty<TerraformProperty<string>>("target_arn");
         set => this.WithProperty("target_arn", value);
     }
 

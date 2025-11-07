@@ -20,54 +20,54 @@ public class GoogleComputeGlobalNetworkEndpoint : TerraformResource
     /// Fully qualified domain name of network endpoint.
     /// This can only be specified when network_endpoint_type of the NEG is INTERNET_FQDN_PORT.
     /// </summary>
-    public TerraformLiteralProperty<string>? Fqdn
+    public TerraformProperty<string>? Fqdn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fqdn");
+        get => GetProperty<TerraformProperty<string>>("fqdn");
         set => this.WithProperty("fqdn", value);
     }
 
     /// <summary>
     /// The global network endpoint group this endpoint is part of.
     /// </summary>
-    public TerraformLiteralProperty<string>? GlobalNetworkEndpointGroup
+    public TerraformProperty<string>? GlobalNetworkEndpointGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_network_endpoint_group");
+        get => GetProperty<TerraformProperty<string>>("global_network_endpoint_group");
         set => this.WithProperty("global_network_endpoint_group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// IPv4 address external endpoint.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddress
+    public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        get => GetProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// Port number of the external endpoint.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -20,108 +20,108 @@ public class AwsCloudtrailEventDataStore : TerraformResource
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingMode
+    public TerraformProperty<string>? BillingMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_mode");
+        get => GetProperty<TerraformProperty<string>>("billing_mode");
         set => this.WithProperty("billing_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The multi_region_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MultiRegionEnabled
+    public TerraformProperty<bool>? MultiRegionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("multi_region_enabled");
+        get => GetProperty<TerraformProperty<bool>>("multi_region_enabled");
         set => this.WithProperty("multi_region_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The organization_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OrganizationEnabled
+    public TerraformProperty<bool>? OrganizationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("organization_enabled");
+        get => GetProperty<TerraformProperty<bool>>("organization_enabled");
         set => this.WithProperty("organization_enabled", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionPeriod
+    public TerraformProperty<double>? RetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_period");
+        get => GetProperty<TerraformProperty<double>>("retention_period");
         set => this.WithProperty("retention_period", value);
     }
 
     /// <summary>
     /// The suspend attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Suspend
+    public TerraformProperty<string>? Suspend
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("suspend");
+        get => GetProperty<TerraformProperty<string>>("suspend");
         set => this.WithProperty("suspend", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The termination_protection_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TerminationProtectionEnabled
+    public TerraformProperty<bool>? TerminationProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("termination_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("termination_protection_enabled");
         set => this.WithProperty("termination_protection_enabled", value);
     }
 

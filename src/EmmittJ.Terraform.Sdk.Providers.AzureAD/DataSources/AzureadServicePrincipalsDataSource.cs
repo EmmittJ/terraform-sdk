@@ -20,54 +20,54 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
     /// <summary>
     /// The client IDs of the applications associated with the service principals
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ClientIds
+    public TerraformProperty<List<string>>? ClientIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("client_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("client_ids");
         set => this.WithProperty("client_ids", value);
     }
 
     /// <summary>
     /// The display names of the applications associated with the service principals
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DisplayNames
+    public TerraformProperty<List<string>>? DisplayNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("display_names");
+        get => GetProperty<TerraformProperty<List<string>>>("display_names");
         set => this.WithProperty("display_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Ignore missing service principals and return the service principals that were found. The data source will still fail if no service principals are found
     /// </summary>
-    public TerraformLiteralProperty<bool>? IgnoreMissing
+    public TerraformProperty<bool>? IgnoreMissing
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_missing");
+        get => GetProperty<TerraformProperty<bool>>("ignore_missing");
         set => this.WithProperty("ignore_missing", value);
     }
 
     /// <summary>
     /// The object IDs of the service principals
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ObjectIds
+    public TerraformProperty<List<string>>? ObjectIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("object_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("object_ids");
         set => this.WithProperty("object_ids", value);
     }
 
     /// <summary>
     /// Fetch all service principals with no filter and return all that were found. The data source will still fail if no service principals are found.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ReturnAll
+    public TerraformProperty<bool>? ReturnAll
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("return_all");
+        get => GetProperty<TerraformProperty<bool>>("return_all");
         set => this.WithProperty("return_all", value);
     }
 

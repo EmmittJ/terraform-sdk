@@ -19,162 +19,162 @@ public class AzurermSentinelMetadata : TerraformResource
     /// <summary>
     /// The content_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentId
+    public TerraformProperty<string>? ContentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_id");
+        get => GetProperty<TerraformProperty<string>>("content_id");
         set => this.WithProperty("content_id", value);
     }
 
     /// <summary>
     /// The content_schema_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentSchemaVersion
+    public TerraformProperty<string>? ContentSchemaVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_schema_version");
+        get => GetProperty<TerraformProperty<string>>("content_schema_version");
         set => this.WithProperty("content_schema_version", value);
     }
 
     /// <summary>
     /// The custom_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomVersion
+    public TerraformProperty<string>? CustomVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_version");
+        get => GetProperty<TerraformProperty<string>>("custom_version");
         set => this.WithProperty("custom_version", value);
     }
 
     /// <summary>
     /// The dependency attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Dependency
+    public TerraformProperty<string>? Dependency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dependency");
+        get => GetProperty<TerraformProperty<string>>("dependency");
         set => this.WithProperty("dependency", value);
     }
 
     /// <summary>
     /// The first_publish_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirstPublishDate
+    public TerraformProperty<string>? FirstPublishDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("first_publish_date");
+        get => GetProperty<TerraformProperty<string>>("first_publish_date");
         set => this.WithProperty("first_publish_date", value);
     }
 
     /// <summary>
     /// The icon_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IconId
+    public TerraformProperty<string>? IconId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("icon_id");
+        get => GetProperty<TerraformProperty<string>>("icon_id");
         set => this.WithProperty("icon_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The last_publish_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LastPublishDate
+    public TerraformProperty<string>? LastPublishDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("last_publish_date");
+        get => GetProperty<TerraformProperty<string>>("last_publish_date");
         set => this.WithProperty("last_publish_date", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentId
+    public TerraformProperty<string>? ParentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_id");
+        get => GetProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 
     /// <summary>
     /// The preview_images attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreviewImages
+    public TerraformProperty<List<string>>? PreviewImages
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preview_images");
+        get => GetProperty<TerraformProperty<List<string>>>("preview_images");
         set => this.WithProperty("preview_images", value);
     }
 
     /// <summary>
     /// The preview_images_dark attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreviewImagesDark
+    public TerraformProperty<List<string>>? PreviewImagesDark
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preview_images_dark");
+        get => GetProperty<TerraformProperty<List<string>>>("preview_images_dark");
         set => this.WithProperty("preview_images_dark", value);
     }
 
     /// <summary>
     /// The providers attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Providers
+    public TerraformProperty<List<string>>? Providers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("providers");
+        get => GetProperty<TerraformProperty<List<string>>>("providers");
         set => this.WithProperty("providers", value);
     }
 
     /// <summary>
     /// The threat_analysis_tactics attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ThreatAnalysisTactics
+    public TerraformProperty<List<string>>? ThreatAnalysisTactics
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("threat_analysis_tactics");
+        get => GetProperty<TerraformProperty<List<string>>>("threat_analysis_tactics");
         set => this.WithProperty("threat_analysis_tactics", value);
     }
 
     /// <summary>
     /// The threat_analysis_techniques attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ThreatAnalysisTechniques
+    public TerraformProperty<List<string>>? ThreatAnalysisTechniques
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("threat_analysis_techniques");
+        get => GetProperty<TerraformProperty<List<string>>>("threat_analysis_techniques");
         set => this.WithProperty("threat_analysis_techniques", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceId
+    public TerraformProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

@@ -20,63 +20,63 @@ public class AzurermHpcCacheBlobTarget : TerraformResource
     /// <summary>
     /// The access_policy_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessPolicyName
+    public TerraformProperty<string>? AccessPolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_policy_name");
+        get => GetProperty<TerraformProperty<string>>("access_policy_name");
         set => this.WithProperty("access_policy_name", value);
     }
 
     /// <summary>
     /// The cache_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CacheName
+    public TerraformProperty<string>? CacheName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_name");
+        get => GetProperty<TerraformProperty<string>>("cache_name");
         set => this.WithProperty("cache_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamespacePath
+    public TerraformProperty<string>? NamespacePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace_path");
+        get => GetProperty<TerraformProperty<string>>("namespace_path");
         set => this.WithProperty("namespace_path", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_container_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageContainerId
+    public TerraformProperty<string>? StorageContainerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_container_id");
+        get => GetProperty<TerraformProperty<string>>("storage_container_id");
         set => this.WithProperty("storage_container_id", value);
     }
 

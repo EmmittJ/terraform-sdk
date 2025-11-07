@@ -20,27 +20,27 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// <summary>
     /// The description of the flow. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The human-readable name of the flow.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// 
     /// ~&amp;gt; Avoid having multiple &#39;google_dialogflow_cx_flow&#39; resources linked to the same agent with &#39;is_default_start_flow = true&#39; because they will compete to control a single Default Start Flow resource in GCP.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsDefaultStartFlow
+    public TerraformProperty<bool>? IsDefaultStartFlow
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_default_start_flow");
+        get => GetProperty<TerraformProperty<bool>>("is_default_start_flow");
         set => this.WithProperty("is_default_start_flow", value);
     }
 
@@ -64,9 +64,9 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// Flow.transition_routes.trigger_fulfillment.conditional_cases
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformLiteralProperty<string>? LanguageCode
+    public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -74,9 +74,9 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// The agent to create a flow for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -86,9 +86,9 @@ public class GoogleDialogflowCxFlow : TerraformResource
     /// They are inherited by every page&#39;s [transition route groups][Page.transition_route_groups]. Transition route groups defined in the page have higher priority than those defined in the flow.
     /// Format:projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;/flows/&amp;lt;Flow ID&amp;gt;/transitionRouteGroups/&amp;lt;TransitionRouteGroup ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? TransitionRouteGroups
+    public TerraformProperty<List<string>>? TransitionRouteGroups
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("transition_route_groups");
+        get => GetProperty<TerraformProperty<List<string>>>("transition_route_groups");
         set => this.WithProperty("transition_route_groups", value);
     }
 

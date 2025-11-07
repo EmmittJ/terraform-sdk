@@ -32,9 +32,9 @@ public class GoogleComputeRoute : TerraformResource
     /// An optional description of this resource. Provide this property
     /// when you create the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -42,18 +42,18 @@ public class GoogleComputeRoute : TerraformResource
     /// The destination range of outgoing packets that this route applies to.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestRange
+    public TerraformProperty<string>? DestRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dest_range");
+        get => GetProperty<TerraformProperty<string>>("dest_range");
         set => this.WithProperty("dest_range", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -66,18 +66,18 @@ public class GoogleComputeRoute : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network that this route applies to.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -90,9 +90,9 @@ public class GoogleComputeRoute : TerraformResource
     /// * &#39;global/gateways/default-internet-gateway&#39;
     /// * The string &#39;default-internet-gateway&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopGateway
+    public TerraformProperty<string>? NextHopGateway
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_gateway");
+        get => GetProperty<TerraformProperty<string>>("next_hop_gateway");
         set => this.WithProperty("next_hop_gateway", value);
     }
 
@@ -114,9 +114,9 @@ public class GoogleComputeRoute : TerraformResource
     /// Note that this can only be used when the destinationRange is
     /// a public (non-RFC 1918) IP CIDR range.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopIlb
+    public TerraformProperty<string>? NextHopIlb
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_ilb");
+        get => GetProperty<TerraformProperty<string>>("next_hop_ilb");
         set => this.WithProperty("next_hop_ilb", value);
     }
 
@@ -128,36 +128,36 @@ public class GoogleComputeRoute : TerraformResource
     /// * &#39;zones/zone/instances/instance&#39;
     /// * Just the instance name, with the zone in &#39;next_hop_instance_zone&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopInstance
+    public TerraformProperty<string>? NextHopInstance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_instance");
+        get => GetProperty<TerraformProperty<string>>("next_hop_instance");
         set => this.WithProperty("next_hop_instance", value);
     }
 
     /// <summary>
     /// The zone of the instance specified in next_hop_instance. Omit if next_hop_instance is specified as a URL.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopInstanceZone
+    public TerraformProperty<string>? NextHopInstanceZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_instance_zone");
+        get => GetProperty<TerraformProperty<string>>("next_hop_instance_zone");
         set => this.WithProperty("next_hop_instance_zone", value);
     }
 
     /// <summary>
     /// Network IP address of an instance that should handle matching packets.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopIp
+    public TerraformProperty<string>? NextHopIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_ip");
+        get => GetProperty<TerraformProperty<string>>("next_hop_ip");
         set => this.WithProperty("next_hop_ip", value);
     }
 
     /// <summary>
     /// URL to a VpnTunnel that should handle matching packets.
     /// </summary>
-    public TerraformLiteralProperty<string>? NextHopVpnTunnel
+    public TerraformProperty<string>? NextHopVpnTunnel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("next_hop_vpn_tunnel");
+        get => GetProperty<TerraformProperty<string>>("next_hop_vpn_tunnel");
         set => this.WithProperty("next_hop_vpn_tunnel", value);
     }
 
@@ -170,27 +170,27 @@ public class GoogleComputeRoute : TerraformResource
     /// 
     /// Default value is 1000. Valid range is 0 through 65535.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A list of instance tags to which this route applies.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tags
+    public TerraformProperty<HashSet<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tags");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

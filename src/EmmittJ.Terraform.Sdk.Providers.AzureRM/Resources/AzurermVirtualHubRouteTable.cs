@@ -19,36 +19,36 @@ public class AzurermVirtualHubRouteTable : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Labels
+    public TerraformProperty<HashSet<string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("labels");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualHubId
+    public TerraformProperty<string>? VirtualHubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_hub_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

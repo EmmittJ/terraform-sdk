@@ -20,144 +20,144 @@ public class AzurermStorageBlob : TerraformResource
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessTier
+    public TerraformProperty<string>? AccessTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_tier");
+        get => GetProperty<TerraformProperty<string>>("access_tier");
         set => this.WithProperty("access_tier", value);
     }
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CacheControl
+    public TerraformProperty<string>? CacheControl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_control");
+        get => GetProperty<TerraformProperty<string>>("cache_control");
         set => this.WithProperty("cache_control", value);
     }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentMd5
+    public TerraformProperty<string>? ContentMd5
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_md5");
+        get => GetProperty<TerraformProperty<string>>("content_md5");
         set => this.WithProperty("content_md5", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The encryption_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EncryptionScope
+    public TerraformProperty<string>? EncryptionScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encryption_scope");
+        get => GetProperty<TerraformProperty<string>>("encryption_scope");
         set => this.WithProperty("encryption_scope", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parallelism attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Parallelism
+    public TerraformProperty<double>? Parallelism
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("parallelism");
+        get => GetProperty<TerraformProperty<double>>("parallelism");
         set => this.WithProperty("parallelism", value);
     }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Size
+    public TerraformProperty<double>? Size
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("size");
+        get => GetProperty<TerraformProperty<double>>("size");
         set => this.WithProperty("size", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Source
+    public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// The source_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceContent
+    public TerraformProperty<string>? SourceContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_content");
+        get => GetProperty<TerraformProperty<string>>("source_content");
         set => this.WithProperty("source_content", value);
     }
 
     /// <summary>
     /// The source_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceUri
+    public TerraformProperty<string>? SourceUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_uri");
+        get => GetProperty<TerraformProperty<string>>("source_uri");
         set => this.WithProperty("source_uri", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountName
+    public TerraformProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
     /// <summary>
     /// The storage_container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageContainerName
+    public TerraformProperty<string>? StorageContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_container_name");
+        get => GetProperty<TerraformProperty<string>>("storage_container_name");
         set => this.WithProperty("storage_container_name", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

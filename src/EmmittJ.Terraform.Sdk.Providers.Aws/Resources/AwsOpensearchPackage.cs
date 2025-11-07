@@ -21,54 +21,54 @@ public class AwsOpensearchPackage : TerraformResource
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineVersion
+    public TerraformProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The package_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PackageDescription
+    public TerraformProperty<string>? PackageDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_description");
+        get => GetProperty<TerraformProperty<string>>("package_description");
         set => this.WithProperty("package_description", value);
     }
 
     /// <summary>
     /// The package_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PackageName
+    public TerraformProperty<string>? PackageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_name");
+        get => GetProperty<TerraformProperty<string>>("package_name");
         set => this.WithProperty("package_name", value);
     }
 
     /// <summary>
     /// The package_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PackageType
+    public TerraformProperty<string>? PackageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_type");
+        get => GetProperty<TerraformProperty<string>>("package_type");
         set => this.WithProperty("package_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -19,27 +19,27 @@ public class GoogleStorageDefaultObjectAcl : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? RoleEntity
+    public TerraformProperty<HashSet<string>>? RoleEntity
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_entity");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("role_entity");
         set => this.WithProperty("role_entity", value);
     }
 

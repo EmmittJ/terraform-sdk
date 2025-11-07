@@ -25,135 +25,135 @@ public class AwsBedrockagentAgent : TerraformResource
     /// <summary>
     /// The agent_collaboration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentCollaboration
+    public TerraformProperty<string>? AgentCollaboration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_collaboration");
+        get => GetProperty<TerraformProperty<string>>("agent_collaboration");
         set => this.WithProperty("agent_collaboration", value);
     }
 
     /// <summary>
     /// The agent_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentName
+    public TerraformProperty<string>? AgentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_name");
+        get => GetProperty<TerraformProperty<string>>("agent_name");
         set => this.WithProperty("agent_name", value);
     }
 
     /// <summary>
     /// The agent_resource_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentResourceRoleArn
+    public TerraformProperty<string>? AgentResourceRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_resource_role_arn");
+        get => GetProperty<TerraformProperty<string>>("agent_resource_role_arn");
         set => this.WithProperty("agent_resource_role_arn", value);
     }
 
     /// <summary>
     /// The customer_encryption_key_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerEncryptionKeyArn
+    public TerraformProperty<string>? CustomerEncryptionKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_encryption_key_arn");
+        get => GetProperty<TerraformProperty<string>>("customer_encryption_key_arn");
         set => this.WithProperty("customer_encryption_key_arn", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The foundation_model attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FoundationModel
+    public TerraformProperty<string>? FoundationModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("foundation_model");
+        get => GetProperty<TerraformProperty<string>>("foundation_model");
         set => this.WithProperty("foundation_model", value);
     }
 
     /// <summary>
     /// The guardrail_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? GuardrailConfiguration
+    public TerraformProperty<List<object>>? GuardrailConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("guardrail_configuration");
+        get => GetProperty<TerraformProperty<List<object>>>("guardrail_configuration");
         set => this.WithProperty("guardrail_configuration", value);
     }
 
     /// <summary>
     /// The idle_session_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? IdleSessionTtlInSeconds
+    public TerraformProperty<double>? IdleSessionTtlInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_session_ttl_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("idle_session_ttl_in_seconds");
         set => this.WithProperty("idle_session_ttl_in_seconds", value);
     }
 
     /// <summary>
     /// The instruction attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instruction
+    public TerraformProperty<string>? Instruction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instruction");
+        get => GetProperty<TerraformProperty<string>>("instruction");
         set => this.WithProperty("instruction", value);
     }
 
     /// <summary>
     /// The memory_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? MemoryConfiguration
+    public TerraformProperty<List<object>>? MemoryConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("memory_configuration");
+        get => GetProperty<TerraformProperty<List<object>>>("memory_configuration");
         set => this.WithProperty("memory_configuration", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrepareAgent
+    public TerraformProperty<bool>? PrepareAgent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("prepare_agent");
+        get => GetProperty<TerraformProperty<bool>>("prepare_agent");
         set => this.WithProperty("prepare_agent", value);
     }
 
     /// <summary>
     /// The prompt_override_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? PromptOverrideConfiguration
+    public TerraformProperty<List<object>>? PromptOverrideConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("prompt_override_configuration");
+        get => GetProperty<TerraformProperty<List<object>>>("prompt_override_configuration");
         set => this.WithProperty("prompt_override_configuration", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The skip_resource_in_use_check attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipResourceInUseCheck
+    public TerraformProperty<bool>? SkipResourceInUseCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_resource_in_use_check");
+        get => GetProperty<TerraformProperty<bool>>("skip_resource_in_use_check");
         set => this.WithProperty("skip_resource_in_use_check", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

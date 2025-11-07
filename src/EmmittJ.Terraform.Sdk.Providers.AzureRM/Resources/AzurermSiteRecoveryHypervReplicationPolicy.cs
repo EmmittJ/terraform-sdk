@@ -19,54 +19,54 @@ public class AzurermSiteRecoveryHypervReplicationPolicy : TerraformResource
     /// <summary>
     /// The application_consistent_snapshot_frequency_in_hours attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ApplicationConsistentSnapshotFrequencyInHours
+    public TerraformProperty<double>? ApplicationConsistentSnapshotFrequencyInHours
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("application_consistent_snapshot_frequency_in_hours");
+        get => GetProperty<TerraformProperty<double>>("application_consistent_snapshot_frequency_in_hours");
         set => this.WithProperty("application_consistent_snapshot_frequency_in_hours", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recovery_point_retention_in_hours attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RecoveryPointRetentionInHours
+    public TerraformProperty<double>? RecoveryPointRetentionInHours
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("recovery_point_retention_in_hours");
+        get => GetProperty<TerraformProperty<double>>("recovery_point_retention_in_hours");
         set => this.WithProperty("recovery_point_retention_in_hours", value);
     }
 
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryVaultId
+    public TerraformProperty<string>? RecoveryVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_id");
+        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 
     /// <summary>
     /// The replication_interval_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicationIntervalInSeconds
+    public TerraformProperty<double>? ReplicationIntervalInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replication_interval_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("replication_interval_in_seconds");
         set => this.WithProperty("replication_interval_in_seconds", value);
     }
 

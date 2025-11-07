@@ -26,45 +26,45 @@ public class AwsIamServiceSpecificCredential : TerraformResource
     /// <summary>
     /// The credential_age_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? CredentialAgeDays
+    public TerraformProperty<double>? CredentialAgeDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("credential_age_days");
+        get => GetProperty<TerraformProperty<double>>("credential_age_days");
         set => this.WithProperty("credential_age_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceName
+    public TerraformProperty<string>? ServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_name");
+        get => GetProperty<TerraformProperty<string>>("service_name");
         set => this.WithProperty("service_name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

@@ -19,54 +19,54 @@ public class AzurermVirtualMachineGalleryApplicationAssignment : TerraformResour
     /// <summary>
     /// The configuration_blob_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationBlobUri
+    public TerraformProperty<string>? ConfigurationBlobUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_blob_uri");
+        get => GetProperty<TerraformProperty<string>>("configuration_blob_uri");
         set => this.WithProperty("configuration_blob_uri", value);
     }
 
     /// <summary>
     /// The gallery_application_version_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GalleryApplicationVersionId
+    public TerraformProperty<string>? GalleryApplicationVersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gallery_application_version_id");
+        get => GetProperty<TerraformProperty<string>>("gallery_application_version_id");
         set => this.WithProperty("gallery_application_version_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Order
+    public TerraformProperty<double>? Order
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("order");
+        get => GetProperty<TerraformProperty<double>>("order");
         set => this.WithProperty("order", value);
     }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tag
+    public TerraformProperty<string>? Tag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag");
+        get => GetProperty<TerraformProperty<string>>("tag");
         set => this.WithProperty("tag", value);
     }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualMachineId
+    public TerraformProperty<string>? VirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

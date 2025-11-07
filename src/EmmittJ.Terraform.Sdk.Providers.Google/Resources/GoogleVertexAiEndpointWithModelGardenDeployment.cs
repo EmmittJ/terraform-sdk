@@ -23,36 +23,36 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     /// The Hugging Face model to deploy.
     /// Format: Hugging Face model ID like &#39;google/gemma-2-2b-it&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? HuggingFaceModelId
+    public TerraformProperty<string>? HuggingFaceModelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hugging_face_model_id");
+        get => GetProperty<TerraformProperty<string>>("hugging_face_model_id");
         set => this.WithProperty("hugging_face_model_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;location&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -62,9 +62,9 @@ public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
     /// &#39;publishers/{publisher}/models/{publisher_model}@{version_id}&#39;, or
     /// &#39;publishers/hf-{hugging-face-author}/models/{hugging-face-model-name}@001&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublisherModelName
+    public TerraformProperty<string>? PublisherModelName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("publisher_model_name");
+        get => GetProperty<TerraformProperty<string>>("publisher_model_name");
         set => this.WithProperty("publisher_model_name", value);
     }
 

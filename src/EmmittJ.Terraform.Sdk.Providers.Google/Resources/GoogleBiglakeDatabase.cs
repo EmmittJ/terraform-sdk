@@ -23,36 +23,36 @@ public class GoogleBiglakeDatabase : TerraformResource
     /// <summary>
     /// The parent catalog.
     /// </summary>
-    public TerraformLiteralProperty<string>? Catalog
+    public TerraformProperty<string>? Catalog
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog");
+        get => GetProperty<TerraformProperty<string>>("catalog");
         set => this.WithProperty("catalog", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the database.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The database type.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

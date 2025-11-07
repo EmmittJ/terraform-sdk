@@ -19,54 +19,54 @@ public class AzurermLogicAppIntegrationAccountBatchConfiguration : TerraformReso
     /// <summary>
     /// The batch_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BatchGroupName
+    public TerraformProperty<string>? BatchGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("batch_group_name");
+        get => GetProperty<TerraformProperty<string>>("batch_group_name");
         set => this.WithProperty("batch_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationAccountName
+    public TerraformProperty<string>? IntegrationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_account_name");
+        get => GetProperty<TerraformProperty<string>>("integration_account_name");
         set => this.WithProperty("integration_account_name", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

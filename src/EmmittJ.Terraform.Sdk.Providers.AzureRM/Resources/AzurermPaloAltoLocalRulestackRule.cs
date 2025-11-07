@@ -19,153 +19,153 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// <summary>
     /// The action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Action
+    public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The applications attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Applications
+    public TerraformProperty<List<string>>? Applications
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("applications");
+        get => GetProperty<TerraformProperty<List<string>>>("applications");
         set => this.WithProperty("applications", value);
     }
 
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuditComment
+    public TerraformProperty<string>? AuditComment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("audit_comment");
+        get => GetProperty<TerraformProperty<string>>("audit_comment");
         set => this.WithProperty("audit_comment", value);
     }
 
     /// <summary>
     /// The decryption_rule_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DecryptionRuleType
+    public TerraformProperty<string>? DecryptionRuleType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("decryption_rule_type");
+        get => GetProperty<TerraformProperty<string>>("decryption_rule_type");
         set => this.WithProperty("decryption_rule_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The inspection_certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InspectionCertificateId
+    public TerraformProperty<string>? InspectionCertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("inspection_certificate_id");
+        get => GetProperty<TerraformProperty<string>>("inspection_certificate_id");
         set => this.WithProperty("inspection_certificate_id", value);
     }
 
     /// <summary>
     /// The logging_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LoggingEnabled
+    public TerraformProperty<bool>? LoggingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("logging_enabled");
+        get => GetProperty<TerraformProperty<bool>>("logging_enabled");
         set => this.WithProperty("logging_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The negate_destination attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? NegateDestination
+    public TerraformProperty<bool>? NegateDestination
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("negate_destination");
+        get => GetProperty<TerraformProperty<bool>>("negate_destination");
         set => this.WithProperty("negate_destination", value);
     }
 
     /// <summary>
     /// The negate_source attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? NegateSource
+    public TerraformProperty<bool>? NegateSource
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("negate_source");
+        get => GetProperty<TerraformProperty<bool>>("negate_source");
         set => this.WithProperty("negate_source", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// The protocol_ports attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ProtocolPorts
+    public TerraformProperty<List<string>>? ProtocolPorts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("protocol_ports");
+        get => GetProperty<TerraformProperty<List<string>>>("protocol_ports");
         set => this.WithProperty("protocol_ports", value);
     }
 
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RulestackId
+    public TerraformProperty<string>? RulestackId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rulestack_id");
+        get => GetProperty<TerraformProperty<string>>("rulestack_id");
         set => this.WithProperty("rulestack_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

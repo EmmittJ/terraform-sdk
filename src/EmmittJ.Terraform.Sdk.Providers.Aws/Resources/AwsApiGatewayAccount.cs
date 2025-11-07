@@ -23,18 +23,18 @@ public class AwsApiGatewayAccount : TerraformResource
     /// <summary>
     /// The cloudwatch_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudwatchRoleArn
+    public TerraformProperty<string>? CloudwatchRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_role_arn");
+        get => GetProperty<TerraformProperty<string>>("cloudwatch_role_arn");
         set => this.WithProperty("cloudwatch_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -19,63 +19,63 @@ public class AzurermStorageMoverSourceEndpoint : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The export attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Export
+    public TerraformProperty<string>? Export
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("export");
+        get => GetProperty<TerraformProperty<string>>("export");
         set => this.WithProperty("export", value);
     }
 
     /// <summary>
     /// The host attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Host
+    public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host");
+        get => GetProperty<TerraformProperty<string>>("host");
         set => this.WithProperty("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The nfs_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NfsVersion
+    public TerraformProperty<string>? NfsVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nfs_version");
+        get => GetProperty<TerraformProperty<string>>("nfs_version");
         set => this.WithProperty("nfs_version", value);
     }
 
     /// <summary>
     /// The storage_mover_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageMoverId
+    public TerraformProperty<string>? StorageMoverId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_mover_id");
+        get => GetProperty<TerraformProperty<string>>("storage_mover_id");
         set => this.WithProperty("storage_mover_id", value);
     }
 

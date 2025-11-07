@@ -19,117 +19,117 @@ public class AzurermEventgridSystemTopicEventSubscription : TerraformResource
     /// <summary>
     /// The advanced_filtering_on_arrays_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AdvancedFilteringOnArraysEnabled
+    public TerraformProperty<bool>? AdvancedFilteringOnArraysEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("advanced_filtering_on_arrays_enabled");
+        get => GetProperty<TerraformProperty<bool>>("advanced_filtering_on_arrays_enabled");
         set => this.WithProperty("advanced_filtering_on_arrays_enabled", value);
     }
 
     /// <summary>
     /// The event_delivery_schema attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventDeliverySchema
+    public TerraformProperty<string>? EventDeliverySchema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_delivery_schema");
+        get => GetProperty<TerraformProperty<string>>("event_delivery_schema");
         set => this.WithProperty("event_delivery_schema", value);
     }
 
     /// <summary>
     /// The eventhub_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubEndpointId
+    public TerraformProperty<string>? EventhubEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("eventhub_endpoint_id");
         set => this.WithProperty("eventhub_endpoint_id", value);
     }
 
     /// <summary>
     /// The expiration_time_utc attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpirationTimeUtc
+    public TerraformProperty<string>? ExpirationTimeUtc
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_time_utc");
+        get => GetProperty<TerraformProperty<string>>("expiration_time_utc");
         set => this.WithProperty("expiration_time_utc", value);
     }
 
     /// <summary>
     /// The hybrid_connection_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HybridConnectionEndpointId
+    public TerraformProperty<string>? HybridConnectionEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hybrid_connection_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("hybrid_connection_endpoint_id");
         set => this.WithProperty("hybrid_connection_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The included_event_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? IncludedEventTypes
+    public TerraformProperty<List<string>>? IncludedEventTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("included_event_types");
+        get => GetProperty<TerraformProperty<List<string>>>("included_event_types");
         set => this.WithProperty("included_event_types", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Labels
+    public TerraformProperty<List<string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("labels");
+        get => GetProperty<TerraformProperty<List<string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_bus_queue_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceBusQueueEndpointId
+    public TerraformProperty<string>? ServiceBusQueueEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_bus_queue_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("service_bus_queue_endpoint_id");
         set => this.WithProperty("service_bus_queue_endpoint_id", value);
     }
 
     /// <summary>
     /// The service_bus_topic_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceBusTopicEndpointId
+    public TerraformProperty<string>? ServiceBusTopicEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_bus_topic_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("service_bus_topic_endpoint_id");
         set => this.WithProperty("service_bus_topic_endpoint_id", value);
     }
 
     /// <summary>
     /// The system_topic attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SystemTopic
+    public TerraformProperty<string>? SystemTopic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("system_topic");
+        get => GetProperty<TerraformProperty<string>>("system_topic");
         set => this.WithProperty("system_topic", value);
     }
 

@@ -21,36 +21,36 @@ public class GoogleCloudfunctionsFunctionIamPolicyDataSource : TerraformDataSour
     /// <summary>
     /// The cloud_function attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudFunction
+    public TerraformProperty<string>? CloudFunction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_function");
+        get => GetProperty<TerraformProperty<string>>("cloud_function");
         set => this.WithProperty("cloud_function", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -19,27 +19,27 @@ public class AzurermNetworkInterfaceSecurityGroupAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkInterfaceId
+    public TerraformProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id");
+        get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkSecurityGroupId
+    public TerraformProperty<string>? NetworkSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_security_group_id");
+        get => GetProperty<TerraformProperty<string>>("network_security_group_id");
         set => this.WithProperty("network_security_group_id", value);
     }
 

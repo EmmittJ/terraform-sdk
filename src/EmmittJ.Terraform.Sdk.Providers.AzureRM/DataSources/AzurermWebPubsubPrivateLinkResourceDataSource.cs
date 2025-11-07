@@ -20,18 +20,18 @@ public class AzurermWebPubsubPrivateLinkResourceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebPubsubId
+    public TerraformProperty<string>? WebPubsubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_pubsub_id");
+        get => GetProperty<TerraformProperty<string>>("web_pubsub_id");
         set => this.WithProperty("web_pubsub_id", value);
     }
 

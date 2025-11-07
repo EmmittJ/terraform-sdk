@@ -19,27 +19,27 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociation : Terrafo
     /// <summary>
     /// The application_security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationSecurityGroupId
+    public TerraformProperty<string>? ApplicationSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_security_group_id");
+        get => GetProperty<TerraformProperty<string>>("application_security_group_id");
         set => this.WithProperty("application_security_group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The private_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateEndpointId
+    public TerraformProperty<string>? PrivateEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("private_endpoint_id");
         set => this.WithProperty("private_endpoint_id", value);
     }
 

@@ -19,45 +19,45 @@ public class AzurermVpnServerConfigurationPolicyGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_default attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsDefault
+    public TerraformProperty<bool>? IsDefault
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_default");
+        get => GetProperty<TerraformProperty<bool>>("is_default");
         set => this.WithProperty("is_default", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The vpn_server_configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpnServerConfigurationId
+    public TerraformProperty<string>? VpnServerConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_server_configuration_id");
+        get => GetProperty<TerraformProperty<string>>("vpn_server_configuration_id");
         set => this.WithProperty("vpn_server_configuration_id", value);
     }
 

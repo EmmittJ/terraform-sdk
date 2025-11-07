@@ -19,18 +19,18 @@ public class GoogleApigeeAddonsConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the Apigee organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? Org
+    public TerraformProperty<string>? Org
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org");
+        get => GetProperty<TerraformProperty<string>>("org");
         set => this.WithProperty("org", value);
     }
 

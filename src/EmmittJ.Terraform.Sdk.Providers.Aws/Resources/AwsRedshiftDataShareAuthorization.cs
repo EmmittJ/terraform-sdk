@@ -22,36 +22,36 @@ public class AwsRedshiftDataShareAuthorization : TerraformResource
     /// <summary>
     /// The allow_writes attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowWrites
+    public TerraformProperty<bool>? AllowWrites
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_writes");
+        get => GetProperty<TerraformProperty<bool>>("allow_writes");
         set => this.WithProperty("allow_writes", value);
     }
 
     /// <summary>
     /// The consumer_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConsumerIdentifier
+    public TerraformProperty<string>? ConsumerIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consumer_identifier");
+        get => GetProperty<TerraformProperty<string>>("consumer_identifier");
         set => this.WithProperty("consumer_identifier", value);
     }
 
     /// <summary>
     /// The data_share_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataShareArn
+    public TerraformProperty<string>? DataShareArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_share_arn");
+        get => GetProperty<TerraformProperty<string>>("data_share_arn");
         set => this.WithProperty("data_share_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

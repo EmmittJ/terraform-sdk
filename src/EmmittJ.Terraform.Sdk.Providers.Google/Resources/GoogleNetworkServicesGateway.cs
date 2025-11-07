@@ -28,9 +28,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// This field only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Addresses
+    public TerraformProperty<List<string>>? Addresses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("addresses");
+        get => GetProperty<TerraformProperty<List<string>>>("addresses");
         set => this.WithProperty("addresses", value);
     }
 
@@ -38,9 +38,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// A fully-qualified Certificates URL reference. The proxy presents a Certificate (selected based on SNI) when establishing a TLS connection.
     /// This feature only applies to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? CertificateUrls
+    public TerraformProperty<List<string>>? CertificateUrls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("certificate_urls");
+        get => GetProperty<TerraformProperty<List<string>>>("certificate_urls");
         set => this.WithProperty("certificate_urls", value);
     }
 
@@ -48,18 +48,18 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// When deleting a gateway of type &#39;SECURE_WEB_GATEWAY&#39;, this boolean option will also delete auto generated router by the gateway creation.
     /// If there is no other gateway of type &#39;SECURE_WEB_GATEWAY&#39; remaining for that region and network it will be deleted.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteSwgAutogenRouterOnDestroy
+    public TerraformProperty<bool>? DeleteSwgAutogenRouterOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_swg_autogen_router_on_destroy");
+        get => GetProperty<TerraformProperty<bool>>("delete_swg_autogen_router_on_destroy");
         set => this.WithProperty("delete_swg_autogen_router_on_destroy", value);
     }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -68,9 +68,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// Other Envoy headers may still be injected.
     /// By default, envoy will not insert any debug headers. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG_HEADERS&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvoyHeaders
+    public TerraformProperty<string>? EnvoyHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("envoy_headers");
+        get => GetProperty<TerraformProperty<string>>("envoy_headers");
         set => this.WithProperty("envoy_headers", value);
     }
 
@@ -79,27 +79,27 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// For example: &#39;projects/*/locations/*/gatewaySecurityPolicies/swg-policy&#39;.
     /// This policy is specific to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewaySecurityPolicy
+    public TerraformProperty<string>? GatewaySecurityPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_security_policy");
+        get => GetProperty<TerraformProperty<string>>("gateway_security_policy");
         set => this.WithProperty("gateway_security_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IP Version that will be used by this gateway. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? IpVersion
+    public TerraformProperty<string>? IpVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_version");
+        get => GetProperty<TerraformProperty<string>>("ip_version");
         set => this.WithProperty("ip_version", value);
     }
 
@@ -110,9 +110,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -120,18 +120,18 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// The location of the gateway.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of the Gateway resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -141,9 +141,9 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// 
     /// Currently, this field is specific to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -152,27 +152,27 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// The proxy binds to the specified ports. Gateways of type &#39;SECURE_WEB_GATEWAY&#39; are limited to 1 port.
     ///  Gateways of type &#39;OPEN_MESH&#39; listen on 0.0.0.0 for IPv4 and :: for IPv6 and support multiple ports.
     /// </summary>
-    public TerraformLiteralProperty<List<double>>? Ports
+    public TerraformProperty<List<double>>? Ports
     {
-        get => GetProperty<TerraformLiteralProperty<List<double>>>("ports");
+        get => GetProperty<TerraformProperty<List<double>>>("ports");
         set => this.WithProperty("ports", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The routing mode of the Gateway. This field is configurable only for gateways of type SECURE_WEB_GATEWAY. This field is required for gateways of type SECURE_WEB_GATEWAY. Possible values: [&amp;quot;NEXT_HOP_ROUTING_MODE&amp;quot;, &amp;quot;EXPLICIT_ROUTING_MODE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingMode
+    public TerraformProperty<string>? RoutingMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_mode");
+        get => GetProperty<TerraformProperty<string>>("routing_mode");
         set => this.WithProperty("routing_mode", value);
     }
 
@@ -182,18 +182,18 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// 
     /// Max length 64 characters. Scope should start with a letter and can only have letters, numbers, hyphens.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 
     /// <summary>
     /// A fully-qualified ServerTLSPolicy URL reference. Specifies how TLS traffic is terminated. If empty, TLS termination is disabled.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerTlsPolicy
+    public TerraformProperty<string>? ServerTlsPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_tls_policy");
+        get => GetProperty<TerraformProperty<string>>("server_tls_policy");
         set => this.WithProperty("server_tls_policy", value);
     }
 
@@ -203,18 +203,18 @@ public class GoogleNetworkServicesGateway : TerraformResource
     /// 
     /// Currently, this field is specific to gateways of type &#39;SECURE_WEB_GATEWAY&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subnetwork
+    public TerraformProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork");
+        get => GetProperty<TerraformProperty<string>>("subnetwork");
         set => this.WithProperty("subnetwork", value);
     }
 
     /// <summary>
     /// Immutable. The type of the customer managed gateway. Possible values: [&amp;quot;OPEN_MESH&amp;quot;, &amp;quot;SECURE_WEB_GATEWAY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

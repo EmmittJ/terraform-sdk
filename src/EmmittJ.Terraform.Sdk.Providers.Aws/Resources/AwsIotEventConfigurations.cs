@@ -19,27 +19,27 @@ public class AwsIotEventConfigurations : TerraformResource
     /// <summary>
     /// The event_configurations attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, bool>>? EventConfigurations
+    public TerraformProperty<Dictionary<string, bool>>? EventConfigurations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, bool>>>("event_configurations");
+        get => GetProperty<TerraformProperty<Dictionary<string, bool>>>("event_configurations");
         set => this.WithProperty("event_configurations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

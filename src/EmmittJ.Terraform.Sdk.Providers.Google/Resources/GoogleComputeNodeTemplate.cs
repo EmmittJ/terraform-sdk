@@ -21,36 +21,36 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// <summary>
     /// CPU overcommit. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;NONE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? CpuOvercommitType
+    public TerraformProperty<string>? CpuOvercommitType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cpu_overcommit_type");
+        get => GetProperty<TerraformProperty<string>>("cpu_overcommit_type");
         set => this.WithProperty("cpu_overcommit_type", value);
     }
 
     /// <summary>
     /// An optional textual description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -58,9 +58,9 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// Labels to use for node affinity, which will be used in
     /// instance scheduling.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? NodeAffinityLabels
+    public TerraformProperty<Dictionary<string, string>>? NodeAffinityLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("node_affinity_labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("node_affinity_labels");
         set => this.WithProperty("node_affinity_labels", value);
     }
 
@@ -68,18 +68,18 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// Node type to use for nodes group that are created from this template.
     /// Only one of nodeTypeFlexibility and nodeType can be specified.
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeType
+    public TerraformProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        get => GetProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -87,9 +87,9 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// Region where nodes using the node template will be created.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

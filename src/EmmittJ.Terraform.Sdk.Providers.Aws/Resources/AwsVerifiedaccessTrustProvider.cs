@@ -19,81 +19,81 @@ public class AwsVerifiedaccessTrustProvider : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The device_trust_provider_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeviceTrustProviderType
+    public TerraformProperty<string>? DeviceTrustProviderType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("device_trust_provider_type");
+        get => GetProperty<TerraformProperty<string>>("device_trust_provider_type");
         set => this.WithProperty("device_trust_provider_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_reference_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyReferenceName
+    public TerraformProperty<string>? PolicyReferenceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_reference_name");
+        get => GetProperty<TerraformProperty<string>>("policy_reference_name");
         set => this.WithProperty("policy_reference_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The trust_provider_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrustProviderType
+    public TerraformProperty<string>? TrustProviderType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trust_provider_type");
+        get => GetProperty<TerraformProperty<string>>("trust_provider_type");
         set => this.WithProperty("trust_provider_type", value);
     }
 
     /// <summary>
     /// The user_trust_provider_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserTrustProviderType
+    public TerraformProperty<string>? UserTrustProviderType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_trust_provider_type");
+        get => GetProperty<TerraformProperty<string>>("user_trust_provider_type");
         set => this.WithProperty("user_trust_provider_type", value);
     }
 

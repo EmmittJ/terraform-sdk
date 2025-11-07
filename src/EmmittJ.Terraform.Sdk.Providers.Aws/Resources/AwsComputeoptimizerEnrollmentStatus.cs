@@ -21,27 +21,27 @@ public class AwsComputeoptimizerEnrollmentStatus : TerraformResource
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeMemberAccounts
+    public TerraformProperty<bool>? IncludeMemberAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_member_accounts");
+        get => GetProperty<TerraformProperty<bool>>("include_member_accounts");
         set => this.WithProperty("include_member_accounts", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 

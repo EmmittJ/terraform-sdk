@@ -22,162 +22,162 @@ public class AwsAppstreamFleet : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The disconnect_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DisconnectTimeoutInSeconds
+    public TerraformProperty<double>? DisconnectTimeoutInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("disconnect_timeout_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("disconnect_timeout_in_seconds");
         set => this.WithProperty("disconnect_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enable_default_internet_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableDefaultInternetAccess
+    public TerraformProperty<bool>? EnableDefaultInternetAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_default_internet_access");
+        get => GetProperty<TerraformProperty<bool>>("enable_default_internet_access");
         set => this.WithProperty("enable_default_internet_access", value);
     }
 
     /// <summary>
     /// The fleet_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FleetType
+    public TerraformProperty<string>? FleetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fleet_type");
+        get => GetProperty<TerraformProperty<string>>("fleet_type");
         set => this.WithProperty("fleet_type", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idle_disconnect_timeout_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? IdleDisconnectTimeoutInSeconds
+    public TerraformProperty<double>? IdleDisconnectTimeoutInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("idle_disconnect_timeout_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("idle_disconnect_timeout_in_seconds");
         set => this.WithProperty("idle_disconnect_timeout_in_seconds", value);
     }
 
     /// <summary>
     /// The image_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageArn
+    public TerraformProperty<string>? ImageArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_arn");
+        get => GetProperty<TerraformProperty<string>>("image_arn");
         set => this.WithProperty("image_arn", value);
     }
 
     /// <summary>
     /// The image_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageName
+    public TerraformProperty<string>? ImageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_name");
+        get => GetProperty<TerraformProperty<string>>("image_name");
         set => this.WithProperty("image_name", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The max_sessions_per_instance attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxSessionsPerInstance
+    public TerraformProperty<double>? MaxSessionsPerInstance
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_sessions_per_instance");
+        get => GetProperty<TerraformProperty<double>>("max_sessions_per_instance");
         set => this.WithProperty("max_sessions_per_instance", value);
     }
 
     /// <summary>
     /// The max_user_duration_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxUserDurationInSeconds
+    public TerraformProperty<double>? MaxUserDurationInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_user_duration_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("max_user_duration_in_seconds");
         set => this.WithProperty("max_user_duration_in_seconds", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The stream_view attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamView
+    public TerraformProperty<string>? StreamView
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_view");
+        get => GetProperty<TerraformProperty<string>>("stream_view");
         set => this.WithProperty("stream_view", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

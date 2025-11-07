@@ -19,45 +19,45 @@ public class AwsEfsFileSystemPolicy : TerraformResource
     /// <summary>
     /// The bypass_policy_lockout_safety_check attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BypassPolicyLockoutSafetyCheck
+    public TerraformProperty<bool>? BypassPolicyLockoutSafetyCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("bypass_policy_lockout_safety_check");
+        get => GetProperty<TerraformProperty<bool>>("bypass_policy_lockout_safety_check");
         set => this.WithProperty("bypass_policy_lockout_safety_check", value);
     }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileSystemId
+    public TerraformProperty<string>? FileSystemId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_id");
+        get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Policy
+    public TerraformProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

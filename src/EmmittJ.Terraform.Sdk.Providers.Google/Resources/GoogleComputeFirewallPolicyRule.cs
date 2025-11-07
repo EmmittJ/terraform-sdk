@@ -22,27 +22,27 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// <summary>
     /// The Action to perform when the client connection triggers the rule. Valid actions are &amp;quot;allow&amp;quot;, &amp;quot;deny&amp;quot;, &amp;quot;goto_next&amp;quot; and &amp;quot;apply_security_profile_group&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Action
+    public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// An optional description for this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The direction in which this rule applies. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Direction
+    public TerraformProperty<string>? Direction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direction");
+        get => GetProperty<TerraformProperty<string>>("direction");
         set => this.WithProperty("direction", value);
     }
 
@@ -51,9 +51,9 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// When set to true, the firewall policy rule is not enforced and traffic behaves as if it did not exist.
     /// If this is unspecified, the firewall policy rule will be enabled.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
@@ -63,27 +63,27 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// Logs may be exported to BigQuery or Pub/Sub.
     /// Note: you cannot enable logging on &amp;quot;goto_next&amp;quot; rules.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableLogging
+    public TerraformProperty<bool>? EnableLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_logging");
+        get => GetProperty<TerraformProperty<bool>>("enable_logging");
         set => this.WithProperty("enable_logging", value);
     }
 
     /// <summary>
     /// The firewall policy of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirewallPolicy
+    public TerraformProperty<string>? FirewallPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy");
+        get => GetProperty<TerraformProperty<string>>("firewall_policy");
         set => this.WithProperty("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -92,9 +92,9 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// The priority must be a positive value between 0 and 2147483647.
     /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
@@ -103,9 +103,9 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// Example: https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
     /// Must be specified if action = &#39;apply_security_profile_group&#39; and cannot be specified for other actions.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecurityProfileGroup
+    public TerraformProperty<string>? SecurityProfileGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_profile_group");
+        get => GetProperty<TerraformProperty<string>>("security_profile_group");
         set => this.WithProperty("security_profile_group", value);
     }
 
@@ -114,18 +114,18 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// This field allows you to control which network&#39;s VMs get this rule.
     /// If this field is left blank, all VMs within the organization will receive the rule.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? TargetResources
+    public TerraformProperty<List<string>>? TargetResources
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_resources");
+        get => GetProperty<TerraformProperty<List<string>>>("target_resources");
         set => this.WithProperty("target_resources", value);
     }
 
     /// <summary>
     /// A list of service accounts indicating the sets of instances that are applied with this rule.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? TargetServiceAccounts
+    public TerraformProperty<List<string>>? TargetServiceAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_service_accounts");
+        get => GetProperty<TerraformProperty<List<string>>>("target_service_accounts");
         set => this.WithProperty("target_service_accounts", value);
     }
 
@@ -133,9 +133,9 @@ public class GoogleComputeFirewallPolicyRule : TerraformResource
     /// Boolean flag indicating if the traffic should be TLS decrypted.
     /// Can be set only if action = &#39;apply_security_profile_group&#39; and cannot be set for other actions.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TlsInspect
+    public TerraformProperty<bool>? TlsInspect
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls_inspect");
+        get => GetProperty<TerraformProperty<bool>>("tls_inspect");
         set => this.WithProperty("tls_inspect", value);
     }
 

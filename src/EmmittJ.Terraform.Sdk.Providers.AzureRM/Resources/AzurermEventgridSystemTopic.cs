@@ -21,36 +21,36 @@ public class AzurermEventgridSystemTopic : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
@@ -58,36 +58,36 @@ public class AzurermEventgridSystemTopic : TerraformResource
     /// The source_arm_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? SourceArmResourceId
+    public TerraformProperty<string>? SourceArmResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_arm_resource_id");
+        get => GetProperty<TerraformProperty<string>>("source_arm_resource_id");
         set => this.WithProperty("source_arm_resource_id", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceResourceId
+    public TerraformProperty<string>? SourceResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_resource_id");
+        get => GetProperty<TerraformProperty<string>>("source_resource_id");
         set => this.WithProperty("source_resource_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The topic_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TopicType
+    public TerraformProperty<string>? TopicType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic_type");
+        get => GetProperty<TerraformProperty<string>>("topic_type");
         set => this.WithProperty("topic_type", value);
     }
 

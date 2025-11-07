@@ -25,18 +25,18 @@ public class GoogleLoggingFolderSettingsDataSource : TerraformDataSource
     /// <summary>
     /// The folder for which to retrieve settings.
     /// </summary>
-    public TerraformLiteralProperty<string>? Folder
+    public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

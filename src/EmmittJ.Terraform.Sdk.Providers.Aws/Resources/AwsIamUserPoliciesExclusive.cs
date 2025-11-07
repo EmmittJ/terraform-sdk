@@ -19,18 +19,18 @@ public class AwsIamUserPoliciesExclusive : TerraformResource
     /// <summary>
     /// The policy_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? PolicyNames
+    public TerraformProperty<HashSet<string>>? PolicyNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("policy_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("policy_names");
         set => this.WithProperty("policy_names", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

@@ -19,36 +19,36 @@ public class AzurermMaintenanceAssignmentVirtualMachine : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The maintenance_configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenanceConfigurationId
+    public TerraformProperty<string>? MaintenanceConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_configuration_id");
+        get => GetProperty<TerraformProperty<string>>("maintenance_configuration_id");
         set => this.WithProperty("maintenance_configuration_id", value);
     }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualMachineId
+    public TerraformProperty<string>? VirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 

@@ -20,81 +20,81 @@ public class AwsNetworkmanagerConnection : TerraformResource
     /// <summary>
     /// The connected_device_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectedDeviceId
+    public TerraformProperty<string>? ConnectedDeviceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connected_device_id");
+        get => GetProperty<TerraformProperty<string>>("connected_device_id");
         set => this.WithProperty("connected_device_id", value);
     }
 
     /// <summary>
     /// The connected_link_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectedLinkId
+    public TerraformProperty<string>? ConnectedLinkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connected_link_id");
+        get => GetProperty<TerraformProperty<string>>("connected_link_id");
         set => this.WithProperty("connected_link_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The device_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeviceId
+    public TerraformProperty<string>? DeviceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("device_id");
+        get => GetProperty<TerraformProperty<string>>("device_id");
         set => this.WithProperty("device_id", value);
     }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GlobalNetworkId
+    public TerraformProperty<string>? GlobalNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_network_id");
+        get => GetProperty<TerraformProperty<string>>("global_network_id");
         set => this.WithProperty("global_network_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LinkId
+    public TerraformProperty<string>? LinkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("link_id");
+        get => GetProperty<TerraformProperty<string>>("link_id");
         set => this.WithProperty("link_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

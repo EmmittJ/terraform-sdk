@@ -28,234 +28,234 @@ public class AzurermLinuxFunctionAppSlot : TerraformResource
     /// <summary>
     /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AppSettings
+    public TerraformProperty<Dictionary<string, string>>? AppSettings
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("app_settings");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("app_settings");
         set => this.WithProperty("app_settings", value);
     }
 
     /// <summary>
     /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BuiltinLoggingEnabled
+    public TerraformProperty<bool>? BuiltinLoggingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("builtin_logging_enabled");
+        get => GetProperty<TerraformProperty<bool>>("builtin_logging_enabled");
         set => this.WithProperty("builtin_logging_enabled", value);
     }
 
     /// <summary>
     /// Should the Function App Slot use Client Certificates.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ClientCertificateEnabled
+    public TerraformProperty<bool>? ClientCertificateEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("client_certificate_enabled");
+        get => GetProperty<TerraformProperty<bool>>("client_certificate_enabled");
         set => this.WithProperty("client_certificate_enabled", value);
     }
 
     /// <summary>
     /// Paths to exclude when using client certificates, separated by ;
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientCertificateExclusionPaths
+    public TerraformProperty<string>? ClientCertificateExclusionPaths
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_certificate_exclusion_paths");
+        get => GetProperty<TerraformProperty<string>>("client_certificate_exclusion_paths");
         set => this.WithProperty("client_certificate_exclusion_paths", value);
     }
 
     /// <summary>
     /// The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientCertificateMode
+    public TerraformProperty<string>? ClientCertificateMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_certificate_mode");
+        get => GetProperty<TerraformProperty<string>>("client_certificate_mode");
         set => this.WithProperty("client_certificate_mode", value);
     }
 
     /// <summary>
     /// Force disable the content share settings.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ContentShareForceDisabled
+    public TerraformProperty<bool>? ContentShareForceDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("content_share_force_disabled");
+        get => GetProperty<TerraformProperty<bool>>("content_share_force_disabled");
         set => this.WithProperty("content_share_force_disabled", value);
     }
 
     /// <summary>
     /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans.
     /// </summary>
-    public TerraformLiteralProperty<double>? DailyMemoryTimeQuota
+    public TerraformProperty<double>? DailyMemoryTimeQuota
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("daily_memory_time_quota");
+        get => GetProperty<TerraformProperty<double>>("daily_memory_time_quota");
         set => this.WithProperty("daily_memory_time_quota", value);
     }
 
     /// <summary>
     /// Is the Linux Function App Slot enabled.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The ftp_publish_basic_authentication_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? FtpPublishBasicAuthenticationEnabled
+    public TerraformProperty<bool>? FtpPublishBasicAuthenticationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ftp_publish_basic_authentication_enabled");
+        get => GetProperty<TerraformProperty<bool>>("ftp_publish_basic_authentication_enabled");
         set => this.WithProperty("ftp_publish_basic_authentication_enabled", value);
     }
 
     /// <summary>
     /// The ID of the Linux Function App this Slot is a member of.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionAppId
+    public TerraformProperty<string>? FunctionAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id");
+        get => GetProperty<TerraformProperty<string>>("function_app_id");
         set => this.WithProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The runtime version associated with the Function App Slot.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionsExtensionVersion
+    public TerraformProperty<string>? FunctionsExtensionVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("functions_extension_version");
+        get => GetProperty<TerraformProperty<string>>("functions_extension_version");
         set => this.WithProperty("functions_extension_version", value);
     }
 
     /// <summary>
     /// Can the Function App Slot only be accessed via HTTPS?
     /// </summary>
-    public TerraformLiteralProperty<bool>? HttpsOnly
+    public TerraformProperty<bool>? HttpsOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_only");
+        get => GetProperty<TerraformProperty<bool>>("https_only");
         set => this.WithProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The User Assigned Identity to use for Key Vault access.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultReferenceIdentityId
+    public TerraformProperty<string>? KeyVaultReferenceIdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_reference_identity_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_reference_identity_id");
         set => this.WithProperty("key_vault_reference_identity_id", value);
     }
 
     /// <summary>
     /// Specifies the name of the Function App Slot.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The service_plan_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServicePlanId
+    public TerraformProperty<string>? ServicePlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_plan_id");
+        get => GetProperty<TerraformProperty<string>>("service_plan_id");
         set => this.WithProperty("service_plan_id", value);
     }
 
     /// <summary>
     /// The access key which will be used to access the storage account for the Function App Slot.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountAccessKey
+    public TerraformProperty<string>? StorageAccountAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_access_key");
+        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
         set => this.WithProperty("storage_account_access_key", value);
     }
 
     /// <summary>
     /// The backend storage account name which will be used by this Function App Slot.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountName
+    public TerraformProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
     /// <summary>
     /// The Key Vault Secret ID, including version, that contains the Connection String to connect to the storage account for this Function App.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageKeyVaultSecretId
+    public TerraformProperty<string>? StorageKeyVaultSecretId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_key_vault_secret_id");
+        get => GetProperty<TerraformProperty<string>>("storage_key_vault_secret_id");
         set => this.WithProperty("storage_key_vault_secret_id", value);
     }
 
     /// <summary>
     /// Should the Function App Slot use its Managed Identity to access storage?
     /// </summary>
-    public TerraformLiteralProperty<bool>? StorageUsesManagedIdentity
+    public TerraformProperty<bool>? StorageUsesManagedIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("storage_uses_managed_identity");
+        get => GetProperty<TerraformProperty<bool>>("storage_uses_managed_identity");
         set => this.WithProperty("storage_uses_managed_identity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_network_backup_restore_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? VirtualNetworkBackupRestoreEnabled
+    public TerraformProperty<bool>? VirtualNetworkBackupRestoreEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("virtual_network_backup_restore_enabled");
+        get => GetProperty<TerraformProperty<bool>>("virtual_network_backup_restore_enabled");
         set => this.WithProperty("virtual_network_backup_restore_enabled", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualNetworkSubnetId
+    public TerraformProperty<string>? VirtualNetworkSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_network_subnet_id");
         set => this.WithProperty("virtual_network_subnet_id", value);
     }
 
     /// <summary>
     /// Is container image pull over virtual network enabled? Defaults to `false`.
     /// </summary>
-    public TerraformLiteralProperty<bool>? VnetImagePullEnabled
+    public TerraformProperty<bool>? VnetImagePullEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("vnet_image_pull_enabled");
+        get => GetProperty<TerraformProperty<bool>>("vnet_image_pull_enabled");
         set => this.WithProperty("vnet_image_pull_enabled", value);
     }
 
     /// <summary>
     /// The webdeploy_publish_basic_authentication_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WebdeployPublishBasicAuthenticationEnabled
+    public TerraformProperty<bool>? WebdeployPublishBasicAuthenticationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("webdeploy_publish_basic_authentication_enabled");
+        get => GetProperty<TerraformProperty<bool>>("webdeploy_publish_basic_authentication_enabled");
         set => this.WithProperty("webdeploy_publish_basic_authentication_enabled", value);
     }
 

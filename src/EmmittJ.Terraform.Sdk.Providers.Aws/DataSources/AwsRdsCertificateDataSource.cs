@@ -26,36 +26,36 @@ public class AwsRdsCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The default_for_new_launches attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DefaultForNewLaunches
+    public TerraformProperty<bool>? DefaultForNewLaunches
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_for_new_launches");
+        get => GetProperty<TerraformProperty<bool>>("default_for_new_launches");
         set => this.WithProperty("default_for_new_launches", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The latest_valid_till attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LatestValidTill
+    public TerraformProperty<bool>? LatestValidTill
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("latest_valid_till");
+        get => GetProperty<TerraformProperty<bool>>("latest_valid_till");
         set => this.WithProperty("latest_valid_till", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

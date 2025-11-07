@@ -23,9 +23,9 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -40,18 +40,18 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// maximum allowed value is 600 seconds. For Global external HTTP(S) load
     /// balancer (classic), this option is not available publicly.
     /// </summary>
-    public TerraformLiteralProperty<double>? HttpKeepAliveTimeoutSec
+    public TerraformProperty<double>? HttpKeepAliveTimeoutSec
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_keep_alive_timeout_sec");
+        get => GetProperty<TerraformProperty<double>>("http_keep_alive_timeout_sec");
         set => this.WithProperty("http_keep_alive_timeout_sec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -64,18 +64,18 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -83,9 +83,9 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ProxyBind
+    public TerraformProperty<bool>? ProxyBind
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_bind");
+        get => GetProperty<TerraformProperty<bool>>("proxy_bind");
         set => this.WithProperty("proxy_bind", value);
     }
 
@@ -93,9 +93,9 @@ public class GoogleComputeTargetHttpProxy : TerraformResource
     /// A reference to the UrlMap resource that defines the mapping from URL
     /// to the BackendService.
     /// </summary>
-    public TerraformLiteralProperty<string>? UrlMap
+    public TerraformProperty<string>? UrlMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url_map");
+        get => GetProperty<TerraformProperty<string>>("url_map");
         set => this.WithProperty("url_map", value);
     }
 

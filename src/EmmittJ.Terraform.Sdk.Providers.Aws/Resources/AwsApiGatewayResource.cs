@@ -20,45 +20,45 @@ public class AwsApiGatewayResource : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentId
+    public TerraformProperty<string>? ParentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_id");
+        get => GetProperty<TerraformProperty<string>>("parent_id");
         set => this.WithProperty("parent_id", value);
     }
 
     /// <summary>
     /// The path_part attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PathPart
+    public TerraformProperty<string>? PathPart
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path_part");
+        get => GetProperty<TerraformProperty<string>>("path_part");
         set => this.WithProperty("path_part", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestApiId
+    public TerraformProperty<string>? RestApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rest_api_id");
+        get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 

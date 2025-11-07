@@ -22,18 +22,18 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -42,9 +42,9 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// Interconnects. Customers do not need to set this unless directed by
     /// Google Support.
     /// </summary>
-    public TerraformLiteralProperty<string>? InterconnectGroup
+    public TerraformProperty<string>? InterconnectGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interconnect_group");
+        get => GetProperty<TerraformProperty<string>>("interconnect_group");
         set => this.WithProperty("interconnect_group", value);
     }
 
@@ -55,18 +55,18 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// character must be a lowercase letter, and all following characters must be a dash,
     /// lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

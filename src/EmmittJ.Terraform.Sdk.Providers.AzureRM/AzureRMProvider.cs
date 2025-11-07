@@ -23,9 +23,9 @@ public class AzureRMProvider : TerraformProvider
     /// The Azure DevOps Pipeline Service Connection ID.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? AdoPipelineServiceConnectionId
+    public TerraformProperty<string>? AdoPipelineServiceConnectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ado_pipeline_service_connection_id");
+        get => GetProperty<TerraformProperty<string>>("ado_pipeline_service_connection_id");
         set => this.WithProperty("ado_pipeline_service_connection_id", value);
     }
 
@@ -33,9 +33,9 @@ public class AzureRMProvider : TerraformProvider
     /// The auxiliary_tenant_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AuxiliaryTenantIds
+    public TerraformProperty<List<string>>? AuxiliaryTenantIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("auxiliary_tenant_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("auxiliary_tenant_ids");
         set => this.WithProperty("auxiliary_tenant_ids", value);
     }
 
@@ -43,9 +43,9 @@ public class AzureRMProvider : TerraformProvider
     /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientCertificate
+    public TerraformProperty<string>? ClientCertificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_certificate");
+        get => GetProperty<TerraformProperty<string>>("client_certificate");
         set => this.WithProperty("client_certificate", value);
     }
 
@@ -53,9 +53,9 @@ public class AzureRMProvider : TerraformProvider
     /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientCertificatePassword
+    public TerraformProperty<string>? ClientCertificatePassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_certificate_password");
+        get => GetProperty<TerraformProperty<string>>("client_certificate_password");
         set => this.WithProperty("client_certificate_password", value);
     }
 
@@ -63,9 +63,9 @@ public class AzureRMProvider : TerraformProvider
     /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientCertificatePath
+    public TerraformProperty<string>? ClientCertificatePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_certificate_path");
+        get => GetProperty<TerraformProperty<string>>("client_certificate_path");
         set => this.WithProperty("client_certificate_path", value);
     }
 
@@ -73,9 +73,9 @@ public class AzureRMProvider : TerraformProvider
     /// The Client ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientId
+    public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
@@ -83,9 +83,9 @@ public class AzureRMProvider : TerraformProvider
     /// The path to a file containing the Client ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientIdFilePath
+    public TerraformProperty<string>? ClientIdFilePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id_file_path");
+        get => GetProperty<TerraformProperty<string>>("client_id_file_path");
         set => this.WithProperty("client_id_file_path", value);
     }
 
@@ -93,9 +93,9 @@ public class AzureRMProvider : TerraformProvider
     /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientSecret
+    public TerraformProperty<string>? ClientSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret");
+        get => GetProperty<TerraformProperty<string>>("client_secret");
         set => this.WithProperty("client_secret", value);
     }
 
@@ -103,9 +103,9 @@ public class AzureRMProvider : TerraformProvider
     /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientSecretFilePath
+    public TerraformProperty<string>? ClientSecretFilePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_secret_file_path");
+        get => GetProperty<TerraformProperty<string>>("client_secret_file_path");
         set => this.WithProperty("client_secret_file_path", value);
     }
 
@@ -113,9 +113,9 @@ public class AzureRMProvider : TerraformProvider
     /// This will disable the x-ms-correlation-request-id header.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableCorrelationRequestId
+    public TerraformProperty<bool>? DisableCorrelationRequestId
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_correlation_request_id");
+        get => GetProperty<TerraformProperty<bool>>("disable_correlation_request_id");
         set => this.WithProperty("disable_correlation_request_id", value);
     }
 
@@ -123,9 +123,9 @@ public class AzureRMProvider : TerraformProvider
     /// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn&#39;t specified.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableTerraformPartnerId
+    public TerraformProperty<bool>? DisableTerraformPartnerId
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_terraform_partner_id");
+        get => GetProperty<TerraformProperty<bool>>("disable_terraform_partner_id");
         set => this.WithProperty("disable_terraform_partner_id", value);
     }
 
@@ -133,9 +133,9 @@ public class AzureRMProvider : TerraformProvider
     /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? Environment
+    public TerraformProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
@@ -143,9 +143,9 @@ public class AzureRMProvider : TerraformProvider
     /// The Hostname which should be used for the Azure Metadata Service.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? MetadataHost
+    public TerraformProperty<string>? MetadataHost
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata_host");
+        get => GetProperty<TerraformProperty<string>>("metadata_host");
         set => this.WithProperty("metadata_host", value);
     }
 
@@ -153,9 +153,9 @@ public class AzureRMProvider : TerraformProvider
     /// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? MsiApiVersion
+    public TerraformProperty<string>? MsiApiVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("msi_api_version");
+        get => GetProperty<TerraformProperty<string>>("msi_api_version");
         set => this.WithProperty("msi_api_version", value);
     }
 
@@ -163,9 +163,9 @@ public class AzureRMProvider : TerraformProvider
     /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? MsiEndpoint
+    public TerraformProperty<string>? MsiEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("msi_endpoint");
+        get => GetProperty<TerraformProperty<string>>("msi_endpoint");
         set => this.WithProperty("msi_endpoint", value);
     }
 
@@ -173,9 +173,9 @@ public class AzureRMProvider : TerraformProvider
     /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? OidcRequestToken
+    public TerraformProperty<string>? OidcRequestToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oidc_request_token");
+        get => GetProperty<TerraformProperty<string>>("oidc_request_token");
         set => this.WithProperty("oidc_request_token", value);
     }
 
@@ -183,9 +183,9 @@ public class AzureRMProvider : TerraformProvider
     /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? OidcRequestUrl
+    public TerraformProperty<string>? OidcRequestUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oidc_request_url");
+        get => GetProperty<TerraformProperty<string>>("oidc_request_url");
         set => this.WithProperty("oidc_request_url", value);
     }
 
@@ -193,9 +193,9 @@ public class AzureRMProvider : TerraformProvider
     /// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? OidcToken
+    public TerraformProperty<string>? OidcToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oidc_token");
+        get => GetProperty<TerraformProperty<string>>("oidc_token");
         set => this.WithProperty("oidc_token", value);
     }
 
@@ -203,9 +203,9 @@ public class AzureRMProvider : TerraformProvider
     /// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? OidcTokenFilePath
+    public TerraformProperty<string>? OidcTokenFilePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oidc_token_file_path");
+        get => GetProperty<TerraformProperty<string>>("oidc_token_file_path");
         set => this.WithProperty("oidc_token_file_path", value);
     }
 
@@ -213,9 +213,9 @@ public class AzureRMProvider : TerraformProvider
     /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? PartnerId
+    public TerraformProperty<string>? PartnerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partner_id");
+        get => GetProperty<TerraformProperty<string>>("partner_id");
         set => this.WithProperty("partner_id", value);
     }
 
@@ -223,9 +223,9 @@ public class AzureRMProvider : TerraformProvider
     /// The set of Resource Providers which should be automatically registered for the subscription.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceProviderRegistrations
+    public TerraformProperty<string>? ResourceProviderRegistrations
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_provider_registrations");
+        get => GetProperty<TerraformProperty<string>>("resource_provider_registrations");
         set => this.WithProperty("resource_provider_registrations", value);
     }
 
@@ -233,9 +233,9 @@ public class AzureRMProvider : TerraformProvider
     /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ResourceProvidersToRegister
+    public TerraformProperty<List<string>>? ResourceProvidersToRegister
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("resource_providers_to_register");
+        get => GetProperty<TerraformProperty<List<string>>>("resource_providers_to_register");
         set => this.WithProperty("resource_providers_to_register", value);
     }
 
@@ -244,9 +244,9 @@ public class AzureRMProvider : TerraformProvider
     /// (Optional)
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<bool>? SkipProviderRegistration
+    public TerraformProperty<bool>? SkipProviderRegistration
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_provider_registration");
+        get => GetProperty<TerraformProperty<bool>>("skip_provider_registration");
         set => this.WithProperty("skip_provider_registration", value);
     }
 
@@ -254,9 +254,9 @@ public class AzureRMProvider : TerraformProvider
     /// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? StorageUseAzuread
+    public TerraformProperty<bool>? StorageUseAzuread
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("storage_use_azuread");
+        get => GetProperty<TerraformProperty<bool>>("storage_use_azuread");
         set => this.WithProperty("storage_use_azuread", value);
     }
 
@@ -264,9 +264,9 @@ public class AzureRMProvider : TerraformProvider
     /// The Subscription ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 
@@ -274,9 +274,9 @@ public class AzureRMProvider : TerraformProvider
     /// The Tenant ID which should be used.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 
@@ -284,9 +284,9 @@ public class AzureRMProvider : TerraformProvider
     /// Allow Azure AKS Workload Identity to be used for Authentication.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseAksWorkloadIdentity
+    public TerraformProperty<bool>? UseAksWorkloadIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_aks_workload_identity");
+        get => GetProperty<TerraformProperty<bool>>("use_aks_workload_identity");
         set => this.WithProperty("use_aks_workload_identity", value);
     }
 
@@ -294,9 +294,9 @@ public class AzureRMProvider : TerraformProvider
     /// Allow Azure CLI to be used for Authentication.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseCli
+    public TerraformProperty<bool>? UseCli
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_cli");
+        get => GetProperty<TerraformProperty<bool>>("use_cli");
         set => this.WithProperty("use_cli", value);
     }
 
@@ -304,9 +304,9 @@ public class AzureRMProvider : TerraformProvider
     /// Allow Managed Service Identity to be used for Authentication.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseMsi
+    public TerraformProperty<bool>? UseMsi
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_msi");
+        get => GetProperty<TerraformProperty<bool>>("use_msi");
         set => this.WithProperty("use_msi", value);
     }
 
@@ -314,9 +314,9 @@ public class AzureRMProvider : TerraformProvider
     /// Allow OpenID Connect to be used for authentication
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseOidc
+    public TerraformProperty<bool>? UseOidc
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_oidc");
+        get => GetProperty<TerraformProperty<bool>>("use_oidc");
         set => this.WithProperty("use_oidc", value);
     }
 }

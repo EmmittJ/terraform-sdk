@@ -23,54 +23,54 @@ public class AwsTransferHostKey : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The host_key_body attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostKeyBody
+    public TerraformProperty<string>? HostKeyBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_key_body");
+        get => GetProperty<TerraformProperty<string>>("host_key_body");
         set => this.WithProperty("host_key_body", value);
     }
 
     /// <summary>
     /// The host_key_body_wo attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostKeyBodyWo
+    public TerraformProperty<string>? HostKeyBodyWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_key_body_wo");
+        get => GetProperty<TerraformProperty<string>>("host_key_body_wo");
         set => this.WithProperty("host_key_body_wo", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerId
+    public TerraformProperty<string>? ServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_id");
+        get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

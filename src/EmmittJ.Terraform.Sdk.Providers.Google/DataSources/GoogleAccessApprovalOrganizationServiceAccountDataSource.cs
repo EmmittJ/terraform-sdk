@@ -21,18 +21,18 @@ public class GoogleAccessApprovalOrganizationServiceAccountDataSource : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The organization_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrganizationId
+    public TerraformProperty<string>? OrganizationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization_id");
+        get => GetProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);
     }
 

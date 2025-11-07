@@ -19,99 +19,99 @@ public class AzurermStreamAnalyticsOutputTable : TerraformResource
     /// <summary>
     /// The batch_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BatchSize
+    public TerraformProperty<double>? BatchSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_size");
+        get => GetProperty<TerraformProperty<double>>("batch_size");
         set => this.WithProperty("batch_size", value);
     }
 
     /// <summary>
     /// The columns_to_remove attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ColumnsToRemove
+    public TerraformProperty<List<string>>? ColumnsToRemove
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("columns_to_remove");
+        get => GetProperty<TerraformProperty<List<string>>>("columns_to_remove");
         set => this.WithProperty("columns_to_remove", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PartitionKey
+    public TerraformProperty<string>? PartitionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partition_key");
+        get => GetProperty<TerraformProperty<string>>("partition_key");
         set => this.WithProperty("partition_key", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The row_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RowKey
+    public TerraformProperty<string>? RowKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("row_key");
+        get => GetProperty<TerraformProperty<string>>("row_key");
         set => this.WithProperty("row_key", value);
     }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountKey
+    public TerraformProperty<string>? StorageAccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key");
+        get => GetProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountName
+    public TerraformProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
+    public TerraformProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Table
+    public TerraformProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 

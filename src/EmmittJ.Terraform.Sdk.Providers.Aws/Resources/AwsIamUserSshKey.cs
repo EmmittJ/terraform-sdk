@@ -21,45 +21,45 @@ public class AwsIamUserSshKey : TerraformResource
     /// <summary>
     /// The encoding attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Encoding
+    public TerraformProperty<string>? Encoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("encoding");
+        get => GetProperty<TerraformProperty<string>>("encoding");
         set => this.WithProperty("encoding", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicKey
+    public TerraformProperty<string>? PublicKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_key");
+        get => GetProperty<TerraformProperty<string>>("public_key");
         set => this.WithProperty("public_key", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

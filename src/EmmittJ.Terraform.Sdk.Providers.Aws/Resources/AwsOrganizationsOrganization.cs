@@ -27,36 +27,36 @@ public class AwsOrganizationsOrganization : TerraformResource
     /// <summary>
     /// The aws_service_access_principals attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AwsServiceAccessPrincipals
+    public TerraformProperty<HashSet<string>>? AwsServiceAccessPrincipals
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("aws_service_access_principals");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("aws_service_access_principals");
         set => this.WithProperty("aws_service_access_principals", value);
     }
 
     /// <summary>
     /// The enabled_policy_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? EnabledPolicyTypes
+    public TerraformProperty<HashSet<string>>? EnabledPolicyTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("enabled_policy_types");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("enabled_policy_types");
         set => this.WithProperty("enabled_policy_types", value);
     }
 
     /// <summary>
     /// The feature_set attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FeatureSet
+    public TerraformProperty<string>? FeatureSet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("feature_set");
+        get => GetProperty<TerraformProperty<string>>("feature_set");
         set => this.WithProperty("feature_set", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

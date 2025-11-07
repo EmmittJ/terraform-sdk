@@ -19,36 +19,36 @@ public class AzureadAccessPackageResourceCatalogAssociation : TerraformResource
     /// <summary>
     /// The unique ID of the access package catalog
     /// </summary>
-    public TerraformLiteralProperty<string>? CatalogId
+    public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        get => GetProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier of the resource in the origin system. In the case of an Azure AD group, this is the identifier of the group
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceOriginId
+    public TerraformProperty<string>? ResourceOriginId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_origin_id");
+        get => GetProperty<TerraformProperty<string>>("resource_origin_id");
         set => this.WithProperty("resource_origin_id", value);
     }
 
     /// <summary>
     /// The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceOriginSystem
+    public TerraformProperty<string>? ResourceOriginSystem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_origin_system");
+        get => GetProperty<TerraformProperty<string>>("resource_origin_system");
         set => this.WithProperty("resource_origin_system", value);
     }
 

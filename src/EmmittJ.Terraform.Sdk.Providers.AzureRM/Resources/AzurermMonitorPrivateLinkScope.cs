@@ -19,54 +19,54 @@ public class AzurermMonitorPrivateLinkScope : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ingestion_access_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IngestionAccessMode
+    public TerraformProperty<string>? IngestionAccessMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ingestion_access_mode");
+        get => GetProperty<TerraformProperty<string>>("ingestion_access_mode");
         set => this.WithProperty("ingestion_access_mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_access_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QueryAccessMode
+    public TerraformProperty<string>? QueryAccessMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_access_mode");
+        get => GetProperty<TerraformProperty<string>>("query_access_mode");
         set => this.WithProperty("query_access_mode", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

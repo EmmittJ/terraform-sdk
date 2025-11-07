@@ -22,63 +22,63 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// <summary>
     /// CEL expression for matching on L7/application level criteria.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationMatcher
+    public TerraformProperty<string>? ApplicationMatcher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_matcher");
+        get => GetProperty<TerraformProperty<string>>("application_matcher");
         set => this.WithProperty("application_matcher", value);
     }
 
     /// <summary>
     /// Profile which tells what the primitive action should be. Possible values are: * ALLOW * DENY. Possible values: [&amp;quot;BASIC_PROFILE_UNSPECIFIED&amp;quot;, &amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? BasicProfile
+    public TerraformProperty<string>? BasicProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("basic_profile");
+        get => GetProperty<TerraformProperty<string>>("basic_profile");
         set => this.WithProperty("basic_profile", value);
     }
 
     /// <summary>
     /// Free-text description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Whether the rule is enforced.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The name of the gatewat security policy this rule belongs to.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewaySecurityPolicy
+    public TerraformProperty<string>? GatewaySecurityPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_security_policy");
+        get => GetProperty<TerraformProperty<string>>("gateway_security_policy");
         set => this.WithProperty("gateway_security_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the gateway security policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -86,36 +86,36 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// Name of the resource. ame is the full resource name so projects/{project}/locations/{location}/gatewaySecurityPolicies/{gateway_security_policy}/rules/{rule}
     /// rule should match the pattern: (^a-z?$).
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Priority of the rule. Lower number corresponds to higher precedence.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// CEL expression for matching on session criteria.
     /// </summary>
-    public TerraformLiteralProperty<string>? SessionMatcher
+    public TerraformProperty<string>? SessionMatcher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("session_matcher");
+        get => GetProperty<TerraformProperty<string>>("session_matcher");
         set => this.WithProperty("session_matcher", value);
     }
 
@@ -123,9 +123,9 @@ public class GoogleNetworkSecurityGatewaySecurityPolicyRule : TerraformResource
     /// Flag to enable TLS inspection of traffic matching on. Can only be true if the
     /// parent GatewaySecurityPolicy references a TLSInspectionConfig.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TlsInspectionEnabled
+    public TerraformProperty<bool>? TlsInspectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls_inspection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("tls_inspection_enabled");
         set => this.WithProperty("tls_inspection_enabled", value);
     }
 

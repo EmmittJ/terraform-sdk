@@ -21,135 +21,135 @@ public class AzurermDevTestWindowsVirtualMachine : TerraformResource
     /// <summary>
     /// The allow_claim attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowClaim
+    public TerraformProperty<bool>? AllowClaim
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_claim");
+        get => GetProperty<TerraformProperty<bool>>("allow_claim");
         set => this.WithProperty("allow_claim", value);
     }
 
     /// <summary>
     /// The disallow_public_ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisallowPublicIpAddress
+    public TerraformProperty<bool>? DisallowPublicIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disallow_public_ip_address");
+        get => GetProperty<TerraformProperty<bool>>("disallow_public_ip_address");
         set => this.WithProperty("disallow_public_ip_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lab_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LabName
+    public TerraformProperty<string>? LabName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lab_name");
+        get => GetProperty<TerraformProperty<string>>("lab_name");
         set => this.WithProperty("lab_name", value);
     }
 
     /// <summary>
     /// The lab_subnet_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LabSubnetName
+    public TerraformProperty<string>? LabSubnetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lab_subnet_name");
+        get => GetProperty<TerraformProperty<string>>("lab_subnet_name");
         set => this.WithProperty("lab_subnet_name", value);
     }
 
     /// <summary>
     /// The lab_virtual_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LabVirtualNetworkId
+    public TerraformProperty<string>? LabVirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lab_virtual_network_id");
+        get => GetProperty<TerraformProperty<string>>("lab_virtual_network_id");
         set => this.WithProperty("lab_virtual_network_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Notes
+    public TerraformProperty<string>? Notes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notes");
+        get => GetProperty<TerraformProperty<string>>("notes");
         set => this.WithProperty("notes", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Size
+    public TerraformProperty<string>? Size
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("size");
+        get => GetProperty<TerraformProperty<string>>("size");
         set => this.WithProperty("size", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageType
+    public TerraformProperty<string>? StorageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_type");
+        get => GetProperty<TerraformProperty<string>>("storage_type");
         set => this.WithProperty("storage_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

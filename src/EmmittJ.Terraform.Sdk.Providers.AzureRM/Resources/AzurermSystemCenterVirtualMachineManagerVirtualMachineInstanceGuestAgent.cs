@@ -19,45 +19,45 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The provisioning_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProvisioningAction
+    public TerraformProperty<string>? ProvisioningAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provisioning_action");
+        get => GetProperty<TerraformProperty<string>>("provisioning_action");
         set => this.WithProperty("provisioning_action", value);
     }
 
     /// <summary>
     /// The scoped_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScopedResourceId
+    public TerraformProperty<string>? ScopedResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scoped_resource_id");
+        get => GetProperty<TerraformProperty<string>>("scoped_resource_id");
         set => this.WithProperty("scoped_resource_id", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

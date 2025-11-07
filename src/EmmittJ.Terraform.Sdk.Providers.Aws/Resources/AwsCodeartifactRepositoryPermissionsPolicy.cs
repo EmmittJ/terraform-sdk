@@ -20,63 +20,63 @@ public class AwsCodeartifactRepositoryPermissionsPolicy : TerraformResource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Domain
+    public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain");
+        get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainOwner
+    public TerraformProperty<string>? DomainOwner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_owner");
+        get => GetProperty<TerraformProperty<string>>("domain_owner");
         set => this.WithProperty("domain_owner", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyDocument
+    public TerraformProperty<string>? PolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_document");
+        get => GetProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 
     /// <summary>
     /// The policy_revision attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyRevision
+    public TerraformProperty<string>? PolicyRevision
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_revision");
+        get => GetProperty<TerraformProperty<string>>("policy_revision");
         set => this.WithProperty("policy_revision", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The repository attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Repository
+    public TerraformProperty<string>? Repository
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository");
+        get => GetProperty<TerraformProperty<string>>("repository");
         set => this.WithProperty("repository", value);
     }
 

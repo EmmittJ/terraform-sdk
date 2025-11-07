@@ -19,45 +19,45 @@ public class AzurermApiManagementApiTagDescription : TerraformResource
     /// <summary>
     /// The api_tag_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiTagId
+    public TerraformProperty<string>? ApiTagId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_tag_id");
+        get => GetProperty<TerraformProperty<string>>("api_tag_id");
         set => this.WithProperty("api_tag_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The external_documentation_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExternalDocumentationDescription
+    public TerraformProperty<string>? ExternalDocumentationDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_documentation_description");
+        get => GetProperty<TerraformProperty<string>>("external_documentation_description");
         set => this.WithProperty("external_documentation_description", value);
     }
 
     /// <summary>
     /// The external_documentation_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExternalDocumentationUrl
+    public TerraformProperty<string>? ExternalDocumentationUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_documentation_url");
+        get => GetProperty<TerraformProperty<string>>("external_documentation_url");
         set => this.WithProperty("external_documentation_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

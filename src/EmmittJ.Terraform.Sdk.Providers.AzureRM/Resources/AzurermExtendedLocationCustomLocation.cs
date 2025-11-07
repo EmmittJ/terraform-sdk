@@ -19,81 +19,81 @@ public class AzurermExtendedLocationCustomLocation : TerraformResource
     /// <summary>
     /// The cluster_extension_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ClusterExtensionIds
+    public TerraformProperty<List<string>>? ClusterExtensionIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("cluster_extension_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("cluster_extension_ids");
         set => this.WithProperty("cluster_extension_ids", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The host_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostResourceId
+    public TerraformProperty<string>? HostResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_resource_id");
+        get => GetProperty<TerraformProperty<string>>("host_resource_id");
         set => this.WithProperty("host_resource_id", value);
     }
 
     /// <summary>
     /// The host_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostType
+    public TerraformProperty<string>? HostType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_type");
+        get => GetProperty<TerraformProperty<string>>("host_type");
         set => this.WithProperty("host_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Namespace
+    public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        get => GetProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

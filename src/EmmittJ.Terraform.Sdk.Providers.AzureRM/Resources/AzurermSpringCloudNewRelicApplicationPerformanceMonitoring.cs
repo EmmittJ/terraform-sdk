@@ -19,117 +19,117 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     /// <summary>
     /// The agent_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AgentEnabled
+    public TerraformProperty<bool>? AgentEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("agent_enabled");
+        get => GetProperty<TerraformProperty<bool>>("agent_enabled");
         set => this.WithProperty("agent_enabled", value);
     }
 
     /// <summary>
     /// The app_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppName
+    public TerraformProperty<string>? AppName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_name");
+        get => GetProperty<TerraformProperty<string>>("app_name");
         set => this.WithProperty("app_name", value);
     }
 
     /// <summary>
     /// The app_server_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? AppServerPort
+    public TerraformProperty<double>? AppServerPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("app_server_port");
+        get => GetProperty<TerraformProperty<double>>("app_server_port");
         set => this.WithProperty("app_server_port", value);
     }
 
     /// <summary>
     /// The audit_mode_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AuditModeEnabled
+    public TerraformProperty<bool>? AuditModeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("audit_mode_enabled");
+        get => GetProperty<TerraformProperty<bool>>("audit_mode_enabled");
         set => this.WithProperty("audit_mode_enabled", value);
     }
 
     /// <summary>
     /// The auto_app_naming_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoAppNamingEnabled
+    public TerraformProperty<bool>? AutoAppNamingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_app_naming_enabled");
+        get => GetProperty<TerraformProperty<bool>>("auto_app_naming_enabled");
         set => this.WithProperty("auto_app_naming_enabled", value);
     }
 
     /// <summary>
     /// The auto_transaction_naming_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoTransactionNamingEnabled
+    public TerraformProperty<bool>? AutoTransactionNamingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_transaction_naming_enabled");
+        get => GetProperty<TerraformProperty<bool>>("auto_transaction_naming_enabled");
         set => this.WithProperty("auto_transaction_naming_enabled", value);
     }
 
     /// <summary>
     /// The custom_tracing_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CustomTracingEnabled
+    public TerraformProperty<bool>? CustomTracingEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("custom_tracing_enabled");
+        get => GetProperty<TerraformProperty<bool>>("custom_tracing_enabled");
         set => this.WithProperty("custom_tracing_enabled", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GloballyEnabled
+    public TerraformProperty<bool>? GloballyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled");
+        get => GetProperty<TerraformProperty<bool>>("globally_enabled");
         set => this.WithProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The license_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LicenseKey
+    public TerraformProperty<string>? LicenseKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_key");
+        get => GetProperty<TerraformProperty<string>>("license_key");
         set => this.WithProperty("license_key", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudServiceId
+    public TerraformProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

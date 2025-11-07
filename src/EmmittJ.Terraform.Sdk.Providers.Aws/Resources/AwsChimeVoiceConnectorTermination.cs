@@ -19,72 +19,72 @@ public class AwsChimeVoiceConnectorTermination : TerraformResource
     /// <summary>
     /// The calling_regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? CallingRegions
+    public TerraformProperty<HashSet<string>>? CallingRegions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("calling_regions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("calling_regions");
         set => this.WithProperty("calling_regions", value);
     }
 
     /// <summary>
     /// The cidr_allow_list attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? CidrAllowList
+    public TerraformProperty<HashSet<string>>? CidrAllowList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cidr_allow_list");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("cidr_allow_list");
         set => this.WithProperty("cidr_allow_list", value);
     }
 
     /// <summary>
     /// The cps_limit attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? CpsLimit
+    public TerraformProperty<double>? CpsLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cps_limit");
+        get => GetProperty<TerraformProperty<double>>("cps_limit");
         set => this.WithProperty("cps_limit", value);
     }
 
     /// <summary>
     /// The default_phone_number attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultPhoneNumber
+    public TerraformProperty<string>? DefaultPhoneNumber
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_phone_number");
+        get => GetProperty<TerraformProperty<string>>("default_phone_number");
         set => this.WithProperty("default_phone_number", value);
     }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The voice_connector_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VoiceConnectorId
+    public TerraformProperty<string>? VoiceConnectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("voice_connector_id");
+        get => GetProperty<TerraformProperty<string>>("voice_connector_id");
         set => this.WithProperty("voice_connector_id", value);
     }
 

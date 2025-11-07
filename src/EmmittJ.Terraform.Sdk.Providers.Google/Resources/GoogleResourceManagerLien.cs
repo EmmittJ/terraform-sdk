@@ -21,9 +21,9 @@ public class GoogleResourceManagerLien : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -32,9 +32,9 @@ public class GoogleResourceManagerLien : TerraformResource
     /// of the Lien, intended to be inspected programmatically. Maximum length of
     /// 200 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Origin
+    public TerraformProperty<string>? Origin
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("origin");
+        get => GetProperty<TerraformProperty<string>>("origin");
         set => this.WithProperty("origin", value);
     }
 
@@ -44,9 +44,9 @@ public class GoogleResourceManagerLien : TerraformResource
     /// Since a variety of objects can have Liens against them, you must provide the type
     /// prefix (e.g. &amp;quot;projects/my-project-name&amp;quot;).
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -54,9 +54,9 @@ public class GoogleResourceManagerLien : TerraformResource
     /// Concise user-visible strings indicating why an action cannot be performed
     /// on a resource. Maximum length of 200 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Reason
+    public TerraformProperty<string>? Reason
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reason");
+        get => GetProperty<TerraformProperty<string>>("reason");
         set => this.WithProperty("reason", value);
     }
 
@@ -67,9 +67,9 @@ public class GoogleResourceManagerLien : TerraformResource
     /// list is meaningless and will be rejected.
     /// e.g. [&#39;resourcemanager.projects.delete&#39;]
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Restrictions
+    public TerraformProperty<List<string>>? Restrictions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("restrictions");
+        get => GetProperty<TerraformProperty<List<string>>>("restrictions");
         set => this.WithProperty("restrictions", value);
     }
 

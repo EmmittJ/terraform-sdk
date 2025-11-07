@@ -21,45 +21,45 @@ public class AwsBedrockFoundationModelsDataSource : TerraformDataSource
     /// <summary>
     /// The by_customization_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ByCustomizationType
+    public TerraformProperty<string>? ByCustomizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_customization_type");
+        get => GetProperty<TerraformProperty<string>>("by_customization_type");
         set => this.WithProperty("by_customization_type", value);
     }
 
     /// <summary>
     /// The by_inference_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ByInferenceType
+    public TerraformProperty<string>? ByInferenceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_inference_type");
+        get => GetProperty<TerraformProperty<string>>("by_inference_type");
         set => this.WithProperty("by_inference_type", value);
     }
 
     /// <summary>
     /// The by_output_modality attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ByOutputModality
+    public TerraformProperty<string>? ByOutputModality
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_output_modality");
+        get => GetProperty<TerraformProperty<string>>("by_output_modality");
         set => this.WithProperty("by_output_modality", value);
     }
 
     /// <summary>
     /// The by_provider attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ByProvider
+    public TerraformProperty<string>? ByProvider
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("by_provider");
+        get => GetProperty<TerraformProperty<string>>("by_provider");
         set => this.WithProperty("by_provider", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -55,36 +55,36 @@ public class GoogleBigqueryTableDataSource : TerraformDataSource
     /// <summary>
     /// The dataset ID to create the table in. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatasetId
+    public TerraformProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A unique ID for the resource. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableId
+    public TerraformProperty<string>? TableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_id");
+        get => GetProperty<TerraformProperty<string>>("table_id");
         set => this.WithProperty("table_id", value);
     }
 

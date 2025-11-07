@@ -22,81 +22,81 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// <summary>
     /// The authentication_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationKey
+    public TerraformProperty<string>? AuthenticationKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_key");
+        get => GetProperty<TerraformProperty<string>>("authentication_key");
         set => this.WithProperty("authentication_key", value);
     }
 
     /// <summary>
     /// The device_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeviceType
+    public TerraformProperty<string>? DeviceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("device_type");
+        get => GetProperty<TerraformProperty<string>>("device_type");
         set => this.WithProperty("device_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegratedCircuitCardIdentifier
+    public TerraformProperty<string>? IntegratedCircuitCardIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integrated_circuit_card_identifier");
+        get => GetProperty<TerraformProperty<string>>("integrated_circuit_card_identifier");
         set => this.WithProperty("integrated_circuit_card_identifier", value);
     }
 
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InternationalMobileSubscriberIdentity
+    public TerraformProperty<string>? InternationalMobileSubscriberIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("international_mobile_subscriber_identity");
+        get => GetProperty<TerraformProperty<string>>("international_mobile_subscriber_identity");
         set => this.WithProperty("international_mobile_subscriber_identity", value);
     }
 
     /// <summary>
     /// The mobile_network_sim_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MobileNetworkSimGroupId
+    public TerraformProperty<string>? MobileNetworkSimGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_sim_group_id");
+        get => GetProperty<TerraformProperty<string>>("mobile_network_sim_group_id");
         set => this.WithProperty("mobile_network_sim_group_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The operator_key_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OperatorKeyCode
+    public TerraformProperty<string>? OperatorKeyCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operator_key_code");
+        get => GetProperty<TerraformProperty<string>>("operator_key_code");
         set => this.WithProperty("operator_key_code", value);
     }
 
     /// <summary>
     /// The sim_policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SimPolicyId
+    public TerraformProperty<string>? SimPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sim_policy_id");
+        get => GetProperty<TerraformProperty<string>>("sim_policy_id");
         set => this.WithProperty("sim_policy_id", value);
     }
 

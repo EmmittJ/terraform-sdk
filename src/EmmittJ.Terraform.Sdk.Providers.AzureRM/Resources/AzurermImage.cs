@@ -19,72 +19,72 @@ public class AzurermImage : TerraformResource
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HyperVGeneration
+    public TerraformProperty<string>? HyperVGeneration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hyper_v_generation");
+        get => GetProperty<TerraformProperty<string>>("hyper_v_generation");
         set => this.WithProperty("hyper_v_generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_virtual_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceVirtualMachineId
+    public TerraformProperty<string>? SourceVirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_virtual_machine_id");
+        get => GetProperty<TerraformProperty<string>>("source_virtual_machine_id");
         set => this.WithProperty("source_virtual_machine_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_resilient attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZoneResilient
+    public TerraformProperty<bool>? ZoneResilient
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_resilient");
+        get => GetProperty<TerraformProperty<bool>>("zone_resilient");
         set => this.WithProperty("zone_resilient", value);
     }
 

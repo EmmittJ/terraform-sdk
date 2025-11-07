@@ -19,54 +19,54 @@ public class AwsAppCookieStickinessPolicy : TerraformResource
     /// <summary>
     /// The cookie_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CookieName
+    public TerraformProperty<string>? CookieName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cookie_name");
+        get => GetProperty<TerraformProperty<string>>("cookie_name");
         set => this.WithProperty("cookie_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lb_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? LbPort
+    public TerraformProperty<double>? LbPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("lb_port");
+        get => GetProperty<TerraformProperty<double>>("lb_port");
         set => this.WithProperty("lb_port", value);
     }
 
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LoadBalancer
+    public TerraformProperty<string>? LoadBalancer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancer");
+        get => GetProperty<TerraformProperty<string>>("load_balancer");
         set => this.WithProperty("load_balancer", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

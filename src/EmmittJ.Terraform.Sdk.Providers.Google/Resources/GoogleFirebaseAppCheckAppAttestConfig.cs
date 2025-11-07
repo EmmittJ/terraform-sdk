@@ -21,27 +21,27 @@ public class GoogleFirebaseAppCheckAppAttestConfig : TerraformResource
     /// The ID of an
     /// [Apple App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.iosApps#IosApp.FIELDS.app_id).
     /// </summary>
-    public TerraformLiteralProperty<string>? AppId
+    public TerraformProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -51,9 +51,9 @@ public class GoogleFirebaseAppCheckAppAttestConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? TokenTtl
+    public TerraformProperty<string>? TokenTtl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_ttl");
+        get => GetProperty<TerraformProperty<string>>("token_ttl");
         set => this.WithProperty("token_ttl", value);
     }
 

@@ -24,54 +24,54 @@ public class AwsEc2CapacityBlockOfferingDataSource : TerraformDataSource
     /// <summary>
     /// The capacity_duration_hours attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? CapacityDurationHours
+    public TerraformProperty<double>? CapacityDurationHours
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("capacity_duration_hours");
+        get => GetProperty<TerraformProperty<double>>("capacity_duration_hours");
         set => this.WithProperty("capacity_duration_hours", value);
     }
 
     /// <summary>
     /// The end_date_range attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndDateRange
+    public TerraformProperty<string>? EndDateRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date_range");
+        get => GetProperty<TerraformProperty<string>>("end_date_range");
         set => this.WithProperty("end_date_range", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? InstanceCount
+    public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        get => GetProperty<TerraformProperty<double>>("instance_count");
         set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The start_date_range attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartDateRange
+    public TerraformProperty<string>? StartDateRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_date_range");
+        get => GetProperty<TerraformProperty<string>>("start_date_range");
         set => this.WithProperty("start_date_range", value);
     }
 

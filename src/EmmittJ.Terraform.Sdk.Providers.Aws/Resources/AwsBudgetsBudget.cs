@@ -20,117 +20,117 @@ public class AwsBudgetsBudget : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The billing_view_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingViewArn
+    public TerraformProperty<string>? BillingViewArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_view_arn");
+        get => GetProperty<TerraformProperty<string>>("billing_view_arn");
         set => this.WithProperty("billing_view_arn", value);
     }
 
     /// <summary>
     /// The budget_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BudgetType
+    public TerraformProperty<string>? BudgetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("budget_type");
+        get => GetProperty<TerraformProperty<string>>("budget_type");
         set => this.WithProperty("budget_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The limit_amount attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LimitAmount
+    public TerraformProperty<string>? LimitAmount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("limit_amount");
+        get => GetProperty<TerraformProperty<string>>("limit_amount");
         set => this.WithProperty("limit_amount", value);
     }
 
     /// <summary>
     /// The limit_unit attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LimitUnit
+    public TerraformProperty<string>? LimitUnit
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("limit_unit");
+        get => GetProperty<TerraformProperty<string>>("limit_unit");
         set => this.WithProperty("limit_unit", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The time_period_end attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimePeriodEnd
+    public TerraformProperty<string>? TimePeriodEnd
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_period_end");
+        get => GetProperty<TerraformProperty<string>>("time_period_end");
         set => this.WithProperty("time_period_end", value);
     }
 
     /// <summary>
     /// The time_period_start attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimePeriodStart
+    public TerraformProperty<string>? TimePeriodStart
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_period_start");
+        get => GetProperty<TerraformProperty<string>>("time_period_start");
         set => this.WithProperty("time_period_start", value);
     }
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeUnit
+    public TerraformProperty<string>? TimeUnit
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_unit");
+        get => GetProperty<TerraformProperty<string>>("time_unit");
         set => this.WithProperty("time_unit", value);
     }
 

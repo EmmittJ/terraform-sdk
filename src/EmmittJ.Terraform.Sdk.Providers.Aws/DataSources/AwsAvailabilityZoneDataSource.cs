@@ -27,54 +27,54 @@ public class AwsAvailabilityZoneDataSource : TerraformDataSource
     /// <summary>
     /// The all_availability_zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllAvailabilityZones
+    public TerraformProperty<bool>? AllAvailabilityZones
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("all_availability_zones");
+        get => GetProperty<TerraformProperty<bool>>("all_availability_zones");
         set => this.WithProperty("all_availability_zones", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ZoneId
+    public TerraformProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        get => GetProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

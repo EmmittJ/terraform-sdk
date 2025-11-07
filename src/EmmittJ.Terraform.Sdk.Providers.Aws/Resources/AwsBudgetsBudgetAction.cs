@@ -22,81 +22,81 @@ public class AwsBudgetsBudgetAction : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The action_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActionType
+    public TerraformProperty<string>? ActionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action_type");
+        get => GetProperty<TerraformProperty<string>>("action_type");
         set => this.WithProperty("action_type", value);
     }
 
     /// <summary>
     /// The approval_model attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApprovalModel
+    public TerraformProperty<string>? ApprovalModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("approval_model");
+        get => GetProperty<TerraformProperty<string>>("approval_model");
         set => this.WithProperty("approval_model", value);
     }
 
     /// <summary>
     /// The budget_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BudgetName
+    public TerraformProperty<string>? BudgetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("budget_name");
+        get => GetProperty<TerraformProperty<string>>("budget_name");
         set => this.WithProperty("budget_name", value);
     }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExecutionRoleArn
+    public TerraformProperty<string>? ExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn");
+        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotificationType
+    public TerraformProperty<string>? NotificationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_type");
+        get => GetProperty<TerraformProperty<string>>("notification_type");
         set => this.WithProperty("notification_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

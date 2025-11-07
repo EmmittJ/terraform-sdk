@@ -20,99 +20,99 @@ public class AwsApiGatewayAuthorizer : TerraformResource
     /// <summary>
     /// The authorizer_credentials attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizerCredentials
+    public TerraformProperty<string>? AuthorizerCredentials
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_credentials");
+        get => GetProperty<TerraformProperty<string>>("authorizer_credentials");
         set => this.WithProperty("authorizer_credentials", value);
     }
 
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? AuthorizerResultTtlInSeconds
+    public TerraformProperty<double>? AuthorizerResultTtlInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("authorizer_result_ttl_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("authorizer_result_ttl_in_seconds");
         set => this.WithProperty("authorizer_result_ttl_in_seconds", value);
     }
 
     /// <summary>
     /// The authorizer_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizerUri
+    public TerraformProperty<string>? AuthorizerUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_uri");
+        get => GetProperty<TerraformProperty<string>>("authorizer_uri");
         set => this.WithProperty("authorizer_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentitySource
+    public TerraformProperty<string>? IdentitySource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_source");
+        get => GetProperty<TerraformProperty<string>>("identity_source");
         set => this.WithProperty("identity_source", value);
     }
 
     /// <summary>
     /// The identity_validation_expression attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityValidationExpression
+    public TerraformProperty<string>? IdentityValidationExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_validation_expression");
+        get => GetProperty<TerraformProperty<string>>("identity_validation_expression");
         set => this.WithProperty("identity_validation_expression", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The provider_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ProviderArns
+    public TerraformProperty<HashSet<string>>? ProviderArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("provider_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("provider_arns");
         set => this.WithProperty("provider_arns", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestApiId
+    public TerraformProperty<string>? RestApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rest_api_id");
+        get => GetProperty<TerraformProperty<string>>("rest_api_id");
         set => this.WithProperty("rest_api_id", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

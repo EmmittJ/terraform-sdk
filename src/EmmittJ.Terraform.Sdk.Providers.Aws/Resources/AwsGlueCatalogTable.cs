@@ -20,108 +20,108 @@ public class AwsGlueCatalogTable : TerraformResource
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CatalogId
+    public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        get => GetProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatabaseName
+    public TerraformProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Owner
+    public TerraformProperty<string>? Owner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner");
+        get => GetProperty<TerraformProperty<string>>("owner");
         set => this.WithProperty("owner", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
+    public TerraformProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The retention attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Retention
+    public TerraformProperty<double>? Retention
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention");
+        get => GetProperty<TerraformProperty<double>>("retention");
         set => this.WithProperty("retention", value);
     }
 
     /// <summary>
     /// The table_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableType
+    public TerraformProperty<string>? TableType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_type");
+        get => GetProperty<TerraformProperty<string>>("table_type");
         set => this.WithProperty("table_type", value);
     }
 
     /// <summary>
     /// The view_expanded_text attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ViewExpandedText
+    public TerraformProperty<string>? ViewExpandedText
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("view_expanded_text");
+        get => GetProperty<TerraformProperty<string>>("view_expanded_text");
         set => this.WithProperty("view_expanded_text", value);
     }
 
     /// <summary>
     /// The view_original_text attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ViewOriginalText
+    public TerraformProperty<string>? ViewOriginalText
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("view_original_text");
+        get => GetProperty<TerraformProperty<string>>("view_original_text");
         set => this.WithProperty("view_original_text", value);
     }
 

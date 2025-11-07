@@ -23,36 +23,36 @@ public class AwsKmsCustomKeyStoreDataSource : TerraformDataSource
     /// <summary>
     /// The custom_key_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomKeyStoreId
+    public TerraformProperty<string>? CustomKeyStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_key_store_id");
+        get => GetProperty<TerraformProperty<string>>("custom_key_store_id");
         set => this.WithProperty("custom_key_store_id", value);
     }
 
     /// <summary>
     /// The custom_key_store_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomKeyStoreName
+    public TerraformProperty<string>? CustomKeyStoreName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_key_store_name");
+        get => GetProperty<TerraformProperty<string>>("custom_key_store_name");
         set => this.WithProperty("custom_key_store_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

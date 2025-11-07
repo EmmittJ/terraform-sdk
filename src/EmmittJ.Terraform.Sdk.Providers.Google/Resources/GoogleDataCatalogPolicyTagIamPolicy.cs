@@ -20,27 +20,27 @@ public class GoogleDataCatalogPolicyTagIamPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyData
+    public TerraformProperty<string>? PolicyData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_data");
+        get => GetProperty<TerraformProperty<string>>("policy_data");
         set => this.WithProperty("policy_data", value);
     }
 
     /// <summary>
     /// The policy_tag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyTag
+    public TerraformProperty<string>? PolicyTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_tag");
+        get => GetProperty<TerraformProperty<string>>("policy_tag");
         set => this.WithProperty("policy_tag", value);
     }
 

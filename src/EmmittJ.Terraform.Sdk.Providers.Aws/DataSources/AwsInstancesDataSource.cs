@@ -23,36 +23,36 @@ public class AwsInstancesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_state_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? InstanceStateNames
+    public TerraformProperty<HashSet<string>>? InstanceStateNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("instance_state_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("instance_state_names");
         set => this.WithProperty("instance_state_names", value);
     }
 
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? InstanceTags
+    public TerraformProperty<Dictionary<string, string>>? InstanceTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("instance_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("instance_tags");
         set => this.WithProperty("instance_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -19,36 +19,36 @@ public class AwsCodecommitApprovalRuleTemplateAssociation : TerraformResource
     /// <summary>
     /// The approval_rule_template_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApprovalRuleTemplateName
+    public TerraformProperty<string>? ApprovalRuleTemplateName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("approval_rule_template_name");
+        get => GetProperty<TerraformProperty<string>>("approval_rule_template_name");
         set => this.WithProperty("approval_rule_template_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RepositoryName
+    public TerraformProperty<string>? RepositoryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_name");
+        get => GetProperty<TerraformProperty<string>>("repository_name");
         set => this.WithProperty("repository_name", value);
     }
 

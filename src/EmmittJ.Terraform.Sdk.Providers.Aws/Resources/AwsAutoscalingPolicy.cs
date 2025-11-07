@@ -20,108 +20,108 @@ public class AwsAutoscalingPolicy : TerraformResource
     /// <summary>
     /// The adjustment_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdjustmentType
+    public TerraformProperty<string>? AdjustmentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("adjustment_type");
+        get => GetProperty<TerraformProperty<string>>("adjustment_type");
         set => this.WithProperty("adjustment_type", value);
     }
 
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutoscalingGroupName
+    public TerraformProperty<string>? AutoscalingGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_group_name");
+        get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The cooldown attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Cooldown
+    public TerraformProperty<double>? Cooldown
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("cooldown");
+        get => GetProperty<TerraformProperty<double>>("cooldown");
         set => this.WithProperty("cooldown", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The estimated_instance_warmup attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? EstimatedInstanceWarmup
+    public TerraformProperty<double>? EstimatedInstanceWarmup
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("estimated_instance_warmup");
+        get => GetProperty<TerraformProperty<double>>("estimated_instance_warmup");
         set => this.WithProperty("estimated_instance_warmup", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metric_aggregation_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MetricAggregationType
+    public TerraformProperty<string>? MetricAggregationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metric_aggregation_type");
+        get => GetProperty<TerraformProperty<string>>("metric_aggregation_type");
         set => this.WithProperty("metric_aggregation_type", value);
     }
 
     /// <summary>
     /// The min_adjustment_magnitude attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinAdjustmentMagnitude
+    public TerraformProperty<double>? MinAdjustmentMagnitude
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_adjustment_magnitude");
+        get => GetProperty<TerraformProperty<double>>("min_adjustment_magnitude");
         set => this.WithProperty("min_adjustment_magnitude", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyType
+    public TerraformProperty<string>? PolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_type");
+        get => GetProperty<TerraformProperty<string>>("policy_type");
         set => this.WithProperty("policy_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The scaling_adjustment attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ScalingAdjustment
+    public TerraformProperty<double>? ScalingAdjustment
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("scaling_adjustment");
+        get => GetProperty<TerraformProperty<double>>("scaling_adjustment");
         set => this.WithProperty("scaling_adjustment", value);
     }
 

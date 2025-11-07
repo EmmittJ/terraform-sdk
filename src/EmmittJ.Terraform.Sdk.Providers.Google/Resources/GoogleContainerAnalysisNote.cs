@@ -22,63 +22,63 @@ public class GoogleContainerAnalysisNote : TerraformResource
     /// <summary>
     /// Time of expiration for this note. Leave empty if note does not expire.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpirationTime
+    public TerraformProperty<string>? ExpirationTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_time");
+        get => GetProperty<TerraformProperty<string>>("expiration_time");
         set => this.WithProperty("expiration_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A detailed description of the note
     /// </summary>
-    public TerraformLiteralProperty<string>? LongDescription
+    public TerraformProperty<string>? LongDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("long_description");
+        get => GetProperty<TerraformProperty<string>>("long_description");
         set => this.WithProperty("long_description", value);
     }
 
     /// <summary>
     /// The name of the note.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Names of other notes related to this note.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? RelatedNoteNames
+    public TerraformProperty<HashSet<string>>? RelatedNoteNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("related_note_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("related_note_names");
         set => this.WithProperty("related_note_names", value);
     }
 
     /// <summary>
     /// A one sentence description of the note.
     /// </summary>
-    public TerraformLiteralProperty<string>? ShortDescription
+    public TerraformProperty<string>? ShortDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_description");
+        get => GetProperty<TerraformProperty<string>>("short_description");
         set => this.WithProperty("short_description", value);
     }
 

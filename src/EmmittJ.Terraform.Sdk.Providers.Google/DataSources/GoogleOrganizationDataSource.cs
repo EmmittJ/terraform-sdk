@@ -24,27 +24,27 @@ public class GoogleOrganizationDataSource : TerraformDataSource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Domain
+    public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain");
+        get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Organization
+    public TerraformProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 

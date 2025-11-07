@@ -20,27 +20,27 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformResource
     /// <summary>
     /// The endpoint_group_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndpointGroupRegion
+    public TerraformProperty<string>? EndpointGroupRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_group_region");
+        get => GetProperty<TerraformProperty<string>>("endpoint_group_region");
         set => this.WithProperty("endpoint_group_region", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The listener_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ListenerArn
+    public TerraformProperty<string>? ListenerArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("listener_arn");
+        get => GetProperty<TerraformProperty<string>>("listener_arn");
         set => this.WithProperty("listener_arn", value);
     }
 

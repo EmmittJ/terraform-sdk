@@ -26,72 +26,72 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     /// <summary>
     /// The connect_attachment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectAttachmentId
+    public TerraformProperty<string>? ConnectAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connect_attachment_id");
+        get => GetProperty<TerraformProperty<string>>("connect_attachment_id");
         set => this.WithProperty("connect_attachment_id", value);
     }
 
     /// <summary>
     /// The core_network_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CoreNetworkAddress
+    public TerraformProperty<string>? CoreNetworkAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_address");
+        get => GetProperty<TerraformProperty<string>>("core_network_address");
         set => this.WithProperty("core_network_address", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The inside_cidr_blocks attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? InsideCidrBlocks
+    public TerraformProperty<List<string>>? InsideCidrBlocks
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("inside_cidr_blocks");
+        get => GetProperty<TerraformProperty<List<string>>>("inside_cidr_blocks");
         set => this.WithProperty("inside_cidr_blocks", value);
     }
 
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerAddress
+    public TerraformProperty<string>? PeerAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_address");
+        get => GetProperty<TerraformProperty<string>>("peer_address");
         set => this.WithProperty("peer_address", value);
     }
 
     /// <summary>
     /// The subnet_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetArn
+    public TerraformProperty<string>? SubnetArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_arn");
+        get => GetProperty<TerraformProperty<string>>("subnet_arn");
         set => this.WithProperty("subnet_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

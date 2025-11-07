@@ -23,45 +23,45 @@ public class AwsSsmParametersByPathDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Path
+    public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path");
+        get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
     }
 
     /// <summary>
     /// The recursive attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Recursive
+    public TerraformProperty<bool>? Recursive
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("recursive");
+        get => GetProperty<TerraformProperty<bool>>("recursive");
         set => this.WithProperty("recursive", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The with_decryption attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WithDecryption
+    public TerraformProperty<bool>? WithDecryption
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("with_decryption");
+        get => GetProperty<TerraformProperty<bool>>("with_decryption");
         set => this.WithProperty("with_decryption", value);
     }
 

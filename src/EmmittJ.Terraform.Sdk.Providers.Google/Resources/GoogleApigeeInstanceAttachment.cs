@@ -20,18 +20,18 @@ public class GoogleApigeeInstanceAttachment : TerraformResource
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Environment
+    public TerraformProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleApigeeInstanceAttachment : TerraformResource
     /// The Apigee instance associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/instances/{{instance_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 

@@ -34,27 +34,27 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Name of the storage pool type.
     /// </summary>
-    public TerraformLiteralProperty<string>? StoragePoolType
+    public TerraformProperty<string>? StoragePoolType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_pool_type");
+        get => GetProperty<TerraformProperty<string>>("storage_pool_type");
         set => this.WithProperty("storage_pool_type", value);
     }
 
     /// <summary>
     /// The name of the zone.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

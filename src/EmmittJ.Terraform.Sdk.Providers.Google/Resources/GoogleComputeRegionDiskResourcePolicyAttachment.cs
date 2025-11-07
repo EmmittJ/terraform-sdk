@@ -19,18 +19,18 @@ public class GoogleComputeRegionDiskResourcePolicyAttachment : TerraformResource
     /// <summary>
     /// The name of the regional disk in which the resource policies are attached to.
     /// </summary>
-    public TerraformLiteralProperty<string>? Disk
+    public TerraformProperty<string>? Disk
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk");
+        get => GetProperty<TerraformProperty<string>>("disk");
         set => this.WithProperty("disk", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -38,27 +38,27 @@ public class GoogleComputeRegionDiskResourcePolicyAttachment : TerraformResource
     /// The resource policy to be attached to the disk for scheduling snapshot
     /// creation. Do not specify the self link.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A reference to the region where the disk resides.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

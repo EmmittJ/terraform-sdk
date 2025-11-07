@@ -19,27 +19,27 @@ public class AzurermArcMachineAutomanageConfigurationAssignment : TerraformResou
     /// <summary>
     /// The arc_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ArcMachineId
+    public TerraformProperty<string>? ArcMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arc_machine_id");
+        get => GetProperty<TerraformProperty<string>>("arc_machine_id");
         set => this.WithProperty("arc_machine_id", value);
     }
 
     /// <summary>
     /// The configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationId
+    public TerraformProperty<string>? ConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_id");
+        get => GetProperty<TerraformProperty<string>>("configuration_id");
         set => this.WithProperty("configuration_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

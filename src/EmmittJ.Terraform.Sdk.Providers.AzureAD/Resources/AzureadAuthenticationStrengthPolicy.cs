@@ -19,36 +19,36 @@ public class AzureadAuthenticationStrengthPolicy : TerraformResource
     /// <summary>
     /// The allowed MFA methods for this policy
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AllowedCombinations
+    public TerraformProperty<HashSet<string>>? AllowedCombinations
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_combinations");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_combinations");
         set => this.WithProperty("allowed_combinations", value);
     }
 
     /// <summary>
     /// The description for the authentication strength policy
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name for the authentication strength policy
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

@@ -24,81 +24,81 @@ public class AwsBedrockagentcoreGateway : TerraformResource
     /// <summary>
     /// The authorizer_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizerType
+    public TerraformProperty<string>? AuthorizerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_type");
+        get => GetProperty<TerraformProperty<string>>("authorizer_type");
         set => this.WithProperty("authorizer_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The exception_level attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExceptionLevel
+    public TerraformProperty<string>? ExceptionLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("exception_level");
+        get => GetProperty<TerraformProperty<string>>("exception_level");
         set => this.WithProperty("exception_level", value);
     }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyArn
+    public TerraformProperty<string>? KmsKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_arn");
+        get => GetProperty<TerraformProperty<string>>("kms_key_arn");
         set => this.WithProperty("kms_key_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtocolType
+    public TerraformProperty<string>? ProtocolType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol_type");
+        get => GetProperty<TerraformProperty<string>>("protocol_type");
         set => this.WithProperty("protocol_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArn
+    public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

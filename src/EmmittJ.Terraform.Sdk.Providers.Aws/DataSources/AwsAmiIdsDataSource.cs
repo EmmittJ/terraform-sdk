@@ -20,63 +20,63 @@ public class AwsAmiIdsDataSource : TerraformDataSource
     /// <summary>
     /// The executable_users attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ExecutableUsers
+    public TerraformProperty<List<string>>? ExecutableUsers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("executable_users");
+        get => GetProperty<TerraformProperty<List<string>>>("executable_users");
         set => this.WithProperty("executable_users", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_deprecated attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeDeprecated
+    public TerraformProperty<bool>? IncludeDeprecated
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_deprecated");
+        get => GetProperty<TerraformProperty<bool>>("include_deprecated");
         set => this.WithProperty("include_deprecated", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NameRegex
+    public TerraformProperty<string>? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_regex");
+        get => GetProperty<TerraformProperty<string>>("name_regex");
         set => this.WithProperty("name_regex", value);
     }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Owners
+    public TerraformProperty<List<string>>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("owners");
+        get => GetProperty<TerraformProperty<List<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The sort_ascending attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SortAscending
+    public TerraformProperty<bool>? SortAscending
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sort_ascending");
+        get => GetProperty<TerraformProperty<bool>>("sort_ascending");
         set => this.WithProperty("sort_ascending", value);
     }
 

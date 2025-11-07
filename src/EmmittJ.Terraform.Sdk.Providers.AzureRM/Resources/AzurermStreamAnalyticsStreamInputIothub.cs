@@ -19,81 +19,81 @@ public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Endpoint
+    public TerraformProperty<string>? Endpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint");
+        get => GetProperty<TerraformProperty<string>>("endpoint");
         set => this.WithProperty("endpoint", value);
     }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubConsumerGroupName
+    public TerraformProperty<string>? EventhubConsumerGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_consumer_group_name");
+        get => GetProperty<TerraformProperty<string>>("eventhub_consumer_group_name");
         set => this.WithProperty("eventhub_consumer_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IothubNamespace
+    public TerraformProperty<string>? IothubNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_namespace");
+        get => GetProperty<TerraformProperty<string>>("iothub_namespace");
         set => this.WithProperty("iothub_namespace", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The shared_access_policy_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedAccessPolicyKey
+    public TerraformProperty<string>? SharedAccessPolicyKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_key");
+        get => GetProperty<TerraformProperty<string>>("shared_access_policy_key");
         set => this.WithProperty("shared_access_policy_key", value);
     }
 
     /// <summary>
     /// The shared_access_policy_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedAccessPolicyName
+    public TerraformProperty<string>? SharedAccessPolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_name");
+        get => GetProperty<TerraformProperty<string>>("shared_access_policy_name");
         set => this.WithProperty("shared_access_policy_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
+    public TerraformProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 

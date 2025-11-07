@@ -19,36 +19,36 @@ public class AwsDsqlClusterPeering : TerraformResource
     /// <summary>
     /// The clusters attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Clusters
+    public TerraformProperty<HashSet<string>>? Clusters
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("clusters");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("clusters");
         set => this.WithProperty("clusters", value);
     }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Identifier
+    public TerraformProperty<string>? Identifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier");
+        get => GetProperty<TerraformProperty<string>>("identifier");
         set => this.WithProperty("identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The witness_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WitnessRegion
+    public TerraformProperty<string>? WitnessRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("witness_region");
+        get => GetProperty<TerraformProperty<string>>("witness_region");
         set => this.WithProperty("witness_region", value);
     }
 

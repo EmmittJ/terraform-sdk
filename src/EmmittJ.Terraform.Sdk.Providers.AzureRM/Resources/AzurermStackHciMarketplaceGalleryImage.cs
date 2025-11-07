@@ -19,90 +19,90 @@ public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
     /// <summary>
     /// The custom_location_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomLocationId
+    public TerraformProperty<string>? CustomLocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_location_id");
+        get => GetProperty<TerraformProperty<string>>("custom_location_id");
         set => this.WithProperty("custom_location_id", value);
     }
 
     /// <summary>
     /// The hyperv_generation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HypervGeneration
+    public TerraformProperty<string>? HypervGeneration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hyperv_generation");
+        get => GetProperty<TerraformProperty<string>>("hyperv_generation");
         set => this.WithProperty("hyperv_generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OsType
+    public TerraformProperty<string>? OsType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("os_type");
+        get => GetProperty<TerraformProperty<string>>("os_type");
         set => this.WithProperty("os_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_path_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StoragePathId
+    public TerraformProperty<string>? StoragePathId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_path_id");
+        get => GetProperty<TerraformProperty<string>>("storage_path_id");
         set => this.WithProperty("storage_path_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

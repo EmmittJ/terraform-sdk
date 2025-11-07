@@ -21,90 +21,90 @@ public class AwsFsxDataRepositoryAssociation : TerraformResource
     /// <summary>
     /// The batch_import_meta_data_on_create attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? BatchImportMetaDataOnCreate
+    public TerraformProperty<bool>? BatchImportMetaDataOnCreate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("batch_import_meta_data_on_create");
+        get => GetProperty<TerraformProperty<bool>>("batch_import_meta_data_on_create");
         set => this.WithProperty("batch_import_meta_data_on_create", value);
     }
 
     /// <summary>
     /// The data_repository_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataRepositoryPath
+    public TerraformProperty<string>? DataRepositoryPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_repository_path");
+        get => GetProperty<TerraformProperty<string>>("data_repository_path");
         set => this.WithProperty("data_repository_path", value);
     }
 
     /// <summary>
     /// The delete_data_in_filesystem attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteDataInFilesystem
+    public TerraformProperty<bool>? DeleteDataInFilesystem
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_data_in_filesystem");
+        get => GetProperty<TerraformProperty<bool>>("delete_data_in_filesystem");
         set => this.WithProperty("delete_data_in_filesystem", value);
     }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileSystemId
+    public TerraformProperty<string>? FileSystemId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_id");
+        get => GetProperty<TerraformProperty<string>>("file_system_id");
         set => this.WithProperty("file_system_id", value);
     }
 
     /// <summary>
     /// The file_system_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileSystemPath
+    public TerraformProperty<string>? FileSystemPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_path");
+        get => GetProperty<TerraformProperty<string>>("file_system_path");
         set => this.WithProperty("file_system_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The imported_file_chunk_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ImportedFileChunkSize
+    public TerraformProperty<double>? ImportedFileChunkSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("imported_file_chunk_size");
+        get => GetProperty<TerraformProperty<double>>("imported_file_chunk_size");
         set => this.WithProperty("imported_file_chunk_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

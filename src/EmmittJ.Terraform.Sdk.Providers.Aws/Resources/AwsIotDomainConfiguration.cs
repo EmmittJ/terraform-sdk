@@ -21,108 +21,108 @@ public class AwsIotDomainConfiguration : TerraformResource
     /// <summary>
     /// The application_protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationProtocol
+    public TerraformProperty<string>? ApplicationProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_protocol");
+        get => GetProperty<TerraformProperty<string>>("application_protocol");
         set => this.WithProperty("application_protocol", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationType
+    public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The server_certificate_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ServerCertificateArns
+    public TerraformProperty<HashSet<string>>? ServerCertificateArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("server_certificate_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("server_certificate_arns");
         set => this.WithProperty("server_certificate_arns", value);
     }
 
     /// <summary>
     /// The service_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceType
+    public TerraformProperty<string>? ServiceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_type");
+        get => GetProperty<TerraformProperty<string>>("service_type");
         set => this.WithProperty("service_type", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The validation_certificate_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValidationCertificateArn
+    public TerraformProperty<string>? ValidationCertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("validation_certificate_arn");
+        get => GetProperty<TerraformProperty<string>>("validation_certificate_arn");
         set => this.WithProperty("validation_certificate_arn", value);
     }
 

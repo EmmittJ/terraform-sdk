@@ -23,126 +23,126 @@ public class AwsDocdbelasticCluster : TerraformResource
     /// <summary>
     /// The admin_user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdminUserName
+    public TerraformProperty<string>? AdminUserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_user_name");
+        get => GetProperty<TerraformProperty<string>>("admin_user_name");
         set => this.WithProperty("admin_user_name", value);
     }
 
     /// <summary>
     /// The admin_user_password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdminUserPassword
+    public TerraformProperty<string>? AdminUserPassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admin_user_password");
+        get => GetProperty<TerraformProperty<string>>("admin_user_password");
         set => this.WithProperty("admin_user_password", value);
     }
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthType
+    public TerraformProperty<string>? AuthType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auth_type");
+        get => GetProperty<TerraformProperty<string>>("auth_type");
         set => this.WithProperty("auth_type", value);
     }
 
     /// <summary>
     /// The backup_retention_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BackupRetentionPeriod
+    public TerraformProperty<double>? BackupRetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("backup_retention_period");
+        get => GetProperty<TerraformProperty<double>>("backup_retention_period");
         set => this.WithProperty("backup_retention_period", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The preferred_backup_window attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PreferredBackupWindow
+    public TerraformProperty<string>? PreferredBackupWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_backup_window");
+        get => GetProperty<TerraformProperty<string>>("preferred_backup_window");
         set => this.WithProperty("preferred_backup_window", value);
     }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PreferredMaintenanceWindow
+    public TerraformProperty<string>? PreferredMaintenanceWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_maintenance_window");
+        get => GetProperty<TerraformProperty<string>>("preferred_maintenance_window");
         set => this.WithProperty("preferred_maintenance_window", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The shard_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ShardCapacity
+    public TerraformProperty<double>? ShardCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("shard_capacity");
+        get => GetProperty<TerraformProperty<double>>("shard_capacity");
         set => this.WithProperty("shard_capacity", value);
     }
 
     /// <summary>
     /// The shard_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ShardCount
+    public TerraformProperty<double>? ShardCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("shard_count");
+        get => GetProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
+    public TerraformProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSecurityGroupIds
+    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 

@@ -23,81 +23,81 @@ public class AwsDbProxyEndpoint : TerraformResource
     /// <summary>
     /// The db_proxy_endpoint_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbProxyEndpointName
+    public TerraformProperty<string>? DbProxyEndpointName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_proxy_endpoint_name");
+        get => GetProperty<TerraformProperty<string>>("db_proxy_endpoint_name");
         set => this.WithProperty("db_proxy_endpoint_name", value);
     }
 
     /// <summary>
     /// The db_proxy_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbProxyName
+    public TerraformProperty<string>? DbProxyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_proxy_name");
+        get => GetProperty<TerraformProperty<string>>("db_proxy_name");
         set => this.WithProperty("db_proxy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetRole
+    public TerraformProperty<string>? TargetRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_role");
+        get => GetProperty<TerraformProperty<string>>("target_role");
         set => this.WithProperty("target_role", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSecurityGroupIds
+    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
     /// The vpc_subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSubnetIds
+    public TerraformProperty<HashSet<string>>? VpcSubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_subnet_ids");
         set => this.WithProperty("vpc_subnet_ids", value);
     }
 

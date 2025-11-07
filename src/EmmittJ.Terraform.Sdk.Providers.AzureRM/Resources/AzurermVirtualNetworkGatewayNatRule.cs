@@ -19,63 +19,63 @@ public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_configuration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpConfigurationId
+    public TerraformProperty<string>? IpConfigurationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_configuration_id");
+        get => GetProperty<TerraformProperty<string>>("ip_configuration_id");
         set => this.WithProperty("ip_configuration_id", value);
     }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Mode
+    public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The virtual_network_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualNetworkGatewayId
+    public TerraformProperty<string>? VirtualNetworkGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_network_gateway_id");
         set => this.WithProperty("virtual_network_gateway_id", value);
     }
 

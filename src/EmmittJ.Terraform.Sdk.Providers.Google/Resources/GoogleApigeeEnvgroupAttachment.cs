@@ -21,27 +21,27 @@ public class GoogleApigeeEnvgroupAttachment : TerraformResource
     /// The Apigee environment group associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/envgroups/{{envgroup_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvgroupId
+    public TerraformProperty<string>? EnvgroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("envgroup_id");
+        get => GetProperty<TerraformProperty<string>>("envgroup_id");
         set => this.WithProperty("envgroup_id", value);
     }
 
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Environment
+    public TerraformProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

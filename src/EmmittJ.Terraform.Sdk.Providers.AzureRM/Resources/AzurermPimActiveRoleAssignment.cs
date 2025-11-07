@@ -20,45 +20,45 @@ public class AzurermPimActiveRoleAssignment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The justification for this role assignment
     /// </summary>
-    public TerraformLiteralProperty<string>? Justification
+    public TerraformProperty<string>? Justification
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("justification");
+        get => GetProperty<TerraformProperty<string>>("justification");
         set => this.WithProperty("justification", value);
     }
 
     /// <summary>
     /// Object ID of the principal for this role assignment
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalId
+    public TerraformProperty<string>? PrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_id");
+        get => GetProperty<TerraformProperty<string>>("principal_id");
         set => this.WithProperty("principal_id", value);
     }
 
     /// <summary>
     /// Role definition ID for this role assignment
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleDefinitionId
+    public TerraformProperty<string>? RoleDefinitionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_definition_id");
+        get => GetProperty<TerraformProperty<string>>("role_definition_id");
         set => this.WithProperty("role_definition_id", value);
     }
 
     /// <summary>
     /// Scope for this role assignment, should be a valid resource ID
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

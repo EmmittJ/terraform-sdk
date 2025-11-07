@@ -20,126 +20,126 @@ public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
     /// <summary>
     /// The cleanup_preference attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CleanupPreference
+    public TerraformProperty<string>? CleanupPreference
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cleanup_preference");
+        get => GetProperty<TerraformProperty<string>>("cleanup_preference");
         set => this.WithProperty("cleanup_preference", value);
     }
 
     /// <summary>
     /// The command_line attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CommandLine
+    public TerraformProperty<string>? CommandLine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("command_line");
+        get => GetProperty<TerraformProperty<string>>("command_line");
         set => this.WithProperty("command_line", value);
     }
 
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ForceUpdateTag
+    public TerraformProperty<string>? ForceUpdateTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("force_update_tag");
+        get => GetProperty<TerraformProperty<string>>("force_update_tag");
         set => this.WithProperty("force_update_tag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The primary_script_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrimaryScriptUri
+    public TerraformProperty<string>? PrimaryScriptUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_script_uri");
+        get => GetProperty<TerraformProperty<string>>("primary_script_uri");
         set => this.WithProperty("primary_script_uri", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_interval attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RetentionInterval
+    public TerraformProperty<string>? RetentionInterval
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retention_interval");
+        get => GetProperty<TerraformProperty<string>>("retention_interval");
         set => this.WithProperty("retention_interval", value);
     }
 
     /// <summary>
     /// The script_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScriptContent
+    public TerraformProperty<string>? ScriptContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("script_content");
+        get => GetProperty<TerraformProperty<string>>("script_content");
         set => this.WithProperty("script_content", value);
     }
 
     /// <summary>
     /// The supporting_script_uris attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SupportingScriptUris
+    public TerraformProperty<List<string>>? SupportingScriptUris
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("supporting_script_uris");
+        get => GetProperty<TerraformProperty<List<string>>>("supporting_script_uris");
         set => this.WithProperty("supporting_script_uris", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Timeout
+    public TerraformProperty<string>? Timeout
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timeout");
+        get => GetProperty<TerraformProperty<string>>("timeout");
         set => this.WithProperty("timeout", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

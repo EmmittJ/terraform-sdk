@@ -19,72 +19,72 @@ public class AwsVolumeAttachment : TerraformResource
     /// <summary>
     /// The device_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeviceName
+    public TerraformProperty<string>? DeviceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("device_name");
+        get => GetProperty<TerraformProperty<string>>("device_name");
         set => this.WithProperty("device_name", value);
     }
 
     /// <summary>
     /// The force_detach attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDetach
+    public TerraformProperty<bool>? ForceDetach
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_detach");
+        get => GetProperty<TerraformProperty<bool>>("force_detach");
         set => this.WithProperty("force_detach", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipDestroy
+    public TerraformProperty<bool>? SkipDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_destroy");
+        get => GetProperty<TerraformProperty<bool>>("skip_destroy");
         set => this.WithProperty("skip_destroy", value);
     }
 
     /// <summary>
     /// The stop_instance_before_detaching attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? StopInstanceBeforeDetaching
+    public TerraformProperty<bool>? StopInstanceBeforeDetaching
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("stop_instance_before_detaching");
+        get => GetProperty<TerraformProperty<bool>>("stop_instance_before_detaching");
         set => this.WithProperty("stop_instance_before_detaching", value);
     }
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VolumeId
+    public TerraformProperty<string>? VolumeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_id");
+        get => GetProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
     }
 

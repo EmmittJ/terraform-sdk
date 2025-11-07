@@ -19,63 +19,63 @@ public class AzurermNetappVolumeQuotaRule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The quota_size_in_kib attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? QuotaSizeInKib
+    public TerraformProperty<double>? QuotaSizeInKib
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("quota_size_in_kib");
+        get => GetProperty<TerraformProperty<double>>("quota_size_in_kib");
         set => this.WithProperty("quota_size_in_kib", value);
     }
 
     /// <summary>
     /// The quota_target attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QuotaTarget
+    public TerraformProperty<string>? QuotaTarget
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quota_target");
+        get => GetProperty<TerraformProperty<string>>("quota_target");
         set => this.WithProperty("quota_target", value);
     }
 
     /// <summary>
     /// The quota_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QuotaType
+    public TerraformProperty<string>? QuotaType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quota_type");
+        get => GetProperty<TerraformProperty<string>>("quota_type");
         set => this.WithProperty("quota_type", value);
     }
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VolumeId
+    public TerraformProperty<string>? VolumeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_id");
+        get => GetProperty<TerraformProperty<string>>("volume_id");
         set => this.WithProperty("volume_id", value);
     }
 

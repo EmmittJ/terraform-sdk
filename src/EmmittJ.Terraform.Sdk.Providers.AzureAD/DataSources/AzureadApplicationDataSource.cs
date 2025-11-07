@@ -47,45 +47,45 @@ public class AzureadApplicationDataSource : TerraformDataSource
     /// <summary>
     /// The Client ID (also called Application ID)
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientId
+    public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// One of the application&#39;s identifier URIs
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentifierUri
+    public TerraformProperty<string>? IdentifierUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identifier_uri");
+        get => GetProperty<TerraformProperty<string>>("identifier_uri");
         set => this.WithProperty("identifier_uri", value);
     }
 
     /// <summary>
     /// The application&#39;s object ID
     /// </summary>
-    public TerraformLiteralProperty<string>? ObjectId
+    public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 

@@ -19,99 +19,99 @@ public class AzurermStreamAnalyticsOutputServicebusTopic : TerraformResource
     /// <summary>
     /// The authentication_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationMode
+    public TerraformProperty<string>? AuthenticationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_mode");
+        get => GetProperty<TerraformProperty<string>>("authentication_mode");
         set => this.WithProperty("authentication_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The property_columns attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PropertyColumns
+    public TerraformProperty<List<string>>? PropertyColumns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("property_columns");
+        get => GetProperty<TerraformProperty<List<string>>>("property_columns");
         set => this.WithProperty("property_columns", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The servicebus_namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServicebusNamespace
+    public TerraformProperty<string>? ServicebusNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("servicebus_namespace");
+        get => GetProperty<TerraformProperty<string>>("servicebus_namespace");
         set => this.WithProperty("servicebus_namespace", value);
     }
 
     /// <summary>
     /// The shared_access_policy_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedAccessPolicyKey
+    public TerraformProperty<string>? SharedAccessPolicyKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_key");
+        get => GetProperty<TerraformProperty<string>>("shared_access_policy_key");
         set => this.WithProperty("shared_access_policy_key", value);
     }
 
     /// <summary>
     /// The shared_access_policy_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedAccessPolicyName
+    public TerraformProperty<string>? SharedAccessPolicyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_access_policy_name");
+        get => GetProperty<TerraformProperty<string>>("shared_access_policy_name");
         set => this.WithProperty("shared_access_policy_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
+    public TerraformProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
     /// The system_property_columns attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? SystemPropertyColumns
+    public TerraformProperty<Dictionary<string, string>>? SystemPropertyColumns
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("system_property_columns");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("system_property_columns");
         set => this.WithProperty("system_property_columns", value);
     }
 
     /// <summary>
     /// The topic_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TopicName
+    public TerraformProperty<string>? TopicName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic_name");
+        get => GetProperty<TerraformProperty<string>>("topic_name");
         set => this.WithProperty("topic_name", value);
     }
 

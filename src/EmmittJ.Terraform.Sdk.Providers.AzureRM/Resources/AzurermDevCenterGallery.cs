@@ -19,36 +19,36 @@ public class AzurermDevCenterGallery : TerraformResource
     /// <summary>
     /// The dev_center_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DevCenterId
+    public TerraformProperty<string>? DevCenterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_id");
+        get => GetProperty<TerraformProperty<string>>("dev_center_id");
         set => this.WithProperty("dev_center_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The shared_gallery_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedGalleryId
+    public TerraformProperty<string>? SharedGalleryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_gallery_id");
+        get => GetProperty<TerraformProperty<string>>("shared_gallery_id");
         set => this.WithProperty("shared_gallery_id", value);
     }
 

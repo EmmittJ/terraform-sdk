@@ -24,189 +24,189 @@ public class AwsAmplifyBranch : TerraformResource
     /// <summary>
     /// The app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppId
+    public TerraformProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The backend_environment_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackendEnvironmentArn
+    public TerraformProperty<string>? BackendEnvironmentArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend_environment_arn");
+        get => GetProperty<TerraformProperty<string>>("backend_environment_arn");
         set => this.WithProperty("backend_environment_arn", value);
     }
 
     /// <summary>
     /// The basic_auth_credentials attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BasicAuthCredentials
+    public TerraformProperty<string>? BasicAuthCredentials
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("basic_auth_credentials");
+        get => GetProperty<TerraformProperty<string>>("basic_auth_credentials");
         set => this.WithProperty("basic_auth_credentials", value);
     }
 
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BranchName
+    public TerraformProperty<string>? BranchName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch_name");
+        get => GetProperty<TerraformProperty<string>>("branch_name");
         set => this.WithProperty("branch_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enable_auto_build attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableAutoBuild
+    public TerraformProperty<bool>? EnableAutoBuild
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_auto_build");
+        get => GetProperty<TerraformProperty<bool>>("enable_auto_build");
         set => this.WithProperty("enable_auto_build", value);
     }
 
     /// <summary>
     /// The enable_basic_auth attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableBasicAuth
+    public TerraformProperty<bool>? EnableBasicAuth
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_basic_auth");
+        get => GetProperty<TerraformProperty<bool>>("enable_basic_auth");
         set => this.WithProperty("enable_basic_auth", value);
     }
 
     /// <summary>
     /// The enable_notification attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableNotification
+    public TerraformProperty<bool>? EnableNotification
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_notification");
+        get => GetProperty<TerraformProperty<bool>>("enable_notification");
         set => this.WithProperty("enable_notification", value);
     }
 
     /// <summary>
     /// The enable_performance_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnablePerformanceMode
+    public TerraformProperty<bool>? EnablePerformanceMode
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_performance_mode");
+        get => GetProperty<TerraformProperty<bool>>("enable_performance_mode");
         set => this.WithProperty("enable_performance_mode", value);
     }
 
     /// <summary>
     /// The enable_pull_request_preview attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnablePullRequestPreview
+    public TerraformProperty<bool>? EnablePullRequestPreview
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_pull_request_preview");
+        get => GetProperty<TerraformProperty<bool>>("enable_pull_request_preview");
         set => this.WithProperty("enable_pull_request_preview", value);
     }
 
     /// <summary>
     /// The enable_skew_protection attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableSkewProtection
+    public TerraformProperty<bool>? EnableSkewProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_skew_protection");
+        get => GetProperty<TerraformProperty<bool>>("enable_skew_protection");
         set => this.WithProperty("enable_skew_protection", value);
     }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? EnvironmentVariables
+    public TerraformProperty<Dictionary<string, string>>? EnvironmentVariables
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("environment_variables");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
     /// <summary>
     /// The framework attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Framework
+    public TerraformProperty<string>? Framework
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("framework");
+        get => GetProperty<TerraformProperty<string>>("framework");
         set => this.WithProperty("framework", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The pull_request_environment_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PullRequestEnvironmentName
+    public TerraformProperty<string>? PullRequestEnvironmentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pull_request_environment_name");
+        get => GetProperty<TerraformProperty<string>>("pull_request_environment_name");
         set => this.WithProperty("pull_request_environment_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Stage
+    public TerraformProperty<string>? Stage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stage");
+        get => GetProperty<TerraformProperty<string>>("stage");
         set => this.WithProperty("stage", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ttl
+    public TerraformProperty<string>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ttl");
+        get => GetProperty<TerraformProperty<string>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 

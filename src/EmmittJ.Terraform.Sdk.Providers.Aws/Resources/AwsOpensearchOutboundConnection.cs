@@ -20,45 +20,45 @@ public class AwsOpensearchOutboundConnection : TerraformResource
     /// <summary>
     /// The accept_connection attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AcceptConnection
+    public TerraformProperty<bool>? AcceptConnection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("accept_connection");
+        get => GetProperty<TerraformProperty<bool>>("accept_connection");
         set => this.WithProperty("accept_connection", value);
     }
 
     /// <summary>
     /// The connection_alias attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionAlias
+    public TerraformProperty<string>? ConnectionAlias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_alias");
+        get => GetProperty<TerraformProperty<string>>("connection_alias");
         set => this.WithProperty("connection_alias", value);
     }
 
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionMode
+    public TerraformProperty<string>? ConnectionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_mode");
+        get => GetProperty<TerraformProperty<string>>("connection_mode");
         set => this.WithProperty("connection_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

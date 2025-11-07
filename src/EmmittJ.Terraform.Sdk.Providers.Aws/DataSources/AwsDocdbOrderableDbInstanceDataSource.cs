@@ -20,72 +20,72 @@ public class AwsDocdbOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Engine
+    public TerraformProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineVersion
+    public TerraformProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceClass
+    public TerraformProperty<string>? InstanceClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_class");
+        get => GetProperty<TerraformProperty<string>>("instance_class");
         set => this.WithProperty("instance_class", value);
     }
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LicenseModel
+    public TerraformProperty<string>? LicenseModel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_model");
+        get => GetProperty<TerraformProperty<string>>("license_model");
         set => this.WithProperty("license_model", value);
     }
 
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreferredInstanceClasses
+    public TerraformProperty<List<string>>? PreferredInstanceClasses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_instance_classes");
+        get => GetProperty<TerraformProperty<List<string>>>("preferred_instance_classes");
         set => this.WithProperty("preferred_instance_classes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The vpc attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Vpc
+    public TerraformProperty<bool>? Vpc
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("vpc");
+        get => GetProperty<TerraformProperty<bool>>("vpc");
         set => this.WithProperty("vpc", value);
     }
 

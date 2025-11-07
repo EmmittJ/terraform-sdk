@@ -29,9 +29,9 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// If the field is set to true, the commitment will be automatically renewed for either
     /// one or three years according to the terms of the existing commitment.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoRenew
+    public TerraformProperty<bool>? AutoRenew
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_renew");
+        get => GetProperty<TerraformProperty<bool>>("auto_renew");
         set => this.WithProperty("auto_renew", value);
     }
 
@@ -41,36 +41,36 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// specifies commitments composed of software licenses, listed in licenseResources.
     /// Note that only MACHINE commitments should have a Type specified. Possible values: [&amp;quot;LICENSE&amp;quot;, &amp;quot;MACHINE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Category
+    public TerraformProperty<string>? Category
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("category");
+        get => GetProperty<TerraformProperty<string>>("category");
         set => this.WithProperty("category", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Specifies the already existing reservations to attach to the Commitment.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExistingReservations
+    public TerraformProperty<string>? ExistingReservations
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("existing_reservations");
+        get => GetProperty<TerraformProperty<string>>("existing_reservations");
         set => this.WithProperty("existing_reservations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -81,9 +81,9 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -91,27 +91,27 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// The plan for this commitment, which determines duration and discount rate.
     /// The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years). Possible values: [&amp;quot;TWELVE_MONTH&amp;quot;, &amp;quot;THIRTY_SIX_MONTH&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Plan
+    public TerraformProperty<string>? Plan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan");
+        get => GetProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// URL of the region where this commitment may be used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -122,9 +122,9 @@ public class GoogleComputeRegionCommitment : TerraformResource
     /// &#39;GENERAL_PURPOSE_T2D&#39;, &#39;GENERAL_PURPOSE_C3&#39;, &#39;COMPUTE_OPTIMIZED_C2&#39;, &#39;COMPUTE_OPTIMIZED_C2D&#39; and
     /// &#39;GRAPHICS_OPTIMIZED_G2&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

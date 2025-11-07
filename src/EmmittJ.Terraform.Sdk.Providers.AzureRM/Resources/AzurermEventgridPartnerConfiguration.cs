@@ -19,36 +19,36 @@ public class AzurermEventgridPartnerConfiguration : TerraformResource
     /// <summary>
     /// The default_maximum_expiration_time_in_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultMaximumExpirationTimeInDays
+    public TerraformProperty<double>? DefaultMaximumExpirationTimeInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_maximum_expiration_time_in_days");
+        get => GetProperty<TerraformProperty<double>>("default_maximum_expiration_time_in_days");
         set => this.WithProperty("default_maximum_expiration_time_in_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -20,36 +20,36 @@ public class GoogleKmsSecretDataSource : TerraformDataSource
     /// <summary>
     /// The additional_authenticated_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AdditionalAuthenticatedData
+    public TerraformProperty<string>? AdditionalAuthenticatedData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("additional_authenticated_data");
+        get => GetProperty<TerraformProperty<string>>("additional_authenticated_data");
         set => this.WithProperty("additional_authenticated_data", value);
     }
 
     /// <summary>
     /// The ciphertext attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ciphertext
+    public TerraformProperty<string>? Ciphertext
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ciphertext");
+        get => GetProperty<TerraformProperty<string>>("ciphertext");
         set => this.WithProperty("ciphertext", value);
     }
 
     /// <summary>
     /// The crypto_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CryptoKey
+    public TerraformProperty<string>? CryptoKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("crypto_key");
+        get => GetProperty<TerraformProperty<string>>("crypto_key");
         set => this.WithProperty("crypto_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

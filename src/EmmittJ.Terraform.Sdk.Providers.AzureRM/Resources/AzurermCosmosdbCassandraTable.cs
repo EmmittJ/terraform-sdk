@@ -19,54 +19,54 @@ public class AzurermCosmosdbCassandraTable : TerraformResource
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? AnalyticalStorageTtl
+    public TerraformProperty<double>? AnalyticalStorageTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("analytical_storage_ttl");
+        get => GetProperty<TerraformProperty<double>>("analytical_storage_ttl");
         set => this.WithProperty("analytical_storage_ttl", value);
     }
 
     /// <summary>
     /// The cassandra_keyspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CassandraKeyspaceId
+    public TerraformProperty<string>? CassandraKeyspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cassandra_keyspace_id");
+        get => GetProperty<TerraformProperty<string>>("cassandra_keyspace_id");
         set => this.WithProperty("cassandra_keyspace_id", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultTtl
+    public TerraformProperty<double>? DefaultTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_ttl");
+        get => GetProperty<TerraformProperty<double>>("default_ttl");
         set => this.WithProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Throughput
+    public TerraformProperty<double>? Throughput
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("throughput");
+        get => GetProperty<TerraformProperty<double>>("throughput");
         set => this.WithProperty("throughput", value);
     }
 

@@ -21,27 +21,27 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// The action to be performed in the default service accounts. Valid values are: DEPRIVILEGE, DELETE, DISABLE.
     /// 				Note that DEPRIVILEGE action will ignore the REVERT configuration in the restore_policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? Action
+    public TerraformProperty<string>? Action
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action");
+        get => GetProperty<TerraformProperty<string>>("action");
         set => this.WithProperty("action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project ID where service accounts are created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -49,9 +49,9 @@ public class GoogleProjectDefaultServiceAccounts : TerraformResource
     /// The action to be performed in the default service accounts on the resource destroy.
     /// 				Valid values are NONE, REVERT and REVERT_AND_IGNORE_FAILURE. It is applied for any action but in the DEPRIVILEGE.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestorePolicy
+    public TerraformProperty<string>? RestorePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("restore_policy");
+        get => GetProperty<TerraformProperty<string>>("restore_policy");
         set => this.WithProperty("restore_policy", value);
     }
 

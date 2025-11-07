@@ -21,63 +21,63 @@ public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedInstanceId
+    public TerraformProperty<string>? ManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id");
+        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partner_managed_instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PartnerManagedInstanceId
+    public TerraformProperty<string>? PartnerManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partner_managed_instance_id");
+        get => GetProperty<TerraformProperty<string>>("partner_managed_instance_id");
         set => this.WithProperty("partner_managed_instance_id", value);
     }
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ReadonlyEndpointFailoverPolicyEnabled
+    public TerraformProperty<bool>? ReadonlyEndpointFailoverPolicyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("readonly_endpoint_failover_policy_enabled");
+        get => GetProperty<TerraformProperty<bool>>("readonly_endpoint_failover_policy_enabled");
         set => this.WithProperty("readonly_endpoint_failover_policy_enabled", value);
     }
 
     /// <summary>
     /// The secondary_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecondaryType
+    public TerraformProperty<string>? SecondaryType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secondary_type");
+        get => GetProperty<TerraformProperty<string>>("secondary_type");
         set => this.WithProperty("secondary_type", value);
     }
 

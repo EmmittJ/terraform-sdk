@@ -23,36 +23,36 @@ public class AzureadServicePrincipalTokenSigningCertificate : TerraformResource
     /// <summary>
     /// A friendly name for the certificate
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the certificate is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Default is 3 years from current date.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndDate
+    public TerraformProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        get => GetProperty<TerraformProperty<string>>("end_date");
         set => this.WithProperty("end_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the service principal for which this certificate should be created
     /// </summary>
-    public TerraformLiteralProperty<string>? ServicePrincipalId
+    public TerraformProperty<string>? ServicePrincipalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_principal_id");
+        get => GetProperty<TerraformProperty<string>>("service_principal_id");
         set => this.WithProperty("service_principal_id", value);
     }
 

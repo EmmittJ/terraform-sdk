@@ -19,9 +19,9 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// <summary>
     /// A descriptive comment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -30,27 +30,27 @@ public class GoogleBinaryAuthorizationPolicy : TerraformResource
     /// for common system-level images. Images not covered by the global
     /// policy will be subject to the project admission policy. Possible values: [&amp;quot;ENABLE&amp;quot;, &amp;quot;DISABLE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? GlobalPolicyEvaluationMode
+    public TerraformProperty<string>? GlobalPolicyEvaluationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_policy_evaluation_mode");
+        get => GetProperty<TerraformProperty<string>>("global_policy_evaluation_mode");
         set => this.WithProperty("global_policy_evaluation_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -19,54 +19,54 @@ public class AzurermDataProtectionBackupPolicyKubernetesCluster : TerraformResou
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? BackupRepeatingTimeIntervals
+    public TerraformProperty<List<string>>? BackupRepeatingTimeIntervals
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("backup_repeating_time_intervals");
+        get => GetProperty<TerraformProperty<List<string>>>("backup_repeating_time_intervals");
         set => this.WithProperty("backup_repeating_time_intervals", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeZone
+    public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        get => GetProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 
     /// <summary>
     /// The vault_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VaultName
+    public TerraformProperty<string>? VaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_name");
+        get => GetProperty<TerraformProperty<string>>("vault_name");
         set => this.WithProperty("vault_name", value);
     }
 

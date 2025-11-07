@@ -21,63 +21,63 @@ public class AwsAppconfigHostedConfigurationVersion : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationId
+    public TerraformProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The configuration_profile_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationProfileId
+    public TerraformProperty<string>? ConfigurationProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_profile_id");
+        get => GetProperty<TerraformProperty<string>>("configuration_profile_id");
         set => this.WithProperty("configuration_profile_id", value);
     }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Content
+    public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content");
+        get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

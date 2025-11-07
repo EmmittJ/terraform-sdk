@@ -29,63 +29,63 @@ public class AwsVpcDataSource : TerraformDataSource
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CidrBlock
+    public TerraformProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block");
+        get => GetProperty<TerraformProperty<string>>("cidr_block");
         set => this.WithProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The default attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Default
+    public TerraformProperty<bool>? Default
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default");
+        get => GetProperty<TerraformProperty<bool>>("default");
         set => this.WithProperty("default", value);
     }
 
     /// <summary>
     /// The dhcp_options_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DhcpOptionsId
+    public TerraformProperty<string>? DhcpOptionsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dhcp_options_id");
+        get => GetProperty<TerraformProperty<string>>("dhcp_options_id");
         set => this.WithProperty("dhcp_options_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

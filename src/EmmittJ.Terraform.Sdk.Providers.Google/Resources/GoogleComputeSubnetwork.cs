@@ -30,27 +30,27 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// you create the resource. This field can be set only at resource
     /// creation time.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The range of external IPv6 addresses that are owned by this subnetwork.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExternalIpv6Prefix
+    public TerraformProperty<string>? ExternalIpv6Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_ipv6_prefix");
+        get => GetProperty<TerraformProperty<string>>("external_ipv6_prefix");
         set => this.WithProperty("external_ipv6_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -61,9 +61,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// non-overlapping within a network. Only IPv4 is supported.
     /// Field is optional when &#39;reserved_internal_range&#39; is defined, otherwise required.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpCidrRange
+    public TerraformProperty<string>? IpCidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_cidr_range");
+        get => GetProperty<TerraformProperty<string>>("ip_cidr_range");
         set => this.WithProperty("ip_cidr_range", value);
     }
 
@@ -78,9 +78,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     ///   * &#39;projects/{{projectId}}/regions/region/publicDelegatedPrefixes/{{sub-pdp-name}}&#39;
     ///   * &#39;regions/{{region}}/publicDelegatedPrefixes/{{sub-pdp-name}}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? IpCollection
+    public TerraformProperty<string>? IpCollection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_collection");
+        get => GetProperty<TerraformProperty<string>>("ip_collection");
         set => this.WithProperty("ip_collection", value);
     }
 
@@ -89,9 +89,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// or the first time the subnet is updated into IPV4_IPV6 dual stack. If the ipv6_type is EXTERNAL then this subnet
     /// cannot enable direct path. Possible values: [&amp;quot;EXTERNAL&amp;quot;, &amp;quot;INTERNAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Ipv6AccessType
+    public TerraformProperty<string>? Ipv6AccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_access_type");
+        get => GetProperty<TerraformProperty<string>>("ipv6_access_type");
         set => this.WithProperty("ipv6_access_type", value);
     }
 
@@ -104,9 +104,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -114,9 +114,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// The network this subnet belongs to.
     /// Only networks that are in the distributed mode can have subnetworks.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -124,27 +124,27 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// When enabled, VMs in this subnetwork without external IP addresses can
     /// access Google APIs and services by using Private Google Access.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrivateIpGoogleAccess
+    public TerraformProperty<bool>? PrivateIpGoogleAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("private_ip_google_access");
+        get => GetProperty<TerraformProperty<bool>>("private_ip_google_access");
         set => this.WithProperty("private_ip_google_access", value);
     }
 
     /// <summary>
     /// The private IPv6 google access type for the VMs in this subnet.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateIpv6GoogleAccess
+    public TerraformProperty<string>? PrivateIpv6GoogleAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_ipv6_google_access");
+        get => GetProperty<TerraformProperty<string>>("private_ipv6_google_access");
         set => this.WithProperty("private_ipv6_google_access", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -158,18 +158,18 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// Note that &#39;REGIONAL_MANAGED_PROXY&#39; is the preferred setting for all regional Envoy load balancers.
     /// If unspecified, the purpose defaults to &#39;PRIVATE&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Purpose
+    public TerraformProperty<string>? Purpose
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("purpose");
+        get => GetProperty<TerraformProperty<string>>("purpose");
         set => this.WithProperty("purpose", value);
     }
 
     /// <summary>
     /// The GCP region for this subnetwork.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -177,9 +177,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// The ID of the reserved internal range. Must be prefixed with &#39;networkconnectivity.googleapis.com&#39;
     /// E.g. &#39;networkconnectivity.googleapis.com/projects/{project}/locations/global/internalRanges/{rangeId}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? ReservedInternalRange
+    public TerraformProperty<string>? ReservedInternalRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reserved_internal_range");
+        get => GetProperty<TerraformProperty<string>>("reserved_internal_range");
         set => this.WithProperty("reserved_internal_range", value);
     }
 
@@ -190,9 +190,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// An &#39;ACTIVE&#39; subnetwork is one that is currently being used for Envoy-based load balancers in a region.
     /// A &#39;BACKUP&#39; subnetwork is one that is ready to be promoted to &#39;ACTIVE&#39; or is currently draining. Possible values: [&amp;quot;ACTIVE&amp;quot;, &amp;quot;BACKUP&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
@@ -204,9 +204,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// empty list of secondary IP ranges to the API.
     /// Defaults to false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SendSecondaryIpRangeIfEmpty
+    public TerraformProperty<bool>? SendSecondaryIpRangeIfEmpty
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("send_secondary_ip_range_if_empty");
+        get => GetProperty<TerraformProperty<bool>>("send_secondary_ip_range_if_empty");
         set => this.WithProperty("send_secondary_ip_range_if_empty", value);
     }
 
@@ -214,9 +214,9 @@ public class GoogleComputeSubnetwork : TerraformResource
     /// The stack type for this subnet to identify whether the IPv6 feature is enabled or not.
     /// If not specified IPV4_ONLY will be used. Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? StackType
+    public TerraformProperty<string>? StackType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_type");
+        get => GetProperty<TerraformProperty<string>>("stack_type");
         set => this.WithProperty("stack_type", value);
     }
 

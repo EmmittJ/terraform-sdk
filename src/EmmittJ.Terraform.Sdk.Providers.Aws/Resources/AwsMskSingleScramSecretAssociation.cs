@@ -20,27 +20,27 @@ public class AwsMskSingleScramSecretAssociation : TerraformResource
     /// <summary>
     /// The cluster_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterArn
+    public TerraformProperty<string>? ClusterArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_arn");
+        get => GetProperty<TerraformProperty<string>>("cluster_arn");
         set => this.WithProperty("cluster_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecretArn
+    public TerraformProperty<string>? SecretArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_arn");
+        get => GetProperty<TerraformProperty<string>>("secret_arn");
         set => this.WithProperty("secret_arn", value);
     }
 

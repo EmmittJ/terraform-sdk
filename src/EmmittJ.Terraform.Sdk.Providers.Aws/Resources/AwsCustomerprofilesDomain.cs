@@ -20,72 +20,72 @@ public class AwsCustomerprofilesDomain : TerraformResource
     /// <summary>
     /// The dead_letter_queue_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeadLetterQueueUrl
+    public TerraformProperty<string>? DeadLetterQueueUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dead_letter_queue_url");
+        get => GetProperty<TerraformProperty<string>>("dead_letter_queue_url");
         set => this.WithProperty("dead_letter_queue_url", value);
     }
 
     /// <summary>
     /// The default_encryption_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultEncryptionKey
+    public TerraformProperty<string>? DefaultEncryptionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_encryption_key");
+        get => GetProperty<TerraformProperty<string>>("default_encryption_key");
         set => this.WithProperty("default_encryption_key", value);
     }
 
     /// <summary>
     /// The default_expiration_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultExpirationDays
+    public TerraformProperty<double>? DefaultExpirationDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_expiration_days");
+        get => GetProperty<TerraformProperty<double>>("default_expiration_days");
         set => this.WithProperty("default_expiration_days", value);
     }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -19,45 +19,45 @@ public class AzurermCosmosdbMongoUserDefinition : TerraformResource
     /// <summary>
     /// The cosmos_mongo_database_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CosmosMongoDatabaseId
+    public TerraformProperty<string>? CosmosMongoDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cosmos_mongo_database_id");
+        get => GetProperty<TerraformProperty<string>>("cosmos_mongo_database_id");
         set => this.WithProperty("cosmos_mongo_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The inherited_role_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? InheritedRoleNames
+    public TerraformProperty<List<string>>? InheritedRoleNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("inherited_role_names");
+        get => GetProperty<TerraformProperty<List<string>>>("inherited_role_names");
         set => this.WithProperty("inherited_role_names", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

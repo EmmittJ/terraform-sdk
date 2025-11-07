@@ -19,45 +19,45 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// <summary>
     /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsName
+    public TerraformProperty<string>? DnsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_name");
+        get => GetProperty<TerraformProperty<string>>("dns_name");
         set => this.WithProperty("dns_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Identifies the response policy addressed by this request.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResponsePolicy
+    public TerraformProperty<string>? ResponsePolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("response_policy");
+        get => GetProperty<TerraformProperty<string>>("response_policy");
         set => this.WithProperty("response_policy", value);
     }
 
     /// <summary>
     /// An identifier for this rule. Must be unique with the ResponsePolicy.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuleName
+    public TerraformProperty<string>? RuleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_name");
+        get => GetProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 

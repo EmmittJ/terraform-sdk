@@ -19,27 +19,27 @@ public class AzurermCdnFrontdoorCustomDomainAssociation : TerraformResource
     /// <summary>
     /// The cdn_frontdoor_custom_domain_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CdnFrontdoorCustomDomainId
+    public TerraformProperty<string>? CdnFrontdoorCustomDomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_custom_domain_id");
+        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_custom_domain_id");
         set => this.WithProperty("cdn_frontdoor_custom_domain_id", value);
     }
 
     /// <summary>
     /// The cdn_frontdoor_route_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? CdnFrontdoorRouteIds
+    public TerraformProperty<List<string>>? CdnFrontdoorRouteIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("cdn_frontdoor_route_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("cdn_frontdoor_route_ids");
         set => this.WithProperty("cdn_frontdoor_route_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

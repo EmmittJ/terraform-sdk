@@ -26,90 +26,90 @@ public class AwsEvidentlyFeature : TerraformResource
     /// <summary>
     /// The default_variation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultVariation
+    public TerraformProperty<string>? DefaultVariation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_variation");
+        get => GetProperty<TerraformProperty<string>>("default_variation");
         set => this.WithProperty("default_variation", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The entity_overrides attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? EntityOverrides
+    public TerraformProperty<Dictionary<string, string>>? EntityOverrides
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("entity_overrides");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("entity_overrides");
         set => this.WithProperty("entity_overrides", value);
     }
 
     /// <summary>
     /// The evaluation_strategy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EvaluationStrategy
+    public TerraformProperty<string>? EvaluationStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("evaluation_strategy");
+        get => GetProperty<TerraformProperty<string>>("evaluation_strategy");
         set => this.WithProperty("evaluation_strategy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

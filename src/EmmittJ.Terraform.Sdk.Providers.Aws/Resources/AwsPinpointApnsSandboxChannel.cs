@@ -19,99 +19,99 @@ public class AwsPinpointApnsSandboxChannel : TerraformResource
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationId
+    public TerraformProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BundleId
+    public TerraformProperty<string>? BundleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bundle_id");
+        get => GetProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
     }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Certificate
+    public TerraformProperty<string>? Certificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate");
+        get => GetProperty<TerraformProperty<string>>("certificate");
         set => this.WithProperty("certificate", value);
     }
 
     /// <summary>
     /// The default_authentication_method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultAuthenticationMethod
+    public TerraformProperty<string>? DefaultAuthenticationMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_authentication_method");
+        get => GetProperty<TerraformProperty<string>>("default_authentication_method");
         set => this.WithProperty("default_authentication_method", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateKey
+    public TerraformProperty<string>? PrivateKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_key");
+        get => GetProperty<TerraformProperty<string>>("private_key");
         set => this.WithProperty("private_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The team_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TeamId
+    public TerraformProperty<string>? TeamId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("team_id");
+        get => GetProperty<TerraformProperty<string>>("team_id");
         set => this.WithProperty("team_id", value);
     }
 
     /// <summary>
     /// The token_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TokenKey
+    public TerraformProperty<string>? TokenKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_key");
+        get => GetProperty<TerraformProperty<string>>("token_key");
         set => this.WithProperty("token_key", value);
     }
 
     /// <summary>
     /// The token_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TokenKeyId
+    public TerraformProperty<string>? TokenKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_key_id");
+        get => GetProperty<TerraformProperty<string>>("token_key_id");
         set => this.WithProperty("token_key_id", value);
     }
 

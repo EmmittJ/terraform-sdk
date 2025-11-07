@@ -21,63 +21,63 @@ public class GoogleComputeInstanceGuestAttributesDataSource : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The query_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QueryPath
+    public TerraformProperty<string>? QueryPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_path");
+        get => GetProperty<TerraformProperty<string>>("query_path");
         set => this.WithProperty("query_path", value);
     }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The variable_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VariableKey
+    public TerraformProperty<string>? VariableKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("variable_key");
+        get => GetProperty<TerraformProperty<string>>("variable_key");
         set => this.WithProperty("variable_key", value);
     }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

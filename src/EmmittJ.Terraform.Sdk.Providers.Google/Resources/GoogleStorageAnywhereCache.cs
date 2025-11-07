@@ -24,45 +24,45 @@ public class GoogleStorageAnywhereCache : TerraformResource
     /// <summary>
     /// The cache admission policy dictates whether a block should be inserted upon a cache miss. Default value: &amp;quot;admit-on-first-miss&amp;quot; Possible values: [&amp;quot;admit-on-first-miss&amp;quot;, &amp;quot;admit-on-second-miss&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? AdmissionPolicy
+    public TerraformProperty<string>? AdmissionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("admission_policy");
+        get => GetProperty<TerraformProperty<string>>("admission_policy");
         set => this.WithProperty("admission_policy", value);
     }
 
     /// <summary>
     /// A reference to Bucket resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The TTL of all cache entries in whole seconds. e.g., &amp;quot;7200s&amp;quot;. It defaults to &#39;86400s&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Ttl
+    public TerraformProperty<string>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ttl");
+        get => GetProperty<TerraformProperty<string>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 
     /// <summary>
     /// The zone in which the cache instance needs to be created. For example, &#39;us-central1-a.&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

@@ -25,54 +25,54 @@ public class AwsBedrockagentPrompt : TerraformResource
     /// <summary>
     /// The customer_encryption_key_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerEncryptionKeyArn
+    public TerraformProperty<string>? CustomerEncryptionKeyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_encryption_key_arn");
+        get => GetProperty<TerraformProperty<string>>("customer_encryption_key_arn");
         set => this.WithProperty("customer_encryption_key_arn", value);
     }
 
     /// <summary>
     /// The default_variant attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultVariant
+    public TerraformProperty<string>? DefaultVariant
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_variant");
+        get => GetProperty<TerraformProperty<string>>("default_variant");
         set => this.WithProperty("default_variant", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

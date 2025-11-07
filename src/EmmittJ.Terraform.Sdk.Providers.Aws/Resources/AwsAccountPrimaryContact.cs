@@ -19,126 +19,126 @@ public class AwsAccountPrimaryContact : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AddressLine1
+    public TerraformProperty<string>? AddressLine1
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_line_1");
+        get => GetProperty<TerraformProperty<string>>("address_line_1");
         set => this.WithProperty("address_line_1", value);
     }
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AddressLine2
+    public TerraformProperty<string>? AddressLine2
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_line_2");
+        get => GetProperty<TerraformProperty<string>>("address_line_2");
         set => this.WithProperty("address_line_2", value);
     }
 
     /// <summary>
     /// The address_line_3 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AddressLine3
+    public TerraformProperty<string>? AddressLine3
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_line_3");
+        get => GetProperty<TerraformProperty<string>>("address_line_3");
         set => this.WithProperty("address_line_3", value);
     }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? City
+    public TerraformProperty<string>? City
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("city");
+        get => GetProperty<TerraformProperty<string>>("city");
         set => this.WithProperty("city", value);
     }
 
     /// <summary>
     /// The company_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CompanyName
+    public TerraformProperty<string>? CompanyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("company_name");
+        get => GetProperty<TerraformProperty<string>>("company_name");
         set => this.WithProperty("company_name", value);
     }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CountryCode
+    public TerraformProperty<string>? CountryCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("country_code");
+        get => GetProperty<TerraformProperty<string>>("country_code");
         set => this.WithProperty("country_code", value);
     }
 
     /// <summary>
     /// The district_or_county attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DistrictOrCounty
+    public TerraformProperty<string>? DistrictOrCounty
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("district_or_county");
+        get => GetProperty<TerraformProperty<string>>("district_or_county");
         set => this.WithProperty("district_or_county", value);
     }
 
     /// <summary>
     /// The full_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FullName
+    public TerraformProperty<string>? FullName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("full_name");
+        get => GetProperty<TerraformProperty<string>>("full_name");
         set => this.WithProperty("full_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PhoneNumber
+    public TerraformProperty<string>? PhoneNumber
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("phone_number");
+        get => GetProperty<TerraformProperty<string>>("phone_number");
         set => this.WithProperty("phone_number", value);
     }
 
     /// <summary>
     /// The postal_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PostalCode
+    public TerraformProperty<string>? PostalCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("postal_code");
+        get => GetProperty<TerraformProperty<string>>("postal_code");
         set => this.WithProperty("postal_code", value);
     }
 
     /// <summary>
     /// The state_or_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StateOrRegion
+    public TerraformProperty<string>? StateOrRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state_or_region");
+        get => GetProperty<TerraformProperty<string>>("state_or_region");
         set => this.WithProperty("state_or_region", value);
     }
 
     /// <summary>
     /// The website_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebsiteUrl
+    public TerraformProperty<string>? WebsiteUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("website_url");
+        get => GetProperty<TerraformProperty<string>>("website_url");
         set => this.WithProperty("website_url", value);
     }
 

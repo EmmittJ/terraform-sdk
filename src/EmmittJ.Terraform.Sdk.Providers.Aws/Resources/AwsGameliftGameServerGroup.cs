@@ -21,99 +21,99 @@ public class AwsGameliftGameServerGroup : TerraformResource
     /// <summary>
     /// The balancing_strategy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BalancingStrategy
+    public TerraformProperty<string>? BalancingStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("balancing_strategy");
+        get => GetProperty<TerraformProperty<string>>("balancing_strategy");
         set => this.WithProperty("balancing_strategy", value);
     }
 
     /// <summary>
     /// The game_server_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GameServerGroupName
+    public TerraformProperty<string>? GameServerGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("game_server_group_name");
+        get => GetProperty<TerraformProperty<string>>("game_server_group_name");
         set => this.WithProperty("game_server_group_name", value);
     }
 
     /// <summary>
     /// The game_server_protection_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GameServerProtectionPolicy
+    public TerraformProperty<string>? GameServerProtectionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("game_server_protection_policy");
+        get => GetProperty<TerraformProperty<string>>("game_server_protection_policy");
         set => this.WithProperty("game_server_protection_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxSize
+    public TerraformProperty<double>? MaxSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_size");
+        get => GetProperty<TerraformProperty<double>>("max_size");
         set => this.WithProperty("max_size", value);
     }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinSize
+    public TerraformProperty<double>? MinSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_size");
+        get => GetProperty<TerraformProperty<double>>("min_size");
         set => this.WithProperty("min_size", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArn
+    public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The vpc_subnets attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSubnets
+    public TerraformProperty<HashSet<string>>? VpcSubnets
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_subnets");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_subnets");
         set => this.WithProperty("vpc_subnets", value);
     }
 

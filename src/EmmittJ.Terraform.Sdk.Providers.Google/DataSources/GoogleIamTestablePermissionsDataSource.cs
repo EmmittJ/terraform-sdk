@@ -20,36 +20,36 @@ public class GoogleIamTestablePermissionsDataSource : TerraformDataSource
     /// <summary>
     /// The custom_support_level attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomSupportLevel
+    public TerraformProperty<string>? CustomSupportLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_support_level");
+        get => GetProperty<TerraformProperty<string>>("custom_support_level");
         set => this.WithProperty("custom_support_level", value);
     }
 
     /// <summary>
     /// The full_resource_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FullResourceName
+    public TerraformProperty<string>? FullResourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("full_resource_name");
+        get => GetProperty<TerraformProperty<string>>("full_resource_name");
         set => this.WithProperty("full_resource_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The stages attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Stages
+    public TerraformProperty<List<string>>? Stages
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("stages");
+        get => GetProperty<TerraformProperty<List<string>>>("stages");
         set => this.WithProperty("stages", value);
     }
 

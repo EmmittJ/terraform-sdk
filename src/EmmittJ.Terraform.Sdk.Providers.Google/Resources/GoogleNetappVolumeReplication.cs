@@ -39,18 +39,18 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// For production use, it is recommended to keep this parameter false to avoid accidental volume
     /// deletion. Handle with care. Default is false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteDestinationVolume
+    public TerraformProperty<bool>? DeleteDestinationVolume
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_destination_volume");
+        get => GetProperty<TerraformProperty<bool>>("delete_destination_volume");
         set => this.WithProperty("delete_destination_volume", value);
     }
 
     /// <summary>
     /// An description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -60,18 +60,18 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// to stop anyway. All data transferred to the destination will be discarded and content of destination
     /// volume will remain at the state of the last successful update. Default is false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceStopping
+    public TerraformProperty<bool>? ForceStopping
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_stopping");
+        get => GetProperty<TerraformProperty<bool>>("force_stopping");
         set => this.WithProperty("force_stopping", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -82,36 +82,36 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of region for this resource. The resource needs to be created in the region of the destination volume.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the replication. Needs to be unique per location.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -121,27 +121,27 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// Set to true to enable/resume the mirror. WARNING: Resuming a mirror overwrites any changes
     /// done to the destination volume with the content of the source volume.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ReplicationEnabled
+    public TerraformProperty<bool>? ReplicationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("replication_enabled");
+        get => GetProperty<TerraformProperty<bool>>("replication_enabled");
         set => this.WithProperty("replication_enabled", value);
     }
 
     /// <summary>
     /// Specifies the replication interval. Possible values: [&amp;quot;EVERY_10_MINUTES&amp;quot;, &amp;quot;HOURLY&amp;quot;, &amp;quot;DAILY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ReplicationSchedule
+    public TerraformProperty<string>? ReplicationSchedule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_schedule");
+        get => GetProperty<TerraformProperty<string>>("replication_schedule");
         set => this.WithProperty("replication_schedule", value);
     }
 
     /// <summary>
     /// The name of the existing source volume.
     /// </summary>
-    public TerraformLiteralProperty<string>? VolumeName
+    public TerraformProperty<string>? VolumeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("volume_name");
+        get => GetProperty<TerraformProperty<string>>("volume_name");
         set => this.WithProperty("volume_name", value);
     }
 
@@ -150,9 +150,9 @@ public class GoogleNetappVolumeReplication : TerraformResource
     /// for mirror_state to reach MIRRORED. If you want Terraform to wait for the mirror to finish on
     /// create/stop/resume operations, set this parameter to true. Default is false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WaitForMirror
+    public TerraformProperty<bool>? WaitForMirror
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_mirror");
+        get => GetProperty<TerraformProperty<bool>>("wait_for_mirror");
         set => this.WithProperty("wait_for_mirror", value);
     }
 

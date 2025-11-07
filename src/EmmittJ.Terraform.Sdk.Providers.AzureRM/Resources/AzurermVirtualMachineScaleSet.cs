@@ -20,135 +20,135 @@ public class AzurermVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The automatic_os_upgrade attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutomaticOsUpgrade
+    public TerraformProperty<bool>? AutomaticOsUpgrade
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_os_upgrade");
+        get => GetProperty<TerraformProperty<bool>>("automatic_os_upgrade");
         set => this.WithProperty("automatic_os_upgrade", value);
     }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EvictionPolicy
+    public TerraformProperty<string>? EvictionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eviction_policy");
+        get => GetProperty<TerraformProperty<string>>("eviction_policy");
         set => this.WithProperty("eviction_policy", value);
     }
 
     /// <summary>
     /// The health_probe_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HealthProbeId
+    public TerraformProperty<string>? HealthProbeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("health_probe_id");
+        get => GetProperty<TerraformProperty<string>>("health_probe_id");
         set => this.WithProperty("health_probe_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LicenseType
+    public TerraformProperty<string>? LicenseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_type");
+        get => GetProperty<TerraformProperty<string>>("license_type");
         set => this.WithProperty("license_type", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The overprovision attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Overprovision
+    public TerraformProperty<bool>? Overprovision
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("overprovision");
+        get => GetProperty<TerraformProperty<bool>>("overprovision");
         set => this.WithProperty("overprovision", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Priority
+    public TerraformProperty<string>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("priority");
+        get => GetProperty<TerraformProperty<string>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProximityPlacementGroupId
+    public TerraformProperty<string>? ProximityPlacementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proximity_placement_group_id");
+        get => GetProperty<TerraformProperty<string>>("proximity_placement_group_id");
         set => this.WithProperty("proximity_placement_group_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The single_placement_group attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SinglePlacementGroup
+    public TerraformProperty<bool>? SinglePlacementGroup
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("single_placement_group");
+        get => GetProperty<TerraformProperty<bool>>("single_placement_group");
         set => this.WithProperty("single_placement_group", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The upgrade_policy_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UpgradePolicyMode
+    public TerraformProperty<string>? UpgradePolicyMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("upgrade_policy_mode");
+        get => GetProperty<TerraformProperty<string>>("upgrade_policy_mode");
         set => this.WithProperty("upgrade_policy_mode", value);
     }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Zones
+    public TerraformProperty<List<string>>? Zones
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("zones");
+        get => GetProperty<TerraformProperty<List<string>>>("zones");
         set => this.WithProperty("zones", value);
     }
 

@@ -19,18 +19,18 @@ public class AwsMacie2OrganizationConfiguration : TerraformResource
     /// <summary>
     /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoEnable
+    public TerraformProperty<bool>? AutoEnable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_enable");
+        get => GetProperty<TerraformProperty<bool>>("auto_enable");
         set => this.WithProperty("auto_enable", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -24,144 +24,144 @@ public class AwsDaxCluster : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AvailabilityZones
+    public TerraformProperty<HashSet<string>>? AvailabilityZones
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("availability_zones");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("availability_zones");
         set => this.WithProperty("availability_zones", value);
     }
 
     /// <summary>
     /// The cluster_endpoint_encryption_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterEndpointEncryptionType
+    public TerraformProperty<string>? ClusterEndpointEncryptionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_endpoint_encryption_type");
+        get => GetProperty<TerraformProperty<string>>("cluster_endpoint_encryption_type");
         set => this.WithProperty("cluster_endpoint_encryption_type", value);
     }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterName
+    public TerraformProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenanceWindow
+    public TerraformProperty<string>? MaintenanceWindow
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_window");
+        get => GetProperty<TerraformProperty<string>>("maintenance_window");
         set => this.WithProperty("maintenance_window", value);
     }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeType
+    public TerraformProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        get => GetProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotificationTopicArn
+    public TerraformProperty<string>? NotificationTopicArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_topic_arn");
+        get => GetProperty<TerraformProperty<string>>("notification_topic_arn");
         set => this.WithProperty("notification_topic_arn", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParameterGroupName
+    public TerraformProperty<string>? ParameterGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_group_name");
+        get => GetProperty<TerraformProperty<string>>("parameter_group_name");
         set => this.WithProperty("parameter_group_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replication_factor attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicationFactor
+    public TerraformProperty<double>? ReplicationFactor
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replication_factor");
+        get => GetProperty<TerraformProperty<double>>("replication_factor");
         set => this.WithProperty("replication_factor", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
+    public TerraformProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetGroupName
+    public TerraformProperty<string>? SubnetGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_group_name");
+        get => GetProperty<TerraformProperty<string>>("subnet_group_name");
         set => this.WithProperty("subnet_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -19,36 +19,36 @@ public class AzurermStackHciDeploymentSetting : TerraformResource
     /// <summary>
     /// The arc_resource_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ArcResourceIds
+    public TerraformProperty<List<string>>? ArcResourceIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("arc_resource_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("arc_resource_ids");
         set => this.WithProperty("arc_resource_ids", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The stack_hci_cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StackHciClusterId
+    public TerraformProperty<string>? StackHciClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_hci_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("stack_hci_cluster_id");
         set => this.WithProperty("stack_hci_cluster_id", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

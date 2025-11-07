@@ -19,45 +19,45 @@ public class AwsTransferWebAppCustomization : TerraformResource
     /// <summary>
     /// The favicon_file attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FaviconFile
+    public TerraformProperty<string>? FaviconFile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("favicon_file");
+        get => GetProperty<TerraformProperty<string>>("favicon_file");
         set => this.WithProperty("favicon_file", value);
     }
 
     /// <summary>
     /// The logo_file attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogoFile
+    public TerraformProperty<string>? LogoFile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logo_file");
+        get => GetProperty<TerraformProperty<string>>("logo_file");
         set => this.WithProperty("logo_file", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Title
+    public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 
     /// <summary>
     /// The web_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebAppId
+    public TerraformProperty<string>? WebAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_app_id");
+        get => GetProperty<TerraformProperty<string>>("web_app_id");
         set => this.WithProperty("web_app_id", value);
     }
 

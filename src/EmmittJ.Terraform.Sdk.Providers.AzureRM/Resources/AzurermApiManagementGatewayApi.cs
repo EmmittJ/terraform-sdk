@@ -19,27 +19,27 @@ public class AzurermApiManagementGatewayApi : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiId
+    public TerraformProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewayId
+    public TerraformProperty<string>? GatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_id");
+        get => GetProperty<TerraformProperty<string>>("gateway_id");
         set => this.WithProperty("gateway_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

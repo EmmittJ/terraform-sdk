@@ -31,54 +31,54 @@ public class AwsSsmPatchBaselineDataSource : TerraformDataSource
     /// <summary>
     /// The default_baseline attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DefaultBaseline
+    public TerraformProperty<bool>? DefaultBaseline
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("default_baseline");
+        get => GetProperty<TerraformProperty<bool>>("default_baseline");
         set => this.WithProperty("default_baseline", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OperatingSystem
+    public TerraformProperty<string>? OperatingSystem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operating_system");
+        get => GetProperty<TerraformProperty<string>>("operating_system");
         set => this.WithProperty("operating_system", value);
     }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Owner
+    public TerraformProperty<string>? Owner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner");
+        get => GetProperty<TerraformProperty<string>>("owner");
         set => this.WithProperty("owner", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

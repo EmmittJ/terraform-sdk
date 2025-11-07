@@ -21,54 +21,54 @@ public class AwsCloudfrontCachePolicy : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Comment
+    public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        get => GetProperty<TerraformProperty<string>>("comment");
         set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultTtl
+    public TerraformProperty<double>? DefaultTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_ttl");
+        get => GetProperty<TerraformProperty<double>>("default_ttl");
         set => this.WithProperty("default_ttl", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxTtl
+    public TerraformProperty<double>? MaxTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_ttl");
+        get => GetProperty<TerraformProperty<double>>("max_ttl");
         set => this.WithProperty("max_ttl", value);
     }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinTtl
+    public TerraformProperty<double>? MinTtl
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_ttl");
+        get => GetProperty<TerraformProperty<double>>("min_ttl");
         set => this.WithProperty("min_ttl", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

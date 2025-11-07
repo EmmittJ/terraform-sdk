@@ -24,27 +24,27 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// An extended description to help users determine the purpose of a Group.
     /// Must not be longer than 4,096 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name of the Group.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -55,9 +55,9 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// [API reference](https://cloud.google.com/identity/docs/reference/rest/v1beta1/groups/create#initialgroupconfig)
     /// for possible values. Default value: &amp;quot;EMPTY&amp;quot; Possible values: [&amp;quot;INITIAL_GROUP_CONFIG_UNSPECIFIED&amp;quot;, &amp;quot;WITH_INITIAL_OWNER&amp;quot;, &amp;quot;EMPTY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? InitialGroupConfig
+    public TerraformProperty<string>? InitialGroupConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("initial_group_config");
+        get => GetProperty<TerraformProperty<string>>("initial_group_config");
         set => this.WithProperty("initial_group_config", value);
     }
 
@@ -72,9 +72,9 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// 
     /// Identity-mapped groups for Cloud Search have a label with a key of system/groups/external and an empty value.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -85,9 +85,9 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// Must be of the form identitysources/{identity_source_id} for external-identity-mapped
     /// groups or customers/{customer_id} for Google Groups.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

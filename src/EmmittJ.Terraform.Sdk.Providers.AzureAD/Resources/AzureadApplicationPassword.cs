@@ -21,27 +21,27 @@ public class AzureadApplicationPassword : TerraformResource
     /// <summary>
     /// The resource ID of the application for which this password should be created
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationId
+    public TerraformProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// A display name for the password
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    public TerraformLiteralProperty<string>? EndDate
+    public TerraformProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        get => GetProperty<TerraformProperty<string>>("end_date");
         set => this.WithProperty("end_date", value);
     }
 
@@ -49,36 +49,36 @@ public class AzureadApplicationPassword : TerraformResource
     /// A relative duration for which the password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? EndDateRelative
+    public TerraformProperty<string>? EndDateRelative
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date_relative");
+        get => GetProperty<TerraformProperty<string>>("end_date_relative");
         set => this.WithProperty("end_date_relative", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger rotation of the password
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? RotateWhenChanged
+    public TerraformProperty<Dictionary<string, string>>? RotateWhenChanged
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("rotate_when_changed");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("rotate_when_changed");
         set => this.WithProperty("rotate_when_changed", value);
     }
 
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    public TerraformLiteralProperty<string>? StartDate
+    public TerraformProperty<string>? StartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_date");
+        get => GetProperty<TerraformProperty<string>>("start_date");
         set => this.WithProperty("start_date", value);
     }
 

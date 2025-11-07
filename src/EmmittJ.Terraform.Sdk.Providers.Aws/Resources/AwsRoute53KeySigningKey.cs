@@ -29,45 +29,45 @@ public class AwsRoute53KeySigningKey : TerraformResource
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostedZoneId
+    public TerraformProperty<string>? HostedZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hosted_zone_id");
+        get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_management_service_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyManagementServiceArn
+    public TerraformProperty<string>? KeyManagementServiceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_management_service_arn");
+        get => GetProperty<TerraformProperty<string>>("key_management_service_arn");
         set => this.WithProperty("key_management_service_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 

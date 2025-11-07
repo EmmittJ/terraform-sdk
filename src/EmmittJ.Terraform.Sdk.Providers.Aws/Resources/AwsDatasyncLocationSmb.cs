@@ -21,90 +21,90 @@ public class AwsDatasyncLocationSmb : TerraformResource
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AgentArns
+    public TerraformProperty<HashSet<string>>? AgentArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("agent_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("agent_arns");
         set => this.WithProperty("agent_arns", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Domain
+    public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain");
+        get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The server_hostname attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerHostname
+    public TerraformProperty<string>? ServerHostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_hostname");
+        get => GetProperty<TerraformProperty<string>>("server_hostname");
         set => this.WithProperty("server_hostname", value);
     }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subdirectory
+    public TerraformProperty<string>? Subdirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subdirectory");
+        get => GetProperty<TerraformProperty<string>>("subdirectory");
         set => this.WithProperty("subdirectory", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? User
+    public TerraformProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

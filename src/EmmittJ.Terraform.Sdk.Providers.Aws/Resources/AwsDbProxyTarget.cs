@@ -25,54 +25,54 @@ public class AwsDbProxyTarget : TerraformResource
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbClusterIdentifier
+    public TerraformProperty<string>? DbClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_instance_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbInstanceIdentifier
+    public TerraformProperty<string>? DbInstanceIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_instance_identifier");
+        get => GetProperty<TerraformProperty<string>>("db_instance_identifier");
         set => this.WithProperty("db_instance_identifier", value);
     }
 
     /// <summary>
     /// The db_proxy_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbProxyName
+    public TerraformProperty<string>? DbProxyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_proxy_name");
+        get => GetProperty<TerraformProperty<string>>("db_proxy_name");
         set => this.WithProperty("db_proxy_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The target_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetGroupName
+    public TerraformProperty<string>? TargetGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_group_name");
+        get => GetProperty<TerraformProperty<string>>("target_group_name");
         set => this.WithProperty("target_group_name", value);
     }
 

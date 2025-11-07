@@ -23,63 +23,63 @@ public class AwsRedshiftserverlessEndpointAccess : TerraformResource
     /// <summary>
     /// The endpoint_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndpointName
+    public TerraformProperty<string>? EndpointName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_name");
+        get => GetProperty<TerraformProperty<string>>("endpoint_name");
         set => this.WithProperty("endpoint_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The owner_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OwnerAccount
+    public TerraformProperty<string>? OwnerAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner_account");
+        get => GetProperty<TerraformProperty<string>>("owner_account");
         set => this.WithProperty("owner_account", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
+    public TerraformProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSecurityGroupIds
+    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkgroupName
+    public TerraformProperty<string>? WorkgroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name");
+        get => GetProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
     }
 

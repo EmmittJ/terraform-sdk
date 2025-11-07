@@ -21,45 +21,45 @@ public class AwsBedrockagentDataSource : TerraformResource
     /// <summary>
     /// The data_deletion_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataDeletionPolicy
+    public TerraformProperty<string>? DataDeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("data_deletion_policy");
         set => this.WithProperty("data_deletion_policy", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The knowledge_base_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KnowledgeBaseId
+    public TerraformProperty<string>? KnowledgeBaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("knowledge_base_id");
+        get => GetProperty<TerraformProperty<string>>("knowledge_base_id");
         set => this.WithProperty("knowledge_base_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

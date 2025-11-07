@@ -24,27 +24,27 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The principals attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Principals
+    public TerraformProperty<HashSet<string>>? Principals
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("principals");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("principals");
         set => this.WithProperty("principals", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

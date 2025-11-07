@@ -21,18 +21,18 @@ public class GoogleKmsKeyRingIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_ring_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyRingId
+    public TerraformProperty<string>? KeyRingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_ring_id");
+        get => GetProperty<TerraformProperty<string>>("key_ring_id");
         set => this.WithProperty("key_ring_id", value);
     }
 

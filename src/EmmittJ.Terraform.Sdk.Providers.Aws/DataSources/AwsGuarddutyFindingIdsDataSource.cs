@@ -22,18 +22,18 @@ public class AwsGuarddutyFindingIdsDataSource : TerraformDataSource
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DetectorId
+    public TerraformProperty<string>? DetectorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("detector_id");
+        get => GetProperty<TerraformProperty<string>>("detector_id");
         set => this.WithProperty("detector_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

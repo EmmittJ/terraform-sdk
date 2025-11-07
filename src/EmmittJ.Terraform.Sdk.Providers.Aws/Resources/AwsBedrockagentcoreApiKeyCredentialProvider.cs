@@ -21,45 +21,45 @@ public class AwsBedrockagentcoreApiKeyCredentialProvider : TerraformResource
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiKey
+    public TerraformProperty<string>? ApiKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_key");
+        get => GetProperty<TerraformProperty<string>>("api_key");
         set => this.WithProperty("api_key", value);
     }
 
     /// <summary>
     /// The api_key_wo attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiKeyWo
+    public TerraformProperty<string>? ApiKeyWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_key_wo");
+        get => GetProperty<TerraformProperty<string>>("api_key_wo");
         set => this.WithProperty("api_key_wo", value);
     }
 
     /// <summary>
     /// The api_key_wo_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ApiKeyWoVersion
+    public TerraformProperty<double>? ApiKeyWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("api_key_wo_version");
+        get => GetProperty<TerraformProperty<double>>("api_key_wo_version");
         set => this.WithProperty("api_key_wo_version", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

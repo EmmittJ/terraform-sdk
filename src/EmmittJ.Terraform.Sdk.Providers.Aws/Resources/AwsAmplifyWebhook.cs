@@ -21,45 +21,45 @@ public class AwsAmplifyWebhook : TerraformResource
     /// <summary>
     /// The app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppId
+    public TerraformProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BranchName
+    public TerraformProperty<string>? BranchName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("branch_name");
+        get => GetProperty<TerraformProperty<string>>("branch_name");
         set => this.WithProperty("branch_name", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

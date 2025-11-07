@@ -20,9 +20,9 @@ public class AzurermKeyVault : TerraformResource
     /// <summary>
     /// The access_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? AccessPolicy
+    public TerraformProperty<List<object>>? AccessPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("access_policy");
+        get => GetProperty<TerraformProperty<List<object>>>("access_policy");
         set => this.WithProperty("access_policy", value);
     }
 
@@ -30,135 +30,135 @@ public class AzurermKeyVault : TerraformResource
     /// The enable_rbac_authorization attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<bool>? EnableRbacAuthorization
+    public TerraformProperty<bool>? EnableRbacAuthorization
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_rbac_authorization");
+        get => GetProperty<TerraformProperty<bool>>("enable_rbac_authorization");
         set => this.WithProperty("enable_rbac_authorization", value);
     }
 
     /// <summary>
     /// The enabled_for_deployment attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnabledForDeployment
+    public TerraformProperty<bool>? EnabledForDeployment
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled_for_deployment");
+        get => GetProperty<TerraformProperty<bool>>("enabled_for_deployment");
         set => this.WithProperty("enabled_for_deployment", value);
     }
 
     /// <summary>
     /// The enabled_for_disk_encryption attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnabledForDiskEncryption
+    public TerraformProperty<bool>? EnabledForDiskEncryption
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled_for_disk_encryption");
+        get => GetProperty<TerraformProperty<bool>>("enabled_for_disk_encryption");
         set => this.WithProperty("enabled_for_disk_encryption", value);
     }
 
     /// <summary>
     /// The enabled_for_template_deployment attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnabledForTemplateDeployment
+    public TerraformProperty<bool>? EnabledForTemplateDeployment
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled_for_template_deployment");
+        get => GetProperty<TerraformProperty<bool>>("enabled_for_template_deployment");
         set => this.WithProperty("enabled_for_template_deployment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PurgeProtectionEnabled
+    public TerraformProperty<bool>? PurgeProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("purge_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("purge_protection_enabled");
         set => this.WithProperty("purge_protection_enabled", value);
     }
 
     /// <summary>
     /// The rbac_authorization_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RbacAuthorizationEnabled
+    public TerraformProperty<bool>? RbacAuthorizationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("rbac_authorization_enabled");
+        get => GetProperty<TerraformProperty<bool>>("rbac_authorization_enabled");
         set => this.WithProperty("rbac_authorization_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The soft_delete_retention_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SoftDeleteRetentionDays
+    public TerraformProperty<double>? SoftDeleteRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("soft_delete_retention_days");
+        get => GetProperty<TerraformProperty<double>>("soft_delete_retention_days");
         set => this.WithProperty("soft_delete_retention_days", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

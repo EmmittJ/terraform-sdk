@@ -19,63 +19,63 @@ public class AzurermMssqlJobSchedule : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndTime
+    public TerraformProperty<string>? EndTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_time");
+        get => GetProperty<TerraformProperty<string>>("end_time");
         set => this.WithProperty("end_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Interval
+    public TerraformProperty<string>? Interval
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interval");
+        get => GetProperty<TerraformProperty<string>>("interval");
         set => this.WithProperty("interval", value);
     }
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobId
+    public TerraformProperty<string>? JobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_id");
+        get => GetProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartTime
+    public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_time");
+        get => GetProperty<TerraformProperty<string>>("start_time");
         set => this.WithProperty("start_time", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

@@ -22,45 +22,45 @@ public class AwsRedshiftserverlessCredentialsDataSource : TerraformDataSource
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbName
+    public TerraformProperty<string>? DbName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_name");
+        get => GetProperty<TerraformProperty<string>>("db_name");
         set => this.WithProperty("db_name", value);
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DurationSeconds
+    public TerraformProperty<double>? DurationSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_seconds");
+        get => GetProperty<TerraformProperty<double>>("duration_seconds");
         set => this.WithProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkgroupName
+    public TerraformProperty<string>? WorkgroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name");
+        get => GetProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
     }
 

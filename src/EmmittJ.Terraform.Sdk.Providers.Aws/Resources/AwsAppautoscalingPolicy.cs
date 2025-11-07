@@ -21,63 +21,63 @@ public class AwsAppautoscalingPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The policy_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyType
+    public TerraformProperty<string>? PolicyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_type");
+        get => GetProperty<TerraformProperty<string>>("policy_type");
         set => this.WithProperty("policy_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceId
+    public TerraformProperty<string>? ResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_id");
+        get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 
     /// <summary>
     /// The scalable_dimension attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScalableDimension
+    public TerraformProperty<string>? ScalableDimension
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scalable_dimension");
+        get => GetProperty<TerraformProperty<string>>("scalable_dimension");
         set => this.WithProperty("scalable_dimension", value);
     }
 
     /// <summary>
     /// The service_namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceNamespace
+    public TerraformProperty<string>? ServiceNamespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_namespace");
+        get => GetProperty<TerraformProperty<string>>("service_namespace");
         set => this.WithProperty("service_namespace", value);
     }
 

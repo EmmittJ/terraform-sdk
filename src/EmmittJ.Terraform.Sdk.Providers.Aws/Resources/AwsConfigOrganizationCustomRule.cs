@@ -20,117 +20,117 @@ public class AwsConfigOrganizationCustomRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The excluded_accounts attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ExcludedAccounts
+    public TerraformProperty<HashSet<string>>? ExcludedAccounts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("excluded_accounts");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("excluded_accounts");
         set => this.WithProperty("excluded_accounts", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The input_parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InputParameters
+    public TerraformProperty<string>? InputParameters
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("input_parameters");
+        get => GetProperty<TerraformProperty<string>>("input_parameters");
         set => this.WithProperty("input_parameters", value);
     }
 
     /// <summary>
     /// The lambda_function_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LambdaFunctionArn
+    public TerraformProperty<string>? LambdaFunctionArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lambda_function_arn");
+        get => GetProperty<TerraformProperty<string>>("lambda_function_arn");
         set => this.WithProperty("lambda_function_arn", value);
     }
 
     /// <summary>
     /// The maximum_execution_frequency attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MaximumExecutionFrequency
+    public TerraformProperty<string>? MaximumExecutionFrequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maximum_execution_frequency");
+        get => GetProperty<TerraformProperty<string>>("maximum_execution_frequency");
         set => this.WithProperty("maximum_execution_frequency", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_id_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceIdScope
+    public TerraformProperty<string>? ResourceIdScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_id_scope");
+        get => GetProperty<TerraformProperty<string>>("resource_id_scope");
         set => this.WithProperty("resource_id_scope", value);
     }
 
     /// <summary>
     /// The resource_types_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ResourceTypesScope
+    public TerraformProperty<HashSet<string>>? ResourceTypesScope
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_types_scope");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_types_scope");
         set => this.WithProperty("resource_types_scope", value);
     }
 
     /// <summary>
     /// The tag_key_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TagKeyScope
+    public TerraformProperty<string>? TagKeyScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_key_scope");
+        get => GetProperty<TerraformProperty<string>>("tag_key_scope");
         set => this.WithProperty("tag_key_scope", value);
     }
 
     /// <summary>
     /// The tag_value_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TagValueScope
+    public TerraformProperty<string>? TagValueScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_value_scope");
+        get => GetProperty<TerraformProperty<string>>("tag_value_scope");
         set => this.WithProperty("tag_value_scope", value);
     }
 
     /// <summary>
     /// The trigger_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? TriggerTypes
+    public TerraformProperty<HashSet<string>>? TriggerTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("trigger_types");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("trigger_types");
         set => this.WithProperty("trigger_types", value);
     }
 

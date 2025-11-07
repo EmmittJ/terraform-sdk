@@ -19,36 +19,36 @@ public class AzurermWebPubsubHub : TerraformResource
     /// <summary>
     /// The anonymous_connections_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AnonymousConnectionsEnabled
+    public TerraformProperty<bool>? AnonymousConnectionsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("anonymous_connections_enabled");
+        get => GetProperty<TerraformProperty<bool>>("anonymous_connections_enabled");
         set => this.WithProperty("anonymous_connections_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The web_pubsub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebPubsubId
+    public TerraformProperty<string>? WebPubsubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_pubsub_id");
+        get => GetProperty<TerraformProperty<string>>("web_pubsub_id");
         set => this.WithProperty("web_pubsub_id", value);
     }
 

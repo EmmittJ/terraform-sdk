@@ -24,54 +24,54 @@ public class AwsS3controlAccessGrant : TerraformResource
     /// <summary>
     /// The access_grants_location_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessGrantsLocationId
+    public TerraformProperty<string>? AccessGrantsLocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_grants_location_id");
+        get => GetProperty<TerraformProperty<string>>("access_grants_location_id");
         set => this.WithProperty("access_grants_location_id", value);
     }
 
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The permission attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Permission
+    public TerraformProperty<string>? Permission
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("permission");
+        get => GetProperty<TerraformProperty<string>>("permission");
         set => this.WithProperty("permission", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_prefix_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3PrefixType
+    public TerraformProperty<string>? S3PrefixType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_prefix_type");
+        get => GetProperty<TerraformProperty<string>>("s3_prefix_type");
         set => this.WithProperty("s3_prefix_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

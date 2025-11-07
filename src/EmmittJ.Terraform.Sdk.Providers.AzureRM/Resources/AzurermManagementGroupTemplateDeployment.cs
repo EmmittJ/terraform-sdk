@@ -20,81 +20,81 @@ public class AzurermManagementGroupTemplateDeployment : TerraformResource
     /// <summary>
     /// The debug_level attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DebugLevel
+    public TerraformProperty<string>? DebugLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("debug_level");
+        get => GetProperty<TerraformProperty<string>>("debug_level");
         set => this.WithProperty("debug_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagementGroupId
+    public TerraformProperty<string>? ManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id");
+        get => GetProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParametersContent
+    public TerraformProperty<string>? ParametersContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameters_content");
+        get => GetProperty<TerraformProperty<string>>("parameters_content");
         set => this.WithProperty("parameters_content", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The template_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateContent
+    public TerraformProperty<string>? TemplateContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_content");
+        get => GetProperty<TerraformProperty<string>>("template_content");
         set => this.WithProperty("template_content", value);
     }
 
     /// <summary>
     /// The template_spec_version_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateSpecVersionId
+    public TerraformProperty<string>? TemplateSpecVersionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_spec_version_id");
+        get => GetProperty<TerraformProperty<string>>("template_spec_version_id");
         set => this.WithProperty("template_spec_version_id", value);
     }
 

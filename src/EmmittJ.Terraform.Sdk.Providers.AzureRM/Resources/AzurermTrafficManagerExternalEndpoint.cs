@@ -19,90 +19,90 @@ public class AzurermTrafficManagerExternalEndpoint : TerraformResource
     /// <summary>
     /// The always_serve_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AlwaysServeEnabled
+    public TerraformProperty<bool>? AlwaysServeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("always_serve_enabled");
+        get => GetProperty<TerraformProperty<bool>>("always_serve_enabled");
         set => this.WithProperty("always_serve_enabled", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The endpoint_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndpointLocation
+    public TerraformProperty<string>? EndpointLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_location");
+        get => GetProperty<TerraformProperty<string>>("endpoint_location");
         set => this.WithProperty("endpoint_location", value);
     }
 
     /// <summary>
     /// The geo_mappings attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? GeoMappings
+    public TerraformProperty<List<string>>? GeoMappings
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("geo_mappings");
+        get => GetProperty<TerraformProperty<List<string>>>("geo_mappings");
         set => this.WithProperty("geo_mappings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The profile_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProfileId
+    public TerraformProperty<string>? ProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile_id");
+        get => GetProperty<TerraformProperty<string>>("profile_id");
         set => this.WithProperty("profile_id", value);
     }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Target
+    public TerraformProperty<string>? Target
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target");
+        get => GetProperty<TerraformProperty<string>>("target");
         set => this.WithProperty("target", value);
     }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Weight
+    public TerraformProperty<double>? Weight
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("weight");
+        get => GetProperty<TerraformProperty<double>>("weight");
         set => this.WithProperty("weight", value);
     }
 

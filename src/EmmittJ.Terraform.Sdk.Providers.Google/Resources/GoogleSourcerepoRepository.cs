@@ -21,18 +21,18 @@ public class GoogleSourcerepoRepository : TerraformResource
     /// <summary>
     /// If set to true, skip repository creation if a repository with the same name already exists.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CreateIgnoreAlreadyExists
+    public TerraformProperty<bool>? CreateIgnoreAlreadyExists
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_ignore_already_exists");
+        get => GetProperty<TerraformProperty<bool>>("create_ignore_already_exists");
         set => this.WithProperty("create_ignore_already_exists", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -40,18 +40,18 @@ public class GoogleSourcerepoRepository : TerraformResource
     /// Resource name of the repository, of the form &#39;{{repo}}&#39;.
     /// The repo name may contain slashes. eg, &#39;name/with/slash&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

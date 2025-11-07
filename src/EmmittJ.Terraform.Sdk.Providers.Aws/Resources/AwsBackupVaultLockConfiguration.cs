@@ -20,54 +20,54 @@ public class AwsBackupVaultLockConfiguration : TerraformResource
     /// <summary>
     /// The backup_vault_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupVaultName
+    public TerraformProperty<string>? BackupVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_vault_name");
+        get => GetProperty<TerraformProperty<string>>("backup_vault_name");
         set => this.WithProperty("backup_vault_name", value);
     }
 
     /// <summary>
     /// The changeable_for_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ChangeableForDays
+    public TerraformProperty<double>? ChangeableForDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("changeable_for_days");
+        get => GetProperty<TerraformProperty<double>>("changeable_for_days");
         set => this.WithProperty("changeable_for_days", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_retention_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxRetentionDays
+    public TerraformProperty<double>? MaxRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_retention_days");
+        get => GetProperty<TerraformProperty<double>>("max_retention_days");
         set => this.WithProperty("max_retention_days", value);
     }
 
     /// <summary>
     /// The min_retention_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinRetentionDays
+    public TerraformProperty<double>? MinRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_retention_days");
+        get => GetProperty<TerraformProperty<double>>("min_retention_days");
         set => this.WithProperty("min_retention_days", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

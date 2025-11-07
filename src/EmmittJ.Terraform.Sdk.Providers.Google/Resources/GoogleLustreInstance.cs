@@ -27,18 +27,18 @@ public class GoogleLustreInstance : TerraformResource
     /// The storage capacity of the instance in gibibytes (GiB). Allowed values
     /// are from &#39;18000&#39; to &#39;954000&#39;, in increments of 9000.
     /// </summary>
-    public TerraformLiteralProperty<string>? CapacityGib
+    public TerraformProperty<string>? CapacityGib
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_gib");
+        get => GetProperty<TerraformProperty<string>>("capacity_gib");
         set => this.WithProperty("capacity_gib", value);
     }
 
     /// <summary>
     /// A user-readable description of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -47,9 +47,9 @@ public class GoogleLustreInstance : TerraformResource
     /// tools, including when mounting the instance. Must be eight characters or
     /// less and can only contain letters and numbers.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filesystem
+    public TerraformProperty<string>? Filesystem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filesystem");
+        get => GetProperty<TerraformProperty<string>>("filesystem");
         set => this.WithProperty("filesystem", value);
     }
 
@@ -57,18 +57,18 @@ public class GoogleLustreInstance : TerraformResource
     /// Indicates whether you want to enable support for GKE clients. By default,
     /// GKE clients are not supported.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GkeSupportEnabled
+    public TerraformProperty<bool>? GkeSupportEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("gke_support_enabled");
+        get => GetProperty<TerraformProperty<bool>>("gke_support_enabled");
         set => this.WithProperty("gke_support_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -80,9 +80,9 @@ public class GoogleLustreInstance : TerraformResource
     /// * Must be between 1-63 characters.
     /// * Must end with a number or a letter.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -92,18 +92,18 @@ public class GoogleLustreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -112,9 +112,9 @@ public class GoogleLustreInstance : TerraformResource
     /// Must be in the format
     /// &#39;projects/{project_id}/global/networks/{network_name}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -122,18 +122,18 @@ public class GoogleLustreInstance : TerraformResource
     /// The throughput of the instance in MB/s/TiB.
     /// Valid values are 125, 250, 500, 1000.
     /// </summary>
-    public TerraformLiteralProperty<string>? PerUnitStorageThroughput
+    public TerraformProperty<string>? PerUnitStorageThroughput
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("per_unit_storage_throughput");
+        get => GetProperty<TerraformProperty<string>>("per_unit_storage_throughput");
         set => this.WithProperty("per_unit_storage_throughput", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -19,9 +19,9 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// <summary>
     /// Whether to export the custom routes to the peer network.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExportCustomRoutes
+    public TerraformProperty<bool>? ExportCustomRoutes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("export_custom_routes");
+        get => GetProperty<TerraformProperty<bool>>("export_custom_routes");
         set => this.WithProperty("export_custom_routes", value);
     }
 
@@ -30,27 +30,27 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// IPv4 special-use ranges are always exported to peers and
     /// are not controlled by this field.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExportSubnetRoutesWithPublicIp
+    public TerraformProperty<bool>? ExportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("export_subnet_routes_with_public_ip");
+        get => GetProperty<TerraformProperty<bool>>("export_subnet_routes_with_public_ip");
         set => this.WithProperty("export_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Whether to import the custom routes to the peer network.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ImportCustomRoutes
+    public TerraformProperty<bool>? ImportCustomRoutes
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("import_custom_routes");
+        get => GetProperty<TerraformProperty<bool>>("import_custom_routes");
         set => this.WithProperty("import_custom_routes", value);
     }
 
@@ -59,36 +59,36 @@ public class GoogleComputeNetworkPeeringRoutesConfig : TerraformResource
     /// IPv4 special-use ranges are always imported from peers and
     /// are not controlled by this field.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ImportSubnetRoutesWithPublicIp
+    public TerraformProperty<bool>? ImportSubnetRoutesWithPublicIp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("import_subnet_routes_with_public_ip");
+        get => GetProperty<TerraformProperty<bool>>("import_subnet_routes_with_public_ip");
         set => this.WithProperty("import_subnet_routes_with_public_ip", value);
     }
 
     /// <summary>
     /// The name of the primary network for the peering.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// Name of the peering.
     /// </summary>
-    public TerraformLiteralProperty<string>? Peering
+    public TerraformProperty<string>? Peering
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering");
+        get => GetProperty<TerraformProperty<string>>("peering");
         set => this.WithProperty("peering", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

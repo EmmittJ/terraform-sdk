@@ -21,63 +21,63 @@ public class AwsLexv2modelsSlotType : TerraformResource
     /// <summary>
     /// The bot_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BotId
+    public TerraformProperty<string>? BotId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_id");
+        get => GetProperty<TerraformProperty<string>>("bot_id");
         set => this.WithProperty("bot_id", value);
     }
 
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BotVersion
+    public TerraformProperty<string>? BotVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bot_version");
+        get => GetProperty<TerraformProperty<string>>("bot_version");
         set => this.WithProperty("bot_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The locale_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocaleId
+    public TerraformProperty<string>? LocaleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("locale_id");
+        get => GetProperty<TerraformProperty<string>>("locale_id");
         set => this.WithProperty("locale_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_slot_type_signature attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentSlotTypeSignature
+    public TerraformProperty<string>? ParentSlotTypeSignature
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_slot_type_signature");
+        get => GetProperty<TerraformProperty<string>>("parent_slot_type_signature");
         set => this.WithProperty("parent_slot_type_signature", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

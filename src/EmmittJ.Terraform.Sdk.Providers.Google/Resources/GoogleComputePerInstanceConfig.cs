@@ -19,18 +19,18 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance group manager this instance config is part of.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceGroupManager
+    public TerraformProperty<string>? InstanceGroupManager
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_group_manager");
+        get => GetProperty<TerraformProperty<string>>("instance_group_manager");
         set => this.WithProperty("instance_group_manager", value);
     }
 
@@ -42,9 +42,9 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// * REFRESH
     /// * NONE
     /// </summary>
-    public TerraformLiteralProperty<string>? MinimalAction
+    public TerraformProperty<string>? MinimalAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("minimal_action");
+        get => GetProperty<TerraformProperty<string>>("minimal_action");
         set => this.WithProperty("minimal_action", value);
     }
 
@@ -56,27 +56,27 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// * REFRESH
     /// * NONE
     /// </summary>
-    public TerraformLiteralProperty<string>? MostDisruptiveAllowedAction
+    public TerraformProperty<string>? MostDisruptiveAllowedAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("most_disruptive_allowed_action");
+        get => GetProperty<TerraformProperty<string>>("most_disruptive_allowed_action");
         set => this.WithProperty("most_disruptive_allowed_action", value);
     }
 
     /// <summary>
     /// The name for this per-instance config and its corresponding instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -84,9 +84,9 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// When true, deleting this config will immediately remove the underlying instance.
     /// When false, deleting this config will use the behavior as determined by remove_instance_on_destroy.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RemoveInstanceOnDestroy
+    public TerraformProperty<bool>? RemoveInstanceOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("remove_instance_on_destroy");
+        get => GetProperty<TerraformProperty<bool>>("remove_instance_on_destroy");
         set => this.WithProperty("remove_instance_on_destroy", value);
     }
 
@@ -95,18 +95,18 @@ public class GoogleComputePerInstanceConfig : TerraformResource
     /// When false, deleting this config will *not* immediately remove any state from the underlying instance.
     /// State will be removed on the next instance recreation or update.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RemoveInstanceStateOnDestroy
+    public TerraformProperty<bool>? RemoveInstanceStateOnDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("remove_instance_state_on_destroy");
+        get => GetProperty<TerraformProperty<bool>>("remove_instance_state_on_destroy");
         set => this.WithProperty("remove_instance_state_on_destroy", value);
     }
 
     /// <summary>
     /// Zone where the containing instance group manager is located
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

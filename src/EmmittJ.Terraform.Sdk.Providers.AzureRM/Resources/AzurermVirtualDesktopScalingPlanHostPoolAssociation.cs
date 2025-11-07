@@ -19,36 +19,36 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociation : TerraformReso
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The host_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostPoolId
+    public TerraformProperty<string>? HostPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_pool_id");
+        get => GetProperty<TerraformProperty<string>>("host_pool_id");
         set => this.WithProperty("host_pool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The scaling_plan_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScalingPlanId
+    public TerraformProperty<string>? ScalingPlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scaling_plan_id");
+        get => GetProperty<TerraformProperty<string>>("scaling_plan_id");
         set => this.WithProperty("scaling_plan_id", value);
     }
 

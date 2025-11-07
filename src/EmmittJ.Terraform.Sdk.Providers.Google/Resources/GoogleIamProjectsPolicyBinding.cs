@@ -30,54 +30,54 @@ public class GoogleIamProjectsPolicyBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Optional. The description of the policy binding. Must be less than or equal to 63 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the Policy Binding
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Required. Immutable. The resource name of the policy to be bound. The binding parent and policy must belong to the same Organization (or Project).
     /// </summary>
-    public TerraformLiteralProperty<string>? Policy
+    public TerraformProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// The Policy Binding ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyBindingId
+    public TerraformProperty<string>? PolicyBindingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_binding_id");
+        get => GetProperty<TerraformProperty<string>>("policy_binding_id");
         set => this.WithProperty("policy_binding_id", value);
     }
 
@@ -86,18 +86,18 @@ public class GoogleIamProjectsPolicyBinding : TerraformResource
     /// field must be one of the following:  - Left empty (will be automatically set
     /// to the policy kind) - The input policy kind   Possible values:  POLICY_KIND_UNSPECIFIED PRINCIPAL_ACCESS_BOUNDARY ACCESS
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyKind
+    public TerraformProperty<string>? PolicyKind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_kind");
+        get => GetProperty<TerraformProperty<string>>("policy_kind");
         set => this.WithProperty("policy_kind", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

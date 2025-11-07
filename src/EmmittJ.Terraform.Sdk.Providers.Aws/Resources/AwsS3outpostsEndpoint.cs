@@ -23,63 +23,63 @@ public class AwsS3outpostsEndpoint : TerraformResource
     /// <summary>
     /// The access_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessType
+    public TerraformProperty<string>? AccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_type");
+        get => GetProperty<TerraformProperty<string>>("access_type");
         set => this.WithProperty("access_type", value);
     }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerOwnedIpv4Pool
+    public TerraformProperty<string>? CustomerOwnedIpv4Pool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_owned_ipv4_pool");
+        get => GetProperty<TerraformProperty<string>>("customer_owned_ipv4_pool");
         set => this.WithProperty("customer_owned_ipv4_pool", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The outpost_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OutpostId
+    public TerraformProperty<string>? OutpostId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("outpost_id");
+        get => GetProperty<TerraformProperty<string>>("outpost_id");
         set => this.WithProperty("outpost_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecurityGroupId
+    public TerraformProperty<string>? SecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_group_id");
+        get => GetProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

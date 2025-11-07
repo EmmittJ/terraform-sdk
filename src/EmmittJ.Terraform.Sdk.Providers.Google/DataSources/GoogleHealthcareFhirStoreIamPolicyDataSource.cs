@@ -21,18 +21,18 @@ public class GoogleHealthcareFhirStoreIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The fhir_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FhirStoreId
+    public TerraformProperty<string>? FhirStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fhir_store_id");
+        get => GetProperty<TerraformProperty<string>>("fhir_store_id");
         set => this.WithProperty("fhir_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

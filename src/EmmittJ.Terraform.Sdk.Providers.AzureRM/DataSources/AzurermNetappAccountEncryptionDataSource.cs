@@ -24,18 +24,18 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the NetApp Account where encryption will be set.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetappAccountId
+    public TerraformProperty<string>? NetappAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("netapp_account_id");
+        get => GetProperty<TerraformProperty<string>>("netapp_account_id");
         set => this.WithProperty("netapp_account_id", value);
     }
 

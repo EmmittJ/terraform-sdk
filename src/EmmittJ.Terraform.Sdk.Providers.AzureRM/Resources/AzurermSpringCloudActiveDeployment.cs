@@ -19,27 +19,27 @@ public class AzurermSpringCloudActiveDeployment : TerraformResource
     /// <summary>
     /// The deployment_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeploymentName
+    public TerraformProperty<string>? DeploymentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deployment_name");
+        get => GetProperty<TerraformProperty<string>>("deployment_name");
         set => this.WithProperty("deployment_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudAppId
+    public TerraformProperty<string>? SpringCloudAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 

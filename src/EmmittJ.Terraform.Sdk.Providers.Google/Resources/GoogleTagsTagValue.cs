@@ -23,27 +23,27 @@ public class GoogleTagsTagValue : TerraformResource
     /// <summary>
     /// User-assigned description of the TagValue. Must not exceed 256 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Input only. The resource name of the new TagValue&#39;s parent. Must be of the form tagKeys/{tag_key_id}.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleTagsTagValue : TerraformResource
     /// 
     /// The short name can have a maximum length of 256 characters. The permitted character set for the shortName includes all UTF-8 encoded Unicode characters except single quotes (&#39;), double quotes (&amp;quot;), backslashes (\\), and forward slashes (/).
     /// </summary>
-    public TerraformLiteralProperty<string>? ShortName
+    public TerraformProperty<string>? ShortName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_name");
+        get => GetProperty<TerraformProperty<string>>("short_name");
         set => this.WithProperty("short_name", value);
     }
 

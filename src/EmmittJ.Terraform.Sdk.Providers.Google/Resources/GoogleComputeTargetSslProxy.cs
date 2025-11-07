@@ -22,9 +22,9 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// <summary>
     /// A reference to the BackendService resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackendService
+    public TerraformProperty<string>? BackendService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend_service");
+        get => GetProperty<TerraformProperty<string>>("backend_service");
         set => this.WithProperty("backend_service", value);
     }
 
@@ -33,27 +33,27 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// associated with the given target proxy. This field can only be set for global target proxies.
     /// Accepted format is &#39;//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificateMaps/{resourceName}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateMap
+    public TerraformProperty<string>? CertificateMap
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_map");
+        get => GetProperty<TerraformProperty<string>>("certificate_map");
         set => this.WithProperty("certificate_map", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -66,18 +66,18 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -85,9 +85,9 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// Specifies the type of proxy header to append before sending data to
     /// the backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ProxyHeader
+    public TerraformProperty<string>? ProxyHeader
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proxy_header");
+        get => GetProperty<TerraformProperty<string>>("proxy_header");
         set => this.WithProperty("proxy_header", value);
     }
 
@@ -96,9 +96,9 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// connections between users and the load balancer. At least one
     /// SSL certificate must be specified.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SslCertificates
+    public TerraformProperty<List<string>>? SslCertificates
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ssl_certificates");
+        get => GetProperty<TerraformProperty<List<string>>>("ssl_certificates");
         set => this.WithProperty("ssl_certificates", value);
     }
 
@@ -107,9 +107,9 @@ public class GoogleComputeTargetSslProxy : TerraformResource
     /// the TargetSslProxy resource. If not set, the TargetSslProxy
     /// resource will not have any SSL policy configured.
     /// </summary>
-    public TerraformLiteralProperty<string>? SslPolicy
+    public TerraformProperty<string>? SslPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_policy");
+        get => GetProperty<TerraformProperty<string>>("ssl_policy");
         set => this.WithProperty("ssl_policy", value);
     }
 

@@ -24,9 +24,9 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// <summary>
     /// Entry description, which can consist of several sentences or paragraphs that describe entry contents.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -34,36 +34,36 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// Display information such as title and description. A short name to identify the entry,
     /// for example, &amp;quot;Analytics Data - Jan 2011&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The name of the entry group this entry is in.
     /// </summary>
-    public TerraformLiteralProperty<string>? EntryGroup
+    public TerraformProperty<string>? EntryGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entry_group");
+        get => GetProperty<TerraformProperty<string>>("entry_group");
         set => this.WithProperty("entry_group", value);
     }
 
     /// <summary>
     /// The id of the entry to create.
     /// </summary>
-    public TerraformLiteralProperty<string>? EntryId
+    public TerraformProperty<string>? EntryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entry_id");
+        get => GetProperty<TerraformProperty<string>>("entry_id");
         set => this.WithProperty("entry_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -75,9 +75,9 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
     /// this field is optional and defaults to an empty string.
     /// </summary>
-    public TerraformLiteralProperty<string>? LinkedResource
+    public TerraformProperty<string>? LinkedResource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("linked_resource");
+        get => GetProperty<TerraformProperty<string>>("linked_resource");
         set => this.WithProperty("linked_resource", value);
     }
 
@@ -87,9 +87,9 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries#schema
     /// for what fields this schema can contain.
     /// </summary>
-    public TerraformLiteralProperty<string>? Schema
+    public TerraformProperty<string>? Schema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema");
+        get => GetProperty<TerraformProperty<string>>("schema");
         set => this.WithProperty("schema", value);
     }
 
@@ -97,9 +97,9 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// The type of the entry. Only used for Entries with types in the EntryType enum.
     /// Currently, only FILESET enum value is allowed. All other entries created through Data Catalog must use userSpecifiedType. Possible values: [&amp;quot;FILESET&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -108,9 +108,9 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// userSpecifiedSystem strings must begin with a letter or underscore and can only contain letters, numbers,
     /// and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserSpecifiedSystem
+    public TerraformProperty<string>? UserSpecifiedSystem
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_specified_system");
+        get => GetProperty<TerraformProperty<string>>("user_specified_system");
         set => this.WithProperty("user_specified_system", value);
     }
 
@@ -121,9 +121,9 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// userSpecifiedType strings must begin with a letter or underscore and can only contain letters,
     /// numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserSpecifiedType
+    public TerraformProperty<string>? UserSpecifiedType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_specified_type");
+        get => GetProperty<TerraformProperty<string>>("user_specified_type");
         set => this.WithProperty("user_specified_type", value);
     }
 

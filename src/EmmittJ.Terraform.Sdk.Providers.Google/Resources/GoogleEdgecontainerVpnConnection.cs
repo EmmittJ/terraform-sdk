@@ -24,27 +24,27 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// <summary>
     /// The canonical Cluster name to connect to. It is in the form of projects/{project}/locations/{location}/clusters/{cluster}.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cluster
+    public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// Whether this VPN connection has HA enabled on cluster side. If enabled, when creating VPN connection we will attempt to use 2 ANG floating IPs.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableHighAvailability
+    public TerraformProperty<bool>? EnableHighAvailability
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_high_availability");
+        get => GetProperty<TerraformProperty<bool>>("enable_high_availability");
         set => this.WithProperty("enable_high_availability", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -54,27 +54,27 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Google Cloud Platform location.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of VPN connection
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -82,36 +82,36 @@ public class GoogleEdgecontainerVpnConnection : TerraformResource
     /// NAT gateway IP, or WAN IP address. If a customer has multiple NAT IPs, the customer needs to configure NAT such that only one external IP maps to the GMEC Anthos cluster.
     /// This is empty if NAT is not used.
     /// </summary>
-    public TerraformLiteralProperty<string>? NatGatewayIp
+    public TerraformProperty<string>? NatGatewayIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nat_gateway_ip");
+        get => GetProperty<TerraformProperty<string>>("nat_gateway_ip");
         set => this.WithProperty("nat_gateway_ip", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The VPN connection Cloud Router name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Router
+    public TerraformProperty<string>? Router
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("router");
+        get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 
     /// <summary>
     /// The network ID of VPC to connect to.
     /// </summary>
-    public TerraformLiteralProperty<string>? Vpc
+    public TerraformProperty<string>? Vpc
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc");
+        get => GetProperty<TerraformProperty<string>>("vpc");
         set => this.WithProperty("vpc", value);
     }
 

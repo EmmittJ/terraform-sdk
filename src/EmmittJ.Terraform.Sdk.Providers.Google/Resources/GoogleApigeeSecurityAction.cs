@@ -25,27 +25,27 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// There can be at most 100 enabled actions with proxies set in an env.
     /// Several other restrictions apply on conditions and are detailed later.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ApiProxies
+    public TerraformProperty<List<string>>? ApiProxies
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("api_proxies");
+        get => GetProperty<TerraformProperty<List<string>>>("api_proxies");
         set => this.WithProperty("api_proxies", value);
     }
 
     /// <summary>
     /// An optional user provided description of the SecurityAction.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The Apigee environment that this security action applies to.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvId
+    public TerraformProperty<string>? EnvId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("env_id");
+        get => GetProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
@@ -55,27 +55,27 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// fractional digits. Offsets other than &amp;quot;Z&amp;quot; are also accepted.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpireTime
+    public TerraformProperty<string>? ExpireTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expire_time");
+        get => GetProperty<TerraformProperty<string>>("expire_time");
         set => this.WithProperty("expire_time", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The organization that this security action applies to.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
@@ -83,18 +83,18 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// The ID to use for the SecurityAction, which will become the final component of the action&#39;s resource name.
     /// This value should be 0-61 characters, and valid format is (^a-z?$).
     /// </summary>
-    public TerraformLiteralProperty<string>? SecurityActionId
+    public TerraformProperty<string>? SecurityActionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_action_id");
+        get => GetProperty<TerraformProperty<string>>("security_action_id");
         set => this.WithProperty("security_action_id", value);
     }
 
     /// <summary>
     /// Only an ENABLED SecurityAction is enforced. An ENABLED SecurityAction past its expiration time will not be enforced. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 
@@ -102,9 +102,9 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// The TTL for this SecurityAction.
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ttl
+    public TerraformProperty<string>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ttl");
+        get => GetProperty<TerraformProperty<string>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 

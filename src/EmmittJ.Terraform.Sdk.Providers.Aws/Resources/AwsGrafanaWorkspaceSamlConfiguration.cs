@@ -20,135 +20,135 @@ public class AwsGrafanaWorkspaceSamlConfiguration : TerraformResource
     /// <summary>
     /// The admin_role_values attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AdminRoleValues
+    public TerraformProperty<List<string>>? AdminRoleValues
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("admin_role_values");
+        get => GetProperty<TerraformProperty<List<string>>>("admin_role_values");
         set => this.WithProperty("admin_role_values", value);
     }
 
     /// <summary>
     /// The allowed_organizations attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AllowedOrganizations
+    public TerraformProperty<List<string>>? AllowedOrganizations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("allowed_organizations");
+        get => GetProperty<TerraformProperty<List<string>>>("allowed_organizations");
         set => this.WithProperty("allowed_organizations", value);
     }
 
     /// <summary>
     /// The editor_role_values attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? EditorRoleValues
+    public TerraformProperty<List<string>>? EditorRoleValues
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("editor_role_values");
+        get => GetProperty<TerraformProperty<List<string>>>("editor_role_values");
         set => this.WithProperty("editor_role_values", value);
     }
 
     /// <summary>
     /// The email_assertion attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailAssertion
+    public TerraformProperty<string>? EmailAssertion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_assertion");
+        get => GetProperty<TerraformProperty<string>>("email_assertion");
         set => this.WithProperty("email_assertion", value);
     }
 
     /// <summary>
     /// The groups_assertion attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupsAssertion
+    public TerraformProperty<string>? GroupsAssertion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("groups_assertion");
+        get => GetProperty<TerraformProperty<string>>("groups_assertion");
         set => this.WithProperty("groups_assertion", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The idp_metadata_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdpMetadataUrl
+    public TerraformProperty<string>? IdpMetadataUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("idp_metadata_url");
+        get => GetProperty<TerraformProperty<string>>("idp_metadata_url");
         set => this.WithProperty("idp_metadata_url", value);
     }
 
     /// <summary>
     /// The idp_metadata_xml attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdpMetadataXml
+    public TerraformProperty<string>? IdpMetadataXml
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("idp_metadata_xml");
+        get => GetProperty<TerraformProperty<string>>("idp_metadata_xml");
         set => this.WithProperty("idp_metadata_xml", value);
     }
 
     /// <summary>
     /// The login_assertion attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LoginAssertion
+    public TerraformProperty<string>? LoginAssertion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("login_assertion");
+        get => GetProperty<TerraformProperty<string>>("login_assertion");
         set => this.WithProperty("login_assertion", value);
     }
 
     /// <summary>
     /// The login_validity_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? LoginValidityDuration
+    public TerraformProperty<double>? LoginValidityDuration
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("login_validity_duration");
+        get => GetProperty<TerraformProperty<double>>("login_validity_duration");
         set => this.WithProperty("login_validity_duration", value);
     }
 
     /// <summary>
     /// The name_assertion attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NameAssertion
+    public TerraformProperty<string>? NameAssertion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_assertion");
+        get => GetProperty<TerraformProperty<string>>("name_assertion");
         set => this.WithProperty("name_assertion", value);
     }
 
     /// <summary>
     /// The org_assertion attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgAssertion
+    public TerraformProperty<string>? OrgAssertion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_assertion");
+        get => GetProperty<TerraformProperty<string>>("org_assertion");
         set => this.WithProperty("org_assertion", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_assertion attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleAssertion
+    public TerraformProperty<string>? RoleAssertion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_assertion");
+        get => GetProperty<TerraformProperty<string>>("role_assertion");
         set => this.WithProperty("role_assertion", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceId
+    public TerraformProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

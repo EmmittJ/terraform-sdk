@@ -29,36 +29,36 @@ public class GoogleBackupDrBackupPlanDataSource : TerraformDataSource
     /// <summary>
     /// The ID of the backup plan
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupPlanId
+    public TerraformProperty<string>? BackupPlanId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_plan_id");
+        get => GetProperty<TerraformProperty<string>>("backup_plan_id");
         set => this.WithProperty("backup_plan_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the backup plan
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -20,36 +20,36 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkGroupId
+    public TerraformProperty<string>? NetworkGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_group_id");
+        get => GetProperty<TerraformProperty<string>>("network_group_id");
         set => this.WithProperty("network_group_id", value);
     }
 
     /// <summary>
     /// The target_virtual_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetVirtualNetworkId
+    public TerraformProperty<string>? TargetVirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_virtual_network_id");
+        get => GetProperty<TerraformProperty<string>>("target_virtual_network_id");
         set => this.WithProperty("target_virtual_network_id", value);
     }
 

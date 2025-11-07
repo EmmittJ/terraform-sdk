@@ -20,45 +20,45 @@ public class AzurermContainerAppCustomDomain : TerraformResource
     /// <summary>
     /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateBindingType
+    public TerraformProperty<string>? CertificateBindingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_binding_type");
+        get => GetProperty<TerraformProperty<string>>("certificate_binding_type");
         set => this.WithProperty("certificate_binding_type", value);
     }
 
     /// <summary>
     /// The container_app_environment_certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerAppEnvironmentCertificateId
+    public TerraformProperty<string>? ContainerAppEnvironmentCertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_certificate_id");
+        get => GetProperty<TerraformProperty<string>>("container_app_environment_certificate_id");
         set => this.WithProperty("container_app_environment_certificate_id", value);
     }
 
     /// <summary>
     /// The container_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerAppId
+    public TerraformProperty<string>? ContainerAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_id");
+        get => GetProperty<TerraformProperty<string>>("container_app_id");
         set => this.WithProperty("container_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

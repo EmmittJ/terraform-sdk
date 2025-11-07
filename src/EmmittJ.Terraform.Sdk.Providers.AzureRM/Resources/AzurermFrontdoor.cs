@@ -27,54 +27,54 @@ public class AzurermFrontdoor : TerraformResource
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FriendlyName
+    public TerraformProperty<string>? FriendlyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name");
+        get => GetProperty<TerraformProperty<string>>("friendly_name");
         set => this.WithProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancer_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LoadBalancerEnabled
+    public TerraformProperty<bool>? LoadBalancerEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("load_balancer_enabled");
+        get => GetProperty<TerraformProperty<bool>>("load_balancer_enabled");
         set => this.WithProperty("load_balancer_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

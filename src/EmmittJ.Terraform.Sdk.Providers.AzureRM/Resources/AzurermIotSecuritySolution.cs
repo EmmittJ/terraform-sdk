@@ -19,126 +19,126 @@ public class AzurermIotSecuritySolution : TerraformResource
     /// <summary>
     /// The disabled_data_sources attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? DisabledDataSources
+    public TerraformProperty<HashSet<string>>? DisabledDataSources
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("disabled_data_sources");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("disabled_data_sources");
         set => this.WithProperty("disabled_data_sources", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The events_to_export attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? EventsToExport
+    public TerraformProperty<HashSet<string>>? EventsToExport
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("events_to_export");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("events_to_export");
         set => this.WithProperty("events_to_export", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? IothubIds
+    public TerraformProperty<HashSet<string>>? IothubIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("iothub_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("iothub_ids");
         set => this.WithProperty("iothub_ids", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The log_unmasked_ips_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LogUnmaskedIpsEnabled
+    public TerraformProperty<bool>? LogUnmaskedIpsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_unmasked_ips_enabled");
+        get => GetProperty<TerraformProperty<bool>>("log_unmasked_ips_enabled");
         set => this.WithProperty("log_unmasked_ips_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_for_resources attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QueryForResources
+    public TerraformProperty<string>? QueryForResources
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query_for_resources");
+        get => GetProperty<TerraformProperty<string>>("query_for_resources");
         set => this.WithProperty("query_for_resources", value);
     }
 
     /// <summary>
     /// The query_subscription_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? QuerySubscriptionIds
+    public TerraformProperty<HashSet<string>>? QuerySubscriptionIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("query_subscription_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("query_subscription_ids");
         set => this.WithProperty("query_subscription_ids", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -19,54 +19,54 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministrator : Terraform
     /// <summary>
     /// The azuread_authentication_only attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AzureadAuthenticationOnly
+    public TerraformProperty<bool>? AzureadAuthenticationOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("azuread_authentication_only");
+        get => GetProperty<TerraformProperty<bool>>("azuread_authentication_only");
         set => this.WithProperty("azuread_authentication_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The login_username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LoginUsername
+    public TerraformProperty<string>? LoginUsername
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("login_username");
+        get => GetProperty<TerraformProperty<string>>("login_username");
         set => this.WithProperty("login_username", value);
     }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedInstanceId
+    public TerraformProperty<string>? ManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id");
+        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ObjectId
+    public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

@@ -19,36 +19,36 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// AWS Kinesis Firehose Delivery Stream ARNs
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? LogDestinationConfigs
+    public TerraformProperty<HashSet<string>>? LogDestinationConfigs
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("log_destination_configs");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("log_destination_configs");
         set => this.WithProperty("log_destination_configs", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// AWS WebACL ARN
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceArn
+    public TerraformProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 

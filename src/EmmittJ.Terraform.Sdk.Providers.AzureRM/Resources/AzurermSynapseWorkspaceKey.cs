@@ -19,45 +19,45 @@ public class AzurermSynapseWorkspaceKey : TerraformResource
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Active
+    public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("active");
+        get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
     }
 
     /// <summary>
     /// The customer_managed_key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerManagedKeyName
+    public TerraformProperty<string>? CustomerManagedKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key_name");
+        get => GetProperty<TerraformProperty<string>>("customer_managed_key_name");
         set => this.WithProperty("customer_managed_key_name", value);
     }
 
     /// <summary>
     /// The customer_managed_key_versionless_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerManagedKeyVersionlessId
+    public TerraformProperty<string>? CustomerManagedKeyVersionlessId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_key_versionless_id");
+        get => GetProperty<TerraformProperty<string>>("customer_managed_key_versionless_id");
         set => this.WithProperty("customer_managed_key_versionless_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SynapseWorkspaceId
+    public TerraformProperty<string>? SynapseWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("synapse_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("synapse_workspace_id");
         set => this.WithProperty("synapse_workspace_id", value);
     }
 

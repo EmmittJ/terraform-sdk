@@ -22,36 +22,36 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountId
+    public TerraformProperty<string>? AccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_id");
+        get => GetProperty<TerraformProperty<string>>("account_id");
         set => this.WithProperty("account_id", value);
     }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CallAs
+    public TerraformProperty<string>? CallAs
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("call_as");
+        get => GetProperty<TerraformProperty<string>>("call_as");
         set => this.WithProperty("call_as", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parameter_overrides attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ParameterOverrides
+    public TerraformProperty<Dictionary<string, string>>? ParameterOverrides
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameter_overrides");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameter_overrides");
         set => this.WithProperty("parameter_overrides", value);
     }
 
@@ -59,36 +59,36 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The retain_stack attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RetainStack
+    public TerraformProperty<bool>? RetainStack
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("retain_stack");
+        get => GetProperty<TerraformProperty<bool>>("retain_stack");
         set => this.WithProperty("retain_stack", value);
     }
 
     /// <summary>
     /// The stack_set_instance_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StackSetInstanceRegion
+    public TerraformProperty<string>? StackSetInstanceRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_set_instance_region");
+        get => GetProperty<TerraformProperty<string>>("stack_set_instance_region");
         set => this.WithProperty("stack_set_instance_region", value);
     }
 
     /// <summary>
     /// The stack_set_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StackSetName
+    public TerraformProperty<string>? StackSetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stack_set_name");
+        get => GetProperty<TerraformProperty<string>>("stack_set_name");
         set => this.WithProperty("stack_set_name", value);
     }
 

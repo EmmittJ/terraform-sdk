@@ -20,45 +20,45 @@ public class AzurermAdvisorSuppression : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recommendation_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecommendationId
+    public TerraformProperty<string>? RecommendationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recommendation_id");
+        get => GetProperty<TerraformProperty<string>>("recommendation_id");
         set => this.WithProperty("recommendation_id", value);
     }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceId
+    public TerraformProperty<string>? ResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_id");
+        get => GetProperty<TerraformProperty<string>>("resource_id");
         set => this.WithProperty("resource_id", value);
     }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ttl
+    public TerraformProperty<string>? Ttl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ttl");
+        get => GetProperty<TerraformProperty<string>>("ttl");
         set => this.WithProperty("ttl", value);
     }
 

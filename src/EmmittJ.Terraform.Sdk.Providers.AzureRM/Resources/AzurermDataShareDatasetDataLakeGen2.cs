@@ -20,63 +20,63 @@ public class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FilePath
+    public TerraformProperty<string>? FilePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_path");
+        get => GetProperty<TerraformProperty<string>>("file_path");
         set => this.WithProperty("file_path", value);
     }
 
     /// <summary>
     /// The file_system_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileSystemName
+    public TerraformProperty<string>? FileSystemName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_system_name");
+        get => GetProperty<TerraformProperty<string>>("file_system_name");
         set => this.WithProperty("file_system_name", value);
     }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FolderPath
+    public TerraformProperty<string>? FolderPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder_path");
+        get => GetProperty<TerraformProperty<string>>("folder_path");
         set => this.WithProperty("folder_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ShareId
+    public TerraformProperty<string>? ShareId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("share_id");
+        get => GetProperty<TerraformProperty<string>>("share_id");
         set => this.WithProperty("share_id", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

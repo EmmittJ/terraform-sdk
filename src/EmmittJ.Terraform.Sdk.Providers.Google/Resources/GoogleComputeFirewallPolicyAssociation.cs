@@ -20,9 +20,9 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
     /// <summary>
     /// The target that the firewall policy is attached to.
     /// </summary>
-    public TerraformLiteralProperty<string>? AttachmentTarget
+    public TerraformProperty<string>? AttachmentTarget
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attachment_target");
+        get => GetProperty<TerraformProperty<string>>("attachment_target");
         set => this.WithProperty("attachment_target", value);
     }
 
@@ -35,27 +35,27 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
     /// **Note** Due to potential risks with this operation it is *highly* recommended to use the &#39;create_before_destroy&#39; life cycle option
     /// on your exisiting firewall policy so as to prevent a situation where your attachment target has no associated policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirewallPolicy
+    public TerraformProperty<string>? FirewallPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy");
+        get => GetProperty<TerraformProperty<string>>("firewall_policy");
         set => this.WithProperty("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name for an association.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

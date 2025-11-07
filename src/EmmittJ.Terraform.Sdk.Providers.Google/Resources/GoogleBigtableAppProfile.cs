@@ -20,54 +20,54 @@ public class GoogleBigtableAppProfile : TerraformResource
     /// <summary>
     /// The unique name of the app profile in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppProfileId
+    public TerraformProperty<string>? AppProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_profile_id");
+        get => GetProperty<TerraformProperty<string>>("app_profile_id");
         set => this.WithProperty("app_profile_id", value);
     }
 
     /// <summary>
     /// Long form description of the use case for this app profile.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If true, ignore safety checks when deleting/updating the app profile.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IgnoreWarnings
+    public TerraformProperty<bool>? IgnoreWarnings
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_warnings");
+        get => GetProperty<TerraformProperty<bool>>("ignore_warnings");
         set => this.WithProperty("ignore_warnings", value);
     }
 
     /// <summary>
     /// The name of the instance to create the app profile within.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The set of clusters to route to. The order is ignored; clusters will be tried in order of distance. If left empty, all clusters are eligible.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? MultiClusterRoutingClusterIds
+    public TerraformProperty<List<string>>? MultiClusterRoutingClusterIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("multi_cluster_routing_cluster_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("multi_cluster_routing_cluster_ids");
         set => this.WithProperty("multi_cluster_routing_cluster_ids", value);
     }
 
@@ -76,27 +76,27 @@ public class GoogleBigtableAppProfile : TerraformResource
     /// in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes
     /// consistency to improve availability.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MultiClusterRoutingUseAny
+    public TerraformProperty<bool>? MultiClusterRoutingUseAny
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("multi_cluster_routing_use_any");
+        get => GetProperty<TerraformProperty<bool>>("multi_cluster_routing_use_any");
         set => this.WithProperty("multi_cluster_routing_use_any", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Must be used with multi-cluster routing. If true, then this app profile will use row affinity sticky routing. With row affinity, Bigtable will route single row key requests based on the row key, rather than randomly. Instead, each row key will be assigned to a cluster by Cloud Bigtable, and will stick to that cluster. Choosing this option improves read-your-writes consistency for most requests under most circumstances, without sacrificing availability. Consistency is not guaranteed, as requests may still fail over between clusters in the event of errors or latency.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RowAffinity
+    public TerraformProperty<bool>? RowAffinity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("row_affinity");
+        get => GetProperty<TerraformProperty<bool>>("row_affinity");
         set => this.WithProperty("row_affinity", value);
     }
 

@@ -19,54 +19,54 @@ public class AzurermStreamAnalyticsManagedPrivateEndpoint : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_cluster_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsClusterName
+    public TerraformProperty<string>? StreamAnalyticsClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_cluster_name");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_cluster_name");
         set => this.WithProperty("stream_analytics_cluster_name", value);
     }
 
     /// <summary>
     /// The subresource_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubresourceName
+    public TerraformProperty<string>? SubresourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subresource_name");
+        get => GetProperty<TerraformProperty<string>>("subresource_name");
         set => this.WithProperty("subresource_name", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetResourceId
+    public TerraformProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id");
+        get => GetProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

@@ -24,45 +24,45 @@ public class AzurermImageDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NameRegex
+    public TerraformProperty<string>? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_regex");
+        get => GetProperty<TerraformProperty<string>>("name_regex");
         set => this.WithProperty("name_regex", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sort_descending attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SortDescending
+    public TerraformProperty<bool>? SortDescending
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sort_descending");
+        get => GetProperty<TerraformProperty<bool>>("sort_descending");
         set => this.WithProperty("sort_descending", value);
     }
 

@@ -19,135 +19,135 @@ public class AzurermCostManagementScheduledAction : TerraformResource
     /// <summary>
     /// The day_of_month attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DayOfMonth
+    public TerraformProperty<double>? DayOfMonth
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("day_of_month");
+        get => GetProperty<TerraformProperty<double>>("day_of_month");
         set => this.WithProperty("day_of_month", value);
     }
 
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DaysOfWeek
+    public TerraformProperty<List<string>>? DaysOfWeek
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("days_of_week");
+        get => GetProperty<TerraformProperty<List<string>>>("days_of_week");
         set => this.WithProperty("days_of_week", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The email_address_sender attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailAddressSender
+    public TerraformProperty<string>? EmailAddressSender
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_address_sender");
+        get => GetProperty<TerraformProperty<string>>("email_address_sender");
         set => this.WithProperty("email_address_sender", value);
     }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? EmailAddresses
+    public TerraformProperty<List<string>>? EmailAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("email_addresses");
+        get => GetProperty<TerraformProperty<List<string>>>("email_addresses");
         set => this.WithProperty("email_addresses", value);
     }
 
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailSubject
+    public TerraformProperty<string>? EmailSubject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_subject");
+        get => GetProperty<TerraformProperty<string>>("email_subject");
         set => this.WithProperty("email_subject", value);
     }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndDate
+    public TerraformProperty<string>? EndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_date");
+        get => GetProperty<TerraformProperty<string>>("end_date");
         set => this.WithProperty("end_date", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Frequency
+    public TerraformProperty<string>? Frequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frequency");
+        get => GetProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
     /// <summary>
     /// The hour_of_day attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? HourOfDay
+    public TerraformProperty<double>? HourOfDay
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("hour_of_day");
+        get => GetProperty<TerraformProperty<double>>("hour_of_day");
         set => this.WithProperty("hour_of_day", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Message
+    public TerraformProperty<string>? Message
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message");
+        get => GetProperty<TerraformProperty<string>>("message");
         set => this.WithProperty("message", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartDate
+    public TerraformProperty<string>? StartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_date");
+        get => GetProperty<TerraformProperty<string>>("start_date");
         set => this.WithProperty("start_date", value);
     }
 
     /// <summary>
     /// The view_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ViewId
+    public TerraformProperty<string>? ViewId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("view_id");
+        get => GetProperty<TerraformProperty<string>>("view_id");
         set => this.WithProperty("view_id", value);
     }
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? WeeksOfMonth
+    public TerraformProperty<List<string>>? WeeksOfMonth
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("weeks_of_month");
+        get => GetProperty<TerraformProperty<List<string>>>("weeks_of_month");
         set => this.WithProperty("weeks_of_month", value);
     }
 

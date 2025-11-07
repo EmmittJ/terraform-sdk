@@ -27,27 +27,27 @@ public class AwsCloudfrontFunctionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Stage
+    public TerraformProperty<string>? Stage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stage");
+        get => GetProperty<TerraformProperty<string>>("stage");
         set => this.WithProperty("stage", value);
     }
 

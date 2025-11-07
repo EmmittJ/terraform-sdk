@@ -19,27 +19,27 @@ public class AwsRoute53HostedZoneDnssec : TerraformResource
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostedZoneId
+    public TerraformProperty<string>? HostedZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hosted_zone_id");
+        get => GetProperty<TerraformProperty<string>>("hosted_zone_id");
         set => this.WithProperty("hosted_zone_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The signing_status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SigningStatus
+    public TerraformProperty<string>? SigningStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signing_status");
+        get => GetProperty<TerraformProperty<string>>("signing_status");
         set => this.WithProperty("signing_status", value);
     }
 

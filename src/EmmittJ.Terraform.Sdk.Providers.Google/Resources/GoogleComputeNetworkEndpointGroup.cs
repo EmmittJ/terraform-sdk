@@ -23,9 +23,9 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// The default port used if the port number is not specified in the
     /// network endpoint.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultPort
+    public TerraformProperty<double>? DefaultPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_port");
+        get => GetProperty<TerraformProperty<double>>("default_port");
         set => this.WithProperty("default_port", value);
     }
 
@@ -33,18 +33,18 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -57,9 +57,9 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -67,9 +67,9 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// The network to which all network endpoints in the NEG belong.
     /// Uses &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -84,36 +84,36 @@ public class GoogleComputeNetworkEndpointGroup : TerraformResource
     /// 
     /// Possible values include: GCE_VM_IP, GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_IP_PORT, INTERNET_FQDN_PORT, SERVERLESS, and PRIVATE_SERVICE_CONNECT. Default value: &amp;quot;GCE_VM_IP_PORT&amp;quot; Possible values: [&amp;quot;GCE_VM_IP&amp;quot;, &amp;quot;GCE_VM_IP_PORT&amp;quot;, &amp;quot;NON_GCP_PRIVATE_IP_PORT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkEndpointType
+    public TerraformProperty<string>? NetworkEndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_endpoint_type");
+        get => GetProperty<TerraformProperty<string>>("network_endpoint_type");
         set => this.WithProperty("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Optional subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subnetwork
+    public TerraformProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork");
+        get => GetProperty<TerraformProperty<string>>("subnetwork");
         set => this.WithProperty("subnetwork", value);
     }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

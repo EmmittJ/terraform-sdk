@@ -21,54 +21,54 @@ public class GoogleArtifactRegistryTagDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The package_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PackageName
+    public TerraformProperty<string>? PackageName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_name");
+        get => GetProperty<TerraformProperty<string>>("package_name");
         set => this.WithProperty("package_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The repository_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RepositoryId
+    public TerraformProperty<string>? RepositoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_id");
+        get => GetProperty<TerraformProperty<string>>("repository_id");
         set => this.WithProperty("repository_id", value);
     }
 
     /// <summary>
     /// The tag_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TagName
+    public TerraformProperty<string>? TagName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_name");
+        get => GetProperty<TerraformProperty<string>>("tag_name");
         set => this.WithProperty("tag_name", value);
     }
 

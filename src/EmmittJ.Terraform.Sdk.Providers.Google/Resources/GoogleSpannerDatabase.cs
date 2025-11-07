@@ -21,9 +21,9 @@ public class GoogleSpannerDatabase : TerraformResource
     /// The dialect of the Cloud Spanner Database.
     /// If it is not provided, &amp;quot;GOOGLE_STANDARD_SQL&amp;quot; will be used. Possible values: [&amp;quot;GOOGLE_STANDARD_SQL&amp;quot;, &amp;quot;POSTGRESQL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? DatabaseDialect
+    public TerraformProperty<string>? DatabaseDialect
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_dialect");
+        get => GetProperty<TerraformProperty<string>>("database_dialect");
         set => this.WithProperty("database_dialect", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleSpannerDatabase : TerraformResource
     /// newly appended DDL statements can be executed in an update. However, modifications
     /// to prior statements will create a plan that marks the resource for recreation.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Ddl
+    public TerraformProperty<List<string>>? Ddl
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ddl");
+        get => GetProperty<TerraformProperty<List<string>>>("ddl");
         set => this.WithProperty("ddl", value);
     }
 
@@ -49,9 +49,9 @@ public class GoogleSpannerDatabase : TerraformResource
     /// The default time zone for the database. The default time zone must be a valid name
     /// from the tz database. Default value is &amp;quot;America/Los_angeles&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultTimeZone
+    public TerraformProperty<string>? DefaultTimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_time_zone");
+        get => GetProperty<TerraformProperty<string>>("default_time_zone");
         set => this.WithProperty("default_time_zone", value);
     }
 
@@ -63,9 +63,9 @@ public class GoogleSpannerDatabase : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the database will fail.
     /// When the field is set to false, deleting the database is allowed.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
@@ -78,27 +78,27 @@ public class GoogleSpannerDatabase : TerraformResource
     /// (2) Setting &amp;quot;enableDropProtection&amp;quot; to true also prevents the deletion of the parent instance containing the database.
     /// &amp;quot;deletion_protection&amp;quot; attribute does not provide protection against the deletion of the parent instance.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableDropProtection
+    public TerraformProperty<bool>? EnableDropProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_drop_protection");
+        get => GetProperty<TerraformProperty<bool>>("enable_drop_protection");
         set => this.WithProperty("enable_drop_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance to create the database on.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -106,18 +106,18 @@ public class GoogleSpannerDatabase : TerraformResource
     /// A unique identifier for the database, which cannot be changed after the
     /// instance is created. Values are of the form &#39;[a-z][-_a-z0-9]*[a-z0-9]&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -128,9 +128,9 @@ public class GoogleSpannerDatabase : TerraformResource
     /// If this property is used, you must avoid adding new DDL statements to &#39;ddl&#39; that
     /// update the database&#39;s version_retention_period.
     /// </summary>
-    public TerraformLiteralProperty<string>? VersionRetentionPeriod
+    public TerraformProperty<string>? VersionRetentionPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_retention_period");
+        get => GetProperty<TerraformProperty<string>>("version_retention_period");
         set => this.WithProperty("version_retention_period", value);
     }
 

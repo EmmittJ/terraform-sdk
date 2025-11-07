@@ -22,126 +22,126 @@ public class AwsDirectoryServiceDirectory : TerraformResource
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Alias
+    public TerraformProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        get => GetProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The desired_number_of_domain_controllers attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DesiredNumberOfDomainControllers
+    public TerraformProperty<double>? DesiredNumberOfDomainControllers
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("desired_number_of_domain_controllers");
+        get => GetProperty<TerraformProperty<double>>("desired_number_of_domain_controllers");
         set => this.WithProperty("desired_number_of_domain_controllers", value);
     }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Edition
+    public TerraformProperty<string>? Edition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edition");
+        get => GetProperty<TerraformProperty<string>>("edition");
         set => this.WithProperty("edition", value);
     }
 
     /// <summary>
     /// The enable_sso attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableSso
+    public TerraformProperty<bool>? EnableSso
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_sso");
+        get => GetProperty<TerraformProperty<bool>>("enable_sso");
         set => this.WithProperty("enable_sso", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The short_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ShortName
+    public TerraformProperty<string>? ShortName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_name");
+        get => GetProperty<TerraformProperty<string>>("short_name");
         set => this.WithProperty("short_name", value);
     }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Size
+    public TerraformProperty<string>? Size
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("size");
+        get => GetProperty<TerraformProperty<string>>("size");
         set => this.WithProperty("size", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

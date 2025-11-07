@@ -22,27 +22,27 @@ public class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// <summary>
     /// A reference to the BackendService resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackendService
+    public TerraformProperty<string>? BackendService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend_service");
+        get => GetProperty<TerraformProperty<string>>("backend_service");
         set => this.WithProperty("backend_service", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -55,18 +55,18 @@ public class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -74,9 +74,9 @@ public class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// This field only applies when the forwarding rule that references
     /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ProxyBind
+    public TerraformProperty<bool>? ProxyBind
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("proxy_bind");
+        get => GetProperty<TerraformProperty<bool>>("proxy_bind");
         set => this.WithProperty("proxy_bind", value);
     }
 
@@ -84,9 +84,9 @@ public class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// Specifies the type of proxy header to append before sending data to
     /// the backend. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;PROXY_V1&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ProxyHeader
+    public TerraformProperty<string>? ProxyHeader
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proxy_header");
+        get => GetProperty<TerraformProperty<string>>("proxy_header");
         set => this.WithProperty("proxy_header", value);
     }
 
@@ -94,9 +94,9 @@ public class GoogleComputeRegionTargetTcpProxy : TerraformResource
     /// The Region in which the created target TCP proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

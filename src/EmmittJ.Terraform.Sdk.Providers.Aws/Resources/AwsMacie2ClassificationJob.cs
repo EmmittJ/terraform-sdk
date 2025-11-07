@@ -23,108 +23,108 @@ public class AwsMacie2ClassificationJob : TerraformResource
     /// <summary>
     /// The custom_data_identifier_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? CustomDataIdentifierIds
+    public TerraformProperty<List<string>>? CustomDataIdentifierIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("custom_data_identifier_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("custom_data_identifier_ids");
         set => this.WithProperty("custom_data_identifier_ids", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The initial_run attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InitialRun
+    public TerraformProperty<bool>? InitialRun
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("initial_run");
+        get => GetProperty<TerraformProperty<bool>>("initial_run");
         set => this.WithProperty("initial_run", value);
     }
 
     /// <summary>
     /// The job_status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobStatus
+    public TerraformProperty<string>? JobStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_status");
+        get => GetProperty<TerraformProperty<string>>("job_status");
         set => this.WithProperty("job_status", value);
     }
 
     /// <summary>
     /// The job_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobType
+    public TerraformProperty<string>? JobType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_type");
+        get => GetProperty<TerraformProperty<string>>("job_type");
         set => this.WithProperty("job_type", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SamplingPercentage
+    public TerraformProperty<double>? SamplingPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("sampling_percentage");
+        get => GetProperty<TerraformProperty<double>>("sampling_percentage");
         set => this.WithProperty("sampling_percentage", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

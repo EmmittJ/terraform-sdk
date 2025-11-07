@@ -19,117 +19,117 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoUpgradeMinorVersion
+    public TerraformProperty<bool>? AutoUpgradeMinorVersion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_upgrade_minor_version");
+        get => GetProperty<TerraformProperty<bool>>("auto_upgrade_minor_version");
         set => this.WithProperty("auto_upgrade_minor_version", value);
     }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutomaticUpgradeEnabled
+    public TerraformProperty<bool>? AutomaticUpgradeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_upgrade_enabled");
+        get => GetProperty<TerraformProperty<bool>>("automatic_upgrade_enabled");
         set => this.WithProperty("automatic_upgrade_enabled", value);
     }
 
     /// <summary>
     /// The failure_suppression_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? FailureSuppressionEnabled
+    public TerraformProperty<bool>? FailureSuppressionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("failure_suppression_enabled");
+        get => GetProperty<TerraformProperty<bool>>("failure_suppression_enabled");
         set => this.WithProperty("failure_suppression_enabled", value);
     }
 
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ForceUpdateTag
+    public TerraformProperty<string>? ForceUpdateTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("force_update_tag");
+        get => GetProperty<TerraformProperty<string>>("force_update_tag");
         set => this.WithProperty("force_update_tag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtectedSettings
+    public TerraformProperty<string>? ProtectedSettings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protected_settings");
+        get => GetProperty<TerraformProperty<string>>("protected_settings");
         set => this.WithProperty("protected_settings", value);
     }
 
     /// <summary>
     /// The provision_after_extensions attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ProvisionAfterExtensions
+    public TerraformProperty<List<string>>? ProvisionAfterExtensions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("provision_after_extensions");
+        get => GetProperty<TerraformProperty<List<string>>>("provision_after_extensions");
         set => this.WithProperty("provision_after_extensions", value);
     }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Publisher
+    public TerraformProperty<string>? Publisher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("publisher");
+        get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Settings
+    public TerraformProperty<string>? Settings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("settings");
+        get => GetProperty<TerraformProperty<string>>("settings");
         set => this.WithProperty("settings", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TypeHandlerVersion
+    public TerraformProperty<string>? TypeHandlerVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type_handler_version");
+        get => GetProperty<TerraformProperty<string>>("type_handler_version");
         set => this.WithProperty("type_handler_version", value);
     }
 
     /// <summary>
     /// The virtual_machine_scale_set_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualMachineScaleSetId
+    public TerraformProperty<string>? VirtualMachineScaleSetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_scale_set_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_machine_scale_set_id");
         set => this.WithProperty("virtual_machine_scale_set_id", value);
     }
 

@@ -21,99 +21,99 @@ public class AwsAppsyncFunction : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiId
+    public TerraformProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Code
+    public TerraformProperty<string>? Code
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("code");
+        get => GetProperty<TerraformProperty<string>>("code");
         set => this.WithProperty("code", value);
     }
 
     /// <summary>
     /// The data_source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataSource
+    public TerraformProperty<string>? DataSource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_source");
+        get => GetProperty<TerraformProperty<string>>("data_source");
         set => this.WithProperty("data_source", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The function_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionVersion
+    public TerraformProperty<string>? FunctionVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_version");
+        get => GetProperty<TerraformProperty<string>>("function_version");
         set => this.WithProperty("function_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_batch_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxBatchSize
+    public TerraformProperty<double>? MaxBatchSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_batch_size");
+        get => GetProperty<TerraformProperty<double>>("max_batch_size");
         set => this.WithProperty("max_batch_size", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The request_mapping_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RequestMappingTemplate
+    public TerraformProperty<string>? RequestMappingTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_mapping_template");
+        get => GetProperty<TerraformProperty<string>>("request_mapping_template");
         set => this.WithProperty("request_mapping_template", value);
     }
 
     /// <summary>
     /// The response_mapping_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResponseMappingTemplate
+    public TerraformProperty<string>? ResponseMappingTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("response_mapping_template");
+        get => GetProperty<TerraformProperty<string>>("response_mapping_template");
         set => this.WithProperty("response_mapping_template", value);
     }
 

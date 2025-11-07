@@ -19,63 +19,63 @@ public class AzurermApiManagementApiOperationPolicy : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementName
+    public TerraformProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiName
+    public TerraformProperty<string>? ApiName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_name");
+        get => GetProperty<TerraformProperty<string>>("api_name");
         set => this.WithProperty("api_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The operation_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OperationId
+    public TerraformProperty<string>? OperationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operation_id");
+        get => GetProperty<TerraformProperty<string>>("operation_id");
         set => this.WithProperty("operation_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XmlContent
+    public TerraformProperty<string>? XmlContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_content");
+        get => GetProperty<TerraformProperty<string>>("xml_content");
         set => this.WithProperty("xml_content", value);
     }
 
     /// <summary>
     /// The xml_link attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XmlLink
+    public TerraformProperty<string>? XmlLink
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_link");
+        get => GetProperty<TerraformProperty<string>>("xml_link");
         set => this.WithProperty("xml_link", value);
     }
 

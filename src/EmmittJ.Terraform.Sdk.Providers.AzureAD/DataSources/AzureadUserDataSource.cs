@@ -58,54 +58,54 @@ public class AzureadUserDataSource : TerraformDataSource
     /// <summary>
     /// The employee identifier assigned to the user by the organisation
     /// </summary>
-    public TerraformLiteralProperty<string>? EmployeeId
+    public TerraformProperty<string>? EmployeeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("employee_id");
+        get => GetProperty<TerraformProperty<string>>("employee_id");
         set => this.WithProperty("employee_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The SMTP address for the user
     /// </summary>
-    public TerraformLiteralProperty<string>? Mail
+    public TerraformProperty<string>? Mail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mail");
+        get => GetProperty<TerraformProperty<string>>("mail");
         set => this.WithProperty("mail", value);
     }
 
     /// <summary>
     /// The email alias of the user
     /// </summary>
-    public TerraformLiteralProperty<string>? MailNickname
+    public TerraformProperty<string>? MailNickname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mail_nickname");
+        get => GetProperty<TerraformProperty<string>>("mail_nickname");
         set => this.WithProperty("mail_nickname", value);
     }
 
     /// <summary>
     /// The object ID of the user
     /// </summary>
-    public TerraformLiteralProperty<string>? ObjectId
+    public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
     /// <summary>
     /// The user principal name (UPN) of the user
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPrincipalName
+    public TerraformProperty<string>? UserPrincipalName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_principal_name");
+        get => GetProperty<TerraformProperty<string>>("user_principal_name");
         set => this.WithProperty("user_principal_name", value);
     }
 

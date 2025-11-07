@@ -21,81 +21,81 @@ public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
     /// <summary>
     /// The asserted_controls attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AssertedControls
+    public TerraformProperty<List<string>>? AssertedControls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("asserted_controls");
+        get => GetProperty<TerraformProperty<List<string>>>("asserted_controls");
         set => this.WithProperty("asserted_controls", value);
     }
 
     /// <summary>
     /// The control_panel_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlPanelArn
+    public TerraformProperty<string>? ControlPanelArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_panel_arn");
+        get => GetProperty<TerraformProperty<string>>("control_panel_arn");
         set => this.WithProperty("control_panel_arn", value);
     }
 
     /// <summary>
     /// The gating_controls attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? GatingControls
+    public TerraformProperty<List<string>>? GatingControls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("gating_controls");
+        get => GetProperty<TerraformProperty<List<string>>>("gating_controls");
         set => this.WithProperty("gating_controls", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_controls attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? TargetControls
+    public TerraformProperty<List<string>>? TargetControls
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("target_controls");
+        get => GetProperty<TerraformProperty<List<string>>>("target_controls");
         set => this.WithProperty("target_controls", value);
     }
 
     /// <summary>
     /// The wait_period_ms attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? WaitPeriodMs
+    public TerraformProperty<double>? WaitPeriodMs
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("wait_period_ms");
+        get => GetProperty<TerraformProperty<double>>("wait_period_ms");
         set => this.WithProperty("wait_period_ms", value);
     }
 

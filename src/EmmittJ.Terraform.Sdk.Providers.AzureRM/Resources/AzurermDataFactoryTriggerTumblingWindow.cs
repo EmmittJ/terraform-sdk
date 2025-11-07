@@ -19,117 +19,117 @@ public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Activated
+    public TerraformProperty<bool>? Activated
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("activated");
+        get => GetProperty<TerraformProperty<bool>>("activated");
         set => this.WithProperty("activated", value);
     }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AdditionalProperties
+    public TerraformProperty<Dictionary<string, string>>? AdditionalProperties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("additional_properties");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_properties");
         set => this.WithProperty("additional_properties", value);
     }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Annotations
+    public TerraformProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        get => GetProperty<TerraformProperty<List<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataFactoryId
+    public TerraformProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The delay attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Delay
+    public TerraformProperty<string>? Delay
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delay");
+        get => GetProperty<TerraformProperty<string>>("delay");
         set => this.WithProperty("delay", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndTime
+    public TerraformProperty<string>? EndTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_time");
+        get => GetProperty<TerraformProperty<string>>("end_time");
         set => this.WithProperty("end_time", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Frequency
+    public TerraformProperty<string>? Frequency
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frequency");
+        get => GetProperty<TerraformProperty<string>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Interval
+    public TerraformProperty<double>? Interval
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("interval");
+        get => GetProperty<TerraformProperty<double>>("interval");
         set => this.WithProperty("interval", value);
     }
 
     /// <summary>
     /// The max_concurrency attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxConcurrency
+    public TerraformProperty<double>? MaxConcurrency
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_concurrency");
+        get => GetProperty<TerraformProperty<double>>("max_concurrency");
         set => this.WithProperty("max_concurrency", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartTime
+    public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_time");
+        get => GetProperty<TerraformProperty<string>>("start_time");
         set => this.WithProperty("start_time", value);
     }
 

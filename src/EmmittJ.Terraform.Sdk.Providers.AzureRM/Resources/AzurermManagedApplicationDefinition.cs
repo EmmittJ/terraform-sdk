@@ -19,108 +19,108 @@ public class AzurermManagedApplicationDefinition : TerraformResource
     /// <summary>
     /// The create_ui_definition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CreateUiDefinition
+    public TerraformProperty<string>? CreateUiDefinition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_ui_definition");
+        get => GetProperty<TerraformProperty<string>>("create_ui_definition");
         set => this.WithProperty("create_ui_definition", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The lock_level attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LockLevel
+    public TerraformProperty<string>? LockLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lock_level");
+        get => GetProperty<TerraformProperty<string>>("lock_level");
         set => this.WithProperty("lock_level", value);
     }
 
     /// <summary>
     /// The main_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MainTemplate
+    public TerraformProperty<string>? MainTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("main_template");
+        get => GetProperty<TerraformProperty<string>>("main_template");
         set => this.WithProperty("main_template", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The package_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PackageEnabled
+    public TerraformProperty<bool>? PackageEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("package_enabled");
+        get => GetProperty<TerraformProperty<bool>>("package_enabled");
         set => this.WithProperty("package_enabled", value);
     }
 
     /// <summary>
     /// The package_file_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PackageFileUri
+    public TerraformProperty<string>? PackageFileUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("package_file_uri");
+        get => GetProperty<TerraformProperty<string>>("package_file_uri");
         set => this.WithProperty("package_file_uri", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

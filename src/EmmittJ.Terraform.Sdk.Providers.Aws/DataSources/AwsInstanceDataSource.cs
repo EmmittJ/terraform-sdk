@@ -61,63 +61,63 @@ public class AwsInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The get_password_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GetPasswordData
+    public TerraformProperty<bool>? GetPasswordData
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("get_password_data");
+        get => GetProperty<TerraformProperty<bool>>("get_password_data");
         set => this.WithProperty("get_password_data", value);
     }
 
     /// <summary>
     /// The get_user_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GetUserData
+    public TerraformProperty<bool>? GetUserData
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("get_user_data");
+        get => GetProperty<TerraformProperty<bool>>("get_user_data");
         set => this.WithProperty("get_user_data", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? InstanceTags
+    public TerraformProperty<Dictionary<string, string>>? InstanceTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("instance_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("instance_tags");
         set => this.WithProperty("instance_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

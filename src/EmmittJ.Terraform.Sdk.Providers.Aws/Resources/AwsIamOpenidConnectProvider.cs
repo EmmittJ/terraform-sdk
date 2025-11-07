@@ -20,54 +20,54 @@ public class AwsIamOpenidConnectProvider : TerraformResource
     /// <summary>
     /// The client_id_list attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ClientIdList
+    public TerraformProperty<HashSet<string>>? ClientIdList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("client_id_list");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("client_id_list");
         set => this.WithProperty("client_id_list", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The thumbprint_list attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ThumbprintList
+    public TerraformProperty<List<string>>? ThumbprintList
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("thumbprint_list");
+        get => GetProperty<TerraformProperty<List<string>>>("thumbprint_list");
         set => this.WithProperty("thumbprint_list", value);
     }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Url
+    public TerraformProperty<string>? Url
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("url");
+        get => GetProperty<TerraformProperty<string>>("url");
         set => this.WithProperty("url", value);
     }
 

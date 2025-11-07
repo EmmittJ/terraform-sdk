@@ -23,144 +23,144 @@ public class AzureadApplicationRegistration : TerraformResource
     /// <summary>
     /// Description of the application as shown to end users
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Configures the `groups` claim that the app expects issued in a user or OAuth access token
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? GroupMembershipClaims
+    public TerraformProperty<HashSet<string>>? GroupMembershipClaims
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("group_membership_claims");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("group_membership_claims");
         set => this.WithProperty("group_membership_claims", value);
     }
 
     /// <summary>
     /// URL of the home page for the application
     /// </summary>
-    public TerraformLiteralProperty<string>? HomepageUrl
+    public TerraformProperty<string>? HomepageUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("homepage_url");
+        get => GetProperty<TerraformProperty<string>>("homepage_url");
         set => this.WithProperty("homepage_url", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Whether this application can request an access token using OAuth implicit flow
     /// </summary>
-    public TerraformLiteralProperty<bool>? ImplicitAccessTokenIssuanceEnabled
+    public TerraformProperty<bool>? ImplicitAccessTokenIssuanceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("implicit_access_token_issuance_enabled");
+        get => GetProperty<TerraformProperty<bool>>("implicit_access_token_issuance_enabled");
         set => this.WithProperty("implicit_access_token_issuance_enabled", value);
     }
 
     /// <summary>
     /// Whether this application can request an ID token using OAuth implicit flow
     /// </summary>
-    public TerraformLiteralProperty<bool>? ImplicitIdTokenIssuanceEnabled
+    public TerraformProperty<bool>? ImplicitIdTokenIssuanceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("implicit_id_token_issuance_enabled");
+        get => GetProperty<TerraformProperty<bool>>("implicit_id_token_issuance_enabled");
         set => this.WithProperty("implicit_id_token_issuance_enabled", value);
     }
 
     /// <summary>
     /// URL of the logout page for the application, where the session is cleared for single sign-out
     /// </summary>
-    public TerraformLiteralProperty<string>? LogoutUrl
+    public TerraformProperty<string>? LogoutUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logout_url");
+        get => GetProperty<TerraformProperty<string>>("logout_url");
         set => this.WithProperty("logout_url", value);
     }
 
     /// <summary>
     /// URL of the marketing page for the application
     /// </summary>
-    public TerraformLiteralProperty<string>? MarketingUrl
+    public TerraformProperty<string>? MarketingUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("marketing_url");
+        get => GetProperty<TerraformProperty<string>>("marketing_url");
         set => this.WithProperty("marketing_url", value);
     }
 
     /// <summary>
     /// User-specified notes relevant for the management of the application
     /// </summary>
-    public TerraformLiteralProperty<string>? Notes
+    public TerraformProperty<string>? Notes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notes");
+        get => GetProperty<TerraformProperty<string>>("notes");
         set => this.WithProperty("notes", value);
     }
 
     /// <summary>
     /// URL of the privacy statement for the application
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivacyStatementUrl
+    public TerraformProperty<string>? PrivacyStatementUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("privacy_statement_url");
+        get => GetProperty<TerraformProperty<string>>("privacy_statement_url");
         set => this.WithProperty("privacy_statement_url", value);
     }
 
     /// <summary>
     /// The access token version expected by this resource
     /// </summary>
-    public TerraformLiteralProperty<double>? RequestedAccessTokenVersion
+    public TerraformProperty<double>? RequestedAccessTokenVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("requested_access_token_version");
+        get => GetProperty<TerraformProperty<double>>("requested_access_token_version");
         set => this.WithProperty("requested_access_token_version", value);
     }
 
     /// <summary>
     /// References application or contact information from a service or asset management database
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceManagementReference
+    public TerraformProperty<string>? ServiceManagementReference
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_management_reference");
+        get => GetProperty<TerraformProperty<string>>("service_management_reference");
         set => this.WithProperty("service_management_reference", value);
     }
 
     /// <summary>
     /// The Microsoft account types that are supported for the current application
     /// </summary>
-    public TerraformLiteralProperty<string>? SignInAudience
+    public TerraformProperty<string>? SignInAudience
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sign_in_audience");
+        get => GetProperty<TerraformProperty<string>>("sign_in_audience");
         set => this.WithProperty("sign_in_audience", value);
     }
 
     /// <summary>
     /// URL of the support page for the application
     /// </summary>
-    public TerraformLiteralProperty<string>? SupportUrl
+    public TerraformProperty<string>? SupportUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("support_url");
+        get => GetProperty<TerraformProperty<string>>("support_url");
         set => this.WithProperty("support_url", value);
     }
 
     /// <summary>
     /// URL of the terms of service statement for the application
     /// </summary>
-    public TerraformLiteralProperty<string>? TermsOfServiceUrl
+    public TerraformProperty<string>? TermsOfServiceUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("terms_of_service_url");
+        get => GetProperty<TerraformProperty<string>>("terms_of_service_url");
         set => this.WithProperty("terms_of_service_url", value);
     }
 

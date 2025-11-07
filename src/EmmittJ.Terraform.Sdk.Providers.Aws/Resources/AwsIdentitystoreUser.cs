@@ -21,108 +21,108 @@ public class AwsIdentitystoreUser : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityStoreId
+    public TerraformProperty<string>? IdentityStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_store_id");
+        get => GetProperty<TerraformProperty<string>>("identity_store_id");
         set => this.WithProperty("identity_store_id", value);
     }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Locale
+    public TerraformProperty<string>? Locale
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("locale");
+        get => GetProperty<TerraformProperty<string>>("locale");
         set => this.WithProperty("locale", value);
     }
 
     /// <summary>
     /// The nickname attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Nickname
+    public TerraformProperty<string>? Nickname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nickname");
+        get => GetProperty<TerraformProperty<string>>("nickname");
         set => this.WithProperty("nickname", value);
     }
 
     /// <summary>
     /// The preferred_language attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PreferredLanguage
+    public TerraformProperty<string>? PreferredLanguage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_language");
+        get => GetProperty<TerraformProperty<string>>("preferred_language");
         set => this.WithProperty("preferred_language", value);
     }
 
     /// <summary>
     /// The profile_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProfileUrl
+    public TerraformProperty<string>? ProfileUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile_url");
+        get => GetProperty<TerraformProperty<string>>("profile_url");
         set => this.WithProperty("profile_url", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The timezone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Timezone
+    public TerraformProperty<string>? Timezone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timezone");
+        get => GetProperty<TerraformProperty<string>>("timezone");
         set => this.WithProperty("timezone", value);
     }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Title
+    public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 
     /// <summary>
     /// The user_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserType
+    public TerraformProperty<string>? UserType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_type");
+        get => GetProperty<TerraformProperty<string>>("user_type");
         set => this.WithProperty("user_type", value);
     }
 

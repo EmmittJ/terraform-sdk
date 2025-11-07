@@ -21,9 +21,9 @@ public class GoogleDataCatalogTaxonomy : TerraformResource
     /// A list of policy types that are activated for this taxonomy. If not set,
     /// defaults to an empty list. Possible values: [&amp;quot;POLICY_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FINE_GRAINED_ACCESS_CONTROL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ActivatedPolicyTypes
+    public TerraformProperty<List<string>>? ActivatedPolicyTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("activated_policy_types");
+        get => GetProperty<TerraformProperty<List<string>>>("activated_policy_types");
         set => this.WithProperty("activated_policy_types", value);
     }
 
@@ -32,9 +32,9 @@ public class GoogleDataCatalogTaxonomy : TerraformResource
     /// tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
     /// long when encoded in UTF-8. If not set, defaults to an empty description.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -45,36 +45,36 @@ public class GoogleDataCatalogTaxonomy : TerraformResource
     /// and spaces; not start or end with spaces; and be at most 200 bytes
     /// long when encoded in UTF-8.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Taxonomy location region.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

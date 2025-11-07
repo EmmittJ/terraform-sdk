@@ -19,27 +19,27 @@ public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
     /// <summary>
     /// Human friendly display name.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -48,27 +48,27 @@ public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
     /// hyphens, underscores or periods. The part after &#39;saml.&#39; must also start with a lowercase letter, end with an
     /// alphanumeric character, and have at least 2 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the tenant where this inbound SAML config resource exists
     /// </summary>
-    public TerraformLiteralProperty<string>? Tenant
+    public TerraformProperty<string>? Tenant
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant");
+        get => GetProperty<TerraformProperty<string>>("tenant");
         set => this.WithProperty("tenant", value);
     }
 

@@ -19,45 +19,45 @@ public class GoogleStorageObjectAcl : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Object
+    public TerraformProperty<string>? Object
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object");
+        get => GetProperty<TerraformProperty<string>>("object");
         set => this.WithProperty("object", value);
     }
 
     /// <summary>
     /// The predefined_acl attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PredefinedAcl
+    public TerraformProperty<string>? PredefinedAcl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("predefined_acl");
+        get => GetProperty<TerraformProperty<string>>("predefined_acl");
         set => this.WithProperty("predefined_acl", value);
     }
 
     /// <summary>
     /// The role_entity attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? RoleEntity
+    public TerraformProperty<HashSet<string>>? RoleEntity
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_entity");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("role_entity");
         set => this.WithProperty("role_entity", value);
     }
 

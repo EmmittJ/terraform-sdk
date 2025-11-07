@@ -20,90 +20,90 @@ public class AwsRolesanywhereProfile : TerraformResource
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DurationSeconds
+    public TerraformProperty<double>? DurationSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_seconds");
+        get => GetProperty<TerraformProperty<double>>("duration_seconds");
         set => this.WithProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_policy_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ManagedPolicyArns
+    public TerraformProperty<HashSet<string>>? ManagedPolicyArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("managed_policy_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("managed_policy_arns");
         set => this.WithProperty("managed_policy_arns", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The require_instance_properties attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequireInstanceProperties
+    public TerraformProperty<bool>? RequireInstanceProperties
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("require_instance_properties");
+        get => GetProperty<TerraformProperty<bool>>("require_instance_properties");
         set => this.WithProperty("require_instance_properties", value);
     }
 
     /// <summary>
     /// The role_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? RoleArns
+    public TerraformProperty<HashSet<string>>? RoleArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("role_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("role_arns");
         set => this.WithProperty("role_arns", value);
     }
 
     /// <summary>
     /// The session_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SessionPolicy
+    public TerraformProperty<string>? SessionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("session_policy");
+        get => GetProperty<TerraformProperty<string>>("session_policy");
         set => this.WithProperty("session_policy", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

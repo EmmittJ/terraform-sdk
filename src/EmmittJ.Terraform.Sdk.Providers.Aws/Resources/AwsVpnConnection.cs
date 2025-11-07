@@ -37,504 +37,504 @@ public class AwsVpnConnection : TerraformResource
     /// <summary>
     /// The customer_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerGatewayId
+    public TerraformProperty<string>? CustomerGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("customer_gateway_id");
         set => this.WithProperty("customer_gateway_id", value);
     }
 
     /// <summary>
     /// The enable_acceleration attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableAcceleration
+    public TerraformProperty<bool>? EnableAcceleration
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_acceleration");
+        get => GetProperty<TerraformProperty<bool>>("enable_acceleration");
         set => this.WithProperty("enable_acceleration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_ipv4_network_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocalIpv4NetworkCidr
+    public TerraformProperty<string>? LocalIpv4NetworkCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("local_ipv4_network_cidr");
+        get => GetProperty<TerraformProperty<string>>("local_ipv4_network_cidr");
         set => this.WithProperty("local_ipv4_network_cidr", value);
     }
 
     /// <summary>
     /// The local_ipv6_network_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocalIpv6NetworkCidr
+    public TerraformProperty<string>? LocalIpv6NetworkCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("local_ipv6_network_cidr");
+        get => GetProperty<TerraformProperty<string>>("local_ipv6_network_cidr");
         set => this.WithProperty("local_ipv6_network_cidr", value);
     }
 
     /// <summary>
     /// The outside_ip_address_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OutsideIpAddressType
+    public TerraformProperty<string>? OutsideIpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("outside_ip_address_type");
+        get => GetProperty<TerraformProperty<string>>("outside_ip_address_type");
         set => this.WithProperty("outside_ip_address_type", value);
     }
 
     /// <summary>
     /// The preshared_key_storage attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PresharedKeyStorage
+    public TerraformProperty<string>? PresharedKeyStorage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preshared_key_storage");
+        get => GetProperty<TerraformProperty<string>>("preshared_key_storage");
         set => this.WithProperty("preshared_key_storage", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The remote_ipv4_network_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RemoteIpv4NetworkCidr
+    public TerraformProperty<string>? RemoteIpv4NetworkCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_ipv4_network_cidr");
+        get => GetProperty<TerraformProperty<string>>("remote_ipv4_network_cidr");
         set => this.WithProperty("remote_ipv4_network_cidr", value);
     }
 
     /// <summary>
     /// The remote_ipv6_network_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RemoteIpv6NetworkCidr
+    public TerraformProperty<string>? RemoteIpv6NetworkCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_ipv6_network_cidr");
+        get => GetProperty<TerraformProperty<string>>("remote_ipv6_network_cidr");
         set => this.WithProperty("remote_ipv6_network_cidr", value);
     }
 
     /// <summary>
     /// The static_routes_only attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? StaticRoutesOnly
+    public TerraformProperty<bool>? StaticRoutesOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("static_routes_only");
+        get => GetProperty<TerraformProperty<bool>>("static_routes_only");
         set => this.WithProperty("static_routes_only", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayId
+    public TerraformProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 
     /// <summary>
     /// The transport_transit_gateway_attachment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransportTransitGatewayAttachmentId
+    public TerraformProperty<string>? TransportTransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transport_transit_gateway_attachment_id");
+        get => GetProperty<TerraformProperty<string>>("transport_transit_gateway_attachment_id");
         set => this.WithProperty("transport_transit_gateway_attachment_id", value);
     }
 
     /// <summary>
     /// The tunnel1_dpd_timeout_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel1DpdTimeoutAction
+    public TerraformProperty<string>? Tunnel1DpdTimeoutAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel1_dpd_timeout_action");
+        get => GetProperty<TerraformProperty<string>>("tunnel1_dpd_timeout_action");
         set => this.WithProperty("tunnel1_dpd_timeout_action", value);
     }
 
     /// <summary>
     /// The tunnel1_dpd_timeout_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel1DpdTimeoutSeconds
+    public TerraformProperty<double>? Tunnel1DpdTimeoutSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel1_dpd_timeout_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel1_dpd_timeout_seconds");
         set => this.WithProperty("tunnel1_dpd_timeout_seconds", value);
     }
 
     /// <summary>
     /// The tunnel1_enable_tunnel_lifecycle_control attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Tunnel1EnableTunnelLifecycleControl
+    public TerraformProperty<bool>? Tunnel1EnableTunnelLifecycleControl
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tunnel1_enable_tunnel_lifecycle_control");
+        get => GetProperty<TerraformProperty<bool>>("tunnel1_enable_tunnel_lifecycle_control");
         set => this.WithProperty("tunnel1_enable_tunnel_lifecycle_control", value);
     }
 
     /// <summary>
     /// The tunnel1_ike_versions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel1IkeVersions
+    public TerraformProperty<HashSet<string>>? Tunnel1IkeVersions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel1_ike_versions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_ike_versions");
         set => this.WithProperty("tunnel1_ike_versions", value);
     }
 
     /// <summary>
     /// The tunnel1_inside_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel1InsideCidr
+    public TerraformProperty<string>? Tunnel1InsideCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel1_inside_cidr");
+        get => GetProperty<TerraformProperty<string>>("tunnel1_inside_cidr");
         set => this.WithProperty("tunnel1_inside_cidr", value);
     }
 
     /// <summary>
     /// The tunnel1_inside_ipv6_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel1InsideIpv6Cidr
+    public TerraformProperty<string>? Tunnel1InsideIpv6Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel1_inside_ipv6_cidr");
+        get => GetProperty<TerraformProperty<string>>("tunnel1_inside_ipv6_cidr");
         set => this.WithProperty("tunnel1_inside_ipv6_cidr", value);
     }
 
     /// <summary>
     /// The tunnel1_phase1_dh_group_numbers attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<double>>? Tunnel1Phase1DhGroupNumbers
+    public TerraformProperty<HashSet<double>>? Tunnel1Phase1DhGroupNumbers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("tunnel1_phase1_dh_group_numbers");
+        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel1_phase1_dh_group_numbers");
         set => this.WithProperty("tunnel1_phase1_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel1_phase1_encryption_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel1Phase1EncryptionAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel1Phase1EncryptionAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel1_phase1_encryption_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase1_encryption_algorithms");
         set => this.WithProperty("tunnel1_phase1_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel1_phase1_integrity_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel1Phase1IntegrityAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel1Phase1IntegrityAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel1_phase1_integrity_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase1_integrity_algorithms");
         set => this.WithProperty("tunnel1_phase1_integrity_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel1_phase1_lifetime_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel1Phase1LifetimeSeconds
+    public TerraformProperty<double>? Tunnel1Phase1LifetimeSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel1_phase1_lifetime_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel1_phase1_lifetime_seconds");
         set => this.WithProperty("tunnel1_phase1_lifetime_seconds", value);
     }
 
     /// <summary>
     /// The tunnel1_phase2_dh_group_numbers attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<double>>? Tunnel1Phase2DhGroupNumbers
+    public TerraformProperty<HashSet<double>>? Tunnel1Phase2DhGroupNumbers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("tunnel1_phase2_dh_group_numbers");
+        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel1_phase2_dh_group_numbers");
         set => this.WithProperty("tunnel1_phase2_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel1_phase2_encryption_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel1Phase2EncryptionAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel1Phase2EncryptionAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel1_phase2_encryption_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase2_encryption_algorithms");
         set => this.WithProperty("tunnel1_phase2_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel1_phase2_integrity_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel1Phase2IntegrityAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel1Phase2IntegrityAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel1_phase2_integrity_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel1_phase2_integrity_algorithms");
         set => this.WithProperty("tunnel1_phase2_integrity_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel1_phase2_lifetime_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel1Phase2LifetimeSeconds
+    public TerraformProperty<double>? Tunnel1Phase2LifetimeSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel1_phase2_lifetime_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel1_phase2_lifetime_seconds");
         set => this.WithProperty("tunnel1_phase2_lifetime_seconds", value);
     }
 
     /// <summary>
     /// The tunnel1_preshared_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel1PresharedKey
+    public TerraformProperty<string>? Tunnel1PresharedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel1_preshared_key");
+        get => GetProperty<TerraformProperty<string>>("tunnel1_preshared_key");
         set => this.WithProperty("tunnel1_preshared_key", value);
     }
 
     /// <summary>
     /// The tunnel1_rekey_fuzz_percentage attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel1RekeyFuzzPercentage
+    public TerraformProperty<double>? Tunnel1RekeyFuzzPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel1_rekey_fuzz_percentage");
+        get => GetProperty<TerraformProperty<double>>("tunnel1_rekey_fuzz_percentage");
         set => this.WithProperty("tunnel1_rekey_fuzz_percentage", value);
     }
 
     /// <summary>
     /// The tunnel1_rekey_margin_time_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel1RekeyMarginTimeSeconds
+    public TerraformProperty<double>? Tunnel1RekeyMarginTimeSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel1_rekey_margin_time_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel1_rekey_margin_time_seconds");
         set => this.WithProperty("tunnel1_rekey_margin_time_seconds", value);
     }
 
     /// <summary>
     /// The tunnel1_replay_window_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel1ReplayWindowSize
+    public TerraformProperty<double>? Tunnel1ReplayWindowSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel1_replay_window_size");
+        get => GetProperty<TerraformProperty<double>>("tunnel1_replay_window_size");
         set => this.WithProperty("tunnel1_replay_window_size", value);
     }
 
     /// <summary>
     /// The tunnel1_startup_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel1StartupAction
+    public TerraformProperty<string>? Tunnel1StartupAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel1_startup_action");
+        get => GetProperty<TerraformProperty<string>>("tunnel1_startup_action");
         set => this.WithProperty("tunnel1_startup_action", value);
     }
 
     /// <summary>
     /// The tunnel2_dpd_timeout_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel2DpdTimeoutAction
+    public TerraformProperty<string>? Tunnel2DpdTimeoutAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel2_dpd_timeout_action");
+        get => GetProperty<TerraformProperty<string>>("tunnel2_dpd_timeout_action");
         set => this.WithProperty("tunnel2_dpd_timeout_action", value);
     }
 
     /// <summary>
     /// The tunnel2_dpd_timeout_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel2DpdTimeoutSeconds
+    public TerraformProperty<double>? Tunnel2DpdTimeoutSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel2_dpd_timeout_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel2_dpd_timeout_seconds");
         set => this.WithProperty("tunnel2_dpd_timeout_seconds", value);
     }
 
     /// <summary>
     /// The tunnel2_enable_tunnel_lifecycle_control attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Tunnel2EnableTunnelLifecycleControl
+    public TerraformProperty<bool>? Tunnel2EnableTunnelLifecycleControl
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tunnel2_enable_tunnel_lifecycle_control");
+        get => GetProperty<TerraformProperty<bool>>("tunnel2_enable_tunnel_lifecycle_control");
         set => this.WithProperty("tunnel2_enable_tunnel_lifecycle_control", value);
     }
 
     /// <summary>
     /// The tunnel2_ike_versions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel2IkeVersions
+    public TerraformProperty<HashSet<string>>? Tunnel2IkeVersions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel2_ike_versions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_ike_versions");
         set => this.WithProperty("tunnel2_ike_versions", value);
     }
 
     /// <summary>
     /// The tunnel2_inside_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel2InsideCidr
+    public TerraformProperty<string>? Tunnel2InsideCidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel2_inside_cidr");
+        get => GetProperty<TerraformProperty<string>>("tunnel2_inside_cidr");
         set => this.WithProperty("tunnel2_inside_cidr", value);
     }
 
     /// <summary>
     /// The tunnel2_inside_ipv6_cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel2InsideIpv6Cidr
+    public TerraformProperty<string>? Tunnel2InsideIpv6Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel2_inside_ipv6_cidr");
+        get => GetProperty<TerraformProperty<string>>("tunnel2_inside_ipv6_cidr");
         set => this.WithProperty("tunnel2_inside_ipv6_cidr", value);
     }
 
     /// <summary>
     /// The tunnel2_phase1_dh_group_numbers attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<double>>? Tunnel2Phase1DhGroupNumbers
+    public TerraformProperty<HashSet<double>>? Tunnel2Phase1DhGroupNumbers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("tunnel2_phase1_dh_group_numbers");
+        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel2_phase1_dh_group_numbers");
         set => this.WithProperty("tunnel2_phase1_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel2_phase1_encryption_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel2Phase1EncryptionAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel2Phase1EncryptionAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel2_phase1_encryption_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase1_encryption_algorithms");
         set => this.WithProperty("tunnel2_phase1_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel2_phase1_integrity_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel2Phase1IntegrityAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel2Phase1IntegrityAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel2_phase1_integrity_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase1_integrity_algorithms");
         set => this.WithProperty("tunnel2_phase1_integrity_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel2_phase1_lifetime_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel2Phase1LifetimeSeconds
+    public TerraformProperty<double>? Tunnel2Phase1LifetimeSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel2_phase1_lifetime_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel2_phase1_lifetime_seconds");
         set => this.WithProperty("tunnel2_phase1_lifetime_seconds", value);
     }
 
     /// <summary>
     /// The tunnel2_phase2_dh_group_numbers attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<double>>? Tunnel2Phase2DhGroupNumbers
+    public TerraformProperty<HashSet<double>>? Tunnel2Phase2DhGroupNumbers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<double>>>("tunnel2_phase2_dh_group_numbers");
+        get => GetProperty<TerraformProperty<HashSet<double>>>("tunnel2_phase2_dh_group_numbers");
         set => this.WithProperty("tunnel2_phase2_dh_group_numbers", value);
     }
 
     /// <summary>
     /// The tunnel2_phase2_encryption_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel2Phase2EncryptionAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel2Phase2EncryptionAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel2_phase2_encryption_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase2_encryption_algorithms");
         set => this.WithProperty("tunnel2_phase2_encryption_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel2_phase2_integrity_algorithms attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tunnel2Phase2IntegrityAlgorithms
+    public TerraformProperty<HashSet<string>>? Tunnel2Phase2IntegrityAlgorithms
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tunnel2_phase2_integrity_algorithms");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tunnel2_phase2_integrity_algorithms");
         set => this.WithProperty("tunnel2_phase2_integrity_algorithms", value);
     }
 
     /// <summary>
     /// The tunnel2_phase2_lifetime_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel2Phase2LifetimeSeconds
+    public TerraformProperty<double>? Tunnel2Phase2LifetimeSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel2_phase2_lifetime_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel2_phase2_lifetime_seconds");
         set => this.WithProperty("tunnel2_phase2_lifetime_seconds", value);
     }
 
     /// <summary>
     /// The tunnel2_preshared_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel2PresharedKey
+    public TerraformProperty<string>? Tunnel2PresharedKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel2_preshared_key");
+        get => GetProperty<TerraformProperty<string>>("tunnel2_preshared_key");
         set => this.WithProperty("tunnel2_preshared_key", value);
     }
 
     /// <summary>
     /// The tunnel2_rekey_fuzz_percentage attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel2RekeyFuzzPercentage
+    public TerraformProperty<double>? Tunnel2RekeyFuzzPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel2_rekey_fuzz_percentage");
+        get => GetProperty<TerraformProperty<double>>("tunnel2_rekey_fuzz_percentage");
         set => this.WithProperty("tunnel2_rekey_fuzz_percentage", value);
     }
 
     /// <summary>
     /// The tunnel2_rekey_margin_time_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel2RekeyMarginTimeSeconds
+    public TerraformProperty<double>? Tunnel2RekeyMarginTimeSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel2_rekey_margin_time_seconds");
+        get => GetProperty<TerraformProperty<double>>("tunnel2_rekey_margin_time_seconds");
         set => this.WithProperty("tunnel2_rekey_margin_time_seconds", value);
     }
 
     /// <summary>
     /// The tunnel2_replay_window_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Tunnel2ReplayWindowSize
+    public TerraformProperty<double>? Tunnel2ReplayWindowSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("tunnel2_replay_window_size");
+        get => GetProperty<TerraformProperty<double>>("tunnel2_replay_window_size");
         set => this.WithProperty("tunnel2_replay_window_size", value);
     }
 
     /// <summary>
     /// The tunnel2_startup_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tunnel2StartupAction
+    public TerraformProperty<string>? Tunnel2StartupAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel2_startup_action");
+        get => GetProperty<TerraformProperty<string>>("tunnel2_startup_action");
         set => this.WithProperty("tunnel2_startup_action", value);
     }
 
     /// <summary>
     /// The tunnel_inside_ip_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TunnelInsideIpVersion
+    public TerraformProperty<string>? TunnelInsideIpVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tunnel_inside_ip_version");
+        get => GetProperty<TerraformProperty<string>>("tunnel_inside_ip_version");
         set => this.WithProperty("tunnel_inside_ip_version", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The vpn_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpnGatewayId
+    public TerraformProperty<string>? VpnGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("vpn_gateway_id");
         set => this.WithProperty("vpn_gateway_id", value);
     }
 

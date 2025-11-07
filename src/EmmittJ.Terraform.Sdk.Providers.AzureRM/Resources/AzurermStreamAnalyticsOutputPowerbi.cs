@@ -19,81 +19,81 @@ public class AzurermStreamAnalyticsOutputPowerbi : TerraformResource
     /// <summary>
     /// The dataset attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Dataset
+    public TerraformProperty<string>? Dataset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset");
+        get => GetProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
     }
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupId
+    public TerraformProperty<string>? GroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_id");
+        get => GetProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
     }
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupName
+    public TerraformProperty<string>? GroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_name");
+        get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsJobId
+    public TerraformProperty<string>? StreamAnalyticsJobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_id");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_id");
         set => this.WithProperty("stream_analytics_job_id", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Table
+    public TerraformProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 
     /// <summary>
     /// The token_user_display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TokenUserDisplayName
+    public TerraformProperty<string>? TokenUserDisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_user_display_name");
+        get => GetProperty<TerraformProperty<string>>("token_user_display_name");
         set => this.WithProperty("token_user_display_name", value);
     }
 
     /// <summary>
     /// The token_user_principal_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TokenUserPrincipalName
+    public TerraformProperty<string>? TokenUserPrincipalName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_user_principal_name");
+        get => GetProperty<TerraformProperty<string>>("token_user_principal_name");
         set => this.WithProperty("token_user_principal_name", value);
     }
 

@@ -27,18 +27,18 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -47,9 +47,9 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// peer VPN gateway.
     /// Acceptable IKE versions are 1 or 2. Default version is 2.
     /// </summary>
-    public TerraformLiteralProperty<double>? IkeVersion
+    public TerraformProperty<double>? IkeVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ike_version");
+        get => GetProperty<TerraformProperty<double>>("ike_version");
         set => this.WithProperty("ike_version", value);
     }
 
@@ -59,9 +59,9 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -71,9 +71,9 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// for example &#39;192.168.0.0/16&#39;. The ranges should be disjoint.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? LocalTrafficSelector
+    public TerraformProperty<HashSet<string>>? LocalTrafficSelector
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("local_traffic_selector");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("local_traffic_selector");
         set => this.WithProperty("local_traffic_selector", value);
     }
 
@@ -86,27 +86,27 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// URL of the peer side external VPN gateway to which this VPN tunnel is connected.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerExternalGateway
+    public TerraformProperty<string>? PeerExternalGateway
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_external_gateway");
+        get => GetProperty<TerraformProperty<string>>("peer_external_gateway");
         set => this.WithProperty("peer_external_gateway", value);
     }
 
     /// <summary>
     /// The interface ID of the external VPN gateway to which this VPN tunnel is connected.
     /// </summary>
-    public TerraformLiteralProperty<double>? PeerExternalGatewayInterface
+    public TerraformProperty<double>? PeerExternalGatewayInterface
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("peer_external_gateway_interface");
+        get => GetProperty<TerraformProperty<double>>("peer_external_gateway_interface");
         set => this.WithProperty("peer_external_gateway_interface", value);
     }
 
@@ -116,36 +116,36 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// ID in the peer GCP VPN gateway.
     /// This field must reference a &#39;google_compute_ha_vpn_gateway&#39; resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerGcpGateway
+    public TerraformProperty<string>? PeerGcpGateway
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_gcp_gateway");
+        get => GetProperty<TerraformProperty<string>>("peer_gcp_gateway");
         set => this.WithProperty("peer_gcp_gateway", value);
     }
 
     /// <summary>
     /// IP address of the peer VPN gateway. Only IPv4 is supported.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerIp
+    public TerraformProperty<string>? PeerIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_ip");
+        get => GetProperty<TerraformProperty<string>>("peer_ip");
         set => this.WithProperty("peer_ip", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The region where the tunnel is located. If unset, is set to the region of &#39;target_vpn_gateway&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -155,18 +155,18 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// for example &#39;192.168.0.0/16&#39;. The ranges should be disjoint.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? RemoteTrafficSelector
+    public TerraformProperty<HashSet<string>>? RemoteTrafficSelector
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("remote_traffic_selector");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("remote_traffic_selector");
         set => this.WithProperty("remote_traffic_selector", value);
     }
 
     /// <summary>
     /// URL of router resource to be used for dynamic routing.
     /// </summary>
-    public TerraformLiteralProperty<string>? Router
+    public TerraformProperty<string>? Router
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("router");
+        get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 
@@ -174,9 +174,9 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// Shared secret used to set the secure session between the Cloud VPN
     /// gateway and the peer VPN gateway.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedSecret
+    public TerraformProperty<string>? SharedSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_secret");
+        get => GetProperty<TerraformProperty<string>>("shared_secret");
         set => this.WithProperty("shared_secret", value);
     }
 
@@ -185,18 +185,18 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// gateway and the peer VPN gateway.
     ///  Note: This property is write-only and will not be read from the API. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedSecretWo
+    public TerraformProperty<string>? SharedSecretWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_secret_wo");
+        get => GetProperty<TerraformProperty<string>>("shared_secret_wo");
         set => this.WithProperty("shared_secret_wo", value);
     }
 
     /// <summary>
     /// Triggers update of shared_secret_wo write-only. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedSecretWoVersion
+    public TerraformProperty<string>? SharedSecretWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_secret_wo_version");
+        get => GetProperty<TerraformProperty<string>>("shared_secret_wo_version");
         set => this.WithProperty("shared_secret_wo_version", value);
     }
 
@@ -204,9 +204,9 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// URL of the Target VPN gateway with which this VPN tunnel is
     /// associated.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetVpnGateway
+    public TerraformProperty<string>? TargetVpnGateway
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_vpn_gateway");
+        get => GetProperty<TerraformProperty<string>>("target_vpn_gateway");
         set => this.WithProperty("target_vpn_gateway", value);
     }
 
@@ -215,18 +215,18 @@ public class GoogleComputeVpnTunnel : TerraformResource
     /// This must be used if a High Availability VPN gateway resource is created.
     /// This field must reference a &#39;google_compute_ha_vpn_gateway&#39; resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpnGateway
+    public TerraformProperty<string>? VpnGateway
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpn_gateway");
+        get => GetProperty<TerraformProperty<string>>("vpn_gateway");
         set => this.WithProperty("vpn_gateway", value);
     }
 
     /// <summary>
     /// The interface ID of the VPN gateway with which this VPN tunnel is associated.
     /// </summary>
-    public TerraformLiteralProperty<double>? VpnGatewayInterface
+    public TerraformProperty<double>? VpnGatewayInterface
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("vpn_gateway_interface");
+        get => GetProperty<TerraformProperty<double>>("vpn_gateway_interface");
         set => this.WithProperty("vpn_gateway_interface", value);
     }
 

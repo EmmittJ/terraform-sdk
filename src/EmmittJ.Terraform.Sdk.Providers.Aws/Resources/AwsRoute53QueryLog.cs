@@ -20,27 +20,27 @@ public class AwsRoute53QueryLog : TerraformResource
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudwatchLogGroupArn
+    public TerraformProperty<string>? CloudwatchLogGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_log_group_arn");
+        get => GetProperty<TerraformProperty<string>>("cloudwatch_log_group_arn");
         set => this.WithProperty("cloudwatch_log_group_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ZoneId
+    public TerraformProperty<string>? ZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone_id");
+        get => GetProperty<TerraformProperty<string>>("zone_id");
         set => this.WithProperty("zone_id", value);
     }
 

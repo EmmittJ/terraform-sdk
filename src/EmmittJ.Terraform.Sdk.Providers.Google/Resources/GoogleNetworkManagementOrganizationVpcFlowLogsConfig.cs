@@ -25,9 +25,9 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// Optional. The aggregation interval for the logs. Default value is
     /// INTERVAL_5_SEC.   Possible values: INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
     /// </summary>
-    public TerraformLiteralProperty<string>? AggregationInterval
+    public TerraformProperty<string>? AggregationInterval
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aggregation_interval");
+        get => GetProperty<TerraformProperty<string>>("aggregation_interval");
         set => this.WithProperty("aggregation_interval", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// CROSS_PROJECT_METADATA_ENABLED
     /// CROSS_PROJECT_METADATA_DISABLED Possible values: [&amp;quot;CROSS_PROJECT_METADATA_ENABLED&amp;quot;, &amp;quot;CROSS_PROJECT_METADATA_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? CrossProjectMetadata
+    public TerraformProperty<string>? CrossProjectMetadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cross_project_metadata");
+        get => GetProperty<TerraformProperty<string>>("cross_project_metadata");
         set => this.WithProperty("cross_project_metadata", value);
     }
 
@@ -49,18 +49,18 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
     /// of 512 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Optional. Export filter used to define which VPC Flow Logs should be logged.
     /// </summary>
-    public TerraformLiteralProperty<string>? FilterExpr
+    public TerraformProperty<string>? FilterExpr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_expr");
+        get => GetProperty<TerraformProperty<string>>("filter_expr");
         set => this.WithProperty("filter_expr", value);
     }
 
@@ -70,18 +70,18 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
     /// the state field instead. Default value is 1.0
     /// </summary>
-    public TerraformLiteralProperty<double>? FlowSampling
+    public TerraformProperty<double>? FlowSampling
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("flow_sampling");
+        get => GetProperty<TerraformProperty<double>>("flow_sampling");
         set => this.WithProperty("flow_sampling", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -92,9 +92,9 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -103,9 +103,9 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// within its parent collection as described in https://google.aip.dev/122. See documentation
     /// for resource type &#39;networkmanagement.googleapis.com/VpcFlowLogsConfig&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -114,9 +114,9 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
     ///   Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
     /// </summary>
-    public TerraformLiteralProperty<string>? Metadata
+    public TerraformProperty<string>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata");
+        get => GetProperty<TerraformProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
@@ -124,18 +124,18 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// Optional. Custom metadata fields to include in the reported VPC flow
     /// logs. Can only be specified if \&amp;quot;metadata\&amp;quot; was set to CUSTOM_METADATA.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? MetadataFields
+    public TerraformProperty<List<string>>? MetadataFields
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("metadata_fields");
+        get => GetProperty<TerraformProperty<List<string>>>("metadata_fields");
         set => this.WithProperty("metadata_fields", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Organization
+    public TerraformProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
@@ -144,18 +144,18 @@ public class GoogleNetworkManagementOrganizationVpcFlowLogsConfig : TerraformRes
     /// is ENABLED. When creating a new configuration, it must be enabled.
     /// Possible values: ENABLED DISABLED
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// Required. ID of the &#39;VpcFlowLogsConfig&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcFlowLogsConfigId
+    public TerraformProperty<string>? VpcFlowLogsConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_flow_logs_config_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_flow_logs_config_id");
         set => this.WithProperty("vpc_flow_logs_config_id", value);
     }
 

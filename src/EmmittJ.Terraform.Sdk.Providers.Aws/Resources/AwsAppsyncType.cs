@@ -22,45 +22,45 @@ public class AwsAppsyncType : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiId
+    public TerraformProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The definition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Definition
+    public TerraformProperty<string>? Definition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("definition");
+        get => GetProperty<TerraformProperty<string>>("definition");
         set => this.WithProperty("definition", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Format
+    public TerraformProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        get => GetProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -24,9 +24,9 @@ public class AwsProvider : TerraformProvider
     /// from the &#39;Security &amp;amp; Credentials&#39; section of the AWS console.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessKey
+    public TerraformProperty<string>? AccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_key");
+        get => GetProperty<TerraformProperty<string>>("access_key");
         set => this.WithProperty("access_key", value);
     }
 
@@ -34,9 +34,9 @@ public class AwsProvider : TerraformProvider
     /// The allowed_account_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AllowedAccountIds
+    public TerraformProperty<HashSet<string>>? AllowedAccountIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_account_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_account_ids");
         set => this.WithProperty("allowed_account_ids", value);
     }
 
@@ -44,9 +44,9 @@ public class AwsProvider : TerraformProvider
     /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment variable. (Setting `ca_bundle` in the shared config file is not supported.)
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomCaBundle
+    public TerraformProperty<string>? CustomCaBundle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_ca_bundle");
+        get => GetProperty<TerraformProperty<string>>("custom_ca_bundle");
         set => this.WithProperty("custom_ca_bundle", value);
     }
 
@@ -54,9 +54,9 @@ public class AwsProvider : TerraformProvider
     /// Address of the EC2 metadata service endpoint to use. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? Ec2MetadataServiceEndpoint
+    public TerraformProperty<string>? Ec2MetadataServiceEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ec2_metadata_service_endpoint");
+        get => GetProperty<TerraformProperty<string>>("ec2_metadata_service_endpoint");
         set => this.WithProperty("ec2_metadata_service_endpoint", value);
     }
 
@@ -64,9 +64,9 @@ public class AwsProvider : TerraformProvider
     /// Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? Ec2MetadataServiceEndpointMode
+    public TerraformProperty<string>? Ec2MetadataServiceEndpointMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ec2_metadata_service_endpoint_mode");
+        get => GetProperty<TerraformProperty<string>>("ec2_metadata_service_endpoint_mode");
         set => this.WithProperty("ec2_metadata_service_endpoint_mode", value);
     }
 
@@ -74,9 +74,9 @@ public class AwsProvider : TerraformProvider
     /// The forbidden_account_ids configuration.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ForbiddenAccountIds
+    public TerraformProperty<HashSet<string>>? ForbiddenAccountIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("forbidden_account_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("forbidden_account_ids");
         set => this.WithProperty("forbidden_account_ids", value);
     }
 
@@ -84,9 +84,9 @@ public class AwsProvider : TerraformProvider
     /// URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpProxy
+    public TerraformProperty<string>? HttpProxy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_proxy");
+        get => GetProperty<TerraformProperty<string>>("http_proxy");
         set => this.WithProperty("http_proxy", value);
     }
 
@@ -94,9 +94,9 @@ public class AwsProvider : TerraformProvider
     /// URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpsProxy
+    public TerraformProperty<string>? HttpsProxy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("https_proxy");
+        get => GetProperty<TerraformProperty<string>>("https_proxy");
         set => this.WithProperty("https_proxy", value);
     }
 
@@ -104,9 +104,9 @@ public class AwsProvider : TerraformProvider
     /// Explicitly allow the provider to perform &amp;quot;insecure&amp;quot; SSL requests. If omitted, default value is `false`
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? Insecure
+    public TerraformProperty<bool>? Insecure
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("insecure");
+        get => GetProperty<TerraformProperty<bool>>("insecure");
         set => this.WithProperty("insecure", value);
     }
 
@@ -116,9 +116,9 @@ public class AwsProvider : TerraformProvider
     /// thrown.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxRetries
+    public TerraformProperty<double>? MaxRetries
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_retries");
+        get => GetProperty<TerraformProperty<double>>("max_retries");
         set => this.WithProperty("max_retries", value);
     }
 
@@ -126,9 +126,9 @@ public class AwsProvider : TerraformProvider
     /// Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or `no_proxy` environment variables.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? NoProxy
+    public TerraformProperty<string>? NoProxy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("no_proxy");
+        get => GetProperty<TerraformProperty<string>>("no_proxy");
         set => this.WithProperty("no_proxy", value);
     }
 
@@ -137,9 +137,9 @@ public class AwsProvider : TerraformProvider
     /// created with `aws configure` will be used.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? Profile
+    public TerraformProperty<string>? Profile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile");
+        get => GetProperty<TerraformProperty<string>>("profile");
         set => this.WithProperty("profile", value);
     }
 
@@ -148,9 +148,9 @@ public class AwsProvider : TerraformProvider
     /// are us-east-1, us-west-2, etc.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -158,9 +158,9 @@ public class AwsProvider : TerraformProvider
     /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the `AWS_RETRY_MODE` environment variable.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? RetryMode
+    public TerraformProperty<string>? RetryMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retry_mode");
+        get => GetProperty<TerraformProperty<string>>("retry_mode");
         set => this.WithProperty("retry_mode", value);
     }
 
@@ -168,9 +168,9 @@ public class AwsProvider : TerraformProvider
     /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? S3UsEast1RegionalEndpoint
+    public TerraformProperty<string>? S3UsEast1RegionalEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_us_east_1_regional_endpoint");
+        get => GetProperty<TerraformProperty<string>>("s3_us_east_1_regional_endpoint");
         set => this.WithProperty("s3_us_east_1_regional_endpoint", value);
     }
 
@@ -181,9 +181,9 @@ public class AwsProvider : TerraformProvider
     /// (https://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? S3UsePathStyle
+    public TerraformProperty<bool>? S3UsePathStyle
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("s3_use_path_style");
+        get => GetProperty<TerraformProperty<bool>>("s3_use_path_style");
         set => this.WithProperty("s3_use_path_style", value);
     }
 
@@ -192,9 +192,9 @@ public class AwsProvider : TerraformProvider
     /// from the &#39;Security &amp;amp; Credentials&#39; section of the AWS console.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? SecretKey
+    public TerraformProperty<string>? SecretKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_key");
+        get => GetProperty<TerraformProperty<string>>("secret_key");
         set => this.WithProperty("secret_key", value);
     }
 
@@ -202,9 +202,9 @@ public class AwsProvider : TerraformProvider
     /// List of paths to shared config files. If not set, defaults to [~/.aws/config].
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SharedConfigFiles
+    public TerraformProperty<List<string>>? SharedConfigFiles
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("shared_config_files");
+        get => GetProperty<TerraformProperty<List<string>>>("shared_config_files");
         set => this.WithProperty("shared_config_files", value);
     }
 
@@ -212,9 +212,9 @@ public class AwsProvider : TerraformProvider
     /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SharedCredentialsFiles
+    public TerraformProperty<List<string>>? SharedCredentialsFiles
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("shared_credentials_files");
+        get => GetProperty<TerraformProperty<List<string>>>("shared_credentials_files");
         set => this.WithProperty("shared_credentials_files", value);
     }
 
@@ -222,9 +222,9 @@ public class AwsProvider : TerraformProvider
     /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipCredentialsValidation
+    public TerraformProperty<bool>? SkipCredentialsValidation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_credentials_validation");
+        get => GetProperty<TerraformProperty<bool>>("skip_credentials_validation");
         set => this.WithProperty("skip_credentials_validation", value);
     }
 
@@ -232,9 +232,9 @@ public class AwsProvider : TerraformProvider
     /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? SkipMetadataApiCheck
+    public TerraformProperty<string>? SkipMetadataApiCheck
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("skip_metadata_api_check");
+        get => GetProperty<TerraformProperty<string>>("skip_metadata_api_check");
         set => this.WithProperty("skip_metadata_api_check", value);
     }
 
@@ -242,9 +242,9 @@ public class AwsProvider : TerraformProvider
     /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipRegionValidation
+    public TerraformProperty<bool>? SkipRegionValidation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_region_validation");
+        get => GetProperty<TerraformProperty<bool>>("skip_region_validation");
         set => this.WithProperty("skip_region_validation", value);
     }
 
@@ -252,9 +252,9 @@ public class AwsProvider : TerraformProvider
     /// Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipRequestingAccountId
+    public TerraformProperty<bool>? SkipRequestingAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_requesting_account_id");
+        get => GetProperty<TerraformProperty<bool>>("skip_requesting_account_id");
         set => this.WithProperty("skip_requesting_account_id", value);
     }
 
@@ -263,9 +263,9 @@ public class AwsProvider : TerraformProvider
     /// are us-east-1 and us-west-2.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? StsRegion
+    public TerraformProperty<string>? StsRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sts_region");
+        get => GetProperty<TerraformProperty<string>>("sts_region");
         set => this.WithProperty("sts_region", value);
     }
 
@@ -274,9 +274,9 @@ public class AwsProvider : TerraformProvider
     /// using temporary security credentials.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<string>? Token
+    public TerraformProperty<string>? Token
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token");
+        get => GetProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
     }
 
@@ -284,9 +284,9 @@ public class AwsProvider : TerraformProvider
     /// The capacity of the AWS SDK&#39;s token bucket rate limiter.
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<double>? TokenBucketRateLimiterCapacity
+    public TerraformProperty<double>? TokenBucketRateLimiterCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("token_bucket_rate_limiter_capacity");
+        get => GetProperty<TerraformProperty<double>>("token_bucket_rate_limiter_capacity");
         set => this.WithProperty("token_bucket_rate_limiter_capacity", value);
     }
 
@@ -294,9 +294,9 @@ public class AwsProvider : TerraformProvider
     /// Resolve an endpoint with DualStack capability
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseDualstackEndpoint
+    public TerraformProperty<bool>? UseDualstackEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_dualstack_endpoint");
+        get => GetProperty<TerraformProperty<bool>>("use_dualstack_endpoint");
         set => this.WithProperty("use_dualstack_endpoint", value);
     }
 
@@ -304,9 +304,9 @@ public class AwsProvider : TerraformProvider
     /// Resolve an endpoint with FIPS capability
     /// (Optional)
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseFipsEndpoint
+    public TerraformProperty<bool>? UseFipsEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_fips_endpoint");
+        get => GetProperty<TerraformProperty<bool>>("use_fips_endpoint");
         set => this.WithProperty("use_fips_endpoint", value);
     }
 }

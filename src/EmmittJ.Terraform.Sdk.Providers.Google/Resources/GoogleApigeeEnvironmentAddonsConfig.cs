@@ -19,9 +19,9 @@ public class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
     /// <summary>
     /// Flag to enable/disable Analytics.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AnalyticsEnabled
+    public TerraformProperty<bool>? AnalyticsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("analytics_enabled");
+        get => GetProperty<TerraformProperty<bool>>("analytics_enabled");
         set => this.WithProperty("analytics_enabled", value);
     }
 
@@ -29,18 +29,18 @@ public class GoogleApigeeEnvironmentAddonsConfig : TerraformResource
     /// The Apigee environment group associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/environments/{{env_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvId
+    public TerraformProperty<string>? EnvId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("env_id");
+        get => GetProperty<TerraformProperty<string>>("env_id");
         set => this.WithProperty("env_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

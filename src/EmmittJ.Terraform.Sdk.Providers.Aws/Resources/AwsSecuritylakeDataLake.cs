@@ -23,27 +23,27 @@ public class AwsSecuritylakeDataLake : TerraformResource
     /// <summary>
     /// The meta_store_manager_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MetaStoreManagerRoleArn
+    public TerraformProperty<string>? MetaStoreManagerRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("meta_store_manager_role_arn");
+        get => GetProperty<TerraformProperty<string>>("meta_store_manager_role_arn");
         set => this.WithProperty("meta_store_manager_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

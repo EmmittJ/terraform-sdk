@@ -22,72 +22,72 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     /// <summary>
     /// Apigee API proxy name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Api
+    public TerraformProperty<string>? Api
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api");
+        get => GetProperty<TerraformProperty<string>>("api");
         set => this.WithProperty("api", value);
     }
 
     /// <summary>
     /// Apigee environment name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Environment
+    public TerraformProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Apigee organization ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// If true, replaces other deployed revisions of this proxy in the environment.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Override
+    public TerraformProperty<bool>? Override
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("override");
+        get => GetProperty<TerraformProperty<bool>>("override");
         set => this.WithProperty("override", value);
     }
 
     /// <summary>
     /// API proxy revision number to deploy.
     /// </summary>
-    public TerraformLiteralProperty<double>? Revision
+    public TerraformProperty<double>? Revision
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("revision");
+        get => GetProperty<TerraformProperty<double>>("revision");
         set => this.WithProperty("revision", value);
     }
 
     /// <summary>
     /// If true, enables sequenced rollout for safe traffic switching.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SequencedRollout
+    public TerraformProperty<bool>? SequencedRollout
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sequenced_rollout");
+        get => GetProperty<TerraformProperty<bool>>("sequenced_rollout");
         set => this.WithProperty("sequenced_rollout", value);
     }
 
     /// <summary>
     /// Optional service account the deployed proxy runs as.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceAccount
+    public TerraformProperty<string>? ServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_account");
+        get => GetProperty<TerraformProperty<string>>("service_account");
         set => this.WithProperty("service_account", value);
     }
 

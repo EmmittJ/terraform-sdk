@@ -19,27 +19,27 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKey : TerraformResou
     /// <summary>
     /// The data_protection_backup_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataProtectionBackupVaultId
+    public TerraformProperty<string>? DataProtectionBackupVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_protection_backup_vault_id");
+        get => GetProperty<TerraformProperty<string>>("data_protection_backup_vault_id");
         set => this.WithProperty("data_protection_backup_vault_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultKeyId
+    public TerraformProperty<string>? KeyVaultKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_key_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_key_id");
         set => this.WithProperty("key_vault_key_id", value);
     }
 

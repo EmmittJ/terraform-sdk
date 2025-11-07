@@ -21,9 +21,9 @@ public class AwsServicequotasTemplatesDataSource : TerraformDataSource
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AwsRegion
+    public TerraformProperty<string>? AwsRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_region");
+        get => GetProperty<TerraformProperty<string>>("aws_region");
         set => this.WithProperty("aws_region", value);
     }
 
@@ -31,9 +31,9 @@ public class AwsServicequotasTemplatesDataSource : TerraformDataSource
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

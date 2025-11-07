@@ -20,36 +20,36 @@ public class GoogleApigeeApiDeployment : TerraformResource
     /// <summary>
     /// The Apigee Environment associated with the Apigee API deployment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Environment
+    public TerraformProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// The Apigee Organization associated with the Apigee API deployment.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// The Apigee API associated with the Apigee API deployment.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProxyId
+    public TerraformProperty<string>? ProxyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("proxy_id");
+        get => GetProperty<TerraformProperty<string>>("proxy_id");
         set => this.WithProperty("proxy_id", value);
     }
 
     /// <summary>
     /// The revision of the API proxy to be deployed.
     /// </summary>
-    public TerraformLiteralProperty<string>? Revision
+    public TerraformProperty<string>? Revision
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revision");
+        get => GetProperty<TerraformProperty<string>>("revision");
         set => this.WithProperty("revision", value);
     }
 

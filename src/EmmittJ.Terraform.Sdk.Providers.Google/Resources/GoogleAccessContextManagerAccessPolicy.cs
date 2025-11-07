@@ -22,9 +22,9 @@ public class GoogleAccessContextManagerAccessPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -32,9 +32,9 @@ public class GoogleAccessContextManagerAccessPolicy : TerraformResource
     /// The parent of this AccessPolicy in the Cloud Resource Hierarchy.
     /// Format: &#39;organizations/{{organization_id}}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -42,18 +42,18 @@ public class GoogleAccessContextManagerAccessPolicy : TerraformResource
     /// Folder or project on which this policy is applicable.
     /// Format: &#39;folders/{{folder_id}}&#39; or &#39;projects/{{project_number}}&#39;
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Scopes
+    public TerraformProperty<List<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes");
+        get => GetProperty<TerraformProperty<List<string>>>("scopes");
         set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// Human readable title. Does not affect behavior.
     /// </summary>
-    public TerraformLiteralProperty<string>? Title
+    public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 

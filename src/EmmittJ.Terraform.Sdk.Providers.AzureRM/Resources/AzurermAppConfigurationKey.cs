@@ -19,99 +19,99 @@ public class AzurermAppConfigurationKey : TerraformResource
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationStoreId
+    public TerraformProperty<string>? ConfigurationStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_store_id");
+        get => GetProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Etag
+    public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        get => GetProperty<TerraformProperty<string>>("etag");
         set => this.WithProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Label
+    public TerraformProperty<string>? Label
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("label");
+        get => GetProperty<TerraformProperty<string>>("label");
         set => this.WithProperty("label", value);
     }
 
     /// <summary>
     /// The locked attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Locked
+    public TerraformProperty<bool>? Locked
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("locked");
+        get => GetProperty<TerraformProperty<bool>>("locked");
         set => this.WithProperty("locked", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Value
+    public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 
     /// <summary>
     /// The vault_key_reference attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VaultKeyReference
+    public TerraformProperty<string>? VaultKeyReference
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_key_reference");
+        get => GetProperty<TerraformProperty<string>>("vault_key_reference");
         set => this.WithProperty("vault_key_reference", value);
     }
 

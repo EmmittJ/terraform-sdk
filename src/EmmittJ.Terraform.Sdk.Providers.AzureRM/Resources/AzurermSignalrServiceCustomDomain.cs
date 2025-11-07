@@ -19,45 +19,45 @@ public class AzurermSignalrServiceCustomDomain : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The signalr_custom_certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SignalrCustomCertificateId
+    public TerraformProperty<string>? SignalrCustomCertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signalr_custom_certificate_id");
+        get => GetProperty<TerraformProperty<string>>("signalr_custom_certificate_id");
         set => this.WithProperty("signalr_custom_certificate_id", value);
     }
 
     /// <summary>
     /// The signalr_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SignalrServiceId
+    public TerraformProperty<string>? SignalrServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signalr_service_id");
+        get => GetProperty<TerraformProperty<string>>("signalr_service_id");
         set => this.WithProperty("signalr_service_id", value);
     }
 

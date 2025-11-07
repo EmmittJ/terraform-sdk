@@ -20,54 +20,54 @@ public class AzurermLogicAppTriggerHttpRequest : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The logic_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogicAppId
+    public TerraformProperty<string>? LogicAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logic_app_id");
+        get => GetProperty<TerraformProperty<string>>("logic_app_id");
         set => this.WithProperty("logic_app_id", value);
     }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Method
+    public TerraformProperty<string>? Method
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("method");
+        get => GetProperty<TerraformProperty<string>>("method");
         set => this.WithProperty("method", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The relative_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RelativePath
+    public TerraformProperty<string>? RelativePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relative_path");
+        get => GetProperty<TerraformProperty<string>>("relative_path");
         set => this.WithProperty("relative_path", value);
     }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Schema
+    public TerraformProperty<string>? Schema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema");
+        get => GetProperty<TerraformProperty<string>>("schema");
         set => this.WithProperty("schema", value);
     }
 

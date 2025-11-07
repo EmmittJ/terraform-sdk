@@ -19,81 +19,81 @@ public class AzurermAutomationPython3Package : TerraformResource
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutomationAccountName
+    public TerraformProperty<string>? AutomationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_name");
+        get => GetProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The content_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentUri
+    public TerraformProperty<string>? ContentUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_uri");
+        get => GetProperty<TerraformProperty<string>>("content_uri");
         set => this.WithProperty("content_uri", value);
     }
 
     /// <summary>
     /// The content_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentVersion
+    public TerraformProperty<string>? ContentVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_version");
+        get => GetProperty<TerraformProperty<string>>("content_version");
         set => this.WithProperty("content_version", value);
     }
 
     /// <summary>
     /// The hash_algorithm attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HashAlgorithm
+    public TerraformProperty<string>? HashAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hash_algorithm");
+        get => GetProperty<TerraformProperty<string>>("hash_algorithm");
         set => this.WithProperty("hash_algorithm", value);
     }
 
     /// <summary>
     /// The hash_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HashValue
+    public TerraformProperty<string>? HashValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hash_value");
+        get => GetProperty<TerraformProperty<string>>("hash_value");
         set => this.WithProperty("hash_value", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

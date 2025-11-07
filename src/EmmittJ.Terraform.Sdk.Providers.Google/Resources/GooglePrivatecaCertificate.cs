@@ -31,9 +31,9 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// argument &#39;pool&#39; should be set to &#39;projects/my-project/locations/us-central1/caPools/my-pool&#39;, argument &#39;certificate_authority&#39;
     /// should be set to &#39;my-ca&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateAuthority
+    public TerraformProperty<string>? CertificateAuthority
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority");
+        get => GetProperty<TerraformProperty<string>>("certificate_authority");
         set => this.WithProperty("certificate_authority", value);
     }
 
@@ -44,18 +44,18 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// omitted, no template will be used. This template must be in the same location
     /// as the Certificate.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateTemplate
+    public TerraformProperty<string>? CertificateTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_template");
+        get => GetProperty<TerraformProperty<string>>("certificate_template");
         set => this.WithProperty("certificate_template", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -66,9 +66,9 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -77,9 +77,9 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// &amp;quot;notAfterTime&amp;quot; fields inside an X.509 certificate. A duration in seconds with up to nine
     /// fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Lifetime
+    public TerraformProperty<string>? Lifetime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifetime");
+        get => GetProperty<TerraformProperty<string>>("lifetime");
         set => this.WithProperty("lifetime", value);
     }
 
@@ -87,45 +87,45 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// Location of the Certificate. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name for this Certificate.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
     /// </summary>
-    public TerraformLiteralProperty<string>? PemCsr
+    public TerraformProperty<string>? PemCsr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pem_csr");
+        get => GetProperty<TerraformProperty<string>>("pem_csr");
         set => this.WithProperty("pem_csr", value);
     }
 
     /// <summary>
     /// The name of the CaPool this Certificate belongs to.
     /// </summary>
-    public TerraformLiteralProperty<string>? Pool
+    public TerraformProperty<string>? Pool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool");
+        get => GetProperty<TerraformProperty<string>>("pool");
         set => this.WithProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

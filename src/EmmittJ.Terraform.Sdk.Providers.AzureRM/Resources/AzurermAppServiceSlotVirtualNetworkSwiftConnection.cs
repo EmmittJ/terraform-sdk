@@ -19,36 +19,36 @@ public class AzurermAppServiceSlotVirtualNetworkSwiftConnection : TerraformResou
     /// <summary>
     /// The app_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppServiceId
+    public TerraformProperty<string>? AppServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_id");
+        get => GetProperty<TerraformProperty<string>>("app_service_id");
         set => this.WithProperty("app_service_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The slot_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SlotName
+    public TerraformProperty<string>? SlotName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("slot_name");
+        get => GetProperty<TerraformProperty<string>>("slot_name");
         set => this.WithProperty("slot_name", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 

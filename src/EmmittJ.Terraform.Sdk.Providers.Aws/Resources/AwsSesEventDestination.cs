@@ -20,54 +20,54 @@ public class AwsSesEventDestination : TerraformResource
     /// <summary>
     /// The configuration_set_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationSetName
+    public TerraformProperty<string>? ConfigurationSetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_set_name");
+        get => GetProperty<TerraformProperty<string>>("configuration_set_name");
         set => this.WithProperty("configuration_set_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The matching_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? MatchingTypes
+    public TerraformProperty<HashSet<string>>? MatchingTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("matching_types");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("matching_types");
         set => this.WithProperty("matching_types", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

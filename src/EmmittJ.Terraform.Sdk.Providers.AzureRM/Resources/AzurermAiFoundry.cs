@@ -21,126 +21,126 @@ public class AzurermAiFoundry : TerraformResource
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationInsightsId
+    public TerraformProperty<string>? ApplicationInsightsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id");
+        get => GetProperty<TerraformProperty<string>>("application_insights_id");
         set => this.WithProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerRegistryId
+    public TerraformProperty<string>? ContainerRegistryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_id");
+        get => GetProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FriendlyName
+    public TerraformProperty<string>? FriendlyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name");
+        get => GetProperty<TerraformProperty<string>>("friendly_name");
         set => this.WithProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The high_business_impact_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? HighBusinessImpactEnabled
+    public TerraformProperty<bool>? HighBusinessImpactEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("high_business_impact_enabled");
+        get => GetProperty<TerraformProperty<bool>>("high_business_impact_enabled");
         set => this.WithProperty("high_business_impact_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultId
+    public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The primary_user_assigned_identity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrimaryUserAssignedIdentity
+    public TerraformProperty<string>? PrimaryUserAssignedIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_user_assigned_identity");
+        get => GetProperty<TerraformProperty<string>>("primary_user_assigned_identity");
         set => this.WithProperty("primary_user_assigned_identity", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        get => GetProperty<TerraformProperty<string>>("public_network_access");
         set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

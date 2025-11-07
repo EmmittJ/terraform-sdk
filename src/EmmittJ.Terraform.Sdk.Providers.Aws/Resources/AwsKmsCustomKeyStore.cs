@@ -19,99 +19,99 @@ public class AwsKmsCustomKeyStore : TerraformResource
     /// <summary>
     /// The cloud_hsm_cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudHsmClusterId
+    public TerraformProperty<string>? CloudHsmClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloud_hsm_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("cloud_hsm_cluster_id");
         set => this.WithProperty("cloud_hsm_cluster_id", value);
     }
 
     /// <summary>
     /// The custom_key_store_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomKeyStoreName
+    public TerraformProperty<string>? CustomKeyStoreName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_key_store_name");
+        get => GetProperty<TerraformProperty<string>>("custom_key_store_name");
         set => this.WithProperty("custom_key_store_name", value);
     }
 
     /// <summary>
     /// The custom_key_store_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomKeyStoreType
+    public TerraformProperty<string>? CustomKeyStoreType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_key_store_type");
+        get => GetProperty<TerraformProperty<string>>("custom_key_store_type");
         set => this.WithProperty("custom_key_store_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_store_password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyStorePassword
+    public TerraformProperty<string>? KeyStorePassword
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_store_password");
+        get => GetProperty<TerraformProperty<string>>("key_store_password");
         set => this.WithProperty("key_store_password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The trust_anchor_certificate attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrustAnchorCertificate
+    public TerraformProperty<string>? TrustAnchorCertificate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trust_anchor_certificate");
+        get => GetProperty<TerraformProperty<string>>("trust_anchor_certificate");
         set => this.WithProperty("trust_anchor_certificate", value);
     }
 
     /// <summary>
     /// The xks_proxy_connectivity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XksProxyConnectivity
+    public TerraformProperty<string>? XksProxyConnectivity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xks_proxy_connectivity");
+        get => GetProperty<TerraformProperty<string>>("xks_proxy_connectivity");
         set => this.WithProperty("xks_proxy_connectivity", value);
     }
 
     /// <summary>
     /// The xks_proxy_uri_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XksProxyUriEndpoint
+    public TerraformProperty<string>? XksProxyUriEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xks_proxy_uri_endpoint");
+        get => GetProperty<TerraformProperty<string>>("xks_proxy_uri_endpoint");
         set => this.WithProperty("xks_proxy_uri_endpoint", value);
     }
 
     /// <summary>
     /// The xks_proxy_uri_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XksProxyUriPath
+    public TerraformProperty<string>? XksProxyUriPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xks_proxy_uri_path");
+        get => GetProperty<TerraformProperty<string>>("xks_proxy_uri_path");
         set => this.WithProperty("xks_proxy_uri_path", value);
     }
 
     /// <summary>
     /// The xks_proxy_vpc_endpoint_service_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XksProxyVpcEndpointServiceName
+    public TerraformProperty<string>? XksProxyVpcEndpointServiceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xks_proxy_vpc_endpoint_service_name");
+        get => GetProperty<TerraformProperty<string>>("xks_proxy_vpc_endpoint_service_name");
         set => this.WithProperty("xks_proxy_vpc_endpoint_service_name", value);
     }
 

@@ -22,63 +22,63 @@ public class AwsDatazoneGlossaryTerm : TerraformResource
     /// <summary>
     /// The domain_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainIdentifier
+    public TerraformProperty<string>? DomainIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_identifier");
+        get => GetProperty<TerraformProperty<string>>("domain_identifier");
         set => this.WithProperty("domain_identifier", value);
     }
 
     /// <summary>
     /// The glossary_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GlossaryIdentifier
+    public TerraformProperty<string>? GlossaryIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("glossary_identifier");
+        get => GetProperty<TerraformProperty<string>>("glossary_identifier");
         set => this.WithProperty("glossary_identifier", value);
     }
 
     /// <summary>
     /// The long_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LongDescription
+    public TerraformProperty<string>? LongDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("long_description");
+        get => GetProperty<TerraformProperty<string>>("long_description");
         set => this.WithProperty("long_description", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The short_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ShortDescription
+    public TerraformProperty<string>? ShortDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_description");
+        get => GetProperty<TerraformProperty<string>>("short_description");
         set => this.WithProperty("short_description", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 

@@ -19,27 +19,27 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     /// <summary>
     /// The function_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionAppId
+    public TerraformProperty<string>? FunctionAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app_id");
+        get => GetProperty<TerraformProperty<string>>("function_app_id");
         set => this.WithProperty("function_app_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The static_web_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StaticWebAppId
+    public TerraformProperty<string>? StaticWebAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("static_web_app_id");
+        get => GetProperty<TerraformProperty<string>>("static_web_app_id");
         set => this.WithProperty("static_web_app_id", value);
     }
 

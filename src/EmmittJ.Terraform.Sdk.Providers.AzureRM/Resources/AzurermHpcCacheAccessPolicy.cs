@@ -20,27 +20,27 @@ public class AzurermHpcCacheAccessPolicy : TerraformResource
     /// <summary>
     /// The hpc_cache_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HpcCacheId
+    public TerraformProperty<string>? HpcCacheId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hpc_cache_id");
+        get => GetProperty<TerraformProperty<string>>("hpc_cache_id");
         set => this.WithProperty("hpc_cache_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

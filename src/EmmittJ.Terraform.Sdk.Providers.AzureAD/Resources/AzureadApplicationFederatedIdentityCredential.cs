@@ -20,63 +20,63 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     /// <summary>
     /// The resource ID of the application for which this federated identity credential should be created
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationId
+    public TerraformProperty<string>? ApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_id");
+        get => GetProperty<TerraformProperty<string>>("application_id");
         set => this.WithProperty("application_id", value);
     }
 
     /// <summary>
     /// List of audiences that can appear in the external token. This specifies what should be accepted in the `aud` claim of incoming tokens.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Audiences
+    public TerraformProperty<List<string>>? Audiences
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("audiences");
+        get => GetProperty<TerraformProperty<List<string>>>("audiences");
         set => this.WithProperty("audiences", value);
     }
 
     /// <summary>
     /// A description for the federated identity credential
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// A unique display name for the federated identity credential
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The URL of the external identity provider, which must match the issuer claim of the external token being exchanged. The combination of the values of issuer and subject must be unique on the app.
     /// </summary>
-    public TerraformLiteralProperty<string>? Issuer
+    public TerraformProperty<string>? Issuer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("issuer");
+        get => GetProperty<TerraformProperty<string>>("issuer");
         set => this.WithProperty("issuer", value);
     }
 
     /// <summary>
     /// The identifier of the external software workload within the external identity provider. The combination of issuer and subject must be unique on the app.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subject
+    public TerraformProperty<string>? Subject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subject");
+        get => GetProperty<TerraformProperty<string>>("subject");
         set => this.WithProperty("subject", value);
     }
 

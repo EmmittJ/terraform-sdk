@@ -19,45 +19,45 @@ public class AzurermVirtualMachineRestorePoint : TerraformResource
     /// <summary>
     /// The crash_consistency_mode_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CrashConsistencyModeEnabled
+    public TerraformProperty<bool>? CrashConsistencyModeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("crash_consistency_mode_enabled");
+        get => GetProperty<TerraformProperty<bool>>("crash_consistency_mode_enabled");
         set => this.WithProperty("crash_consistency_mode_enabled", value);
     }
 
     /// <summary>
     /// The excluded_disks attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ExcludedDisks
+    public TerraformProperty<HashSet<string>>? ExcludedDisks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("excluded_disks");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("excluded_disks");
         set => this.WithProperty("excluded_disks", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The virtual_machine_restore_point_collection_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualMachineRestorePointCollectionId
+    public TerraformProperty<string>? VirtualMachineRestorePointCollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_restore_point_collection_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_machine_restore_point_collection_id");
         set => this.WithProperty("virtual_machine_restore_point_collection_id", value);
     }
 

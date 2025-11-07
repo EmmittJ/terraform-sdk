@@ -22,9 +22,9 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// must contain only letters (a-z, A-Z), numbers (0-9), or
     /// underscores (_). The maximum length is 1,024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatasetId
+    public TerraformProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
@@ -32,18 +32,18 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// A domain to grant access to. Any users signed in with the
     /// domain specified will be granted the specified access
     /// </summary>
-    public TerraformLiteralProperty<string>? Domain
+    public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain");
+        get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
     /// <summary>
     /// An email address of a Google Group to grant access to.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupByEmail
+    public TerraformProperty<string>? GroupByEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_by_email");
+        get => GetProperty<TerraformProperty<string>>("group_by_email");
         set => this.WithProperty("group_by_email", value);
     }
 
@@ -51,27 +51,27 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// Some other type of member that appears in the IAM Policy but isn&#39;t a user,
     /// group, domain, or special group. For example: &#39;allUsers&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? IamMember
+    public TerraformProperty<string>? IamMember
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_member");
+        get => GetProperty<TerraformProperty<string>>("iam_member");
         set => this.WithProperty("iam_member", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -83,9 +83,9 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// post-create. See
     /// [official docs](https://cloud.google.com/bigquery/docs/access-control).
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
@@ -96,9 +96,9 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// * &#39;projectWriters&#39;: Writers of the enclosing project.
     /// * &#39;allAuthenticatedUsers&#39;: All authenticated BigQuery users.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpecialGroup
+    public TerraformProperty<string>? SpecialGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("special_group");
+        get => GetProperty<TerraformProperty<string>>("special_group");
         set => this.WithProperty("special_group", value);
     }
 
@@ -106,9 +106,9 @@ public class GoogleBigqueryDatasetAccess : TerraformResource
     /// An email address of a user to grant access to. For example:
     /// fred@example.com
     /// </summary>
-    public TerraformLiteralProperty<string>? UserByEmail
+    public TerraformProperty<string>? UserByEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_by_email");
+        get => GetProperty<TerraformProperty<string>>("user_by_email");
         set => this.WithProperty("user_by_email", value);
     }
 

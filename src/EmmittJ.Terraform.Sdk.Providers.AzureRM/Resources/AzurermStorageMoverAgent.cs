@@ -19,54 +19,54 @@ public class AzurermStorageMoverAgent : TerraformResource
     /// <summary>
     /// The arc_virtual_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ArcVirtualMachineId
+    public TerraformProperty<string>? ArcVirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arc_virtual_machine_id");
+        get => GetProperty<TerraformProperty<string>>("arc_virtual_machine_id");
         set => this.WithProperty("arc_virtual_machine_id", value);
     }
 
     /// <summary>
     /// The arc_virtual_machine_uuid attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ArcVirtualMachineUuid
+    public TerraformProperty<string>? ArcVirtualMachineUuid
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arc_virtual_machine_uuid");
+        get => GetProperty<TerraformProperty<string>>("arc_virtual_machine_uuid");
         set => this.WithProperty("arc_virtual_machine_uuid", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The storage_mover_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageMoverId
+    public TerraformProperty<string>? StorageMoverId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_mover_id");
+        get => GetProperty<TerraformProperty<string>>("storage_mover_id");
         set => this.WithProperty("storage_mover_id", value);
     }
 

@@ -19,45 +19,45 @@ public class AwsQuicksightRoleCustomPermission : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AwsAccountId
+    public TerraformProperty<string>? AwsAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_account_id");
+        get => GetProperty<TerraformProperty<string>>("aws_account_id");
         set => this.WithProperty("aws_account_id", value);
     }
 
     /// <summary>
     /// The custom_permissions_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomPermissionsName
+    public TerraformProperty<string>? CustomPermissionsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_permissions_name");
+        get => GetProperty<TerraformProperty<string>>("custom_permissions_name");
         set => this.WithProperty("custom_permissions_name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Namespace
+    public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        get => GetProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

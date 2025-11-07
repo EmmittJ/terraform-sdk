@@ -19,72 +19,72 @@ public class AwsTransferAccess : TerraformResource
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExternalId
+    public TerraformProperty<string>? ExternalId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("external_id");
+        get => GetProperty<TerraformProperty<string>>("external_id");
         set => this.WithProperty("external_id", value);
     }
 
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HomeDirectory
+    public TerraformProperty<string>? HomeDirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("home_directory");
+        get => GetProperty<TerraformProperty<string>>("home_directory");
         set => this.WithProperty("home_directory", value);
     }
 
     /// <summary>
     /// The home_directory_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HomeDirectoryType
+    public TerraformProperty<string>? HomeDirectoryType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("home_directory_type");
+        get => GetProperty<TerraformProperty<string>>("home_directory_type");
         set => this.WithProperty("home_directory_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Policy
+    public TerraformProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerId
+    public TerraformProperty<string>? ServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_id");
+        get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 

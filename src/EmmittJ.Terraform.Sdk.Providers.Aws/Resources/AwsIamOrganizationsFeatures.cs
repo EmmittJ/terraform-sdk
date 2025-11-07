@@ -20,9 +20,9 @@ public class AwsIamOrganizationsFeatures : TerraformResource
     /// <summary>
     /// The enabled_features attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? EnabledFeatures
+    public TerraformProperty<HashSet<string>>? EnabledFeatures
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("enabled_features");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("enabled_features");
         set => this.WithProperty("enabled_features", value);
     }
 

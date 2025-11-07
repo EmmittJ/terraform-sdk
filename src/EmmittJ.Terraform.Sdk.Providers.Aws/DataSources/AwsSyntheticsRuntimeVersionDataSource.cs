@@ -24,36 +24,36 @@ public class AwsSyntheticsRuntimeVersionDataSource : TerraformDataSource
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Latest
+    public TerraformProperty<bool>? Latest
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("latest");
+        get => GetProperty<TerraformProperty<bool>>("latest");
         set => this.WithProperty("latest", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Prefix
+    public TerraformProperty<string>? Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("prefix");
+        get => GetProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

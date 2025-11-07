@@ -20,27 +20,27 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfo : TerraformResource
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpirationDate
+    public TerraformProperty<string>? ExpirationDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_date");
+        get => GetProperty<TerraformProperty<string>>("expiration_date");
         set => this.WithProperty("expiration_date", value);
     }
 
     /// <summary>
     /// The hostpool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostpoolId
+    public TerraformProperty<string>? HostpoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostpool_id");
+        get => GetProperty<TerraformProperty<string>>("hostpool_id");
         set => this.WithProperty("hostpool_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

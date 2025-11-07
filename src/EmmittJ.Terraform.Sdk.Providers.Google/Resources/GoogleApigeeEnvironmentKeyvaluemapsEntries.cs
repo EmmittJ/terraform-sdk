@@ -20,36 +20,36 @@ public class GoogleApigeeEnvironmentKeyvaluemapsEntries : TerraformResource
     /// The Apigee environment keyvalumaps Id associated with the Apigee environment,
     /// in the format &#39;organizations/{{org_name}}/environments/{{env_name}}/keyvaluemaps/{{keyvaluemap_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvKeyvaluemapId
+    public TerraformProperty<string>? EnvKeyvaluemapId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("env_keyvaluemap_id");
+        get => GetProperty<TerraformProperty<string>>("env_keyvaluemap_id");
         set => this.WithProperty("env_keyvaluemap_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Required. Resource URI that can be used to identify the scope of the key value map entries.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Required. Data or payload that is being retrieved and associated with the unique key.
     /// </summary>
-    public TerraformLiteralProperty<string>? Value
+    public TerraformProperty<string>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value");
+        get => GetProperty<TerraformProperty<string>>("value");
         set => this.WithProperty("value", value);
     }
 

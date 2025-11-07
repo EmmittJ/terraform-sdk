@@ -20,45 +20,45 @@ public class AwsCloud9EnvironmentMembership : TerraformResource
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvironmentId
+    public TerraformProperty<string>? EnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_id");
+        get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Permissions
+    public TerraformProperty<string>? Permissions
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("permissions");
+        get => GetProperty<TerraformProperty<string>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The user_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserArn
+    public TerraformProperty<string>? UserArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_arn");
+        get => GetProperty<TerraformProperty<string>>("user_arn");
         set => this.WithProperty("user_arn", value);
     }
 

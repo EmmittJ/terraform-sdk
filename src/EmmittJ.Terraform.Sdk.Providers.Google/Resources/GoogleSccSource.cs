@@ -20,9 +20,9 @@ public class GoogleSccSource : TerraformResource
     /// <summary>
     /// The description of the source (max of 1024 characters).
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -33,18 +33,18 @@ public class GoogleSccSource : TerraformResource
     /// with a letter or digit, may contain letters, digits, spaces, hyphens,
     /// and underscores, and can be no longer than 32 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleSccSource : TerraformResource
     /// The organization whose Cloud Security Command Center the Source
     /// lives in.
     /// </summary>
-    public TerraformLiteralProperty<string>? Organization
+    public TerraformProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 

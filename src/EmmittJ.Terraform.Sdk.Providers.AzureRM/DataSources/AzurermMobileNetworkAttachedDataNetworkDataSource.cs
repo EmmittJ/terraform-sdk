@@ -29,27 +29,27 @@ public class AzurermMobileNetworkAttachedDataNetworkDataSource : TerraformDataSo
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The mobile_network_data_network_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MobileNetworkDataNetworkName
+    public TerraformProperty<string>? MobileNetworkDataNetworkName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_data_network_name");
+        get => GetProperty<TerraformProperty<string>>("mobile_network_data_network_name");
         set => this.WithProperty("mobile_network_data_network_name", value);
     }
 
     /// <summary>
     /// The mobile_network_packet_core_data_plane_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MobileNetworkPacketCoreDataPlaneId
+    public TerraformProperty<string>? MobileNetworkPacketCoreDataPlaneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_packet_core_data_plane_id");
+        get => GetProperty<TerraformProperty<string>>("mobile_network_packet_core_data_plane_id");
         set => this.WithProperty("mobile_network_packet_core_data_plane_id", value);
     }
 

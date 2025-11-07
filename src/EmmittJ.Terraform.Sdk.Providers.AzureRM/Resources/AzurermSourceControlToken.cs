@@ -19,36 +19,36 @@ public class AzurermSourceControlToken : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Token
+    public TerraformProperty<string>? Token
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token");
+        get => GetProperty<TerraformProperty<string>>("token");
         set => this.WithProperty("token", value);
     }
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TokenSecret
+    public TerraformProperty<string>? TokenSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_secret");
+        get => GetProperty<TerraformProperty<string>>("token_secret");
         set => this.WithProperty("token_secret", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

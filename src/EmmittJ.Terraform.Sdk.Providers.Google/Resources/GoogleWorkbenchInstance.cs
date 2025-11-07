@@ -29,27 +29,27 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// <summary>
     /// Desired state of the Workbench Instance. Set this field to &#39;ACTIVE&#39; to start the Instance, and &#39;STOPPED&#39; to stop the Instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? DesiredState
+    public TerraformProperty<string>? DesiredState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("desired_state");
+        get => GetProperty<TerraformProperty<string>>("desired_state");
         set => this.WithProperty("desired_state", value);
     }
 
     /// <summary>
     /// Optional. If true, the workbench instance will not register with the proxy.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableProxyAccess
+    public TerraformProperty<bool>? DisableProxyAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_proxy_access");
+        get => GetProperty<TerraformProperty<bool>>("disable_proxy_access");
         set => this.WithProperty("disable_proxy_access", value);
     }
 
     /// <summary>
     /// Flag to enable managed end user credentials for the instance.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableManagedEuc
+    public TerraformProperty<bool>? EnableManagedEuc
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_managed_euc");
+        get => GetProperty<TerraformProperty<bool>>("enable_managed_euc");
         set => this.WithProperty("enable_managed_euc", value);
     }
 
@@ -57,27 +57,27 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// Flag that specifies that a notebook can be accessed with third party
     /// identity provider.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableThirdPartyIdentity
+    public TerraformProperty<bool>? EnableThirdPartyIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_third_party_identity");
+        get => GetProperty<TerraformProperty<bool>>("enable_third_party_identity");
         set => this.WithProperty("enable_third_party_identity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Required. User-defined unique ID of this instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
@@ -88,9 +88,9 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// If specified, sets the access mode to &#39;Single user&#39;. For more details, see
     /// https://cloud.google.com/vertex-ai/docs/workbench/instances/manage-access-jupyterlab&#39;
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? InstanceOwners
+    public TerraformProperty<List<string>>? InstanceOwners
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("instance_owners");
+        get => GetProperty<TerraformProperty<List<string>>>("instance_owners");
         set => this.WithProperty("instance_owners", value);
     }
 
@@ -102,36 +102,36 @@ public class GoogleWorkbenchInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of this workbench instance. Format: &#39;projects/{project_id}/locations/{location}/instances/{instance_id}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

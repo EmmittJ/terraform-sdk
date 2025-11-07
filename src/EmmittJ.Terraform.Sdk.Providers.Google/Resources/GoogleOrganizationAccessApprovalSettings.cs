@@ -24,18 +24,18 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     /// The asymmetric crypto key version to use for signing approval requests.
     /// Empty active_key_version indicates that a Google-managed key should be used for signing.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActiveKeyVersion
+    public TerraformProperty<string>? ActiveKeyVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("active_key_version");
+        get => GetProperty<TerraformProperty<string>>("active_key_version");
         set => this.WithProperty("active_key_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -44,18 +44,18 @@ public class GoogleOrganizationAccessApprovalSettings : TerraformResource
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? NotificationEmails
+    public TerraformProperty<HashSet<string>>? NotificationEmails
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("notification_emails");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("notification_emails");
         set => this.WithProperty("notification_emails", value);
     }
 
     /// <summary>
     /// ID of the organization of the access approval settings.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrganizationId
+    public TerraformProperty<string>? OrganizationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization_id");
+        get => GetProperty<TerraformProperty<string>>("organization_id");
         set => this.WithProperty("organization_id", value);
     }
 

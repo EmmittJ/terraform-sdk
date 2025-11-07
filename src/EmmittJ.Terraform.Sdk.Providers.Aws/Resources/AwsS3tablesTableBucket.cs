@@ -22,45 +22,45 @@ public class AwsS3tablesTableBucket : TerraformResource
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<object>? EncryptionConfiguration
+    public TerraformProperty<object>? EncryptionConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<object>>("encryption_configuration");
+        get => GetProperty<TerraformProperty<object>>("encryption_configuration");
         set => this.WithProperty("encryption_configuration", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDestroy
+    public TerraformProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        get => GetProperty<TerraformProperty<bool>>("force_destroy");
         set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<object>? MaintenanceConfiguration
+    public TerraformProperty<object>? MaintenanceConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<object>>("maintenance_configuration");
+        get => GetProperty<TerraformProperty<object>>("maintenance_configuration");
         set => this.WithProperty("maintenance_configuration", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

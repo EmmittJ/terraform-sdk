@@ -22,63 +22,63 @@ public class AzurermStorageContainer : TerraformResource
     /// <summary>
     /// The container_access_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerAccessType
+    public TerraformProperty<string>? ContainerAccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_access_type");
+        get => GetProperty<TerraformProperty<string>>("container_access_type");
         set => this.WithProperty("container_access_type", value);
     }
 
     /// <summary>
     /// The default_encryption_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultEncryptionScope
+    public TerraformProperty<string>? DefaultEncryptionScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_encryption_scope");
+        get => GetProperty<TerraformProperty<string>>("default_encryption_scope");
         set => this.WithProperty("default_encryption_scope", value);
     }
 
     /// <summary>
     /// The encryption_scope_override_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EncryptionScopeOverrideEnabled
+    public TerraformProperty<bool>? EncryptionScopeOverrideEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("encryption_scope_override_enabled");
+        get => GetProperty<TerraformProperty<bool>>("encryption_scope_override_enabled");
         set => this.WithProperty("encryption_scope_override_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
@@ -86,9 +86,9 @@ public class AzurermStorageContainer : TerraformResource
     /// The storage_account_name attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? StorageAccountName
+    public TerraformProperty<string>? StorageAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_name");
+        get => GetProperty<TerraformProperty<string>>("storage_account_name");
         set => this.WithProperty("storage_account_name", value);
     }
 

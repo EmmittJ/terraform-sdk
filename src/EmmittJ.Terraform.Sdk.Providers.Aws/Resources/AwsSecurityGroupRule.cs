@@ -20,117 +20,117 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? CidrBlocks
+    public TerraformProperty<List<string>>? CidrBlocks
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("cidr_blocks");
+        get => GetProperty<TerraformProperty<List<string>>>("cidr_blocks");
         set => this.WithProperty("cidr_blocks", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FromPort
+    public TerraformProperty<double>? FromPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("from_port");
+        get => GetProperty<TerraformProperty<double>>("from_port");
         set => this.WithProperty("from_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_cidr_blocks attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Ipv6CidrBlocks
+    public TerraformProperty<List<string>>? Ipv6CidrBlocks
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ipv6_cidr_blocks");
+        get => GetProperty<TerraformProperty<List<string>>>("ipv6_cidr_blocks");
         set => this.WithProperty("ipv6_cidr_blocks", value);
     }
 
     /// <summary>
     /// The prefix_list_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PrefixListIds
+    public TerraformProperty<List<string>>? PrefixListIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("prefix_list_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("prefix_list_ids");
         set => this.WithProperty("prefix_list_ids", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecurityGroupId
+    public TerraformProperty<string>? SecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("security_group_id");
+        get => GetProperty<TerraformProperty<string>>("security_group_id");
         set => this.WithProperty("security_group_id", value);
     }
 
     /// <summary>
     /// The self attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Self
+    public TerraformProperty<bool>? Self
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("self");
+        get => GetProperty<TerraformProperty<bool>>("self");
         set => this.WithProperty("self", value);
     }
 
     /// <summary>
     /// The source_security_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceSecurityGroupId
+    public TerraformProperty<string>? SourceSecurityGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_security_group_id");
+        get => GetProperty<TerraformProperty<string>>("source_security_group_id");
         set => this.WithProperty("source_security_group_id", value);
     }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ToPort
+    public TerraformProperty<double>? ToPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("to_port");
+        get => GetProperty<TerraformProperty<double>>("to_port");
         set => this.WithProperty("to_port", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

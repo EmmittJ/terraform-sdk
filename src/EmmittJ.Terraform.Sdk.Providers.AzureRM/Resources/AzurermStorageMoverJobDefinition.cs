@@ -19,90 +19,90 @@ public class AzurermStorageMoverJobDefinition : TerraformResource
     /// <summary>
     /// The agent_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentName
+    public TerraformProperty<string>? AgentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_name");
+        get => GetProperty<TerraformProperty<string>>("agent_name");
         set => this.WithProperty("agent_name", value);
     }
 
     /// <summary>
     /// The copy_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CopyMode
+    public TerraformProperty<string>? CopyMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("copy_mode");
+        get => GetProperty<TerraformProperty<string>>("copy_mode");
         set => this.WithProperty("copy_mode", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The source_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceName
+    public TerraformProperty<string>? SourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_name");
+        get => GetProperty<TerraformProperty<string>>("source_name");
         set => this.WithProperty("source_name", value);
     }
 
     /// <summary>
     /// The source_sub_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceSubPath
+    public TerraformProperty<string>? SourceSubPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_sub_path");
+        get => GetProperty<TerraformProperty<string>>("source_sub_path");
         set => this.WithProperty("source_sub_path", value);
     }
 
     /// <summary>
     /// The storage_mover_project_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageMoverProjectId
+    public TerraformProperty<string>? StorageMoverProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_mover_project_id");
+        get => GetProperty<TerraformProperty<string>>("storage_mover_project_id");
         set => this.WithProperty("storage_mover_project_id", value);
     }
 
     /// <summary>
     /// The target_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetName
+    public TerraformProperty<string>? TargetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_name");
+        get => GetProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);
     }
 
     /// <summary>
     /// The target_sub_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetSubPath
+    public TerraformProperty<string>? TargetSubPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_sub_path");
+        get => GetProperty<TerraformProperty<string>>("target_sub_path");
         set => this.WithProperty("target_sub_path", value);
     }
 

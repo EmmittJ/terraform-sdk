@@ -21,27 +21,27 @@ public class AwsIamUsersDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NameRegex
+    public TerraformProperty<string>? NameRegex
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_regex");
+        get => GetProperty<TerraformProperty<string>>("name_regex");
         set => this.WithProperty("name_regex", value);
     }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PathPrefix
+    public TerraformProperty<string>? PathPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path_prefix");
+        get => GetProperty<TerraformProperty<string>>("path_prefix");
         set => this.WithProperty("path_prefix", value);
     }
 

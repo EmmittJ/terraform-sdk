@@ -20,27 +20,27 @@ public class AzurermDevCenterGalleryDataSource : TerraformDataSource
     /// <summary>
     /// The dev_center_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DevCenterId
+    public TerraformProperty<string>? DevCenterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dev_center_id");
+        get => GetProperty<TerraformProperty<string>>("dev_center_id");
         set => this.WithProperty("dev_center_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

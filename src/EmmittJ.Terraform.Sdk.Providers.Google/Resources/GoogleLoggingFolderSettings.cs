@@ -22,45 +22,45 @@ public class GoogleLoggingFolderSettings : TerraformResource
     /// <summary>
     /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableDefaultSink
+    public TerraformProperty<bool>? DisableDefaultSink
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_default_sink");
+        get => GetProperty<TerraformProperty<bool>>("disable_default_sink");
         set => this.WithProperty("disable_default_sink", value);
     }
 
     /// <summary>
     /// The folder for which to retrieve settings.
     /// </summary>
-    public TerraformLiteralProperty<string>? Folder
+    public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyName
+    public TerraformProperty<string>? KmsKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_name");
+        get => GetProperty<TerraformProperty<string>>("kms_key_name");
         set => this.WithProperty("kms_key_name", value);
     }
 
     /// <summary>
     /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageLocation
+    public TerraformProperty<string>? StorageLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_location");
+        get => GetProperty<TerraformProperty<string>>("storage_location");
         set => this.WithProperty("storage_location", value);
     }
 

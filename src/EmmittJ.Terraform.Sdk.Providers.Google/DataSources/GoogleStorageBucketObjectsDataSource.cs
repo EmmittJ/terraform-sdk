@@ -20,36 +20,36 @@ public class GoogleStorageBucketObjectsDataSource : TerraformDataSource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The match_glob attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MatchGlob
+    public TerraformProperty<string>? MatchGlob
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("match_glob");
+        get => GetProperty<TerraformProperty<string>>("match_glob");
         set => this.WithProperty("match_glob", value);
     }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Prefix
+    public TerraformProperty<string>? Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("prefix");
+        get => GetProperty<TerraformProperty<string>>("prefix");
         set => this.WithProperty("prefix", value);
     }
 

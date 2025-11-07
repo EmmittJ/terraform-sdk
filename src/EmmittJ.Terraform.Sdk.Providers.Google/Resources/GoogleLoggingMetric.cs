@@ -20,9 +20,9 @@ public class GoogleLoggingMetric : TerraformResource
     /// The resource name of the Log Bucket that owns the Log Metric. Only Log Buckets in projects
     /// are supported. The bucket has to be in the same project as the metric.
     /// </summary>
-    public TerraformLiteralProperty<string>? BucketName
+    public TerraformProperty<string>? BucketName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket_name");
+        get => GetProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);
     }
 
@@ -30,18 +30,18 @@ public class GoogleLoggingMetric : TerraformResource
     /// A description of this metric, which is used in documentation. The maximum length of the
     /// description is 8000 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// If set to True, then this metric is disabled and it does not generate any points.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
@@ -49,18 +49,18 @@ public class GoogleLoggingMetric : TerraformResource
     /// An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-filters) which
     /// is used to match log entries.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -70,9 +70,9 @@ public class GoogleLoggingMetric : TerraformResource
     /// have an associated extractor expression in this map. The syntax of the extractor expression is
     /// the same as for the valueExtractor field.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? LabelExtractors
+    public TerraformProperty<Dictionary<string, string>>? LabelExtractors
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("label_extractors");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("label_extractors");
         set => this.WithProperty("label_extractors", value);
     }
 
@@ -83,18 +83,18 @@ public class GoogleLoggingMetric : TerraformResource
     /// character (/) denotes a hierarchy of name pieces, and it cannot be the first character
     /// of the name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -107,9 +107,9 @@ public class GoogleLoggingMetric : TerraformResource
     /// log entry field. The value of the field is converted to a string before applying the regex. It is an
     /// error to specify a regex that does not include exactly one capture group.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValueExtractor
+    public TerraformProperty<string>? ValueExtractor
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("value_extractor");
+        get => GetProperty<TerraformProperty<string>>("value_extractor");
         set => this.WithProperty("value_extractor", value);
     }
 

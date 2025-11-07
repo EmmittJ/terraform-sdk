@@ -20,27 +20,27 @@ public class AwsRoute53CidrLocation : TerraformResource
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? CidrBlocks
+    public TerraformProperty<HashSet<string>>? CidrBlocks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("cidr_blocks");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("cidr_blocks");
         set => this.WithProperty("cidr_blocks", value);
     }
 
     /// <summary>
     /// The cidr_collection_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CidrCollectionId
+    public TerraformProperty<string>? CidrCollectionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_collection_id");
+        get => GetProperty<TerraformProperty<string>>("cidr_collection_id");
         set => this.WithProperty("cidr_collection_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

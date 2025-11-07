@@ -24,54 +24,54 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// <summary>
     /// The automation_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutomationAccountName
+    public TerraformProperty<string>? AutomationAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automation_account_name");
+        get => GetProperty<TerraformProperty<string>>("automation_account_name");
         set => this.WithProperty("automation_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The vm_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VmResourceId
+    public TerraformProperty<string>? VmResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vm_resource_id");
+        get => GetProperty<TerraformProperty<string>>("vm_resource_id");
         set => this.WithProperty("vm_resource_id", value);
     }
 
     /// <summary>
     /// The worker_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkerGroupName
+    public TerraformProperty<string>? WorkerGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("worker_group_name");
+        get => GetProperty<TerraformProperty<string>>("worker_group_name");
         set => this.WithProperty("worker_group_name", value);
     }
 
     /// <summary>
     /// The worker_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkerId
+    public TerraformProperty<string>? WorkerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("worker_id");
+        get => GetProperty<TerraformProperty<string>>("worker_id");
         set => this.WithProperty("worker_id", value);
     }
 

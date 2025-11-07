@@ -19,54 +19,54 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityPoolId
+    public TerraformProperty<string>? IdentityPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_pool_id");
+        get => GetProperty<TerraformProperty<string>>("identity_pool_id");
         set => this.WithProperty("identity_pool_id", value);
     }
 
     /// <summary>
     /// The identity_provider_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityProviderName
+    public TerraformProperty<string>? IdentityProviderName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_provider_name");
+        get => GetProperty<TerraformProperty<string>>("identity_provider_name");
         set => this.WithProperty("identity_provider_name", value);
     }
 
     /// <summary>
     /// The principal_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? PrincipalTags
+    public TerraformProperty<Dictionary<string, string>>? PrincipalTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("principal_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("principal_tags");
         set => this.WithProperty("principal_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The use_defaults attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseDefaults
+    public TerraformProperty<bool>? UseDefaults
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_defaults");
+        get => GetProperty<TerraformProperty<bool>>("use_defaults");
         set => this.WithProperty("use_defaults", value);
     }
 

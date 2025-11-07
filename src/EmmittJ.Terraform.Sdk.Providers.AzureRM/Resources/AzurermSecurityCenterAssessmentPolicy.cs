@@ -20,81 +20,81 @@ public class AzurermSecurityCenterAssessmentPolicy : TerraformResource
     /// <summary>
     /// The categories attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Categories
+    public TerraformProperty<HashSet<string>>? Categories
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("categories");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("categories");
         set => this.WithProperty("categories", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The implementation_effort attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImplementationEffort
+    public TerraformProperty<string>? ImplementationEffort
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("implementation_effort");
+        get => GetProperty<TerraformProperty<string>>("implementation_effort");
         set => this.WithProperty("implementation_effort", value);
     }
 
     /// <summary>
     /// The remediation_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RemediationDescription
+    public TerraformProperty<string>? RemediationDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remediation_description");
+        get => GetProperty<TerraformProperty<string>>("remediation_description");
         set => this.WithProperty("remediation_description", value);
     }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Severity
+    public TerraformProperty<string>? Severity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("severity");
+        get => GetProperty<TerraformProperty<string>>("severity");
         set => this.WithProperty("severity", value);
     }
 
     /// <summary>
     /// The threats attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Threats
+    public TerraformProperty<HashSet<string>>? Threats
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("threats");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("threats");
         set => this.WithProperty("threats", value);
     }
 
     /// <summary>
     /// The user_impact attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserImpact
+    public TerraformProperty<string>? UserImpact
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_impact");
+        get => GetProperty<TerraformProperty<string>>("user_impact");
         set => this.WithProperty("user_impact", value);
     }
 

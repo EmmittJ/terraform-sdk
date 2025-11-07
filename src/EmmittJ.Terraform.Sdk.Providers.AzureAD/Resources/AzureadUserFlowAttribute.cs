@@ -20,36 +20,36 @@ public class AzureadUserFlowAttribute : TerraformResource
     /// <summary>
     /// The data type of the user flow attribute
     /// </summary>
-    public TerraformLiteralProperty<string>? DataType
+    public TerraformProperty<string>? DataType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_type");
+        get => GetProperty<TerraformProperty<string>>("data_type");
         set => this.WithProperty("data_type", value);
     }
 
     /// <summary>
     /// The description of the user flow attribute that is shown to the user at the time of sign-up
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name of the user flow attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

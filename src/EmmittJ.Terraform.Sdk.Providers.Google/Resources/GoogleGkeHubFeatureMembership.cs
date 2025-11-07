@@ -19,54 +19,54 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     /// <summary>
     /// The name of the feature
     /// </summary>
-    public TerraformLiteralProperty<string>? Feature
+    public TerraformProperty<string>? Feature
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("feature");
+        get => GetProperty<TerraformProperty<string>>("feature");
         set => this.WithProperty("feature", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the feature
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the membership
     /// </summary>
-    public TerraformLiteralProperty<string>? Membership
+    public TerraformProperty<string>? Membership
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("membership");
+        get => GetProperty<TerraformProperty<string>>("membership");
         set => this.WithProperty("membership", value);
     }
 
     /// <summary>
     /// The location of the membership
     /// </summary>
-    public TerraformLiteralProperty<string>? MembershipLocation
+    public TerraformProperty<string>? MembershipLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("membership_location");
+        get => GetProperty<TerraformProperty<string>>("membership_location");
         set => this.WithProperty("membership_location", value);
     }
 
     /// <summary>
     /// The project of the feature
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

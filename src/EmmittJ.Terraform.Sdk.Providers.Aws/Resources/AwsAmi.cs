@@ -31,171 +31,171 @@ public class AwsAmi : TerraformResource
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Architecture
+    public TerraformProperty<string>? Architecture
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("architecture");
+        get => GetProperty<TerraformProperty<string>>("architecture");
         set => this.WithProperty("architecture", value);
     }
 
     /// <summary>
     /// The boot_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BootMode
+    public TerraformProperty<string>? BootMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("boot_mode");
+        get => GetProperty<TerraformProperty<string>>("boot_mode");
         set => this.WithProperty("boot_mode", value);
     }
 
     /// <summary>
     /// The deprecation_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeprecationTime
+    public TerraformProperty<string>? DeprecationTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deprecation_time");
+        get => GetProperty<TerraformProperty<string>>("deprecation_time");
         set => this.WithProperty("deprecation_time", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnaSupport
+    public TerraformProperty<bool>? EnaSupport
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ena_support");
+        get => GetProperty<TerraformProperty<bool>>("ena_support");
         set => this.WithProperty("ena_support", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageLocation
+    public TerraformProperty<string>? ImageLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_location");
+        get => GetProperty<TerraformProperty<string>>("image_location");
         set => this.WithProperty("image_location", value);
     }
 
     /// <summary>
     /// The imds_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImdsSupport
+    public TerraformProperty<string>? ImdsSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("imds_support");
+        get => GetProperty<TerraformProperty<string>>("imds_support");
         set => this.WithProperty("imds_support", value);
     }
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KernelId
+    public TerraformProperty<string>? KernelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kernel_id");
+        get => GetProperty<TerraformProperty<string>>("kernel_id");
         set => this.WithProperty("kernel_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The ramdisk_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RamdiskId
+    public TerraformProperty<string>? RamdiskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ramdisk_id");
+        get => GetProperty<TerraformProperty<string>>("ramdisk_id");
         set => this.WithProperty("ramdisk_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The root_device_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RootDeviceName
+    public TerraformProperty<string>? RootDeviceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("root_device_name");
+        get => GetProperty<TerraformProperty<string>>("root_device_name");
         set => this.WithProperty("root_device_name", value);
     }
 
     /// <summary>
     /// The sriov_net_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SriovNetSupport
+    public TerraformProperty<string>? SriovNetSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sriov_net_support");
+        get => GetProperty<TerraformProperty<string>>("sriov_net_support");
         set => this.WithProperty("sriov_net_support", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tpm_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TpmSupport
+    public TerraformProperty<string>? TpmSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tpm_support");
+        get => GetProperty<TerraformProperty<string>>("tpm_support");
         set => this.WithProperty("tpm_support", value);
     }
 
     /// <summary>
     /// The uefi_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UefiData
+    public TerraformProperty<string>? UefiData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("uefi_data");
+        get => GetProperty<TerraformProperty<string>>("uefi_data");
         set => this.WithProperty("uefi_data", value);
     }
 
     /// <summary>
     /// The virtualization_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualizationType
+    public TerraformProperty<string>? VirtualizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtualization_type");
+        get => GetProperty<TerraformProperty<string>>("virtualization_type");
         set => this.WithProperty("virtualization_type", value);
     }
 

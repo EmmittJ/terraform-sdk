@@ -24,108 +24,108 @@ public class AzurermLogicAppWorkflow : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_service_environment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationServiceEnvironmentId
+    public TerraformProperty<string>? IntegrationServiceEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_service_environment_id");
+        get => GetProperty<TerraformProperty<string>>("integration_service_environment_id");
         set => this.WithProperty("integration_service_environment_id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The logic_app_integration_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogicAppIntegrationAccountId
+    public TerraformProperty<string>? LogicAppIntegrationAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logic_app_integration_account_id");
+        get => GetProperty<TerraformProperty<string>>("logic_app_integration_account_id");
         set => this.WithProperty("logic_app_integration_account_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Parameters
+    public TerraformProperty<Dictionary<string, string>>? Parameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workflow_parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? WorkflowParameters
+    public TerraformProperty<Dictionary<string, string>>? WorkflowParameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("workflow_parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("workflow_parameters");
         set => this.WithProperty("workflow_parameters", value);
     }
 
     /// <summary>
     /// The workflow_schema attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkflowSchema
+    public TerraformProperty<string>? WorkflowSchema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workflow_schema");
+        get => GetProperty<TerraformProperty<string>>("workflow_schema");
         set => this.WithProperty("workflow_schema", value);
     }
 
     /// <summary>
     /// The workflow_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkflowVersion
+    public TerraformProperty<string>? WorkflowVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workflow_version");
+        get => GetProperty<TerraformProperty<string>>("workflow_version");
         set => this.WithProperty("workflow_version", value);
     }
 

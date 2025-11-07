@@ -29,81 +29,81 @@ public class GoogleComputeInstance : TerraformResource
     /// <summary>
     /// If true, allows Terraform to stop the instance to update its properties. If you try to update a property that requires stopping the instance without setting this field, the update will fail.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowStoppingForUpdate
+    public TerraformProperty<bool>? AllowStoppingForUpdate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_stopping_for_update");
+        get => GetProperty<TerraformProperty<bool>>("allow_stopping_for_update");
         set => this.WithProperty("allow_stopping_for_update", value);
     }
 
     /// <summary>
     /// Whether sending and receiving of packets with non-matching source or destination IPs is allowed.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CanIpForward
+    public TerraformProperty<bool>? CanIpForward
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("can_ip_forward");
+        get => GetProperty<TerraformProperty<bool>>("can_ip_forward");
         set => this.WithProperty("can_ip_forward", value);
     }
 
     /// <summary>
     /// Whether deletion protection is enabled on this instance.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// A brief description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Desired status of the instance. Either &amp;quot;RUNNING&amp;quot;, &amp;quot;SUSPENDED&amp;quot; or &amp;quot;TERMINATED&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? DesiredStatus
+    public TerraformProperty<string>? DesiredStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("desired_status");
+        get => GetProperty<TerraformProperty<string>>("desired_status");
         set => this.WithProperty("desired_status", value);
     }
 
     /// <summary>
     /// Whether the instance has virtual displays enabled.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableDisplay
+    public TerraformProperty<bool>? EnableDisplay
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_display");
+        get => GetProperty<TerraformProperty<bool>>("enable_display");
         set => this.WithProperty("enable_display", value);
     }
 
     /// <summary>
     /// A custom hostname for the instance. Must be a fully qualified DNS name and RFC-1035-valid. Valid format is a series of labels 1-63 characters long matching the regular expression [a-z]([-a-z0-9]*[a-z0-9]), concatenated with periods. The entire hostname must not exceed 253 characters. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Hostname
+    public TerraformProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        get => GetProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Action to be taken when a customer&#39;s encryption key is revoked. Supports &amp;quot;STOP&amp;quot; and &amp;quot;NONE&amp;quot;, with &amp;quot;NONE&amp;quot; being the default.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyRevocationActionType
+    public TerraformProperty<string>? KeyRevocationActionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_revocation_action_type");
+        get => GetProperty<TerraformProperty<string>>("key_revocation_action_type");
         set => this.WithProperty("key_revocation_action_type", value);
     }
 
@@ -113,90 +113,90 @@ public class GoogleComputeInstance : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The machine type to create.
     /// </summary>
-    public TerraformLiteralProperty<string>? MachineType
+    public TerraformProperty<string>? MachineType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("machine_type");
+        get => GetProperty<TerraformProperty<string>>("machine_type");
         set => this.WithProperty("machine_type", value);
     }
 
     /// <summary>
     /// Metadata key/value pairs made available within the instance.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// Metadata startup scripts made available within the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? MetadataStartupScript
+    public TerraformProperty<string>? MetadataStartupScript
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata_startup_script");
+        get => GetProperty<TerraformProperty<string>>("metadata_startup_script");
         set => this.WithProperty("metadata_startup_script", value);
     }
 
     /// <summary>
     /// The minimum CPU platform specified for the VM instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? MinCpuPlatform
+    public TerraformProperty<string>? MinCpuPlatform
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("min_cpu_platform");
+        get => GetProperty<TerraformProperty<string>>("min_cpu_platform");
         set => this.WithProperty("min_cpu_platform", value);
     }
 
     /// <summary>
     /// The name of the instance. One of name or self_link must be provided.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If self_link is provided, this value is ignored. If neither self_link nor project are provided, the provider project is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// A list of self_links of resource policies to attach to the instance. Currently a max of 1 resource policy is supported.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ResourcePolicies
+    public TerraformProperty<List<string>>? ResourcePolicies
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("resource_policies");
+        get => GetProperty<TerraformProperty<List<string>>>("resource_policies");
         set => this.WithProperty("resource_policies", value);
     }
 
     /// <summary>
     /// The list of tags attached to the instance.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tags
+    public TerraformProperty<HashSet<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tags");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone of the instance. If self_link is provided, this value is ignored. If neither self_link nor zone are provided, the provider zone is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

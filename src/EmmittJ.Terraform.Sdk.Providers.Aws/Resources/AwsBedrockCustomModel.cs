@@ -26,81 +26,81 @@ public class AwsBedrockCustomModel : TerraformResource
     /// <summary>
     /// The base_model_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BaseModelIdentifier
+    public TerraformProperty<string>? BaseModelIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("base_model_identifier");
+        get => GetProperty<TerraformProperty<string>>("base_model_identifier");
         set => this.WithProperty("base_model_identifier", value);
     }
 
     /// <summary>
     /// The custom_model_kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomModelKmsKeyId
+    public TerraformProperty<string>? CustomModelKmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_model_kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("custom_model_kms_key_id");
         set => this.WithProperty("custom_model_kms_key_id", value);
     }
 
     /// <summary>
     /// The custom_model_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomModelName
+    public TerraformProperty<string>? CustomModelName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_model_name");
+        get => GetProperty<TerraformProperty<string>>("custom_model_name");
         set => this.WithProperty("custom_model_name", value);
     }
 
     /// <summary>
     /// The customization_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomizationType
+    public TerraformProperty<string>? CustomizationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customization_type");
+        get => GetProperty<TerraformProperty<string>>("customization_type");
         set => this.WithProperty("customization_type", value);
     }
 
     /// <summary>
     /// The hyperparameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Hyperparameters
+    public TerraformProperty<Dictionary<string, string>>? Hyperparameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("hyperparameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("hyperparameters");
         set => this.WithProperty("hyperparameters", value);
     }
 
     /// <summary>
     /// The job_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobName
+    public TerraformProperty<string>? JobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_name");
+        get => GetProperty<TerraformProperty<string>>("job_name");
         set => this.WithProperty("job_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArn
+    public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

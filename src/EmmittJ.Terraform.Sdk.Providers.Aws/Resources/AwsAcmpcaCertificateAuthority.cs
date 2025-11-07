@@ -26,81 +26,81 @@ public class AwsAcmpcaCertificateAuthority : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_storage_security_standard attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyStorageSecurityStandard
+    public TerraformProperty<string>? KeyStorageSecurityStandard
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_storage_security_standard");
+        get => GetProperty<TerraformProperty<string>>("key_storage_security_standard");
         set => this.WithProperty("key_storage_security_standard", value);
     }
 
     /// <summary>
     /// The permanent_deletion_time_in_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PermanentDeletionTimeInDays
+    public TerraformProperty<double>? PermanentDeletionTimeInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("permanent_deletion_time_in_days");
+        get => GetProperty<TerraformProperty<double>>("permanent_deletion_time_in_days");
         set => this.WithProperty("permanent_deletion_time_in_days", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The usage_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UsageMode
+    public TerraformProperty<string>? UsageMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("usage_mode");
+        get => GetProperty<TerraformProperty<string>>("usage_mode");
         set => this.WithProperty("usage_mode", value);
     }
 

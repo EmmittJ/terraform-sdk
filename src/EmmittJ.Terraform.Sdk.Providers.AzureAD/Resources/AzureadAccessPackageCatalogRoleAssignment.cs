@@ -19,36 +19,36 @@ public class AzureadAccessPackageCatalogRoleAssignment : TerraformResource
     /// <summary>
     /// The unique ID of the access package catalog.
     /// </summary>
-    public TerraformLiteralProperty<string>? CatalogId
+    public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        get => GetProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object ID of the member principal
     /// </summary>
-    public TerraformLiteralProperty<string>? PrincipalObjectId
+    public TerraformProperty<string>? PrincipalObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal_object_id");
+        get => GetProperty<TerraformProperty<string>>("principal_object_id");
         set => this.WithProperty("principal_object_id", value);
     }
 
     /// <summary>
     /// The object ID of the catalog role for this assignment
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleId
+    public TerraformProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 

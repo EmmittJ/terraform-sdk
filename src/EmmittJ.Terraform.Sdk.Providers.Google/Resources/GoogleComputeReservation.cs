@@ -24,27 +24,27 @@ public class GoogleComputeReservation : TerraformResource
     /// Absolute time in future when the reservation will be auto-deleted by Compute Engine. Timestamp is represented in RFC3339 text format.
     /// Cannot be used with delete_after_duration.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeleteAtTime
+    public TerraformProperty<string>? DeleteAtTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delete_at_time");
+        get => GetProperty<TerraformProperty<string>>("delete_at_time");
         set => this.WithProperty("delete_at_time", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -57,18 +57,18 @@ public class GoogleComputeReservation : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -77,18 +77,18 @@ public class GoogleComputeReservation : TerraformResource
     /// consume this reservation. Otherwise, it can be consumed by VMs with
     /// affinity for any reservation. Defaults to false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SpecificReservationRequired
+    public TerraformProperty<bool>? SpecificReservationRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("specific_reservation_required");
+        get => GetProperty<TerraformProperty<bool>>("specific_reservation_required");
         set => this.WithProperty("specific_reservation_required", value);
     }
 
     /// <summary>
     /// The zone where the reservation is made.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

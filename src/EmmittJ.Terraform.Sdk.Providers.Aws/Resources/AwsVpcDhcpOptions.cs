@@ -21,90 +21,90 @@ public class AwsVpcDhcpOptions : TerraformResource
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The domain_name_servers attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DomainNameServers
+    public TerraformProperty<List<string>>? DomainNameServers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("domain_name_servers");
+        get => GetProperty<TerraformProperty<List<string>>>("domain_name_servers");
         set => this.WithProperty("domain_name_servers", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipv6_address_preferred_lease_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ipv6AddressPreferredLeaseTime
+    public TerraformProperty<string>? Ipv6AddressPreferredLeaseTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_address_preferred_lease_time");
+        get => GetProperty<TerraformProperty<string>>("ipv6_address_preferred_lease_time");
         set => this.WithProperty("ipv6_address_preferred_lease_time", value);
     }
 
     /// <summary>
     /// The netbios_name_servers attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? NetbiosNameServers
+    public TerraformProperty<List<string>>? NetbiosNameServers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("netbios_name_servers");
+        get => GetProperty<TerraformProperty<List<string>>>("netbios_name_servers");
         set => this.WithProperty("netbios_name_servers", value);
     }
 
     /// <summary>
     /// The netbios_node_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetbiosNodeType
+    public TerraformProperty<string>? NetbiosNodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("netbios_node_type");
+        get => GetProperty<TerraformProperty<string>>("netbios_node_type");
         set => this.WithProperty("netbios_node_type", value);
     }
 
     /// <summary>
     /// The ntp_servers attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? NtpServers
+    public TerraformProperty<List<string>>? NtpServers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ntp_servers");
+        get => GetProperty<TerraformProperty<List<string>>>("ntp_servers");
         set => this.WithProperty("ntp_servers", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

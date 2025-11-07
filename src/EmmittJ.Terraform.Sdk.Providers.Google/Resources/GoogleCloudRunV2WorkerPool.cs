@@ -46,27 +46,27 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
-    public TerraformLiteralProperty<string>? Client
+    public TerraformProperty<string>? Client
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client");
+        get => GetProperty<TerraformProperty<string>>("client");
         set => this.WithProperty("client", value);
     }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientVersion
+    public TerraformProperty<string>? ClientVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_version");
+        get => GetProperty<TerraformProperty<string>>("client_version");
         set => this.WithProperty("client_version", value);
     }
 
@@ -74,9 +74,9 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
     /// For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? CustomAudiences
+    public TerraformProperty<List<string>>? CustomAudiences
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("custom_audiences");
+        get => GetProperty<TerraformProperty<List<string>>>("custom_audiences");
         set => this.WithProperty("custom_audiences", value);
     }
 
@@ -88,27 +88,27 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the WorkerPool will fail.
     /// When the field is set to false, deleting the WorkerPool is allowed.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User-provided description of the WorkerPool. This field currently has a 512-character limit.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -122,9 +122,9 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -134,36 +134,36 @@ public class GoogleCloudRunV2WorkerPool : TerraformResource
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? LaunchStage
+    public TerraformProperty<string>? LaunchStage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("launch_stage");
+        get => GetProperty<TerraformProperty<string>>("launch_stage");
         set => this.WithProperty("launch_stage", value);
     }
 
     /// <summary>
     /// The location of the cloud run worker pool
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of the WorkerPool.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

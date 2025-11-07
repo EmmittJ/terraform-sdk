@@ -27,9 +27,9 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// * **Note**: For PubSub targets, this field is ignored - setting it will introduce an unresolvable diff.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;
     /// </summary>
-    public TerraformLiteralProperty<string>? AttemptDeadline
+    public TerraformProperty<string>? AttemptDeadline
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attempt_deadline");
+        get => GetProperty<TerraformProperty<string>>("attempt_deadline");
         set => this.WithProperty("attempt_deadline", value);
     }
 
@@ -37,63 +37,63 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// A human-readable description for the job.
     /// This string must not contain more than 500 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the job.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Sets the job to a paused state. Jobs default to being enabled when this property is not set.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Paused
+    public TerraformProperty<bool>? Paused
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("paused");
+        get => GetProperty<TerraformProperty<bool>>("paused");
         set => this.WithProperty("paused", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Region where the scheduler job resides. If it is not provided, Terraform will use the provider default.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// Describes the schedule on which the job will be executed.
     /// </summary>
-    public TerraformLiteralProperty<string>? Schedule
+    public TerraformProperty<string>? Schedule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schedule");
+        get => GetProperty<TerraformProperty<string>>("schedule");
         set => this.WithProperty("schedule", value);
     }
 
@@ -101,9 +101,9 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// Specifies the time zone to be used in interpreting schedule.
     /// The value of this field must be a time zone name from the tz database.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeZone
+    public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        get => GetProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 

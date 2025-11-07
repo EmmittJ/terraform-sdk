@@ -20,54 +20,54 @@ public class GoogleBigtableSchemaBundle : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If true, allow backwards incompatible changes.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IgnoreWarnings
+    public TerraformProperty<bool>? IgnoreWarnings
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_warnings");
+        get => GetProperty<TerraformProperty<bool>>("ignore_warnings");
         set => this.WithProperty("ignore_warnings", value);
     }
 
     /// <summary>
     /// The name of the instance to create the schema bundle within.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The unique name of the schema bundle in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? SchemaBundleId
+    public TerraformProperty<string>? SchemaBundleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema_bundle_id");
+        get => GetProperty<TerraformProperty<string>>("schema_bundle_id");
         set => this.WithProperty("schema_bundle_id", value);
     }
 
     /// <summary>
     /// The name of the table to create the schema bundle within.
     /// </summary>
-    public TerraformLiteralProperty<string>? Table
+    public TerraformProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 

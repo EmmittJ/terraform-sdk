@@ -25,36 +25,36 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentDataSource : Terr
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The virtual_machine_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualMachineName
+    public TerraformProperty<string>? VirtualMachineName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_name");
+        get => GetProperty<TerraformProperty<string>>("virtual_machine_name");
         set => this.WithProperty("virtual_machine_name", value);
     }
 

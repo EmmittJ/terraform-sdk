@@ -21,18 +21,18 @@ public class AwsEmrSupportedInstanceTypesDataSource : TerraformDataSource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The release_label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReleaseLabel
+    public TerraformProperty<string>? ReleaseLabel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_label");
+        get => GetProperty<TerraformProperty<string>>("release_label");
         set => this.WithProperty("release_label", value);
     }
 

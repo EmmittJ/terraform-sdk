@@ -25,72 +25,72 @@ public class AwsNetworkmonitorProbe : TerraformResource
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Destination
+    public TerraformProperty<string>? Destination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination");
+        get => GetProperty<TerraformProperty<string>>("destination");
         set => this.WithProperty("destination", value);
     }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DestinationPort
+    public TerraformProperty<double>? DestinationPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("destination_port");
+        get => GetProperty<TerraformProperty<double>>("destination_port");
         set => this.WithProperty("destination_port", value);
     }
 
     /// <summary>
     /// The monitor_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MonitorName
+    public TerraformProperty<string>? MonitorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("monitor_name");
+        get => GetProperty<TerraformProperty<string>>("monitor_name");
         set => this.WithProperty("monitor_name", value);
     }
 
     /// <summary>
     /// The packet_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PacketSize
+    public TerraformProperty<double>? PacketSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("packet_size");
+        get => GetProperty<TerraformProperty<double>>("packet_size");
         set => this.WithProperty("packet_size", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceArn
+    public TerraformProperty<string>? SourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_arn");
+        get => GetProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

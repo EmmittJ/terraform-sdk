@@ -21,63 +21,63 @@ public class AwsAppflowConnectorProfile : TerraformResource
     /// <summary>
     /// The connection_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionMode
+    public TerraformProperty<string>? ConnectionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_mode");
+        get => GetProperty<TerraformProperty<string>>("connection_mode");
         set => this.WithProperty("connection_mode", value);
     }
 
     /// <summary>
     /// The connector_label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectorLabel
+    public TerraformProperty<string>? ConnectorLabel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connector_label");
+        get => GetProperty<TerraformProperty<string>>("connector_label");
         set => this.WithProperty("connector_label", value);
     }
 
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectorType
+    public TerraformProperty<string>? ConnectorType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connector_type");
+        get => GetProperty<TerraformProperty<string>>("connector_type");
         set => this.WithProperty("connector_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsArn
+    public TerraformProperty<string>? KmsArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_arn");
+        get => GetProperty<TerraformProperty<string>>("kms_arn");
         set => this.WithProperty("kms_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

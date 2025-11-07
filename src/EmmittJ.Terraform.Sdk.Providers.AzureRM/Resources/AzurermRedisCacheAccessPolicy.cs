@@ -19,36 +19,36 @@ public class AzurermRedisCacheAccessPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Permissions
+    public TerraformProperty<string>? Permissions
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("permissions");
+        get => GetProperty<TerraformProperty<string>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
     /// <summary>
     /// The redis_cache_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RedisCacheId
+    public TerraformProperty<string>? RedisCacheId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redis_cache_id");
+        get => GetProperty<TerraformProperty<string>>("redis_cache_id");
         set => this.WithProperty("redis_cache_id", value);
     }
 

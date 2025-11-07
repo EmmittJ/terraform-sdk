@@ -21,54 +21,54 @@ public class GoogleDataCatalogTagTemplate : TerraformResource
     /// <summary>
     /// The display name for this template.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// This confirms the deletion of any possible tags using this template. Must be set to true in order to delete the tag template.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDelete
+    public TerraformProperty<bool>? ForceDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete");
+        get => GetProperty<TerraformProperty<bool>>("force_delete");
         set => this.WithProperty("force_delete", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Template location region.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The id of the tag template to create.
     /// </summary>
-    public TerraformLiteralProperty<string>? TagTemplateId
+    public TerraformProperty<string>? TagTemplateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_template_id");
+        get => GetProperty<TerraformProperty<string>>("tag_template_id");
         set => this.WithProperty("tag_template_id", value);
     }
 

@@ -22,63 +22,63 @@ public class AwsAppsyncSourceApiAssociation : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The merged_api_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MergedApiArn
+    public TerraformProperty<string>? MergedApiArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_arn");
+        get => GetProperty<TerraformProperty<string>>("merged_api_arn");
         set => this.WithProperty("merged_api_arn", value);
     }
 
     /// <summary>
     /// The merged_api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MergedApiId
+    public TerraformProperty<string>? MergedApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_id");
+        get => GetProperty<TerraformProperty<string>>("merged_api_id");
         set => this.WithProperty("merged_api_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The source_api_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceApiArn
+    public TerraformProperty<string>? SourceApiArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_api_arn");
+        get => GetProperty<TerraformProperty<string>>("source_api_arn");
         set => this.WithProperty("source_api_arn", value);
     }
 
     /// <summary>
     /// The source_api_association_config attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? SourceApiAssociationConfig
+    public TerraformProperty<List<object>>? SourceApiAssociationConfig
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("source_api_association_config");
+        get => GetProperty<TerraformProperty<List<object>>>("source_api_association_config");
         set => this.WithProperty("source_api_association_config", value);
     }
 
     /// <summary>
     /// The source_api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceApiId
+    public TerraformProperty<string>? SourceApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_api_id");
+        get => GetProperty<TerraformProperty<string>>("source_api_id");
         set => this.WithProperty("source_api_id", value);
     }
 

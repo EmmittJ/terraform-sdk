@@ -21,45 +21,45 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Comment
+    public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        get => GetProperty<TerraformProperty<string>>("comment");
         set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The destination_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationAccount
+    public TerraformProperty<string>? DestinationAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_account");
+        get => GetProperty<TerraformProperty<string>>("destination_account");
         set => this.WithProperty("destination_account", value);
     }
 
     /// <summary>
     /// The destination_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationRegion
+    public TerraformProperty<string>? DestinationRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_region");
+        get => GetProperty<TerraformProperty<string>>("destination_region");
         set => this.WithProperty("destination_region", value);
     }
 
     /// <summary>
     /// The framework_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FrameworkId
+    public TerraformProperty<string>? FrameworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("framework_id");
+        get => GetProperty<TerraformProperty<string>>("framework_id");
         set => this.WithProperty("framework_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -30,54 +30,54 @@ public class GoogleSecretManagerRegionalSecretVersion : TerraformResource
     ///   * DISABLE
     ///   * ABANDON
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The current state of the regional secret version.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If set to &#39;true&#39;, the secret data is expected to be base64-encoded string and would be sent as is.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsSecretDataBase64
+    public TerraformProperty<bool>? IsSecretDataBase64
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_secret_data_base64");
+        get => GetProperty<TerraformProperty<bool>>("is_secret_data_base64");
         set => this.WithProperty("is_secret_data_base64", value);
     }
 
     /// <summary>
     /// Secret Manager regional secret resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Secret
+    public TerraformProperty<string>? Secret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret");
+        get => GetProperty<TerraformProperty<string>>("secret");
         set => this.WithProperty("secret", value);
     }
 
     /// <summary>
     /// The secret data. Must be no larger than 64KiB.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecretData
+    public TerraformProperty<string>? SecretData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_data");
+        get => GetProperty<TerraformProperty<string>>("secret_data");
         set => this.WithProperty("secret_data", value);
     }
 

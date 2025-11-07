@@ -20,27 +20,27 @@ public class GoogleBillingBudget : TerraformResource
     /// <summary>
     /// ID of the billing account to set a budget on.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingAccount
+    public TerraformProperty<string>? BillingAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account");
+        get => GetProperty<TerraformProperty<string>>("billing_account");
         set => this.WithProperty("billing_account", value);
     }
 
     /// <summary>
     /// User data for display name in UI. Must be &amp;lt;= 60 chars.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -48,9 +48,9 @@ public class GoogleBillingBudget : TerraformResource
     /// The ownership scope of the budget. The ownership scope and users&#39;
     /// IAM permissions determine who has full access to the budget&#39;s data. Possible values: [&amp;quot;OWNERSHIP_SCOPE_UNSPECIFIED&amp;quot;, &amp;quot;ALL_USERS&amp;quot;, &amp;quot;BILLING_ACCOUNT&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? OwnershipScope
+    public TerraformProperty<string>? OwnershipScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ownership_scope");
+        get => GetProperty<TerraformProperty<string>>("ownership_scope");
         set => this.WithProperty("ownership_scope", value);
     }
 

@@ -20,45 +20,45 @@ public class AwsBackupVaultNotifications : TerraformResource
     /// <summary>
     /// The backup_vault_events attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? BackupVaultEvents
+    public TerraformProperty<HashSet<string>>? BackupVaultEvents
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("backup_vault_events");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("backup_vault_events");
         set => this.WithProperty("backup_vault_events", value);
     }
 
     /// <summary>
     /// The backup_vault_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupVaultName
+    public TerraformProperty<string>? BackupVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_vault_name");
+        get => GetProperty<TerraformProperty<string>>("backup_vault_name");
         set => this.WithProperty("backup_vault_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SnsTopicArn
+    public TerraformProperty<string>? SnsTopicArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sns_topic_arn");
+        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
         set => this.WithProperty("sns_topic_arn", value);
     }
 

@@ -24,36 +24,36 @@ public class GoogleStorageBatchOperationsJob : TerraformResource
     /// <summary>
     /// If set to &#39;true&#39;, the storage batch operation job will not be deleted and new job will be created.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteProtection
+    public TerraformProperty<bool>? DeleteProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_protection");
+        get => GetProperty<TerraformProperty<bool>>("delete_protection");
         set => this.WithProperty("delete_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the job.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobId
+    public TerraformProperty<string>? JobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_id");
+        get => GetProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

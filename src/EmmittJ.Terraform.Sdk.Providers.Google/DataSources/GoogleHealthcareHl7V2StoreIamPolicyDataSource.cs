@@ -21,18 +21,18 @@ public class GoogleHealthcareHl7V2StoreIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The hl7_v2_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Hl7V2StoreId
+    public TerraformProperty<string>? Hl7V2StoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hl7_v2_store_id");
+        get => GetProperty<TerraformProperty<string>>("hl7_v2_store_id");
         set => this.WithProperty("hl7_v2_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

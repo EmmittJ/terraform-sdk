@@ -19,72 +19,72 @@ public class AzurermDataFactoryFlowletDataFlow : TerraformResource
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Annotations
+    public TerraformProperty<List<string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("annotations");
+        get => GetProperty<TerraformProperty<List<string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataFactoryId
+    public TerraformProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The folder attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Folder
+    public TerraformProperty<string>? Folder
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder");
+        get => GetProperty<TerraformProperty<string>>("folder");
         set => this.WithProperty("folder", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Script
+    public TerraformProperty<string>? Script
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("script");
+        get => GetProperty<TerraformProperty<string>>("script");
         set => this.WithProperty("script", value);
     }
 
     /// <summary>
     /// The script_lines attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ScriptLines
+    public TerraformProperty<List<string>>? ScriptLines
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("script_lines");
+        get => GetProperty<TerraformProperty<List<string>>>("script_lines");
         set => this.WithProperty("script_lines", value);
     }
 

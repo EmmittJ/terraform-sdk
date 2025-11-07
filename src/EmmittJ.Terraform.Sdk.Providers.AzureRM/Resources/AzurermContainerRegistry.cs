@@ -23,162 +23,162 @@ public class AzurermContainerRegistry : TerraformResource
     /// <summary>
     /// The admin_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AdminEnabled
+    public TerraformProperty<bool>? AdminEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("admin_enabled");
+        get => GetProperty<TerraformProperty<bool>>("admin_enabled");
         set => this.WithProperty("admin_enabled", value);
     }
 
     /// <summary>
     /// The anonymous_pull_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AnonymousPullEnabled
+    public TerraformProperty<bool>? AnonymousPullEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("anonymous_pull_enabled");
+        get => GetProperty<TerraformProperty<bool>>("anonymous_pull_enabled");
         set => this.WithProperty("anonymous_pull_enabled", value);
     }
 
     /// <summary>
     /// The data_endpoint_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DataEndpointEnabled
+    public TerraformProperty<bool>? DataEndpointEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("data_endpoint_enabled");
+        get => GetProperty<TerraformProperty<bool>>("data_endpoint_enabled");
         set => this.WithProperty("data_endpoint_enabled", value);
     }
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? Encryption
+    public TerraformProperty<List<object>>? Encryption
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("encryption");
+        get => GetProperty<TerraformProperty<List<object>>>("encryption");
         set => this.WithProperty("encryption", value);
     }
 
     /// <summary>
     /// The export_policy_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExportPolicyEnabled
+    public TerraformProperty<bool>? ExportPolicyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("export_policy_enabled");
+        get => GetProperty<TerraformProperty<bool>>("export_policy_enabled");
         set => this.WithProperty("export_policy_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_rule_bypass_option attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkRuleBypassOption
+    public TerraformProperty<string>? NetworkRuleBypassOption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_rule_bypass_option");
+        get => GetProperty<TerraformProperty<string>>("network_rule_bypass_option");
         set => this.WithProperty("network_rule_bypass_option", value);
     }
 
     /// <summary>
     /// The network_rule_set attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? NetworkRuleSet
+    public TerraformProperty<List<object>>? NetworkRuleSet
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("network_rule_set");
+        get => GetProperty<TerraformProperty<List<object>>>("network_rule_set");
         set => this.WithProperty("network_rule_set", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The quarantine_policy_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? QuarantinePolicyEnabled
+    public TerraformProperty<bool>? QuarantinePolicyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("quarantine_policy_enabled");
+        get => GetProperty<TerraformProperty<bool>>("quarantine_policy_enabled");
         set => this.WithProperty("quarantine_policy_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retention_policy_in_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionPolicyInDays
+    public TerraformProperty<double>? RetentionPolicyInDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_policy_in_days");
+        get => GetProperty<TerraformProperty<double>>("retention_policy_in_days");
         set => this.WithProperty("retention_policy_in_days", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The trust_policy_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TrustPolicyEnabled
+    public TerraformProperty<bool>? TrustPolicyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("trust_policy_enabled");
+        get => GetProperty<TerraformProperty<bool>>("trust_policy_enabled");
         set => this.WithProperty("trust_policy_enabled", value);
     }
 
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZoneRedundancyEnabled
+    public TerraformProperty<bool>? ZoneRedundancyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundancy_enabled");
+        get => GetProperty<TerraformProperty<bool>>("zone_redundancy_enabled");
         set => this.WithProperty("zone_redundancy_enabled", value);
     }
 

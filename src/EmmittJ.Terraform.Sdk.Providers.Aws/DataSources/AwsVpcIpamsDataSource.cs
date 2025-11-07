@@ -20,18 +20,18 @@ public class AwsVpcIpamsDataSource : TerraformDataSource
     /// <summary>
     /// The ipam_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? IpamIds
+    public TerraformProperty<List<string>>? IpamIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ipam_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("ipam_ids");
         set => this.WithProperty("ipam_ids", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

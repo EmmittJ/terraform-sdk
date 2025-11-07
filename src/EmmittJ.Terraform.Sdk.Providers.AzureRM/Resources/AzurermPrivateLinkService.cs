@@ -20,99 +20,99 @@ public class AzurermPrivateLinkService : TerraformResource
     /// <summary>
     /// The auto_approval_subscription_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AutoApprovalSubscriptionIds
+    public TerraformProperty<HashSet<string>>? AutoApprovalSubscriptionIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("auto_approval_subscription_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("auto_approval_subscription_ids");
         set => this.WithProperty("auto_approval_subscription_ids", value);
     }
 
     /// <summary>
     /// The destination_ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationIpAddress
+    public TerraformProperty<string>? DestinationIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_ip_address");
+        get => GetProperty<TerraformProperty<string>>("destination_ip_address");
         set => this.WithProperty("destination_ip_address", value);
     }
 
     /// <summary>
     /// The enable_proxy_protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableProxyProtocol
+    public TerraformProperty<bool>? EnableProxyProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_proxy_protocol");
+        get => GetProperty<TerraformProperty<bool>>("enable_proxy_protocol");
         set => this.WithProperty("enable_proxy_protocol", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Fqdns
+    public TerraformProperty<List<string>>? Fqdns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("fqdns");
+        get => GetProperty<TerraformProperty<List<string>>>("fqdns");
         set => this.WithProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The load_balancer_frontend_ip_configuration_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? LoadBalancerFrontendIpConfigurationIds
+    public TerraformProperty<HashSet<string>>? LoadBalancerFrontendIpConfigurationIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("load_balancer_frontend_ip_configuration_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("load_balancer_frontend_ip_configuration_ids");
         set => this.WithProperty("load_balancer_frontend_ip_configuration_ids", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The visibility_subscription_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VisibilitySubscriptionIds
+    public TerraformProperty<HashSet<string>>? VisibilitySubscriptionIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("visibility_subscription_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("visibility_subscription_ids");
         set => this.WithProperty("visibility_subscription_ids", value);
     }
 

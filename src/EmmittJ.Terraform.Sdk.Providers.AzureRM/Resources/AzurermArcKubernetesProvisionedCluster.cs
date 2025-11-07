@@ -26,63 +26,63 @@ public class AzurermArcKubernetesProvisionedCluster : TerraformResource
     /// <summary>
     /// The arc_agent_auto_upgrade_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ArcAgentAutoUpgradeEnabled
+    public TerraformProperty<bool>? ArcAgentAutoUpgradeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("arc_agent_auto_upgrade_enabled");
+        get => GetProperty<TerraformProperty<bool>>("arc_agent_auto_upgrade_enabled");
         set => this.WithProperty("arc_agent_auto_upgrade_enabled", value);
     }
 
     /// <summary>
     /// The arc_agent_desired_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ArcAgentDesiredVersion
+    public TerraformProperty<string>? ArcAgentDesiredVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arc_agent_desired_version");
+        get => GetProperty<TerraformProperty<string>>("arc_agent_desired_version");
         set => this.WithProperty("arc_agent_desired_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

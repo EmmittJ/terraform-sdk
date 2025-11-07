@@ -25,54 +25,54 @@ public class AwsCognitoUserPoolDomain : TerraformResource
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateArn
+    public TerraformProperty<string>? CertificateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_arn");
+        get => GetProperty<TerraformProperty<string>>("certificate_arn");
         set => this.WithProperty("certificate_arn", value);
     }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Domain
+    public TerraformProperty<string>? Domain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain");
+        get => GetProperty<TerraformProperty<string>>("domain");
         set => this.WithProperty("domain", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_login_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ManagedLoginVersion
+    public TerraformProperty<double>? ManagedLoginVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("managed_login_version");
+        get => GetProperty<TerraformProperty<double>>("managed_login_version");
         set => this.WithProperty("managed_login_version", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPoolId
+    public TerraformProperty<string>? UserPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_pool_id");
+        get => GetProperty<TerraformProperty<string>>("user_pool_id");
         set => this.WithProperty("user_pool_id", value);
     }
 

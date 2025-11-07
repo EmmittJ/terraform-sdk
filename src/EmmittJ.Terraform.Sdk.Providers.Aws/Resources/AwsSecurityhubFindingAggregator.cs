@@ -19,36 +19,36 @@ public class AwsSecurityhubFindingAggregator : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The linking_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LinkingMode
+    public TerraformProperty<string>? LinkingMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("linking_mode");
+        get => GetProperty<TerraformProperty<string>>("linking_mode");
         set => this.WithProperty("linking_mode", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The specified_regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SpecifiedRegions
+    public TerraformProperty<HashSet<string>>? SpecifiedRegions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("specified_regions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("specified_regions");
         set => this.WithProperty("specified_regions", value);
     }
 

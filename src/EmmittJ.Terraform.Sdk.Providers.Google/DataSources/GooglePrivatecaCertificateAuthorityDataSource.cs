@@ -41,18 +41,18 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// <summary>
     /// The user provided Resource ID for this Certificate Authority.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateAuthorityId
+    public TerraformProperty<string>? CertificateAuthorityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_id");
+        get => GetProperty<TerraformProperty<string>>("certificate_authority_id");
         set => this.WithProperty("certificate_authority_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -60,27 +60,27 @@ public class GooglePrivatecaCertificateAuthorityDataSource : TerraformDataSource
     /// Location of the CertificateAuthority. A full list of valid locations can be found by
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the CaPool this Certificate Authority belongs to.
     /// </summary>
-    public TerraformLiteralProperty<string>? Pool
+    public TerraformProperty<string>? Pool
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool");
+        get => GetProperty<TerraformProperty<string>>("pool");
         set => this.WithProperty("pool", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

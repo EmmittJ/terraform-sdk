@@ -19,36 +19,36 @@ public class AzurermSiteRecoveryHypervReplicationPolicyAssociation : TerraformRe
     /// <summary>
     /// The hyperv_site_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HypervSiteId
+    public TerraformProperty<string>? HypervSiteId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hyperv_site_id");
+        get => GetProperty<TerraformProperty<string>>("hyperv_site_id");
         set => this.WithProperty("hyperv_site_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyId
+    public TerraformProperty<string>? PolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_id");
+        get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 

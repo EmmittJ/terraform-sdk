@@ -19,72 +19,72 @@ public class AzurermCostAnomalyAlert : TerraformResource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The email_addresses attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? EmailAddresses
+    public TerraformProperty<HashSet<string>>? EmailAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("email_addresses");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("email_addresses");
         set => this.WithProperty("email_addresses", value);
     }
 
     /// <summary>
     /// The email_subject attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EmailSubject
+    public TerraformProperty<string>? EmailSubject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email_subject");
+        get => GetProperty<TerraformProperty<string>>("email_subject");
         set => this.WithProperty("email_subject", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The message attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Message
+    public TerraformProperty<string>? Message
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message");
+        get => GetProperty<TerraformProperty<string>>("message");
         set => this.WithProperty("message", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The notification_email attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotificationEmail
+    public TerraformProperty<string>? NotificationEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_email");
+        get => GetProperty<TerraformProperty<string>>("notification_email");
         set => this.WithProperty("notification_email", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

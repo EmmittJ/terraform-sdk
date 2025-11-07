@@ -41,90 +41,90 @@ public class GoogleGkeonpremVmwareAdminCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The bootstrap cluster this VMware admin cluster belongs to.
     /// </summary>
-    public TerraformLiteralProperty<string>? BootstrapClusterMembership
+    public TerraformProperty<string>? BootstrapClusterMembership
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bootstrap_cluster_membership");
+        get => GetProperty<TerraformProperty<string>>("bootstrap_cluster_membership");
         set => this.WithProperty("bootstrap_cluster_membership", value);
     }
 
     /// <summary>
     /// A human readable description of this VMware admin cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// If set, the advanced cluster feature is enabled.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableAdvancedCluster
+    public TerraformProperty<bool>? EnableAdvancedCluster
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_advanced_cluster");
+        get => GetProperty<TerraformProperty<bool>>("enable_advanced_cluster");
         set => this.WithProperty("enable_advanced_cluster", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The OS image type for the VMware admin cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageType
+    public TerraformProperty<string>? ImageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_type");
+        get => GetProperty<TerraformProperty<string>>("image_type");
         set => this.WithProperty("image_type", value);
     }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The VMware admin cluster resource name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The Anthos clusters on the VMware version for the admin cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? OnPremVersion
+    public TerraformProperty<string>? OnPremVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("on_prem_version");
+        get => GetProperty<TerraformProperty<string>>("on_prem_version");
         set => this.WithProperty("on_prem_version", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -19,72 +19,72 @@ public class AzurermExpressRouteGateway : TerraformResource
     /// <summary>
     /// The allow_non_virtual_wan_traffic attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowNonVirtualWanTraffic
+    public TerraformProperty<bool>? AllowNonVirtualWanTraffic
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_non_virtual_wan_traffic");
+        get => GetProperty<TerraformProperty<bool>>("allow_non_virtual_wan_traffic");
         set => this.WithProperty("allow_non_virtual_wan_traffic", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The scale_units attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ScaleUnits
+    public TerraformProperty<double>? ScaleUnits
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("scale_units");
+        get => GetProperty<TerraformProperty<double>>("scale_units");
         set => this.WithProperty("scale_units", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualHubId
+    public TerraformProperty<string>? VirtualHubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_hub_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

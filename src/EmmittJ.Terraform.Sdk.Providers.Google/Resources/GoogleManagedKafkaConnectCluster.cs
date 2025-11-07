@@ -25,27 +25,27 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     /// <summary>
     /// The ID to use for the Connect Cluster, which will become the final component of the connect cluster&#39;s name. This value is structured like: &#39;my-connect-cluster-id&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectClusterId
+    public TerraformProperty<string>? ConnectClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connect_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("connect_cluster_id");
         set => this.WithProperty("connect_cluster_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Kafka cluster this Kafka Connect cluster is attached to. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/clusters/CLUSTER_ID&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? KafkaCluster
+    public TerraformProperty<string>? KafkaCluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kafka_cluster");
+        get => GetProperty<TerraformProperty<string>>("kafka_cluster");
         set => this.WithProperty("kafka_cluster", value);
     }
 
@@ -55,27 +55,27 @@ public class GoogleManagedKafkaConnectCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// ID of the location of the Kafka Connect resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

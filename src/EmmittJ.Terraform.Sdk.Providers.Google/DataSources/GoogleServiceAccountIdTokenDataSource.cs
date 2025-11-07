@@ -20,45 +20,45 @@ public class GoogleServiceAccountIdTokenDataSource : TerraformDataSource
     /// <summary>
     /// The delegates attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Delegates
+    public TerraformProperty<HashSet<string>>? Delegates
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("delegates");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("delegates");
         set => this.WithProperty("delegates", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_email attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeEmail
+    public TerraformProperty<bool>? IncludeEmail
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_email");
+        get => GetProperty<TerraformProperty<bool>>("include_email");
         set => this.WithProperty("include_email", value);
     }
 
     /// <summary>
     /// The target_audience attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetAudience
+    public TerraformProperty<string>? TargetAudience
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_audience");
+        get => GetProperty<TerraformProperty<string>>("target_audience");
         set => this.WithProperty("target_audience", value);
     }
 
     /// <summary>
     /// The target_service_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetServiceAccount
+    public TerraformProperty<string>? TargetServiceAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_service_account");
+        get => GetProperty<TerraformProperty<string>>("target_service_account");
         set => this.WithProperty("target_service_account", value);
     }
 

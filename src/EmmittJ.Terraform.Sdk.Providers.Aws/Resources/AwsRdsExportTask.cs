@@ -28,72 +28,72 @@ public class AwsRdsExportTask : TerraformResource
     /// <summary>
     /// The export_only attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ExportOnly
+    public TerraformProperty<List<string>>? ExportOnly
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("export_only");
+        get => GetProperty<TerraformProperty<List<string>>>("export_only");
         set => this.WithProperty("export_only", value);
     }
 
     /// <summary>
     /// The export_task_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExportTaskIdentifier
+    public TerraformProperty<string>? ExportTaskIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("export_task_identifier");
+        get => GetProperty<TerraformProperty<string>>("export_task_identifier");
         set => this.WithProperty("export_task_identifier", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3BucketName
+    public TerraformProperty<string>? S3BucketName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket_name");
+        get => GetProperty<TerraformProperty<string>>("s3_bucket_name");
         set => this.WithProperty("s3_bucket_name", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3Prefix
+    public TerraformProperty<string>? S3Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_prefix");
+        get => GetProperty<TerraformProperty<string>>("s3_prefix");
         set => this.WithProperty("s3_prefix", value);
     }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceArn
+    public TerraformProperty<string>? SourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_arn");
+        get => GetProperty<TerraformProperty<string>>("source_arn");
         set => this.WithProperty("source_arn", value);
     }
 

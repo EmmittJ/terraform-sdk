@@ -19,45 +19,45 @@ public class AzurermApiManagementIdentityProviderTwitter : TerraformResource
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiKey
+    public TerraformProperty<string>? ApiKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_key");
+        get => GetProperty<TerraformProperty<string>>("api_key");
         set => this.WithProperty("api_key", value);
     }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementName
+    public TerraformProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The api_secret_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiSecretKey
+    public TerraformProperty<string>? ApiSecretKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_secret_key");
+        get => GetProperty<TerraformProperty<string>>("api_secret_key");
         set => this.WithProperty("api_secret_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

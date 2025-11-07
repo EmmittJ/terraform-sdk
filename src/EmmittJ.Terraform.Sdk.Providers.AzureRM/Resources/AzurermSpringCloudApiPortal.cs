@@ -20,72 +20,72 @@ public class AzurermSpringCloudApiPortal : TerraformResource
     /// <summary>
     /// The api_try_out_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ApiTryOutEnabled
+    public TerraformProperty<bool>? ApiTryOutEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("api_try_out_enabled");
+        get => GetProperty<TerraformProperty<bool>>("api_try_out_enabled");
         set => this.WithProperty("api_try_out_enabled", value);
     }
 
     /// <summary>
     /// The gateway_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? GatewayIds
+    public TerraformProperty<HashSet<string>>? GatewayIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("gateway_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("gateway_ids");
         set => this.WithProperty("gateway_ids", value);
     }
 
     /// <summary>
     /// The https_only_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? HttpsOnlyEnabled
+    public TerraformProperty<bool>? HttpsOnlyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_only_enabled");
+        get => GetProperty<TerraformProperty<bool>>("https_only_enabled");
         set => this.WithProperty("https_only_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? InstanceCount
+    public TerraformProperty<double>? InstanceCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("instance_count");
+        get => GetProperty<TerraformProperty<double>>("instance_count");
         set => this.WithProperty("instance_count", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudServiceId
+    public TerraformProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

@@ -21,135 +21,135 @@ public class AwsFmsPolicy : TerraformResource
     /// <summary>
     /// The delete_all_policy_resources attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteAllPolicyResources
+    public TerraformProperty<bool>? DeleteAllPolicyResources
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_all_policy_resources");
+        get => GetProperty<TerraformProperty<bool>>("delete_all_policy_resources");
         set => this.WithProperty("delete_all_policy_resources", value);
     }
 
     /// <summary>
     /// The delete_unused_fm_managed_resources attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeleteUnusedFmManagedResources
+    public TerraformProperty<bool>? DeleteUnusedFmManagedResources
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("delete_unused_fm_managed_resources");
+        get => GetProperty<TerraformProperty<bool>>("delete_unused_fm_managed_resources");
         set => this.WithProperty("delete_unused_fm_managed_resources", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The exclude_resource_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExcludeResourceTags
+    public TerraformProperty<bool>? ExcludeResourceTags
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_resource_tags");
+        get => GetProperty<TerraformProperty<bool>>("exclude_resource_tags");
         set => this.WithProperty("exclude_resource_tags", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The remediation_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RemediationEnabled
+    public TerraformProperty<bool>? RemediationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("remediation_enabled");
+        get => GetProperty<TerraformProperty<bool>>("remediation_enabled");
         set => this.WithProperty("remediation_enabled", value);
     }
 
     /// <summary>
     /// The resource_set_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ResourceSetIds
+    public TerraformProperty<HashSet<string>>? ResourceSetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_set_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_set_ids");
         set => this.WithProperty("resource_set_ids", value);
     }
 
     /// <summary>
     /// The resource_tag_logical_operator attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceTagLogicalOperator
+    public TerraformProperty<string>? ResourceTagLogicalOperator
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_tag_logical_operator");
+        get => GetProperty<TerraformProperty<string>>("resource_tag_logical_operator");
         set => this.WithProperty("resource_tag_logical_operator", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ResourceTags
+    public TerraformProperty<Dictionary<string, string>>? ResourceTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("resource_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceType
+    public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 
     /// <summary>
     /// The resource_type_list attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ResourceTypeList
+    public TerraformProperty<HashSet<string>>? ResourceTypeList
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("resource_type_list");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("resource_type_list");
         set => this.WithProperty("resource_type_list", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

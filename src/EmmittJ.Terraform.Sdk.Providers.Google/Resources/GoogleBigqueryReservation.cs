@@ -22,27 +22,27 @@ public class GoogleBigqueryReservation : TerraformResource
     /// <summary>
     /// Maximum number of queries that are allowed to run concurrently in this reservation. This is a soft limit due to asynchronous nature of the system and various optimizations for small queries. Default value is 0 which means that concurrency will be automatically set based on the reservation size.
     /// </summary>
-    public TerraformLiteralProperty<double>? Concurrency
+    public TerraformProperty<double>? Concurrency
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("concurrency");
+        get => GetProperty<TerraformProperty<double>>("concurrency");
         set => this.WithProperty("concurrency", value);
     }
 
     /// <summary>
     /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
     /// </summary>
-    public TerraformLiteralProperty<string>? Edition
+    public TerraformProperty<string>? Edition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edition");
+        get => GetProperty<TerraformProperty<string>>("edition");
         set => this.WithProperty("edition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -51,9 +51,9 @@ public class GoogleBigqueryReservation : TerraformResource
     /// the same admin project. If true, a query using this reservation will execute with the slot
     /// capacity specified above at most.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IgnoreIdleSlots
+    public TerraformProperty<bool>? IgnoreIdleSlots
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_idle_slots");
+        get => GetProperty<TerraformProperty<bool>>("ignore_idle_slots");
         set => this.WithProperty("ignore_idle_slots", value);
     }
 
@@ -61,27 +61,27 @@ public class GoogleBigqueryReservation : TerraformResource
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name of the reservation. This field must only contain alphanumeric characters or dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -91,9 +91,9 @@ public class GoogleBigqueryReservation : TerraformResource
     /// reservation calls to create a failover reservation or in update reservation calls to convert
     /// a non-failover reservation to a failover reservation(or vice versa).
     /// </summary>
-    public TerraformLiteralProperty<string>? SecondaryLocation
+    public TerraformProperty<string>? SecondaryLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secondary_location");
+        get => GetProperty<TerraformProperty<string>>("secondary_location");
         set => this.WithProperty("secondary_location", value);
     }
 
@@ -101,9 +101,9 @@ public class GoogleBigqueryReservation : TerraformResource
     /// Minimum slots available to this reservation. A slot is a unit of computational power in BigQuery, and serves as the
     /// unit of parallelism. Queries using this reservation might use more slots during runtime if ignoreIdleSlots is set to false.
     /// </summary>
-    public TerraformLiteralProperty<double>? SlotCapacity
+    public TerraformProperty<double>? SlotCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("slot_capacity");
+        get => GetProperty<TerraformProperty<double>>("slot_capacity");
         set => this.WithProperty("slot_capacity", value);
     }
 

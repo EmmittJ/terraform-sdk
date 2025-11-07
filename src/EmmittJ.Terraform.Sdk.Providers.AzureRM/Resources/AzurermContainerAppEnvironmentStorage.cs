@@ -19,72 +19,72 @@ public class AzurermContainerAppEnvironmentStorage : TerraformResource
     /// <summary>
     /// The Storage Account Access Key.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessKey
+    public TerraformProperty<string>? AccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_key");
+        get => GetProperty<TerraformProperty<string>>("access_key");
         set => this.WithProperty("access_key", value);
     }
 
     /// <summary>
     /// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessMode
+    public TerraformProperty<string>? AccessMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_mode");
+        get => GetProperty<TerraformProperty<string>>("access_mode");
         set => this.WithProperty("access_mode", value);
     }
 
     /// <summary>
     /// The Azure Storage Account in which the Share to be used is located.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountName
+    public TerraformProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The ID of the Container App Environment to which this storage belongs.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
+    public TerraformProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name for this Storage.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The nfs_server_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NfsServerUrl
+    public TerraformProperty<string>? NfsServerUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("nfs_server_url");
+        get => GetProperty<TerraformProperty<string>>("nfs_server_url");
         set => this.WithProperty("nfs_server_url", value);
     }
 
     /// <summary>
     /// The name of the Azure Storage Share to use.
     /// </summary>
-    public TerraformLiteralProperty<string>? ShareName
+    public TerraformProperty<string>? ShareName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("share_name");
+        get => GetProperty<TerraformProperty<string>>("share_name");
         set => this.WithProperty("share_name", value);
     }
 

@@ -22,18 +22,18 @@ public class AwsCloudfrontOriginAccessIdentitiesDataSource : TerraformDataSource
     /// <summary>
     /// The comments attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Comments
+    public TerraformProperty<HashSet<string>>? Comments
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("comments");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("comments");
         set => this.WithProperty("comments", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

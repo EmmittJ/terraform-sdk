@@ -22,63 +22,63 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     /// <summary>
     /// The db_instance_class attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbInstanceClass
+    public TerraformProperty<string>? DbInstanceClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_instance_class");
+        get => GetProperty<TerraformProperty<string>>("db_instance_class");
         set => this.WithProperty("db_instance_class", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Duration
+    public TerraformProperty<double>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration");
+        get => GetProperty<TerraformProperty<double>>("duration");
         set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MultiAz
+    public TerraformProperty<bool>? MultiAz
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("multi_az");
+        get => GetProperty<TerraformProperty<bool>>("multi_az");
         set => this.WithProperty("multi_az", value);
     }
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OfferingType
+    public TerraformProperty<string>? OfferingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("offering_type");
+        get => GetProperty<TerraformProperty<string>>("offering_type");
         set => this.WithProperty("offering_type", value);
     }
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProductDescription
+    public TerraformProperty<string>? ProductDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_description");
+        get => GetProperty<TerraformProperty<string>>("product_description");
         set => this.WithProperty("product_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

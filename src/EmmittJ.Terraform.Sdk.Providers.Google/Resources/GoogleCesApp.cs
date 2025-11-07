@@ -26,27 +26,27 @@ public class GoogleCesApp : TerraformResource
     /// the app&#39;s resource name. If not provided, a unique ID will be
     /// automatically assigned for the app.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppId
+    public TerraformProperty<string>? AppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_id");
+        get => GetProperty<TerraformProperty<string>>("app_id");
         set => this.WithProperty("app_id", value);
     }
 
     /// <summary>
     /// Human-readable description of the app.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Display name of the app.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -55,9 +55,9 @@ public class GoogleCesApp : TerraformResource
     /// You can use this instruction to set up a stable identity or personality
     /// across all the agents.
     /// </summary>
-    public TerraformLiteralProperty<string>? GlobalInstruction
+    public TerraformProperty<string>? GlobalInstruction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_instruction");
+        get => GetProperty<TerraformProperty<string>>("global_instruction");
         set => this.WithProperty("global_instruction", value);
     }
 
@@ -66,27 +66,27 @@ public class GoogleCesApp : TerraformResource
     /// Format:
     /// &#39;projects/{project}/locations/{location}/apps/{app}/guardrails/{guardrail}&#39;
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Guardrails
+    public TerraformProperty<List<string>>? Guardrails
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("guardrails");
+        get => GetProperty<TerraformProperty<List<string>>>("guardrails");
         set => this.WithProperty("guardrails", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -94,18 +94,18 @@ public class GoogleCesApp : TerraformResource
     /// Metadata about the app. This field can be used to store additional
     /// information relevant to the app&#39;s details or intended usages.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -113,9 +113,9 @@ public class GoogleCesApp : TerraformResource
     /// The root agent is the entry point of the app.
     /// Format: &#39;projects/{project}/locations/{location}/apps/{app}/agents/{agent}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? RootAgent
+    public TerraformProperty<string>? RootAgent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("root_agent");
+        get => GetProperty<TerraformProperty<string>>("root_agent");
         set => this.WithProperty("root_agent", value);
     }
 

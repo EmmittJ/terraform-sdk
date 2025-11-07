@@ -23,27 +23,27 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The shared_directory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SharedDirectoryId
+    public TerraformProperty<string>? SharedDirectoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("shared_directory_id");
+        get => GetProperty<TerraformProperty<string>>("shared_directory_id");
         set => this.WithProperty("shared_directory_id", value);
     }
 

@@ -20,54 +20,54 @@ public class GooglePrivatecaCertificateTemplateIamBinding : TerraformResource
     /// <summary>
     /// The certificate_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateTemplate
+    public TerraformProperty<string>? CertificateTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_template");
+        get => GetProperty<TerraformProperty<string>>("certificate_template");
         set => this.WithProperty("certificate_template", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Members
+    public TerraformProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

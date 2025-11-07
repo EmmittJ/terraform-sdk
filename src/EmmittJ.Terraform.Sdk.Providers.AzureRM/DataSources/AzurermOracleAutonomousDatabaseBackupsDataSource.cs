@@ -20,18 +20,18 @@ public class AzurermOracleAutonomousDatabaseBackupsDataSource : TerraformDataSou
     /// <summary>
     /// The autonomous_database_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutonomousDatabaseId
+    public TerraformProperty<string>? AutonomousDatabaseId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("autonomous_database_id");
+        get => GetProperty<TerraformProperty<string>>("autonomous_database_id");
         set => this.WithProperty("autonomous_database_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

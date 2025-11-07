@@ -23,27 +23,27 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// <summary>
     /// One or more paragraphs of text description of a CertificateIssuanceConfig.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Key algorithm to use when generating the private key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;ECDSA_P256&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyAlgorithm
+    public TerraformProperty<string>? KeyAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_algorithm");
+        get => GetProperty<TerraformProperty<string>>("key_algorithm");
         set => this.WithProperty("key_algorithm", value);
     }
 
@@ -55,9 +55,9 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -65,18 +65,18 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// Lifetime of issued certificates. A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;.
     /// Example: &amp;quot;1814400s&amp;quot;. Valid values are from 21 days (1814400s) to 30 days (2592000s)
     /// </summary>
-    public TerraformLiteralProperty<string>? Lifetime
+    public TerraformProperty<string>? Lifetime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifetime");
+        get => GetProperty<TerraformProperty<string>>("lifetime");
         set => this.WithProperty("lifetime", value);
     }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -84,18 +84,18 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// A user-defined name of the certificate issuance config.
     /// CertificateIssuanceConfig names must be unique globally.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -105,9 +105,9 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// You must set the rotation window percentage in relation to the certificate lifetime so that certificate renewal occurs at least 7 days after
     /// the certificate has been issued and at least 7 days before it expires.
     /// </summary>
-    public TerraformLiteralProperty<double>? RotationWindowPercentage
+    public TerraformProperty<double>? RotationWindowPercentage
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("rotation_window_percentage");
+        get => GetProperty<TerraformProperty<double>>("rotation_window_percentage");
         set => this.WithProperty("rotation_window_percentage", value);
     }
 

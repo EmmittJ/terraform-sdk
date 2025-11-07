@@ -223,3 +223,73 @@ public sealed class TerraformTypeProperty : TerraformProperty
     public static implicit operator TerraformTypeProperty?(string? typeConstraint)
         => typeConstraint != null ? new TerraformTypeProperty(typeConstraint) : null;
 }
+
+/// <summary>
+/// Generic typed property that can hold either a literal value or an expression.
+/// This enables type-safe property assignment while still allowing dynamic expressions.
+/// </summary>
+/// <typeparam name="T">The .NET type of the literal value (e.g., string, bool, int).</typeparam>
+public sealed class TerraformProperty<T> : TerraformProperty
+{
+    private readonly TerraformProperty _innerProperty;
+
+    /// <summary>
+    /// Initializes a new instance from a literal value.
+    /// </summary>
+    public TerraformProperty(T value)
+    {
+        _innerProperty = new TerraformLiteralProperty<T>(value);
+    }
+
+    /// <summary>
+    /// Initializes a new instance from an expression.
+    /// </summary>
+    public TerraformProperty(TerraformExpression expression)
+    {
+        _innerProperty = new TerraformExpressionProperty(expression);
+    }
+
+    /// <summary>
+    /// Initializes a new instance from any TerraformProperty.
+    /// </summary>
+    private TerraformProperty(TerraformProperty property)
+    {
+        _innerProperty = property;
+    }
+
+    /// <inheritdoc/>
+    public override void Prepare(ITerraformContext context)
+    {
+        _innerProperty.Prepare(context);
+    }
+
+    /// <inheritdoc/>
+    public override TerraformExpression Resolve(ITerraformContext? context = null)
+    {
+        return _innerProperty.Resolve(context);
+    }
+
+    /// <summary>
+    /// Implicit conversion from literal value.
+    /// </summary>
+    public static implicit operator TerraformProperty<T>?(T? value)
+        => value != null ? new TerraformProperty<T>(value) : null;
+
+    /// <summary>
+    /// Implicit conversion from TerraformExpression.
+    /// </summary>
+    public static implicit operator TerraformProperty<T>?(TerraformExpression? expression)
+        => expression != null ? new TerraformProperty<T>(expression) : null;
+
+    /// <summary>
+    /// Implicit conversion from TerraformLiteralProperty&lt;T&gt;.
+    /// </summary>
+    public static implicit operator TerraformProperty<T>?(TerraformLiteralProperty<T>? literal)
+        => literal != null ? new TerraformProperty<T>(literal) : null;
+
+    /// <summary>
+    /// Implicit conversion from TerraformExpressionProperty.
+    /// </summary>
+    public static implicit operator TerraformProperty<T>?(TerraformExpressionProperty? expression)
+        => expression != null ? new TerraformProperty<T>(expression) : null;
+}

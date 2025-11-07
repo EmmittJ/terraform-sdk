@@ -19,72 +19,72 @@ public class AwsApigatewayv2IntegrationResponse : TerraformResource
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiId
+    public TerraformProperty<string>? ApiId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_id");
+        get => GetProperty<TerraformProperty<string>>("api_id");
         set => this.WithProperty("api_id", value);
     }
 
     /// <summary>
     /// The content_handling_strategy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentHandlingStrategy
+    public TerraformProperty<string>? ContentHandlingStrategy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_handling_strategy");
+        get => GetProperty<TerraformProperty<string>>("content_handling_strategy");
         set => this.WithProperty("content_handling_strategy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The integration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationId
+    public TerraformProperty<string>? IntegrationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_id");
+        get => GetProperty<TerraformProperty<string>>("integration_id");
         set => this.WithProperty("integration_id", value);
     }
 
     /// <summary>
     /// The integration_response_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntegrationResponseKey
+    public TerraformProperty<string>? IntegrationResponseKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("integration_response_key");
+        get => GetProperty<TerraformProperty<string>>("integration_response_key");
         set => this.WithProperty("integration_response_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The response_templates attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ResponseTemplates
+    public TerraformProperty<Dictionary<string, string>>? ResponseTemplates
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("response_templates");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("response_templates");
         set => this.WithProperty("response_templates", value);
     }
 
     /// <summary>
     /// The template_selection_expression attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateSelectionExpression
+    public TerraformProperty<string>? TemplateSelectionExpression
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_selection_expression");
+        get => GetProperty<TerraformProperty<string>>("template_selection_expression");
         set => this.WithProperty("template_selection_expression", value);
     }
 

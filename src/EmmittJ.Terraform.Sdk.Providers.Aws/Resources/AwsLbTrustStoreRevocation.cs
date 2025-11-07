@@ -20,54 +20,54 @@ public class AwsLbTrustStoreRevocation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The revocations_s3_bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RevocationsS3Bucket
+    public TerraformProperty<string>? RevocationsS3Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revocations_s3_bucket");
+        get => GetProperty<TerraformProperty<string>>("revocations_s3_bucket");
         set => this.WithProperty("revocations_s3_bucket", value);
     }
 
     /// <summary>
     /// The revocations_s3_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RevocationsS3Key
+    public TerraformProperty<string>? RevocationsS3Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revocations_s3_key");
+        get => GetProperty<TerraformProperty<string>>("revocations_s3_key");
         set => this.WithProperty("revocations_s3_key", value);
     }
 
     /// <summary>
     /// The revocations_s3_object_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RevocationsS3ObjectVersion
+    public TerraformProperty<string>? RevocationsS3ObjectVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revocations_s3_object_version");
+        get => GetProperty<TerraformProperty<string>>("revocations_s3_object_version");
         set => this.WithProperty("revocations_s3_object_version", value);
     }
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrustStoreArn
+    public TerraformProperty<string>? TrustStoreArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trust_store_arn");
+        get => GetProperty<TerraformProperty<string>>("trust_store_arn");
         set => this.WithProperty("trust_store_arn", value);
     }
 

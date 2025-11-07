@@ -22,36 +22,36 @@ public class AzurermMarketplaceAgreementDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The offer attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Offer
+    public TerraformProperty<string>? Offer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("offer");
+        get => GetProperty<TerraformProperty<string>>("offer");
         set => this.WithProperty("offer", value);
     }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Plan
+    public TerraformProperty<string>? Plan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plan");
+        get => GetProperty<TerraformProperty<string>>("plan");
         set => this.WithProperty("plan", value);
     }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Publisher
+    public TerraformProperty<string>? Publisher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("publisher");
+        get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 

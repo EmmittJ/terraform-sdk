@@ -22,81 +22,81 @@ public class AwsVpclatticeResourceConfiguration : TerraformResource
     /// <summary>
     /// The allow_association_to_shareable_service_network attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowAssociationToShareableServiceNetwork
+    public TerraformProperty<bool>? AllowAssociationToShareableServiceNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_association_to_shareable_service_network");
+        get => GetProperty<TerraformProperty<bool>>("allow_association_to_shareable_service_network");
         set => this.WithProperty("allow_association_to_shareable_service_network", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The port_ranges attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? PortRanges
+    public TerraformProperty<HashSet<string>>? PortRanges
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("port_ranges");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("port_ranges");
         set => this.WithProperty("port_ranges", value);
     }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Protocol
+    public TerraformProperty<string>? Protocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protocol");
+        get => GetProperty<TerraformProperty<string>>("protocol");
         set => this.WithProperty("protocol", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_configuration_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceConfigurationGroupId
+    public TerraformProperty<string>? ResourceConfigurationGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_configuration_group_id");
+        get => GetProperty<TerraformProperty<string>>("resource_configuration_group_id");
         set => this.WithProperty("resource_configuration_group_id", value);
     }
 
     /// <summary>
     /// The resource_gateway_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGatewayIdentifier
+    public TerraformProperty<string>? ResourceGatewayIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_gateway_identifier");
+        get => GetProperty<TerraformProperty<string>>("resource_gateway_identifier");
         set => this.WithProperty("resource_gateway_identifier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

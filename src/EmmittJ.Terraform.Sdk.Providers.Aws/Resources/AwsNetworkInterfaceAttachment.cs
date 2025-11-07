@@ -21,54 +21,54 @@ public class AwsNetworkInterfaceAttachment : TerraformResource
     /// <summary>
     /// The device_index attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DeviceIndex
+    public TerraformProperty<double>? DeviceIndex
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("device_index");
+        get => GetProperty<TerraformProperty<double>>("device_index");
         set => this.WithProperty("device_index", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The network_card_index attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NetworkCardIndex
+    public TerraformProperty<double>? NetworkCardIndex
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("network_card_index");
+        get => GetProperty<TerraformProperty<double>>("network_card_index");
         set => this.WithProperty("network_card_index", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkInterfaceId
+    public TerraformProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id");
+        get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

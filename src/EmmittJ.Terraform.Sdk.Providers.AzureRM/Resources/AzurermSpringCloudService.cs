@@ -22,108 +22,108 @@ public class AzurermSpringCloudService : TerraformResource
     /// <summary>
     /// The build_agent_pool_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BuildAgentPoolSize
+    public TerraformProperty<string>? BuildAgentPoolSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("build_agent_pool_size");
+        get => GetProperty<TerraformProperty<string>>("build_agent_pool_size");
         set => this.WithProperty("build_agent_pool_size", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The log_stream_public_endpoint_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LogStreamPublicEndpointEnabled
+    public TerraformProperty<bool>? LogStreamPublicEndpointEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_stream_public_endpoint_enabled");
+        get => GetProperty<TerraformProperty<bool>>("log_stream_public_endpoint_enabled");
         set => this.WithProperty("log_stream_public_endpoint_enabled", value);
     }
 
     /// <summary>
     /// The managed_environment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedEnvironmentId
+    public TerraformProperty<string>? ManagedEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_environment_id");
+        get => GetProperty<TerraformProperty<string>>("managed_environment_id");
         set => this.WithProperty("managed_environment_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_registry_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ServiceRegistryEnabled
+    public TerraformProperty<bool>? ServiceRegistryEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("service_registry_enabled");
+        get => GetProperty<TerraformProperty<bool>>("service_registry_enabled");
         set => this.WithProperty("service_registry_enabled", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The sku_tier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuTier
+    public TerraformProperty<string>? SkuTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_tier");
+        get => GetProperty<TerraformProperty<string>>("sku_tier");
         set => this.WithProperty("sku_tier", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZoneRedundant
+    public TerraformProperty<bool>? ZoneRedundant
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundant");
+        get => GetProperty<TerraformProperty<bool>>("zone_redundant");
         set => this.WithProperty("zone_redundant", value);
     }
 

@@ -19,81 +19,81 @@ public class AzurermVirtualMachineImplicitDataDiskFromSource : TerraformResource
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Caching
+    public TerraformProperty<string>? Caching
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("caching");
+        get => GetProperty<TerraformProperty<string>>("caching");
         set => this.WithProperty("caching", value);
     }
 
     /// <summary>
     /// The create_option attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CreateOption
+    public TerraformProperty<string>? CreateOption
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("create_option");
+        get => GetProperty<TerraformProperty<string>>("create_option");
         set => this.WithProperty("create_option", value);
     }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DiskSizeGb
+    public TerraformProperty<double>? DiskSizeGb
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("disk_size_gb");
+        get => GetProperty<TerraformProperty<double>>("disk_size_gb");
         set => this.WithProperty("disk_size_gb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Lun
+    public TerraformProperty<double>? Lun
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("lun");
+        get => GetProperty<TerraformProperty<double>>("lun");
         set => this.WithProperty("lun", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceResourceId
+    public TerraformProperty<string>? SourceResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_resource_id");
+        get => GetProperty<TerraformProperty<string>>("source_resource_id");
         set => this.WithProperty("source_resource_id", value);
     }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualMachineId
+    public TerraformProperty<string>? VirtualMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_machine_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_machine_id");
         set => this.WithProperty("virtual_machine_id", value);
     }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WriteAcceleratorEnabled
+    public TerraformProperty<bool>? WriteAcceleratorEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("write_accelerator_enabled");
+        get => GetProperty<TerraformProperty<bool>>("write_accelerator_enabled");
         set => this.WithProperty("write_accelerator_enabled", value);
     }
 

@@ -24,27 +24,27 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     /// <summary>
     /// Description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Enable global access for endpoint attachment.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EndpointGlobalAccess
+    public TerraformProperty<bool>? EndpointGlobalAccess
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("endpoint_global_access");
+        get => GetProperty<TerraformProperty<bool>>("endpoint_global_access");
         set => this.WithProperty("endpoint_global_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -55,45 +55,45 @@ public class GoogleIntegrationConnectorsEndpointAttachment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location in which Endpoint Attachment needs to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of Endpoint Attachment needs to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The path of the service attachment.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceAttachment
+    public TerraformProperty<string>? ServiceAttachment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_attachment");
+        get => GetProperty<TerraformProperty<string>>("service_attachment");
         set => this.WithProperty("service_attachment", value);
     }
 

@@ -25,36 +25,36 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// Whether web grounding should be disabled.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<bool>? DisableWebGrounding
+    public TerraformProperty<bool>? DisableWebGrounding
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_web_grounding");
+        get => GetProperty<TerraformProperty<bool>>("disable_web_grounding");
         set => this.WithProperty("disable_web_grounding", value);
     }
 
     /// <summary>
     /// Whether customer data sharing should be enabled.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableCustomerDataSharing
+    public TerraformProperty<bool>? EnableCustomerDataSharing
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_customer_data_sharing");
+        get => GetProperty<TerraformProperty<bool>>("enable_customer_data_sharing");
         set => this.WithProperty("enable_customer_data_sharing", value);
     }
 
     /// <summary>
     /// Id of the Gemini Gcp Enablement setting.
     /// </summary>
-    public TerraformLiteralProperty<string>? GeminiGcpEnablementSettingId
+    public TerraformProperty<string>? GeminiGcpEnablementSettingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gemini_gcp_enablement_setting_id");
+        get => GetProperty<TerraformProperty<string>>("gemini_gcp_enablement_setting_id");
         set => this.WithProperty("gemini_gcp_enablement_setting_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -64,27 +64,27 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -94,9 +94,9 @@ public class GoogleGeminiGeminiGcpEnablementSetting : TerraformResource
     /// GROUNDING_WITH_GOOGLE_SEARCH
     /// WEB_GROUNDING_FOR_ENTERPRISE
     /// </summary>
-    public TerraformLiteralProperty<string>? WebGroundingType
+    public TerraformProperty<string>? WebGroundingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_grounding_type");
+        get => GetProperty<TerraformProperty<string>>("web_grounding_type");
         set => this.WithProperty("web_grounding_type", value);
     }
 

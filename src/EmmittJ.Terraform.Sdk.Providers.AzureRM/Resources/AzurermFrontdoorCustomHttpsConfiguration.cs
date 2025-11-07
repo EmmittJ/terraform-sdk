@@ -19,27 +19,27 @@ public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
     /// <summary>
     /// The custom_https_provisioning_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CustomHttpsProvisioningEnabled
+    public TerraformProperty<bool>? CustomHttpsProvisioningEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("custom_https_provisioning_enabled");
+        get => GetProperty<TerraformProperty<bool>>("custom_https_provisioning_enabled");
         set => this.WithProperty("custom_https_provisioning_enabled", value);
     }
 
     /// <summary>
     /// The frontend_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FrontendEndpointId
+    public TerraformProperty<string>? FrontendEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("frontend_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("frontend_endpoint_id");
         set => this.WithProperty("frontend_endpoint_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

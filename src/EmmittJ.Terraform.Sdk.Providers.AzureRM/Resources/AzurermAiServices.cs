@@ -22,99 +22,99 @@ public class AzurermAiServices : TerraformResource
     /// <summary>
     /// The custom_subdomain_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomSubdomainName
+    public TerraformProperty<string>? CustomSubdomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_subdomain_name");
+        get => GetProperty<TerraformProperty<string>>("custom_subdomain_name");
         set => this.WithProperty("custom_subdomain_name", value);
     }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Fqdns
+    public TerraformProperty<List<string>>? Fqdns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("fqdns");
+        get => GetProperty<TerraformProperty<List<string>>>("fqdns");
         set => this.WithProperty("fqdns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LocalAuthenticationEnabled
+    public TerraformProperty<bool>? LocalAuthenticationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_authentication_enabled");
+        get => GetProperty<TerraformProperty<bool>>("local_authentication_enabled");
         set => this.WithProperty("local_authentication_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The outbound_network_access_restricted attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OutboundNetworkAccessRestricted
+    public TerraformProperty<bool>? OutboundNetworkAccessRestricted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("outbound_network_access_restricted");
+        get => GetProperty<TerraformProperty<bool>>("outbound_network_access_restricted");
         set => this.WithProperty("outbound_network_access_restricted", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        get => GetProperty<TerraformProperty<string>>("public_network_access");
         set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

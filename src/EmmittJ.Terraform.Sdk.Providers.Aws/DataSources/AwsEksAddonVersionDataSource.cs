@@ -20,45 +20,45 @@ public class AwsEksAddonVersionDataSource : TerraformDataSource
     /// <summary>
     /// The addon_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AddonName
+    public TerraformProperty<string>? AddonName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("addon_name");
+        get => GetProperty<TerraformProperty<string>>("addon_name");
         set => this.WithProperty("addon_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kubernetes_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KubernetesVersion
+    public TerraformProperty<string>? KubernetesVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_version");
+        get => GetProperty<TerraformProperty<string>>("kubernetes_version");
         set => this.WithProperty("kubernetes_version", value);
     }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MostRecent
+    public TerraformProperty<bool>? MostRecent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("most_recent");
+        get => GetProperty<TerraformProperty<bool>>("most_recent");
         set => this.WithProperty("most_recent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

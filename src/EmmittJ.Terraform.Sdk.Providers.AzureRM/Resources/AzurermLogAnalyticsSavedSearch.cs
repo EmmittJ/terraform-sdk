@@ -19,81 +19,81 @@ public class AzurermLogAnalyticsSavedSearch : TerraformResource
     /// <summary>
     /// The category attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Category
+    public TerraformProperty<string>? Category
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("category");
+        get => GetProperty<TerraformProperty<string>>("category");
         set => this.WithProperty("category", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The function_alias attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionAlias
+    public TerraformProperty<string>? FunctionAlias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_alias");
+        get => GetProperty<TerraformProperty<string>>("function_alias");
         set => this.WithProperty("function_alias", value);
     }
 
     /// <summary>
     /// The function_parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? FunctionParameters
+    public TerraformProperty<List<string>>? FunctionParameters
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("function_parameters");
+        get => GetProperty<TerraformProperty<List<string>>>("function_parameters");
         set => this.WithProperty("function_parameters", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Query
+    public TerraformProperty<string>? Query
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query");
+        get => GetProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

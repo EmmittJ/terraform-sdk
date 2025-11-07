@@ -19,54 +19,54 @@ public class AzurermStorageAccountNetworkRules : TerraformResource
     /// <summary>
     /// The bypass attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Bypass
+    public TerraformProperty<HashSet<string>>? Bypass
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("bypass");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("bypass");
         set => this.WithProperty("bypass", value);
     }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultAction
+    public TerraformProperty<string>? DefaultAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_action");
+        get => GetProperty<TerraformProperty<string>>("default_action");
         set => this.WithProperty("default_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? IpRules
+    public TerraformProperty<HashSet<string>>? IpRules
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("ip_rules");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("ip_rules");
         set => this.WithProperty("ip_rules", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The virtual_network_subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VirtualNetworkSubnetIds
+    public TerraformProperty<HashSet<string>>? VirtualNetworkSubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("virtual_network_subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("virtual_network_subnet_ids");
         set => this.WithProperty("virtual_network_subnet_ids", value);
     }
 

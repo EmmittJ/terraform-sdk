@@ -21,27 +21,27 @@ public class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The user_project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserProject
+    public TerraformProperty<string>? UserProject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_project");
+        get => GetProperty<TerraformProperty<string>>("user_project");
         set => this.WithProperty("user_project", value);
     }
 

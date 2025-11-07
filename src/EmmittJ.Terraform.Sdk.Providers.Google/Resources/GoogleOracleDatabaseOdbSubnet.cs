@@ -24,27 +24,27 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// <summary>
     /// The CIDR range of the subnet.
     /// </summary>
-    public TerraformLiteralProperty<string>? CidrRange
+    public TerraformProperty<string>? CidrRange
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_range");
+        get => GetProperty<TerraformProperty<string>>("cidr_range");
         set => this.WithProperty("cidr_range", value);
     }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -54,18 +54,18 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -75,27 +75,27 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// characters in length. The value must start with a letter and end with
     /// a letter or a number.
     /// </summary>
-    public TerraformLiteralProperty<string>? OdbSubnetId
+    public TerraformProperty<string>? OdbSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odb_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("odb_subnet_id");
         set => this.WithProperty("odb_subnet_id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Odbnetwork
+    public TerraformProperty<string>? Odbnetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("odbnetwork");
+        get => GetProperty<TerraformProperty<string>>("odbnetwork");
         set => this.WithProperty("odbnetwork", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -105,9 +105,9 @@ public class GoogleOracleDatabaseOdbSubnet : TerraformResource
     /// CLIENT_SUBNET
     /// BACKUP_SUBNET
     /// </summary>
-    public TerraformLiteralProperty<string>? Purpose
+    public TerraformProperty<string>? Purpose
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("purpose");
+        get => GetProperty<TerraformProperty<string>>("purpose");
         set => this.WithProperty("purpose", value);
     }
 

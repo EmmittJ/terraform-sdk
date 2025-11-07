@@ -20,63 +20,63 @@ public class AzurermStorageAccountSasDataSource : TerraformDataSource
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionString
+    public TerraformProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The expiry attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Expiry
+    public TerraformProperty<string>? Expiry
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiry");
+        get => GetProperty<TerraformProperty<string>>("expiry");
         set => this.WithProperty("expiry", value);
     }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? HttpsOnly
+    public TerraformProperty<bool>? HttpsOnly
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("https_only");
+        get => GetProperty<TerraformProperty<bool>>("https_only");
         set => this.WithProperty("https_only", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddresses
+    public TerraformProperty<string>? IpAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_addresses");
+        get => GetProperty<TerraformProperty<string>>("ip_addresses");
         set => this.WithProperty("ip_addresses", value);
     }
 
     /// <summary>
     /// The signed_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SignedVersion
+    public TerraformProperty<string>? SignedVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signed_version");
+        get => GetProperty<TerraformProperty<string>>("signed_version");
         set => this.WithProperty("signed_version", value);
     }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Start
+    public TerraformProperty<string>? Start
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start");
+        get => GetProperty<TerraformProperty<string>>("start");
         set => this.WithProperty("start", value);
     }
 

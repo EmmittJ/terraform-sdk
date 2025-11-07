@@ -19,45 +19,45 @@ public class AwsAutoscalingNotification : TerraformResource
     /// <summary>
     /// The group_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? GroupNames
+    public TerraformProperty<HashSet<string>>? GroupNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("group_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("group_names");
         set => this.WithProperty("group_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The notifications attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Notifications
+    public TerraformProperty<HashSet<string>>? Notifications
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("notifications");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("notifications");
         set => this.WithProperty("notifications", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The topic_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TopicArn
+    public TerraformProperty<string>? TopicArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic_arn");
+        get => GetProperty<TerraformProperty<string>>("topic_arn");
         set => this.WithProperty("topic_arn", value);
     }
 

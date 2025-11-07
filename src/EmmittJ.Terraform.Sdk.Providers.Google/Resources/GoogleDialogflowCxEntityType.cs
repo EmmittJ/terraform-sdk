@@ -22,36 +22,36 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// * AUTO_EXPANSION_MODE_UNSPECIFIED: Auto expansion disabled for the entity.
     /// * AUTO_EXPANSION_MODE_DEFAULT: Allows an agent to recognize values that have not been explicitly listed in the entity. Possible values: [&amp;quot;AUTO_EXPANSION_MODE_DEFAULT&amp;quot;, &amp;quot;AUTO_EXPANSION_MODE_UNSPECIFIED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? AutoExpansionMode
+    public TerraformProperty<string>? AutoExpansionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auto_expansion_mode");
+        get => GetProperty<TerraformProperty<string>>("auto_expansion_mode");
         set => this.WithProperty("auto_expansion_mode", value);
     }
 
     /// <summary>
     /// The human-readable name of the entity type, unique within the agent.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Enables fuzzy entity extraction during classification.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableFuzzyExtraction
+    public TerraformProperty<bool>? EnableFuzzyExtraction
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_fuzzy_extraction");
+        get => GetProperty<TerraformProperty<bool>>("enable_fuzzy_extraction");
         set => this.WithProperty("enable_fuzzy_extraction", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -61,9 +61,9 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// * KIND_LIST: List entity types contain a set of entries that do not map to canonical values. However, list entity types can contain references to other entity types (with or without aliases).
     /// * KIND_REGEXP: Regexp entity types allow to specify regular expressions in entries values. Possible values: [&amp;quot;KIND_MAP&amp;quot;, &amp;quot;KIND_LIST&amp;quot;, &amp;quot;KIND_REGEXP&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
@@ -74,9 +74,9 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// EntityType.excluded_phrases.value
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformLiteralProperty<string>? LanguageCode
+    public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -84,18 +84,18 @@ public class GoogleDialogflowCxEntityType : TerraformResource
     /// The agent to create a entity type for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Indicates whether parameters of the entity type should be redacted in log. If redaction is enabled, page parameters and intent parameters referring to the entity type will be replaced by parameter name when logging.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Redact
+    public TerraformProperty<bool>? Redact
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("redact");
+        get => GetProperty<TerraformProperty<bool>>("redact");
         set => this.WithProperty("redact", value);
     }
 

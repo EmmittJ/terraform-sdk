@@ -19,27 +19,27 @@ public class AwsWorkspaceswebNetworkSettingsAssociation : TerraformResource
     /// <summary>
     /// The network_settings_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkSettingsArn
+    public TerraformProperty<string>? NetworkSettingsArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_settings_arn");
+        get => GetProperty<TerraformProperty<string>>("network_settings_arn");
         set => this.WithProperty("network_settings_arn", value);
     }
 
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PortalArn
+    public TerraformProperty<string>? PortalArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("portal_arn");
+        get => GetProperty<TerraformProperty<string>>("portal_arn");
         set => this.WithProperty("portal_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

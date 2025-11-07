@@ -19,27 +19,27 @@ public class AwsVpcEndpointServicePrivateDnsVerification : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceId
+    public TerraformProperty<string>? ServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_id");
+        get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 
     /// <summary>
     /// The wait_for_verification attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WaitForVerification
+    public TerraformProperty<bool>? WaitForVerification
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_verification");
+        get => GetProperty<TerraformProperty<bool>>("wait_for_verification");
         set => this.WithProperty("wait_for_verification", value);
     }
 

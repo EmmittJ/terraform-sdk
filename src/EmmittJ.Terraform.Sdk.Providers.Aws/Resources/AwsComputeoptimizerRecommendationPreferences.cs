@@ -20,54 +20,54 @@ public class AwsComputeoptimizerRecommendationPreferences : TerraformResource
     /// <summary>
     /// The enhanced_infrastructure_metrics attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnhancedInfrastructureMetrics
+    public TerraformProperty<string>? EnhancedInfrastructureMetrics
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enhanced_infrastructure_metrics");
+        get => GetProperty<TerraformProperty<string>>("enhanced_infrastructure_metrics");
         set => this.WithProperty("enhanced_infrastructure_metrics", value);
     }
 
     /// <summary>
     /// The inferred_workload_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InferredWorkloadTypes
+    public TerraformProperty<string>? InferredWorkloadTypes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("inferred_workload_types");
+        get => GetProperty<TerraformProperty<string>>("inferred_workload_types");
         set => this.WithProperty("inferred_workload_types", value);
     }
 
     /// <summary>
     /// The look_back_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LookBackPeriod
+    public TerraformProperty<string>? LookBackPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("look_back_period");
+        get => GetProperty<TerraformProperty<string>>("look_back_period");
         set => this.WithProperty("look_back_period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceType
+    public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 
     /// <summary>
     /// The savings_estimation_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SavingsEstimationMode
+    public TerraformProperty<string>? SavingsEstimationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("savings_estimation_mode");
+        get => GetProperty<TerraformProperty<string>>("savings_estimation_mode");
         set => this.WithProperty("savings_estimation_mode", value);
     }
 

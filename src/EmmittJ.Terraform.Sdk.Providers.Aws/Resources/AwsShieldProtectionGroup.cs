@@ -20,72 +20,72 @@ public class AwsShieldProtectionGroup : TerraformResource
     /// <summary>
     /// The aggregation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Aggregation
+    public TerraformProperty<string>? Aggregation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aggregation");
+        get => GetProperty<TerraformProperty<string>>("aggregation");
         set => this.WithProperty("aggregation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Members
+    public TerraformProperty<List<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("members");
+        get => GetProperty<TerraformProperty<List<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The pattern attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Pattern
+    public TerraformProperty<string>? Pattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pattern");
+        get => GetProperty<TerraformProperty<string>>("pattern");
         set => this.WithProperty("pattern", value);
     }
 
     /// <summary>
     /// The protection_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtectionGroupId
+    public TerraformProperty<string>? ProtectionGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protection_group_id");
+        get => GetProperty<TerraformProperty<string>>("protection_group_id");
         set => this.WithProperty("protection_group_id", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceType
+    public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

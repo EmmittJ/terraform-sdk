@@ -27,9 +27,9 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// User-provided description of the deployment.
     /// Used as additional context for the deployment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -38,18 +38,18 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// example: &#39;projects/123456789/regions/us-central1/forwardingRules/my-rule&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public TerraformLiteralProperty<string>? ForwardingRule
+    public TerraformProperty<string>? ForwardingRule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("forwarding_rule");
+        get => GetProperty<TerraformProperty<string>>("forwarding_rule");
         set => this.WithProperty("forwarding_rule", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -59,18 +59,18 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The cloud location of the deployment, e.g. &#39;us-central1-a&#39; or &#39;asia-south1-b&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -79,9 +79,9 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// &#39;projects/123456789/locations/global/mirroringDeploymentGroups/my-dg&#39;.
     /// See https://google.aip.dev/124.
     /// </summary>
-    public TerraformLiteralProperty<string>? MirroringDeploymentGroup
+    public TerraformProperty<string>? MirroringDeploymentGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mirroring_deployment_group");
+        get => GetProperty<TerraformProperty<string>>("mirroring_deployment_group");
         set => this.WithProperty("mirroring_deployment_group", value);
     }
 
@@ -89,18 +89,18 @@ public class GoogleNetworkSecurityMirroringDeployment : TerraformResource
     /// The ID to use for the new deployment, which will become the final
     /// component of the deployment&#39;s resource name.
     /// </summary>
-    public TerraformLiteralProperty<string>? MirroringDeploymentId
+    public TerraformProperty<string>? MirroringDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mirroring_deployment_id");
+        get => GetProperty<TerraformProperty<string>>("mirroring_deployment_id");
         set => this.WithProperty("mirroring_deployment_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -19,108 +19,108 @@ public class AzurermArcMachineExtension : TerraformResource
     /// <summary>
     /// The arc_machine_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ArcMachineId
+    public TerraformProperty<string>? ArcMachineId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arc_machine_id");
+        get => GetProperty<TerraformProperty<string>>("arc_machine_id");
         set => this.WithProperty("arc_machine_id", value);
     }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutomaticUpgradeEnabled
+    public TerraformProperty<bool>? AutomaticUpgradeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_upgrade_enabled");
+        get => GetProperty<TerraformProperty<bool>>("automatic_upgrade_enabled");
         set => this.WithProperty("automatic_upgrade_enabled", value);
     }
 
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ForceUpdateTag
+    public TerraformProperty<string>? ForceUpdateTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("force_update_tag");
+        get => GetProperty<TerraformProperty<string>>("force_update_tag");
         set => this.WithProperty("force_update_tag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtectedSettings
+    public TerraformProperty<string>? ProtectedSettings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protected_settings");
+        get => GetProperty<TerraformProperty<string>>("protected_settings");
         set => this.WithProperty("protected_settings", value);
     }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Publisher
+    public TerraformProperty<string>? Publisher
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("publisher");
+        get => GetProperty<TerraformProperty<string>>("publisher");
         set => this.WithProperty("publisher", value);
     }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Settings
+    public TerraformProperty<string>? Settings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("settings");
+        get => GetProperty<TerraformProperty<string>>("settings");
         set => this.WithProperty("settings", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TypeHandlerVersion
+    public TerraformProperty<string>? TypeHandlerVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type_handler_version");
+        get => GetProperty<TerraformProperty<string>>("type_handler_version");
         set => this.WithProperty("type_handler_version", value);
     }
 

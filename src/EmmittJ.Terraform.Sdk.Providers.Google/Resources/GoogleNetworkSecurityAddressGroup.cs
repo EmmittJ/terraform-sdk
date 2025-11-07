@@ -23,36 +23,36 @@ public class GoogleNetworkSecurityAddressGroup : TerraformResource
     /// <summary>
     /// Capacity of the Address Group.
     /// </summary>
-    public TerraformLiteralProperty<double>? Capacity
+    public TerraformProperty<double>? Capacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("capacity");
+        get => GetProperty<TerraformProperty<double>>("capacity");
         set => this.WithProperty("capacity", value);
     }
 
     /// <summary>
     /// Free-text description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// List of items.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Items
+    public TerraformProperty<List<string>>? Items
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("items");
+        get => GetProperty<TerraformProperty<List<string>>>("items");
         set => this.WithProperty("items", value);
     }
 
@@ -64,9 +64,9 @@ public class GoogleNetworkSecurityAddressGroup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -74,36 +74,36 @@ public class GoogleNetworkSecurityAddressGroup : TerraformResource
     /// The location of the gateway security policy.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Name of the AddressGroup resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name of the parent this address group belongs to. Format: organizations/{organization_id} or projects/{project_id}.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The type of the Address Group. Possible values are &amp;quot;IPV4&amp;quot; or &amp;quot;IPV6&amp;quot;. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

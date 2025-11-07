@@ -28,18 +28,18 @@ public class AwsGlobalacceleratorAcceleratorDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Arn
+    public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arn");
+        get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

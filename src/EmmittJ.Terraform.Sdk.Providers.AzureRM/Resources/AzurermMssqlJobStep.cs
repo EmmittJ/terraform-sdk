@@ -19,108 +19,108 @@ public class AzurermMssqlJobStep : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The initial_retry_interval_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? InitialRetryIntervalSeconds
+    public TerraformProperty<double>? InitialRetryIntervalSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("initial_retry_interval_seconds");
+        get => GetProperty<TerraformProperty<double>>("initial_retry_interval_seconds");
         set => this.WithProperty("initial_retry_interval_seconds", value);
     }
 
     /// <summary>
     /// The job_credential_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobCredentialId
+    public TerraformProperty<string>? JobCredentialId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_credential_id");
+        get => GetProperty<TerraformProperty<string>>("job_credential_id");
         set => this.WithProperty("job_credential_id", value);
     }
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobId
+    public TerraformProperty<string>? JobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_id");
+        get => GetProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 
     /// <summary>
     /// The job_step_index attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? JobStepIndex
+    public TerraformProperty<double>? JobStepIndex
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("job_step_index");
+        get => GetProperty<TerraformProperty<double>>("job_step_index");
         set => this.WithProperty("job_step_index", value);
     }
 
     /// <summary>
     /// The job_target_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobTargetGroupId
+    public TerraformProperty<string>? JobTargetGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_target_group_id");
+        get => GetProperty<TerraformProperty<string>>("job_target_group_id");
         set => this.WithProperty("job_target_group_id", value);
     }
 
     /// <summary>
     /// The maximum_retry_interval_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaximumRetryIntervalSeconds
+    public TerraformProperty<double>? MaximumRetryIntervalSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("maximum_retry_interval_seconds");
+        get => GetProperty<TerraformProperty<double>>("maximum_retry_interval_seconds");
         set => this.WithProperty("maximum_retry_interval_seconds", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The retry_attempts attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetryAttempts
+    public TerraformProperty<double>? RetryAttempts
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retry_attempts");
+        get => GetProperty<TerraformProperty<double>>("retry_attempts");
         set => this.WithProperty("retry_attempts", value);
     }
 
     /// <summary>
     /// The retry_interval_backoff_multiplier attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetryIntervalBackoffMultiplier
+    public TerraformProperty<double>? RetryIntervalBackoffMultiplier
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retry_interval_backoff_multiplier");
+        get => GetProperty<TerraformProperty<double>>("retry_interval_backoff_multiplier");
         set => this.WithProperty("retry_interval_backoff_multiplier", value);
     }
 
     /// <summary>
     /// The sql_script attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlScript
+    public TerraformProperty<string>? SqlScript
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_script");
+        get => GetProperty<TerraformProperty<string>>("sql_script");
         set => this.WithProperty("sql_script", value);
     }
 
     /// <summary>
     /// The timeout_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TimeoutSeconds
+    public TerraformProperty<double>? TimeoutSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("timeout_seconds");
+        get => GetProperty<TerraformProperty<double>>("timeout_seconds");
         set => this.WithProperty("timeout_seconds", value);
     }
 

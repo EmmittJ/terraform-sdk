@@ -21,81 +21,81 @@ public class AwsBedrockagentAgentActionGroup : TerraformResource
     /// <summary>
     /// The action_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActionGroupName
+    public TerraformProperty<string>? ActionGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action_group_name");
+        get => GetProperty<TerraformProperty<string>>("action_group_name");
         set => this.WithProperty("action_group_name", value);
     }
 
     /// <summary>
     /// The action_group_state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActionGroupState
+    public TerraformProperty<string>? ActionGroupState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("action_group_state");
+        get => GetProperty<TerraformProperty<string>>("action_group_state");
         set => this.WithProperty("action_group_state", value);
     }
 
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentId
+    public TerraformProperty<string>? AgentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_id");
+        get => GetProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentVersion
+    public TerraformProperty<string>? AgentVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_version");
+        get => GetProperty<TerraformProperty<string>>("agent_version");
         set => this.WithProperty("agent_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The parent_action_group_signature attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentActionGroupSignature
+    public TerraformProperty<string>? ParentActionGroupSignature
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_action_group_signature");
+        get => GetProperty<TerraformProperty<string>>("parent_action_group_signature");
         set => this.WithProperty("parent_action_group_signature", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrepareAgent
+    public TerraformProperty<bool>? PrepareAgent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("prepare_agent");
+        get => GetProperty<TerraformProperty<bool>>("prepare_agent");
         set => this.WithProperty("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The skip_resource_in_use_check attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipResourceInUseCheck
+    public TerraformProperty<bool>? SkipResourceInUseCheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_resource_in_use_check");
+        get => GetProperty<TerraformProperty<bool>>("skip_resource_in_use_check");
         set => this.WithProperty("skip_resource_in_use_check", value);
     }
 

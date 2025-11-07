@@ -33,36 +33,36 @@ public class GoogleCloudQuotasQuotaInfoDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The quota_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QuotaId
+    public TerraformProperty<string>? QuotaId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quota_id");
+        get => GetProperty<TerraformProperty<string>>("quota_id");
         set => this.WithProperty("quota_id", value);
     }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Service
+    public TerraformProperty<string>? Service
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service");
+        get => GetProperty<TerraformProperty<string>>("service");
         set => this.WithProperty("service", value);
     }
 

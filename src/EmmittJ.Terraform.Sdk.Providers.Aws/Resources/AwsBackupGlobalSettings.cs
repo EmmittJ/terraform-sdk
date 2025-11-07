@@ -19,18 +19,18 @@ public class AwsBackupGlobalSettings : TerraformResource
     /// <summary>
     /// The global_settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? GlobalSettings
+    public TerraformProperty<Dictionary<string, string>>? GlobalSettings
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("global_settings");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("global_settings");
         set => this.WithProperty("global_settings", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

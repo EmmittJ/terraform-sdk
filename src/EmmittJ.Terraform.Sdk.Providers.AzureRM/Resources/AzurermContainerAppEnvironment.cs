@@ -25,126 +25,126 @@ public class AzurermContainerAppEnvironment : TerraformResource
     /// <summary>
     /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
     /// </summary>
-    public TerraformLiteralProperty<string>? DaprApplicationInsightsConnectionString
+    public TerraformProperty<string>? DaprApplicationInsightsConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dapr_application_insights_connection_string");
+        get => GetProperty<TerraformProperty<string>>("dapr_application_insights_connection_string");
         set => this.WithProperty("dapr_application_insights_connection_string", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
     /// </summary>
-    public TerraformLiteralProperty<string>? InfrastructureResourceGroupName
+    public TerraformProperty<string>? InfrastructureResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("infrastructure_resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("infrastructure_resource_group_name");
         set => this.WithProperty("infrastructure_resource_group_name", value);
     }
 
     /// <summary>
     /// The existing Subnet to use for the Container Apps Control Plane. **NOTE:** The Subnet must have a `/21` or larger address space.
     /// </summary>
-    public TerraformLiteralProperty<string>? InfrastructureSubnetId
+    public TerraformProperty<string>? InfrastructureSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("infrastructure_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("infrastructure_subnet_id");
         set => this.WithProperty("infrastructure_subnet_id", value);
     }
 
     /// <summary>
     /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InternalLoadBalancerEnabled
+    public TerraformProperty<bool>? InternalLoadBalancerEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internal_load_balancer_enabled");
+        get => GetProperty<TerraformProperty<bool>>("internal_load_balancer_enabled");
         set => this.WithProperty("internal_load_balancer_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The logs_destination attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogsDestination
+    public TerraformProperty<string>? LogsDestination
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logs_destination");
+        get => GetProperty<TerraformProperty<string>>("logs_destination");
         set => this.WithProperty("logs_destination", value);
     }
 
     /// <summary>
     /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`. **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MutualTlsEnabled
+    public TerraformProperty<bool>? MutualTlsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("mutual_tls_enabled");
+        get => GetProperty<TerraformProperty<bool>>("mutual_tls_enabled");
         set => this.WithProperty("mutual_tls_enabled", value);
     }
 
     /// <summary>
     /// The name of the Container Apps Managed Environment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public network access setting for the Container App Environment.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        get => GetProperty<TerraformProperty<string>>("public_network_access");
         set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The zone_redundancy_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZoneRedundancyEnabled
+    public TerraformProperty<bool>? ZoneRedundancyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zone_redundancy_enabled");
+        get => GetProperty<TerraformProperty<bool>>("zone_redundancy_enabled");
         set => this.WithProperty("zone_redundancy_enabled", value);
     }
 

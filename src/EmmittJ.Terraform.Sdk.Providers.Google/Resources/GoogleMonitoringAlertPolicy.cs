@@ -22,9 +22,9 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// How to combine the results of multiple conditions to
     /// determine if an incident should be opened. Possible values: [&amp;quot;AND&amp;quot;, &amp;quot;OR&amp;quot;, &amp;quot;AND_WITH_MATCHING_RESOURCE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Combiner
+    public TerraformProperty<string>? Combiner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("combiner");
+        get => GetProperty<TerraformProperty<string>>("combiner");
         set => this.WithProperty("combiner", value);
     }
 
@@ -34,27 +34,27 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// the same display name for multiple policies in the same project. The
     /// name is limited to 512 Unicode characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether or not the policy is enabled. The default is true.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -67,18 +67,18 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// entries in this field is
     /// &#39;projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]&#39;
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? NotificationChannels
+    public TerraformProperty<List<string>>? NotificationChannels
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("notification_channels");
+        get => GetProperty<TerraformProperty<List<string>>>("notification_channels");
         set => this.WithProperty("notification_channels", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -87,9 +87,9 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// by that policy are. The severity level will be displayed on the Incident
     /// detail page and in notifications. Possible values: [&amp;quot;CRITICAL&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;WARNING&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Severity
+    public TerraformProperty<string>? Severity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("severity");
+        get => GetProperty<TerraformProperty<string>>("severity");
         set => this.WithProperty("severity", value);
     }
 
@@ -100,9 +100,9 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? UserLabels
+    public TerraformProperty<Dictionary<string, string>>? UserLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_labels");
         set => this.WithProperty("user_labels", value);
     }
 

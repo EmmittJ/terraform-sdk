@@ -20,81 +20,81 @@ public class AwsStoragegatewayFileSystemAssociation : TerraformResource
     /// <summary>
     /// The audit_destination_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuditDestinationArn
+    public TerraformProperty<string>? AuditDestinationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("audit_destination_arn");
+        get => GetProperty<TerraformProperty<string>>("audit_destination_arn");
         set => this.WithProperty("audit_destination_arn", value);
     }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewayArn
+    public TerraformProperty<string>? GatewayArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_arn");
+        get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LocationArn
+    public TerraformProperty<string>? LocationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location_arn");
+        get => GetProperty<TerraformProperty<string>>("location_arn");
         set => this.WithProperty("location_arn", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

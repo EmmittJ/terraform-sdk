@@ -23,18 +23,18 @@ public class AwsVpcIpamOrganizationAdminAccount : TerraformResource
     /// <summary>
     /// The delegated_admin_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DelegatedAdminAccountId
+    public TerraformProperty<string>? DelegatedAdminAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delegated_admin_account_id");
+        get => GetProperty<TerraformProperty<string>>("delegated_admin_account_id");
         set => this.WithProperty("delegated_admin_account_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

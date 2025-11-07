@@ -19,81 +19,81 @@ public class AwsRedshiftScheduledAction : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enable attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enable
+    public TerraformProperty<bool>? Enable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable");
+        get => GetProperty<TerraformProperty<bool>>("enable");
         set => this.WithProperty("enable", value);
     }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndTime
+    public TerraformProperty<string>? EndTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_time");
+        get => GetProperty<TerraformProperty<string>>("end_time");
         set => this.WithProperty("end_time", value);
     }
 
     /// <summary>
     /// The iam_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRole
+    public TerraformProperty<string>? IamRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role");
+        get => GetProperty<TerraformProperty<string>>("iam_role");
         set => this.WithProperty("iam_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Schedule
+    public TerraformProperty<string>? Schedule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schedule");
+        get => GetProperty<TerraformProperty<string>>("schedule");
         set => this.WithProperty("schedule", value);
     }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartTime
+    public TerraformProperty<string>? StartTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_time");
+        get => GetProperty<TerraformProperty<string>>("start_time");
         set => this.WithProperty("start_time", value);
     }
 

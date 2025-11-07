@@ -19,90 +19,90 @@ public class AzurermManagementGroupPolicyExemption : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The exemption_category attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExemptionCategory
+    public TerraformProperty<string>? ExemptionCategory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("exemption_category");
+        get => GetProperty<TerraformProperty<string>>("exemption_category");
         set => this.WithProperty("exemption_category", value);
     }
 
     /// <summary>
     /// The expires_on attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpiresOn
+    public TerraformProperty<string>? ExpiresOn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expires_on");
+        get => GetProperty<TerraformProperty<string>>("expires_on");
         set => this.WithProperty("expires_on", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagementGroupId
+    public TerraformProperty<string>? ManagementGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("management_group_id");
+        get => GetProperty<TerraformProperty<string>>("management_group_id");
         set => this.WithProperty("management_group_id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Metadata
+    public TerraformProperty<string>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metadata");
+        get => GetProperty<TerraformProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The policy_assignment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyAssignmentId
+    public TerraformProperty<string>? PolicyAssignmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_assignment_id");
+        get => GetProperty<TerraformProperty<string>>("policy_assignment_id");
         set => this.WithProperty("policy_assignment_id", value);
     }
 
     /// <summary>
     /// The policy_definition_reference_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PolicyDefinitionReferenceIds
+    public TerraformProperty<List<string>>? PolicyDefinitionReferenceIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("policy_definition_reference_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("policy_definition_reference_ids");
         set => this.WithProperty("policy_definition_reference_ids", value);
     }
 

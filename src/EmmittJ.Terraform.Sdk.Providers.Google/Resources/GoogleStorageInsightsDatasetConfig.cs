@@ -25,36 +25,36 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// <summary>
     /// The user-defined ID of the DatasetConfig
     /// </summary>
-    public TerraformLiteralProperty<string>? DatasetConfigId
+    public TerraformProperty<string>? DatasetConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_config_id");
+        get => GetProperty<TerraformProperty<string>>("dataset_config_id");
         set => this.WithProperty("dataset_config_id", value);
     }
 
     /// <summary>
     /// An optional user-provided description for the dataset configuration with a maximum length of 256 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If set to true, the request includes all the newly created buckets in the dataset that meet the inclusion and exclusion rules.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeNewlyCreatedBuckets
+    public TerraformProperty<bool>? IncludeNewlyCreatedBuckets
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_newly_created_buckets");
+        get => GetProperty<TerraformProperty<bool>>("include_newly_created_buckets");
         set => this.WithProperty("include_newly_created_buckets", value);
     }
 
@@ -65,18 +65,18 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// -&amp;gt; **Note** A dataset config resource can only be destroyed once it is unlinked,
     /// so users must set this field to false to unlink the dataset and destroy the dataset config resource.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LinkDataset
+    public TerraformProperty<bool>? LinkDataset
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("link_dataset");
+        get => GetProperty<TerraformProperty<bool>>("link_dataset");
         set => this.WithProperty("link_dataset", value);
     }
 
     /// <summary>
     /// The location of the DatasetConfig.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -84,36 +84,36 @@ public class GoogleStorageInsightsDatasetConfig : TerraformResource
     /// Organization resource ID that the source projects should belong to.
     /// Projects that do not belong to the provided organization are not considered when creating the dataset.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrganizationNumber
+    public TerraformProperty<string>? OrganizationNumber
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization_number");
+        get => GetProperty<TerraformProperty<string>>("organization_number");
         set => this.WithProperty("organization_number", value);
     }
 
     /// <summary>
     /// Defines the options for providing a source organization for the DatasetConfig.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OrganizationScope
+    public TerraformProperty<bool>? OrganizationScope
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("organization_scope");
+        get => GetProperty<TerraformProperty<bool>>("organization_scope");
         set => this.WithProperty("organization_scope", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Number of days of history that must be retained.
     /// </summary>
-    public TerraformLiteralProperty<double>? RetentionPeriodDays
+    public TerraformProperty<double>? RetentionPeriodDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("retention_period_days");
+        get => GetProperty<TerraformProperty<double>>("retention_period_days");
         set => this.WithProperty("retention_period_days", value);
     }
 

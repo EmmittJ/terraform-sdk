@@ -24,117 +24,117 @@ public class AwsPinpointsmsvoicev2PhoneNumber : TerraformResource
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool>? DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
         set => this.WithProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The iso_country_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IsoCountryCode
+    public TerraformProperty<string>? IsoCountryCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iso_country_code");
+        get => GetProperty<TerraformProperty<string>>("iso_country_code");
         set => this.WithProperty("iso_country_code", value);
     }
 
     /// <summary>
     /// The message_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MessageType
+    public TerraformProperty<string>? MessageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message_type");
+        get => GetProperty<TerraformProperty<string>>("message_type");
         set => this.WithProperty("message_type", value);
     }
 
     /// <summary>
     /// The number_capabilities attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? NumberCapabilities
+    public TerraformProperty<HashSet<string>>? NumberCapabilities
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("number_capabilities");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("number_capabilities");
         set => this.WithProperty("number_capabilities", value);
     }
 
     /// <summary>
     /// The number_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NumberType
+    public TerraformProperty<string>? NumberType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("number_type");
+        get => GetProperty<TerraformProperty<string>>("number_type");
         set => this.WithProperty("number_type", value);
     }
 
     /// <summary>
     /// The opt_out_list_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OptOutListName
+    public TerraformProperty<string>? OptOutListName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("opt_out_list_name");
+        get => GetProperty<TerraformProperty<string>>("opt_out_list_name");
         set => this.WithProperty("opt_out_list_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The registration_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RegistrationId
+    public TerraformProperty<string>? RegistrationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("registration_id");
+        get => GetProperty<TerraformProperty<string>>("registration_id");
         set => this.WithProperty("registration_id", value);
     }
 
     /// <summary>
     /// The self_managed_opt_outs_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SelfManagedOptOutsEnabled
+    public TerraformProperty<bool>? SelfManagedOptOutsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("self_managed_opt_outs_enabled");
+        get => GetProperty<TerraformProperty<bool>>("self_managed_opt_outs_enabled");
         set => this.WithProperty("self_managed_opt_outs_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The two_way_channel_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TwoWayChannelArn
+    public TerraformProperty<string>? TwoWayChannelArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("two_way_channel_arn");
+        get => GetProperty<TerraformProperty<string>>("two_way_channel_arn");
         set => this.WithProperty("two_way_channel_arn", value);
     }
 
     /// <summary>
     /// The two_way_channel_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TwoWayChannelEnabled
+    public TerraformProperty<bool>? TwoWayChannelEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("two_way_channel_enabled");
+        get => GetProperty<TerraformProperty<bool>>("two_way_channel_enabled");
         set => this.WithProperty("two_way_channel_enabled", value);
     }
 
     /// <summary>
     /// The two_way_channel_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TwoWayChannelRole
+    public TerraformProperty<string>? TwoWayChannelRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("two_way_channel_role");
+        get => GetProperty<TerraformProperty<string>>("two_way_channel_role");
         set => this.WithProperty("two_way_channel_role", value);
     }
 

@@ -20,63 +20,63 @@ public class AwsRedshiftserverlessUsageLimit : TerraformResource
     /// <summary>
     /// The amount attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Amount
+    public TerraformProperty<double>? Amount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("amount");
+        get => GetProperty<TerraformProperty<double>>("amount");
         set => this.WithProperty("amount", value);
     }
 
     /// <summary>
     /// The breach_action attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BreachAction
+    public TerraformProperty<string>? BreachAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("breach_action");
+        get => GetProperty<TerraformProperty<string>>("breach_action");
         set => this.WithProperty("breach_action", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The period attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Period
+    public TerraformProperty<string>? Period
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("period");
+        get => GetProperty<TerraformProperty<string>>("period");
         set => this.WithProperty("period", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceArn
+    public TerraformProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 
     /// <summary>
     /// The usage_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UsageType
+    public TerraformProperty<string>? UsageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("usage_type");
+        get => GetProperty<TerraformProperty<string>>("usage_type");
         set => this.WithProperty("usage_type", value);
     }
 

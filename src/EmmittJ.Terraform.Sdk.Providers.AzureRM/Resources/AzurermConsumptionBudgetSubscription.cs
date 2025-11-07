@@ -19,54 +19,54 @@ public class AzurermConsumptionBudgetSubscription : TerraformResource
     /// <summary>
     /// The amount attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Amount
+    public TerraformProperty<double>? Amount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("amount");
+        get => GetProperty<TerraformProperty<double>>("amount");
         set => this.WithProperty("amount", value);
     }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Etag
+    public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        get => GetProperty<TerraformProperty<string>>("etag");
         set => this.WithProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeGrain
+    public TerraformProperty<string>? TimeGrain
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_grain");
+        get => GetProperty<TerraformProperty<string>>("time_grain");
         set => this.WithProperty("time_grain", value);
     }
 

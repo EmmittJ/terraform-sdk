@@ -24,54 +24,54 @@ public class AwsDocdbEngineVersionDataSource : TerraformDataSource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Engine
+    public TerraformProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parameter_group_family attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParameterGroupFamily
+    public TerraformProperty<string>? ParameterGroupFamily
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_group_family");
+        get => GetProperty<TerraformProperty<string>>("parameter_group_family");
         set => this.WithProperty("parameter_group_family", value);
     }
 
     /// <summary>
     /// The preferred_versions attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? PreferredVersions
+    public TerraformProperty<List<string>>? PreferredVersions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("preferred_versions");
+        get => GetProperty<TerraformProperty<List<string>>>("preferred_versions");
         set => this.WithProperty("preferred_versions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

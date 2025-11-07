@@ -19,117 +19,117 @@ public class AzurermStreamAnalyticsReferenceInputMssql : TerraformResource
     /// <summary>
     /// The database attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Database
+    public TerraformProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The delta_snapshot_query attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeltaSnapshotQuery
+    public TerraformProperty<string>? DeltaSnapshotQuery
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("delta_snapshot_query");
+        get => GetProperty<TerraformProperty<string>>("delta_snapshot_query");
         set => this.WithProperty("delta_snapshot_query", value);
     }
 
     /// <summary>
     /// The full_snapshot_query attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FullSnapshotQuery
+    public TerraformProperty<string>? FullSnapshotQuery
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("full_snapshot_query");
+        get => GetProperty<TerraformProperty<string>>("full_snapshot_query");
         set => this.WithProperty("full_snapshot_query", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The refresh_interval_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RefreshIntervalDuration
+    public TerraformProperty<string>? RefreshIntervalDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("refresh_interval_duration");
+        get => GetProperty<TerraformProperty<string>>("refresh_interval_duration");
         set => this.WithProperty("refresh_interval_duration", value);
     }
 
     /// <summary>
     /// The refresh_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RefreshType
+    public TerraformProperty<string>? RefreshType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("refresh_type");
+        get => GetProperty<TerraformProperty<string>>("refresh_type");
         set => this.WithProperty("refresh_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The server attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Server
+    public TerraformProperty<string>? Server
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server");
+        get => GetProperty<TerraformProperty<string>>("server");
         set => this.WithProperty("server", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
+    public TerraformProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Table
+    public TerraformProperty<string>? Table
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table");
+        get => GetProperty<TerraformProperty<string>>("table");
         set => this.WithProperty("table", value);
     }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Username
+    public TerraformProperty<string>? Username
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("username");
+        get => GetProperty<TerraformProperty<string>>("username");
         set => this.WithProperty("username", value);
     }
 

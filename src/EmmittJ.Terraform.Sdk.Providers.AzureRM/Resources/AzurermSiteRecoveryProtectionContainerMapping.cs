@@ -19,72 +19,72 @@ public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recovery_fabric_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryFabricName
+    public TerraformProperty<string>? RecoveryFabricName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_fabric_name");
+        get => GetProperty<TerraformProperty<string>>("recovery_fabric_name");
         set => this.WithProperty("recovery_fabric_name", value);
     }
 
     /// <summary>
     /// The recovery_replication_policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryReplicationPolicyId
+    public TerraformProperty<string>? RecoveryReplicationPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_replication_policy_id");
+        get => GetProperty<TerraformProperty<string>>("recovery_replication_policy_id");
         set => this.WithProperty("recovery_replication_policy_id", value);
     }
 
     /// <summary>
     /// The recovery_source_protection_container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoverySourceProtectionContainerName
+    public TerraformProperty<string>? RecoverySourceProtectionContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_source_protection_container_name");
+        get => GetProperty<TerraformProperty<string>>("recovery_source_protection_container_name");
         set => this.WithProperty("recovery_source_protection_container_name", value);
     }
 
     /// <summary>
     /// The recovery_target_protection_container_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryTargetProtectionContainerId
+    public TerraformProperty<string>? RecoveryTargetProtectionContainerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_target_protection_container_id");
+        get => GetProperty<TerraformProperty<string>>("recovery_target_protection_container_id");
         set => this.WithProperty("recovery_target_protection_container_id", value);
     }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryVaultName
+    public TerraformProperty<string>? RecoveryVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name");
+        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

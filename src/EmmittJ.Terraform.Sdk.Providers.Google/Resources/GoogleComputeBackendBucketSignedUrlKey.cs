@@ -19,18 +19,18 @@ public class GoogleComputeBackendBucketSignedUrlKey : TerraformResource
     /// <summary>
     /// The backend bucket this signed URL key belongs.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackendBucket
+    public TerraformProperty<string>? BackendBucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend_bucket");
+        get => GetProperty<TerraformProperty<string>>("backend_bucket");
         set => this.WithProperty("backend_bucket", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -38,27 +38,27 @@ public class GoogleComputeBackendBucketSignedUrlKey : TerraformResource
     /// 128-bit key value used for signing the URL. The key value must be a
     /// valid RFC 4648 Section 5 base64url encoded string.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyValue
+    public TerraformProperty<string>? KeyValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_value");
+        get => GetProperty<TerraformProperty<string>>("key_value");
         set => this.WithProperty("key_value", value);
     }
 
     /// <summary>
     /// Name of the signed URL key.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

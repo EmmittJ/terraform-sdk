@@ -20,27 +20,27 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -48,9 +48,9 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceId
+    public TerraformProperty<string>? ServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_id");
+        get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 
@@ -62,9 +62,9 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? UserLabels
+    public TerraformProperty<Dictionary<string, string>>? UserLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_labels");
         set => this.WithProperty("user_labels", value);
     }
 

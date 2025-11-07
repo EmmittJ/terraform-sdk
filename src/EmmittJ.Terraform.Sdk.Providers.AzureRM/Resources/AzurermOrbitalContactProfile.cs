@@ -20,90 +20,90 @@ public class AzurermOrbitalContactProfile : TerraformResource
     /// <summary>
     /// The auto_tracking attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutoTracking
+    public TerraformProperty<string>? AutoTracking
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auto_tracking");
+        get => GetProperty<TerraformProperty<string>>("auto_tracking");
         set => this.WithProperty("auto_tracking", value);
     }
 
     /// <summary>
     /// The event_hub_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventHubUri
+    public TerraformProperty<string>? EventHubUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_hub_uri");
+        get => GetProperty<TerraformProperty<string>>("event_hub_uri");
         set => this.WithProperty("event_hub_uri", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The minimum_elevation_degrees attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinimumElevationDegrees
+    public TerraformProperty<double>? MinimumElevationDegrees
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("minimum_elevation_degrees");
+        get => GetProperty<TerraformProperty<double>>("minimum_elevation_degrees");
         set => this.WithProperty("minimum_elevation_degrees", value);
     }
 
     /// <summary>
     /// The minimum_variable_contact_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MinimumVariableContactDuration
+    public TerraformProperty<string>? MinimumVariableContactDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("minimum_variable_contact_duration");
+        get => GetProperty<TerraformProperty<string>>("minimum_variable_contact_duration");
         set => this.WithProperty("minimum_variable_contact_duration", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The network_configuration_subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkConfigurationSubnetId
+    public TerraformProperty<string>? NetworkConfigurationSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_configuration_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("network_configuration_subnet_id");
         set => this.WithProperty("network_configuration_subnet_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

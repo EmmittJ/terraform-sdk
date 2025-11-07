@@ -21,171 +21,171 @@ public class AzurermMachineLearningWorkspace : TerraformResource
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationInsightsId
+    public TerraformProperty<string>? ApplicationInsightsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id");
+        get => GetProperty<TerraformProperty<string>>("application_insights_id");
         set => this.WithProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerRegistryId
+    public TerraformProperty<string>? ContainerRegistryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_id");
+        get => GetProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FriendlyName
+    public TerraformProperty<string>? FriendlyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("friendly_name");
+        get => GetProperty<TerraformProperty<string>>("friendly_name");
         set => this.WithProperty("friendly_name", value);
     }
 
     /// <summary>
     /// The high_business_impact attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? HighBusinessImpact
+    public TerraformProperty<bool>? HighBusinessImpact
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("high_business_impact");
+        get => GetProperty<TerraformProperty<bool>>("high_business_impact");
         set => this.WithProperty("high_business_impact", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_build_compute_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageBuildComputeName
+    public TerraformProperty<string>? ImageBuildComputeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_build_compute_name");
+        get => GetProperty<TerraformProperty<string>>("image_build_compute_name");
         set => this.WithProperty("image_build_compute_name", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultId
+    public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Kind
+    public TerraformProperty<string>? Kind
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kind");
+        get => GetProperty<TerraformProperty<string>>("kind");
         set => this.WithProperty("kind", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The primary_user_assigned_identity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrimaryUserAssignedIdentity
+    public TerraformProperty<string>? PrimaryUserAssignedIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_user_assigned_identity");
+        get => GetProperty<TerraformProperty<string>>("primary_user_assigned_identity");
         set => this.WithProperty("primary_user_assigned_identity", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_side_encryption_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ServiceSideEncryptionEnabled
+    public TerraformProperty<bool>? ServiceSideEncryptionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("service_side_encryption_enabled");
+        get => GetProperty<TerraformProperty<bool>>("service_side_encryption_enabled");
         set => this.WithProperty("service_side_encryption_enabled", value);
     }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The v1_legacy_mode_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? V1LegacyModeEnabled
+    public TerraformProperty<bool>? V1LegacyModeEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("v1_legacy_mode_enabled");
+        get => GetProperty<TerraformProperty<bool>>("v1_legacy_mode_enabled");
         set => this.WithProperty("v1_legacy_mode_enabled", value);
     }
 

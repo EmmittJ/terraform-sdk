@@ -22,36 +22,36 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainId
+    public TerraformProperty<string>? DomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_id");
+        get => GetProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 
     /// <summary>
     /// The managed attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Managed
+    public TerraformProperty<bool>? Managed
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("managed");
+        get => GetProperty<TerraformProperty<bool>>("managed");
         set => this.WithProperty("managed", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

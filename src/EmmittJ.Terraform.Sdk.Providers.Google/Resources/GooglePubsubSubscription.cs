@@ -38,9 +38,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// If the subscriber never acknowledges the message, the Pub/Sub system
     /// will eventually redeliver the message.
     /// </summary>
-    public TerraformLiteralProperty<double>? AckDeadlineSeconds
+    public TerraformProperty<double>? AckDeadlineSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("ack_deadline_seconds");
+        get => GetProperty<TerraformProperty<double>>("ack_deadline_seconds");
         set => this.WithProperty("ack_deadline_seconds", value);
     }
 
@@ -55,9 +55,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// Note that subscribers may still receive multiple copies of a message when &#39;enable_exactly_once_delivery&#39;
     /// is true if the message was published multiple times by a publisher client. These copies are considered distinct by Pub/Sub and have distinct messageId values
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableExactlyOnceDelivery
+    public TerraformProperty<bool>? EnableExactlyOnceDelivery
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_exactly_once_delivery");
+        get => GetProperty<TerraformProperty<bool>>("enable_exactly_once_delivery");
         set => this.WithProperty("enable_exactly_once_delivery", value);
     }
 
@@ -66,9 +66,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// the subscribers in the order in which they are received by the Pub/Sub system. Otherwise, they
     /// may be delivered in any order.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableMessageOrdering
+    public TerraformProperty<bool>? EnableMessageOrdering
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_message_ordering");
+        get => GetProperty<TerraformProperty<bool>>("enable_message_ordering");
         set => this.WithProperty("enable_message_ordering", value);
     }
 
@@ -78,18 +78,18 @@ public class GooglePubsubSubscription : TerraformResource
     /// by their attributes. The maximum length of a filter is 256 bytes. After creating the subscription,
     /// you can&#39;t modify the filter.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -100,9 +100,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -117,27 +117,27 @@ public class GooglePubsubSubscription : TerraformResource
     /// A duration in seconds with up to nine fractional digits, terminated
     /// by &#39;s&#39;. Example: &#39;&amp;quot;600.5s&amp;quot;&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? MessageRetentionDuration
+    public TerraformProperty<string>? MessageRetentionDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("message_retention_duration");
+        get => GetProperty<TerraformProperty<string>>("message_retention_duration");
         set => this.WithProperty("message_retention_duration", value);
     }
 
     /// <summary>
     /// Name of the subscription.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -147,9 +147,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// they are acknowledged, until they fall out of the
     /// messageRetentionDuration window.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RetainAckedMessages
+    public TerraformProperty<bool>? RetainAckedMessages
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("retain_acked_messages");
+        get => GetProperty<TerraformProperty<bool>>("retain_acked_messages");
         set => this.WithProperty("retain_acked_messages", value);
     }
 
@@ -163,9 +163,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// apply tags to an existing resource, see the &#39;google_tags_tag_value&#39;
     /// resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -174,9 +174,9 @@ public class GooglePubsubSubscription : TerraformResource
     /// (as in the id property of a google_pubsub_topic), or just a topic name if
     /// the topic is in the same project as the subscription.
     /// </summary>
-    public TerraformLiteralProperty<string>? Topic
+    public TerraformProperty<string>? Topic
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic");
+        get => GetProperty<TerraformProperty<string>>("topic");
         set => this.WithProperty("topic", value);
     }
 

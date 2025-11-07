@@ -19,27 +19,27 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
     /// <summary>
     /// The billing_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingAccountName
+    public TerraformProperty<string>? BillingAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account_name");
+        get => GetProperty<TerraformProperty<string>>("billing_account_name");
         set => this.WithProperty("billing_account_name", value);
     }
 
     /// <summary>
     /// The enrollment_account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnrollmentAccountName
+    public TerraformProperty<string>? EnrollmentAccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enrollment_account_name");
+        get => GetProperty<TerraformProperty<string>>("enrollment_account_name");
         set => this.WithProperty("enrollment_account_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

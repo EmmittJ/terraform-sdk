@@ -21,18 +21,18 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -45,9 +45,9 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -57,27 +57,27 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// The URL of the network to which all network endpoints in the NEG belong. Uses
     /// &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS. Default value: &amp;quot;SERVERLESS&amp;quot; Possible values: [&amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;GCE_VM_IP_PORTMAP&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkEndpointType
+    public TerraformProperty<string>? NetworkEndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_endpoint_type");
+        get => GetProperty<TerraformProperty<string>>("network_endpoint_type");
         set => this.WithProperty("network_endpoint_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -87,18 +87,18 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// The target service url used to set up private service connection to
     /// a Google API or a PSC Producer Service Attachment.
     /// </summary>
-    public TerraformLiteralProperty<string>? PscTargetService
+    public TerraformProperty<string>? PscTargetService
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("psc_target_service");
+        get => GetProperty<TerraformProperty<string>>("psc_target_service");
         set => this.WithProperty("psc_target_service", value);
     }
 
     /// <summary>
     /// A reference to the region where the regional NEGs reside.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -107,9 +107,9 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// 
     /// Optional URL of the subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subnetwork
+    public TerraformProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork");
+        get => GetProperty<TerraformProperty<string>>("subnetwork");
         set => this.WithProperty("subnetwork", value);
     }
 

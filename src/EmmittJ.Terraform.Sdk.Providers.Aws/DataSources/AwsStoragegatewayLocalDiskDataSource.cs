@@ -20,45 +20,45 @@ public class AwsStoragegatewayLocalDiskDataSource : TerraformDataSource
     /// <summary>
     /// The disk_node attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DiskNode
+    public TerraformProperty<string>? DiskNode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_node");
+        get => GetProperty<TerraformProperty<string>>("disk_node");
         set => this.WithProperty("disk_node", value);
     }
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DiskPath
+    public TerraformProperty<string>? DiskPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_path");
+        get => GetProperty<TerraformProperty<string>>("disk_path");
         set => this.WithProperty("disk_path", value);
     }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewayArn
+    public TerraformProperty<string>? GatewayArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_arn");
+        get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

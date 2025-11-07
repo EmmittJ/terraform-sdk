@@ -22,45 +22,45 @@ public class AwsTransferWebApp : TerraformResource
     /// <summary>
     /// The access_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessEndpoint
+    public TerraformProperty<string>? AccessEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_endpoint");
+        get => GetProperty<TerraformProperty<string>>("access_endpoint");
         set => this.WithProperty("access_endpoint", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The web_app_endpoint_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebAppEndpointPolicy
+    public TerraformProperty<string>? WebAppEndpointPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_app_endpoint_policy");
+        get => GetProperty<TerraformProperty<string>>("web_app_endpoint_policy");
         set => this.WithProperty("web_app_endpoint_policy", value);
     }
 
     /// <summary>
     /// The web_app_units attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? WebAppUnits
+    public TerraformProperty<List<object>>? WebAppUnits
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("web_app_units");
+        get => GetProperty<TerraformProperty<List<object>>>("web_app_units");
         set => this.WithProperty("web_app_units", value);
     }
 

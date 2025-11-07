@@ -21,72 +21,72 @@ public class AwsRedshiftClusterCredentialsDataSource : TerraformDataSource
     /// <summary>
     /// The auto_create attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoCreate
+    public TerraformProperty<bool>? AutoCreate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_create");
+        get => GetProperty<TerraformProperty<bool>>("auto_create");
         set => this.WithProperty("auto_create", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterIdentifier
+    public TerraformProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? DbGroups
+    public TerraformProperty<HashSet<string>>? DbGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("db_groups");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("db_groups");
         set => this.WithProperty("db_groups", value);
     }
 
     /// <summary>
     /// The db_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbName
+    public TerraformProperty<string>? DbName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_name");
+        get => GetProperty<TerraformProperty<string>>("db_name");
         set => this.WithProperty("db_name", value);
     }
 
     /// <summary>
     /// The db_user attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbUser
+    public TerraformProperty<string>? DbUser
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_user");
+        get => GetProperty<TerraformProperty<string>>("db_user");
         set => this.WithProperty("db_user", value);
     }
 
     /// <summary>
     /// The duration_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DurationSeconds
+    public TerraformProperty<double>? DurationSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("duration_seconds");
+        get => GetProperty<TerraformProperty<double>>("duration_seconds");
         set => this.WithProperty("duration_seconds", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

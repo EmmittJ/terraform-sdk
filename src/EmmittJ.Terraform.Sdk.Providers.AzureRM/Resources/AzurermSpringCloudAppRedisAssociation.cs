@@ -19,54 +19,54 @@ public class AzurermSpringCloudAppRedisAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The redis_access_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RedisAccessKey
+    public TerraformProperty<string>? RedisAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redis_access_key");
+        get => GetProperty<TerraformProperty<string>>("redis_access_key");
         set => this.WithProperty("redis_access_key", value);
     }
 
     /// <summary>
     /// The redis_cache_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RedisCacheId
+    public TerraformProperty<string>? RedisCacheId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redis_cache_id");
+        get => GetProperty<TerraformProperty<string>>("redis_cache_id");
         set => this.WithProperty("redis_cache_id", value);
     }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudAppId
+    public TerraformProperty<string>? SpringCloudAppId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_app_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_app_id");
         set => this.WithProperty("spring_cloud_app_id", value);
     }
 
     /// <summary>
     /// The ssl_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SslEnabled
+    public TerraformProperty<bool>? SslEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ssl_enabled");
+        get => GetProperty<TerraformProperty<bool>>("ssl_enabled");
         set => this.WithProperty("ssl_enabled", value);
     }
 

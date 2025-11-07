@@ -19,36 +19,36 @@ public class AwsLocationTrackerAssociationDataSource : TerraformDataSource
     /// <summary>
     /// The consumer_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConsumerArn
+    public TerraformProperty<string>? ConsumerArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consumer_arn");
+        get => GetProperty<TerraformProperty<string>>("consumer_arn");
         set => this.WithProperty("consumer_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tracker_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrackerName
+    public TerraformProperty<string>? TrackerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tracker_name");
+        get => GetProperty<TerraformProperty<string>>("tracker_name");
         set => this.WithProperty("tracker_name", value);
     }
 

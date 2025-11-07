@@ -22,18 +22,18 @@ public class GoogleMlEngineModel : TerraformResource
     /// <summary>
     /// The description specified for the model when it was created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -43,45 +43,45 @@ public class GoogleMlEngineModel : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name specified for the model.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// If true, online prediction nodes send stderr and stdout streams to Stackdriver Logging
     /// </summary>
-    public TerraformLiteralProperty<bool>? OnlinePredictionConsoleLogging
+    public TerraformProperty<bool>? OnlinePredictionConsoleLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("online_prediction_console_logging");
+        get => GetProperty<TerraformProperty<bool>>("online_prediction_console_logging");
         set => this.WithProperty("online_prediction_console_logging", value);
     }
 
     /// <summary>
     /// If true, online prediction access logs are sent to StackDriver Logging.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OnlinePredictionLogging
+    public TerraformProperty<bool>? OnlinePredictionLogging
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("online_prediction_logging");
+        get => GetProperty<TerraformProperty<bool>>("online_prediction_logging");
         set => this.WithProperty("online_prediction_logging", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -89,9 +89,9 @@ public class GoogleMlEngineModel : TerraformResource
     /// The list of regions where the model is going to be deployed.
     /// Currently only one region per model is supported
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Regions
+    public TerraformProperty<List<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("regions");
+        get => GetProperty<TerraformProperty<List<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 

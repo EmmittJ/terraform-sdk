@@ -19,63 +19,63 @@ public class AzurermMssqlServerMicrosoftSupportAuditingPolicy : TerraformResourc
     /// <summary>
     /// The blob_storage_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BlobStorageEndpoint
+    public TerraformProperty<string>? BlobStorageEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("blob_storage_endpoint");
+        get => GetProperty<TerraformProperty<string>>("blob_storage_endpoint");
         set => this.WithProperty("blob_storage_endpoint", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_monitoring_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LogMonitoringEnabled
+    public TerraformProperty<bool>? LogMonitoringEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_monitoring_enabled");
+        get => GetProperty<TerraformProperty<bool>>("log_monitoring_enabled");
         set => this.WithProperty("log_monitoring_enabled", value);
     }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerId
+    public TerraformProperty<string>? ServerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_id");
+        get => GetProperty<TerraformProperty<string>>("server_id");
         set => this.WithProperty("server_id", value);
     }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountAccessKey
+    public TerraformProperty<string>? StorageAccountAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_access_key");
+        get => GetProperty<TerraformProperty<string>>("storage_account_access_key");
         set => this.WithProperty("storage_account_access_key", value);
     }
 
     /// <summary>
     /// The storage_account_subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountSubscriptionId
+    public TerraformProperty<string>? StorageAccountSubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_subscription_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_subscription_id");
         set => this.WithProperty("storage_account_subscription_id", value);
     }
 

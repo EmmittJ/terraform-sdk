@@ -20,27 +20,27 @@ public class AzurermChaosStudioCapability : TerraformResource
     /// <summary>
     /// The capability_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CapabilityType
+    public TerraformProperty<string>? CapabilityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capability_type");
+        get => GetProperty<TerraformProperty<string>>("capability_type");
         set => this.WithProperty("capability_type", value);
     }
 
     /// <summary>
     /// The chaos_studio_target_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ChaosStudioTargetId
+    public TerraformProperty<string>? ChaosStudioTargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("chaos_studio_target_id");
+        get => GetProperty<TerraformProperty<string>>("chaos_studio_target_id");
         set => this.WithProperty("chaos_studio_target_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

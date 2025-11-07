@@ -28,9 +28,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// Specifies the Active Directory policy to be used. Format: &#39;projects/{{project}}/locations/{{location}}/activeDirectories/{{name}}&#39;.
     /// The policy needs to be in the same location as the storage pool.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActiveDirectory
+    public TerraformProperty<string>? ActiveDirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("active_directory");
+        get => GetProperty<TerraformProperty<string>>("active_directory");
         set => this.WithProperty("active_directory", value);
     }
 
@@ -38,36 +38,36 @@ public class GoogleNetappStoragePool : TerraformResource
     /// Optional. True if the storage pool supports Auto Tiering enabled volumes. Default is false.
     /// Auto-tiering can be enabled after storage pool creation but it can&#39;t be disabled once enabled.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowAutoTiering
+    public TerraformProperty<bool>? AllowAutoTiering
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_auto_tiering");
+        get => GetProperty<TerraformProperty<bool>>("allow_auto_tiering");
         set => this.WithProperty("allow_auto_tiering", value);
     }
 
     /// <summary>
     /// Capacity of the storage pool (in GiB).
     /// </summary>
-    public TerraformLiteralProperty<string>? CapacityGib
+    public TerraformProperty<string>? CapacityGib
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("capacity_gib");
+        get => GetProperty<TerraformProperty<string>>("capacity_gib");
         set => this.WithProperty("capacity_gib", value);
     }
 
     /// <summary>
     /// Optional. True if using Independent Scaling of capacity and performance (Hyperdisk). Default is false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CustomPerformanceEnabled
+    public TerraformProperty<bool>? CustomPerformanceEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("custom_performance_enabled");
+        get => GetProperty<TerraformProperty<bool>>("custom_performance_enabled");
         set => this.WithProperty("custom_performance_enabled", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -75,9 +75,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// Flag indicating that the hot-tier threshold will be auto-increased by 10% of the hot-tier when it hits 100%. Default is true.
     /// The increment will kick in only if the new size after increment is still less than or equal to storage pool size.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableHotTierAutoResize
+    public TerraformProperty<bool>? EnableHotTierAutoResize
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_hot_tier_auto_resize");
+        get => GetProperty<TerraformProperty<bool>>("enable_hot_tier_auto_resize");
         set => this.WithProperty("enable_hot_tier_auto_resize", value);
     }
 
@@ -85,18 +85,18 @@ public class GoogleNetappStoragePool : TerraformResource
     /// Total hot tier capacity for the Storage Pool. It is applicable only to Flex service level.
     /// It should be less than the minimum storage pool size and cannot be more than the current storage pool size. It cannot be decreased once set.
     /// </summary>
-    public TerraformLiteralProperty<string>? HotTierSizeGib
+    public TerraformProperty<string>? HotTierSizeGib
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hot_tier_size_gib");
+        get => GetProperty<TerraformProperty<string>>("hot_tier_size_gib");
         set => this.WithProperty("hot_tier_size_gib", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -104,9 +104,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// Specifies the CMEK policy to be used for volume encryption. Format: &#39;projects/{{project}}/locations/{{location}}/kmsConfigs/{{name}}&#39;.
     /// The policy needs to be in the same location as the storage pool.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsConfig
+    public TerraformProperty<string>? KmsConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_config");
+        get => GetProperty<TerraformProperty<string>>("kms_config");
         set => this.WithProperty("kms_config", value);
     }
 
@@ -117,9 +117,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -127,45 +127,45 @@ public class GoogleNetappStoragePool : TerraformResource
     /// When enabled, the volumes uses Active Directory as LDAP name service for UID/GID lookups. Required to enable extended group support for NFSv3,
     /// using security identifiers for NFSv4.1 or principal names for kerberized NFSv4.1.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LdapEnabled
+    public TerraformProperty<bool>? LdapEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ldap_enabled");
+        get => GetProperty<TerraformProperty<bool>>("ldap_enabled");
         set => this.WithProperty("ldap_enabled", value);
     }
 
     /// <summary>
     /// Name of the location. For zonal Flex pools specify a zone name, in all other cases a region name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of the storage pool. Needs to be unique per location/region.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// VPC network name with format: &#39;projects/{{project}}/global/networks/{{network}}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -173,9 +173,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// QoS (Quality of Service) type of the storage pool.
     /// Possible values are: AUTO, MANUAL. Possible values: [&amp;quot;QOS_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;AUTO&amp;quot;, &amp;quot;MANUAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? QosType
+    public TerraformProperty<string>? QosType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("qos_type");
+        get => GetProperty<TerraformProperty<string>>("qos_type");
         set => this.WithProperty("qos_type", value);
     }
 
@@ -183,36 +183,36 @@ public class GoogleNetappStoragePool : TerraformResource
     /// Specifies the replica zone for regional Flex pools. &#39;zone&#39; and &#39;replica_zone&#39; values can be swapped to initiate a
     /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
     /// </summary>
-    public TerraformLiteralProperty<string>? ReplicaZone
+    public TerraformProperty<string>? ReplicaZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replica_zone");
+        get => GetProperty<TerraformProperty<string>>("replica_zone");
         set => this.WithProperty("replica_zone", value);
     }
 
     /// <summary>
     /// Service level of the storage pool. Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;EXTREME&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;FLEX&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceLevel
+    public TerraformProperty<string>? ServiceLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_level");
+        get => GetProperty<TerraformProperty<string>>("service_level");
         set => this.WithProperty("service_level", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total IOPS of the pool If not provided, it will be calculated based on the totalThroughputMibps
     /// </summary>
-    public TerraformLiteralProperty<string>? TotalIops
+    public TerraformProperty<string>? TotalIops
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("total_iops");
+        get => GetProperty<TerraformProperty<string>>("total_iops");
         set => this.WithProperty("total_iops", value);
     }
 
     /// <summary>
     /// Optional. Custom Performance Total Throughput of the pool (in MiB/s).
     /// </summary>
-    public TerraformLiteralProperty<string>? TotalThroughputMibps
+    public TerraformProperty<string>? TotalThroughputMibps
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("total_throughput_mibps");
+        get => GetProperty<TerraformProperty<string>>("total_throughput_mibps");
         set => this.WithProperty("total_throughput_mibps", value);
     }
 
@@ -221,9 +221,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// This field is used to control whether the pool supports FILE based volumes only or UNIFIED (both FILE and BLOCK) volumes.
     /// If not specified during creation, it defaults to FILE. Possible values: [&amp;quot;STORAGE_POOL_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;FILE&amp;quot;, &amp;quot;UNIFIED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
@@ -232,9 +232,9 @@ public class GoogleNetappStoragePool : TerraformResource
     /// [zone switch](https://cloud.google.com/netapp/volumes/docs/configure-and-use/storage-pools/edit-or-delete-storage-pool#switch_active_and_replica_zones).
     /// If you want to create a zonal Flex pool, specify a zone name for &#39;location&#39; and omit &#39;zone&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

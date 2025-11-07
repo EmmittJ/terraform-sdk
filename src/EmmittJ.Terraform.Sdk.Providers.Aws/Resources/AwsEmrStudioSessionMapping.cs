@@ -19,63 +19,63 @@ public class AwsEmrStudioSessionMapping : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityId
+    public TerraformProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_id");
+        get => GetProperty<TerraformProperty<string>>("identity_id");
         set => this.WithProperty("identity_id", value);
     }
 
     /// <summary>
     /// The identity_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityName
+    public TerraformProperty<string>? IdentityName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_name");
+        get => GetProperty<TerraformProperty<string>>("identity_name");
         set => this.WithProperty("identity_name", value);
     }
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityType
+    public TerraformProperty<string>? IdentityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_type");
+        get => GetProperty<TerraformProperty<string>>("identity_type");
         set => this.WithProperty("identity_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The session_policy_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SessionPolicyArn
+    public TerraformProperty<string>? SessionPolicyArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("session_policy_arn");
+        get => GetProperty<TerraformProperty<string>>("session_policy_arn");
         set => this.WithProperty("session_policy_arn", value);
     }
 
     /// <summary>
     /// The studio_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StudioId
+    public TerraformProperty<string>? StudioId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("studio_id");
+        get => GetProperty<TerraformProperty<string>>("studio_id");
         set => this.WithProperty("studio_id", value);
     }
 

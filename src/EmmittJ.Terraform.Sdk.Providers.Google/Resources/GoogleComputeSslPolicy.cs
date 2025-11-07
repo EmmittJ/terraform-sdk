@@ -32,27 +32,27 @@ public class GoogleComputeSslPolicy : TerraformResource
     /// *must* be present when using the &#39;CUSTOM&#39; profile. This argument
     /// *must not* be present when using any other profile.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? CustomFeatures
+    public TerraformProperty<HashSet<string>>? CustomFeatures
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("custom_features");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("custom_features");
         set => this.WithProperty("custom_features", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -60,9 +60,9 @@ public class GoogleComputeSslPolicy : TerraformResource
     /// The minimum version of SSL protocol that can be used by the clients
     /// to establish a connection with the load balancer. Default value: &amp;quot;TLS_1_0&amp;quot; Possible values: [&amp;quot;TLS_1_0&amp;quot;, &amp;quot;TLS_1_1&amp;quot;, &amp;quot;TLS_1_2&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? MinTlsVersion
+    public TerraformProperty<string>? MinTlsVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("min_tls_version");
+        get => GetProperty<TerraformProperty<string>>("min_tls_version");
         set => this.WithProperty("min_tls_version", value);
     }
 
@@ -75,9 +75,9 @@ public class GoogleComputeSslPolicy : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -91,18 +91,18 @@ public class GoogleComputeSslPolicy : TerraformResource
     /// for information on what cipher suites each profile provides. If
     /// &#39;CUSTOM&#39; is used, the &#39;custom_features&#39; attribute **must be set**. Default value: &amp;quot;COMPATIBLE&amp;quot; Possible values: [&amp;quot;COMPATIBLE&amp;quot;, &amp;quot;MODERN&amp;quot;, &amp;quot;RESTRICTED&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Profile
+    public TerraformProperty<string>? Profile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile");
+        get => GetProperty<TerraformProperty<string>>("profile");
         set => this.WithProperty("profile", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

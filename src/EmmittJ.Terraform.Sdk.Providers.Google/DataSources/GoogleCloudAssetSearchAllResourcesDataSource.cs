@@ -20,36 +20,36 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
     /// <summary>
     /// The asset_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AssetTypes
+    public TerraformProperty<List<string>>? AssetTypes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("asset_types");
+        get => GetProperty<TerraformProperty<List<string>>>("asset_types");
         set => this.WithProperty("asset_types", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Query
+    public TerraformProperty<string>? Query
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query");
+        get => GetProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Scope
+    public TerraformProperty<string>? Scope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scope");
+        get => GetProperty<TerraformProperty<string>>("scope");
         set => this.WithProperty("scope", value);
     }
 

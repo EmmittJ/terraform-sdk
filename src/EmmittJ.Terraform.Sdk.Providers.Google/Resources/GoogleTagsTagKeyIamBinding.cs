@@ -20,36 +20,36 @@ public class GoogleTagsTagKeyIamBinding : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Members
+    public TerraformProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TagKey
+    public TerraformProperty<string>? TagKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tag_key");
+        get => GetProperty<TerraformProperty<string>>("tag_key");
         set => this.WithProperty("tag_key", value);
     }
 

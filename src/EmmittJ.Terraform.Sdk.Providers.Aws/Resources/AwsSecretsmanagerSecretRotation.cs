@@ -20,45 +20,45 @@ public class AwsSecretsmanagerSecretRotation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The rotate_immediately attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RotateImmediately
+    public TerraformProperty<bool>? RotateImmediately
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("rotate_immediately");
+        get => GetProperty<TerraformProperty<bool>>("rotate_immediately");
         set => this.WithProperty("rotate_immediately", value);
     }
 
     /// <summary>
     /// The rotation_lambda_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RotationLambdaArn
+    public TerraformProperty<string>? RotationLambdaArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rotation_lambda_arn");
+        get => GetProperty<TerraformProperty<string>>("rotation_lambda_arn");
         set => this.WithProperty("rotation_lambda_arn", value);
     }
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecretId
+    public TerraformProperty<string>? SecretId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_id");
+        get => GetProperty<TerraformProperty<string>>("secret_id");
         set => this.WithProperty("secret_id", value);
     }
 

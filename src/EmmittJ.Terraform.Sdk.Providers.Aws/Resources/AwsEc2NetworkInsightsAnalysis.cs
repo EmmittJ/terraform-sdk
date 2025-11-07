@@ -29,63 +29,63 @@ public class AwsEc2NetworkInsightsAnalysis : TerraformResource
     /// <summary>
     /// The filter_in_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? FilterInArns
+    public TerraformProperty<HashSet<string>>? FilterInArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filter_in_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("filter_in_arns");
         set => this.WithProperty("filter_in_arns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The network_insights_path_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkInsightsPathId
+    public TerraformProperty<string>? NetworkInsightsPathId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_insights_path_id");
+        get => GetProperty<TerraformProperty<string>>("network_insights_path_id");
         set => this.WithProperty("network_insights_path_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The wait_for_completion attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? WaitForCompletion
+    public TerraformProperty<bool>? WaitForCompletion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("wait_for_completion");
+        get => GetProperty<TerraformProperty<bool>>("wait_for_completion");
         set => this.WithProperty("wait_for_completion", value);
     }
 

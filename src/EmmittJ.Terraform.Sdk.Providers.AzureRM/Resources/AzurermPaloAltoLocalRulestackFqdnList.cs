@@ -19,54 +19,54 @@ public class AzurermPaloAltoLocalRulestackFqdnList : TerraformResource
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuditComment
+    public TerraformProperty<string>? AuditComment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("audit_comment");
+        get => GetProperty<TerraformProperty<string>>("audit_comment");
         set => this.WithProperty("audit_comment", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The fully_qualified_domain_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? FullyQualifiedDomainNames
+    public TerraformProperty<List<string>>? FullyQualifiedDomainNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("fully_qualified_domain_names");
+        get => GetProperty<TerraformProperty<List<string>>>("fully_qualified_domain_names");
         set => this.WithProperty("fully_qualified_domain_names", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RulestackId
+    public TerraformProperty<string>? RulestackId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rulestack_id");
+        get => GetProperty<TerraformProperty<string>>("rulestack_id");
         set => this.WithProperty("rulestack_id", value);
     }
 

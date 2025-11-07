@@ -22,54 +22,54 @@ public class AwsAuditmanagerAssessmentDelegation : TerraformResource
     /// <summary>
     /// The assessment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AssessmentId
+    public TerraformProperty<string>? AssessmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assessment_id");
+        get => GetProperty<TerraformProperty<string>>("assessment_id");
         set => this.WithProperty("assessment_id", value);
     }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Comment
+    public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        get => GetProperty<TerraformProperty<string>>("comment");
         set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The control_set_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlSetId
+    public TerraformProperty<string>? ControlSetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_set_id");
+        get => GetProperty<TerraformProperty<string>>("control_set_id");
         set => this.WithProperty("control_set_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArn
+    public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The role_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleType
+    public TerraformProperty<string>? RoleType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_type");
+        get => GetProperty<TerraformProperty<string>>("role_type");
         set => this.WithProperty("role_type", value);
     }
 

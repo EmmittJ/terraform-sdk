@@ -20,63 +20,63 @@ public class AwsKeyspacesTable : TerraformResource
     /// <summary>
     /// The default_time_to_live attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultTimeToLive
+    public TerraformProperty<double>? DefaultTimeToLive
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_time_to_live");
+        get => GetProperty<TerraformProperty<double>>("default_time_to_live");
         set => this.WithProperty("default_time_to_live", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The keyspace_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyspaceName
+    public TerraformProperty<string>? KeyspaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("keyspace_name");
+        get => GetProperty<TerraformProperty<string>>("keyspace_name");
         set => this.WithProperty("keyspace_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableName
+    public TerraformProperty<string>? TableName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_name");
+        get => GetProperty<TerraformProperty<string>>("table_name");
         set => this.WithProperty("table_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

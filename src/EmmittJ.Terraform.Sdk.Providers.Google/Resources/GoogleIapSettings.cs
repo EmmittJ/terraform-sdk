@@ -19,9 +19,9 @@ public class GoogleIapSettings : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleIapSettings : TerraformResource
     /// * projects/{project_id}/iap_web/appengine-{app_id}/services/{service_id}
     /// * projects/{project_id}/iap_web/appengine-{app_id}/services/{service_id}/version/{version_id}
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

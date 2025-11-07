@@ -21,9 +21,9 @@ public class GoogleMonitoringGroup : TerraformResource
     /// A user-assigned name for this group, used only for display
     /// purposes.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
@@ -31,18 +31,18 @@ public class GoogleMonitoringGroup : TerraformResource
     /// The filter used to determine which monitored resources
     /// belong to this group.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -51,9 +51,9 @@ public class GoogleMonitoringGroup : TerraformResource
     /// cluster. The system can perform additional analysis on
     /// groups that are clusters.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsCluster
+    public TerraformProperty<bool>? IsCluster
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_cluster");
+        get => GetProperty<TerraformProperty<bool>>("is_cluster");
         set => this.WithProperty("is_cluster", value);
     }
 
@@ -62,18 +62,18 @@ public class GoogleMonitoringGroup : TerraformResource
     /// &amp;quot;projects/{project_id_or_number}/groups/{group_id}&amp;quot;. For
     /// groups with no parent, parentName is the empty string, &amp;quot;&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentName
+    public TerraformProperty<string>? ParentName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_name");
+        get => GetProperty<TerraformProperty<string>>("parent_name");
         set => this.WithProperty("parent_name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

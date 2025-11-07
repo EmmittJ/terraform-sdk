@@ -20,27 +20,27 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
     /// <summary>
     /// The filter_by_category attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? FilterByCategory
+    public TerraformProperty<HashSet<string>>? FilterByCategory
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filter_by_category");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("filter_by_category");
         set => this.WithProperty("filter_by_category", value);
     }
 
     /// <summary>
     /// The filter_by_resource_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? FilterByResourceGroups
+    public TerraformProperty<HashSet<string>>? FilterByResourceGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("filter_by_resource_groups");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("filter_by_resource_groups");
         set => this.WithProperty("filter_by_resource_groups", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

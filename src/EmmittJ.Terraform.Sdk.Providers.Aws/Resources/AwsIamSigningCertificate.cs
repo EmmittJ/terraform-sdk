@@ -20,36 +20,36 @@ public class AwsIamSigningCertificate : TerraformResource
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateBody
+    public TerraformProperty<string>? CertificateBody
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_body");
+        get => GetProperty<TerraformProperty<string>>("certificate_body");
         set => this.WithProperty("certificate_body", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

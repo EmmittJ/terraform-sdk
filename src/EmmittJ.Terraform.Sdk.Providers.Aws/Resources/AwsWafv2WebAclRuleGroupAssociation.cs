@@ -19,45 +19,45 @@ public class AwsWafv2WebAclRuleGroupAssociation : TerraformResource
     /// <summary>
     /// Override action for the rule group. Valid values are &#39;none&#39; and &#39;count&#39;. Defaults to &#39;none&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? OverrideAction
+    public TerraformProperty<string>? OverrideAction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("override_action");
+        get => GetProperty<TerraformProperty<string>>("override_action");
         set => this.WithProperty("override_action", value);
     }
 
     /// <summary>
     /// Priority of the rule within the Web ACL.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// Name of the rule to create in the Web ACL that references the rule group.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuleName
+    public TerraformProperty<string>? RuleName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule_name");
+        get => GetProperty<TerraformProperty<string>>("rule_name");
         set => this.WithProperty("rule_name", value);
     }
 
     /// <summary>
     /// ARN of the Web ACL to associate the Rule Group with.
     /// </summary>
-    public TerraformLiteralProperty<string>? WebAclArn
+    public TerraformProperty<string>? WebAclArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("web_acl_arn");
+        get => GetProperty<TerraformProperty<string>>("web_acl_arn");
         set => this.WithProperty("web_acl_arn", value);
     }
 

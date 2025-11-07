@@ -21,27 +21,27 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// <summary>
     /// Cloud Storage bucket name.
     /// </summary>
-    public TerraformLiteralProperty<string>? BucketName
+    public TerraformProperty<string>? BucketName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket_name");
+        get => GetProperty<TerraformProperty<string>>("bucket_name");
         set => this.WithProperty("bucket_name", value);
     }
 
     /// <summary>
     /// Compress text responses using Brotli or gzip compression, based on the client&#39;s Accept-Encoding header. Possible values: [&amp;quot;AUTOMATIC&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? CompressionMode
+    public TerraformProperty<string>? CompressionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("compression_mode");
+        get => GetProperty<TerraformProperty<string>>("compression_mode");
         set => this.WithProperty("compression_mode", value);
     }
 
     /// <summary>
     /// Headers that the HTTP/S load balancer should add to proxied responses.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? CustomResponseHeaders
+    public TerraformProperty<List<string>>? CustomResponseHeaders
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("custom_response_headers");
+        get => GetProperty<TerraformProperty<List<string>>>("custom_response_headers");
         set => this.WithProperty("custom_response_headers", value);
     }
 
@@ -49,18 +49,18 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// An optional textual description of the resource; provided by the
     /// client when the resource is created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The security policy associated with this backend bucket.
     /// </summary>
-    public TerraformLiteralProperty<string>? EdgeSecurityPolicy
+    public TerraformProperty<string>? EdgeSecurityPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_security_policy");
+        get => GetProperty<TerraformProperty<string>>("edge_security_policy");
         set => this.WithProperty("edge_security_policy", value);
     }
 
@@ -68,18 +68,18 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// If true, enable Cloud CDN for this BackendBucket.
     /// Note: This cannot be set to true when loadBalancingScheme is set to INTERNAL_MANAGED.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableCdn
+    public TerraformProperty<bool>? EnableCdn
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_cdn");
+        get => GetProperty<TerraformProperty<bool>>("enable_cdn");
         set => this.WithProperty("enable_cdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -88,9 +88,9 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// If loadBalancingScheme is not specified, the backend bucket can be used by classic global external load balancers, or global application external load balancers, or both.
     /// Important: CDN cannot be enabled (enableCdn cannot be set to true) when loadBalancingScheme is set to INTERNAL_MANAGED. Possible values: [&amp;quot;INTERNAL_MANAGED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? LoadBalancingScheme
+    public TerraformProperty<string>? LoadBalancingScheme
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("load_balancing_scheme");
+        get => GetProperty<TerraformProperty<string>>("load_balancing_scheme");
         set => this.WithProperty("load_balancing_scheme", value);
     }
 
@@ -103,18 +103,18 @@ public class GoogleComputeBackendBucket : TerraformResource
     /// characters must be a dash, lowercase letter, or digit, except the
     /// last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

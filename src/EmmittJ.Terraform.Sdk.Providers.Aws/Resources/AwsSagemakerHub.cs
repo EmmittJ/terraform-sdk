@@ -20,72 +20,72 @@ public class AwsSagemakerHub : TerraformResource
     /// <summary>
     /// The hub_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HubDescription
+    public TerraformProperty<string>? HubDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hub_description");
+        get => GetProperty<TerraformProperty<string>>("hub_description");
         set => this.WithProperty("hub_description", value);
     }
 
     /// <summary>
     /// The hub_display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HubDisplayName
+    public TerraformProperty<string>? HubDisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hub_display_name");
+        get => GetProperty<TerraformProperty<string>>("hub_display_name");
         set => this.WithProperty("hub_display_name", value);
     }
 
     /// <summary>
     /// The hub_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HubName
+    public TerraformProperty<string>? HubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hub_name");
+        get => GetProperty<TerraformProperty<string>>("hub_name");
         set => this.WithProperty("hub_name", value);
     }
 
     /// <summary>
     /// The hub_search_keywords attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? HubSearchKeywords
+    public TerraformProperty<HashSet<string>>? HubSearchKeywords
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("hub_search_keywords");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("hub_search_keywords");
         set => this.WithProperty("hub_search_keywords", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

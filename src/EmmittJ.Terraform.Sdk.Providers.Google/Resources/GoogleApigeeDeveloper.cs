@@ -23,36 +23,36 @@ public class GoogleApigeeDeveloper : TerraformResource
     /// <summary>
     /// Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only..
     /// </summary>
-    public TerraformLiteralProperty<string>? Email
+    public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email");
+        get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
     /// <summary>
     /// First name of the developer.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirstName
+    public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("first_name");
+        get => GetProperty<TerraformProperty<string>>("first_name");
         set => this.WithProperty("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Last name of the developer.
     /// </summary>
-    public TerraformLiteralProperty<string>? LastName
+    public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("last_name");
+        get => GetProperty<TerraformProperty<string>>("last_name");
         set => this.WithProperty("last_name", value);
     }
 
@@ -60,18 +60,18 @@ public class GoogleApigeeDeveloper : TerraformResource
     /// The Apigee Organization associated with the Apigee instance,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// User name of the developer. Not used by Apigee hybrid.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserName
+    public TerraformProperty<string>? UserName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_name");
+        get => GetProperty<TerraformProperty<string>>("user_name");
         set => this.WithProperty("user_name", value);
     }
 

@@ -19,54 +19,54 @@ public class AzurermRedisFirewallRule : TerraformResource
     /// <summary>
     /// The end_ip attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndIp
+    public TerraformProperty<string>? EndIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("end_ip");
+        get => GetProperty<TerraformProperty<string>>("end_ip");
         set => this.WithProperty("end_ip", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The redis_cache_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RedisCacheName
+    public TerraformProperty<string>? RedisCacheName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("redis_cache_name");
+        get => GetProperty<TerraformProperty<string>>("redis_cache_name");
         set => this.WithProperty("redis_cache_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The start_ip attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StartIp
+    public TerraformProperty<string>? StartIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("start_ip");
+        get => GetProperty<TerraformProperty<string>>("start_ip");
         set => this.WithProperty("start_ip", value);
     }
 

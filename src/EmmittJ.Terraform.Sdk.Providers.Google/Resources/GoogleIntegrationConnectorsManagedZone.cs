@@ -23,27 +23,27 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// <summary>
     /// Description of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// DNS Name of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Dns
+    public TerraformProperty<string>? Dns
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns");
+        get => GetProperty<TerraformProperty<string>>("dns");
         set => this.WithProperty("dns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -54,45 +54,45 @@ public class GoogleIntegrationConnectorsManagedZone : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Name of Managed Zone needs to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The name of the Target Project.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetProject
+    public TerraformProperty<string>? TargetProject
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_project");
+        get => GetProperty<TerraformProperty<string>>("target_project");
         set => this.WithProperty("target_project", value);
     }
 
     /// <summary>
     /// The name of the Target Project VPC Network.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetVpc
+    public TerraformProperty<string>? TargetVpc
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_vpc");
+        get => GetProperty<TerraformProperty<string>>("target_vpc");
         set => this.WithProperty("target_vpc", value);
     }
 

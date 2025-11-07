@@ -28,36 +28,36 @@ public class AwsNetworkmanagerDxGatewayAttachment : TerraformResource
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CoreNetworkId
+    public TerraformProperty<string>? CoreNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_id");
+        get => GetProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The direct_connect_gateway_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DirectConnectGatewayArn
+    public TerraformProperty<string>? DirectConnectGatewayArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direct_connect_gateway_arn");
+        get => GetProperty<TerraformProperty<string>>("direct_connect_gateway_arn");
         set => this.WithProperty("direct_connect_gateway_arn", value);
     }
 
     /// <summary>
     /// The edge_locations attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? EdgeLocations
+    public TerraformProperty<List<string>>? EdgeLocations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("edge_locations");
+        get => GetProperty<TerraformProperty<List<string>>>("edge_locations");
         set => this.WithProperty("edge_locations", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

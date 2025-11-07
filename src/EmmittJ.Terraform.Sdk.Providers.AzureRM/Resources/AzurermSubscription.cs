@@ -20,63 +20,63 @@ public class AzurermSubscription : TerraformResource
     /// <summary>
     /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
     /// </summary>
-    public TerraformLiteralProperty<string>? Alias
+    public TerraformProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        get => GetProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
     /// <summary>
     /// The billing_scope_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingScopeId
+    public TerraformProperty<string>? BillingScopeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_scope_id");
+        get => GetProperty<TerraformProperty<string>>("billing_scope_id");
         set => this.WithProperty("billing_scope_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The GUID of the Subscription.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 
     /// <summary>
     /// The Display Name for the Subscription.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionName
+    public TerraformProperty<string>? SubscriptionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_name");
+        get => GetProperty<TerraformProperty<string>>("subscription_name");
         set => this.WithProperty("subscription_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workload type for the Subscription. Possible values are `Production` (default) and `DevTest`.
     /// </summary>
-    public TerraformLiteralProperty<string>? Workload
+    public TerraformProperty<string>? Workload
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workload");
+        get => GetProperty<TerraformProperty<string>>("workload");
         set => this.WithProperty("workload", value);
     }
 

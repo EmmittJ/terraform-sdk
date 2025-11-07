@@ -20,45 +20,45 @@ public class GoogleFirestoreField : TerraformResource
     /// <summary>
     /// The id of the collection group to configure.
     /// </summary>
-    public TerraformLiteralProperty<string>? Collection
+    public TerraformProperty<string>? Collection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection");
+        get => GetProperty<TerraformProperty<string>>("collection");
         set => this.WithProperty("collection", value);
     }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Database
+    public TerraformProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The id of the field to configure.
     /// </summary>
-    public TerraformLiteralProperty<string>? Field
+    public TerraformProperty<string>? Field
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("field");
+        get => GetProperty<TerraformProperty<string>>("field");
         set => this.WithProperty("field", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -29,63 +29,63 @@ public class AwsS3tablesTable : TerraformResource
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<object>? EncryptionConfiguration
+    public TerraformProperty<object>? EncryptionConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<object>>("encryption_configuration");
+        get => GetProperty<TerraformProperty<object>>("encryption_configuration");
         set => this.WithProperty("encryption_configuration", value);
     }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Format
+    public TerraformProperty<string>? Format
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("format");
+        get => GetProperty<TerraformProperty<string>>("format");
         set => this.WithProperty("format", value);
     }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    public TerraformLiteralProperty<object>? MaintenanceConfiguration
+    public TerraformProperty<object>? MaintenanceConfiguration
     {
-        get => GetProperty<TerraformLiteralProperty<object>>("maintenance_configuration");
+        get => GetProperty<TerraformProperty<object>>("maintenance_configuration");
         set => this.WithProperty("maintenance_configuration", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Namespace
+    public TerraformProperty<string>? Namespace
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace");
+        get => GetProperty<TerraformProperty<string>>("namespace");
         set => this.WithProperty("namespace", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The table_bucket_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableBucketArn
+    public TerraformProperty<string>? TableBucketArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_bucket_arn");
+        get => GetProperty<TerraformProperty<string>>("table_bucket_arn");
         set => this.WithProperty("table_bucket_arn", value);
     }
 

@@ -21,27 +21,27 @@ public class AwsDxGateway : TerraformResource
     /// <summary>
     /// The amazon_side_asn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AmazonSideAsn
+    public TerraformProperty<string>? AmazonSideAsn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("amazon_side_asn");
+        get => GetProperty<TerraformProperty<string>>("amazon_side_asn");
         set => this.WithProperty("amazon_side_asn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

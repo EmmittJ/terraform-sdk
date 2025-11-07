@@ -23,18 +23,18 @@ public class AwsIamGroupDataSource : TerraformDataSource
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupName
+    public TerraformProperty<string>? GroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_name");
+        get => GetProperty<TerraformProperty<string>>("group_name");
         set => this.WithProperty("group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

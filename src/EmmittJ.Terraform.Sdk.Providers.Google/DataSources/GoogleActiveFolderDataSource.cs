@@ -20,36 +20,36 @@ public class GoogleActiveFolderDataSource : TerraformDataSource
     /// <summary>
     /// Provides the REST method through which to find the folder. LIST is recommended as it is strongly consistent.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiMethod
+    public TerraformProperty<string>? ApiMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_method");
+        get => GetProperty<TerraformProperty<string>>("api_method");
         set => this.WithProperty("api_method", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 

@@ -36,27 +36,27 @@ public class GoogleAlloydbCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// The ID of the alloydb cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterId
+    public TerraformProperty<string>? ClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_id");
+        get => GetProperty<TerraformProperty<string>>("cluster_id");
         set => this.WithProperty("cluster_id", value);
     }
 
     /// <summary>
     /// The type of cluster. If not set, defaults to PRIMARY. Default value: &amp;quot;PRIMARY&amp;quot; Possible values: [&amp;quot;PRIMARY&amp;quot;, &amp;quot;SECONDARY&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterType
+    public TerraformProperty<string>? ClusterType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_type");
+        get => GetProperty<TerraformProperty<string>>("cluster_type");
         set => this.WithProperty("cluster_type", value);
     }
 
@@ -64,9 +64,9 @@ public class GoogleAlloydbCluster : TerraformResource
     /// The database engine major version. This is an optional field and it&#39;s populated at the Cluster creation time.
     /// Note: Changing this field to a higer version results in upgrading the AlloyDB cluster which is an irreversible change.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatabaseVersion
+    public TerraformProperty<string>? DatabaseVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_version");
+        get => GetProperty<TerraformProperty<string>>("database_version");
         set => this.WithProperty("database_version", value);
     }
 
@@ -76,9 +76,9 @@ public class GoogleAlloydbCluster : TerraformResource
     /// Deleting a Secondary cluster with a secondary instance REQUIRES setting deletion_policy = &amp;quot;FORCE&amp;quot; otherwise an error is returned. This is needed as there is no support to delete just the secondary instance, and the only way to delete secondary instance is to delete the associated secondary cluster forcefully which also deletes the secondary instance.
     /// Possible values: DEFAULT, FORCE
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
@@ -88,36 +88,36 @@ public class GoogleAlloydbCluster : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the cluster will fail.
     /// When the field is set to false, deleting the cluster is allowed.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtection
+    public TerraformProperty<bool>? DeletionProtection
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection");
         set => this.WithProperty("deletion_protection", value);
     }
 
     /// <summary>
     /// User-settable and human-readable display name for the Cluster.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// For Resource freshness validation (https://google.aip.dev/154)
     /// </summary>
-    public TerraformLiteralProperty<string>? Etag
+    public TerraformProperty<string>? Etag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("etag");
+        get => GetProperty<TerraformProperty<string>>("etag");
         set => this.WithProperty("etag", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -127,27 +127,27 @@ public class GoogleAlloydbCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The location where the alloydb cluster should reside.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -156,18 +156,18 @@ public class GoogleAlloydbCluster : TerraformResource
     /// Possible values: true, false
     /// Default value: &amp;quot;true&amp;quot;
     /// </summary>
-    public TerraformLiteralProperty<bool>? SkipAwaitMajorVersionUpgrade
+    public TerraformProperty<bool>? SkipAwaitMajorVersionUpgrade
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("skip_await_major_version_upgrade");
+        get => GetProperty<TerraformProperty<bool>>("skip_await_major_version_upgrade");
         set => this.WithProperty("skip_await_major_version_upgrade", value);
     }
 
     /// <summary>
     /// The subscrition type of cluster. Possible values: [&amp;quot;TRIAL&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionType
+    public TerraformProperty<string>? SubscriptionType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_type");
+        get => GetProperty<TerraformProperty<string>>("subscription_type");
         set => this.WithProperty("subscription_type", value);
     }
 

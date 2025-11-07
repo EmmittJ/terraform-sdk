@@ -26,99 +26,99 @@ public class AwsDynamodbTableExport : TerraformResource
     /// <summary>
     /// The export_format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExportFormat
+    public TerraformProperty<string>? ExportFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("export_format");
+        get => GetProperty<TerraformProperty<string>>("export_format");
         set => this.WithProperty("export_format", value);
     }
 
     /// <summary>
     /// The export_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExportTime
+    public TerraformProperty<string>? ExportTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("export_time");
+        get => GetProperty<TerraformProperty<string>>("export_time");
         set => this.WithProperty("export_time", value);
     }
 
     /// <summary>
     /// The export_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExportType
+    public TerraformProperty<string>? ExportType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("export_type");
+        get => GetProperty<TerraformProperty<string>>("export_type");
         set => this.WithProperty("export_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3Bucket
+    public TerraformProperty<string>? S3Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket");
+        get => GetProperty<TerraformProperty<string>>("s3_bucket");
         set => this.WithProperty("s3_bucket", value);
     }
 
     /// <summary>
     /// The s3_bucket_owner attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3BucketOwner
+    public TerraformProperty<string>? S3BucketOwner
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_bucket_owner");
+        get => GetProperty<TerraformProperty<string>>("s3_bucket_owner");
         set => this.WithProperty("s3_bucket_owner", value);
     }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3Prefix
+    public TerraformProperty<string>? S3Prefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_prefix");
+        get => GetProperty<TerraformProperty<string>>("s3_prefix");
         set => this.WithProperty("s3_prefix", value);
     }
 
     /// <summary>
     /// The s3_sse_algorithm attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3SseAlgorithm
+    public TerraformProperty<string>? S3SseAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_sse_algorithm");
+        get => GetProperty<TerraformProperty<string>>("s3_sse_algorithm");
         set => this.WithProperty("s3_sse_algorithm", value);
     }
 
     /// <summary>
     /// The s3_sse_kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? S3SseKmsKeyId
+    public TerraformProperty<string>? S3SseKmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("s3_sse_kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("s3_sse_kms_key_id");
         set => this.WithProperty("s3_sse_kms_key_id", value);
     }
 
     /// <summary>
     /// The table_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableArn
+    public TerraformProperty<string>? TableArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_arn");
+        get => GetProperty<TerraformProperty<string>>("table_arn");
         set => this.WithProperty("table_arn", value);
     }
 

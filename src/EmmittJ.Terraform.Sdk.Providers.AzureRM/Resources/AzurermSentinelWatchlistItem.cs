@@ -19,36 +19,36 @@ public class AzurermSentinelWatchlistItem : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Properties
+    public TerraformProperty<Dictionary<string, string>>? Properties
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("properties");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("properties");
         set => this.WithProperty("properties", value);
     }
 
     /// <summary>
     /// The watchlist_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WatchlistId
+    public TerraformProperty<string>? WatchlistId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("watchlist_id");
+        get => GetProperty<TerraformProperty<string>>("watchlist_id");
         set => this.WithProperty("watchlist_id", value);
     }
 

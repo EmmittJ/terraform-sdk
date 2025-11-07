@@ -19,63 +19,63 @@ public class AzurermDataProtectionBackupInstanceBlobStorage : TerraformResource
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupPolicyId
+    public TerraformProperty<string>? BackupPolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_policy_id");
+        get => GetProperty<TerraformProperty<string>>("backup_policy_id");
         set => this.WithProperty("backup_policy_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The storage_account_container_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? StorageAccountContainerNames
+    public TerraformProperty<List<string>>? StorageAccountContainerNames
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("storage_account_container_names");
+        get => GetProperty<TerraformProperty<List<string>>>("storage_account_container_names");
         set => this.WithProperty("storage_account_container_names", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VaultId
+    public TerraformProperty<string>? VaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_id");
+        get => GetProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
     }
 

@@ -49,27 +49,27 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     /// If your app has not launched yet, you should enable enforcement immediately, since there are no outdated
     /// clients in use. Possible values: [&amp;quot;UNENFORCED&amp;quot;, &amp;quot;ENFORCED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? EnforcementMode
+    public TerraformProperty<string>? EnforcementMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enforcement_mode");
+        get => GetProperty<TerraformProperty<string>>("enforcement_mode");
         set => this.WithProperty("enforcement_mode", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -80,9 +80,9 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     ///   firestore.googleapis.com (Cloud Firestore)
     ///   identitytoolkit.googleapis.com (Authentication)
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceId
+    public TerraformProperty<string>? ServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_id");
+        get => GetProperty<TerraformProperty<string>>("service_id");
         set => this.WithProperty("service_id", value);
     }
 

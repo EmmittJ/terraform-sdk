@@ -21,36 +21,36 @@ public class AwsSsmServiceSetting : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The setting_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SettingId
+    public TerraformProperty<string>? SettingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("setting_id");
+        get => GetProperty<TerraformProperty<string>>("setting_id");
         set => this.WithProperty("setting_id", value);
     }
 
     /// <summary>
     /// The setting_value attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SettingValue
+    public TerraformProperty<string>? SettingValue
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("setting_value");
+        get => GetProperty<TerraformProperty<string>>("setting_value");
         set => this.WithProperty("setting_value", value);
     }
 

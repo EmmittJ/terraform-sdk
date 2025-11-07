@@ -19,45 +19,45 @@ public class AzurermKubernetesFleetMember : TerraformResource
     /// <summary>
     /// The group attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Group
+    public TerraformProperty<string>? Group
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group");
+        get => GetProperty<TerraformProperty<string>>("group");
         set => this.WithProperty("group", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KubernetesClusterId
+    public TerraformProperty<string>? KubernetesClusterId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_cluster_id");
+        get => GetProperty<TerraformProperty<string>>("kubernetes_cluster_id");
         set => this.WithProperty("kubernetes_cluster_id", value);
     }
 
     /// <summary>
     /// The kubernetes_fleet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KubernetesFleetId
+    public TerraformProperty<string>? KubernetesFleetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kubernetes_fleet_id");
+        get => GetProperty<TerraformProperty<string>>("kubernetes_fleet_id");
         set => this.WithProperty("kubernetes_fleet_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

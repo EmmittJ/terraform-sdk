@@ -19,63 +19,63 @@ public class AzurermSecurityCenterStorageDefender : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The malware_scanning_on_upload_cap_gb_per_month attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MalwareScanningOnUploadCapGbPerMonth
+    public TerraformProperty<double>? MalwareScanningOnUploadCapGbPerMonth
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("malware_scanning_on_upload_cap_gb_per_month");
+        get => GetProperty<TerraformProperty<double>>("malware_scanning_on_upload_cap_gb_per_month");
         set => this.WithProperty("malware_scanning_on_upload_cap_gb_per_month", value);
     }
 
     /// <summary>
     /// The malware_scanning_on_upload_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MalwareScanningOnUploadEnabled
+    public TerraformProperty<bool>? MalwareScanningOnUploadEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("malware_scanning_on_upload_enabled");
+        get => GetProperty<TerraformProperty<bool>>("malware_scanning_on_upload_enabled");
         set => this.WithProperty("malware_scanning_on_upload_enabled", value);
     }
 
     /// <summary>
     /// The override_subscription_settings_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OverrideSubscriptionSettingsEnabled
+    public TerraformProperty<bool>? OverrideSubscriptionSettingsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("override_subscription_settings_enabled");
+        get => GetProperty<TerraformProperty<bool>>("override_subscription_settings_enabled");
         set => this.WithProperty("override_subscription_settings_enabled", value);
     }
 
     /// <summary>
     /// The scan_results_event_grid_topic_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ScanResultsEventGridTopicId
+    public TerraformProperty<string>? ScanResultsEventGridTopicId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("scan_results_event_grid_topic_id");
+        get => GetProperty<TerraformProperty<string>>("scan_results_event_grid_topic_id");
         set => this.WithProperty("scan_results_event_grid_topic_id", value);
     }
 
     /// <summary>
     /// The sensitive_data_discovery_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SensitiveDataDiscoveryEnabled
+    public TerraformProperty<bool>? SensitiveDataDiscoveryEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("sensitive_data_discovery_enabled");
+        get => GetProperty<TerraformProperty<bool>>("sensitive_data_discovery_enabled");
         set => this.WithProperty("sensitive_data_discovery_enabled", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 

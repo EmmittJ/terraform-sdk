@@ -20,72 +20,72 @@ public class AwsLambdaInvocation : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionName
+    public TerraformProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Input
+    public TerraformProperty<string>? Input
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("input");
+        get => GetProperty<TerraformProperty<string>>("input");
         set => this.WithProperty("input", value);
     }
 
     /// <summary>
     /// The lifecycle_scope attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LifecycleScope
+    public TerraformProperty<string>? LifecycleScope
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifecycle_scope");
+        get => GetProperty<TerraformProperty<string>>("lifecycle_scope");
         set => this.WithProperty("lifecycle_scope", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Qualifier
+    public TerraformProperty<string>? Qualifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("qualifier");
+        get => GetProperty<TerraformProperty<string>>("qualifier");
         set => this.WithProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The terraform_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TerraformKey
+    public TerraformProperty<string>? TerraformKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("terraform_key");
+        get => GetProperty<TerraformProperty<string>>("terraform_key");
         set => this.WithProperty("terraform_key", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Triggers
+    public TerraformProperty<Dictionary<string, string>>? Triggers
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("triggers");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 

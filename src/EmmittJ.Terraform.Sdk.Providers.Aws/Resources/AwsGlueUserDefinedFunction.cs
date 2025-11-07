@@ -21,72 +21,72 @@ public class AwsGlueUserDefinedFunction : TerraformResource
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CatalogId
+    public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        get => GetProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The class_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClassName
+    public TerraformProperty<string>? ClassName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("class_name");
+        get => GetProperty<TerraformProperty<string>>("class_name");
         set => this.WithProperty("class_name", value);
     }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatabaseName
+    public TerraformProperty<string>? DatabaseName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database_name");
+        get => GetProperty<TerraformProperty<string>>("database_name");
         set => this.WithProperty("database_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The owner_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OwnerName
+    public TerraformProperty<string>? OwnerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner_name");
+        get => GetProperty<TerraformProperty<string>>("owner_name");
         set => this.WithProperty("owner_name", value);
     }
 
     /// <summary>
     /// The owner_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OwnerType
+    public TerraformProperty<string>? OwnerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner_type");
+        get => GetProperty<TerraformProperty<string>>("owner_type");
         set => this.WithProperty("owner_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -33,117 +33,117 @@ public class AzureadServicePrincipal : TerraformResource
     /// <summary>
     /// Whether or not the service principal account is enabled
     /// </summary>
-    public TerraformLiteralProperty<bool>? AccountEnabled
+    public TerraformProperty<bool>? AccountEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("account_enabled");
+        get => GetProperty<TerraformProperty<bool>>("account_enabled");
         set => this.WithProperty("account_enabled", value);
     }
 
     /// <summary>
     /// A list of alternative names, used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AlternativeNames
+    public TerraformProperty<HashSet<string>>? AlternativeNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("alternative_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("alternative_names");
         set => this.WithProperty("alternative_names", value);
     }
 
     /// <summary>
     /// Whether this service principal requires an app role assignment to a user or group before Azure AD will issue a user or access token to the application
     /// </summary>
-    public TerraformLiteralProperty<bool>? AppRoleAssignmentRequired
+    public TerraformProperty<bool>? AppRoleAssignmentRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("app_role_assignment_required");
+        get => GetProperty<TerraformProperty<bool>>("app_role_assignment_required");
         set => this.WithProperty("app_role_assignment_required", value);
     }
 
     /// <summary>
     /// The client ID of the application for which to create a service principal
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientId
+    public TerraformProperty<string>? ClientId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_id");
+        get => GetProperty<TerraformProperty<string>>("client_id");
         set => this.WithProperty("client_id", value);
     }
 
     /// <summary>
     /// Description of the service principal provided for internal end-users
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on
     /// </summary>
-    public TerraformLiteralProperty<string>? LoginUrl
+    public TerraformProperty<string>? LoginUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("login_url");
+        get => GetProperty<TerraformProperty<string>>("login_url");
         set => this.WithProperty("login_url", value);
     }
 
     /// <summary>
     /// Free text field to capture information about the service principal, typically used for operational purposes
     /// </summary>
-    public TerraformLiteralProperty<string>? Notes
+    public TerraformProperty<string>? Notes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notes");
+        get => GetProperty<TerraformProperty<string>>("notes");
         set => this.WithProperty("notes", value);
     }
 
     /// <summary>
     /// List of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? NotificationEmailAddresses
+    public TerraformProperty<HashSet<string>>? NotificationEmailAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("notification_email_addresses");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("notification_email_addresses");
         set => this.WithProperty("notification_email_addresses", value);
     }
 
     /// <summary>
     /// A list of object IDs of principals that will be granted ownership of the service principal
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Owners
+    public TerraformProperty<HashSet<string>>? Owners
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("owners");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("owners");
         set => this.WithProperty("owners", value);
     }
 
     /// <summary>
     /// The single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps
     /// </summary>
-    public TerraformLiteralProperty<string>? PreferredSingleSignOnMode
+    public TerraformProperty<string>? PreferredSingleSignOnMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("preferred_single_sign_on_mode");
+        get => GetProperty<TerraformProperty<string>>("preferred_single_sign_on_mode");
         set => this.WithProperty("preferred_single_sign_on_mode", value);
     }
 
     /// <summary>
     /// A set of tags to apply to the service principal
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tags
+    public TerraformProperty<HashSet<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tags");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// When true, the resource will return an existing service principal instead of failing with an error
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseExisting
+    public TerraformProperty<bool>? UseExisting
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_existing");
+        get => GetProperty<TerraformProperty<bool>>("use_existing");
         set => this.WithProperty("use_existing", value);
     }
 

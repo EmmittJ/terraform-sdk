@@ -19,18 +19,18 @@ public class AwsCloudfrontMonitoringSubscription : TerraformResource
     /// <summary>
     /// The distribution_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DistributionId
+    public TerraformProperty<string>? DistributionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("distribution_id");
+        get => GetProperty<TerraformProperty<string>>("distribution_id");
         set => this.WithProperty("distribution_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

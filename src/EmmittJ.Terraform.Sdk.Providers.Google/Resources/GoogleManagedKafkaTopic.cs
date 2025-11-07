@@ -20,72 +20,72 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// <summary>
     /// The cluster name.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cluster
+    public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// Configuration for the topic that are overridden from the cluster defaults. The key of the map is a Kafka topic property name, for example: &#39;cleanup.policy=compact&#39;, &#39;compression.type=producer&#39;.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Configs
+    public TerraformProperty<Dictionary<string, string>>? Configs
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("configs");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("configs");
         set => this.WithProperty("configs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The number of partitions in a topic. You can increase the partition count for a topic, but you cannot decrease it. Increasing partitions for a topic that uses a key might change how messages are distributed.
     /// </summary>
-    public TerraformLiteralProperty<double>? PartitionCount
+    public TerraformProperty<double>? PartitionCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("partition_count");
+        get => GetProperty<TerraformProperty<double>>("partition_count");
         set => this.WithProperty("partition_count", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The number of replicas of each partition. A replication factor of 3 is recommended for high availability.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicationFactor
+    public TerraformProperty<double>? ReplicationFactor
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replication_factor");
+        get => GetProperty<TerraformProperty<double>>("replication_factor");
         set => this.WithProperty("replication_factor", value);
     }
 
     /// <summary>
     /// The ID to use for the topic, which will become the final component of the topic&#39;s name. This value is structured like: &#39;my-topic-name&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? TopicId
+    public TerraformProperty<string>? TopicId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("topic_id");
+        get => GetProperty<TerraformProperty<string>>("topic_id");
         set => this.WithProperty("topic_id", value);
     }
 

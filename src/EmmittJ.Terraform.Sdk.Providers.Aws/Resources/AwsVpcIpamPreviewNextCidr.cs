@@ -20,45 +20,45 @@ public class AwsVpcIpamPreviewNextCidr : TerraformResource
     /// <summary>
     /// The disallowed_cidrs attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? DisallowedCidrs
+    public TerraformProperty<HashSet<string>>? DisallowedCidrs
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("disallowed_cidrs");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("disallowed_cidrs");
         set => this.WithProperty("disallowed_cidrs", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpamPoolId
+    public TerraformProperty<string>? IpamPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipam_pool_id");
+        get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The netmask_length attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NetmaskLength
+    public TerraformProperty<double>? NetmaskLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("netmask_length");
+        get => GetProperty<TerraformProperty<double>>("netmask_length");
         set => this.WithProperty("netmask_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

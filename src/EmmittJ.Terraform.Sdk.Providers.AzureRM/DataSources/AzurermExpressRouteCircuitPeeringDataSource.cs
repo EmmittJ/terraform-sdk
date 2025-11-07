@@ -30,36 +30,36 @@ public class AzurermExpressRouteCircuitPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The express_route_circuit_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpressRouteCircuitName
+    public TerraformProperty<string>? ExpressRouteCircuitName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("express_route_circuit_name");
+        get => GetProperty<TerraformProperty<string>>("express_route_circuit_name");
         set => this.WithProperty("express_route_circuit_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The peering_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeeringType
+    public TerraformProperty<string>? PeeringType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peering_type");
+        get => GetProperty<TerraformProperty<string>>("peering_type");
         set => this.WithProperty("peering_type", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 

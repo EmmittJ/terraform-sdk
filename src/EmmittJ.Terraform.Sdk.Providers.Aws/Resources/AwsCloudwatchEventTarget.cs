@@ -19,90 +19,90 @@ public class AwsCloudwatchEventTarget : TerraformResource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Arn
+    public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arn");
+        get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
     }
 
     /// <summary>
     /// The event_bus_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventBusName
+    public TerraformProperty<string>? EventBusName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("event_bus_name");
+        get => GetProperty<TerraformProperty<string>>("event_bus_name");
         set => this.WithProperty("event_bus_name", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDestroy
+    public TerraformProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        get => GetProperty<TerraformProperty<bool>>("force_destroy");
         set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Input
+    public TerraformProperty<string>? Input
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("input");
+        get => GetProperty<TerraformProperty<string>>("input");
         set => this.WithProperty("input", value);
     }
 
     /// <summary>
     /// The input_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InputPath
+    public TerraformProperty<string>? InputPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("input_path");
+        get => GetProperty<TerraformProperty<string>>("input_path");
         set => this.WithProperty("input_path", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArn
+    public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The rule attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Rule
+    public TerraformProperty<string>? Rule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule");
+        get => GetProperty<TerraformProperty<string>>("rule");
         set => this.WithProperty("rule", value);
     }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetId
+    public TerraformProperty<string>? TargetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_id");
+        get => GetProperty<TerraformProperty<string>>("target_id");
         set => this.WithProperty("target_id", value);
     }
 

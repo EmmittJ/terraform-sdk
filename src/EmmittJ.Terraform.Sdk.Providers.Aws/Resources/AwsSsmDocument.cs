@@ -32,99 +32,99 @@ public class AwsSsmDocument : TerraformResource
     /// <summary>
     /// The content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Content
+    public TerraformProperty<string>? Content
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content");
+        get => GetProperty<TerraformProperty<string>>("content");
         set => this.WithProperty("content", value);
     }
 
     /// <summary>
     /// The document_format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DocumentFormat
+    public TerraformProperty<string>? DocumentFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("document_format");
+        get => GetProperty<TerraformProperty<string>>("document_format");
         set => this.WithProperty("document_format", value);
     }
 
     /// <summary>
     /// The document_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DocumentType
+    public TerraformProperty<string>? DocumentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("document_type");
+        get => GetProperty<TerraformProperty<string>>("document_type");
         set => this.WithProperty("document_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Permissions
+    public TerraformProperty<Dictionary<string, string>>? Permissions
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("permissions");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetType
+    public TerraformProperty<string>? TargetType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_type");
+        get => GetProperty<TerraformProperty<string>>("target_type");
         set => this.WithProperty("target_type", value);
     }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VersionName
+    public TerraformProperty<string>? VersionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version_name");
+        get => GetProperty<TerraformProperty<string>>("version_name");
         set => this.WithProperty("version_name", value);
     }
 

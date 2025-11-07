@@ -19,135 +19,135 @@ public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
     /// <summary>
     /// The control_plane_access_ipv4_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlPlaneAccessIpv4Address
+    public TerraformProperty<string>? ControlPlaneAccessIpv4Address
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_plane_access_ipv4_address");
+        get => GetProperty<TerraformProperty<string>>("control_plane_access_ipv4_address");
         set => this.WithProperty("control_plane_access_ipv4_address", value);
     }
 
     /// <summary>
     /// The control_plane_access_ipv4_gateway attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlPlaneAccessIpv4Gateway
+    public TerraformProperty<string>? ControlPlaneAccessIpv4Gateway
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_plane_access_ipv4_gateway");
+        get => GetProperty<TerraformProperty<string>>("control_plane_access_ipv4_gateway");
         set => this.WithProperty("control_plane_access_ipv4_gateway", value);
     }
 
     /// <summary>
     /// The control_plane_access_ipv4_subnet attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlPlaneAccessIpv4Subnet
+    public TerraformProperty<string>? ControlPlaneAccessIpv4Subnet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_plane_access_ipv4_subnet");
+        get => GetProperty<TerraformProperty<string>>("control_plane_access_ipv4_subnet");
         set => this.WithProperty("control_plane_access_ipv4_subnet", value);
     }
 
     /// <summary>
     /// The control_plane_access_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlPlaneAccessName
+    public TerraformProperty<string>? ControlPlaneAccessName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_plane_access_name");
+        get => GetProperty<TerraformProperty<string>>("control_plane_access_name");
         set => this.WithProperty("control_plane_access_name", value);
     }
 
     /// <summary>
     /// The core_network_technology attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CoreNetworkTechnology
+    public TerraformProperty<string>? CoreNetworkTechnology
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_technology");
+        get => GetProperty<TerraformProperty<string>>("core_network_technology");
         set => this.WithProperty("core_network_technology", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The interoperability_settings_json attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InteroperabilitySettingsJson
+    public TerraformProperty<string>? InteroperabilitySettingsJson
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interoperability_settings_json");
+        get => GetProperty<TerraformProperty<string>>("interoperability_settings_json");
         set => this.WithProperty("interoperability_settings_json", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The site_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SiteIds
+    public TerraformProperty<List<string>>? SiteIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("site_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("site_ids");
         set => this.WithProperty("site_ids", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The software_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SoftwareVersion
+    public TerraformProperty<string>? SoftwareVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("software_version");
+        get => GetProperty<TerraformProperty<string>>("software_version");
         set => this.WithProperty("software_version", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The user_equipment_mtu_in_bytes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? UserEquipmentMtuInBytes
+    public TerraformProperty<double>? UserEquipmentMtuInBytes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("user_equipment_mtu_in_bytes");
+        get => GetProperty<TerraformProperty<double>>("user_equipment_mtu_in_bytes");
         set => this.WithProperty("user_equipment_mtu_in_bytes", value);
     }
 

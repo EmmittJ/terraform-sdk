@@ -25,18 +25,18 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// Empty active_key_version indicates that a Google-managed key should be used for signing.
     /// This property will be ignored if set by an ancestor of the resource, and new non-empty values may not be set.
     /// </summary>
-    public TerraformLiteralProperty<string>? ActiveKeyVersion
+    public TerraformProperty<string>? ActiveKeyVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("active_key_version");
+        get => GetProperty<TerraformProperty<string>>("active_key_version");
         set => this.WithProperty("active_key_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -45,9 +45,9 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? NotificationEmails
+    public TerraformProperty<HashSet<string>>? NotificationEmails
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("notification_emails");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("notification_emails");
         set => this.WithProperty("notification_emails", value);
     }
 
@@ -55,18 +55,18 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// Project id.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// ID of the project of the access approval settings.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProjectId
+    public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_id");
+        get => GetProperty<TerraformProperty<string>>("project_id");
         set => this.WithProperty("project_id", value);
     }
 

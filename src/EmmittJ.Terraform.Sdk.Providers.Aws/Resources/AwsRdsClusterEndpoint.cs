@@ -21,81 +21,81 @@ public class AwsRdsClusterEndpoint : TerraformResource
     /// <summary>
     /// The cluster_endpoint_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterEndpointIdentifier
+    public TerraformProperty<string>? ClusterEndpointIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_endpoint_identifier");
+        get => GetProperty<TerraformProperty<string>>("cluster_endpoint_identifier");
         set => this.WithProperty("cluster_endpoint_identifier", value);
     }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterIdentifier
+    public TerraformProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The custom_endpoint_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomEndpointType
+    public TerraformProperty<string>? CustomEndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_endpoint_type");
+        get => GetProperty<TerraformProperty<string>>("custom_endpoint_type");
         set => this.WithProperty("custom_endpoint_type", value);
     }
 
     /// <summary>
     /// The excluded_members attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ExcludedMembers
+    public TerraformProperty<HashSet<string>>? ExcludedMembers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("excluded_members");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("excluded_members");
         set => this.WithProperty("excluded_members", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The static_members attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? StaticMembers
+    public TerraformProperty<HashSet<string>>? StaticMembers
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("static_members");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("static_members");
         set => this.WithProperty("static_members", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

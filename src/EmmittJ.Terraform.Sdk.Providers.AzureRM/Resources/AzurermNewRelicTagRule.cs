@@ -19,54 +19,54 @@ public class AzurermNewRelicTagRule : TerraformResource
     /// <summary>
     /// The activity_log_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ActivityLogEnabled
+    public TerraformProperty<bool>? ActivityLogEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("activity_log_enabled");
+        get => GetProperty<TerraformProperty<bool>>("activity_log_enabled");
         set => this.WithProperty("activity_log_enabled", value);
     }
 
     /// <summary>
     /// The azure_active_directory_log_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AzureActiveDirectoryLogEnabled
+    public TerraformProperty<bool>? AzureActiveDirectoryLogEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("azure_active_directory_log_enabled");
+        get => GetProperty<TerraformProperty<bool>>("azure_active_directory_log_enabled");
         set => this.WithProperty("azure_active_directory_log_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metric_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MetricEnabled
+    public TerraformProperty<bool>? MetricEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("metric_enabled");
+        get => GetProperty<TerraformProperty<bool>>("metric_enabled");
         set => this.WithProperty("metric_enabled", value);
     }
 
     /// <summary>
     /// The monitor_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MonitorId
+    public TerraformProperty<string>? MonitorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("monitor_id");
+        get => GetProperty<TerraformProperty<string>>("monitor_id");
         set => this.WithProperty("monitor_id", value);
     }
 
     /// <summary>
     /// The subscription_log_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SubscriptionLogEnabled
+    public TerraformProperty<bool>? SubscriptionLogEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("subscription_log_enabled");
+        get => GetProperty<TerraformProperty<bool>>("subscription_log_enabled");
         set => this.WithProperty("subscription_log_enabled", value);
     }
 

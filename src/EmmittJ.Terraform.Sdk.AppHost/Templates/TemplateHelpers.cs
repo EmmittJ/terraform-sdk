@@ -24,7 +24,7 @@ public static class TemplateHelpers
         // Remove nullable from the type for the wrapper
         // This goes in actual C# code, so NO XML escaping
         var baseType = property.CSharpType.TrimEnd('?');
-        return $"TerraformLiteralProperty<{baseType}>";
+        return $"TerraformProperty<{baseType}>";
     }
 
     public static string GetSetterValue(PropertyModel property)

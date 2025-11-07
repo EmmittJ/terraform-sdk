@@ -21,27 +21,27 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
     /// <summary>
     /// ID of the group to which this policy is assigned
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupId
+    public TerraformProperty<string>? GroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("group_id");
+        get => GetProperty<TerraformProperty<string>>("group_id");
         set => this.WithProperty("group_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the role of this policy to the group
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleId
+    public TerraformProperty<string>? RoleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_id");
+        get => GetProperty<TerraformProperty<string>>("role_id");
         set => this.WithProperty("role_id", value);
     }
 

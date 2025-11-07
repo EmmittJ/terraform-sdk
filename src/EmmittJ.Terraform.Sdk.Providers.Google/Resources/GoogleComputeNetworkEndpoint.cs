@@ -19,9 +19,9 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -30,9 +30,9 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// This is required for network endpoints of type GCE_VM_IP_PORT.
     /// The instance must be in the same zone of network endpoint group.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
@@ -41,18 +41,18 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// to a VM in GCE (either the primary IP or as part of an aliased IP
     /// range).
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddress
+    public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        get => GetProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// The network endpoint group this endpoint is part of.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkEndpointGroup
+    public TerraformProperty<string>? NetworkEndpointGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_endpoint_group");
+        get => GetProperty<TerraformProperty<string>>("network_endpoint_group");
         set => this.WithProperty("network_endpoint_group", value);
     }
 
@@ -61,27 +61,27 @@ public class GoogleComputeNetworkEndpoint : TerraformResource
     /// **Note** &#39;port&#39; is required unless the Network Endpoint Group is created
     /// with the type of &#39;GCE_VM_IP&#39;
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Zone where the containing network endpoint group is located.
     /// </summary>
-    public TerraformLiteralProperty<string>? Zone
+    public TerraformProperty<string>? Zone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("zone");
+        get => GetProperty<TerraformProperty<string>>("zone");
         set => this.WithProperty("zone", value);
     }
 

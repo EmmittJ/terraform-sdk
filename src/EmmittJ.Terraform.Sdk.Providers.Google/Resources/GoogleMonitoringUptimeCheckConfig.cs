@@ -21,81 +21,81 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// <summary>
     /// The checker type to use for the check. If the monitored resource type is &#39;servicedirectory_service&#39;, &#39;checker_type&#39; must be set to &#39;VPC_CHECKERS&#39;. Possible values: [&amp;quot;STATIC_IP_CHECKERS&amp;quot;, &amp;quot;VPC_CHECKERS&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? CheckerType
+    public TerraformProperty<string>? CheckerType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("checker_type");
+        get => GetProperty<TerraformProperty<string>>("checker_type");
         set => this.WithProperty("checker_type", value);
     }
 
     /// <summary>
     /// A human-friendly name for the uptime check configuration. The display name should be unique within a Stackdriver Workspace in order to make it easier to identify; however, uniqueness is not enforced.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Specifies whether to log the results of failed probes to Cloud Logging.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LogCheckFailures
+    public TerraformProperty<bool>? LogCheckFailures
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("log_check_failures");
+        get => GetProperty<TerraformProperty<bool>>("log_check_failures");
         set => this.WithProperty("log_check_failures", value);
     }
 
     /// <summary>
     /// How often, in seconds, the uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and 900s (15 minutes). Optional, defaults to 300s.
     /// </summary>
-    public TerraformLiteralProperty<string>? Period
+    public TerraformProperty<string>? Period
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("period");
+        get => GetProperty<TerraformProperty<string>>("period");
         set => this.WithProperty("period", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The list of regions from which the check will be run. Some regions contain one location, and others contain more than one. If this field is specified, enough regions to include a minimum of 3 locations must be provided, or an error message is returned. Not specifying this field will result in uptime checks running from all regions.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SelectedRegions
+    public TerraformProperty<List<string>>? SelectedRegions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("selected_regions");
+        get => GetProperty<TerraformProperty<List<string>>>("selected_regions");
         set => this.WithProperty("selected_regions", value);
     }
 
     /// <summary>
     /// The maximum amount of time to wait for the request to complete (must be between 1 and 60 seconds). [See the accepted formats]( https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration)
     /// </summary>
-    public TerraformLiteralProperty<string>? Timeout
+    public TerraformProperty<string>? Timeout
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timeout");
+        get => GetProperty<TerraformProperty<string>>("timeout");
         set => this.WithProperty("timeout", value);
     }
 
     /// <summary>
     /// User-supplied key/value data to be used for organizing and identifying the &#39;UptimeCheckConfig&#39; objects. The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? UserLabels
+    public TerraformProperty<Dictionary<string, string>>? UserLabels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("user_labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_labels");
         set => this.WithProperty("user_labels", value);
     }
 

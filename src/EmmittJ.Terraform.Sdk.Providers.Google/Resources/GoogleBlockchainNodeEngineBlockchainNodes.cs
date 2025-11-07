@@ -25,27 +25,27 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     /// <summary>
     /// ID of the requesting object.
     /// </summary>
-    public TerraformLiteralProperty<string>? BlockchainNodeId
+    public TerraformProperty<string>? BlockchainNodeId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("blockchain_node_id");
+        get => GetProperty<TerraformProperty<string>>("blockchain_node_id");
         set => this.WithProperty("blockchain_node_id", value);
     }
 
     /// <summary>
     /// User-provided key-value pairs Possible values: [&amp;quot;ETHEREUM&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? BlockchainType
+    public TerraformProperty<string>? BlockchainType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("blockchain_type");
+        get => GetProperty<TerraformProperty<string>>("blockchain_type");
         set => this.WithProperty("blockchain_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -56,27 +56,27 @@ public class GoogleBlockchainNodeEngineBlockchainNodes : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location of Blockchain Node being created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

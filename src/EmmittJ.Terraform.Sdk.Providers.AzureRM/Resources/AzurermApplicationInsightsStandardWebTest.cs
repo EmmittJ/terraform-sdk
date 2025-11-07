@@ -20,108 +20,108 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     /// <summary>
     /// The application_insights_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationInsightsId
+    public TerraformProperty<string>? ApplicationInsightsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_insights_id");
+        get => GetProperty<TerraformProperty<string>>("application_insights_id");
         set => this.WithProperty("application_insights_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Frequency
+    public TerraformProperty<double>? Frequency
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("frequency");
+        get => GetProperty<TerraformProperty<double>>("frequency");
         set => this.WithProperty("frequency", value);
     }
 
     /// <summary>
     /// The geo_locations attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? GeoLocations
+    public TerraformProperty<List<string>>? GeoLocations
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("geo_locations");
+        get => GetProperty<TerraformProperty<List<string>>>("geo_locations");
         set => this.WithProperty("geo_locations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The retry_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RetryEnabled
+    public TerraformProperty<bool>? RetryEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("retry_enabled");
+        get => GetProperty<TerraformProperty<bool>>("retry_enabled");
         set => this.WithProperty("retry_enabled", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Timeout
+    public TerraformProperty<double>? Timeout
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("timeout");
+        get => GetProperty<TerraformProperty<double>>("timeout");
         set => this.WithProperty("timeout", value);
     }
 

@@ -20,90 +20,90 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKey : TerraformResource
     /// <summary>
     /// The curve attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Curve
+    public TerraformProperty<string>? Curve
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("curve");
+        get => GetProperty<TerraformProperty<string>>("curve");
         set => this.WithProperty("curve", value);
     }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpirationDate
+    public TerraformProperty<string>? ExpirationDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_date");
+        get => GetProperty<TerraformProperty<string>>("expiration_date");
         set => this.WithProperty("expiration_date", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_opts attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? KeyOpts
+    public TerraformProperty<HashSet<string>>? KeyOpts
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("key_opts");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("key_opts");
         set => this.WithProperty("key_opts", value);
     }
 
     /// <summary>
     /// The key_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? KeySize
+    public TerraformProperty<double>? KeySize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("key_size");
+        get => GetProperty<TerraformProperty<double>>("key_size");
         set => this.WithProperty("key_size", value);
     }
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyType
+    public TerraformProperty<string>? KeyType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_type");
+        get => GetProperty<TerraformProperty<string>>("key_type");
         set => this.WithProperty("key_type", value);
     }
 
     /// <summary>
     /// The managed_hsm_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedHsmId
+    public TerraformProperty<string>? ManagedHsmId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_hsm_id");
+        get => GetProperty<TerraformProperty<string>>("managed_hsm_id");
         set => this.WithProperty("managed_hsm_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The not_before_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotBeforeDate
+    public TerraformProperty<string>? NotBeforeDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("not_before_date");
+        get => GetProperty<TerraformProperty<string>>("not_before_date");
         set => this.WithProperty("not_before_date", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

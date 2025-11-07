@@ -24,54 +24,54 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Comment
+    public TerraformProperty<string>? Comment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("comment");
+        get => GetProperty<TerraformProperty<string>>("comment");
         set => this.WithProperty("comment", value);
     }
 
     /// <summary>
     /// The data_set_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataSetId
+    public TerraformProperty<string>? DataSetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_set_id");
+        get => GetProperty<TerraformProperty<string>>("data_set_id");
         set => this.WithProperty("data_set_id", value);
     }
 
     /// <summary>
     /// The finalized attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Finalized
+    public TerraformProperty<bool>? Finalized
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("finalized");
+        get => GetProperty<TerraformProperty<bool>>("finalized");
         set => this.WithProperty("finalized", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDestroy
+    public TerraformProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        get => GetProperty<TerraformProperty<bool>>("force_destroy");
         set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

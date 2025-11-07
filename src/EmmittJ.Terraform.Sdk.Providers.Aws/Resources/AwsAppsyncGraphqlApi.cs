@@ -21,126 +21,126 @@ public class AwsAppsyncGraphqlApi : TerraformResource
     /// <summary>
     /// The api_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiType
+    public TerraformProperty<string>? ApiType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_type");
+        get => GetProperty<TerraformProperty<string>>("api_type");
         set => this.WithProperty("api_type", value);
     }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationType
+    public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The introspection_config attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IntrospectionConfig
+    public TerraformProperty<string>? IntrospectionConfig
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("introspection_config");
+        get => GetProperty<TerraformProperty<string>>("introspection_config");
         set => this.WithProperty("introspection_config", value);
     }
 
     /// <summary>
     /// The merged_api_execution_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MergedApiExecutionRoleArn
+    public TerraformProperty<string>? MergedApiExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("merged_api_execution_role_arn");
+        get => GetProperty<TerraformProperty<string>>("merged_api_execution_role_arn");
         set => this.WithProperty("merged_api_execution_role_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query_depth_limit attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? QueryDepthLimit
+    public TerraformProperty<double>? QueryDepthLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("query_depth_limit");
+        get => GetProperty<TerraformProperty<double>>("query_depth_limit");
         set => this.WithProperty("query_depth_limit", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resolver_count_limit attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ResolverCountLimit
+    public TerraformProperty<double>? ResolverCountLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("resolver_count_limit");
+        get => GetProperty<TerraformProperty<double>>("resolver_count_limit");
         set => this.WithProperty("resolver_count_limit", value);
     }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Schema
+    public TerraformProperty<string>? Schema
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema");
+        get => GetProperty<TerraformProperty<string>>("schema");
         set => this.WithProperty("schema", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Visibility
+    public TerraformProperty<string>? Visibility
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("visibility");
+        get => GetProperty<TerraformProperty<string>>("visibility");
         set => this.WithProperty("visibility", value);
     }
 
     /// <summary>
     /// The xray_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? XrayEnabled
+    public TerraformProperty<bool>? XrayEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("xray_enabled");
+        get => GetProperty<TerraformProperty<bool>>("xray_enabled");
         set => this.WithProperty("xray_enabled", value);
     }
 

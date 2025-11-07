@@ -20,99 +20,99 @@ public class AwsIotAuthorizer : TerraformResource
     /// <summary>
     /// The authorizer_function_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizerFunctionArn
+    public TerraformProperty<string>? AuthorizerFunctionArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorizer_function_arn");
+        get => GetProperty<TerraformProperty<string>>("authorizer_function_arn");
         set => this.WithProperty("authorizer_function_arn", value);
     }
 
     /// <summary>
     /// The enable_caching_for_http attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableCachingForHttp
+    public TerraformProperty<bool>? EnableCachingForHttp
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_caching_for_http");
+        get => GetProperty<TerraformProperty<bool>>("enable_caching_for_http");
         set => this.WithProperty("enable_caching_for_http", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The signing_disabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SigningDisabled
+    public TerraformProperty<bool>? SigningDisabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("signing_disabled");
+        get => GetProperty<TerraformProperty<bool>>("signing_disabled");
         set => this.WithProperty("signing_disabled", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The token_key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TokenKeyName
+    public TerraformProperty<string>? TokenKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("token_key_name");
+        get => GetProperty<TerraformProperty<string>>("token_key_name");
         set => this.WithProperty("token_key_name", value);
     }
 
     /// <summary>
     /// The token_signing_public_keys attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TokenSigningPublicKeys
+    public TerraformProperty<Dictionary<string, string>>? TokenSigningPublicKeys
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("token_signing_public_keys");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("token_signing_public_keys");
         set => this.WithProperty("token_signing_public_keys", value);
     }
 

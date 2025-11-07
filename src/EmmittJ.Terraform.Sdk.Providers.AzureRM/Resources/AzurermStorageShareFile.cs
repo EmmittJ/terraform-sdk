@@ -20,90 +20,90 @@ public class AzurermStorageShareFile : TerraformResource
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentDisposition
+    public TerraformProperty<string>? ContentDisposition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_disposition");
+        get => GetProperty<TerraformProperty<string>>("content_disposition");
         set => this.WithProperty("content_disposition", value);
     }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentEncoding
+    public TerraformProperty<string>? ContentEncoding
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_encoding");
+        get => GetProperty<TerraformProperty<string>>("content_encoding");
         set => this.WithProperty("content_encoding", value);
     }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentMd5
+    public TerraformProperty<string>? ContentMd5
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_md5");
+        get => GetProperty<TerraformProperty<string>>("content_md5");
         set => this.WithProperty("content_md5", value);
     }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContentType
+    public TerraformProperty<string>? ContentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("content_type");
+        get => GetProperty<TerraformProperty<string>>("content_type");
         set => this.WithProperty("content_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Metadata
+    public TerraformProperty<Dictionary<string, string>>? Metadata
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Path
+    public TerraformProperty<string>? Path
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("path");
+        get => GetProperty<TerraformProperty<string>>("path");
         set => this.WithProperty("path", value);
     }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Source
+    public TerraformProperty<string>? Source
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source");
+        get => GetProperty<TerraformProperty<string>>("source");
         set => this.WithProperty("source", value);
     }
 
     /// <summary>
     /// The storage_share_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageShareId
+    public TerraformProperty<string>? StorageShareId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_share_id");
+        get => GetProperty<TerraformProperty<string>>("storage_share_id");
         set => this.WithProperty("storage_share_id", value);
     }
 

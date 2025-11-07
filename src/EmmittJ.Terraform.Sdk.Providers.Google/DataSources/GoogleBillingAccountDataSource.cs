@@ -22,45 +22,45 @@ public class GoogleBillingAccountDataSource : TerraformDataSource
     /// <summary>
     /// The billing_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingAccount
+    public TerraformProperty<string>? BillingAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_account");
+        get => GetProperty<TerraformProperty<string>>("billing_account");
         set => this.WithProperty("billing_account", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lookup_projects attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LookupProjects
+    public TerraformProperty<bool>? LookupProjects
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("lookup_projects");
+        get => GetProperty<TerraformProperty<bool>>("lookup_projects");
         set => this.WithProperty("lookup_projects", value);
     }
 
     /// <summary>
     /// The open attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Open
+    public TerraformProperty<bool>? Open
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("open");
+        get => GetProperty<TerraformProperty<bool>>("open");
         set => this.WithProperty("open", value);
     }
 

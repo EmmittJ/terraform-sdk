@@ -19,81 +19,81 @@ public class AzurermMobileNetworkPacketCoreDataPlane : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The mobile_network_packet_core_control_plane_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MobileNetworkPacketCoreControlPlaneId
+    public TerraformProperty<string>? MobileNetworkPacketCoreControlPlaneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mobile_network_packet_core_control_plane_id");
+        get => GetProperty<TerraformProperty<string>>("mobile_network_packet_core_control_plane_id");
         set => this.WithProperty("mobile_network_packet_core_control_plane_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The user_plane_access_ipv4_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPlaneAccessIpv4Address
+    public TerraformProperty<string>? UserPlaneAccessIpv4Address
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_plane_access_ipv4_address");
+        get => GetProperty<TerraformProperty<string>>("user_plane_access_ipv4_address");
         set => this.WithProperty("user_plane_access_ipv4_address", value);
     }
 
     /// <summary>
     /// The user_plane_access_ipv4_gateway attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPlaneAccessIpv4Gateway
+    public TerraformProperty<string>? UserPlaneAccessIpv4Gateway
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_plane_access_ipv4_gateway");
+        get => GetProperty<TerraformProperty<string>>("user_plane_access_ipv4_gateway");
         set => this.WithProperty("user_plane_access_ipv4_gateway", value);
     }
 
     /// <summary>
     /// The user_plane_access_ipv4_subnet attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPlaneAccessIpv4Subnet
+    public TerraformProperty<string>? UserPlaneAccessIpv4Subnet
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_plane_access_ipv4_subnet");
+        get => GetProperty<TerraformProperty<string>>("user_plane_access_ipv4_subnet");
         set => this.WithProperty("user_plane_access_ipv4_subnet", value);
     }
 
     /// <summary>
     /// The user_plane_access_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserPlaneAccessName
+    public TerraformProperty<string>? UserPlaneAccessName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_plane_access_name");
+        get => GetProperty<TerraformProperty<string>>("user_plane_access_name");
         set => this.WithProperty("user_plane_access_name", value);
     }
 

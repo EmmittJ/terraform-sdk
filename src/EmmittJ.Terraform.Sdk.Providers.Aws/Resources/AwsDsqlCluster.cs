@@ -24,45 +24,45 @@ public class AwsDsqlCluster : TerraformResource
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool>? DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
         set => this.WithProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDestroy
+    public TerraformProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        get => GetProperty<TerraformProperty<bool>>("force_destroy");
         set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The kms_encryption_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsEncryptionKey
+    public TerraformProperty<string>? KmsEncryptionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_encryption_key");
+        get => GetProperty<TerraformProperty<string>>("kms_encryption_key");
         set => this.WithProperty("kms_encryption_key", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -28,54 +28,54 @@ public class AwsNetworkmanagerConnectAttachment : TerraformResource
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CoreNetworkId
+    public TerraformProperty<string>? CoreNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("core_network_id");
+        get => GetProperty<TerraformProperty<string>>("core_network_id");
         set => this.WithProperty("core_network_id", value);
     }
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EdgeLocation
+    public TerraformProperty<string>? EdgeLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_location");
+        get => GetProperty<TerraformProperty<string>>("edge_location");
         set => this.WithProperty("edge_location", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transport_attachment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransportAttachmentId
+    public TerraformProperty<string>? TransportAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transport_attachment_id");
+        get => GetProperty<TerraformProperty<string>>("transport_attachment_id");
         set => this.WithProperty("transport_attachment_id", value);
     }
 

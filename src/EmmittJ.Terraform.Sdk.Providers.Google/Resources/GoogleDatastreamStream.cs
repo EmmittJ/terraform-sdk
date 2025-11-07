@@ -23,9 +23,9 @@ public class GoogleDatastreamStream : TerraformResource
     /// <summary>
     /// Create the stream without validating it.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CreateWithoutValidation
+    public TerraformProperty<bool>? CreateWithoutValidation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("create_without_validation");
+        get => GetProperty<TerraformProperty<bool>>("create_without_validation");
         set => this.WithProperty("create_without_validation", value);
     }
 
@@ -33,9 +33,9 @@ public class GoogleDatastreamStream : TerraformResource
     /// A reference to a KMS encryption key. If provided, it will be used to encrypt the data. If left blank, data
     /// will be encrypted using an internal Stream-specific encryption key provisioned through KMS.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomerManagedEncryptionKey
+    public TerraformProperty<string>? CustomerManagedEncryptionKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("customer_managed_encryption_key");
+        get => GetProperty<TerraformProperty<string>>("customer_managed_encryption_key");
         set => this.WithProperty("customer_managed_encryption_key", value);
     }
 
@@ -45,27 +45,27 @@ public class GoogleDatastreamStream : TerraformResource
     /// the stream from a &#39;RUNNING&#39; state.
     /// Possible values: NOT_STARTED, RUNNING, PAUSED. Default: NOT_STARTED
     /// </summary>
-    public TerraformLiteralProperty<string>? DesiredState
+    public TerraformProperty<string>? DesiredState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("desired_state");
+        get => GetProperty<TerraformProperty<string>>("desired_state");
         set => this.WithProperty("desired_state", value);
     }
 
     /// <summary>
     /// Display name.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -75,36 +75,36 @@ public class GoogleDatastreamStream : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The name of the location this stream is located in.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The stream identifier.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamId
+    public TerraformProperty<string>? StreamId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_id");
+        get => GetProperty<TerraformProperty<string>>("stream_id");
         set => this.WithProperty("stream_id", value);
     }
 

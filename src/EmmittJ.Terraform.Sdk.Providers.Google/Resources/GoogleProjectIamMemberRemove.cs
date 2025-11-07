@@ -19,36 +19,36 @@ public class GoogleProjectIamMemberRemove : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IAM principal that should not have the target role.
     /// </summary>
-    public TerraformLiteralProperty<string>? Member
+    public TerraformProperty<string>? Member
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("member");
+        get => GetProperty<TerraformProperty<string>>("member");
         set => this.WithProperty("member", value);
     }
 
     /// <summary>
     /// The project id of the target project.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The target role that should be removed.
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

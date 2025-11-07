@@ -21,45 +21,45 @@ public class AwsSagemakerPrebuiltEcrImageDataSource : TerraformDataSource
     /// <summary>
     /// The dns_suffix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DnsSuffix
+    public TerraformProperty<string>? DnsSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dns_suffix");
+        get => GetProperty<TerraformProperty<string>>("dns_suffix");
         set => this.WithProperty("dns_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_tag attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageTag
+    public TerraformProperty<string>? ImageTag
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_tag");
+        get => GetProperty<TerraformProperty<string>>("image_tag");
         set => this.WithProperty("image_tag", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RepositoryName
+    public TerraformProperty<string>? RepositoryName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("repository_name");
+        get => GetProperty<TerraformProperty<string>>("repository_name");
         set => this.WithProperty("repository_name", value);
     }
 

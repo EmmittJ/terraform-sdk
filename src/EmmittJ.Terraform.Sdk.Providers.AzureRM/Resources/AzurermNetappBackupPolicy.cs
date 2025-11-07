@@ -19,90 +19,90 @@ public class AzurermNetappBackupPolicy : TerraformResource
     /// <summary>
     /// The account_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccountName
+    public TerraformProperty<string>? AccountName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("account_name");
+        get => GetProperty<TerraformProperty<string>>("account_name");
         set => this.WithProperty("account_name", value);
     }
 
     /// <summary>
     /// The daily_backups_to_keep attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DailyBackupsToKeep
+    public TerraformProperty<double>? DailyBackupsToKeep
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("daily_backups_to_keep");
+        get => GetProperty<TerraformProperty<double>>("daily_backups_to_keep");
         set => this.WithProperty("daily_backups_to_keep", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The monthly_backups_to_keep attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MonthlyBackupsToKeep
+    public TerraformProperty<double>? MonthlyBackupsToKeep
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("monthly_backups_to_keep");
+        get => GetProperty<TerraformProperty<double>>("monthly_backups_to_keep");
         set => this.WithProperty("monthly_backups_to_keep", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The weekly_backups_to_keep attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? WeeklyBackupsToKeep
+    public TerraformProperty<double>? WeeklyBackupsToKeep
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("weekly_backups_to_keep");
+        get => GetProperty<TerraformProperty<double>>("weekly_backups_to_keep");
         set => this.WithProperty("weekly_backups_to_keep", value);
     }
 

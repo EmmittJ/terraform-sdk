@@ -22,45 +22,45 @@ public class GoogleSqlUser : TerraformResource
     /// 				to be abandoned rather than deleted. This is useful for Postgres, where users cannot be deleted from the API if they
     /// 				have been granted SQL roles. Possible values are: &amp;quot;ABANDON&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The host the user can connect from. This is only supported for MySQL instances. Don&#39;t set this field for PostgreSQL instances. Can be an IP address. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Host
+    public TerraformProperty<string>? Host
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host");
+        get => GetProperty<TerraformProperty<string>>("host");
         set => this.WithProperty("host", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Cloud SQL instance. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The name of the user. Changing this forces a new resource to be created.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -68,9 +68,9 @@ public class GoogleSqlUser : TerraformResource
     /// The password for the user. Can be updated. For Postgres instances this is a Required field, unless type is set to
     /// 				either CLOUD_IAM_USER or CLOUD_IAM_SERVICE_ACCOUNT.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
@@ -78,27 +78,27 @@ public class GoogleSqlUser : TerraformResource
     /// The password for the user. Can be updated. For Postgres instances this is a Required field, unless type is set to
     /// 				either CLOUD_IAM_USER or CLOUD_IAM_SERVICE_ACCOUNT.
     /// </summary>
-    public TerraformLiteralProperty<string>? PasswordWo
+    public TerraformProperty<string>? PasswordWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password_wo");
+        get => GetProperty<TerraformProperty<string>>("password_wo");
         set => this.WithProperty("password_wo", value);
     }
 
     /// <summary>
     /// The version of the password_wo.
     /// </summary>
-    public TerraformLiteralProperty<double>? PasswordWoVersion
+    public TerraformProperty<double>? PasswordWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("password_wo_version");
+        get => GetProperty<TerraformProperty<double>>("password_wo_version");
         set => this.WithProperty("password_wo_version", value);
     }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -106,9 +106,9 @@ public class GoogleSqlUser : TerraformResource
     /// The user type. It determines the method to authenticate the user during login.
     /// 				The default is the database&#39;s built-in user type.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

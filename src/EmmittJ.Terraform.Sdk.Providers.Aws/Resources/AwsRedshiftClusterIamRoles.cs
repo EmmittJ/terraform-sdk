@@ -19,45 +19,45 @@ public class AwsRedshiftClusterIamRoles : TerraformResource
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterIdentifier
+    public TerraformProperty<string>? ClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("cluster_identifier");
         set => this.WithProperty("cluster_identifier", value);
     }
 
     /// <summary>
     /// The default_iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultIamRoleArn
+    public TerraformProperty<string>? DefaultIamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("default_iam_role_arn");
         set => this.WithProperty("default_iam_role_arn", value);
     }
 
     /// <summary>
     /// The iam_role_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? IamRoleArns
+    public TerraformProperty<HashSet<string>>? IamRoleArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("iam_role_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("iam_role_arns");
         set => this.WithProperty("iam_role_arns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

@@ -19,81 +19,81 @@ public class AzurermStreamAnalyticsOutputFunction : TerraformResource
     /// <summary>
     /// The api_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiKey
+    public TerraformProperty<string>? ApiKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_key");
+        get => GetProperty<TerraformProperty<string>>("api_key");
         set => this.WithProperty("api_key", value);
     }
 
     /// <summary>
     /// The batch_max_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BatchMaxCount
+    public TerraformProperty<double>? BatchMaxCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_max_count");
+        get => GetProperty<TerraformProperty<double>>("batch_max_count");
         set => this.WithProperty("batch_max_count", value);
     }
 
     /// <summary>
     /// The batch_max_in_bytes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BatchMaxInBytes
+    public TerraformProperty<double>? BatchMaxInBytes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("batch_max_in_bytes");
+        get => GetProperty<TerraformProperty<double>>("batch_max_in_bytes");
         set => this.WithProperty("batch_max_in_bytes", value);
     }
 
     /// <summary>
     /// The function_app attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionApp
+    public TerraformProperty<string>? FunctionApp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_app");
+        get => GetProperty<TerraformProperty<string>>("function_app");
         set => this.WithProperty("function_app", value);
     }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionName
+    public TerraformProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The stream_analytics_job_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamAnalyticsJobName
+    public TerraformProperty<string>? StreamAnalyticsJobName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_analytics_job_name");
+        get => GetProperty<TerraformProperty<string>>("stream_analytics_job_name");
         set => this.WithProperty("stream_analytics_job_name", value);
     }
 

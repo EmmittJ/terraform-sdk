@@ -19,54 +19,54 @@ public class AzurermCosmosdbSqlTrigger : TerraformResource
     /// <summary>
     /// The body attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Body
+    public TerraformProperty<string>? Body
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("body");
+        get => GetProperty<TerraformProperty<string>>("body");
         set => this.WithProperty("body", value);
     }
 
     /// <summary>
     /// The container_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerId
+    public TerraformProperty<string>? ContainerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_id");
+        get => GetProperty<TerraformProperty<string>>("container_id");
         set => this.WithProperty("container_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The operation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Operation
+    public TerraformProperty<string>? Operation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operation");
+        get => GetProperty<TerraformProperty<string>>("operation");
         set => this.WithProperty("operation", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

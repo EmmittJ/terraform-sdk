@@ -39,45 +39,45 @@ public class GoogleMemorystoreInstance : TerraformResource
     ///  AUTH_DISABLED
     /// IAM_AUTH
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizationMode
+    public TerraformProperty<string>? AuthorizationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorization_mode");
+        get => GetProperty<TerraformProperty<string>>("authorization_mode");
         set => this.WithProperty("authorization_mode", value);
     }
 
     /// <summary>
     /// Optional. If set to true deletion of the instance will fail.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool>? DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
         set => this.WithProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// Optional. User-provided engine configurations for the instance.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? EngineConfigs
+    public TerraformProperty<Dictionary<string, string>>? EngineConfigs
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("engine_configs");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("engine_configs");
         set => this.WithProperty("engine_configs", value);
     }
 
     /// <summary>
     /// Optional. Engine version of the instance.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineVersion
+    public TerraformProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -93,18 +93,18 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// * Must not end with a hyphen
     /// * Must be unique within a location
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceId
+    public TerraformProperty<string>? InstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_id");
+        get => GetProperty<TerraformProperty<string>>("instance_id");
         set => this.WithProperty("instance_id", value);
     }
 
     /// <summary>
     /// The KMS key used to encrypt the at-rest data of the cluster
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKey
+    public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        get => GetProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
     }
 
@@ -114,18 +114,18 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type &#39;memorystore.googleapis.com/CertificateAuthority&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -133,9 +133,9 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// This field can be used to trigger self service update to indicate the desired maintenance version. The input to this field can be determined by the available_maintenance_versions field.
     /// *Note*: This field can only be specified when updating an existing cluster to a newer version. Downgrades are currently not supported!
     /// </summary>
-    public TerraformLiteralProperty<string>? MaintenanceVersion
+    public TerraformProperty<string>? MaintenanceVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("maintenance_version");
+        get => GetProperty<TerraformProperty<string>>("maintenance_version");
         set => this.WithProperty("maintenance_version", value);
     }
 
@@ -145,9 +145,9 @@ public class GoogleMemorystoreInstance : TerraformResource
     ///  CLUSTER
     ///  CLUSTER_DISABLED Possible values: [&amp;quot;CLUSTER&amp;quot;, &amp;quot;CLUSTER_DISABLED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Mode
+    public TerraformProperty<string>? Mode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mode");
+        get => GetProperty<TerraformProperty<string>>("mode");
         set => this.WithProperty("mode", value);
     }
 
@@ -159,36 +159,36 @@ public class GoogleMemorystoreInstance : TerraformResource
     /// HIGHMEM_XLARGE
     /// STANDARD_SMALL
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeType
+    public TerraformProperty<string>? NodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_type");
+        get => GetProperty<TerraformProperty<string>>("node_type");
         set => this.WithProperty("node_type", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReplicaCount
+    public TerraformProperty<double>? ReplicaCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("replica_count");
+        get => GetProperty<TerraformProperty<double>>("replica_count");
         set => this.WithProperty("replica_count", value);
     }
 
     /// <summary>
     /// Required. Number of shards for the instance.
     /// </summary>
-    public TerraformLiteralProperty<double>? ShardCount
+    public TerraformProperty<double>? ShardCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("shard_count");
+        get => GetProperty<TerraformProperty<double>>("shard_count");
         set => this.WithProperty("shard_count", value);
     }
 
@@ -198,9 +198,9 @@ public class GoogleMemorystoreInstance : TerraformResource
     ///  TRANSIT_ENCRYPTION_DISABLED
     /// SERVER_AUTHENTICATION
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitEncryptionMode
+    public TerraformProperty<string>? TransitEncryptionMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_encryption_mode");
+        get => GetProperty<TerraformProperty<string>>("transit_encryption_mode");
         set => this.WithProperty("transit_encryption_mode", value);
     }
 

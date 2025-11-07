@@ -20,36 +20,36 @@ public class AwsLightsailStaticIpAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceName
+    public TerraformProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The static_ip_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StaticIpName
+    public TerraformProperty<string>? StaticIpName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("static_ip_name");
+        get => GetProperty<TerraformProperty<string>>("static_ip_name");
         set => this.WithProperty("static_ip_name", value);
     }
 

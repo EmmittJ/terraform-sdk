@@ -19,90 +19,90 @@ public class AzurermIothubEndpointServicebusTopic : TerraformResource
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthenticationType
+    public TerraformProperty<string>? AuthenticationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authentication_type");
+        get => GetProperty<TerraformProperty<string>>("authentication_type");
         set => this.WithProperty("authentication_type", value);
     }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionString
+    public TerraformProperty<string>? ConnectionString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_string");
+        get => GetProperty<TerraformProperty<string>>("connection_string");
         set => this.WithProperty("connection_string", value);
     }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EndpointUri
+    public TerraformProperty<string>? EndpointUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("endpoint_uri");
+        get => GetProperty<TerraformProperty<string>>("endpoint_uri");
         set => this.WithProperty("endpoint_uri", value);
     }
 
     /// <summary>
     /// The entity_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EntityPath
+    public TerraformProperty<string>? EntityPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entity_path");
+        get => GetProperty<TerraformProperty<string>>("entity_path");
         set => this.WithProperty("entity_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IdentityId
+    public TerraformProperty<string>? IdentityId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("identity_id");
+        get => GetProperty<TerraformProperty<string>>("identity_id");
         set => this.WithProperty("identity_id", value);
     }
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IothubId
+    public TerraformProperty<string>? IothubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_id");
+        get => GetProperty<TerraformProperty<string>>("iothub_id");
         set => this.WithProperty("iothub_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

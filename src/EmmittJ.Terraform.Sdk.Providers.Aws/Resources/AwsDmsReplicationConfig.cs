@@ -20,117 +20,117 @@ public class AwsDmsReplicationConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replication_config_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReplicationConfigIdentifier
+    public TerraformProperty<string>? ReplicationConfigIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_config_identifier");
+        get => GetProperty<TerraformProperty<string>>("replication_config_identifier");
         set => this.WithProperty("replication_config_identifier", value);
     }
 
     /// <summary>
     /// The replication_settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReplicationSettings
+    public TerraformProperty<string>? ReplicationSettings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_settings");
+        get => GetProperty<TerraformProperty<string>>("replication_settings");
         set => this.WithProperty("replication_settings", value);
     }
 
     /// <summary>
     /// The replication_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReplicationType
+    public TerraformProperty<string>? ReplicationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("replication_type");
+        get => GetProperty<TerraformProperty<string>>("replication_type");
         set => this.WithProperty("replication_type", value);
     }
 
     /// <summary>
     /// The resource_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceIdentifier
+    public TerraformProperty<string>? ResourceIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_identifier");
+        get => GetProperty<TerraformProperty<string>>("resource_identifier");
         set => this.WithProperty("resource_identifier", value);
     }
 
     /// <summary>
     /// The source_endpoint_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceEndpointArn
+    public TerraformProperty<string>? SourceEndpointArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_endpoint_arn");
+        get => GetProperty<TerraformProperty<string>>("source_endpoint_arn");
         set => this.WithProperty("source_endpoint_arn", value);
     }
 
     /// <summary>
     /// The start_replication attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? StartReplication
+    public TerraformProperty<bool>? StartReplication
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("start_replication");
+        get => GetProperty<TerraformProperty<bool>>("start_replication");
         set => this.WithProperty("start_replication", value);
     }
 
     /// <summary>
     /// The supplemental_settings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SupplementalSettings
+    public TerraformProperty<string>? SupplementalSettings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("supplemental_settings");
+        get => GetProperty<TerraformProperty<string>>("supplemental_settings");
         set => this.WithProperty("supplemental_settings", value);
     }
 
     /// <summary>
     /// The table_mappings attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableMappings
+    public TerraformProperty<string>? TableMappings
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_mappings");
+        get => GetProperty<TerraformProperty<string>>("table_mappings");
         set => this.WithProperty("table_mappings", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_endpoint_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetEndpointArn
+    public TerraformProperty<string>? TargetEndpointArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_endpoint_arn");
+        get => GetProperty<TerraformProperty<string>>("target_endpoint_arn");
         set => this.WithProperty("target_endpoint_arn", value);
     }
 

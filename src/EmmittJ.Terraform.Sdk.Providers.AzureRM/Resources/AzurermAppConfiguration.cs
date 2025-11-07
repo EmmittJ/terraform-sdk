@@ -24,108 +24,108 @@ public class AzurermAppConfiguration : TerraformResource
     /// <summary>
     /// The data_plane_proxy_authentication_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataPlaneProxyAuthenticationMode
+    public TerraformProperty<string>? DataPlaneProxyAuthenticationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_plane_proxy_authentication_mode");
+        get => GetProperty<TerraformProperty<string>>("data_plane_proxy_authentication_mode");
         set => this.WithProperty("data_plane_proxy_authentication_mode", value);
     }
 
     /// <summary>
     /// The data_plane_proxy_private_link_delegation_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DataPlaneProxyPrivateLinkDelegationEnabled
+    public TerraformProperty<bool>? DataPlaneProxyPrivateLinkDelegationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("data_plane_proxy_private_link_delegation_enabled");
+        get => GetProperty<TerraformProperty<bool>>("data_plane_proxy_private_link_delegation_enabled");
         set => this.WithProperty("data_plane_proxy_private_link_delegation_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? LocalAuthEnabled
+    public TerraformProperty<bool>? LocalAuthEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("local_auth_enabled");
+        get => GetProperty<TerraformProperty<bool>>("local_auth_enabled");
         set => this.WithProperty("local_auth_enabled", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PublicNetworkAccess
+    public TerraformProperty<string>? PublicNetworkAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("public_network_access");
+        get => GetProperty<TerraformProperty<string>>("public_network_access");
         set => this.WithProperty("public_network_access", value);
     }
 
     /// <summary>
     /// The purge_protection_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PurgeProtectionEnabled
+    public TerraformProperty<bool>? PurgeProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("purge_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("purge_protection_enabled");
         set => this.WithProperty("purge_protection_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The soft_delete_retention_days attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SoftDeleteRetentionDays
+    public TerraformProperty<double>? SoftDeleteRetentionDays
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("soft_delete_retention_days");
+        get => GetProperty<TerraformProperty<double>>("soft_delete_retention_days");
         set => this.WithProperty("soft_delete_retention_days", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

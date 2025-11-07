@@ -28,81 +28,81 @@ public class AwsVpcPeeringConnectionDataSource : TerraformDataSource
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CidrBlock
+    public TerraformProperty<string>? CidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr_block");
+        get => GetProperty<TerraformProperty<string>>("cidr_block");
         set => this.WithProperty("cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OwnerId
+    public TerraformProperty<string>? OwnerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("owner_id");
+        get => GetProperty<TerraformProperty<string>>("owner_id");
         set => this.WithProperty("owner_id", value);
     }
 
     /// <summary>
     /// The peer_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerCidrBlock
+    public TerraformProperty<string>? PeerCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("peer_cidr_block");
         set => this.WithProperty("peer_cidr_block", value);
     }
 
     /// <summary>
     /// The peer_owner_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerOwnerId
+    public TerraformProperty<string>? PeerOwnerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_owner_id");
+        get => GetProperty<TerraformProperty<string>>("peer_owner_id");
         set => this.WithProperty("peer_owner_id", value);
     }
 
     /// <summary>
     /// The peer_vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerVpcId
+    public TerraformProperty<string>? PeerVpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_vpc_id");
+        get => GetProperty<TerraformProperty<string>>("peer_vpc_id");
         set => this.WithProperty("peer_vpc_id", value);
     }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VpcId
+    public TerraformProperty<string>? VpcId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vpc_id");
+        get => GetProperty<TerraformProperty<string>>("vpc_id");
         set => this.WithProperty("vpc_id", value);
     }
 

@@ -23,45 +23,45 @@ public class GoogleApigeeAppGroup : TerraformResource
     /// <summary>
     /// Channel identifier identifies the owner maintaining this grouping.
     /// </summary>
-    public TerraformLiteralProperty<string>? ChannelId
+    public TerraformProperty<string>? ChannelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("channel_id");
+        get => GetProperty<TerraformProperty<string>>("channel_id");
         set => this.WithProperty("channel_id", value);
     }
 
     /// <summary>
     /// A reference to the associated storefront/marketplace.
     /// </summary>
-    public TerraformLiteralProperty<string>? ChannelUri
+    public TerraformProperty<string>? ChannelUri
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("channel_uri");
+        get => GetProperty<TerraformProperty<string>>("channel_uri");
         set => this.WithProperty("channel_uri", value);
     }
 
     /// <summary>
     /// App group name displayed in the UI
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._-$ %.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -69,18 +69,18 @@ public class GoogleApigeeAppGroup : TerraformResource
     /// The Apigee Organization associated with the Apigee app group,
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// Valid values are active or inactive. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as active or inactive. Possible values: [&amp;quot;active&amp;quot;, &amp;quot;inactive&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 

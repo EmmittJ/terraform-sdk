@@ -21,9 +21,9 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// <summary>
     /// The ID of the dataset containing this row access policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatasetId
+    public TerraformProperty<string>? DatasetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset_id");
+        get => GetProperty<TerraformProperty<string>>("dataset_id");
         set => this.WithProperty("dataset_id", value);
     }
 
@@ -39,9 +39,9 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// nullable_field is not NULL
     /// numeric_field BETWEEN 1.0 AND 5.0
     /// </summary>
-    public TerraformLiteralProperty<string>? FilterPredicate
+    public TerraformProperty<string>? FilterPredicate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter_predicate");
+        get => GetProperty<TerraformProperty<string>>("filter_predicate");
         set => this.WithProperty("filter_predicate", value);
     }
 
@@ -69,18 +69,18 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// BigQuery requires authentication before a user can access the service,
     /// allUsers includes only authenticated users.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Grantees
+    public TerraformProperty<List<string>>? Grantees
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("grantees");
+        get => GetProperty<TerraformProperty<List<string>>>("grantees");
         set => this.WithProperty("grantees", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -89,27 +89,27 @@ public class GoogleBigqueryRowAccessPolicy : TerraformResource
     /// letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum
     /// length is 256 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyId
+    public TerraformProperty<string>? PolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_id");
+        get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The ID of the table containing this row access policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableId
+    public TerraformProperty<string>? TableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_id");
+        get => GetProperty<TerraformProperty<string>>("table_id");
         set => this.WithProperty("table_id", value);
     }
 

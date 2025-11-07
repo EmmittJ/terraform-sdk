@@ -20,45 +20,45 @@ public class GoogleComputeNetworkFirewallPolicyAssociation : TerraformResource
     /// <summary>
     /// The target that the firewall policy is attached to.
     /// </summary>
-    public TerraformLiteralProperty<string>? AttachmentTarget
+    public TerraformProperty<string>? AttachmentTarget
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("attachment_target");
+        get => GetProperty<TerraformProperty<string>>("attachment_target");
         set => this.WithProperty("attachment_target", value);
     }
 
     /// <summary>
     /// The firewall policy of the resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirewallPolicy
+    public TerraformProperty<string>? FirewallPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("firewall_policy");
+        get => GetProperty<TerraformProperty<string>>("firewall_policy");
         set => this.WithProperty("firewall_policy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name for an association.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

@@ -24,18 +24,18 @@ public class AwsServicequotasTemplate : TerraformResource
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AwsRegion
+    public TerraformProperty<string>? AwsRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("aws_region");
+        get => GetProperty<TerraformProperty<string>>("aws_region");
         set => this.WithProperty("aws_region", value);
     }
 
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? QuotaCode
+    public TerraformProperty<string>? QuotaCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("quota_code");
+        get => GetProperty<TerraformProperty<string>>("quota_code");
         set => this.WithProperty("quota_code", value);
     }
 
@@ -43,27 +43,27 @@ public class AwsServicequotasTemplate : TerraformResource
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The service_code attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServiceCode
+    public TerraformProperty<string>? ServiceCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("service_code");
+        get => GetProperty<TerraformProperty<string>>("service_code");
         set => this.WithProperty("service_code", value);
     }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Value
+    public TerraformProperty<double>? Value
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("value");
+        get => GetProperty<TerraformProperty<double>>("value");
         set => this.WithProperty("value", value);
     }
 

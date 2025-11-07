@@ -22,54 +22,54 @@ public class AzurermNginxDeployment : TerraformResource
     /// <summary>
     /// The automatic_upgrade_channel attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutomaticUpgradeChannel
+    public TerraformProperty<string>? AutomaticUpgradeChannel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("automatic_upgrade_channel");
+        get => GetProperty<TerraformProperty<string>>("automatic_upgrade_channel");
         set => this.WithProperty("automatic_upgrade_channel", value);
     }
 
     /// <summary>
     /// The capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Capacity
+    public TerraformProperty<double>? Capacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("capacity");
+        get => GetProperty<TerraformProperty<double>>("capacity");
         set => this.WithProperty("capacity", value);
     }
 
     /// <summary>
     /// The diagnose_support_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DiagnoseSupportEnabled
+    public TerraformProperty<bool>? DiagnoseSupportEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("diagnose_support_enabled");
+        get => GetProperty<TerraformProperty<bool>>("diagnose_support_enabled");
         set => this.WithProperty("diagnose_support_enabled", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Email
+    public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email");
+        get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -77,45 +77,45 @@ public class AzurermNginxDeployment : TerraformResource
     /// The managed_resource_group attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? ManagedResourceGroup
+    public TerraformProperty<string>? ManagedResourceGroup
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_resource_group");
+        get => GetProperty<TerraformProperty<string>>("managed_resource_group");
         set => this.WithProperty("managed_resource_group", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Sku
+    public TerraformProperty<string>? Sku
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku");
+        get => GetProperty<TerraformProperty<string>>("sku");
         set => this.WithProperty("sku", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

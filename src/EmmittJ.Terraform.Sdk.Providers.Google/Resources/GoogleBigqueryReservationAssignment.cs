@@ -21,54 +21,54 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     /// <summary>
     /// The resource which will use the reservation. E.g. projects/myproject, folders/123, organizations/456.
     /// </summary>
-    public TerraformLiteralProperty<string>? Assignee
+    public TerraformProperty<string>? Assignee
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("assignee");
+        get => GetProperty<TerraformProperty<string>>("assignee");
         set => this.WithProperty("assignee", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Types of job, which could be specified when using the reservation. Possible values: JOB_TYPE_UNSPECIFIED, PIPELINE, QUERY, CONTINUOUS
     /// </summary>
-    public TerraformLiteralProperty<string>? JobType
+    public TerraformProperty<string>? JobType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_type");
+        get => GetProperty<TerraformProperty<string>>("job_type");
         set => this.WithProperty("job_type", value);
     }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The reservation for the resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Reservation
+    public TerraformProperty<string>? Reservation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reservation");
+        get => GetProperty<TerraformProperty<string>>("reservation");
         set => this.WithProperty("reservation", value);
     }
 

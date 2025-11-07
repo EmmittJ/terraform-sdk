@@ -24,126 +24,126 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZoneId
+    public TerraformProperty<string>? AvailabilityZoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_id");
+        get => GetProperty<TerraformProperty<string>>("availability_zone_id");
         set => this.WithProperty("availability_zone_id", value);
     }
 
     /// <summary>
     /// The az_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AzMode
+    public TerraformProperty<string>? AzMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("az_mode");
+        get => GetProperty<TerraformProperty<string>>("az_mode");
         set => this.WithProperty("az_mode", value);
     }
 
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? CommandLineArguments
+    public TerraformProperty<Dictionary<string, string>>? CommandLineArguments
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("command_line_arguments");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("command_line_arguments");
         set => this.WithProperty("command_line_arguments", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvironmentId
+    public TerraformProperty<string>? EnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_id");
+        get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExecutionRole
+    public TerraformProperty<string>? ExecutionRole
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role");
+        get => GetProperty<TerraformProperty<string>>("execution_role");
         set => this.WithProperty("execution_role", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The initialization_script attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InitializationScript
+    public TerraformProperty<string>? InitializationScript
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("initialization_script");
+        get => GetProperty<TerraformProperty<string>>("initialization_script");
         set => this.WithProperty("initialization_script", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The release_label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReleaseLabel
+    public TerraformProperty<string>? ReleaseLabel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("release_label");
+        get => GetProperty<TerraformProperty<string>>("release_label");
         set => this.WithProperty("release_label", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

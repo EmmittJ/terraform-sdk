@@ -20,108 +20,108 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AddressSpace
+    public TerraformProperty<HashSet<string>>? AddressSpace
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("address_space");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("address_space");
         set => this.WithProperty("address_space", value);
     }
 
     /// <summary>
     /// The bgp_community attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BgpCommunity
+    public TerraformProperty<string>? BgpCommunity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bgp_community");
+        get => GetProperty<TerraformProperty<string>>("bgp_community");
         set => this.WithProperty("bgp_community", value);
     }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DnsServers
+    public TerraformProperty<List<string>>? DnsServers
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("dns_servers");
+        get => GetProperty<TerraformProperty<List<string>>>("dns_servers");
         set => this.WithProperty("dns_servers", value);
     }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EdgeZone
+    public TerraformProperty<string>? EdgeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edge_zone");
+        get => GetProperty<TerraformProperty<string>>("edge_zone");
         set => this.WithProperty("edge_zone", value);
     }
 
     /// <summary>
     /// The flow_timeout_in_minutes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FlowTimeoutInMinutes
+    public TerraformProperty<double>? FlowTimeoutInMinutes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("flow_timeout_in_minutes");
+        get => GetProperty<TerraformProperty<double>>("flow_timeout_in_minutes");
         set => this.WithProperty("flow_timeout_in_minutes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The private_endpoint_vnet_policies attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateEndpointVnetPolicies
+    public TerraformProperty<string>? PrivateEndpointVnetPolicies
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_endpoint_vnet_policies");
+        get => GetProperty<TerraformProperty<string>>("private_endpoint_vnet_policies");
         set => this.WithProperty("private_endpoint_vnet_policies", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The subnet attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<object>>? Subnet
+    public TerraformProperty<HashSet<object>>? Subnet
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<object>>>("subnet");
+        get => GetProperty<TerraformProperty<HashSet<object>>>("subnet");
         set => this.WithProperty("subnet", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

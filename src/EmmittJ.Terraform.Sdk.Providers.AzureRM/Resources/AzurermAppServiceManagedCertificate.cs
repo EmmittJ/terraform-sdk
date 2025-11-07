@@ -27,27 +27,27 @@ public class AzurermAppServiceManagedCertificate : TerraformResource
     /// <summary>
     /// The custom_hostname_binding_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CustomHostnameBindingId
+    public TerraformProperty<string>? CustomHostnameBindingId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("custom_hostname_binding_id");
+        get => GetProperty<TerraformProperty<string>>("custom_hostname_binding_id");
         set => this.WithProperty("custom_hostname_binding_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

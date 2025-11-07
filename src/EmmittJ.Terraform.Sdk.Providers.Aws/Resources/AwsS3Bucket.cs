@@ -27,9 +27,9 @@ public class AwsS3Bucket : TerraformResource
     /// The acceleration_status attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? AccelerationStatus
+    public TerraformProperty<string>? AccelerationStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("acceleration_status");
+        get => GetProperty<TerraformProperty<string>>("acceleration_status");
         set => this.WithProperty("acceleration_status", value);
     }
 
@@ -37,54 +37,54 @@ public class AwsS3Bucket : TerraformResource
     /// The acl attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? Acl
+    public TerraformProperty<string>? Acl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("acl");
+        get => GetProperty<TerraformProperty<string>>("acl");
         set => this.WithProperty("acl", value);
     }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
     /// <summary>
     /// The bucket_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BucketPrefix
+    public TerraformProperty<string>? BucketPrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket_prefix");
+        get => GetProperty<TerraformProperty<string>>("bucket_prefix");
         set => this.WithProperty("bucket_prefix", value);
     }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceDestroy
+    public TerraformProperty<bool>? ForceDestroy
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_destroy");
+        get => GetProperty<TerraformProperty<bool>>("force_destroy");
         set => this.WithProperty("force_destroy", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The object_lock_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ObjectLockEnabled
+    public TerraformProperty<bool>? ObjectLockEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("object_lock_enabled");
+        get => GetProperty<TerraformProperty<bool>>("object_lock_enabled");
         set => this.WithProperty("object_lock_enabled", value);
     }
 
@@ -92,18 +92,18 @@ public class AwsS3Bucket : TerraformResource
     /// The policy attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? Policy
+    public TerraformProperty<string>? Policy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy");
+        get => GetProperty<TerraformProperty<string>>("policy");
         set => this.WithProperty("policy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -111,27 +111,27 @@ public class AwsS3Bucket : TerraformResource
     /// The request_payer attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? RequestPayer
+    public TerraformProperty<string>? RequestPayer
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("request_payer");
+        get => GetProperty<TerraformProperty<string>>("request_payer");
         set => this.WithProperty("request_payer", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

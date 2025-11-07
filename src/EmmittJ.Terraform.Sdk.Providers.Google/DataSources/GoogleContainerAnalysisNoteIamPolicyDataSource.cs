@@ -21,27 +21,27 @@ public class GoogleContainerAnalysisNoteIamPolicyDataSource : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The note attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Note
+    public TerraformProperty<string>? Note
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("note");
+        get => GetProperty<TerraformProperty<string>>("note");
         set => this.WithProperty("note", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

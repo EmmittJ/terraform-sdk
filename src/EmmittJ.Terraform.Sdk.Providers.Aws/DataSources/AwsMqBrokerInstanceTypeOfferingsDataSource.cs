@@ -20,45 +20,45 @@ public class AwsMqBrokerInstanceTypeOfferingsDataSource : TerraformDataSource
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineType
+    public TerraformProperty<string>? EngineType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_type");
+        get => GetProperty<TerraformProperty<string>>("engine_type");
         set => this.WithProperty("engine_type", value);
     }
 
     /// <summary>
     /// The host_instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostInstanceType
+    public TerraformProperty<string>? HostInstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_instance_type");
+        get => GetProperty<TerraformProperty<string>>("host_instance_type");
         set => this.WithProperty("host_instance_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageType
+    public TerraformProperty<string>? StorageType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_type");
+        get => GetProperty<TerraformProperty<string>>("storage_type");
         set => this.WithProperty("storage_type", value);
     }
 

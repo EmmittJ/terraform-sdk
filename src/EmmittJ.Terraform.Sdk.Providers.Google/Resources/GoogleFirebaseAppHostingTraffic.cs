@@ -26,36 +26,36 @@ public class GoogleFirebaseAppHostingTraffic : TerraformResource
     /// <summary>
     /// Id of the backend that this Traffic config applies to
     /// </summary>
-    public TerraformLiteralProperty<string>? Backend
+    public TerraformProperty<string>? Backend
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backend");
+        get => GetProperty<TerraformProperty<string>>("backend");
         set => this.WithProperty("backend", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location the Backend that this Traffic config applies to
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

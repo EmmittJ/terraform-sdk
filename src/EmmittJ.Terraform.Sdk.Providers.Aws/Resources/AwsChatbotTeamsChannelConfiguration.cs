@@ -21,117 +21,117 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     /// <summary>
     /// The channel_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ChannelId
+    public TerraformProperty<string>? ChannelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("channel_id");
+        get => GetProperty<TerraformProperty<string>>("channel_id");
         set => this.WithProperty("channel_id", value);
     }
 
     /// <summary>
     /// The channel_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ChannelName
+    public TerraformProperty<string>? ChannelName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("channel_name");
+        get => GetProperty<TerraformProperty<string>>("channel_name");
         set => this.WithProperty("channel_name", value);
     }
 
     /// <summary>
     /// The configuration_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationName
+    public TerraformProperty<string>? ConfigurationName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_name");
+        get => GetProperty<TerraformProperty<string>>("configuration_name");
         set => this.WithProperty("configuration_name", value);
     }
 
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? GuardrailPolicyArns
+    public TerraformProperty<List<string>>? GuardrailPolicyArns
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("guardrail_policy_arns");
+        get => GetProperty<TerraformProperty<List<string>>>("guardrail_policy_arns");
         set => this.WithProperty("guardrail_policy_arns", value);
     }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LoggingLevel
+    public TerraformProperty<string>? LoggingLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("logging_level");
+        get => GetProperty<TerraformProperty<string>>("logging_level");
         set => this.WithProperty("logging_level", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SnsTopicArns
+    public TerraformProperty<HashSet<string>>? SnsTopicArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("sns_topic_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("sns_topic_arns");
         set => this.WithProperty("sns_topic_arns", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The team_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TeamId
+    public TerraformProperty<string>? TeamId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("team_id");
+        get => GetProperty<TerraformProperty<string>>("team_id");
         set => this.WithProperty("team_id", value);
     }
 
     /// <summary>
     /// The team_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TeamName
+    public TerraformProperty<string>? TeamName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("team_name");
+        get => GetProperty<TerraformProperty<string>>("team_name");
         set => this.WithProperty("team_name", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 
     /// <summary>
     /// The user_authorization_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UserAuthorizationRequired
+    public TerraformProperty<bool>? UserAuthorizationRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("user_authorization_required");
+        get => GetProperty<TerraformProperty<bool>>("user_authorization_required");
         set => this.WithProperty("user_authorization_required", value);
     }
 

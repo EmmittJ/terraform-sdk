@@ -25,81 +25,81 @@ public class AwsVpcIpam : TerraformResource
     /// <summary>
     /// The cascade attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Cascade
+    public TerraformProperty<bool>? Cascade
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cascade");
+        get => GetProperty<TerraformProperty<bool>>("cascade");
         set => this.WithProperty("cascade", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The enable_private_gua attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnablePrivateGua
+    public TerraformProperty<bool>? EnablePrivateGua
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_private_gua");
+        get => GetProperty<TerraformProperty<bool>>("enable_private_gua");
         set => this.WithProperty("enable_private_gua", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? MeteredAccount
+    public TerraformProperty<string>? MeteredAccount
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("metered_account");
+        get => GetProperty<TerraformProperty<string>>("metered_account");
         set => this.WithProperty("metered_account", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tier
+    public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        get => GetProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 

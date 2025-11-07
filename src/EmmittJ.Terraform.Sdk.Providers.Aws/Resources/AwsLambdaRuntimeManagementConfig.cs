@@ -20,45 +20,45 @@ public class AwsLambdaRuntimeManagementConfig : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionName
+    public TerraformProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Qualifier
+    public TerraformProperty<string>? Qualifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("qualifier");
+        get => GetProperty<TerraformProperty<string>>("qualifier");
         set => this.WithProperty("qualifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The runtime_version_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuntimeVersionArn
+    public TerraformProperty<string>? RuntimeVersionArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime_version_arn");
+        get => GetProperty<TerraformProperty<string>>("runtime_version_arn");
         set => this.WithProperty("runtime_version_arn", value);
     }
 
     /// <summary>
     /// The update_runtime_on attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UpdateRuntimeOn
+    public TerraformProperty<string>? UpdateRuntimeOn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("update_runtime_on");
+        get => GetProperty<TerraformProperty<string>>("update_runtime_on");
         set => this.WithProperty("update_runtime_on", value);
     }
 

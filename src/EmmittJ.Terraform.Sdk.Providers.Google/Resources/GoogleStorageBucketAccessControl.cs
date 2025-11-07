@@ -21,9 +21,9 @@ public class GoogleStorageBucketAccessControl : TerraformResource
     /// <summary>
     /// The name of the bucket.
     /// </summary>
-    public TerraformLiteralProperty<string>? Bucket
+    public TerraformProperty<string>? Bucket
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bucket");
+        get => GetProperty<TerraformProperty<string>>("bucket");
         set => this.WithProperty("bucket", value);
     }
 
@@ -44,27 +44,27 @@ public class GoogleStorageBucketAccessControl : TerraformResource
     ///   To refer to all members of the Google Apps for Business domain
     ///   example.com, the entity would be domain-example.com.
     /// </summary>
-    public TerraformLiteralProperty<string>? Entity
+    public TerraformProperty<string>? Entity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entity");
+        get => GetProperty<TerraformProperty<string>>("entity");
         set => this.WithProperty("entity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;, &amp;quot;WRITER&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Role
+    public TerraformProperty<string>? Role
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role");
+        get => GetProperty<TerraformProperty<string>>("role");
         set => this.WithProperty("role", value);
     }
 

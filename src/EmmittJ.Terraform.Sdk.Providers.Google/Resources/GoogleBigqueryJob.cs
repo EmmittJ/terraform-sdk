@@ -24,27 +24,27 @@ public class GoogleBigqueryJob : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobId
+    public TerraformProperty<string>? JobId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_id");
+        get => GetProperty<TerraformProperty<string>>("job_id");
         set => this.WithProperty("job_id", value);
     }
 
     /// <summary>
     /// Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobTimeoutMs
+    public TerraformProperty<string>? JobTimeoutMs
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_timeout_ms");
+        get => GetProperty<TerraformProperty<string>>("job_timeout_ms");
         set => this.WithProperty("job_timeout_ms", value);
     }
 
@@ -55,27 +55,27 @@ public class GoogleBigqueryJob : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The geographic location of the job. The default value is US.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

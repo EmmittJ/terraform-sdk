@@ -19,27 +19,27 @@ public class AwsEc2DefaultCreditSpecification : TerraformResource
     /// <summary>
     /// The cpu_credits attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CpuCredits
+    public TerraformProperty<string>? CpuCredits
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cpu_credits");
+        get => GetProperty<TerraformProperty<string>>("cpu_credits");
         set => this.WithProperty("cpu_credits", value);
     }
 
     /// <summary>
     /// The instance_family attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceFamily
+    public TerraformProperty<string>? InstanceFamily
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_family");
+        get => GetProperty<TerraformProperty<string>>("instance_family");
         set => this.WithProperty("instance_family", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

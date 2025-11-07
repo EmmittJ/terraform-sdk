@@ -19,45 +19,45 @@ public class AzurermEventhubNamespaceSchemaGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The namespace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamespaceId
+    public TerraformProperty<string>? NamespaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace_id");
+        get => GetProperty<TerraformProperty<string>>("namespace_id");
         set => this.WithProperty("namespace_id", value);
     }
 
     /// <summary>
     /// The schema_compatibility attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SchemaCompatibility
+    public TerraformProperty<string>? SchemaCompatibility
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema_compatibility");
+        get => GetProperty<TerraformProperty<string>>("schema_compatibility");
         set => this.WithProperty("schema_compatibility", value);
     }
 
     /// <summary>
     /// The schema_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SchemaType
+    public TerraformProperty<string>? SchemaType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema_type");
+        get => GetProperty<TerraformProperty<string>>("schema_type");
         set => this.WithProperty("schema_type", value);
     }
 

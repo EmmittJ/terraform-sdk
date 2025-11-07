@@ -19,36 +19,36 @@ public class AzurermSecurityCenterSubscriptionPricing : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceType
+    public TerraformProperty<string>? ResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_type");
+        get => GetProperty<TerraformProperty<string>>("resource_type");
         set => this.WithProperty("resource_type", value);
     }
 
     /// <summary>
     /// The subplan attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subplan
+    public TerraformProperty<string>? Subplan
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subplan");
+        get => GetProperty<TerraformProperty<string>>("subplan");
         set => this.WithProperty("subplan", value);
     }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tier
+    public TerraformProperty<string>? Tier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tier");
+        get => GetProperty<TerraformProperty<string>>("tier");
         set => this.WithProperty("tier", value);
     }
 

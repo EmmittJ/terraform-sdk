@@ -28,81 +28,81 @@ public class AwsLightsailDistribution : TerraformResource
     /// <summary>
     /// The bundle ID to use for the distribution.
     /// </summary>
-    public TerraformLiteralProperty<string>? BundleId
+    public TerraformProperty<string>? BundleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("bundle_id");
+        get => GetProperty<TerraformProperty<string>>("bundle_id");
         set => this.WithProperty("bundle_id", value);
     }
 
     /// <summary>
     /// The name of the SSL/TLS certificate attached to the distribution, if any.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateName
+    public TerraformProperty<string>? CertificateName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_name");
+        get => GetProperty<TerraformProperty<string>>("certificate_name");
         set => this.WithProperty("certificate_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IP address type of the distribution.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddressType
+    public TerraformProperty<string>? IpAddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address_type");
+        get => GetProperty<TerraformProperty<string>>("ip_address_type");
         set => this.WithProperty("ip_address_type", value);
     }
 
     /// <summary>
     /// Indicates whether the distribution is enabled.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsEnabled
+    public TerraformProperty<bool>? IsEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_enabled");
+        get => GetProperty<TerraformProperty<bool>>("is_enabled");
         set => this.WithProperty("is_enabled", value);
     }
 
     /// <summary>
     /// The name of the distribution.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

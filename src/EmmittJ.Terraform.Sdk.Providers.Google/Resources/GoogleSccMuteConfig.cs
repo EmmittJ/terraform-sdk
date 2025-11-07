@@ -23,9 +23,9 @@ public class GoogleSccMuteConfig : TerraformResource
     /// <summary>
     /// A description of the mute config.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -36,9 +36,9 @@ public class GoogleSccMuteConfig : TerraformResource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to
     /// nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpiryTime
+    public TerraformProperty<string>? ExpiryTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiry_time");
+        get => GetProperty<TerraformProperty<string>>("expiry_time");
         set => this.WithProperty("expiry_time", value);
     }
 
@@ -49,27 +49,27 @@ public class GoogleSccMuteConfig : TerraformResource
     /// If a filter contains project = X but is created under the
     /// project = Y scope, it might not match any findings.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Unique identifier provided by the client within the parent scope.
     /// </summary>
-    public TerraformLiteralProperty<string>? MuteConfigId
+    public TerraformProperty<string>? MuteConfigId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("mute_config_id");
+        get => GetProperty<TerraformProperty<string>>("mute_config_id");
         set => this.WithProperty("mute_config_id", value);
     }
 
@@ -78,18 +78,18 @@ public class GoogleSccMuteConfig : TerraformResource
     /// &amp;quot;organizations/[organization_id]&amp;quot;, &amp;quot;folders/[folder_id]&amp;quot;, or
     /// &amp;quot;projects/[project_id]&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// The type of the mute config, which determines what type of mute state the config affects. Default value: &amp;quot;DYNAMIC&amp;quot; Possible values: [&amp;quot;MUTE_CONFIG_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;STATIC&amp;quot;, &amp;quot;DYNAMIC&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

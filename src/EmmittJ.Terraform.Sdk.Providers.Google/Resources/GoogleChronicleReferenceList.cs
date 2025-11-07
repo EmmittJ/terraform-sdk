@@ -24,45 +24,45 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// <summary>
     /// Required. A user-provided description of the reference list.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -74,9 +74,9 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// - Has length &amp;lt; 256.
     /// - Must be unique.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReferenceListId
+    public TerraformProperty<string>? ReferenceListId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reference_list_id");
+        get => GetProperty<TerraformProperty<string>>("reference_list_id");
         set => this.WithProperty("reference_list_id", value);
     }
 
@@ -86,9 +86,9 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// REFERENCE_LIST_SYNTAX_TYPE_REGEX
     /// REFERENCE_LIST_SYNTAX_TYPE_CIDR
     /// </summary>
-    public TerraformLiteralProperty<string>? SyntaxType
+    public TerraformProperty<string>? SyntaxType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("syntax_type");
+        get => GetProperty<TerraformProperty<string>>("syntax_type");
         set => this.WithProperty("syntax_type", value);
     }
 

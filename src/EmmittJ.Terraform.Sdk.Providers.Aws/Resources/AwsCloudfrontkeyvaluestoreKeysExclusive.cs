@@ -20,18 +20,18 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
     /// <summary>
     /// The Amazon Resource Name (ARN) of the Key Value Store.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyValueStoreArn
+    public TerraformProperty<string>? KeyValueStoreArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_value_store_arn");
+        get => GetProperty<TerraformProperty<string>>("key_value_store_arn");
         set => this.WithProperty("key_value_store_arn", value);
     }
 
     /// <summary>
     /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxBatchSize
+    public TerraformProperty<double>? MaxBatchSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_batch_size");
+        get => GetProperty<TerraformProperty<double>>("max_batch_size");
         set => this.WithProperty("max_batch_size", value);
     }
 

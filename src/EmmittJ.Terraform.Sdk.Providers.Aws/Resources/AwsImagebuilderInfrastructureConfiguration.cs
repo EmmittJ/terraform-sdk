@@ -22,126 +22,126 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_profile_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceProfileName
+    public TerraformProperty<string>? InstanceProfileName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_profile_name");
+        get => GetProperty<TerraformProperty<string>>("instance_profile_name");
         set => this.WithProperty("instance_profile_name", value);
     }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? InstanceTypes
+    public TerraformProperty<HashSet<string>>? InstanceTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("instance_types");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("instance_types");
         set => this.WithProperty("instance_types", value);
     }
 
     /// <summary>
     /// The key_pair attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyPair
+    public TerraformProperty<string>? KeyPair
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_pair");
+        get => GetProperty<TerraformProperty<string>>("key_pair");
         set => this.WithProperty("key_pair", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? ResourceTags
+    public TerraformProperty<Dictionary<string, string>>? ResourceTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("resource_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
+    public TerraformProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SnsTopicArn
+    public TerraformProperty<string>? SnsTopicArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sns_topic_arn");
+        get => GetProperty<TerraformProperty<string>>("sns_topic_arn");
         set => this.WithProperty("sns_topic_arn", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The terminate_instance_on_failure attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TerminateInstanceOnFailure
+    public TerraformProperty<bool>? TerminateInstanceOnFailure
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("terminate_instance_on_failure");
+        get => GetProperty<TerraformProperty<bool>>("terminate_instance_on_failure");
         set => this.WithProperty("terminate_instance_on_failure", value);
     }
 

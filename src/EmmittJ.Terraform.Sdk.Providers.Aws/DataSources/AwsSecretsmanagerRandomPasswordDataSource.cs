@@ -20,90 +20,90 @@ public class AwsSecretsmanagerRandomPasswordDataSource : TerraformDataSource
     /// <summary>
     /// The exclude_characters attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExcludeCharacters
+    public TerraformProperty<string>? ExcludeCharacters
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("exclude_characters");
+        get => GetProperty<TerraformProperty<string>>("exclude_characters");
         set => this.WithProperty("exclude_characters", value);
     }
 
     /// <summary>
     /// The exclude_lowercase attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExcludeLowercase
+    public TerraformProperty<bool>? ExcludeLowercase
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_lowercase");
+        get => GetProperty<TerraformProperty<bool>>("exclude_lowercase");
         set => this.WithProperty("exclude_lowercase", value);
     }
 
     /// <summary>
     /// The exclude_numbers attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExcludeNumbers
+    public TerraformProperty<bool>? ExcludeNumbers
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_numbers");
+        get => GetProperty<TerraformProperty<bool>>("exclude_numbers");
         set => this.WithProperty("exclude_numbers", value);
     }
 
     /// <summary>
     /// The exclude_punctuation attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExcludePunctuation
+    public TerraformProperty<bool>? ExcludePunctuation
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_punctuation");
+        get => GetProperty<TerraformProperty<bool>>("exclude_punctuation");
         set => this.WithProperty("exclude_punctuation", value);
     }
 
     /// <summary>
     /// The exclude_uppercase attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExcludeUppercase
+    public TerraformProperty<bool>? ExcludeUppercase
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exclude_uppercase");
+        get => GetProperty<TerraformProperty<bool>>("exclude_uppercase");
         set => this.WithProperty("exclude_uppercase", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The include_space attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IncludeSpace
+    public TerraformProperty<bool>? IncludeSpace
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("include_space");
+        get => GetProperty<TerraformProperty<bool>>("include_space");
         set => this.WithProperty("include_space", value);
     }
 
     /// <summary>
     /// The password_length attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? PasswordLength
+    public TerraformProperty<double>? PasswordLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("password_length");
+        get => GetProperty<TerraformProperty<double>>("password_length");
         set => this.WithProperty("password_length", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The require_each_included_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequireEachIncludedType
+    public TerraformProperty<bool>? RequireEachIncludedType
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("require_each_included_type");
+        get => GetProperty<TerraformProperty<bool>>("require_each_included_type");
         set => this.WithProperty("require_each_included_type", value);
     }
 

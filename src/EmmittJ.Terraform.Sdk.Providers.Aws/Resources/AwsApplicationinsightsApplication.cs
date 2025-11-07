@@ -20,99 +20,99 @@ public class AwsApplicationinsightsApplication : TerraformResource
     /// <summary>
     /// The auto_config_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoConfigEnabled
+    public TerraformProperty<bool>? AutoConfigEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_config_enabled");
+        get => GetProperty<TerraformProperty<bool>>("auto_config_enabled");
         set => this.WithProperty("auto_config_enabled", value);
     }
 
     /// <summary>
     /// The auto_create attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutoCreate
+    public TerraformProperty<bool>? AutoCreate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("auto_create");
+        get => GetProperty<TerraformProperty<bool>>("auto_create");
         set => this.WithProperty("auto_create", value);
     }
 
     /// <summary>
     /// The cwe_monitor_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CweMonitorEnabled
+    public TerraformProperty<bool>? CweMonitorEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("cwe_monitor_enabled");
+        get => GetProperty<TerraformProperty<bool>>("cwe_monitor_enabled");
         set => this.WithProperty("cwe_monitor_enabled", value);
     }
 
     /// <summary>
     /// The grouping_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GroupingType
+    public TerraformProperty<string>? GroupingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("grouping_type");
+        get => GetProperty<TerraformProperty<string>>("grouping_type");
         set => this.WithProperty("grouping_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ops_center_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OpsCenterEnabled
+    public TerraformProperty<bool>? OpsCenterEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ops_center_enabled");
+        get => GetProperty<TerraformProperty<bool>>("ops_center_enabled");
         set => this.WithProperty("ops_center_enabled", value);
     }
 
     /// <summary>
     /// The ops_item_sns_topic_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OpsItemSnsTopicArn
+    public TerraformProperty<string>? OpsItemSnsTopicArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ops_item_sns_topic_arn");
+        get => GetProperty<TerraformProperty<string>>("ops_item_sns_topic_arn");
         set => this.WithProperty("ops_item_sns_topic_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

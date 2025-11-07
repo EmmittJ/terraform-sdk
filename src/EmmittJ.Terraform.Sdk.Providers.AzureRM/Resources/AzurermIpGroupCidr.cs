@@ -19,27 +19,27 @@ public class AzurermIpGroupCidr : TerraformResource
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Cidr
+    public TerraformProperty<string>? Cidr
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cidr");
+        get => GetProperty<TerraformProperty<string>>("cidr");
         set => this.WithProperty("cidr", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ip_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpGroupId
+    public TerraformProperty<string>? IpGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_group_id");
+        get => GetProperty<TerraformProperty<string>>("ip_group_id");
         set => this.WithProperty("ip_group_id", value);
     }
 

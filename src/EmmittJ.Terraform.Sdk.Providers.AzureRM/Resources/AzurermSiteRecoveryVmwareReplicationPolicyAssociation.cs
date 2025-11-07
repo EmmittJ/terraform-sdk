@@ -19,36 +19,36 @@ public class AzurermSiteRecoveryVmwareReplicationPolicyAssociation : TerraformRe
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyId
+    public TerraformProperty<string>? PolicyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_id");
+        get => GetProperty<TerraformProperty<string>>("policy_id");
         set => this.WithProperty("policy_id", value);
     }
 
     /// <summary>
     /// The recovery_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryVaultId
+    public TerraformProperty<string>? RecoveryVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_id");
+        get => GetProperty<TerraformProperty<string>>("recovery_vault_id");
         set => this.WithProperty("recovery_vault_id", value);
     }
 

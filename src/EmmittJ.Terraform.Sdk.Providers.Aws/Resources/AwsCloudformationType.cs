@@ -31,54 +31,54 @@ public class AwsCloudformationType : TerraformResource
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExecutionRoleArn
+    public TerraformProperty<string>? ExecutionRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("execution_role_arn");
+        get => GetProperty<TerraformProperty<string>>("execution_role_arn");
         set => this.WithProperty("execution_role_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The schema_handler_package attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SchemaHandlerPackage
+    public TerraformProperty<string>? SchemaHandlerPackage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("schema_handler_package");
+        get => GetProperty<TerraformProperty<string>>("schema_handler_package");
         set => this.WithProperty("schema_handler_package", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TypeName
+    public TerraformProperty<string>? TypeName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type_name");
+        get => GetProperty<TerraformProperty<string>>("type_name");
         set => this.WithProperty("type_name", value);
     }
 

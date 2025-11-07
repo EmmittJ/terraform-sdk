@@ -19,36 +19,36 @@ public class AwsPrometheusResourcePolicy : TerraformResource
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PolicyDocument
+    public TerraformProperty<string>? PolicyDocument
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("policy_document");
+        get => GetProperty<TerraformProperty<string>>("policy_document");
         set => this.WithProperty("policy_document", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The revision_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RevisionId
+    public TerraformProperty<string>? RevisionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("revision_id");
+        get => GetProperty<TerraformProperty<string>>("revision_id");
         set => this.WithProperty("revision_id", value);
     }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkspaceId
+    public TerraformProperty<string>? WorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workspace_id");
+        get => GetProperty<TerraformProperty<string>>("workspace_id");
         set => this.WithProperty("workspace_id", value);
     }
 

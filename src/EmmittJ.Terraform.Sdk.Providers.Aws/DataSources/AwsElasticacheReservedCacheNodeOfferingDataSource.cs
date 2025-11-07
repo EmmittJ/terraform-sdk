@@ -21,45 +21,45 @@ public class AwsElasticacheReservedCacheNodeOfferingDataSource : TerraformDataSo
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CacheNodeType
+    public TerraformProperty<string>? CacheNodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_node_type");
+        get => GetProperty<TerraformProperty<string>>("cache_node_type");
         set => this.WithProperty("cache_node_type", value);
     }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Duration
+    public TerraformProperty<string>? Duration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("duration");
+        get => GetProperty<TerraformProperty<string>>("duration");
         set => this.WithProperty("duration", value);
     }
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OfferingType
+    public TerraformProperty<string>? OfferingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("offering_type");
+        get => GetProperty<TerraformProperty<string>>("offering_type");
         set => this.WithProperty("offering_type", value);
     }
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProductDescription
+    public TerraformProperty<string>? ProductDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("product_description");
+        get => GetProperty<TerraformProperty<string>>("product_description");
         set => this.WithProperty("product_description", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

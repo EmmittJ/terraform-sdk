@@ -23,18 +23,18 @@ public class GoogleApigeeOrganization : TerraformResource
     /// <summary>
     /// Primary GCP region for analytics data storage. For valid values, see [Create an Apigee organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org).
     /// </summary>
-    public TerraformLiteralProperty<string>? AnalyticsRegion
+    public TerraformProperty<string>? AnalyticsRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("analytics_region");
+        get => GetProperty<TerraformProperty<string>>("analytics_region");
         set => this.WithProperty("analytics_region", value);
     }
 
     /// <summary>
     /// Cloud KMS key name used for encrypting API consumer data.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiConsumerDataEncryptionKeyName
+    public TerraformProperty<string>? ApiConsumerDataEncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_consumer_data_encryption_key_name");
+        get => GetProperty<TerraformProperty<string>>("api_consumer_data_encryption_key_name");
         set => this.WithProperty("api_consumer_data_encryption_key_name", value);
     }
 
@@ -43,9 +43,9 @@ public class GoogleApigeeOrganization : TerraformResource
     /// Apigee stores some control plane data only in single region.
     /// This field determines which single region Apigee should use.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiConsumerDataLocation
+    public TerraformProperty<string>? ApiConsumerDataLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_consumer_data_location");
+        get => GetProperty<TerraformProperty<string>>("api_consumer_data_location");
         set => this.WithProperty("api_consumer_data_location", value);
     }
 
@@ -54,18 +54,18 @@ public class GoogleApigeeOrganization : TerraformResource
     /// See [Getting started with the Service Networking API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
     /// Valid only when &#39;RuntimeType&#39; is set to CLOUD. The value can be updated only when there are no runtime instances. For example: &amp;quot;default&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? AuthorizedNetwork
+    public TerraformProperty<string>? AuthorizedNetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("authorized_network");
+        get => GetProperty<TerraformProperty<string>>("authorized_network");
         set => this.WithProperty("authorized_network", value);
     }
 
     /// <summary>
     /// Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingType
+    public TerraformProperty<string>? BillingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_type");
+        get => GetProperty<TerraformProperty<string>>("billing_type");
         set => this.WithProperty("billing_type", value);
     }
 
@@ -73,18 +73,18 @@ public class GoogleApigeeOrganization : TerraformResource
     /// Cloud KMS key name used for encrypting control plane data that is stored in a multi region.
     /// Only used for the data residency region &amp;quot;US&amp;quot; or &amp;quot;EU&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? ControlPlaneEncryptionKeyName
+    public TerraformProperty<string>? ControlPlaneEncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("control_plane_encryption_key_name");
+        get => GetProperty<TerraformProperty<string>>("control_plane_encryption_key_name");
         set => this.WithProperty("control_plane_encryption_key_name", value);
     }
 
     /// <summary>
     /// Description of the Apigee organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -95,36 +95,36 @@ public class GoogleApigeeOrganization : TerraformResource
     /// Valid only when &#39;RuntimeType&#39; is set to CLOUD. The value must be set before the creation
     /// of any Apigee runtime instance and can be updated only when there are no runtime instances.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableVpcPeering
+    public TerraformProperty<bool>? DisableVpcPeering
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_vpc_peering");
+        get => GetProperty<TerraformProperty<bool>>("disable_vpc_peering");
         set => this.WithProperty("disable_vpc_peering", value);
     }
 
     /// <summary>
     /// The display name of the Apigee organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project ID associated with the Apigee organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProjectId
+    public TerraformProperty<string>? ProjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project_id");
+        get => GetProperty<TerraformProperty<string>>("project_id");
         set => this.WithProperty("project_id", value);
     }
 
@@ -134,9 +134,9 @@ public class GoogleApigeeOrganization : TerraformResource
     /// operation completes. During this period, the Organization may be restored to its last known state.
     /// After this period, the Organization will no longer be able to be restored. Default value: &amp;quot;DELETION_RETENTION_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;DELETION_RETENTION_UNSPECIFIED&amp;quot;, &amp;quot;MINIMUM&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Retention
+    public TerraformProperty<string>? Retention
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retention");
+        get => GetProperty<TerraformProperty<string>>("retention");
         set => this.WithProperty("retention", value);
     }
 
@@ -146,18 +146,18 @@ public class GoogleApigeeOrganization : TerraformResource
     /// If not specified, a Google-Managed encryption key will be used.
     /// Valid only when &#39;RuntimeType&#39; is CLOUD. For example: &#39;projects/foo/locations/us/keyRings/bar/cryptoKeys/baz&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? RuntimeDatabaseEncryptionKeyName
+    public TerraformProperty<string>? RuntimeDatabaseEncryptionKeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime_database_encryption_key_name");
+        get => GetProperty<TerraformProperty<string>>("runtime_database_encryption_key_name");
         set => this.WithProperty("runtime_database_encryption_key_name", value);
     }
 
     /// <summary>
     /// Runtime type of the Apigee organization based on the Apigee subscription purchased. Default value: &amp;quot;CLOUD&amp;quot; Possible values: [&amp;quot;CLOUD&amp;quot;, &amp;quot;HYBRID&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? RuntimeType
+    public TerraformProperty<string>? RuntimeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("runtime_type");
+        get => GetProperty<TerraformProperty<string>>("runtime_type");
         set => this.WithProperty("runtime_type", value);
     }
 

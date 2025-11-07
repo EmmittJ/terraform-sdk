@@ -20,144 +20,144 @@ public class AwsLaunchConfiguration : TerraformResource
     /// <summary>
     /// The associate_public_ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AssociatePublicIpAddress
+    public TerraformProperty<bool>? AssociatePublicIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("associate_public_ip_address");
+        get => GetProperty<TerraformProperty<bool>>("associate_public_ip_address");
         set => this.WithProperty("associate_public_ip_address", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EbsOptimized
+    public TerraformProperty<bool>? EbsOptimized
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ebs_optimized");
+        get => GetProperty<TerraformProperty<bool>>("ebs_optimized");
         set => this.WithProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The enable_monitoring attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableMonitoring
+    public TerraformProperty<bool>? EnableMonitoring
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_monitoring");
+        get => GetProperty<TerraformProperty<bool>>("enable_monitoring");
         set => this.WithProperty("enable_monitoring", value);
     }
 
     /// <summary>
     /// The iam_instance_profile attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamInstanceProfile
+    public TerraformProperty<string>? IamInstanceProfile
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_instance_profile");
+        get => GetProperty<TerraformProperty<string>>("iam_instance_profile");
         set => this.WithProperty("iam_instance_profile", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageId
+    public TerraformProperty<string>? ImageId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_id");
+        get => GetProperty<TerraformProperty<string>>("image_id");
         set => this.WithProperty("image_id", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyName
+    public TerraformProperty<string>? KeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_name");
+        get => GetProperty<TerraformProperty<string>>("key_name");
         set => this.WithProperty("key_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The placement_tenancy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PlacementTenancy
+    public TerraformProperty<string>? PlacementTenancy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("placement_tenancy");
+        get => GetProperty<TerraformProperty<string>>("placement_tenancy");
         set => this.WithProperty("placement_tenancy", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroups
+    public TerraformProperty<HashSet<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The spot_price attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpotPrice
+    public TerraformProperty<string>? SpotPrice
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spot_price");
+        get => GetProperty<TerraformProperty<string>>("spot_price");
         set => this.WithProperty("spot_price", value);
     }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserData
+    public TerraformProperty<string>? UserData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_data");
+        get => GetProperty<TerraformProperty<string>>("user_data");
         set => this.WithProperty("user_data", value);
     }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserDataBase64
+    public TerraformProperty<string>? UserDataBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_data_base64");
+        get => GetProperty<TerraformProperty<string>>("user_data_base64");
         set => this.WithProperty("user_data_base64", value);
     }
 

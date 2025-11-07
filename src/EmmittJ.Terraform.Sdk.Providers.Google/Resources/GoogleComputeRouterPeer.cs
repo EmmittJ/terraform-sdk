@@ -23,9 +23,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// User-specified flag to indicate which mode to use for advertisement.
     /// Valid values of this enum field are: &#39;DEFAULT&#39;, &#39;CUSTOM&#39; Default value: &amp;quot;DEFAULT&amp;quot; Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? AdvertiseMode
+    public TerraformProperty<string>? AdvertiseMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("advertise_mode");
+        get => GetProperty<TerraformProperty<string>>("advertise_mode");
         set => this.WithProperty("advertise_mode", value);
     }
 
@@ -43,9 +43,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// These groups are advertised in addition to any specified prefixes.
     /// Leave this field blank to advertise no custom groups.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AdvertisedGroups
+    public TerraformProperty<List<string>>? AdvertisedGroups
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("advertised_groups");
+        get => GetProperty<TerraformProperty<List<string>>>("advertised_groups");
         set => this.WithProperty("advertised_groups", value);
     }
 
@@ -54,9 +54,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// Where there is more than one matching route of maximum
     /// length, the routes with the lowest priority value win.
     /// </summary>
-    public TerraformLiteralProperty<double>? AdvertisedRoutePriority
+    public TerraformProperty<double>? AdvertisedRoutePriority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("advertised_route_priority");
+        get => GetProperty<TerraformProperty<double>>("advertised_route_priority");
         set => this.WithProperty("advertised_route_priority", value);
     }
 
@@ -65,9 +65,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// This value is applied to all custom learned route ranges for the session. You can choose a value
     /// from 0 to 65335. If you don&#39;t provide a value, Google Cloud assigns a priority of 100 to the ranges.
     /// </summary>
-    public TerraformLiteralProperty<double>? CustomLearnedRoutePriority
+    public TerraformProperty<double>? CustomLearnedRoutePriority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("custom_learned_route_priority");
+        get => GetProperty<TerraformProperty<double>>("custom_learned_route_priority");
         set => this.WithProperty("custom_learned_route_priority", value);
     }
 
@@ -77,27 +77,27 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// If set to true, the peer connection can be established with routing information.
     /// The default is true.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enable
+    public TerraformProperty<bool>? Enable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable");
+        get => GetProperty<TerraformProperty<bool>>("enable");
         set => this.WithProperty("enable", value);
     }
 
     /// <summary>
     /// Enable IPv4 traffic over BGP Peer. It is enabled by default if the peerIpAddress is version 4.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableIpv4
+    public TerraformProperty<bool>? EnableIpv4
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_ipv4");
+        get => GetProperty<TerraformProperty<bool>>("enable_ipv4");
         set => this.WithProperty("enable_ipv4", value);
     }
 
     /// <summary>
     /// Enable IPv6 traffic over BGP Peer. If not specified, it is disabled by default.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableIpv6
+    public TerraformProperty<bool>? EnableIpv6
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_ipv6");
+        get => GetProperty<TerraformProperty<bool>>("enable_ipv6");
         set => this.WithProperty("enable_ipv6", value);
     }
 
@@ -105,18 +105,18 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// routers.list of export policies applied to this peer, in the order they must be evaluated. 
     /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_EXPORT type.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ExportPolicies
+    public TerraformProperty<List<string>>? ExportPolicies
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("export_policies");
+        get => GetProperty<TerraformProperty<List<string>>>("export_policies");
         set => this.WithProperty("export_policies", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -124,18 +124,18 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// routers.list of import policies applied to this peer, in the order they must be evaluated. 
     /// The name must correspond to an existing policy that has ROUTE_POLICY_TYPE_IMPORT type.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? ImportPolicies
+    public TerraformProperty<List<string>>? ImportPolicies
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("import_policies");
+        get => GetProperty<TerraformProperty<List<string>>>("import_policies");
         set => this.WithProperty("import_policies", value);
     }
 
     /// <summary>
     /// Name of the interface the BGP peer is associated with.
     /// </summary>
-    public TerraformLiteralProperty<string>? Interface
+    public TerraformProperty<string>? Interface
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("interface");
+        get => GetProperty<TerraformProperty<string>>("interface");
         set => this.WithProperty("interface", value);
     }
 
@@ -143,18 +143,18 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// IP address of the interface inside Google Cloud Platform.
     /// Only IPv4 is supported.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddress
+    public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        get => GetProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// IPv4 address of the interface inside Google Cloud Platform.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ipv4NexthopAddress
+    public TerraformProperty<string>? Ipv4NexthopAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv4_nexthop_address");
+        get => GetProperty<TerraformProperty<string>>("ipv4_nexthop_address");
         set => this.WithProperty("ipv4_nexthop_address", value);
     }
 
@@ -164,9 +164,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// If you do not specify the next hop addresses, Google Cloud automatically
     /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
     /// </summary>
-    public TerraformLiteralProperty<string>? Ipv6NexthopAddress
+    public TerraformProperty<string>? Ipv6NexthopAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_nexthop_address");
+        get => GetProperty<TerraformProperty<string>>("ipv6_nexthop_address");
         set => this.WithProperty("ipv6_nexthop_address", value);
     }
 
@@ -178,9 +178,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -188,9 +188,9 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// Peer BGP Autonomous System Number (ASN).
     /// Each BGP interface may use a different value.
     /// </summary>
-    public TerraformLiteralProperty<double>? PeerAsn
+    public TerraformProperty<double>? PeerAsn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("peer_asn");
+        get => GetProperty<TerraformProperty<double>>("peer_asn");
         set => this.WithProperty("peer_asn", value);
     }
 
@@ -198,18 +198,18 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// IP address of the BGP interface outside Google Cloud Platform.
     /// Only IPv4 is supported. Required if &#39;ip_address&#39; is set.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerIpAddress
+    public TerraformProperty<string>? PeerIpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_ip_address");
+        get => GetProperty<TerraformProperty<string>>("peer_ip_address");
         set => this.WithProperty("peer_ip_address", value);
     }
 
     /// <summary>
     /// IPv4 address of the BGP interface outside Google Cloud Platform.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerIpv4NexthopAddress
+    public TerraformProperty<string>? PeerIpv4NexthopAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_ipv4_nexthop_address");
+        get => GetProperty<TerraformProperty<string>>("peer_ipv4_nexthop_address");
         set => this.WithProperty("peer_ipv4_nexthop_address", value);
     }
 
@@ -219,18 +219,18 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// If you do not specify the next hop addresses, Google Cloud automatically
     /// assigns unused addresses from the 2600:2d00:0:2::/64 or 2600:2d00:0:3::/64 range for you.
     /// </summary>
-    public TerraformLiteralProperty<string>? PeerIpv6NexthopAddress
+    public TerraformProperty<string>? PeerIpv6NexthopAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("peer_ipv6_nexthop_address");
+        get => GetProperty<TerraformProperty<string>>("peer_ipv6_nexthop_address");
         set => this.WithProperty("peer_ipv6_nexthop_address", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -238,18 +238,18 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// Region where the router and BgpPeer reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The name of the Cloud Router in which this BgpPeer will be configured.
     /// </summary>
-    public TerraformLiteralProperty<string>? Router
+    public TerraformProperty<string>? Router
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("router");
+        get => GetProperty<TerraformProperty<string>>("router");
         set => this.WithProperty("router", value);
     }
 
@@ -259,27 +259,27 @@ public class GoogleComputeRouterPeer : TerraformResource
     /// The VM instance must be located in zones contained in the same region as
     /// this Cloud Router. The VM instance is the peer side of the BGP session.
     /// </summary>
-    public TerraformLiteralProperty<string>? RouterApplianceInstance
+    public TerraformProperty<string>? RouterApplianceInstance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("router_appliance_instance");
+        get => GetProperty<TerraformProperty<string>>("router_appliance_instance");
         set => this.WithProperty("router_appliance_instance", value);
     }
 
     /// <summary>
     /// Force the advertised_route_priority to be 0.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZeroAdvertisedRoutePriority
+    public TerraformProperty<bool>? ZeroAdvertisedRoutePriority
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zero_advertised_route_priority");
+        get => GetProperty<TerraformProperty<bool>>("zero_advertised_route_priority");
         set => this.WithProperty("zero_advertised_route_priority", value);
     }
 
     /// <summary>
     /// Force the custom_learned_route_priority to be 0.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ZeroCustomLearnedRoutePriority
+    public TerraformProperty<bool>? ZeroCustomLearnedRoutePriority
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("zero_custom_learned_route_priority");
+        get => GetProperty<TerraformProperty<bool>>("zero_custom_learned_route_priority");
         set => this.WithProperty("zero_custom_learned_route_priority", value);
     }
 

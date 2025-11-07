@@ -19,18 +19,18 @@ public class AzurermContainerRegistryTokenPassword : TerraformResource
     /// <summary>
     /// The container_registry_token_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerRegistryTokenId
+    public TerraformProperty<string>? ContainerRegistryTokenId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_token_id");
+        get => GetProperty<TerraformProperty<string>>("container_registry_token_id");
         set => this.WithProperty("container_registry_token_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

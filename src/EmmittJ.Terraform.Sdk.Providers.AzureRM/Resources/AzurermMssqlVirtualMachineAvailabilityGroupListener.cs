@@ -19,45 +19,45 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformReso
     /// <summary>
     /// The availability_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityGroupName
+    public TerraformProperty<string>? AvailabilityGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_group_name");
+        get => GetProperty<TerraformProperty<string>>("availability_group_name");
         set => this.WithProperty("availability_group_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The sql_virtual_machine_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SqlVirtualMachineGroupId
+    public TerraformProperty<string>? SqlVirtualMachineGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sql_virtual_machine_group_id");
+        get => GetProperty<TerraformProperty<string>>("sql_virtual_machine_group_id");
         set => this.WithProperty("sql_virtual_machine_group_id", value);
     }
 

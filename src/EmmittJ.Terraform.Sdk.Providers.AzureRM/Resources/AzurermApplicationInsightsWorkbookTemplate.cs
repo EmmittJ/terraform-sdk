@@ -19,81 +19,81 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// <summary>
     /// The author attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Author
+    public TerraformProperty<string>? Author
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("author");
+        get => GetProperty<TerraformProperty<string>>("author");
         set => this.WithProperty("author", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The localized attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Localized
+    public TerraformProperty<string>? Localized
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("localized");
+        get => GetProperty<TerraformProperty<string>>("localized");
         set => this.WithProperty("localized", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The template_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateData
+    public TerraformProperty<string>? TemplateData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_data");
+        get => GetProperty<TerraformProperty<string>>("template_data");
         set => this.WithProperty("template_data", value);
     }
 

@@ -19,27 +19,27 @@ public class AzurermMssqlJobTargetGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The job_agent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? JobAgentId
+    public TerraformProperty<string>? JobAgentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("job_agent_id");
+        get => GetProperty<TerraformProperty<string>>("job_agent_id");
         set => this.WithProperty("job_agent_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

@@ -19,45 +19,45 @@ public class AwsEc2TransitGatewayMulticastDomainAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayAttachmentId
+    public TerraformProperty<string>? TransitGatewayAttachmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_attachment_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_attachment_id");
         set => this.WithProperty("transit_gateway_attachment_id", value);
     }
 
     /// <summary>
     /// The transit_gateway_multicast_domain_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayMulticastDomainId
+    public TerraformProperty<string>? TransitGatewayMulticastDomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_multicast_domain_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_multicast_domain_id");
         set => this.WithProperty("transit_gateway_multicast_domain_id", value);
     }
 

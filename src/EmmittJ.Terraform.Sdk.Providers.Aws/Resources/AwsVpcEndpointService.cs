@@ -27,99 +27,99 @@ public class AwsVpcEndpointService : TerraformResource
     /// <summary>
     /// The acceptance_required attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AcceptanceRequired
+    public TerraformProperty<bool>? AcceptanceRequired
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("acceptance_required");
+        get => GetProperty<TerraformProperty<bool>>("acceptance_required");
         set => this.WithProperty("acceptance_required", value);
     }
 
     /// <summary>
     /// The allowed_principals attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AllowedPrincipals
+    public TerraformProperty<HashSet<string>>? AllowedPrincipals
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_principals");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_principals");
         set => this.WithProperty("allowed_principals", value);
     }
 
     /// <summary>
     /// The gateway_load_balancer_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? GatewayLoadBalancerArns
+    public TerraformProperty<HashSet<string>>? GatewayLoadBalancerArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("gateway_load_balancer_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("gateway_load_balancer_arns");
         set => this.WithProperty("gateway_load_balancer_arns", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The network_load_balancer_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? NetworkLoadBalancerArns
+    public TerraformProperty<HashSet<string>>? NetworkLoadBalancerArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("network_load_balancer_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("network_load_balancer_arns");
         set => this.WithProperty("network_load_balancer_arns", value);
     }
 
     /// <summary>
     /// The private_dns_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateDnsName
+    public TerraformProperty<string>? PrivateDnsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_dns_name");
+        get => GetProperty<TerraformProperty<string>>("private_dns_name");
         set => this.WithProperty("private_dns_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The supported_ip_address_types attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SupportedIpAddressTypes
+    public TerraformProperty<HashSet<string>>? SupportedIpAddressTypes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("supported_ip_address_types");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("supported_ip_address_types");
         set => this.WithProperty("supported_ip_address_types", value);
     }
 
     /// <summary>
     /// The supported_regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SupportedRegions
+    public TerraformProperty<HashSet<string>>? SupportedRegions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("supported_regions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("supported_regions");
         set => this.WithProperty("supported_regions", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

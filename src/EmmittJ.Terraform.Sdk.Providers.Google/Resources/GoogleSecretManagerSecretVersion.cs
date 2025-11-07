@@ -28,72 +28,72 @@ public class GoogleSecretManagerSecretVersion : TerraformResource
     ///   * DISABLE
     ///   * ABANDON
     /// </summary>
-    public TerraformLiteralProperty<string>? DeletionPolicy
+    public TerraformProperty<string>? DeletionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("deletion_policy");
+        get => GetProperty<TerraformProperty<string>>("deletion_policy");
         set => this.WithProperty("deletion_policy", value);
     }
 
     /// <summary>
     /// The current state of the SecretVersion.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// If set to &#39;true&#39;, the secret data is expected to be base64-encoded string and would be sent as is.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsSecretDataBase64
+    public TerraformProperty<bool>? IsSecretDataBase64
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_secret_data_base64");
+        get => GetProperty<TerraformProperty<bool>>("is_secret_data_base64");
         set => this.WithProperty("is_secret_data_base64", value);
     }
 
     /// <summary>
     /// Secret Manager secret resource
     /// </summary>
-    public TerraformLiteralProperty<string>? Secret
+    public TerraformProperty<string>? Secret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret");
+        get => GetProperty<TerraformProperty<string>>("secret");
         set => this.WithProperty("secret", value);
     }
 
     /// <summary>
     /// The secret data. Must be no larger than 64KiB.
     /// </summary>
-    public TerraformLiteralProperty<string>? SecretData
+    public TerraformProperty<string>? SecretData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_data");
+        get => GetProperty<TerraformProperty<string>>("secret_data");
         set => this.WithProperty("secret_data", value);
     }
 
     /// <summary>
     /// The secret data. Must be no larger than 64KiB. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
-    public TerraformLiteralProperty<string>? SecretDataWo
+    public TerraformProperty<string>? SecretDataWo
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("secret_data_wo");
+        get => GetProperty<TerraformProperty<string>>("secret_data_wo");
         set => this.WithProperty("secret_data_wo", value);
     }
 
     /// <summary>
     /// Triggers update of secret data write-only. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
-    public TerraformLiteralProperty<double>? SecretDataWoVersion
+    public TerraformProperty<double>? SecretDataWoVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("secret_data_wo_version");
+        get => GetProperty<TerraformProperty<double>>("secret_data_wo_version");
         set => this.WithProperty("secret_data_wo_version", value);
     }
 

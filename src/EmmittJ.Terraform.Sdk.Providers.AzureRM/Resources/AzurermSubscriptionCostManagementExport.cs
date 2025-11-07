@@ -19,72 +19,72 @@ public class AzurermSubscriptionCostManagementExport : TerraformResource
     /// <summary>
     /// The active attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Active
+    public TerraformProperty<bool>? Active
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("active");
+        get => GetProperty<TerraformProperty<bool>>("active");
         set => this.WithProperty("active", value);
     }
 
     /// <summary>
     /// The file_format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileFormat
+    public TerraformProperty<string>? FileFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_format");
+        get => GetProperty<TerraformProperty<string>>("file_format");
         set => this.WithProperty("file_format", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recurrence_period_end_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecurrencePeriodEndDate
+    public TerraformProperty<string>? RecurrencePeriodEndDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recurrence_period_end_date");
+        get => GetProperty<TerraformProperty<string>>("recurrence_period_end_date");
         set => this.WithProperty("recurrence_period_end_date", value);
     }
 
     /// <summary>
     /// The recurrence_period_start_date attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecurrencePeriodStartDate
+    public TerraformProperty<string>? RecurrencePeriodStartDate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recurrence_period_start_date");
+        get => GetProperty<TerraformProperty<string>>("recurrence_period_start_date");
         set => this.WithProperty("recurrence_period_start_date", value);
     }
 
     /// <summary>
     /// The recurrence_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecurrenceType
+    public TerraformProperty<string>? RecurrenceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recurrence_type");
+        get => GetProperty<TerraformProperty<string>>("recurrence_type");
         set => this.WithProperty("recurrence_type", value);
     }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubscriptionId
+    public TerraformProperty<string>? SubscriptionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subscription_id");
+        get => GetProperty<TerraformProperty<string>>("subscription_id");
         set => this.WithProperty("subscription_id", value);
     }
 

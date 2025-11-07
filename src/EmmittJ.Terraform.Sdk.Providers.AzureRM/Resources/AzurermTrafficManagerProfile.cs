@@ -20,72 +20,72 @@ public class AzurermTrafficManagerProfile : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_return attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxReturn
+    public TerraformProperty<double>? MaxReturn
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_return");
+        get => GetProperty<TerraformProperty<double>>("max_return");
         set => this.WithProperty("max_return", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProfileStatus
+    public TerraformProperty<string>? ProfileStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile_status");
+        get => GetProperty<TerraformProperty<string>>("profile_status");
         set => this.WithProperty("profile_status", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The traffic_routing_method attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrafficRoutingMethod
+    public TerraformProperty<string>? TrafficRoutingMethod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("traffic_routing_method");
+        get => GetProperty<TerraformProperty<string>>("traffic_routing_method");
         set => this.WithProperty("traffic_routing_method", value);
     }
 
     /// <summary>
     /// The traffic_view_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TrafficViewEnabled
+    public TerraformProperty<bool>? TrafficViewEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("traffic_view_enabled");
+        get => GetProperty<TerraformProperty<bool>>("traffic_view_enabled");
         set => this.WithProperty("traffic_view_enabled", value);
     }
 

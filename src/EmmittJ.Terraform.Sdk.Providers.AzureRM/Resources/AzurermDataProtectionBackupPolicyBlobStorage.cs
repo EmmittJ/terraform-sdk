@@ -19,63 +19,63 @@ public class AzurermDataProtectionBackupPolicyBlobStorage : TerraformResource
     /// <summary>
     /// The backup_repeating_time_intervals attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? BackupRepeatingTimeIntervals
+    public TerraformProperty<List<string>>? BackupRepeatingTimeIntervals
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("backup_repeating_time_intervals");
+        get => GetProperty<TerraformProperty<List<string>>>("backup_repeating_time_intervals");
         set => this.WithProperty("backup_repeating_time_intervals", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The operational_default_retention_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OperationalDefaultRetentionDuration
+    public TerraformProperty<string>? OperationalDefaultRetentionDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("operational_default_retention_duration");
+        get => GetProperty<TerraformProperty<string>>("operational_default_retention_duration");
         set => this.WithProperty("operational_default_retention_duration", value);
     }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimeZone
+    public TerraformProperty<string>? TimeZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("time_zone");
+        get => GetProperty<TerraformProperty<string>>("time_zone");
         set => this.WithProperty("time_zone", value);
     }
 
     /// <summary>
     /// The vault_default_retention_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VaultDefaultRetentionDuration
+    public TerraformProperty<string>? VaultDefaultRetentionDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_default_retention_duration");
+        get => GetProperty<TerraformProperty<string>>("vault_default_retention_duration");
         set => this.WithProperty("vault_default_retention_duration", value);
     }
 
     /// <summary>
     /// The vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VaultId
+    public TerraformProperty<string>? VaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_id");
+        get => GetProperty<TerraformProperty<string>>("vault_id");
         set => this.WithProperty("vault_id", value);
     }
 

@@ -26,99 +26,99 @@ public class AwsEfsFileSystem : TerraformResource
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZoneName
+    public TerraformProperty<string>? AvailabilityZoneName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone_name");
+        get => GetProperty<TerraformProperty<string>>("availability_zone_name");
         set => this.WithProperty("availability_zone_name", value);
     }
 
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CreationToken
+    public TerraformProperty<string>? CreationToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("creation_token");
+        get => GetProperty<TerraformProperty<string>>("creation_token");
         set => this.WithProperty("creation_token", value);
     }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Encrypted
+    public TerraformProperty<bool>? Encrypted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("encrypted");
+        get => GetProperty<TerraformProperty<bool>>("encrypted");
         set => this.WithProperty("encrypted", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PerformanceMode
+    public TerraformProperty<string>? PerformanceMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("performance_mode");
+        get => GetProperty<TerraformProperty<string>>("performance_mode");
         set => this.WithProperty("performance_mode", value);
     }
 
     /// <summary>
     /// The provisioned_throughput_in_mibps attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ProvisionedThroughputInMibps
+    public TerraformProperty<double>? ProvisionedThroughputInMibps
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("provisioned_throughput_in_mibps");
+        get => GetProperty<TerraformProperty<double>>("provisioned_throughput_in_mibps");
         set => this.WithProperty("provisioned_throughput_in_mibps", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ThroughputMode
+    public TerraformProperty<string>? ThroughputMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("throughput_mode");
+        get => GetProperty<TerraformProperty<string>>("throughput_mode");
         set => this.WithProperty("throughput_mode", value);
     }
 

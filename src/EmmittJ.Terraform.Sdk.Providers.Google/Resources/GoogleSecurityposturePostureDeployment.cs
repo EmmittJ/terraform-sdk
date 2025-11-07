@@ -28,45 +28,45 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// <summary>
     /// Description of the posture deployment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location of the resource, eg. global&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The parent of the resource, an organization. Format should be &#39;organizations/{organization_id}&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// ID of the posture deployment.
     /// </summary>
-    public TerraformLiteralProperty<string>? PostureDeploymentId
+    public TerraformProperty<string>? PostureDeploymentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("posture_deployment_id");
+        get => GetProperty<TerraformProperty<string>>("posture_deployment_id");
         set => this.WithProperty("posture_deployment_id", value);
     }
 
@@ -74,18 +74,18 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// Relative name of the posture which needs to be deployed. It should be in the format:
     ///   organizations/{organization_id}/locations/{location}/postures/{posture_id}
     /// </summary>
-    public TerraformLiteralProperty<string>? PostureId
+    public TerraformProperty<string>? PostureId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("posture_id");
+        get => GetProperty<TerraformProperty<string>>("posture_id");
         set => this.WithProperty("posture_id", value);
     }
 
     /// <summary>
     /// Revision_id the posture which needs to be deployed.
     /// </summary>
-    public TerraformLiteralProperty<string>? PostureRevisionId
+    public TerraformProperty<string>? PostureRevisionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("posture_revision_id");
+        get => GetProperty<TerraformProperty<string>>("posture_revision_id");
         set => this.WithProperty("posture_revision_id", value);
     }
 
@@ -95,9 +95,9 @@ public class GoogleSecurityposturePostureDeployment : TerraformResource
     /// folders/{folder_number},
     /// organizations/{organization_id}
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetResource
+    public TerraformProperty<string>? TargetResource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource");
+        get => GetProperty<TerraformProperty<string>>("target_resource");
         set => this.WithProperty("target_resource", value);
     }
 

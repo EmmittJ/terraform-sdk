@@ -29,108 +29,108 @@ public class AwsStoragegatewayStoredIscsiVolume : TerraformResource
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DiskId
+    public TerraformProperty<string>? DiskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_id");
+        get => GetProperty<TerraformProperty<string>>("disk_id");
         set => this.WithProperty("disk_id", value);
     }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewayArn
+    public TerraformProperty<string>? GatewayArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_arn");
+        get => GetProperty<TerraformProperty<string>>("gateway_arn");
         set => this.WithProperty("gateway_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_encrypted attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? KmsEncrypted
+    public TerraformProperty<bool>? KmsEncrypted
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("kms_encrypted");
+        get => GetProperty<TerraformProperty<bool>>("kms_encrypted");
         set => this.WithProperty("kms_encrypted", value);
     }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKey
+    public TerraformProperty<string>? KmsKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key");
+        get => GetProperty<TerraformProperty<string>>("kms_key");
         set => this.WithProperty("kms_key", value);
     }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkInterfaceId
+    public TerraformProperty<string>? NetworkInterfaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_interface_id");
+        get => GetProperty<TerraformProperty<string>>("network_interface_id");
         set => this.WithProperty("network_interface_id", value);
     }
 
     /// <summary>
     /// The preserve_existing_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PreserveExistingData
+    public TerraformProperty<bool>? PreserveExistingData
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("preserve_existing_data");
+        get => GetProperty<TerraformProperty<bool>>("preserve_existing_data");
         set => this.WithProperty("preserve_existing_data", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The snapshot_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SnapshotId
+    public TerraformProperty<string>? SnapshotId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("snapshot_id");
+        get => GetProperty<TerraformProperty<string>>("snapshot_id");
         set => this.WithProperty("snapshot_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The target_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetName
+    public TerraformProperty<string>? TargetName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_name");
+        get => GetProperty<TerraformProperty<string>>("target_name");
         set => this.WithProperty("target_name", value);
     }
 

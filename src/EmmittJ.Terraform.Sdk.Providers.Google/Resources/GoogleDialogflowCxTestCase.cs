@@ -22,27 +22,27 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// <summary>
     /// The human-readable name of the test case, unique within the agent. Limit of 200 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Additional freeform notes about the test case. Limit of 400 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Notes
+    public TerraformProperty<string>? Notes
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notes");
+        get => GetProperty<TerraformProperty<string>>("notes");
         set => this.WithProperty("notes", value);
     }
 
@@ -50,9 +50,9 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// The agent to create the test case for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -60,9 +60,9 @@ public class GoogleDialogflowCxTestCase : TerraformResource
     /// Tags are short descriptions that users may apply to test cases for organizational and filtering purposes.
     /// Each tag should start with &amp;quot;#&amp;quot; and has a limit of 30 characters
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Tags
+    public TerraformProperty<List<string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("tags");
+        get => GetProperty<TerraformProperty<List<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

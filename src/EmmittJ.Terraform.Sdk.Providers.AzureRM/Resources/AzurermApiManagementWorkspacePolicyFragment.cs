@@ -19,54 +19,54 @@ public class AzurermApiManagementWorkspacePolicyFragment : TerraformResource
     /// <summary>
     /// The api_management_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementWorkspaceId
+    public TerraformProperty<string>? ApiManagementWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("api_management_workspace_id");
         set => this.WithProperty("api_management_workspace_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The xml_content attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XmlContent
+    public TerraformProperty<string>? XmlContent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_content");
+        get => GetProperty<TerraformProperty<string>>("xml_content");
         set => this.WithProperty("xml_content", value);
     }
 
     /// <summary>
     /// The xml_format attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? XmlFormat
+    public TerraformProperty<string>? XmlFormat
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("xml_format");
+        get => GetProperty<TerraformProperty<string>>("xml_format");
         set => this.WithProperty("xml_format", value);
     }
 

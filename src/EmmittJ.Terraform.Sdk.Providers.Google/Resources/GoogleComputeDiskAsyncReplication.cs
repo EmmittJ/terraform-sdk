@@ -19,18 +19,18 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Primary disk for asynchronous replication.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrimaryDisk
+    public TerraformProperty<string>? PrimaryDisk
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_disk");
+        get => GetProperty<TerraformProperty<string>>("primary_disk");
         set => this.WithProperty("primary_disk", value);
     }
 

@@ -24,45 +24,45 @@ public class GoogleFirestoreDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The collection ID, relative to database. For example: chatrooms or chatrooms/my-document/private-messages.
     /// </summary>
-    public TerraformLiteralProperty<string>? Collection
+    public TerraformProperty<string>? Collection
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collection");
+        get => GetProperty<TerraformProperty<string>>("collection");
         set => this.WithProperty("collection", value);
     }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Database
+    public TerraformProperty<string>? Database
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("database");
+        get => GetProperty<TerraformProperty<string>>("database");
         set => this.WithProperty("database", value);
     }
 
     /// <summary>
     /// The client-assigned document ID to use for this document during creation.
     /// </summary>
-    public TerraformLiteralProperty<string>? DocumentId
+    public TerraformProperty<string>? DocumentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("document_id");
+        get => GetProperty<TerraformProperty<string>>("document_id");
         set => this.WithProperty("document_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

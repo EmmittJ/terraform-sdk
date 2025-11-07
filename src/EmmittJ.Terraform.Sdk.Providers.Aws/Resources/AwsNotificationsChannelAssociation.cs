@@ -19,18 +19,18 @@ public class AwsNotificationsChannelAssociation : TerraformResource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Arn
+    public TerraformProperty<string>? Arn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("arn");
+        get => GetProperty<TerraformProperty<string>>("arn");
         set => this.WithProperty("arn", value);
     }
 
     /// <summary>
     /// The notification_configuration_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotificationConfigurationArn
+    public TerraformProperty<string>? NotificationConfigurationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_configuration_arn");
+        get => GetProperty<TerraformProperty<string>>("notification_configuration_arn");
         set => this.WithProperty("notification_configuration_arn", value);
     }
 

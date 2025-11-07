@@ -21,63 +21,63 @@ public class AwsBedrockagentAgentCollaborator : TerraformResource
     /// <summary>
     /// The agent_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentId
+    public TerraformProperty<string>? AgentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_id");
+        get => GetProperty<TerraformProperty<string>>("agent_id");
         set => this.WithProperty("agent_id", value);
     }
 
     /// <summary>
     /// The agent_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentVersion
+    public TerraformProperty<string>? AgentVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_version");
+        get => GetProperty<TerraformProperty<string>>("agent_version");
         set => this.WithProperty("agent_version", value);
     }
 
     /// <summary>
     /// The collaboration_instruction attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CollaborationInstruction
+    public TerraformProperty<string>? CollaborationInstruction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collaboration_instruction");
+        get => GetProperty<TerraformProperty<string>>("collaboration_instruction");
         set => this.WithProperty("collaboration_instruction", value);
     }
 
     /// <summary>
     /// The collaborator_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CollaboratorName
+    public TerraformProperty<string>? CollaboratorName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("collaborator_name");
+        get => GetProperty<TerraformProperty<string>>("collaborator_name");
         set => this.WithProperty("collaborator_name", value);
     }
 
     /// <summary>
     /// The prepare_agent attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PrepareAgent
+    public TerraformProperty<bool>? PrepareAgent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("prepare_agent");
+        get => GetProperty<TerraformProperty<bool>>("prepare_agent");
         set => this.WithProperty("prepare_agent", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The relay_conversation_history attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RelayConversationHistory
+    public TerraformProperty<string>? RelayConversationHistory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("relay_conversation_history");
+        get => GetProperty<TerraformProperty<string>>("relay_conversation_history");
         set => this.WithProperty("relay_conversation_history", value);
     }
 

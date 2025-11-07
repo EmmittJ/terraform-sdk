@@ -19,99 +19,99 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
     /// <summary>
     /// The credential_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CredentialName
+    public TerraformProperty<string>? CredentialName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("credential_name");
+        get => GetProperty<TerraformProperty<string>>("credential_name");
         set => this.WithProperty("credential_name", value);
     }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataFactoryId
+    public TerraformProperty<string>? DataFactoryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_factory_id");
+        get => GetProperty<TerraformProperty<string>>("data_factory_id");
         set => this.WithProperty("data_factory_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The edition attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Edition
+    public TerraformProperty<string>? Edition
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("edition");
+        get => GetProperty<TerraformProperty<string>>("edition");
         set => this.WithProperty("edition", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LicenseType
+    public TerraformProperty<string>? LicenseType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("license_type");
+        get => GetProperty<TerraformProperty<string>>("license_type");
         set => this.WithProperty("license_type", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The max_parallel_executions_per_node attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxParallelExecutionsPerNode
+    public TerraformProperty<double>? MaxParallelExecutionsPerNode
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_parallel_executions_per_node");
+        get => GetProperty<TerraformProperty<double>>("max_parallel_executions_per_node");
         set => this.WithProperty("max_parallel_executions_per_node", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The node_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NodeSize
+    public TerraformProperty<string>? NodeSize
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("node_size");
+        get => GetProperty<TerraformProperty<string>>("node_size");
         set => this.WithProperty("node_size", value);
     }
 
     /// <summary>
     /// The number_of_nodes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NumberOfNodes
+    public TerraformProperty<double>? NumberOfNodes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("number_of_nodes");
+        get => GetProperty<TerraformProperty<double>>("number_of_nodes");
         set => this.WithProperty("number_of_nodes", value);
     }
 

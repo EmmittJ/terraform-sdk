@@ -21,72 +21,72 @@ public class AwsEc2TransitGatewayMulticastDomain : TerraformResource
     /// <summary>
     /// The auto_accept_shared_associations attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutoAcceptSharedAssociations
+    public TerraformProperty<string>? AutoAcceptSharedAssociations
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auto_accept_shared_associations");
+        get => GetProperty<TerraformProperty<string>>("auto_accept_shared_associations");
         set => this.WithProperty("auto_accept_shared_associations", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The igmpv2_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Igmpv2Support
+    public TerraformProperty<string>? Igmpv2Support
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("igmpv2_support");
+        get => GetProperty<TerraformProperty<string>>("igmpv2_support");
         set => this.WithProperty("igmpv2_support", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The static_sources_support attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StaticSourcesSupport
+    public TerraformProperty<string>? StaticSourcesSupport
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("static_sources_support");
+        get => GetProperty<TerraformProperty<string>>("static_sources_support");
         set => this.WithProperty("static_sources_support", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TransitGatewayId
+    public TerraformProperty<string>? TransitGatewayId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("transit_gateway_id");
+        get => GetProperty<TerraformProperty<string>>("transit_gateway_id");
         set => this.WithProperty("transit_gateway_id", value);
     }
 

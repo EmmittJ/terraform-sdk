@@ -21,54 +21,54 @@ public class GoogleAlloydbUser : TerraformResource
     /// Identifies the alloydb cluster. Must be in the format
     /// &#39;projects/{project}/locations/{location}/clusters/{cluster_id}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Cluster
+    public TerraformProperty<string>? Cluster
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster");
+        get => GetProperty<TerraformProperty<string>>("cluster");
         set => this.WithProperty("cluster", value);
     }
 
     /// <summary>
     /// List of database roles this database user has.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? DatabaseRoles
+    public TerraformProperty<List<string>>? DatabaseRoles
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("database_roles");
+        get => GetProperty<TerraformProperty<List<string>>>("database_roles");
         set => this.WithProperty("database_roles", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Password for this database user.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The database role name of the user.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserId
+    public TerraformProperty<string>? UserId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_id");
+        get => GetProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
     }
 
     /// <summary>
     /// The type of this user. Possible values: [&amp;quot;ALLOYDB_BUILT_IN&amp;quot;, &amp;quot;ALLOYDB_IAM_USER&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? UserType
+    public TerraformProperty<string>? UserType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_type");
+        get => GetProperty<TerraformProperty<string>>("user_type");
         set => this.WithProperty("user_type", value);
     }
 

@@ -23,99 +23,99 @@ public class AwsImagebuilderImageRecipe : TerraformResource
     /// <summary>
     /// The ami_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? AmiTags
+    public TerraformProperty<Dictionary<string, string>>? AmiTags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("ami_tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("ami_tags");
         set => this.WithProperty("ami_tags", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParentImage
+    public TerraformProperty<string>? ParentImage
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent_image");
+        get => GetProperty<TerraformProperty<string>>("parent_image");
         set => this.WithProperty("parent_image", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserDataBase64
+    public TerraformProperty<string>? UserDataBase64
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_data_base64");
+        get => GetProperty<TerraformProperty<string>>("user_data_base64");
         set => this.WithProperty("user_data_base64", value);
     }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkingDirectory
+    public TerraformProperty<string>? WorkingDirectory
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("working_directory");
+        get => GetProperty<TerraformProperty<string>>("working_directory");
         set => this.WithProperty("working_directory", value);
     }
 

@@ -20,45 +20,45 @@ public class AzurermAppServiceSlotCustomHostnameBinding : TerraformResource
     /// <summary>
     /// The app_service_slot_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppServiceSlotId
+    public TerraformProperty<string>? AppServiceSlotId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_service_slot_id");
+        get => GetProperty<TerraformProperty<string>>("app_service_slot_id");
         set => this.WithProperty("app_service_slot_id", value);
     }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Hostname
+    public TerraformProperty<string>? Hostname
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hostname");
+        get => GetProperty<TerraformProperty<string>>("hostname");
         set => this.WithProperty("hostname", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SslState
+    public TerraformProperty<string>? SslState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ssl_state");
+        get => GetProperty<TerraformProperty<string>>("ssl_state");
         set => this.WithProperty("ssl_state", value);
     }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Thumbprint
+    public TerraformProperty<string>? Thumbprint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("thumbprint");
+        get => GetProperty<TerraformProperty<string>>("thumbprint");
         set => this.WithProperty("thumbprint", value);
     }
 

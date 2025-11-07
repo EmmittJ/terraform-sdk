@@ -21,189 +21,189 @@ public class AwsLaunchTemplate : TerraformResource
     /// <summary>
     /// The default_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? DefaultVersion
+    public TerraformProperty<double>? DefaultVersion
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("default_version");
+        get => GetProperty<TerraformProperty<double>>("default_version");
         set => this.WithProperty("default_version", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The disable_api_stop attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableApiStop
+    public TerraformProperty<bool>? DisableApiStop
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_api_stop");
+        get => GetProperty<TerraformProperty<bool>>("disable_api_stop");
         set => this.WithProperty("disable_api_stop", value);
     }
 
     /// <summary>
     /// The disable_api_termination attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DisableApiTermination
+    public TerraformProperty<bool>? DisableApiTermination
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable_api_termination");
+        get => GetProperty<TerraformProperty<bool>>("disable_api_termination");
         set => this.WithProperty("disable_api_termination", value);
     }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EbsOptimized
+    public TerraformProperty<string>? EbsOptimized
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ebs_optimized");
+        get => GetProperty<TerraformProperty<string>>("ebs_optimized");
         set => this.WithProperty("ebs_optimized", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ImageId
+    public TerraformProperty<string>? ImageId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("image_id");
+        get => GetProperty<TerraformProperty<string>>("image_id");
         set => this.WithProperty("image_id", value);
     }
 
     /// <summary>
     /// The instance_initiated_shutdown_behavior attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceInitiatedShutdownBehavior
+    public TerraformProperty<string>? InstanceInitiatedShutdownBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_initiated_shutdown_behavior");
+        get => GetProperty<TerraformProperty<string>>("instance_initiated_shutdown_behavior");
         set => this.WithProperty("instance_initiated_shutdown_behavior", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KernelId
+    public TerraformProperty<string>? KernelId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kernel_id");
+        get => GetProperty<TerraformProperty<string>>("kernel_id");
         set => this.WithProperty("kernel_id", value);
     }
 
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyName
+    public TerraformProperty<string>? KeyName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_name");
+        get => GetProperty<TerraformProperty<string>>("key_name");
         set => this.WithProperty("key_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamePrefix
+    public TerraformProperty<string>? NamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name_prefix");
+        get => GetProperty<TerraformProperty<string>>("name_prefix");
         set => this.WithProperty("name_prefix", value);
     }
 
     /// <summary>
     /// The ram_disk_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RamDiskId
+    public TerraformProperty<string>? RamDiskId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ram_disk_id");
+        get => GetProperty<TerraformProperty<string>>("ram_disk_id");
         set => this.WithProperty("ram_disk_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_names attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupNames
+    public TerraformProperty<HashSet<string>>? SecurityGroupNames
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_names");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_names");
         set => this.WithProperty("security_group_names", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The update_default_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UpdateDefaultVersion
+    public TerraformProperty<bool>? UpdateDefaultVersion
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("update_default_version");
+        get => GetProperty<TerraformProperty<bool>>("update_default_version");
         set => this.WithProperty("update_default_version", value);
     }
 
     /// <summary>
     /// The user_data attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserData
+    public TerraformProperty<string>? UserData
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_data");
+        get => GetProperty<TerraformProperty<string>>("user_data");
         set => this.WithProperty("user_data", value);
     }
 
     /// <summary>
     /// The vpc_security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? VpcSecurityGroupIds
+    public TerraformProperty<HashSet<string>>? VpcSecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("vpc_security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("vpc_security_group_ids");
         set => this.WithProperty("vpc_security_group_ids", value);
     }
 

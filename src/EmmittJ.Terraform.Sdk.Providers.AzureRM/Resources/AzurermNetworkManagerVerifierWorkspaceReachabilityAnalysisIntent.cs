@@ -19,54 +19,54 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The destination_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationResourceId
+    public TerraformProperty<string>? DestinationResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_resource_id");
+        get => GetProperty<TerraformProperty<string>>("destination_resource_id");
         set => this.WithProperty("destination_resource_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceResourceId
+    public TerraformProperty<string>? SourceResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_resource_id");
+        get => GetProperty<TerraformProperty<string>>("source_resource_id");
         set => this.WithProperty("source_resource_id", value);
     }
 
     /// <summary>
     /// The verifier_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VerifierWorkspaceId
+    public TerraformProperty<string>? VerifierWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("verifier_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("verifier_workspace_id");
         set => this.WithProperty("verifier_workspace_id", value);
     }
 

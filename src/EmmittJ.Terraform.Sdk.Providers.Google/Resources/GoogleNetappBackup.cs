@@ -28,18 +28,18 @@ public class GoogleNetappBackup : TerraformResource
     /// <summary>
     /// A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -50,36 +50,36 @@ public class GoogleNetappBackup : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// Location of the backup.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The resource name of the backup. Needs to be unique per location.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -88,27 +88,27 @@ public class GoogleNetappBackup : TerraformResource
     /// there will be a new snapshot taken to initiate the backup creation.
     /// Format: &#39;projects/{{projectId}}/locations/{{location}}/volumes/{{volumename}}/snapshots/{{snapshotname}}&#39;&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceSnapshot
+    public TerraformProperty<string>? SourceSnapshot
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_snapshot");
+        get => GetProperty<TerraformProperty<string>>("source_snapshot");
         set => this.WithProperty("source_snapshot", value);
     }
 
     /// <summary>
     /// ID of volumes this backup belongs to. Format: &#39;projects/{{projects_id}}/locations/{{location}}/volumes/{{name}}&#39;&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceVolume
+    public TerraformProperty<string>? SourceVolume
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_volume");
+        get => GetProperty<TerraformProperty<string>>("source_volume");
         set => this.WithProperty("source_volume", value);
     }
 
     /// <summary>
     /// Name of the backup vault to store the backup in.
     /// </summary>
-    public TerraformLiteralProperty<string>? VaultName
+    public TerraformProperty<string>? VaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("vault_name");
+        get => GetProperty<TerraformProperty<string>>("vault_name");
         set => this.WithProperty("vault_name", value);
     }
 

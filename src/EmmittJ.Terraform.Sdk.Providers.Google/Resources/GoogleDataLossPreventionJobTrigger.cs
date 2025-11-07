@@ -23,27 +23,27 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// <summary>
     /// A description of the job trigger.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// User set display name of the job trigger.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -51,18 +51,18 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// The parent of the trigger, either in the format &#39;projects/{{project}}&#39;
     /// or &#39;projects/{{project}}/locations/{{location}}&#39;
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// Whether the trigger is currently active. Default value: &amp;quot;HEALTHY&amp;quot; Possible values: [&amp;quot;PAUSED&amp;quot;, &amp;quot;HEALTHY&amp;quot;, &amp;quot;CANCELLED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Status
+    public TerraformProperty<string>? Status
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("status");
+        get => GetProperty<TerraformProperty<string>>("status");
         set => this.WithProperty("status", value);
     }
 
@@ -71,9 +71,9 @@ public class GoogleDataLossPreventionJobTrigger : TerraformResource
     /// that is, it must match the regular expression: [a-zA-Z\d-_]+.
     /// The maximum length is 100 characters. Can be empty to allow the system to generate one.
     /// </summary>
-    public TerraformLiteralProperty<string>? TriggerId
+    public TerraformProperty<string>? TriggerId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("trigger_id");
+        get => GetProperty<TerraformProperty<string>>("trigger_id");
         set => this.WithProperty("trigger_id", value);
     }
 

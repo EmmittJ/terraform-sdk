@@ -19,45 +19,45 @@ public class AwsLightsailDiskAttachment : TerraformResource
     /// <summary>
     /// The disk_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DiskName
+    public TerraformProperty<string>? DiskName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_name");
+        get => GetProperty<TerraformProperty<string>>("disk_name");
         set => this.WithProperty("disk_name", value);
     }
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DiskPath
+    public TerraformProperty<string>? DiskPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("disk_path");
+        get => GetProperty<TerraformProperty<string>>("disk_path");
         set => this.WithProperty("disk_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceName
+    public TerraformProperty<string>? InstanceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_name");
+        get => GetProperty<TerraformProperty<string>>("instance_name");
         set => this.WithProperty("instance_name", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

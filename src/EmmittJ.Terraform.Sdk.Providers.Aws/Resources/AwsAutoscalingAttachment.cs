@@ -19,45 +19,45 @@ public class AwsAutoscalingAttachment : TerraformResource
     /// <summary>
     /// The autoscaling_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutoscalingGroupName
+    public TerraformProperty<string>? AutoscalingGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("autoscaling_group_name");
+        get => GetProperty<TerraformProperty<string>>("autoscaling_group_name");
         set => this.WithProperty("autoscaling_group_name", value);
     }
 
     /// <summary>
     /// The elb attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Elb
+    public TerraformProperty<string>? Elb
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("elb");
+        get => GetProperty<TerraformProperty<string>>("elb");
         set => this.WithProperty("elb", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The lb_target_group_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LbTargetGroupArn
+    public TerraformProperty<string>? LbTargetGroupArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lb_target_group_arn");
+        get => GetProperty<TerraformProperty<string>>("lb_target_group_arn");
         set => this.WithProperty("lb_target_group_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

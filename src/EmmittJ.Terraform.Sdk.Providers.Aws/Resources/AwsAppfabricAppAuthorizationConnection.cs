@@ -22,27 +22,27 @@ public class AwsAppfabricAppAuthorizationConnection : TerraformResource
     /// <summary>
     /// The app_authorization_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppAuthorizationArn
+    public TerraformProperty<string>? AppAuthorizationArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_authorization_arn");
+        get => GetProperty<TerraformProperty<string>>("app_authorization_arn");
         set => this.WithProperty("app_authorization_arn", value);
     }
 
     /// <summary>
     /// The app_bundle_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AppBundleArn
+    public TerraformProperty<string>? AppBundleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("app_bundle_arn");
+        get => GetProperty<TerraformProperty<string>>("app_bundle_arn");
         set => this.WithProperty("app_bundle_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

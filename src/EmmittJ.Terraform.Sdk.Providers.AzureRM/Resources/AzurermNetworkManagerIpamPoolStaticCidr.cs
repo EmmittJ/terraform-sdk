@@ -19,45 +19,45 @@ public class AzurermNetworkManagerIpamPoolStaticCidr : TerraformResource
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? AddressPrefixes
+    public TerraformProperty<List<string>>? AddressPrefixes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("address_prefixes");
+        get => GetProperty<TerraformProperty<List<string>>>("address_prefixes");
         set => this.WithProperty("address_prefixes", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpamPoolId
+    public TerraformProperty<string>? IpamPoolId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipam_pool_id");
+        get => GetProperty<TerraformProperty<string>>("ipam_pool_id");
         set => this.WithProperty("ipam_pool_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The number_of_ip_addresses_to_allocate attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NumberOfIpAddressesToAllocate
+    public TerraformProperty<string>? NumberOfIpAddressesToAllocate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("number_of_ip_addresses_to_allocate");
+        get => GetProperty<TerraformProperty<string>>("number_of_ip_addresses_to_allocate");
         set => this.WithProperty("number_of_ip_addresses_to_allocate", value);
     }
 

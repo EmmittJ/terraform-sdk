@@ -27,99 +27,99 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AutomaticFailoverEnabled
+    public TerraformProperty<bool>? AutomaticFailoverEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("automatic_failover_enabled");
+        get => GetProperty<TerraformProperty<bool>>("automatic_failover_enabled");
         set => this.WithProperty("automatic_failover_enabled", value);
     }
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CacheNodeType
+    public TerraformProperty<string>? CacheNodeType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cache_node_type");
+        get => GetProperty<TerraformProperty<string>>("cache_node_type");
         set => this.WithProperty("cache_node_type", value);
     }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Engine
+    public TerraformProperty<string>? Engine
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine");
+        get => GetProperty<TerraformProperty<string>>("engine");
         set => this.WithProperty("engine", value);
     }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EngineVersion
+    public TerraformProperty<string>? EngineVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("engine_version");
+        get => GetProperty<TerraformProperty<string>>("engine_version");
         set => this.WithProperty("engine_version", value);
     }
 
     /// <summary>
     /// The global_replication_group_description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GlobalReplicationGroupDescription
+    public TerraformProperty<string>? GlobalReplicationGroupDescription
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_replication_group_description");
+        get => GetProperty<TerraformProperty<string>>("global_replication_group_description");
         set => this.WithProperty("global_replication_group_description", value);
     }
 
     /// <summary>
     /// The global_replication_group_id_suffix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GlobalReplicationGroupIdSuffix
+    public TerraformProperty<string>? GlobalReplicationGroupIdSuffix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("global_replication_group_id_suffix");
+        get => GetProperty<TerraformProperty<string>>("global_replication_group_id_suffix");
         set => this.WithProperty("global_replication_group_id_suffix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The num_node_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NumNodeGroups
+    public TerraformProperty<double>? NumNodeGroups
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("num_node_groups");
+        get => GetProperty<TerraformProperty<double>>("num_node_groups");
         set => this.WithProperty("num_node_groups", value);
     }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ParameterGroupName
+    public TerraformProperty<string>? ParameterGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parameter_group_name");
+        get => GetProperty<TerraformProperty<string>>("parameter_group_name");
         set => this.WithProperty("parameter_group_name", value);
     }
 
     /// <summary>
     /// The primary_replication_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrimaryReplicationGroupId
+    public TerraformProperty<string>? PrimaryReplicationGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("primary_replication_group_id");
+        get => GetProperty<TerraformProperty<string>>("primary_replication_group_id");
         set => this.WithProperty("primary_replication_group_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

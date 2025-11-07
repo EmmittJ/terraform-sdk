@@ -26,18 +26,18 @@ public class GoogleComputeFirewallPolicyWithRules : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -45,18 +45,18 @@ public class GoogleComputeFirewallPolicyWithRules : TerraformResource
     /// The parent of this FirewallPolicy in the Cloud Resource Hierarchy.
     /// Format: organizations/{organization_id} or folders/{folder_id}
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
     /// <summary>
     /// A textual name of the security policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? ShortName
+    public TerraformProperty<string>? ShortName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("short_name");
+        get => GetProperty<TerraformProperty<string>>("short_name");
         set => this.WithProperty("short_name", value);
     }
 

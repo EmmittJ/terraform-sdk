@@ -22,27 +22,27 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// <summary>
     /// Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The human-readable name of the intent, unique within the agent.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// 
     /// ~&amp;gt; Avoid having multiple &#39;google_dialogflow_cx_intent&#39; resources linked to the same agent with &#39;is_default_negative_intent = true&#39; because they will compete to control a single Default Negative Intent resource in GCP.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsDefaultNegativeIntent
+    public TerraformProperty<bool>? IsDefaultNegativeIntent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_default_negative_intent");
+        get => GetProperty<TerraformProperty<bool>>("is_default_negative_intent");
         set => this.WithProperty("is_default_negative_intent", value);
     }
 
@@ -64,9 +64,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// 
     /// ~&amp;gt; Avoid having multiple &#39;google_dialogflow_cx_intent&#39; resources linked to the same agent with &#39;is_default_welcome_intent = true&#39; because they will compete to control a single Default Welcome Intent resource in GCP.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsDefaultWelcomeIntent
+    public TerraformProperty<bool>? IsDefaultWelcomeIntent
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_default_welcome_intent");
+        get => GetProperty<TerraformProperty<bool>>("is_default_welcome_intent");
         set => this.WithProperty("is_default_welcome_intent", value);
     }
 
@@ -75,9 +75,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// Adding training phrases to fallback intent is useful in the case of requests that are mistakenly matched, since training phrases assigned to fallback intents act as negative examples that triggers no-match event.
     /// To manage the fallback intent, set &#39;is_default_negative_intent = true&#39;
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsFallback
+    public TerraformProperty<bool>? IsFallback
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_fallback");
+        get => GetProperty<TerraformProperty<bool>>("is_fallback");
         set => this.WithProperty("is_fallback", value);
     }
 
@@ -90,9 +90,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -101,9 +101,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// Intent.training_phrases.parts.text
     /// If not specified, the agent&#39;s default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
     /// </summary>
-    public TerraformLiteralProperty<string>? LanguageCode
+    public TerraformProperty<string>? LanguageCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("language_code");
+        get => GetProperty<TerraformProperty<string>>("language_code");
         set => this.WithProperty("language_code", value);
     }
 
@@ -111,9 +111,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// The agent to create an intent for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -122,9 +122,9 @@ public class GoogleDialogflowCxIntent : TerraformResource
     /// If the supplied value is unspecified or 0, the service translates the value to 500,000, which corresponds to the Normal priority in the console.
     /// If the supplied value is negative, the intent is ignored in runtime detect intent requests.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 

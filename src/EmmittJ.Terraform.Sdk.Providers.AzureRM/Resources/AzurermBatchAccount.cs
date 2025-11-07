@@ -22,108 +22,108 @@ public class AzurermBatchAccount : TerraformResource
     /// <summary>
     /// The allowed_authentication_modes attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AllowedAuthenticationModes
+    public TerraformProperty<HashSet<string>>? AllowedAuthenticationModes
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("allowed_authentication_modes");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("allowed_authentication_modes");
         set => this.WithProperty("allowed_authentication_modes", value);
     }
 
     /// <summary>
     /// The encryption attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<object>>? Encryption
+    public TerraformProperty<List<object>>? Encryption
     {
-        get => GetProperty<TerraformLiteralProperty<List<object>>>("encryption");
+        get => GetProperty<TerraformProperty<List<object>>>("encryption");
         set => this.WithProperty("encryption", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The pool_allocation_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PoolAllocationMode
+    public TerraformProperty<string>? PoolAllocationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("pool_allocation_mode");
+        get => GetProperty<TerraformProperty<string>>("pool_allocation_mode");
         set => this.WithProperty("pool_allocation_mode", value);
     }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PublicNetworkAccessEnabled
+    public TerraformProperty<bool>? PublicNetworkAccessEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("public_network_access_enabled");
+        get => GetProperty<TerraformProperty<bool>>("public_network_access_enabled");
         set => this.WithProperty("public_network_access_enabled", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The storage_account_authentication_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountAuthenticationMode
+    public TerraformProperty<string>? StorageAccountAuthenticationMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_authentication_mode");
+        get => GetProperty<TerraformProperty<string>>("storage_account_authentication_mode");
         set => this.WithProperty("storage_account_authentication_mode", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_node_identity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountNodeIdentity
+    public TerraformProperty<string>? StorageAccountNodeIdentity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_node_identity");
+        get => GetProperty<TerraformProperty<string>>("storage_account_node_identity");
         set => this.WithProperty("storage_account_node_identity", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

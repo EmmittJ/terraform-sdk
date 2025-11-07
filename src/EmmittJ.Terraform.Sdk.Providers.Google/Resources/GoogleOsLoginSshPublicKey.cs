@@ -20,45 +20,45 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     /// <summary>
     /// An expiration time in microseconds since epoch.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExpirationTimeUsec
+    public TerraformProperty<string>? ExpirationTimeUsec
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("expiration_time_usec");
+        get => GetProperty<TerraformProperty<string>>("expiration_time_usec");
         set => this.WithProperty("expiration_time_usec", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Public key text in SSH format, defined by RFC4253 section 6.6.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The project ID of the Google Cloud Platform project.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The user email.
     /// </summary>
-    public TerraformLiteralProperty<string>? User
+    public TerraformProperty<string>? User
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user");
+        get => GetProperty<TerraformProperty<string>>("user");
         set => this.WithProperty("user", value);
     }
 

@@ -19,36 +19,36 @@ public class AzurermApiManagementNotificationRecipientUser : TerraformResource
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementId
+    public TerraformProperty<string>? ApiManagementId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_id");
+        get => GetProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The notification_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NotificationType
+    public TerraformProperty<string>? NotificationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("notification_type");
+        get => GetProperty<TerraformProperty<string>>("notification_type");
         set => this.WithProperty("notification_type", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserId
+    public TerraformProperty<string>? UserId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_id");
+        get => GetProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
     }
 

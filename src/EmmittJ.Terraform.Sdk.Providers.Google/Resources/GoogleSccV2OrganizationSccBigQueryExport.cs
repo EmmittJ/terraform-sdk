@@ -23,9 +23,9 @@ public class GoogleSccV2OrganizationSccBigQueryExport : TerraformResource
     /// <summary>
     /// This must be unique within the organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? BigQueryExportId
+    public TerraformProperty<string>? BigQueryExportId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("big_query_export_id");
+        get => GetProperty<TerraformProperty<string>>("big_query_export_id");
         set => this.WithProperty("big_query_export_id", value);
     }
 
@@ -34,18 +34,18 @@ public class GoogleSccV2OrganizationSccBigQueryExport : TerraformResource
     /// Its format is &amp;quot;projects/[projectId]/datasets/[bigquery_dataset_id]&amp;quot;.
     /// BigQuery Dataset unique ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
     /// </summary>
-    public TerraformLiteralProperty<string>? Dataset
+    public TerraformProperty<string>? Dataset
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dataset");
+        get => GetProperty<TerraformProperty<string>>("dataset");
         set => this.WithProperty("dataset", value);
     }
 
     /// <summary>
     /// The description of the notification config (max of 1024 characters).
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
@@ -76,27 +76,27 @@ public class GoogleSccV2OrganizationSccBigQueryExport : TerraformResource
     /// [Filtering notifications](https://cloud.google.com/security-command-center/docs/how-to-api-filter-notifications)
     /// for information on how to write a filter.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// location Id is provided by organization. If not provided, Use global as default.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -105,9 +105,9 @@ public class GoogleSccV2OrganizationSccBigQueryExport : TerraformResource
     /// &#39;organizations/{{organization}}/locations/{{location}}/bigQueryExports/{{big_query_export_id}}&#39;.
     /// This field is provided in responses, and is ignored when provided in create requests.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -115,9 +115,9 @@ public class GoogleSccV2OrganizationSccBigQueryExport : TerraformResource
     /// The organization whose Cloud Security Command Center the Big Query Export
     /// Config lives in.
     /// </summary>
-    public TerraformLiteralProperty<string>? Organization
+    public TerraformProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 

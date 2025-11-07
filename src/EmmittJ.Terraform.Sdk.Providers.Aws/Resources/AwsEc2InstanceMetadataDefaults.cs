@@ -20,45 +20,45 @@ public class AwsEc2InstanceMetadataDefaults : TerraformResource
     /// <summary>
     /// The http_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpEndpoint
+    public TerraformProperty<string>? HttpEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_endpoint");
+        get => GetProperty<TerraformProperty<string>>("http_endpoint");
         set => this.WithProperty("http_endpoint", value);
     }
 
     /// <summary>
     /// The http_put_response_hop_limit attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? HttpPutResponseHopLimit
+    public TerraformProperty<double>? HttpPutResponseHopLimit
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_put_response_hop_limit");
+        get => GetProperty<TerraformProperty<double>>("http_put_response_hop_limit");
         set => this.WithProperty("http_put_response_hop_limit", value);
     }
 
     /// <summary>
     /// The http_tokens attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HttpTokens
+    public TerraformProperty<string>? HttpTokens
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("http_tokens");
+        get => GetProperty<TerraformProperty<string>>("http_tokens");
         set => this.WithProperty("http_tokens", value);
     }
 
     /// <summary>
     /// The instance_metadata_tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceMetadataTags
+    public TerraformProperty<string>? InstanceMetadataTags
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_metadata_tags");
+        get => GetProperty<TerraformProperty<string>>("instance_metadata_tags");
         set => this.WithProperty("instance_metadata_tags", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

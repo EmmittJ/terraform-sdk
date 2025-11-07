@@ -19,90 +19,90 @@ public class AzurermApiManagementGatewayHostNameConfiguration : TerraformResourc
     /// <summary>
     /// The api_management_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementId
+    public TerraformProperty<string>? ApiManagementId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_id");
+        get => GetProperty<TerraformProperty<string>>("api_management_id");
         set => this.WithProperty("api_management_id", value);
     }
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateId
+    public TerraformProperty<string>? CertificateId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_id");
+        get => GetProperty<TerraformProperty<string>>("certificate_id");
         set => this.WithProperty("certificate_id", value);
     }
 
     /// <summary>
     /// The gateway_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? GatewayName
+    public TerraformProperty<string>? GatewayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("gateway_name");
+        get => GetProperty<TerraformProperty<string>>("gateway_name");
         set => this.WithProperty("gateway_name", value);
     }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostName
+    public TerraformProperty<string>? HostName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_name");
+        get => GetProperty<TerraformProperty<string>>("host_name");
         set => this.WithProperty("host_name", value);
     }
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Http2Enabled
+    public TerraformProperty<bool>? Http2Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("http2_enabled");
+        get => GetProperty<TerraformProperty<bool>>("http2_enabled");
         set => this.WithProperty("http2_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The request_client_certificate_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RequestClientCertificateEnabled
+    public TerraformProperty<bool>? RequestClientCertificateEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("request_client_certificate_enabled");
+        get => GetProperty<TerraformProperty<bool>>("request_client_certificate_enabled");
         set => this.WithProperty("request_client_certificate_enabled", value);
     }
 
     /// <summary>
     /// The tls10_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Tls10Enabled
+    public TerraformProperty<bool>? Tls10Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls10_enabled");
+        get => GetProperty<TerraformProperty<bool>>("tls10_enabled");
         set => this.WithProperty("tls10_enabled", value);
     }
 
     /// <summary>
     /// The tls11_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Tls11Enabled
+    public TerraformProperty<bool>? Tls11Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("tls11_enabled");
+        get => GetProperty<TerraformProperty<bool>>("tls11_enabled");
         set => this.WithProperty("tls11_enabled", value);
     }
 

@@ -26,36 +26,36 @@ public class AzurermAppConfigurationKeyDataSource : TerraformDataSource
     /// <summary>
     /// The configuration_store_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConfigurationStoreId
+    public TerraformProperty<string>? ConfigurationStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("configuration_store_id");
+        get => GetProperty<TerraformProperty<string>>("configuration_store_id");
         set => this.WithProperty("configuration_store_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Key
+    public TerraformProperty<string>? Key
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key");
+        get => GetProperty<TerraformProperty<string>>("key");
         set => this.WithProperty("key", value);
     }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Label
+    public TerraformProperty<string>? Label
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("label");
+        get => GetProperty<TerraformProperty<string>>("label");
         set => this.WithProperty("label", value);
     }
 

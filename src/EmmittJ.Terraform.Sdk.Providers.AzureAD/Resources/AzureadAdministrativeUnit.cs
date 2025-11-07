@@ -20,54 +20,54 @@ public class AzureadAdministrativeUnit : TerraformResource
     /// <summary>
     /// The description for the administrative unit
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display name for the administrative unit
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Whether the administrative unit and its members are hidden or publicly viewable in the directory
     /// </summary>
-    public TerraformLiteralProperty<bool>? HiddenMembershipEnabled
+    public TerraformProperty<bool>? HiddenMembershipEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("hidden_membership_enabled");
+        get => GetProperty<TerraformProperty<bool>>("hidden_membership_enabled");
         set => this.WithProperty("hidden_membership_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// A set of object IDs of members who should be present in this administrative unit. Supported object types are Users or Groups
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Members
+    public TerraformProperty<HashSet<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("members");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
     /// <summary>
     /// If `true`, will return an error if an existing administrative unit is found with the same name
     /// </summary>
-    public TerraformLiteralProperty<bool>? PreventDuplicateNames
+    public TerraformProperty<bool>? PreventDuplicateNames
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("prevent_duplicate_names");
+        get => GetProperty<TerraformProperty<bool>>("prevent_duplicate_names");
         set => this.WithProperty("prevent_duplicate_names", value);
     }
 

@@ -20,45 +20,45 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// <summary>
     /// The datadog_monitor_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DatadogMonitorId
+    public TerraformProperty<string>? DatadogMonitorId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("datadog_monitor_id");
+        get => GetProperty<TerraformProperty<string>>("datadog_monitor_id");
         set => this.WithProperty("datadog_monitor_id", value);
     }
 
     /// <summary>
     /// The enterprise_application_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnterpriseApplicationId
+    public TerraformProperty<string>? EnterpriseApplicationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enterprise_application_id");
+        get => GetProperty<TerraformProperty<string>>("enterprise_application_id");
         set => this.WithProperty("enterprise_application_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The single_sign_on attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SingleSignOn
+    public TerraformProperty<string>? SingleSignOn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("single_sign_on");
+        get => GetProperty<TerraformProperty<string>>("single_sign_on");
         set => this.WithProperty("single_sign_on", value);
     }
 
@@ -66,9 +66,9 @@ public class AzurermDatadogMonitorSsoConfiguration : TerraformResource
     /// The single_sign_on_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<string>? SingleSignOnEnabled
+    public TerraformProperty<string>? SingleSignOnEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("single_sign_on_enabled");
+        get => GetProperty<TerraformProperty<string>>("single_sign_on_enabled");
         set => this.WithProperty("single_sign_on_enabled", value);
     }
 

@@ -24,45 +24,45 @@ public class AwsRoute53profilesResourceAssociation : TerraformResource
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The profile_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProfileId
+    public TerraformProperty<string>? ProfileId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("profile_id");
+        get => GetProperty<TerraformProperty<string>>("profile_id");
         set => this.WithProperty("profile_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceArn
+    public TerraformProperty<string>? ResourceArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_arn");
+        get => GetProperty<TerraformProperty<string>>("resource_arn");
         set => this.WithProperty("resource_arn", value);
     }
 
     /// <summary>
     /// The resource_properties attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceProperties
+    public TerraformProperty<string>? ResourceProperties
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_properties");
+        get => GetProperty<TerraformProperty<string>>("resource_properties");
         set => this.WithProperty("resource_properties", value);
     }
 

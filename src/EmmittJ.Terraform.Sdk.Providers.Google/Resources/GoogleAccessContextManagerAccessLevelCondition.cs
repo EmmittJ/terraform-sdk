@@ -20,18 +20,18 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// <summary>
     /// The name of the Access Level to add this condition to.
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessLevel
+    public TerraformProperty<string>? AccessLevel
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_level");
+        get => GetProperty<TerraformProperty<string>>("access_level");
         set => this.WithProperty("access_level", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -47,9 +47,9 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// listed subnets in order for this Condition to be true.
     /// If empty, all IP addresses are allowed.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? IpSubnetworks
+    public TerraformProperty<List<string>>? IpSubnetworks
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("ip_subnetworks");
+        get => GetProperty<TerraformProperty<List<string>>>("ip_subnetworks");
         set => this.WithProperty("ip_subnetworks", value);
     }
 
@@ -63,9 +63,9 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// groups, etc.).
     /// Formats: &#39;user:{emailid}&#39;, &#39;serviceAccount:{emailid}&#39;
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Members
+    public TerraformProperty<List<string>>? Members
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("members");
+        get => GetProperty<TerraformProperty<List<string>>>("members");
         set => this.WithProperty("members", value);
     }
 
@@ -74,9 +74,9 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// a NAND over its non-empty fields, each field must be false for
     /// the Condition overall to be satisfied. Defaults to false.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Negate
+    public TerraformProperty<bool>? Negate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("negate");
+        get => GetProperty<TerraformProperty<bool>>("negate");
         set => this.WithProperty("negate", value);
     }
 
@@ -85,9 +85,9 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// countries/regions.
     /// Format: A valid ISO 3166-1 alpha-2 code.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Regions
+    public TerraformProperty<List<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("regions");
+        get => GetProperty<TerraformProperty<List<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
@@ -98,9 +98,9 @@ public class GoogleAccessContextManagerAccessLevelCondition : TerraformResource
     /// granted for the Condition to be true.
     /// Format: accessPolicies/{policy_id}/accessLevels/{short_name}
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? RequiredAccessLevels
+    public TerraformProperty<List<string>>? RequiredAccessLevels
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("required_access_levels");
+        get => GetProperty<TerraformProperty<List<string>>>("required_access_levels");
         set => this.WithProperty("required_access_levels", value);
     }
 

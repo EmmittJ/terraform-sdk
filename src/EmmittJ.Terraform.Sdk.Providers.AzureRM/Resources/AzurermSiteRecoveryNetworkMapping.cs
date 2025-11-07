@@ -19,72 +19,72 @@ public class AzurermSiteRecoveryNetworkMapping : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecoveryVaultName
+    public TerraformProperty<string>? RecoveryVaultName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recovery_vault_name");
+        get => GetProperty<TerraformProperty<string>>("recovery_vault_name");
         set => this.WithProperty("recovery_vault_name", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The source_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceNetworkId
+    public TerraformProperty<string>? SourceNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_network_id");
+        get => GetProperty<TerraformProperty<string>>("source_network_id");
         set => this.WithProperty("source_network_id", value);
     }
 
     /// <summary>
     /// The source_recovery_fabric_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SourceRecoveryFabricName
+    public TerraformProperty<string>? SourceRecoveryFabricName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("source_recovery_fabric_name");
+        get => GetProperty<TerraformProperty<string>>("source_recovery_fabric_name");
         set => this.WithProperty("source_recovery_fabric_name", value);
     }
 
     /// <summary>
     /// The target_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetNetworkId
+    public TerraformProperty<string>? TargetNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_network_id");
+        get => GetProperty<TerraformProperty<string>>("target_network_id");
         set => this.WithProperty("target_network_id", value);
     }
 
     /// <summary>
     /// The target_recovery_fabric_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetRecoveryFabricName
+    public TerraformProperty<string>? TargetRecoveryFabricName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_recovery_fabric_name");
+        get => GetProperty<TerraformProperty<string>>("target_recovery_fabric_name");
         set => this.WithProperty("target_recovery_fabric_name", value);
     }
 

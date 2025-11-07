@@ -21,72 +21,72 @@ public class GoogleApigeeKeystoresAliasesPkcs12 : TerraformResource
     /// <summary>
     /// Alias Name
     /// </summary>
-    public TerraformLiteralProperty<string>? Alias
+    public TerraformProperty<string>? Alias
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alias");
+        get => GetProperty<TerraformProperty<string>>("alias");
         set => this.WithProperty("alias", value);
     }
 
     /// <summary>
     /// Environment associated with the alias
     /// </summary>
-    public TerraformLiteralProperty<string>? Environment
+    public TerraformProperty<string>? Environment
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment");
+        get => GetProperty<TerraformProperty<string>>("environment");
         set => this.WithProperty("environment", value);
     }
 
     /// <summary>
     /// Cert content
     /// </summary>
-    public TerraformLiteralProperty<string>? File
+    public TerraformProperty<string>? File
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file");
+        get => GetProperty<TerraformProperty<string>>("file");
         set => this.WithProperty("file", value);
     }
 
     /// <summary>
     /// Hash of the pkcs file
     /// </summary>
-    public TerraformLiteralProperty<string>? Filehash
+    public TerraformProperty<string>? Filehash
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filehash");
+        get => GetProperty<TerraformProperty<string>>("filehash");
         set => this.WithProperty("filehash", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Keystore Name
     /// </summary>
-    public TerraformLiteralProperty<string>? Keystore
+    public TerraformProperty<string>? Keystore
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("keystore");
+        get => GetProperty<TerraformProperty<string>>("keystore");
         set => this.WithProperty("keystore", value);
     }
 
     /// <summary>
     /// Organization ID associated with the alias
     /// </summary>
-    public TerraformLiteralProperty<string>? OrgId
+    public TerraformProperty<string>? OrgId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("org_id");
+        get => GetProperty<TerraformProperty<string>>("org_id");
         set => this.WithProperty("org_id", value);
     }
 
     /// <summary>
     /// Password for the Private Key if it&#39;s encrypted
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 

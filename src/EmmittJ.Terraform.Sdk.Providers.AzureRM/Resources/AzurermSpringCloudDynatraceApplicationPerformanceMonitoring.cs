@@ -19,90 +19,90 @@ public class AzurermSpringCloudDynatraceApplicationPerformanceMonitoring : Terra
     /// <summary>
     /// The api_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiToken
+    public TerraformProperty<string>? ApiToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_token");
+        get => GetProperty<TerraformProperty<string>>("api_token");
         set => this.WithProperty("api_token", value);
     }
 
     /// <summary>
     /// The api_url attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiUrl
+    public TerraformProperty<string>? ApiUrl
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_url");
+        get => GetProperty<TerraformProperty<string>>("api_url");
         set => this.WithProperty("api_url", value);
     }
 
     /// <summary>
     /// The connection_point attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectionPoint
+    public TerraformProperty<string>? ConnectionPoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connection_point");
+        get => GetProperty<TerraformProperty<string>>("connection_point");
         set => this.WithProperty("connection_point", value);
     }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvironmentId
+    public TerraformProperty<string>? EnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_id");
+        get => GetProperty<TerraformProperty<string>>("environment_id");
         set => this.WithProperty("environment_id", value);
     }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? GloballyEnabled
+    public TerraformProperty<bool>? GloballyEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("globally_enabled");
+        get => GetProperty<TerraformProperty<bool>>("globally_enabled");
         set => this.WithProperty("globally_enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudServiceId
+    public TerraformProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 
     /// <summary>
     /// The tenant attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Tenant
+    public TerraformProperty<string>? Tenant
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant");
+        get => GetProperty<TerraformProperty<string>>("tenant");
         set => this.WithProperty("tenant", value);
     }
 
     /// <summary>
     /// The tenant_token attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantToken
+    public TerraformProperty<string>? TenantToken
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_token");
+        get => GetProperty<TerraformProperty<string>>("tenant_token");
         set => this.WithProperty("tenant_token", value);
     }
 

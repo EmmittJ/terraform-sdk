@@ -26,99 +26,99 @@ public class AwsFsxFileCache : TerraformResource
     /// <summary>
     /// The copy_tags_to_data_repository_associations attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CopyTagsToDataRepositoryAssociations
+    public TerraformProperty<bool>? CopyTagsToDataRepositoryAssociations
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("copy_tags_to_data_repository_associations");
+        get => GetProperty<TerraformProperty<bool>>("copy_tags_to_data_repository_associations");
         set => this.WithProperty("copy_tags_to_data_repository_associations", value);
     }
 
     /// <summary>
     /// The file_cache_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileCacheType
+    public TerraformProperty<string>? FileCacheType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_cache_type");
+        get => GetProperty<TerraformProperty<string>>("file_cache_type");
         set => this.WithProperty("file_cache_type", value);
     }
 
     /// <summary>
     /// The file_cache_type_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FileCacheTypeVersion
+    public TerraformProperty<string>? FileCacheTypeVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_cache_type_version");
+        get => GetProperty<TerraformProperty<string>>("file_cache_type_version");
         set => this.WithProperty("file_cache_type_version", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
+    public TerraformProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? StorageCapacity
+    public TerraformProperty<double>? StorageCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("storage_capacity");
+        get => GetProperty<TerraformProperty<double>>("storage_capacity");
         set => this.WithProperty("storage_capacity", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? SubnetIds
+    public TerraformProperty<List<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<List<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

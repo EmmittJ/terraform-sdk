@@ -19,81 +19,81 @@ public class AzurermContainerRegistryTask : TerraformResource
     /// <summary>
     /// The agent_pool_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AgentPoolName
+    public TerraformProperty<string>? AgentPoolName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("agent_pool_name");
+        get => GetProperty<TerraformProperty<string>>("agent_pool_name");
         set => this.WithProperty("agent_pool_name", value);
     }
 
     /// <summary>
     /// The container_registry_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerRegistryId
+    public TerraformProperty<string>? ContainerRegistryId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_registry_id");
+        get => GetProperty<TerraformProperty<string>>("container_registry_id");
         set => this.WithProperty("container_registry_id", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The is_system_task attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IsSystemTask
+    public TerraformProperty<bool>? IsSystemTask
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("is_system_task");
+        get => GetProperty<TerraformProperty<bool>>("is_system_task");
         set => this.WithProperty("is_system_task", value);
     }
 
     /// <summary>
     /// The log_template attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogTemplate
+    public TerraformProperty<string>? LogTemplate
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_template");
+        get => GetProperty<TerraformProperty<string>>("log_template");
         set => this.WithProperty("log_template", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? TimeoutInSeconds
+    public TerraformProperty<double>? TimeoutInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("timeout_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("timeout_in_seconds");
         set => this.WithProperty("timeout_in_seconds", value);
     }
 

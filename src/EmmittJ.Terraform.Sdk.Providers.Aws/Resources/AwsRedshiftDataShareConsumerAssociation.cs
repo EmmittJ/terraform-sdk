@@ -22,54 +22,54 @@ public class AwsRedshiftDataShareConsumerAssociation : TerraformResource
     /// <summary>
     /// The allow_writes attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowWrites
+    public TerraformProperty<bool>? AllowWrites
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_writes");
+        get => GetProperty<TerraformProperty<bool>>("allow_writes");
         set => this.WithProperty("allow_writes", value);
     }
 
     /// <summary>
     /// The associate_entire_account attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AssociateEntireAccount
+    public TerraformProperty<bool>? AssociateEntireAccount
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("associate_entire_account");
+        get => GetProperty<TerraformProperty<bool>>("associate_entire_account");
         set => this.WithProperty("associate_entire_account", value);
     }
 
     /// <summary>
     /// The consumer_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConsumerArn
+    public TerraformProperty<string>? ConsumerArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consumer_arn");
+        get => GetProperty<TerraformProperty<string>>("consumer_arn");
         set => this.WithProperty("consumer_arn", value);
     }
 
     /// <summary>
     /// The consumer_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConsumerRegion
+    public TerraformProperty<string>? ConsumerRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("consumer_region");
+        get => GetProperty<TerraformProperty<string>>("consumer_region");
         set => this.WithProperty("consumer_region", value);
     }
 
     /// <summary>
     /// The data_share_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataShareArn
+    public TerraformProperty<string>? DataShareArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_share_arn");
+        get => GetProperty<TerraformProperty<string>>("data_share_arn");
         set => this.WithProperty("data_share_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

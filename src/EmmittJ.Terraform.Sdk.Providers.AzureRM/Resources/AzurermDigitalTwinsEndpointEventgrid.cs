@@ -19,63 +19,63 @@ public class AzurermDigitalTwinsEndpointEventgrid : TerraformResource
     /// <summary>
     /// The dead_letter_storage_secret attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DeadLetterStorageSecret
+    public TerraformProperty<string>? DeadLetterStorageSecret
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("dead_letter_storage_secret");
+        get => GetProperty<TerraformProperty<string>>("dead_letter_storage_secret");
         set => this.WithProperty("dead_letter_storage_secret", value);
     }
 
     /// <summary>
     /// The digital_twins_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DigitalTwinsId
+    public TerraformProperty<string>? DigitalTwinsId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("digital_twins_id");
+        get => GetProperty<TerraformProperty<string>>("digital_twins_id");
         set => this.WithProperty("digital_twins_id", value);
     }
 
     /// <summary>
     /// The eventgrid_topic_endpoint attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventgridTopicEndpoint
+    public TerraformProperty<string>? EventgridTopicEndpoint
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventgrid_topic_endpoint");
+        get => GetProperty<TerraformProperty<string>>("eventgrid_topic_endpoint");
         set => this.WithProperty("eventgrid_topic_endpoint", value);
     }
 
     /// <summary>
     /// The eventgrid_topic_primary_access_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventgridTopicPrimaryAccessKey
+    public TerraformProperty<string>? EventgridTopicPrimaryAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventgrid_topic_primary_access_key");
+        get => GetProperty<TerraformProperty<string>>("eventgrid_topic_primary_access_key");
         set => this.WithProperty("eventgrid_topic_primary_access_key", value);
     }
 
     /// <summary>
     /// The eventgrid_topic_secondary_access_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventgridTopicSecondaryAccessKey
+    public TerraformProperty<string>? EventgridTopicSecondaryAccessKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventgrid_topic_secondary_access_key");
+        get => GetProperty<TerraformProperty<string>>("eventgrid_topic_secondary_access_key");
         set => this.WithProperty("eventgrid_topic_secondary_access_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

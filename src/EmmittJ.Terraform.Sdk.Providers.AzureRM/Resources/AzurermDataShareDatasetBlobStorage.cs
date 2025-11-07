@@ -20,54 +20,54 @@ public class AzurermDataShareDatasetBlobStorage : TerraformResource
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerName
+    public TerraformProperty<string>? ContainerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_name");
+        get => GetProperty<TerraformProperty<string>>("container_name");
         set => this.WithProperty("container_name", value);
     }
 
     /// <summary>
     /// The data_share_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataShareId
+    public TerraformProperty<string>? DataShareId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_share_id");
+        get => GetProperty<TerraformProperty<string>>("data_share_id");
         set => this.WithProperty("data_share_id", value);
     }
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FilePath
+    public TerraformProperty<string>? FilePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("file_path");
+        get => GetProperty<TerraformProperty<string>>("file_path");
         set => this.WithProperty("file_path", value);
     }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FolderPath
+    public TerraformProperty<string>? FolderPath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("folder_path");
+        get => GetProperty<TerraformProperty<string>>("folder_path");
         set => this.WithProperty("folder_path", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 

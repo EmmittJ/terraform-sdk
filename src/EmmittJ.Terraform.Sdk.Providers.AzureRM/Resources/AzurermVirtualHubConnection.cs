@@ -19,45 +19,45 @@ public class AzurermVirtualHubConnection : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The internet_security_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InternetSecurityEnabled
+    public TerraformProperty<bool>? InternetSecurityEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("internet_security_enabled");
+        get => GetProperty<TerraformProperty<bool>>("internet_security_enabled");
         set => this.WithProperty("internet_security_enabled", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RemoteVirtualNetworkId
+    public TerraformProperty<string>? RemoteVirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("remote_virtual_network_id");
+        get => GetProperty<TerraformProperty<string>>("remote_virtual_network_id");
         set => this.WithProperty("remote_virtual_network_id", value);
     }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualHubId
+    public TerraformProperty<string>? VirtualHubId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_hub_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_hub_id");
         set => this.WithProperty("virtual_hub_id", value);
     }
 

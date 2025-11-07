@@ -21,99 +21,99 @@ public class AwsEc2Host : TerraformResource
     /// <summary>
     /// The asset_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AssetId
+    public TerraformProperty<string>? AssetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("asset_id");
+        get => GetProperty<TerraformProperty<string>>("asset_id");
         set => this.WithProperty("asset_id", value);
     }
 
     /// <summary>
     /// The auto_placement attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AutoPlacement
+    public TerraformProperty<string>? AutoPlacement
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("auto_placement");
+        get => GetProperty<TerraformProperty<string>>("auto_placement");
         set => this.WithProperty("auto_placement", value);
     }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AvailabilityZone
+    public TerraformProperty<string>? AvailabilityZone
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("availability_zone");
+        get => GetProperty<TerraformProperty<string>>("availability_zone");
         set => this.WithProperty("availability_zone", value);
     }
 
     /// <summary>
     /// The host_recovery attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostRecovery
+    public TerraformProperty<string>? HostRecovery
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_recovery");
+        get => GetProperty<TerraformProperty<string>>("host_recovery");
         set => this.WithProperty("host_recovery", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_family attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceFamily
+    public TerraformProperty<string>? InstanceFamily
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_family");
+        get => GetProperty<TerraformProperty<string>>("instance_family");
         set => this.WithProperty("instance_family", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OutpostArn
+    public TerraformProperty<string>? OutpostArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("outpost_arn");
+        get => GetProperty<TerraformProperty<string>>("outpost_arn");
         set => this.WithProperty("outpost_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

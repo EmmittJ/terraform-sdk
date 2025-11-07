@@ -22,9 +22,9 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// Whether the OauthClientCredential is disabled. You cannot use a
     /// disabled OauthClientCredential.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
@@ -33,27 +33,27 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// 
     /// Cannot exceed 32 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
@@ -63,27 +63,27 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// and may contain the characters [a-z0-9-]. The prefix &#39;gcp-&#39; is
     /// reserved for use by Google, and may not be specified.
     /// </summary>
-    public TerraformLiteralProperty<string>? OauthClientCredentialId
+    public TerraformProperty<string>? OauthClientCredentialId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oauth_client_credential_id");
+        get => GetProperty<TerraformProperty<string>>("oauth_client_credential_id");
         set => this.WithProperty("oauth_client_credential_id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Oauthclient
+    public TerraformProperty<string>? Oauthclient
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("oauthclient");
+        get => GetProperty<TerraformProperty<string>>("oauthclient");
         set => this.WithProperty("oauthclient", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

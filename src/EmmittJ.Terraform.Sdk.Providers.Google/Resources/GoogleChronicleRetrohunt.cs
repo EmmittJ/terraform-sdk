@@ -23,54 +23,54 @@ public class GoogleChronicleRetrohunt : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
-    public TerraformLiteralProperty<string>? Instance
+    public TerraformProperty<string>? Instance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance");
+        get => GetProperty<TerraformProperty<string>>("instance");
         set => this.WithProperty("instance", value);
     }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
     /// <summary>
     /// The retrohunt ID of the Retrohunt. A retrohunt is an execution of a Rule over a time range in the past.
     /// </summary>
-    public TerraformLiteralProperty<string>? Retrohunt
+    public TerraformProperty<string>? Retrohunt
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("retrohunt");
+        get => GetProperty<TerraformProperty<string>>("retrohunt");
         set => this.WithProperty("retrohunt", value);
     }
 
     /// <summary>
     /// The Rule ID of the rule.
     /// </summary>
-    public TerraformLiteralProperty<string>? Rule
+    public TerraformProperty<string>? Rule
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("rule");
+        get => GetProperty<TerraformProperty<string>>("rule");
         set => this.WithProperty("rule", value);
     }
 

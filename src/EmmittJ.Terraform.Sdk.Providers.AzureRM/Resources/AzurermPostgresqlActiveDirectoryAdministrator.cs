@@ -20,54 +20,54 @@ public class AzurermPostgresqlActiveDirectoryAdministrator : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The login attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Login
+    public TerraformProperty<string>? Login
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("login");
+        get => GetProperty<TerraformProperty<string>>("login");
         set => this.WithProperty("login", value);
     }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ObjectId
+    public TerraformProperty<string>? ObjectId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("object_id");
+        get => GetProperty<TerraformProperty<string>>("object_id");
         set => this.WithProperty("object_id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ServerName
+    public TerraformProperty<string>? ServerName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("server_name");
+        get => GetProperty<TerraformProperty<string>>("server_name");
         set => this.WithProperty("server_name", value);
     }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TenantId
+    public TerraformProperty<string>? TenantId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("tenant_id");
+        get => GetProperty<TerraformProperty<string>>("tenant_id");
         set => this.WithProperty("tenant_id", value);
     }
 

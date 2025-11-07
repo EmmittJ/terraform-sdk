@@ -19,72 +19,72 @@ public class AzurermPrivateDnsZoneVirtualNetworkLink : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The private_dns_zone_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateDnsZoneName
+    public TerraformProperty<string>? PrivateDnsZoneName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_dns_zone_name");
+        get => GetProperty<TerraformProperty<string>>("private_dns_zone_name");
         set => this.WithProperty("private_dns_zone_name", value);
     }
 
     /// <summary>
     /// The registration_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RegistrationEnabled
+    public TerraformProperty<bool>? RegistrationEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registration_enabled");
+        get => GetProperty<TerraformProperty<bool>>("registration_enabled");
         set => this.WithProperty("registration_enabled", value);
     }
 
     /// <summary>
     /// The resolution_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResolutionPolicy
+    public TerraformProperty<string>? ResolutionPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resolution_policy");
+        get => GetProperty<TerraformProperty<string>>("resolution_policy");
         set => this.WithProperty("resolution_policy", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? VirtualNetworkId
+    public TerraformProperty<string>? VirtualNetworkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("virtual_network_id");
+        get => GetProperty<TerraformProperty<string>>("virtual_network_id");
         set => this.WithProperty("virtual_network_id", value);
     }
 

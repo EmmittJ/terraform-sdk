@@ -23,72 +23,72 @@ public class AwsRdsShardGroup : TerraformResource
     /// <summary>
     /// The compute_redundancy attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ComputeRedundancy
+    public TerraformProperty<double>? ComputeRedundancy
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("compute_redundancy");
+        get => GetProperty<TerraformProperty<double>>("compute_redundancy");
         set => this.WithProperty("compute_redundancy", value);
     }
 
     /// <summary>
     /// The db_cluster_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbClusterIdentifier
+    public TerraformProperty<string>? DbClusterIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_cluster_identifier");
+        get => GetProperty<TerraformProperty<string>>("db_cluster_identifier");
         set => this.WithProperty("db_cluster_identifier", value);
     }
 
     /// <summary>
     /// The db_shard_group_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DbShardGroupIdentifier
+    public TerraformProperty<string>? DbShardGroupIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("db_shard_group_identifier");
+        get => GetProperty<TerraformProperty<string>>("db_shard_group_identifier");
         set => this.WithProperty("db_shard_group_identifier", value);
     }
 
     /// <summary>
     /// The max_acu attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxAcu
+    public TerraformProperty<double>? MaxAcu
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_acu");
+        get => GetProperty<TerraformProperty<double>>("max_acu");
         set => this.WithProperty("max_acu", value);
     }
 
     /// <summary>
     /// The min_acu attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MinAcu
+    public TerraformProperty<double>? MinAcu
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("min_acu");
+        get => GetProperty<TerraformProperty<double>>("min_acu");
         set => this.WithProperty("min_acu", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
         set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

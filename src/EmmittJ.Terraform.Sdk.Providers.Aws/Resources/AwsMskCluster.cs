@@ -34,81 +34,81 @@ public class AwsMskCluster : TerraformResource
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClusterName
+    public TerraformProperty<string>? ClusterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cluster_name");
+        get => GetProperty<TerraformProperty<string>>("cluster_name");
         set => this.WithProperty("cluster_name", value);
     }
 
     /// <summary>
     /// The enhanced_monitoring attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnhancedMonitoring
+    public TerraformProperty<string>? EnhancedMonitoring
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enhanced_monitoring");
+        get => GetProperty<TerraformProperty<string>>("enhanced_monitoring");
         set => this.WithProperty("enhanced_monitoring", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The kafka_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KafkaVersion
+    public TerraformProperty<string>? KafkaVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kafka_version");
+        get => GetProperty<TerraformProperty<string>>("kafka_version");
         set => this.WithProperty("kafka_version", value);
     }
 
     /// <summary>
     /// The number_of_broker_nodes attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? NumberOfBrokerNodes
+    public TerraformProperty<double>? NumberOfBrokerNodes
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("number_of_broker_nodes");
+        get => GetProperty<TerraformProperty<double>>("number_of_broker_nodes");
         set => this.WithProperty("number_of_broker_nodes", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The storage_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageMode
+    public TerraformProperty<string>? StorageMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_mode");
+        get => GetProperty<TerraformProperty<string>>("storage_mode");
         set => this.WithProperty("storage_mode", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

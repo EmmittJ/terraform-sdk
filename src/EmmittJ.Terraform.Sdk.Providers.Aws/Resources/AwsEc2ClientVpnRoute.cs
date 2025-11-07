@@ -21,54 +21,54 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     /// <summary>
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ClientVpnEndpointId
+    public TerraformProperty<string>? ClientVpnEndpointId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("client_vpn_endpoint_id");
+        get => GetProperty<TerraformProperty<string>>("client_vpn_endpoint_id");
         set => this.WithProperty("client_vpn_endpoint_id", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DestinationCidrBlock
+    public TerraformProperty<string>? DestinationCidrBlock
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("destination_cidr_block");
+        get => GetProperty<TerraformProperty<string>>("destination_cidr_block");
         set => this.WithProperty("destination_cidr_block", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The target_vpc_subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetVpcSubnetId
+    public TerraformProperty<string>? TargetVpcSubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_vpc_subnet_id");
+        get => GetProperty<TerraformProperty<string>>("target_vpc_subnet_id");
         set => this.WithProperty("target_vpc_subnet_id", value);
     }
 

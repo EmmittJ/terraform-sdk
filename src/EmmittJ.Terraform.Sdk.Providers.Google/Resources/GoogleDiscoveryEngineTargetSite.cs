@@ -27,9 +27,9 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// <summary>
     /// The unique id of the data store.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataStoreId
+    public TerraformProperty<string>? DataStoreId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_store_id");
+        get => GetProperty<TerraformProperty<string>>("data_store_id");
         set => this.WithProperty("data_store_id", value);
     }
 
@@ -41,18 +41,18 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// provided_uri_pattern is always normalized to generate the URI pattern to
     /// be used by the search engine.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ExactMatch
+    public TerraformProperty<bool>? ExactMatch
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("exact_match");
+        get => GetProperty<TerraformProperty<bool>>("exact_match");
         set => this.WithProperty("exact_match", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -60,18 +60,18 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -79,18 +79,18 @@ public class GoogleDiscoveryEngineTargetSite : TerraformResource
     /// The user provided URI pattern from which the &#39;generated_uri_pattern&#39; is
     /// generated.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProvidedUriPattern
+    public TerraformProperty<string>? ProvidedUriPattern
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provided_uri_pattern");
+        get => GetProperty<TerraformProperty<string>>("provided_uri_pattern");
         set => this.WithProperty("provided_uri_pattern", value);
     }
 
     /// <summary>
     /// The possible target site types. Possible values: [&amp;quot;INCLUDE&amp;quot;, &amp;quot;EXCLUDE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

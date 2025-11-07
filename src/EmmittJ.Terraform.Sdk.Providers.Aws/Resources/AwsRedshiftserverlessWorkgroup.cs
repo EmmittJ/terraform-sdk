@@ -22,126 +22,126 @@ public class AwsRedshiftserverlessWorkgroup : TerraformResource
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? BaseCapacity
+    public TerraformProperty<double>? BaseCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("base_capacity");
+        get => GetProperty<TerraformProperty<double>>("base_capacity");
         set => this.WithProperty("base_capacity", value);
     }
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnhancedVpcRouting
+    public TerraformProperty<bool>? EnhancedVpcRouting
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enhanced_vpc_routing");
+        get => GetProperty<TerraformProperty<bool>>("enhanced_vpc_routing");
         set => this.WithProperty("enhanced_vpc_routing", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? MaxCapacity
+    public TerraformProperty<double>? MaxCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("max_capacity");
+        get => GetProperty<TerraformProperty<double>>("max_capacity");
         set => this.WithProperty("max_capacity", value);
     }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? NamespaceName
+    public TerraformProperty<string>? NamespaceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("namespace_name");
+        get => GetProperty<TerraformProperty<string>>("namespace_name");
         set => this.WithProperty("namespace_name", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? PubliclyAccessible
+    public TerraformProperty<bool>? PubliclyAccessible
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("publicly_accessible");
+        get => GetProperty<TerraformProperty<bool>>("publicly_accessible");
         set => this.WithProperty("publicly_accessible", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroupIds
+    public TerraformProperty<HashSet<string>>? SecurityGroupIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_group_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_group_ids");
         set => this.WithProperty("security_group_ids", value);
     }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SubnetIds
+    public TerraformProperty<HashSet<string>>? SubnetIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("subnet_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("subnet_ids");
         set => this.WithProperty("subnet_ids", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The track_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TrackName
+    public TerraformProperty<string>? TrackName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("track_name");
+        get => GetProperty<TerraformProperty<string>>("track_name");
         set => this.WithProperty("track_name", value);
     }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? WorkgroupName
+    public TerraformProperty<string>? WorkgroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("workgroup_name");
+        get => GetProperty<TerraformProperty<string>>("workgroup_name");
         set => this.WithProperty("workgroup_name", value);
     }
 

@@ -26,27 +26,27 @@ public class AwsCeCostCategoryDataSource : TerraformDataSource
     /// <summary>
     /// The cost_category_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CostCategoryArn
+    public TerraformProperty<string>? CostCategoryArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cost_category_arn");
+        get => GetProperty<TerraformProperty<string>>("cost_category_arn");
         set => this.WithProperty("cost_category_arn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

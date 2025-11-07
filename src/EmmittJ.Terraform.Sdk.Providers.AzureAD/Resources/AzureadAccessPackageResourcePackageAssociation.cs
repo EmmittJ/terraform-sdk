@@ -19,36 +19,36 @@ public class AzureadAccessPackageResourcePackageAssociation : TerraformResource
     /// <summary>
     /// The ID of access package this resource association is configured to
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessPackageId
+    public TerraformProperty<string>? AccessPackageId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_package_id");
+        get => GetProperty<TerraformProperty<string>>("access_package_id");
         set => this.WithProperty("access_package_id", value);
     }
 
     /// <summary>
     /// The role of access type to the specified resource, valid values are `Member` and `Owner`
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessType
+    public TerraformProperty<string>? AccessType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_type");
+        get => GetProperty<TerraformProperty<string>>("access_type");
         set => this.WithProperty("access_type", value);
     }
 
     /// <summary>
     /// The ID of the access package catalog association
     /// </summary>
-    public TerraformLiteralProperty<string>? CatalogResourceAssociationId
+    public TerraformProperty<string>? CatalogResourceAssociationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_resource_association_id");
+        get => GetProperty<TerraformProperty<string>>("catalog_resource_association_id");
         set => this.WithProperty("catalog_resource_association_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

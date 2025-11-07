@@ -22,162 +22,162 @@ public class AwsDynamodbTable : TerraformResource
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BillingMode
+    public TerraformProperty<string>? BillingMode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("billing_mode");
+        get => GetProperty<TerraformProperty<string>>("billing_mode");
         set => this.WithProperty("billing_mode", value);
     }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? DeletionProtectionEnabled
+    public TerraformProperty<bool>? DeletionProtectionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("deletion_protection_enabled");
+        get => GetProperty<TerraformProperty<bool>>("deletion_protection_enabled");
         set => this.WithProperty("deletion_protection_enabled", value);
     }
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HashKey
+    public TerraformProperty<string>? HashKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("hash_key");
+        get => GetProperty<TerraformProperty<string>>("hash_key");
         set => this.WithProperty("hash_key", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RangeKey
+    public TerraformProperty<string>? RangeKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("range_key");
+        get => GetProperty<TerraformProperty<string>>("range_key");
         set => this.WithProperty("range_key", value);
     }
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ReadCapacity
+    public TerraformProperty<double>? ReadCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("read_capacity");
+        get => GetProperty<TerraformProperty<double>>("read_capacity");
         set => this.WithProperty("read_capacity", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The restore_date_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestoreDateTime
+    public TerraformProperty<string>? RestoreDateTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("restore_date_time");
+        get => GetProperty<TerraformProperty<string>>("restore_date_time");
         set => this.WithProperty("restore_date_time", value);
     }
 
     /// <summary>
     /// The restore_source_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestoreSourceName
+    public TerraformProperty<string>? RestoreSourceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("restore_source_name");
+        get => GetProperty<TerraformProperty<string>>("restore_source_name");
         set => this.WithProperty("restore_source_name", value);
     }
 
     /// <summary>
     /// The restore_source_table_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestoreSourceTableArn
+    public TerraformProperty<string>? RestoreSourceTableArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("restore_source_table_arn");
+        get => GetProperty<TerraformProperty<string>>("restore_source_table_arn");
         set => this.WithProperty("restore_source_table_arn", value);
     }
 
     /// <summary>
     /// The restore_to_latest_time attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RestoreToLatestTime
+    public TerraformProperty<bool>? RestoreToLatestTime
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("restore_to_latest_time");
+        get => GetProperty<TerraformProperty<bool>>("restore_to_latest_time");
         set => this.WithProperty("restore_to_latest_time", value);
     }
 
     /// <summary>
     /// The stream_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? StreamEnabled
+    public TerraformProperty<bool>? StreamEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("stream_enabled");
+        get => GetProperty<TerraformProperty<bool>>("stream_enabled");
         set => this.WithProperty("stream_enabled", value);
     }
 
     /// <summary>
     /// The stream_view_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StreamViewType
+    public TerraformProperty<string>? StreamViewType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("stream_view_type");
+        get => GetProperty<TerraformProperty<string>>("stream_view_type");
         set => this.WithProperty("stream_view_type", value);
     }
 
     /// <summary>
     /// The table_class attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TableClass
+    public TerraformProperty<string>? TableClass
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("table_class");
+        get => GetProperty<TerraformProperty<string>>("table_class");
         set => this.WithProperty("table_class", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? WriteCapacity
+    public TerraformProperty<double>? WriteCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("write_capacity");
+        get => GetProperty<TerraformProperty<double>>("write_capacity");
         set => this.WithProperty("write_capacity", value);
     }
 

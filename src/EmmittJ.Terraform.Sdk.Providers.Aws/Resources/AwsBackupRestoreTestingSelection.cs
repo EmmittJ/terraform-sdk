@@ -19,72 +19,72 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IamRoleArn
+    public TerraformProperty<string>? IamRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iam_role_arn");
+        get => GetProperty<TerraformProperty<string>>("iam_role_arn");
         set => this.WithProperty("iam_role_arn", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The protected_resource_arns attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ProtectedResourceArns
+    public TerraformProperty<HashSet<string>>? ProtectedResourceArns
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("protected_resource_arns");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("protected_resource_arns");
         set => this.WithProperty("protected_resource_arns", value);
     }
 
     /// <summary>
     /// The protected_resource_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProtectedResourceType
+    public TerraformProperty<string>? ProtectedResourceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("protected_resource_type");
+        get => GetProperty<TerraformProperty<string>>("protected_resource_type");
         set => this.WithProperty("protected_resource_type", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The restore_metadata_overrides attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? RestoreMetadataOverrides
+    public TerraformProperty<Dictionary<string, string>>? RestoreMetadataOverrides
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("restore_metadata_overrides");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("restore_metadata_overrides");
         set => this.WithProperty("restore_metadata_overrides", value);
     }
 
     /// <summary>
     /// The restore_testing_plan_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RestoreTestingPlanName
+    public TerraformProperty<string>? RestoreTestingPlanName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("restore_testing_plan_name");
+        get => GetProperty<TerraformProperty<string>>("restore_testing_plan_name");
         set => this.WithProperty("restore_testing_plan_name", value);
     }
 
     /// <summary>
     /// The validation_window_hours attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ValidationWindowHours
+    public TerraformProperty<double>? ValidationWindowHours
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("validation_window_hours");
+        get => GetProperty<TerraformProperty<double>>("validation_window_hours");
         set => this.WithProperty("validation_window_hours", value);
     }
 

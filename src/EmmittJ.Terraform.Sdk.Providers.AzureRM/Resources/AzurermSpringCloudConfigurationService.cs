@@ -19,45 +19,45 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// <summary>
     /// The generation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Generation
+    public TerraformProperty<string>? Generation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("generation");
+        get => GetProperty<TerraformProperty<string>>("generation");
         set => this.WithProperty("generation", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The refresh_interval_in_seconds attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RefreshIntervalInSeconds
+    public TerraformProperty<double>? RefreshIntervalInSeconds
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("refresh_interval_in_seconds");
+        get => GetProperty<TerraformProperty<double>>("refresh_interval_in_seconds");
         set => this.WithProperty("refresh_interval_in_seconds", value);
     }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudServiceId
+    public TerraformProperty<string>? SpringCloudServiceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_service_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_service_id");
         set => this.WithProperty("spring_cloud_service_id", value);
     }
 

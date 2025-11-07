@@ -21,54 +21,54 @@ public class AwsCloudfrontOriginAccessControl : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The origin_access_control_origin_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OriginAccessControlOriginType
+    public TerraformProperty<string>? OriginAccessControlOriginType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("origin_access_control_origin_type");
+        get => GetProperty<TerraformProperty<string>>("origin_access_control_origin_type");
         set => this.WithProperty("origin_access_control_origin_type", value);
     }
 
     /// <summary>
     /// The signing_behavior attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SigningBehavior
+    public TerraformProperty<string>? SigningBehavior
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signing_behavior");
+        get => GetProperty<TerraformProperty<string>>("signing_behavior");
         set => this.WithProperty("signing_behavior", value);
     }
 
     /// <summary>
     /// The signing_protocol attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SigningProtocol
+    public TerraformProperty<string>? SigningProtocol
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signing_protocol");
+        get => GetProperty<TerraformProperty<string>>("signing_protocol");
         set => this.WithProperty("signing_protocol", value);
     }
 

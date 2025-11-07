@@ -21,18 +21,18 @@ public class GoogleAccessContextManagerServicePerimeterResource : TerraformResou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
-    public TerraformLiteralProperty<string>? PerimeterName
+    public TerraformProperty<string>? PerimeterName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("perimeter_name");
+        get => GetProperty<TerraformProperty<string>>("perimeter_name");
         set => this.WithProperty("perimeter_name", value);
     }
 
@@ -41,9 +41,9 @@ public class GoogleAccessContextManagerServicePerimeterResource : TerraformResou
     /// Currently only projects are allowed.
     /// Format: projects/{project_number}
     /// </summary>
-    public TerraformLiteralProperty<string>? Resource
+    public TerraformProperty<string>? Resource
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource");
+        get => GetProperty<TerraformProperty<string>>("resource");
         set => this.WithProperty("resource", value);
     }
 

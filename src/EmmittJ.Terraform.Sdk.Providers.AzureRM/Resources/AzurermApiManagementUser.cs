@@ -19,99 +19,99 @@ public class AzurermApiManagementUser : TerraformResource
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiManagementName
+    public TerraformProperty<string>? ApiManagementName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_management_name");
+        get => GetProperty<TerraformProperty<string>>("api_management_name");
         set => this.WithProperty("api_management_name", value);
     }
 
     /// <summary>
     /// The confirmation attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Confirmation
+    public TerraformProperty<string>? Confirmation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("confirmation");
+        get => GetProperty<TerraformProperty<string>>("confirmation");
         set => this.WithProperty("confirmation", value);
     }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Email
+    public TerraformProperty<string>? Email
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("email");
+        get => GetProperty<TerraformProperty<string>>("email");
         set => this.WithProperty("email", value);
     }
 
     /// <summary>
     /// The first_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FirstName
+    public TerraformProperty<string>? FirstName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("first_name");
+        get => GetProperty<TerraformProperty<string>>("first_name");
         set => this.WithProperty("first_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The last_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LastName
+    public TerraformProperty<string>? LastName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("last_name");
+        get => GetProperty<TerraformProperty<string>>("last_name");
         set => this.WithProperty("last_name", value);
     }
 
     /// <summary>
     /// The note attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Note
+    public TerraformProperty<string>? Note
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("note");
+        get => GetProperty<TerraformProperty<string>>("note");
         set => this.WithProperty("note", value);
     }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Password
+    public TerraformProperty<string>? Password
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("password");
+        get => GetProperty<TerraformProperty<string>>("password");
         set => this.WithProperty("password", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? State
+    public TerraformProperty<string>? State
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("state");
+        get => GetProperty<TerraformProperty<string>>("state");
         set => this.WithProperty("state", value);
     }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? UserId
+    public TerraformProperty<string>? UserId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("user_id");
+        get => GetProperty<TerraformProperty<string>>("user_id");
         set => this.WithProperty("user_id", value);
     }
 

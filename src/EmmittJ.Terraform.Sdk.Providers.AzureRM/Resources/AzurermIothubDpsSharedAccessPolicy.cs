@@ -23,81 +23,81 @@ public class AzurermIothubDpsSharedAccessPolicy : TerraformResource
     /// <summary>
     /// The enrollment_read attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnrollmentRead
+    public TerraformProperty<bool>? EnrollmentRead
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enrollment_read");
+        get => GetProperty<TerraformProperty<bool>>("enrollment_read");
         set => this.WithProperty("enrollment_read", value);
     }
 
     /// <summary>
     /// The enrollment_write attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnrollmentWrite
+    public TerraformProperty<bool>? EnrollmentWrite
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enrollment_write");
+        get => GetProperty<TerraformProperty<bool>>("enrollment_write");
         set => this.WithProperty("enrollment_write", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The iothub_dps_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IothubDpsName
+    public TerraformProperty<string>? IothubDpsName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("iothub_dps_name");
+        get => GetProperty<TerraformProperty<string>>("iothub_dps_name");
         set => this.WithProperty("iothub_dps_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The registration_read attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RegistrationRead
+    public TerraformProperty<bool>? RegistrationRead
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registration_read");
+        get => GetProperty<TerraformProperty<bool>>("registration_read");
         set => this.WithProperty("registration_read", value);
     }
 
     /// <summary>
     /// The registration_write attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RegistrationWrite
+    public TerraformProperty<bool>? RegistrationWrite
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("registration_write");
+        get => GetProperty<TerraformProperty<bool>>("registration_write");
         set => this.WithProperty("registration_write", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// The service_config attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ServiceConfig
+    public TerraformProperty<bool>? ServiceConfig
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("service_config");
+        get => GetProperty<TerraformProperty<bool>>("service_config");
         set => this.WithProperty("service_config", value);
     }
 

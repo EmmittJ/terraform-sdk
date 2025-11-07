@@ -22,18 +22,18 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// Description of the ServicePerimeter and its use. Does not affect
     /// behavior.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -42,9 +42,9 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// begin with a letter and only include alphanumeric and &#39;_&#39;.
     /// Format: accessPolicies/{policy_id}/servicePerimeters/{short_name}
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -52,9 +52,9 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// The AccessPolicy this ServicePerimeter lives in.
     /// Format: accessPolicies/{policy_id}
     /// </summary>
-    public TerraformLiteralProperty<string>? Parent
+    public TerraformProperty<string>? Parent
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("parent");
+        get => GetProperty<TerraformProperty<string>>("parent");
         set => this.WithProperty("parent", value);
     }
 
@@ -76,18 +76,18 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// with a common perimeter, but should not be able to share data among
     /// themselves. Default value: &amp;quot;PERIMETER_TYPE_REGULAR&amp;quot; Possible values: [&amp;quot;PERIMETER_TYPE_REGULAR&amp;quot;, &amp;quot;PERIMETER_TYPE_BRIDGE&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? PerimeterType
+    public TerraformProperty<string>? PerimeterType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("perimeter_type");
+        get => GetProperty<TerraformProperty<string>>("perimeter_type");
         set => this.WithProperty("perimeter_type", value);
     }
 
     /// <summary>
     /// Human readable title. Must be unique within the Policy.
     /// </summary>
-    public TerraformLiteralProperty<string>? Title
+    public TerraformProperty<string>? Title
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("title");
+        get => GetProperty<TerraformProperty<string>>("title");
         set => this.WithProperty("title", value);
     }
 
@@ -102,9 +102,9 @@ public class GoogleAccessContextManagerServicePerimeter : TerraformResource
     /// between currently enforced and suggested restrictions. useExplicitDryRunSpec must
     /// bet set to True if any of the fields in the spec are set to non-default values.
     /// </summary>
-    public TerraformLiteralProperty<bool>? UseExplicitDryRunSpec
+    public TerraformProperty<bool>? UseExplicitDryRunSpec
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("use_explicit_dry_run_spec");
+        get => GetProperty<TerraformProperty<bool>>("use_explicit_dry_run_spec");
         set => this.WithProperty("use_explicit_dry_run_spec", value);
     }
 

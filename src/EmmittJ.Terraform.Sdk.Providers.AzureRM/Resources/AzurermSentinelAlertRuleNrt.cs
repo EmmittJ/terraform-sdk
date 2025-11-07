@@ -19,135 +19,135 @@ public class AzurermSentinelAlertRuleNrt : TerraformResource
     /// <summary>
     /// The alert_rule_template_guid attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AlertRuleTemplateGuid
+    public TerraformProperty<string>? AlertRuleTemplateGuid
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alert_rule_template_guid");
+        get => GetProperty<TerraformProperty<string>>("alert_rule_template_guid");
         set => this.WithProperty("alert_rule_template_guid", value);
     }
 
     /// <summary>
     /// The alert_rule_template_version attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AlertRuleTemplateVersion
+    public TerraformProperty<string>? AlertRuleTemplateVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("alert_rule_template_version");
+        get => GetProperty<TerraformProperty<string>>("alert_rule_template_version");
         set => this.WithProperty("alert_rule_template_version", value);
     }
 
     /// <summary>
     /// The custom_details attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? CustomDetails
+    public TerraformProperty<Dictionary<string, string>>? CustomDetails
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("custom_details");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("custom_details");
         set => this.WithProperty("custom_details", value);
     }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Query
+    public TerraformProperty<string>? Query
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("query");
+        get => GetProperty<TerraformProperty<string>>("query");
         set => this.WithProperty("query", value);
     }
 
     /// <summary>
     /// The severity attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Severity
+    public TerraformProperty<string>? Severity
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("severity");
+        get => GetProperty<TerraformProperty<string>>("severity");
         set => this.WithProperty("severity", value);
     }
 
     /// <summary>
     /// The suppression_duration attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SuppressionDuration
+    public TerraformProperty<string>? SuppressionDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("suppression_duration");
+        get => GetProperty<TerraformProperty<string>>("suppression_duration");
         set => this.WithProperty("suppression_duration", value);
     }
 
     /// <summary>
     /// The suppression_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? SuppressionEnabled
+    public TerraformProperty<bool>? SuppressionEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("suppression_enabled");
+        get => GetProperty<TerraformProperty<bool>>("suppression_enabled");
         set => this.WithProperty("suppression_enabled", value);
     }
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Tactics
+    public TerraformProperty<HashSet<string>>? Tactics
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("tactics");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("tactics");
         set => this.WithProperty("tactics", value);
     }
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Techniques
+    public TerraformProperty<HashSet<string>>? Techniques
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("techniques");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("techniques");
         set => this.WithProperty("techniques", value);
     }
 

@@ -23,63 +23,63 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     /// Config for the module. For the resident module, its config value is defined at this level.
     /// For the inherited module, its config value is inherited from the ancestor module.
     /// </summary>
-    public TerraformLiteralProperty<string>? Config
+    public TerraformProperty<string>? Config
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("config");
+        get => GetProperty<TerraformProperty<string>>("config");
         set => this.WithProperty("config", value);
     }
 
     /// <summary>
     /// The human readable name to be displayed for the module.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The state of enablement for the module at the given level of the hierarchy. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? EnablementState
+    public TerraformProperty<string>? EnablementState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("enablement_state");
+        get => GetProperty<TerraformProperty<string>>("enablement_state");
         set => this.WithProperty("enablement_state", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Location ID of the parent organization. Only global is supported at the moment.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Numerical ID of the parent organization.
     /// </summary>
-    public TerraformLiteralProperty<string>? Organization
+    public TerraformProperty<string>? Organization
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("organization");
+        get => GetProperty<TerraformProperty<string>>("organization");
         set => this.WithProperty("organization", value);
     }
 
     /// <summary>
     /// Immutable. Type for the module. e.g. CONFIGURABLE_BAD_IP.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

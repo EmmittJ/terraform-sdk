@@ -20,27 +20,27 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
     /// <summary>
     /// The display_name_contains attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayNameContains
+    public TerraformProperty<string>? DisplayNameContains
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name_contains");
+        get => GetProperty<TerraformProperty<string>>("display_name_contains");
         set => this.WithProperty("display_name_contains", value);
     }
 
     /// <summary>
     /// The display_name_prefix attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayNamePrefix
+    public TerraformProperty<string>? DisplayNamePrefix
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name_prefix");
+        get => GetProperty<TerraformProperty<string>>("display_name_prefix");
         set => this.WithProperty("display_name_prefix", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

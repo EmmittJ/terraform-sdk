@@ -19,72 +19,72 @@ public class AzurermKeyVaultManagedStorageAccount : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KeyVaultId
+    public TerraformProperty<string>? KeyVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("key_vault_id");
+        get => GetProperty<TerraformProperty<string>>("key_vault_id");
         set => this.WithProperty("key_vault_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The regenerate_key_automatically attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? RegenerateKeyAutomatically
+    public TerraformProperty<bool>? RegenerateKeyAutomatically
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("regenerate_key_automatically");
+        get => GetProperty<TerraformProperty<bool>>("regenerate_key_automatically");
         set => this.WithProperty("regenerate_key_automatically", value);
     }
 
     /// <summary>
     /// The regeneration_period attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RegenerationPeriod
+    public TerraformProperty<string>? RegenerationPeriod
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("regeneration_period");
+        get => GetProperty<TerraformProperty<string>>("regeneration_period");
         set => this.WithProperty("regeneration_period", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The storage_account_key attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountKey
+    public TerraformProperty<string>? StorageAccountKey
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_key");
+        get => GetProperty<TerraformProperty<string>>("storage_account_key");
         set => this.WithProperty("storage_account_key", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

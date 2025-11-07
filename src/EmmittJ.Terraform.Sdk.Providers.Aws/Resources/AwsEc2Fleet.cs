@@ -20,135 +20,135 @@ public class AwsEc2Fleet : TerraformResource
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Context
+    public TerraformProperty<string>? Context
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("context");
+        get => GetProperty<TerraformProperty<string>>("context");
         set => this.WithProperty("context", value);
     }
 
     /// <summary>
     /// The excess_capacity_termination_policy attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ExcessCapacityTerminationPolicy
+    public TerraformProperty<string>? ExcessCapacityTerminationPolicy
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("excess_capacity_termination_policy");
+        get => GetProperty<TerraformProperty<string>>("excess_capacity_termination_policy");
         set => this.WithProperty("excess_capacity_termination_policy", value);
     }
 
     /// <summary>
     /// The fleet_state attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FleetState
+    public TerraformProperty<string>? FleetState
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fleet_state");
+        get => GetProperty<TerraformProperty<string>>("fleet_state");
         set => this.WithProperty("fleet_state", value);
     }
 
     /// <summary>
     /// The fulfilled_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FulfilledCapacity
+    public TerraformProperty<double>? FulfilledCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("fulfilled_capacity");
+        get => GetProperty<TerraformProperty<double>>("fulfilled_capacity");
         set => this.WithProperty("fulfilled_capacity", value);
     }
 
     /// <summary>
     /// The fulfilled_on_demand_capacity attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FulfilledOnDemandCapacity
+    public TerraformProperty<double>? FulfilledOnDemandCapacity
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("fulfilled_on_demand_capacity");
+        get => GetProperty<TerraformProperty<double>>("fulfilled_on_demand_capacity");
         set => this.WithProperty("fulfilled_on_demand_capacity", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The replace_unhealthy_instances attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ReplaceUnhealthyInstances
+    public TerraformProperty<bool>? ReplaceUnhealthyInstances
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("replace_unhealthy_instances");
+        get => GetProperty<TerraformProperty<bool>>("replace_unhealthy_instances");
         set => this.WithProperty("replace_unhealthy_instances", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The terminate_instances attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TerminateInstances
+    public TerraformProperty<bool>? TerminateInstances
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("terminate_instances");
+        get => GetProperty<TerraformProperty<bool>>("terminate_instances");
         set => this.WithProperty("terminate_instances", value);
     }
 
     /// <summary>
     /// The terminate_instances_with_expiration attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? TerminateInstancesWithExpiration
+    public TerraformProperty<bool>? TerminateInstancesWithExpiration
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("terminate_instances_with_expiration");
+        get => GetProperty<TerraformProperty<bool>>("terminate_instances_with_expiration");
         set => this.WithProperty("terminate_instances_with_expiration", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 
     /// <summary>
     /// The valid_from attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValidFrom
+    public TerraformProperty<string>? ValidFrom
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("valid_from");
+        get => GetProperty<TerraformProperty<string>>("valid_from");
         set => this.WithProperty("valid_from", value);
     }
 
     /// <summary>
     /// The valid_until attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ValidUntil
+    public TerraformProperty<string>? ValidUntil
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("valid_until");
+        get => GetProperty<TerraformProperty<string>>("valid_until");
         set => this.WithProperty("valid_until", value);
     }
 

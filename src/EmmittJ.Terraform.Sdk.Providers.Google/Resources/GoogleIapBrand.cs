@@ -22,27 +22,27 @@ public class GoogleIapBrand : TerraformResource
     /// <summary>
     /// Application name displayed on OAuth consent screen.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApplicationTitle
+    public TerraformProperty<string>? ApplicationTitle
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("application_title");
+        get => GetProperty<TerraformProperty<string>>("application_title");
         set => this.WithProperty("application_title", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -53,9 +53,9 @@ public class GoogleIapBrand : TerraformResource
     /// specified, the caller can be either a user or a service account which
     /// is an owner of the specified group in Cloud Identity.
     /// </summary>
-    public TerraformLiteralProperty<string>? SupportEmail
+    public TerraformProperty<string>? SupportEmail
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("support_email");
+        get => GetProperty<TerraformProperty<string>>("support_email");
         set => this.WithProperty("support_email", value);
     }
 

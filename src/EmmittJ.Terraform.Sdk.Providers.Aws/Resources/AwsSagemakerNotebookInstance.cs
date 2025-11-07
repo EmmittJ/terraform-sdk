@@ -22,153 +22,153 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The additional_code_repositories attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? AdditionalCodeRepositories
+    public TerraformProperty<HashSet<string>>? AdditionalCodeRepositories
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("additional_code_repositories");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("additional_code_repositories");
         set => this.WithProperty("additional_code_repositories", value);
     }
 
     /// <summary>
     /// The default_code_repository attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DefaultCodeRepository
+    public TerraformProperty<string>? DefaultCodeRepository
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("default_code_repository");
+        get => GetProperty<TerraformProperty<string>>("default_code_repository");
         set => this.WithProperty("default_code_repository", value);
     }
 
     /// <summary>
     /// The direct_internet_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DirectInternetAccess
+    public TerraformProperty<string>? DirectInternetAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("direct_internet_access");
+        get => GetProperty<TerraformProperty<string>>("direct_internet_access");
         set => this.WithProperty("direct_internet_access", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InstanceType
+    public TerraformProperty<string>? InstanceType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("instance_type");
+        get => GetProperty<TerraformProperty<string>>("instance_type");
         set => this.WithProperty("instance_type", value);
     }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? KmsKeyId
+    public TerraformProperty<string>? KmsKeyId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("kms_key_id");
+        get => GetProperty<TerraformProperty<string>>("kms_key_id");
         set => this.WithProperty("kms_key_id", value);
     }
 
     /// <summary>
     /// The lifecycle_config_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LifecycleConfigName
+    public TerraformProperty<string>? LifecycleConfigName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("lifecycle_config_name");
+        get => GetProperty<TerraformProperty<string>>("lifecycle_config_name");
         set => this.WithProperty("lifecycle_config_name", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The platform_identifier attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PlatformIdentifier
+    public TerraformProperty<string>? PlatformIdentifier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("platform_identifier");
+        get => GetProperty<TerraformProperty<string>>("platform_identifier");
         set => this.WithProperty("platform_identifier", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoleArn
+    public TerraformProperty<string>? RoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("role_arn");
+        get => GetProperty<TerraformProperty<string>>("role_arn");
         set => this.WithProperty("role_arn", value);
     }
 
     /// <summary>
     /// The root_access attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RootAccess
+    public TerraformProperty<string>? RootAccess
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("root_access");
+        get => GetProperty<TerraformProperty<string>>("root_access");
         set => this.WithProperty("root_access", value);
     }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecurityGroups
+    public TerraformProperty<HashSet<string>>? SecurityGroups
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("security_groups");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("security_groups");
         set => this.WithProperty("security_groups", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? VolumeSize
+    public TerraformProperty<double>? VolumeSize
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("volume_size");
+        get => GetProperty<TerraformProperty<double>>("volume_size");
         set => this.WithProperty("volume_size", value);
     }
 

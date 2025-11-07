@@ -19,99 +19,99 @@ public class AzurermCdnFrontdoorOrigin : TerraformResource
     /// <summary>
     /// The cdn_frontdoor_origin_group_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CdnFrontdoorOriginGroupId
+    public TerraformProperty<string>? CdnFrontdoorOriginGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cdn_frontdoor_origin_group_id");
+        get => GetProperty<TerraformProperty<string>>("cdn_frontdoor_origin_group_id");
         set => this.WithProperty("cdn_frontdoor_origin_group_id", value);
     }
 
     /// <summary>
     /// The certificate_name_check_enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CertificateNameCheckEnabled
+    public TerraformProperty<bool>? CertificateNameCheckEnabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("certificate_name_check_enabled");
+        get => GetProperty<TerraformProperty<bool>>("certificate_name_check_enabled");
         set => this.WithProperty("certificate_name_check_enabled", value);
     }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Enabled
+    public TerraformProperty<bool>? Enabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enabled");
+        get => GetProperty<TerraformProperty<bool>>("enabled");
         set => this.WithProperty("enabled", value);
     }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? HostName
+    public TerraformProperty<string>? HostName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("host_name");
+        get => GetProperty<TerraformProperty<string>>("host_name");
         set => this.WithProperty("host_name", value);
     }
 
     /// <summary>
     /// The http_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? HttpPort
+    public TerraformProperty<double>? HttpPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("http_port");
+        get => GetProperty<TerraformProperty<double>>("http_port");
         set => this.WithProperty("http_port", value);
     }
 
     /// <summary>
     /// The https_port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? HttpsPort
+    public TerraformProperty<double>? HttpsPort
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("https_port");
+        get => GetProperty<TerraformProperty<double>>("https_port");
         set => this.WithProperty("https_port", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The origin_host_header attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? OriginHostHeader
+    public TerraformProperty<string>? OriginHostHeader
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("origin_host_header");
+        get => GetProperty<TerraformProperty<string>>("origin_host_header");
         set => this.WithProperty("origin_host_header", value);
     }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Priority
+    public TerraformProperty<double>? Priority
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("priority");
+        get => GetProperty<TerraformProperty<double>>("priority");
         set => this.WithProperty("priority", value);
     }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Weight
+    public TerraformProperty<double>? Weight
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("weight");
+        get => GetProperty<TerraformProperty<double>>("weight");
         set => this.WithProperty("weight", value);
     }
 

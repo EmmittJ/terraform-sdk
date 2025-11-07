@@ -19,63 +19,63 @@ public class AwsLakeformationPermissions : TerraformResource
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CatalogId
+    public TerraformProperty<string>? CatalogId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("catalog_id");
+        get => GetProperty<TerraformProperty<string>>("catalog_id");
         set => this.WithProperty("catalog_id", value);
     }
 
     /// <summary>
     /// The catalog_resource attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? CatalogResource
+    public TerraformProperty<bool>? CatalogResource
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("catalog_resource");
+        get => GetProperty<TerraformProperty<bool>>("catalog_resource");
         set => this.WithProperty("catalog_resource", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Permissions
+    public TerraformProperty<HashSet<string>>? Permissions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("permissions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("permissions");
         set => this.WithProperty("permissions", value);
     }
 
     /// <summary>
     /// The permissions_with_grant_option attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? PermissionsWithGrantOption
+    public TerraformProperty<HashSet<string>>? PermissionsWithGrantOption
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("permissions_with_grant_option");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("permissions_with_grant_option");
         set => this.WithProperty("permissions_with_grant_option", value);
     }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Principal
+    public TerraformProperty<string>? Principal
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("principal");
+        get => GetProperty<TerraformProperty<string>>("principal");
         set => this.WithProperty("principal", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

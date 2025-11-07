@@ -19,72 +19,72 @@ public class AzurermContainerAppEnvironmentDaprComponent : TerraformResource
     /// <summary>
     /// The Dapr Component Type. For example `state.azure.blobstorage`.
     /// </summary>
-    public TerraformLiteralProperty<string>? ComponentType
+    public TerraformProperty<string>? ComponentType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("component_type");
+        get => GetProperty<TerraformProperty<string>>("component_type");
         set => this.WithProperty("component_type", value);
     }
 
     /// <summary>
     /// The Container App Managed Environment ID to configure this Dapr component on.
     /// </summary>
-    public TerraformLiteralProperty<string>? ContainerAppEnvironmentId
+    public TerraformProperty<string>? ContainerAppEnvironmentId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("container_app_environment_id");
+        get => GetProperty<TerraformProperty<string>>("container_app_environment_id");
         set => this.WithProperty("container_app_environment_id", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
     /// </summary>
-    public TerraformLiteralProperty<bool>? IgnoreErrors
+    public TerraformProperty<bool>? IgnoreErrors
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_errors");
+        get => GetProperty<TerraformProperty<bool>>("ignore_errors");
         set => this.WithProperty("ignore_errors", value);
     }
 
     /// <summary>
     /// The component initialisation timeout in ISO8601 format. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
     /// </summary>
-    public TerraformLiteralProperty<string>? InitTimeout
+    public TerraformProperty<string>? InitTimeout
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("init_timeout");
+        get => GetProperty<TerraformProperty<string>>("init_timeout");
         set => this.WithProperty("init_timeout", value);
     }
 
     /// <summary>
     /// The name for this Dapr Component.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// A list of scopes to which this component applies. e.g. a Container App&#39;s `dapr.app_id` value.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Scopes
+    public TerraformProperty<List<string>>? Scopes
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("scopes");
+        get => GetProperty<TerraformProperty<List<string>>>("scopes");
         set => this.WithProperty("scopes", value);
     }
 
     /// <summary>
     /// The version of the component.
     /// </summary>
-    public TerraformLiteralProperty<string>? Version
+    public TerraformProperty<string>? Version
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("version");
+        get => GetProperty<TerraformProperty<string>>("version");
         set => this.WithProperty("version", value);
     }
 

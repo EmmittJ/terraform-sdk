@@ -22,99 +22,99 @@ public class AwsNatGateway : TerraformResource
     /// <summary>
     /// The allocation_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? AllocationId
+    public TerraformProperty<string>? AllocationId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("allocation_id");
+        get => GetProperty<TerraformProperty<string>>("allocation_id");
         set => this.WithProperty("allocation_id", value);
     }
 
     /// <summary>
     /// The connectivity_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ConnectivityType
+    public TerraformProperty<string>? ConnectivityType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("connectivity_type");
+        get => GetProperty<TerraformProperty<string>>("connectivity_type");
         set => this.WithProperty("connectivity_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PrivateIp
+    public TerraformProperty<string>? PrivateIp
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("private_ip");
+        get => GetProperty<TerraformProperty<string>>("private_ip");
         set => this.WithProperty("private_ip", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The secondary_allocation_ids attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecondaryAllocationIds
+    public TerraformProperty<HashSet<string>>? SecondaryAllocationIds
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("secondary_allocation_ids");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("secondary_allocation_ids");
         set => this.WithProperty("secondary_allocation_ids", value);
     }
 
     /// <summary>
     /// The secondary_private_ip_address_count attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? SecondaryPrivateIpAddressCount
+    public TerraformProperty<double>? SecondaryPrivateIpAddressCount
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("secondary_private_ip_address_count");
+        get => GetProperty<TerraformProperty<double>>("secondary_private_ip_address_count");
         set => this.WithProperty("secondary_private_ip_address_count", value);
     }
 
     /// <summary>
     /// The secondary_private_ip_addresses attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? SecondaryPrivateIpAddresses
+    public TerraformProperty<HashSet<string>>? SecondaryPrivateIpAddresses
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("secondary_private_ip_addresses");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("secondary_private_ip_addresses");
         set => this.WithProperty("secondary_private_ip_addresses", value);
     }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SubnetId
+    public TerraformProperty<string>? SubnetId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnet_id");
+        get => GetProperty<TerraformProperty<string>>("subnet_id");
         set => this.WithProperty("subnet_id", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -22,72 +22,72 @@ public class AzurermAadb2cDirectory : TerraformResource
     /// <summary>
     /// Country code of the B2C tenant. See https://aka.ms/B2CDataResidency for valid country codes.
     /// </summary>
-    public TerraformLiteralProperty<string>? CountryCode
+    public TerraformProperty<string>? CountryCode
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("country_code");
+        get => GetProperty<TerraformProperty<string>>("country_code");
         set => this.WithProperty("country_code", value);
     }
 
     /// <summary>
     /// Location in which the B2C tenant is hosted and data resides. See https://aka.ms/B2CDataResidency for more information.
     /// </summary>
-    public TerraformLiteralProperty<string>? DataResidencyLocation
+    public TerraformProperty<string>? DataResidencyLocation
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("data_residency_location");
+        get => GetProperty<TerraformProperty<string>>("data_residency_location");
         set => this.WithProperty("data_residency_location", value);
     }
 
     /// <summary>
     /// The initial display name of the B2C tenant.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// Domain name of the B2C tenant, including onmicrosoft.com suffix.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainName
+    public TerraformProperty<string>? DomainName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_name");
+        get => GetProperty<TerraformProperty<string>>("domain_name");
         set => this.WithProperty("domain_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourceGroupName
+    public TerraformProperty<string>? ResourceGroupName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_group_name");
+        get => GetProperty<TerraformProperty<string>>("resource_group_name");
         set => this.WithProperty("resource_group_name", value);
     }
 
     /// <summary>
     /// Billing SKU for the B2C tenant. See https://aka.ms/b2cBilling for more information.
     /// </summary>
-    public TerraformLiteralProperty<string>? SkuName
+    public TerraformProperty<string>? SkuName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("sku_name");
+        get => GetProperty<TerraformProperty<string>>("sku_name");
         set => this.WithProperty("sku_name", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -27,9 +27,9 @@ public class GoogleComputeAddress : TerraformResource
     /// The IP address must be inside the specified subnetwork,
     /// if any. Set by the API if undefined.
     /// </summary>
-    public TerraformLiteralProperty<string>? Address
+    public TerraformProperty<string>? Address
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address");
+        get => GetProperty<TerraformProperty<string>>("address");
         set => this.WithProperty("address", value);
     }
 
@@ -37,36 +37,36 @@ public class GoogleComputeAddress : TerraformResource
     /// The type of address to reserve.
     /// Note: if you set this argument&#39;s value as &#39;INTERNAL&#39; you need to leave the &#39;network_tier&#39; argument unset in that resource block. Default value: &amp;quot;EXTERNAL&amp;quot; Possible values: [&amp;quot;INTERNAL&amp;quot;, &amp;quot;EXTERNAL&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? AddressType
+    public TerraformProperty<string>? AddressType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("address_type");
+        get => GetProperty<TerraformProperty<string>>("address_type");
         set => this.WithProperty("address_type", value);
     }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The IP Version that will be used by this address. The default value is &#39;IPV4&#39;. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? IpVersion
+    public TerraformProperty<string>? IpVersion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_version");
+        get => GetProperty<TerraformProperty<string>>("ip_version");
         set => this.WithProperty("ip_version", value);
     }
 
@@ -75,9 +75,9 @@ public class GoogleComputeAddress : TerraformResource
     /// used for deciding which type of endpoint this address can be used after
     /// the external IPv6 address reservation. Possible values: [&amp;quot;VM&amp;quot;, &amp;quot;NETLB&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? Ipv6EndpointType
+    public TerraformProperty<string>? Ipv6EndpointType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ipv6_endpoint_type");
+        get => GetProperty<TerraformProperty<string>>("ipv6_endpoint_type");
         set => this.WithProperty("ipv6_endpoint_type", value);
     }
 
@@ -88,9 +88,9 @@ public class GoogleComputeAddress : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -102,9 +102,9 @@ public class GoogleComputeAddress : TerraformResource
     /// following characters must be a dash, lowercase letter, or digit,
     /// except the last character, which cannot be a dash.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
@@ -113,9 +113,9 @@ public class GoogleComputeAddress : TerraformResource
     /// can only be used with INTERNAL type with the VPC_PEERING and
     /// IPSEC_INTERCONNECT purposes.
     /// </summary>
-    public TerraformLiteralProperty<string>? Network
+    public TerraformProperty<string>? Network
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network");
+        get => GetProperty<TerraformProperty<string>>("network");
         set => this.WithProperty("network", value);
     }
 
@@ -124,27 +124,27 @@ public class GoogleComputeAddress : TerraformResource
     /// specified, it is assumed to be PREMIUM.
     /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it&#39;s always Premium](https://cloud.google.com/network-tiers/docs/overview). Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? NetworkTier
+    public TerraformProperty<string>? NetworkTier
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("network_tier");
+        get => GetProperty<TerraformProperty<string>>("network_tier");
         set => this.WithProperty("network_tier", value);
     }
 
     /// <summary>
     /// The prefix length if the resource represents an IP range.
     /// </summary>
-    public TerraformLiteralProperty<double>? PrefixLength
+    public TerraformProperty<double>? PrefixLength
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("prefix_length");
+        get => GetProperty<TerraformProperty<double>>("prefix_length");
         set => this.WithProperty("prefix_length", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
@@ -169,9 +169,9 @@ public class GoogleComputeAddress : TerraformResource
     /// 
     /// This should only be set when using an Internal address.
     /// </summary>
-    public TerraformLiteralProperty<string>? Purpose
+    public TerraformProperty<string>? Purpose
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("purpose");
+        get => GetProperty<TerraformProperty<string>>("purpose");
         set => this.WithProperty("purpose", value);
     }
 
@@ -179,9 +179,9 @@ public class GoogleComputeAddress : TerraformResource
     /// The Region in which the created address should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
@@ -191,9 +191,9 @@ public class GoogleComputeAddress : TerraformResource
     /// This field can only be used with INTERNAL type with
     /// GCE_ENDPOINT/DNS_RESOLVER purposes.
     /// </summary>
-    public TerraformLiteralProperty<string>? Subnetwork
+    public TerraformProperty<string>? Subnetwork
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("subnetwork");
+        get => GetProperty<TerraformProperty<string>>("subnetwork");
         set => this.WithProperty("subnetwork", value);
     }
 

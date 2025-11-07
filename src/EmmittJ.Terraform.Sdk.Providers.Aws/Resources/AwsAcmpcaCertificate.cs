@@ -22,63 +22,63 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// <summary>
     /// The api_passthrough attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ApiPassthrough
+    public TerraformProperty<string>? ApiPassthrough
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("api_passthrough");
+        get => GetProperty<TerraformProperty<string>>("api_passthrough");
         set => this.WithProperty("api_passthrough", value);
     }
 
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateAuthorityArn
+    public TerraformProperty<string>? CertificateAuthorityArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_authority_arn");
+        get => GetProperty<TerraformProperty<string>>("certificate_authority_arn");
         set => this.WithProperty("certificate_authority_arn", value);
     }
 
     /// <summary>
     /// The certificate_signing_request attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CertificateSigningRequest
+    public TerraformProperty<string>? CertificateSigningRequest
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("certificate_signing_request");
+        get => GetProperty<TerraformProperty<string>>("certificate_signing_request");
         set => this.WithProperty("certificate_signing_request", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SigningAlgorithm
+    public TerraformProperty<string>? SigningAlgorithm
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("signing_algorithm");
+        get => GetProperty<TerraformProperty<string>>("signing_algorithm");
         set => this.WithProperty("signing_algorithm", value);
     }
 
     /// <summary>
     /// The template_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TemplateArn
+    public TerraformProperty<string>? TemplateArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("template_arn");
+        get => GetProperty<TerraformProperty<string>>("template_arn");
         set => this.WithProperty("template_arn", value);
     }
 

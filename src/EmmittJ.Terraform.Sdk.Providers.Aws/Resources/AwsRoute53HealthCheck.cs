@@ -20,216 +20,216 @@ public class AwsRoute53HealthCheck : TerraformResource
     /// <summary>
     /// The child_health_threshold attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? ChildHealthThreshold
+    public TerraformProperty<double>? ChildHealthThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("child_health_threshold");
+        get => GetProperty<TerraformProperty<double>>("child_health_threshold");
         set => this.WithProperty("child_health_threshold", value);
     }
 
     /// <summary>
     /// The child_healthchecks attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? ChildHealthchecks
+    public TerraformProperty<HashSet<string>>? ChildHealthchecks
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("child_healthchecks");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("child_healthchecks");
         set => this.WithProperty("child_healthchecks", value);
     }
 
     /// <summary>
     /// The cloudwatch_alarm_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudwatchAlarmName
+    public TerraformProperty<string>? CloudwatchAlarmName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_alarm_name");
+        get => GetProperty<TerraformProperty<string>>("cloudwatch_alarm_name");
         set => this.WithProperty("cloudwatch_alarm_name", value);
     }
 
     /// <summary>
     /// The cloudwatch_alarm_region attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? CloudwatchAlarmRegion
+    public TerraformProperty<string>? CloudwatchAlarmRegion
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("cloudwatch_alarm_region");
+        get => GetProperty<TerraformProperty<string>>("cloudwatch_alarm_region");
         set => this.WithProperty("cloudwatch_alarm_region", value);
     }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disabled
+    public TerraformProperty<bool>? Disabled
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disabled");
+        get => GetProperty<TerraformProperty<bool>>("disabled");
         set => this.WithProperty("disabled", value);
     }
 
     /// <summary>
     /// The enable_sni attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? EnableSni
+    public TerraformProperty<bool>? EnableSni
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("enable_sni");
+        get => GetProperty<TerraformProperty<bool>>("enable_sni");
         set => this.WithProperty("enable_sni", value);
     }
 
     /// <summary>
     /// The failure_threshold attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? FailureThreshold
+    public TerraformProperty<double>? FailureThreshold
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("failure_threshold");
+        get => GetProperty<TerraformProperty<double>>("failure_threshold");
         set => this.WithProperty("failure_threshold", value);
     }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Fqdn
+    public TerraformProperty<string>? Fqdn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("fqdn");
+        get => GetProperty<TerraformProperty<string>>("fqdn");
         set => this.WithProperty("fqdn", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The insufficient_data_health_status attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? InsufficientDataHealthStatus
+    public TerraformProperty<string>? InsufficientDataHealthStatus
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("insufficient_data_health_status");
+        get => GetProperty<TerraformProperty<string>>("insufficient_data_health_status");
         set => this.WithProperty("insufficient_data_health_status", value);
     }
 
     /// <summary>
     /// The invert_healthcheck attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? InvertHealthcheck
+    public TerraformProperty<bool>? InvertHealthcheck
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("invert_healthcheck");
+        get => GetProperty<TerraformProperty<bool>>("invert_healthcheck");
         set => this.WithProperty("invert_healthcheck", value);
     }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? IpAddress
+    public TerraformProperty<string>? IpAddress
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("ip_address");
+        get => GetProperty<TerraformProperty<string>>("ip_address");
         set => this.WithProperty("ip_address", value);
     }
 
     /// <summary>
     /// The measure_latency attribute.
     /// </summary>
-    public TerraformLiteralProperty<bool>? MeasureLatency
+    public TerraformProperty<bool>? MeasureLatency
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("measure_latency");
+        get => GetProperty<TerraformProperty<bool>>("measure_latency");
         set => this.WithProperty("measure_latency", value);
     }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? Port
+    public TerraformProperty<double>? Port
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("port");
+        get => GetProperty<TerraformProperty<double>>("port");
         set => this.WithProperty("port", value);
     }
 
     /// <summary>
     /// The reference_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ReferenceName
+    public TerraformProperty<string>? ReferenceName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("reference_name");
+        get => GetProperty<TerraformProperty<string>>("reference_name");
         set => this.WithProperty("reference_name", value);
     }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<HashSet<string>>? Regions
+    public TerraformProperty<HashSet<string>>? Regions
     {
-        get => GetProperty<TerraformLiteralProperty<HashSet<string>>>("regions");
+        get => GetProperty<TerraformProperty<HashSet<string>>>("regions");
         set => this.WithProperty("regions", value);
     }
 
     /// <summary>
     /// The request_interval attribute.
     /// </summary>
-    public TerraformLiteralProperty<double>? RequestInterval
+    public TerraformProperty<double>? RequestInterval
     {
-        get => GetProperty<TerraformLiteralProperty<double>>("request_interval");
+        get => GetProperty<TerraformProperty<double>>("request_interval");
         set => this.WithProperty("request_interval", value);
     }
 
     /// <summary>
     /// The resource_path attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ResourcePath
+    public TerraformProperty<string>? ResourcePath
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("resource_path");
+        get => GetProperty<TerraformProperty<string>>("resource_path");
         set => this.WithProperty("resource_path", value);
     }
 
     /// <summary>
     /// The routing_control_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RoutingControlArn
+    public TerraformProperty<string>? RoutingControlArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("routing_control_arn");
+        get => GetProperty<TerraformProperty<string>>("routing_control_arn");
         set => this.WithProperty("routing_control_arn", value);
     }
 
     /// <summary>
     /// The search_string attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SearchString
+    public TerraformProperty<string>? SearchString
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("search_string");
+        get => GetProperty<TerraformProperty<string>>("search_string");
         set => this.WithProperty("search_string", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Tags
+    public TerraformProperty<Dictionary<string, string>>? Tags
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? TagsAll
+    public TerraformProperty<Dictionary<string, string>>? TagsAll
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Triggers
+    public TerraformProperty<Dictionary<string, string>>? Triggers
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("triggers");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Type
+    public TerraformProperty<string>? Type
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("type");
+        get => GetProperty<TerraformProperty<string>>("type");
         set => this.WithProperty("type", value);
     }
 

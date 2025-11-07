@@ -19,27 +19,27 @@ public class AzureadClaimsMappingPolicy : TerraformResource
     /// <summary>
     /// A string collection containing a JSON string that defines the rules and settings for this policy
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Definition
+    public TerraformProperty<List<string>>? Definition
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("definition");
+        get => GetProperty<TerraformProperty<List<string>>>("definition");
         set => this.WithProperty("definition", value);
     }
 
     /// <summary>
     /// Display name for this policy
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 

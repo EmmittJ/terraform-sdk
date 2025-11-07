@@ -24,45 +24,45 @@ public class GoogleApihubPluginInstance : TerraformResource
     /// <summary>
     /// The display name for this plugin instance. Max length is 255 characters.
     /// </summary>
-    public TerraformLiteralProperty<bool>? Disable
+    public TerraformProperty<bool>? Disable
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("disable");
+        get => GetProperty<TerraformProperty<bool>>("disable");
         set => this.WithProperty("disable", value);
     }
 
     /// <summary>
     /// The display name for this plugin instance. Max length is 255 characters.
     /// </summary>
-    public TerraformLiteralProperty<string>? DisplayName
+    public TerraformProperty<string>? DisplayName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("display_name");
+        get => GetProperty<TerraformProperty<string>>("display_name");
         set => this.WithProperty("display_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
-    public TerraformLiteralProperty<string>? Plugin
+    public TerraformProperty<string>? Plugin
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plugin");
+        get => GetProperty<TerraformProperty<string>>("plugin");
         set => this.WithProperty("plugin", value);
     }
 
@@ -78,18 +78,18 @@ public class GoogleApihubPluginInstance : TerraformResource
     /// This value should be 4-63 characters, and valid characters
     /// are /a-z[0-9]-_/.
     /// </summary>
-    public TerraformLiteralProperty<string>? PluginInstanceId
+    public TerraformProperty<string>? PluginInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("plugin_instance_id");
+        get => GetProperty<TerraformProperty<string>>("plugin_instance_id");
         set => this.WithProperty("plugin_instance_id", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

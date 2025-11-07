@@ -20,27 +20,27 @@ public class AzurermFunctionAppActiveSlot : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The swap action should overwrite the Production slot&#39;s network configuration with the configuration from this slot. Defaults to `true`.
     /// </summary>
-    public TerraformLiteralProperty<bool>? OverwriteNetworkConfig
+    public TerraformProperty<bool>? OverwriteNetworkConfig
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("overwrite_network_config");
+        get => GetProperty<TerraformProperty<bool>>("overwrite_network_config");
         set => this.WithProperty("overwrite_network_config", value);
     }
 
     /// <summary>
     /// The ID of the Slot to swap with `Production`.
     /// </summary>
-    public TerraformLiteralProperty<string>? SlotId
+    public TerraformProperty<string>? SlotId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("slot_id");
+        get => GetProperty<TerraformProperty<string>>("slot_id");
         set => this.WithProperty("slot_id", value);
     }
 

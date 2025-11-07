@@ -21,36 +21,36 @@ public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The managed_instance_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManagedInstanceId
+    public TerraformProperty<string>? ManagedInstanceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("managed_instance_id");
+        get => GetProperty<TerraformProperty<string>>("managed_instance_id");
         set => this.WithProperty("managed_instance_id", value);
     }
 
     /// <summary>
     /// The timezone_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TimezoneId
+    public TerraformProperty<string>? TimezoneId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("timezone_id");
+        get => GetProperty<TerraformProperty<string>>("timezone_id");
         set => this.WithProperty("timezone_id", value);
     }
 

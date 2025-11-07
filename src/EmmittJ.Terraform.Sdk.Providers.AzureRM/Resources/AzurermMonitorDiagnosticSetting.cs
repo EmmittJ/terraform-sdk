@@ -19,81 +19,81 @@ public class AzurermMonitorDiagnosticSetting : TerraformResource
     /// <summary>
     /// The eventhub_authorization_rule_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubAuthorizationRuleId
+    public TerraformProperty<string>? EventhubAuthorizationRuleId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_authorization_rule_id");
+        get => GetProperty<TerraformProperty<string>>("eventhub_authorization_rule_id");
         set => this.WithProperty("eventhub_authorization_rule_id", value);
     }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EventhubName
+    public TerraformProperty<string>? EventhubName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("eventhub_name");
+        get => GetProperty<TerraformProperty<string>>("eventhub_name");
         set => this.WithProperty("eventhub_name", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The log_analytics_destination_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsDestinationType
+    public TerraformProperty<string>? LogAnalyticsDestinationType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_destination_type");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_destination_type");
         set => this.WithProperty("log_analytics_destination_type", value);
     }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? LogAnalyticsWorkspaceId
+    public TerraformProperty<string>? LogAnalyticsWorkspaceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("log_analytics_workspace_id");
+        get => GetProperty<TerraformProperty<string>>("log_analytics_workspace_id");
         set => this.WithProperty("log_analytics_workspace_id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The partner_solution_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? PartnerSolutionId
+    public TerraformProperty<string>? PartnerSolutionId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("partner_solution_id");
+        get => GetProperty<TerraformProperty<string>>("partner_solution_id");
         set => this.WithProperty("partner_solution_id", value);
     }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageAccountId
+    public TerraformProperty<string>? StorageAccountId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_account_id");
+        get => GetProperty<TerraformProperty<string>>("storage_account_id");
         set => this.WithProperty("storage_account_id", value);
     }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? TargetResourceId
+    public TerraformProperty<string>? TargetResourceId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("target_resource_id");
+        get => GetProperty<TerraformProperty<string>>("target_resource_id");
         set => this.WithProperty("target_resource_id", value);
     }
 

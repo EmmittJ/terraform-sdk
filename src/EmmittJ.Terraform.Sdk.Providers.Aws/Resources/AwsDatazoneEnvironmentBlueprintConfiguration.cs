@@ -19,63 +19,63 @@ public class AwsDatazoneEnvironmentBlueprintConfiguration : TerraformResource
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? DomainId
+    public TerraformProperty<string>? DomainId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("domain_id");
+        get => GetProperty<TerraformProperty<string>>("domain_id");
         set => this.WithProperty("domain_id", value);
     }
 
     /// <summary>
     /// The enabled_regions attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? EnabledRegions
+    public TerraformProperty<List<string>>? EnabledRegions
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("enabled_regions");
+        get => GetProperty<TerraformProperty<List<string>>>("enabled_regions");
         set => this.WithProperty("enabled_regions", value);
     }
 
     /// <summary>
     /// The environment_blueprint_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? EnvironmentBlueprintId
+    public TerraformProperty<string>? EnvironmentBlueprintId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("environment_blueprint_id");
+        get => GetProperty<TerraformProperty<string>>("environment_blueprint_id");
         set => this.WithProperty("environment_blueprint_id", value);
     }
 
     /// <summary>
     /// The manage_access_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ManageAccessRoleArn
+    public TerraformProperty<string>? ManageAccessRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("manage_access_role_arn");
+        get => GetProperty<TerraformProperty<string>>("manage_access_role_arn");
         set => this.WithProperty("manage_access_role_arn", value);
     }
 
     /// <summary>
     /// The provisioning_role_arn attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? ProvisioningRoleArn
+    public TerraformProperty<string>? ProvisioningRoleArn
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("provisioning_role_arn");
+        get => GetProperty<TerraformProperty<string>>("provisioning_role_arn");
         set => this.WithProperty("provisioning_role_arn", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 
     /// <summary>
     /// The regional_parameters attribute.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, Dictionary<string, string>>>? RegionalParameters
+    public TerraformProperty<Dictionary<string, Dictionary<string, string>>>? RegionalParameters
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, Dictionary<string, string>>>>("regional_parameters");
+        get => GetProperty<TerraformProperty<Dictionary<string, Dictionary<string, string>>>>("regional_parameters");
         set => this.WithProperty("regional_parameters", value);
     }
 

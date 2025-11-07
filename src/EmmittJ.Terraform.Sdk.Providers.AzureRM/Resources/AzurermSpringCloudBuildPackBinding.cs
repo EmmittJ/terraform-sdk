@@ -19,36 +19,36 @@ public class AzurermSpringCloudBuildPackBinding : TerraformResource
     /// <summary>
     /// The binding_type attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? BindingType
+    public TerraformProperty<string>? BindingType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("binding_type");
+        get => GetProperty<TerraformProperty<string>>("binding_type");
         set => this.WithProperty("binding_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Name
+    public TerraformProperty<string>? Name
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("name");
+        get => GetProperty<TerraformProperty<string>>("name");
         set => this.WithProperty("name", value);
     }
 
     /// <summary>
     /// The spring_cloud_builder_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? SpringCloudBuilderId
+    public TerraformProperty<string>? SpringCloudBuilderId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("spring_cloud_builder_id");
+        get => GetProperty<TerraformProperty<string>>("spring_cloud_builder_id");
         set => this.WithProperty("spring_cloud_builder_id", value);
     }
 

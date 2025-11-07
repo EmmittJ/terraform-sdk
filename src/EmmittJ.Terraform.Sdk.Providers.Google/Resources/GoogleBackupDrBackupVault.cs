@@ -32,18 +32,18 @@ public class GoogleBackupDrBackupVault : TerraformResource
     /// <summary>
     /// Access restriction for the backup vault. Default value is &#39;WITHIN_ORGANIZATION&#39; if not provided during creation. Default value: &amp;quot;WITHIN_ORGANIZATION&amp;quot; Possible values: [&amp;quot;ACCESS_RESTRICTION_UNSPECIFIED&amp;quot;, &amp;quot;WITHIN_PROJECT&amp;quot;, &amp;quot;WITHIN_ORGANIZATION&amp;quot;, &amp;quot;UNRESTRICTED&amp;quot;, &amp;quot;WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? AccessRestriction
+    public TerraformProperty<string>? AccessRestriction
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("access_restriction");
+        get => GetProperty<TerraformProperty<string>>("access_restriction");
         set => this.WithProperty("access_restriction", value);
     }
 
     /// <summary>
     /// Allow idempotent deletion of backup vault. The request will still succeed in case the backup vault does not exist.
     /// </summary>
-    public TerraformLiteralProperty<bool>? AllowMissing
+    public TerraformProperty<bool>? AllowMissing
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("allow_missing");
+        get => GetProperty<TerraformProperty<bool>>("allow_missing");
         set => this.WithProperty("allow_missing", value);
     }
 
@@ -54,54 +54,54 @@ public class GoogleBackupDrBackupVault : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Annotations
+    public TerraformProperty<Dictionary<string, string>>? Annotations
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Required. The default and minimum enforced retention for each backup within the backup vault. The enforced retention for each backup can be extended.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupMinimumEnforcedRetentionDuration
+    public TerraformProperty<string>? BackupMinimumEnforcedRetentionDuration
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_minimum_enforced_retention_duration");
+        get => GetProperty<TerraformProperty<string>>("backup_minimum_enforced_retention_duration");
         set => this.WithProperty("backup_minimum_enforced_retention_duration", value);
     }
 
     /// <summary>
     /// How a backup&#39;s enforced retention end time is inherited. Default value is &#39;INHERIT_VAULT_RETENTION&#39; if not provided during creation. Possible values: [&amp;quot;BACKUP_RETENTION_INHERITANCE_UNSPECIFIED&amp;quot;, &amp;quot;INHERIT_VAULT_RETENTION&amp;quot;, &amp;quot;MATCH_BACKUP_EXPIRE_TIME&amp;quot;]
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupRetentionInheritance
+    public TerraformProperty<string>? BackupRetentionInheritance
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_retention_inheritance");
+        get => GetProperty<TerraformProperty<string>>("backup_retention_inheritance");
         set => this.WithProperty("backup_retention_inheritance", value);
     }
 
     /// <summary>
     /// Required. ID of the requesting object.
     /// </summary>
-    public TerraformLiteralProperty<string>? BackupVaultId
+    public TerraformProperty<string>? BackupVaultId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("backup_vault_id");
+        get => GetProperty<TerraformProperty<string>>("backup_vault_id");
         set => this.WithProperty("backup_vault_id", value);
     }
 
     /// <summary>
     /// Optional. The description of the BackupVault instance (2048 characters or less).
     /// </summary>
-    public TerraformLiteralProperty<string>? Description
+    public TerraformProperty<string>? Description
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("description");
+        get => GetProperty<TerraformProperty<string>>("description");
         set => this.WithProperty("description", value);
     }
 
     /// <summary>
     /// Optional. Time after which the BackupVault resource is locked.
     /// </summary>
-    public TerraformLiteralProperty<string>? EffectiveTime
+    public TerraformProperty<string>? EffectiveTime
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("effective_time");
+        get => GetProperty<TerraformProperty<string>>("effective_time");
         set => this.WithProperty("effective_time", value);
     }
 
@@ -111,9 +111,9 @@ public class GoogleBackupDrBackupVault : TerraformResource
     ///    * deletion of a backup vault instance that is being referenced by an active backup plan.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    public TerraformLiteralProperty<bool>? ForceDelete
+    public TerraformProperty<bool>? ForceDelete
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_delete");
+        get => GetProperty<TerraformProperty<bool>>("force_delete");
         set => this.WithProperty("force_delete", value);
     }
 
@@ -123,18 +123,18 @@ public class GoogleBackupDrBackupVault : TerraformResource
     ///  expiration schedule defined by the associated backup plan is shorter than the minimum
     ///  retention set by the backup vault.
     /// </summary>
-    public TerraformLiteralProperty<bool>? ForceUpdate
+    public TerraformProperty<bool>? ForceUpdate
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("force_update");
+        get => GetProperty<TerraformProperty<bool>>("force_update");
         set => this.WithProperty("force_update", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
@@ -142,9 +142,9 @@ public class GoogleBackupDrBackupVault : TerraformResource
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
     ///    * deletion of a backup vault instance that is being referenced by an active backup plan.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IgnoreBackupPlanReferences
+    public TerraformProperty<bool>? IgnoreBackupPlanReferences
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_backup_plan_references");
+        get => GetProperty<TerraformProperty<bool>>("ignore_backup_plan_references");
         set => this.WithProperty("ignore_backup_plan_references", value);
     }
 
@@ -152,9 +152,9 @@ public class GoogleBackupDrBackupVault : TerraformResource
     /// If set, the following restrictions against deletion of the backup vault instance can be overridden:
     ///    * deletion of a backup vault instance containing no backups, but still containing empty datasources.
     /// </summary>
-    public TerraformLiteralProperty<bool>? IgnoreInactiveDatasources
+    public TerraformProperty<bool>? IgnoreInactiveDatasources
     {
-        get => GetProperty<TerraformLiteralProperty<bool>>("ignore_inactive_datasources");
+        get => GetProperty<TerraformProperty<bool>>("ignore_inactive_datasources");
         set => this.WithProperty("ignore_inactive_datasources", value);
     }
 
@@ -164,27 +164,27 @@ public class GoogleBackupDrBackupVault : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformLiteralProperty<Dictionary<string, string>>? Labels
+    public TerraformProperty<Dictionary<string, string>>? Labels
     {
-        get => GetProperty<TerraformLiteralProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
         set => this.WithProperty("labels", value);
     }
 
     /// <summary>
     /// The GCP location for the backup vault.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 

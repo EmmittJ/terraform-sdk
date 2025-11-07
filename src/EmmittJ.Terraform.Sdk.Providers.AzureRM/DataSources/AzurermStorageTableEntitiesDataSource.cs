@@ -20,36 +20,36 @@ public class AzurermStorageTableEntitiesDataSource : TerraformDataSource
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Filter
+    public TerraformProperty<string>? Filter
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("filter");
+        get => GetProperty<TerraformProperty<string>>("filter");
         set => this.WithProperty("filter", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The select attribute.
     /// </summary>
-    public TerraformLiteralProperty<List<string>>? Select
+    public TerraformProperty<List<string>>? Select
     {
-        get => GetProperty<TerraformLiteralProperty<List<string>>>("select");
+        get => GetProperty<TerraformProperty<List<string>>>("select");
         set => this.WithProperty("select", value);
     }
 
     /// <summary>
     /// The storage_table_id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? StorageTableId
+    public TerraformProperty<string>? StorageTableId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("storage_table_id");
+        get => GetProperty<TerraformProperty<string>>("storage_table_id");
         set => this.WithProperty("storage_table_id", value);
     }
 

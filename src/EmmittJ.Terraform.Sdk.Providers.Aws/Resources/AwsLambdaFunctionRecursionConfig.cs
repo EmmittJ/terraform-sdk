@@ -19,27 +19,27 @@ public class AwsLambdaFunctionRecursionConfig : TerraformResource
     /// <summary>
     /// The function_name attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? FunctionName
+    public TerraformProperty<string>? FunctionName
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("function_name");
+        get => GetProperty<TerraformProperty<string>>("function_name");
         set => this.WithProperty("function_name", value);
     }
 
     /// <summary>
     /// The recursive_loop attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? RecursiveLoop
+    public TerraformProperty<string>? RecursiveLoop
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("recursive_loop");
+        get => GetProperty<TerraformProperty<string>>("recursive_loop");
         set => this.WithProperty("recursive_loop", value);
     }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    public TerraformLiteralProperty<string>? Region
+    public TerraformProperty<string>? Region
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("region");
+        get => GetProperty<TerraformProperty<string>>("region");
         set => this.WithProperty("region", value);
     }
 

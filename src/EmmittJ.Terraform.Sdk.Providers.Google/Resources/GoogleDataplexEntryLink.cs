@@ -22,18 +22,18 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// <summary>
     /// The id of the entry group this entry link is in.
     /// </summary>
-    public TerraformLiteralProperty<string>? EntryGroupId
+    public TerraformProperty<string>? EntryGroupId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entry_group_id");
+        get => GetProperty<TerraformProperty<string>>("entry_group_id");
         set => this.WithProperty("entry_group_id", value);
     }
 
     /// <summary>
     /// The id of the entry link to create.
     /// </summary>
-    public TerraformLiteralProperty<string>? EntryLinkId
+    public TerraformProperty<string>? EntryLinkId
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entry_link_id");
+        get => GetProperty<TerraformProperty<string>>("entry_link_id");
         set => this.WithProperty("entry_link_id", value);
     }
 
@@ -41,36 +41,36 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// Relative resource name of the Entry Link Type used to create this Entry Link. For example:
     /// projects/dataplex-types/locations/global/entryLinkTypes/definition
     /// </summary>
-    public TerraformLiteralProperty<string>? EntryLinkType
+    public TerraformProperty<string>? EntryLinkType
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("entry_link_type");
+        get => GetProperty<TerraformProperty<string>>("entry_link_type");
         set => this.WithProperty("entry_link_type", value);
     }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Id
+    public TerraformProperty<string>? Id
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("id");
+        get => GetProperty<TerraformProperty<string>>("id");
         set => this.WithProperty("id", value);
     }
 
     /// <summary>
     /// The location for the entry.
     /// </summary>
-    public TerraformLiteralProperty<string>? Location
+    public TerraformProperty<string>? Location
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("location");
+        get => GetProperty<TerraformProperty<string>>("location");
         set => this.WithProperty("location", value);
     }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    public TerraformLiteralProperty<string>? Project
+    public TerraformProperty<string>? Project
     {
-        get => GetProperty<TerraformLiteralProperty<string>>("project");
+        get => GetProperty<TerraformProperty<string>>("project");
         set => this.WithProperty("project", value);
     }
 
