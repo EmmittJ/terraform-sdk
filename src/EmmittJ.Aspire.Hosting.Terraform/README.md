@@ -1,6 +1,6 @@
 # EmmittJ.Aspire.Hosting.Terraform library
 
-Provides extension methods and resources for generating Terraform infrastructure-as-code from Aspire resource definitions using the EmmittJ.Terraform.Sdk.
+Provides extension methods for generating Terraform infrastructure-as-code from Aspire compute resources using the EmmittJ.Terraform.Sdk.
 
 ## Getting started
 
@@ -14,235 +14,221 @@ dotnet add package EmmittJ.Aspire.Hosting.Terraform
 
 ## Usage example
 
-Create Terraform stacks as child resources of any Aspire resource:
+Publish compute resources as Terraform infrastructure:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Add a Postgres resource
-var postgres = builder.AddPostgres("postgres");
-
-// Attach a Terraform stack as a child resource
-var postgresInfra = postgres.WithTerraformStack("infrastructure", stack =>
-{
-    // Configure the Terraform stack using the SDK
-    var provider = new TerraformAwsProvider("aws")
+// Add a container resource with Terraform infrastructure
+var api = builder.AddContainer("api", "myapi")
+    .PublishAsTerraform(stack =>
     {
-        Region = "us-west-2"
-    };
-    stack.AddProvider(provider);
+        // Configure Terraform infrastructure for the API
+        var bucket = new S3Bucket("api-storage")
+        {
+            BucketName = "my-api-storage"
+        };
+        stack.Add(bucket);
 
-    var db = new TerraformResource("postgres_db", "aws_db_instance")
+        var database = new RdsInstance("api-db")
+        {
+            Engine = "postgres",
+            InstanceClass = "db.t3.micro"
+        };
+        stack.Add(database);
+    });
+
+// Or with a project resource
+var webapp = builder.AddProject<Projects.WebApp>("webapp")
+    .PublishAsTerraform(stack =>
     {
-        ["engine"] = "postgres",
-        ["instance_class"] = "db.t3.micro"
-    };
-    stack.AddResource(db);
-});
-
-// The Terraform stack is now a separate resource that can be:
-// - Referenced by other resources
-// - Waited on for completion
-// - Monitored in the dashboard
+        var cdn = new CloudFrontDistribution("webapp-cdn");
+        stack.Add(cdn);
+    });
 
 builder.Build().Run();
 ```
 
 ## Core Concepts
 
-### Terraform Stacks as First-Class Resources
+### Annotation-Based Architecture
 
-Terraform stacks are created as `TerraformStackResource` instances—separate resources in the Aspire application model. This follows Aspire's architectural patterns where related entities are represented as child resources with `IResourceWithParent<T>`.
+This library follows Aspire's established pattern (used by Azure Container Apps, App Service, and Kubernetes) where Terraform configuration is attached to compute resources via annotations, then processed during publish.
+
+**Key Components:**
+
+1. **Extension Method** (`PublishAsTerraform`) - Adds a `TerraformStackAnnotation` to the compute resource
+2. **Annotation** (`TerraformStackAnnotation`) - Stores the Terraform configuration callback
+3. **Eventing Subscriber** (`TerraformEventingSubscriber`) - Processes annotations during publish and generates `.tf` files
 
 **Benefits:**
 
-- Each stack appears in the Aspire dashboard
-- Stacks have their own lifecycle and can be monitored independently
-- Other resources can explicitly wait for stacks to complete
-- Better separation of concerns: parent resource represents the application component, stack resource represents infrastructure provisioning
+- ✅ Consistent with other Aspire deployment targets (Azure, Kubernetes)
+- ✅ Only operates in publish mode (no overhead during `dotnet run`)
+- ✅ Clean API with single configuration callback
+- ✅ Works only with compute resources (projects, containers, executables)
+- ✅ Can combine with other deployment targets
 
-### Creating Terraform Stacks
+### Publishing Compute Resources
 
-Use `WithTerraformStack` to create a stack as a child resource:
-
-```csharp
-var redis = builder.AddRedis("redis");
-
-var cacheInfra = redis.WithTerraformStack("cache-infra", stack =>
-{
-    // Add providers
-    stack.AddProvider(new TerraformAwsProvider("aws") { Region = "us-east-1" });
-
-    // Add resources
-    stack.AddResource(new TerraformResource("elasticache", "aws_elasticache_cluster")
-    {
-        ["cluster_id"] = "my-redis-cluster",
-        ["engine"] = "redis"
-    });
-
-    // Add outputs
-    stack.AddOutput("cluster_endpoint", new TerraformOutput
-    {
-        Value = "${aws_elasticache_cluster.elasticache.cache_nodes[0].address}"
-    });
-});
-
-// The stack resource can be referenced
-var app = builder.AddProject<Projects.MyApp>("myapp")
-    .WaitFor(cacheInfra); // Wait for infrastructure to be ready
-```
-
-### Setting Working Directory
-
-Optionally specify where Terraform files should be generated:
+Use `PublishAsTerraform` to configure Terraform infrastructure for a compute resource:
 
 ```csharp
-var postgres = builder.AddPostgres("postgres")
-    .WithTerraformWorkingDirectory("./terraform/database");
-
-var dbInfra = postgres.WithTerraformStack("rds", stack =>
-{
-    // Stack configuration
-});
-```
-
-### Multiple Stacks Per Resource
-
-You can attach multiple Terraform stacks to a single resource:
-
-```csharp
-var api = builder.AddProject<Projects.WebApi>("api");
-
-// Network infrastructure
-var network = api.WithTerraformStack("network", stack =>
-{
-    stack.AddResource(new TerraformResource("vpc", "aws_vpc")
+var redis = builder.AddContainer("cache", "redis")
+    .PublishAsTerraform(stack =>
     {
-        ["cidr_block"] = "10.0.0.0/16"
-    });
-});
-
-// Security infrastructure
-var security = api.WithTerraformStack("security", stack =>
-{
-    stack.AddResource(new TerraformResource("sg", "aws_security_group")
-    {
-        ["name"] = "api-sg"
-    });
-});
-```
-
-### Automatic Parameter Generation
-
-Terraform variables in your stack are automatically converted to Aspire parameters:
-
-```csharp
-var infra = builder.AddContainer("infra", "terraform")
-    .WithTerraformStack("aws-resources", stack =>
-    {
-        // Add Terraform variables
-        stack.Add(new TerraformVariable("region")
+        // Add AWS provider
+        var provider = new AwsProvider("aws")
         {
-            Type = TerraformTypeProperty.String,
-            Description = "AWS region"
-        });
+            Region = "us-east-1"
+        };
+        stack.AddProvider(provider);
 
-        stack.Add(new TerraformVariable("instance_count")
+        // Add ElastiCache cluster
+        var cluster = new ElastiCacheCluster("redis-cluster")
         {
-            Type = TerraformTypeProperty.Number,
-            Default = 3
-        });
+            ClusterId = "my-cache",
+            Engine = "redis",
+            NodeType = "cache.t3.micro",
+            NumCacheNodes = 1
+        };
+        stack.Add(cluster);
 
-        // Use variables in resources
-        stack.AddProvider(new TerraformAwsProvider("aws")
-        {
-            Region = "${var.region}"
-        });
+        // Add outputs
+        stack.AddOutput("endpoint", cluster.CacheNodes[0].Address);
     });
-
-// Aspire parameters are automatically created with the naming pattern:
-// {stackResourceName}_{variableName}
-// - infra-aws-resources_region
-// - infra-aws-resources_instance_count
 ```
 
-These parameters are registered in the application model and can be configured through:
+### Configuring Output Path
 
-- User secrets
-- Environment variables
-- Configuration files
-- The Aspire dashboard (when prompted for values)
+Customize where Terraform files are generated:
+
+```csharp
+var api = builder.AddContainer("api", "myapi")
+    .PublishAsTerraform(stack =>
+    {
+        // Configure infrastructure
+    })
+    .WithTerraformConfiguration(config =>
+    {
+        config.OutputPath = "./terraform/api";
+    });
+```
+
+By default, files are generated to `{output-path}/{resource-name}/main.tf`.
+
+### Multiple Terraform Configurations
+
+You can attach multiple Terraform configurations to a single resource using named stacks:
+
+```csharp
+var api = builder.AddContainer("api", "myapi")
+    .PublishAsTerraform("network", stack =>
+    {
+        var vpc = new Vpc("api-vpc")
+        {
+            CidrBlock = "10.0.0.0/16"
+        };
+        stack.Add(vpc);
+    })
+    .PublishAsTerraform("security", stack =>
+    {
+        var sg = new SecurityGroup("api-sg")
+        {
+            Name = "api-security-group"
+        };
+        stack.Add(sg);
+    });
+```
+
+This generates:
+
+- `{output-path}/api/network.tf`
+- `{output-path}/api/security.tf`
+
+### Publish-Only Execution
+
+### Publish-Only Execution
+
+Terraform file generation **only occurs during publish mode** (`aspire publish`), not during `dotnet run`. This ensures:
+
+- ✅ Faster local development (no file I/O during app startup)
+- ✅ Infrastructure provisioning decoupled from application runtime
+- ✅ Stack validation happens during publish
+- ✅ Terraform execution controlled by deployment pipelines
 
 ## API Reference
 
 ### Extension Methods
 
-#### `WithTerraformStack<T>`
+#### `PublishAsTerraform<T>`
 
-Adds a Terraform stack as a child resource of the parent resource.
+Publishes a compute resource with Terraform infrastructure configuration.
 
 ```csharp
-IResourceBuilder<TerraformStackResource> WithTerraformStack<T>(
+// Unnamed version - generates main.tf
+IResourceBuilder<T> PublishAsTerraform<T>(
     this IResourceBuilder<T> builder,
-    string stackName,
-    Action<TerraformStack>? configureStack = null)
-    where T : IResource
+    Action<TerraformStack> configure)
+    where T : IComputeResource
+
+// Named version - generates {name}.tf
+IResourceBuilder<T> PublishAsTerraform<T>(
+    this IResourceBuilder<T> builder,
+    string name,
+    Action<TerraformStack> configure)
+    where T : IComputeResource
 ```
 
 **Parameters:**
 
-- `builder` - The parent resource builder
-- `stackName` - Name of the Terraform stack (used in the resource name)
-- `configureStack` - Optional action to configure the stack
-
-**Returns:** A resource builder for the `TerraformStackResource`
-
-#### `WithTerraformWorkingDirectory<T>`
-
-Sets the working directory for Terraform file generation.
-
-```csharp
-IResourceBuilder<T> WithTerraformWorkingDirectory<T>(
-    this IResourceBuilder<T> builder,
-    string workingDirectory)
-    where T : IResource
-```
-
-**Parameters:**
-
-- `builder` - The resource builder
-- `workingDirectory` - Path where Terraform files will be generated
+- `builder` - The compute resource builder (project, container, or executable)
+- `name` - (Optional) Name for the Terraform stack, used in file naming
+- `configure` - Action to configure the Terraform stack
 
 **Returns:** The resource builder for chaining
 
-### Resources
+**File Output:**
 
-#### `TerraformStackResource`
+- Unnamed: `{output-path}/{resource-name}/main.tf`
+- Named: `{output-path}/{resource-name}/{name}.tf`
 
-Represents a Terraform stack as a first-class Aspire resource.
+#### `WithTerraformConfiguration<T>`
+
+Configures Terraform generation settings for a compute resource.
+
+```csharp
+IResourceBuilder<T> WithTerraformConfiguration<T>(
+    this IResourceBuilder<T> builder,
+    Action<TerraformConfigurationAnnotation> configure)
+    where T : IComputeResource
+```
+
+**Parameters:**
+
+- `builder` - The compute resource builder
+- `configure` - Action to configure Terraform settings
+
+**Returns:** The resource builder for chaining
+
+### Annotations
+
+#### `TerraformStackAnnotation`
+
+Annotation that stores Terraform configuration on a compute resource.
 
 **Properties:**
 
-- `Name` - The unique name of the stack resource
-- `Parent` - The parent Aspire resource this stack is associated with
-- `Stack` - The `TerraformStack` definition containing providers, resources, and configuration
+- `Configure` - Action to configure the Terraform stack
+- `Name` - Optional name for the stack (used in file naming)
 
 #### `TerraformConfigurationAnnotation`
 
-Annotation that stores Terraform configuration on a resource.
+Annotation for configuring Terraform generation settings.
 
 **Properties:**
 
-- `WorkingDirectory` - Directory where Terraform files will be generated (optional)
-
-## File Generation
-
-Terraform files are **not** generated during `dotnet run`. Instead, file generation happens during the `aspire publish` process via CI/CD pipelines. This separation ensures:
-
-- Faster local development (no file I/O during app startup)
-- Infrastructure provisioning decoupled from application runtime
-- Stack validation happens early (during resource creation)
-- Terraform execution controlled by deployment pipelines
+- `OutputPath` - Custom output path for generated Terraform files (optional)
 
 ## Additional documentation
 
