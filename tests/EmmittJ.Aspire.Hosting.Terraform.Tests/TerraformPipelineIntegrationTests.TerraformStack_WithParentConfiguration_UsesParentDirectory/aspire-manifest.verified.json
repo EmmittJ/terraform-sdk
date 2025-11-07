@@ -4,30 +4,6 @@
     "myapp": {
       "type": "container.v0",
       "image": "image:latest"
-    },
-    "myapp-stack1": {
-      "error": "This resource does not support generation in the manifest."
-    },
-    "myapp-stack1-var1": {
-      "type": "parameter.v0",
-      "value": "{myapp-stack1-var1.inputs.value}",
-      "inputs": {
-        "value": {
-          "type": "string"
-        }
-      }
-    },
-    "myapp-stack2": {
-      "error": "This resource does not support generation in the manifest."
-    },
-    "myapp-stack2-var2": {
-      "type": "parameter.v0",
-      "value": "{myapp-stack2-var2.inputs.value}",
-      "inputs": {
-        "value": {
-          "type": "string"
-        }
-      }
     }
   }
 }

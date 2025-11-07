@@ -5,16 +5,13 @@ using Aspire.Hosting.ApplicationModel;
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
 /// <summary>
-/// Annotation that stores Terraform configuration for a resource.
-/// Applied to the parent resource to specify the output path for Terraform files.
-/// Does not store stack definitions - use <see cref="TerraformStackResource"/> for stack resources.
+/// Annotation for configuring Terraform generation settings.
 /// </summary>
 public sealed class TerraformConfigurationAnnotation : IResourceAnnotation
 {
     /// <summary>
-    /// Gets or sets the output path where Terraform files will be generated.
-    /// This path is relative to the pipeline output path.
-    /// If not specified, defaults to the resource name.
+    /// Gets or sets the output path for generated Terraform files.
+    /// If null, defaults to {output-path}/{resource-name}/
     /// </summary>
     public string? OutputPath { get; set; }
 }

@@ -4,30 +4,6 @@
     "myapp": {
       "type": "container.v0",
       "image": "image:latest"
-    },
-    "myapp-network": {
-      "error": "This resource does not support generation in the manifest."
-    },
-    "myapp-network-vpc-cidr": {
-      "type": "parameter.v0",
-      "value": "{myapp-network-vpc-cidr.inputs.value}",
-      "inputs": {
-        "value": {
-          "type": "string"
-        }
-      }
-    },
-    "myapp-security": {
-      "error": "This resource does not support generation in the manifest."
-    },
-    "myapp-security-allow-ssh": {
-      "type": "parameter.v0",
-      "value": "{myapp-security-allow-ssh.inputs.value}",
-      "inputs": {
-        "value": {
-          "type": "string"
-        }
-      }
     }
   }
 }

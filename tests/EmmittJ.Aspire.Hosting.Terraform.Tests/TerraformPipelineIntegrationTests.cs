@@ -30,7 +30,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .PublishAsTerraformStack("network", stack =>
+                .PublishAsTerraform(stack =>
                 {
                     var vpc = new TerraformVariable("vpc_cidr")
                     {
@@ -76,7 +76,7 @@ public class TerraformPipelineIntegrationTests
 
             builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputPath = customOutput)
-                .PublishAsTerraformStack("infrastructure", stack =>
+                .PublishAsTerraform(stack =>
                 {
                     var region = new TerraformVariable("region")
                     {
@@ -119,14 +119,22 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .PublishAsTerraformStack("network", stack =>
+                .PublishAsTerraform("network", stack =>
                 {
-                    var vpc = new TerraformVariable("vpc_cidr") { Type = "string", Default = "10.0.0.0/16" };
+                    var vpc = new TerraformVariable("vpc_cidr")
+                    {
+                        Type = "string",
+                        Default = "10.0.0.0/16"
+                    };
                     stack.Add(vpc);
                 })
-                .PublishAsTerraformStack("security", stack =>
+                .PublishAsTerraform("security", stack =>
                 {
-                    var allowSsh = new TerraformVariable("allow_ssh") { Type = "bool", Default = "true" };
+                    var allowSsh = new TerraformVariable("allow_ssh")
+                    {
+                        Type = "bool",
+                        Default = "true"
+                    };
                     stack.Add(allowSsh);
                 });
 
@@ -165,14 +173,20 @@ public class TerraformPipelineIntegrationTests
 
             var container = builder.AddContainer("myapp", "image")
                 .WithTerraformConfiguration(config => config.OutputPath = parentOutputDir)
-                .PublishAsTerraformStack("stack1", stack =>
+                .PublishAsTerraform("stack1", stack =>
                 {
-                    var var1 = new TerraformVariable("var1") { Type = "string" };
+                    var var1 = new TerraformVariable("var1")
+                    {
+                        Type = "string"
+                    };
                     stack.Add(var1);
                 })
-                .PublishAsTerraformStack("stack2", stack =>
+                .PublishAsTerraform("stack2", stack =>
                 {
-                    var var2 = new TerraformVariable("var2") { Type = "string" };
+                    var var2 = new TerraformVariable("var2")
+                    {
+                        Type = "string"
+                    };
                     stack.Add(var2);
                 });
 
@@ -209,7 +223,7 @@ public class TerraformPipelineIntegrationTests
             });
 
             var container = builder.AddContainer("myapp", "image")
-                .PublishAsTerraformStack("complex", stack =>
+                .PublishAsTerraform(stack =>
                 {
                     // Add multiple types of constructs
                     var stringVar = new TerraformVariable("environment")
@@ -218,21 +232,20 @@ public class TerraformPipelineIntegrationTests
                         Default = "development",
                         Description = "Environment name"
                     };
+                    stack.Add(stringVar);
 
                     var numberVar = new TerraformVariable("instance_count")
                     {
                         Type = "number",
                         Default = "3"
                     };
+                    stack.Add(numberVar);
 
                     var boolVar = new TerraformVariable("enable_monitoring")
                     {
                         Type = "bool",
                         Default = "true"
                     };
-
-                    stack.Add(stringVar);
-                    stack.Add(numberVar);
                     stack.Add(boolVar);
                 });
 
