@@ -1,6 +1,6 @@
 # EmmittJ.Aspire.Hosting.Terraform library
 
-Provides extension methods for provisioning Terraform infrastructure alongside Aspire resources using the EmmittJ.Terraform.Sdk.
+Provides extension methods for deploying .NET Aspire applications using Terraform infrastructure-as-code.
 
 ## Getting started
 
@@ -14,36 +14,26 @@ dotnet add package EmmittJ.Aspire.Hosting.Terraform
 
 ## Usage example
 
-Add Terraform infrastructure provisioning to any Aspire resource:
+Deploy Aspire resources to a Terraform environment:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
 
-// Add a container resource with Terraform infrastructure
-var api = builder.AddContainer("api", "myapi")
-    .WithTerraform(stack =>
+// Add a Terraform deployment environment
+var terraform = builder.AddTerraformEnvironment("terraform")
+    .WithBackend("s3", config =>
     {
-        // Configure Terraform infrastructure for the API
-        var bucket = new S3Bucket("api-storage")
-        {
-            BucketName = "my-api-storage"
-        };
-        stack.Add(bucket);
+        config["bucket"] = "my-terraform-state";
+        config["region"] = "us-west-2";
+    })
+    .WithVersion("1.9.0");
 
-        var database = new RdsInstance("api-db")
-        {
-            Engine = "postgres",
-            InstanceClass = "db.t3.micro"
-        };
-        stack.Add(database);
-    });
-
-// Or with a project resource
-var webapp = builder.AddProject<Projects.WebApp>("webapp")
-    .WithTerraform(stack =>
+// Add resources - they'll be deployed via Terraform when published
+var api = builder.AddProject<Projects.Api>("api")
+    .PublishAsTerraform((infrastructure) =>
     {
-        var cdn = new CloudFrontDistribution("webapp-cdn");
-        stack.Add(cdn);
+        // Customize Terraform infrastructure for this resource
+        // Access infrastructure.Stack, infrastructure.Resource, infrastructure.Environment
     });
 
 builder.Build().Run();
@@ -51,52 +41,38 @@ builder.Build().Run();
 
 ## Core Concepts
 
-### Infrastructure Provisioning Pattern
+### Deployment Model
 
-This library follows a pattern similar to `AzureBicepResource` for infrastructure provisioning. Unlike compute environments (Kubernetes, Azure Container Apps), this generates infrastructure-as-code that provisions supporting resources.
+This library implements a complete Terraform deployment environment for .NET Aspire, following the same pattern as Azure Container Apps and Kubernetes deployments.
 
 **Key Components:**
 
-1. **Extension Method** (`WithTerraform`) - Adds a `TerraformStackAnnotation` to any resource
-2. **Annotation** (`TerraformStackAnnotation`) - Stores the Terraform configuration callback
-3. **Pipeline Steps** (`TerraformPipelineStepFactory`) - Processes annotations during publish and generates `.tf` files
+1. **Terraform Environment** (`AddTerraformEnvironment`) - Deployment target for your application
+2. **Resource Publishing** (`PublishAsTerraform`) - Customize infrastructure per resource
+3. **Pipeline Integration** - Automated terraform init/plan/apply steps
+4. **File Generation** - Generates Terraform JSON configuration during publish
 
 **Benefits:**
 
-- ✅ Similar to Azure Bicep infrastructure provisioning
+- ✅ Deploy to any cloud provider (AWS, Azure, GCP)
+- ✅ Type-safe infrastructure with EmmittJ.Terraform.Sdk
 - ✅ Only operates in publish mode (no overhead during `dotnet run`)
-- ✅ Clean API with configuration callback
-- ✅ Works with any resource type (not just compute resources)
-- ✅ Multiple stacks per resource supported
-- ✅ Can combine with compute environments (Kubernetes, ACA, etc.)
+- ✅ Integrates with Aspire deployment pipeline
+- ✅ Flexible backend configuration (local, S3, Azure, GCS, Terraform Cloud)
 
-### Adding Terraform Infrastructure
+### Publishing Resources
 
-Use `WithTerraform` to provision infrastructure alongside any resource:
+Use `PublishAsTerraform` to customize how resources are deployed:
 
 ```csharp
-var redis = builder.AddContainer("cache", "redis")
-    .WithTerraform(stack =>
+var api = builder.AddProject<Projects.Api>("api")
+    .PublishAsTerraform((infrastructure) =>
     {
-        // Add AWS provider
-        var provider = new AwsProvider("aws")
-        {
-            Region = "us-east-1"
-        };
-        stack.AddProvider(provider);
+        var stack = infrastructure.Stack;
+        var resource = infrastructure.Resource;
 
-        // Add ElastiCache cluster
-        var cluster = new ElastiCacheCluster("redis-cluster")
-        {
-            ClusterId = "my-cache",
-            Engine = "redis",
-            NodeType = "cache.t3.micro",
-            NumCacheNodes = 1
-        };
-        stack.Add(cluster);
-
-        // Add outputs
-        stack.AddOutput("endpoint", cluster.CacheNodes[0].Address);
+        // Add cloud-specific infrastructure
+        // Example: AWS ECS task, Azure Container Instance, etc.
     });
 ```
 
@@ -122,34 +98,34 @@ By default, files are generated to `{output-path}/{resource-name}/main.tf`.
 
 You can attach multiple Terraform stacks to a single resource:
 
+### Environment Configuration
+
+Configure the Terraform environment with backend, version, and automation settings:
+
 ```csharp
-var api = builder.AddContainer("api", "myapi")
-    .WithTerraform(stack =>
+builder.AddTerraformEnvironment("terraform")
+    .WithWorkspace("production")
+    .WithVersion("1.9.0")
+    .WithBackend("azurerm", config =>
     {
-        stack.Name = "network";
-        var vpc = new Vpc("api-vpc")
-        {
-            CidrBlock = "10.0.0.0/16"
-        };
-        stack.Add(vpc);
-    })
-    .WithTerraform(stack =>
-    {
-        stack.Name = "security";
-        var sg = new SecurityGroup("api-sg")
-        {
-            Name = "api-security-group"
-        };
-        stack.Add(sg);
+        config["resource_group_name"] = "terraform-state";
+        config["storage_account_name"] = "tfstate";
+        config["container_name"] = "state";
+        config["key"] = "aspire.tfstate";
     });
 ```
 
-This generates:
+### Customization
 
-- `{output-path}/api/network.tf`
-- `{output-path}/api/security.tf`
+Add resource-level customizations:
 
-### Publish-Only Execution
+```csharp
+var api = builder.AddProject<Projects.Api>("api")
+    .WithTerraformCustomization((stack, resource) =>
+    {
+        // Direct access to stack and resource for advanced scenarios
+    });
+```
 
 ### Publish-Only Execution
 
@@ -157,57 +133,51 @@ Terraform file generation **only occurs during publish mode** (`aspire publish`)
 
 - ✅ Faster local development (no file I/O during app startup)
 - ✅ Infrastructure provisioning decoupled from application runtime
-- ✅ Stack validation happens during publish
 - ✅ Terraform execution controlled by deployment pipelines
 
 ## API Reference
 
 ### Extension Methods
 
-#### `WithTerraform<T>`
+#### `PublishAsTerraform<T>`
 
-Adds Terraform infrastructure provisioning to any resource.
+Publishes a resource to the Terraform environment with customization.
 
 ```csharp
-IResourceBuilder<T> WithTerraform<T>(
+IResourceBuilder<T> PublishAsTerraform<T>(
     this IResourceBuilder<T> builder,
-    Action<TerraformStack> configure)
+    Action<TerraformResourceInfrastructure> configure)
     where T : IResource
 ```
 
 **Parameters:**
 
-- `builder` - The resource builder (any resource type)
-- `configure` - Action to configure the Terraform stack
+- `builder` - The resource builder
+- `configure` - Action to configure the Terraform infrastructure
 
 **Returns:** The resource builder for chaining
-
-**File Output:**
-
-- Default: `{output-path}/{resource-name}/main.tf`
-- Named stack: `{output-path}/{resource-name}/{stack-name}.tf`
 
 **Example:**
 
 ```csharp
-builder.AddContainer("api", "myapi")
-    .WithTerraform(stack =>
+builder.AddProject<Projects.Api>("api")
+    .PublishAsTerraform((infrastructure) =>
     {
-        stack.Name = "storage"; // Optional: generates storage.tf instead of main.tf
-        var bucket = new S3Bucket("api-bucket");
-        stack.Add(bucket);
+        var stack = infrastructure.Stack;
+        var resource = infrastructure.Resource;
+        var environment = infrastructure.Environment;
+
+        // Add infrastructure for this resource
     });
 ```
 
-#### `WithTerraformConfiguration<T>`
+#### `WithTerraformCustomization<T>`
 
-Configures Terraform generation settings for a resource.
+Adds a customization to how a resource is represented in Terraform.
 
 ```csharp
-IResourceBuilder<T> WithTerraformConfiguration<T>(
+IResourceBuilder<T> WithTerraformCustomization<T>(
     this IResourceBuilder<T> builder,
-    Action<TerraformConfigurationAnnotation> configure)
-    where T : IResource
 ```
 
 **Parameters:**
@@ -219,13 +189,13 @@ IResourceBuilder<T> WithTerraformConfiguration<T>(
 
 ### Annotations
 
-#### `TerraformStackAnnotation`
+#### `TerraformCustomizationAnnotation`
 
-Annotation that stores Terraform configuration on a resource.
+Annotation that stores Terraform customization configuration on a resource.
 
 **Properties:**
 
-- `Configure` - Action to configure the Terraform stack
+- `Configure` - Action to configure the Terraform stack and resource
 
 #### `TerraformConfigurationAnnotation`
 
@@ -237,6 +207,8 @@ Annotation for configuring Terraform generation settings.
 
 ## Additional documentation
 
+- [Deployment Model Guide](../../../docs/deployment-model.md)
+- [Extension Guide](../../../docs/extention-guide.md)
 - [EmmittJ.Terraform.Sdk Documentation](../EmmittJ.Terraform.Sdk/README.md)
 - [Terraform Documentation](https://www.terraform.io/docs)
 

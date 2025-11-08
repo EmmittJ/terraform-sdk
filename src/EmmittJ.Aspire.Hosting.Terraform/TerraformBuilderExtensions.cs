@@ -1,9 +1,7 @@
 // Licensed under the MIT License.
 
-using System.Diagnostics.CodeAnalysis;
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
-using Aspire.Hosting.Pipelines;
 using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
@@ -14,61 +12,51 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 public static class TerraformBuilderExtensions
 {
     /// <summary>
-    /// Adds Terraform infrastructure provisioning for the specified resource.
-    /// This method generates Terraform HCL code during the publish phase.
+    /// Adds a Terraform customization to a resource.
+    /// This allows you to customize how the resource is represented in Terraform configuration.
     /// </summary>
     /// <typeparam name="T">The type of the resource.</typeparam>
     /// <param name="builder">The resource builder.</param>
-    /// <param name="configure">The configuration action for the Terraform stack.</param>
+    /// <param name="configure">The configuration action for customizing the Terraform stack.</param>
     /// <returns>The updated resource builder.</returns>
     /// <remarks>
     /// <para>
-    /// This method provisions infrastructure similar to Azure Bicep resources,
-    /// but is not a compute environment like Kubernetes or Azure Container Apps.
+    /// This method adds a customization annotation that will be invoked during Terraform generation
+    /// when the resource is deployed to a Terraform environment.
     /// </para>
     /// <para>
-    /// Multiple calls to this method on the same resource will add multiple Terraform stacks,
-    /// each generating a separate Terraform file during publish.
+    /// Multiple calls to this method on the same resource will add multiple customizations,
+    /// which will all be applied during generation.
     /// </para>
     /// <example>
     /// <code>
-    /// builder.AddProject&lt;Projects.Api&gt;("api").WithTerraform(stack =>
-    /// {
-    ///     // Configure Terraform infrastructure here
-    ///     var bucket = new S3Bucket("api-storage");
-    ///     stack.Add(bucket);
-    /// });
+    /// var builder = DistributedApplication.CreateBuilder(args);
+    ///
+    /// var terraform = builder.AddTerraformEnvironment("terraform")
+    ///     .WithBackend("s3", config =>
+    ///     {
+    ///         config["bucket"] = "my-terraform-state";
+    ///         config["region"] = "us-west-2";
+    ///     });
+    ///
+    /// builder.AddProject&lt;Projects.Api&gt;("api")
+    ///     .WithTerraformCustomization((stack, resource) =>
+    ///     {
+    ///         // Add S3 bucket for the API
+    ///         // stack.AddResource(...);
+    ///     });
     /// </code>
     /// </example>
     /// </remarks>
-#pragma warning disable ASPIREPIPELINES001 // Type is for evaluation purposes only and is subject to change or removal in future updates
-    [Experimental("ASPIREPIPELINES001", UrlFormat = "https://aka.ms/aspire/diagnostics/{0}")]
-    public static IResourceBuilder<T> WithTerraform<T>(
-#pragma warning restore ASPIREPIPELINES001
+    public static IResourceBuilder<T> WithTerraformCustomization<T>(
         this IResourceBuilder<T> builder,
-        Action<TerraformStack> configure)
+        Action<TerraformStack, IResource> configure)
         where T : IResource
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentNullException.ThrowIfNull(configure);
 
-        if (!builder.ApplicationBuilder.ExecutionContext.IsPublishMode)
-        {
-            return builder;
-        }
-
-        // Add the Terraform stack configuration annotation
-        builder.WithAnnotation(new TerraformStackAnnotation(configure));
-
-        // Add pipeline step annotation only once per resource
-        // The pipeline step will process all TerraformStackAnnotation instances on the resource
-        if (!builder.Resource.Annotations.OfType<TerraformPipelineStepMarkerAnnotation>().Any())
-        {
-            builder.WithAnnotation(new TerraformPipelineStepMarkerAnnotation());
-#pragma warning disable ASPIREPIPELINES001
-            builder.WithAnnotation(new PipelineStepAnnotation(TerraformPipelineStepFactory.CreateTerraformGenerationSteps));
-#pragma warning restore ASPIREPIPELINES001
-        }
+        builder.WithAnnotation(new TerraformCustomizationAnnotation(configure));
 
         return builder;
     }
@@ -99,6 +87,7 @@ public static class TerraformBuilderExtensions
         }
 
         configure(annotation);
+
         return builder;
     }
 }
