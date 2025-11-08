@@ -110,7 +110,7 @@ Add Terraform resources for specific application resources:
 
 ```csharp
 builder.AddProject<Projects.Api>("api")
-    .WithTerraformCustomization((stack, resource) =>
+    .PublishAsTerraform((stack, resource) =>
     {
         // Add infrastructure specific to this resource
         // Uses EmmittJ.Terraform.Sdk for type-safe resource creation
@@ -184,7 +184,7 @@ var api = builder.AddProject<Projects.Api>("api")
         config.OutputFileName = "api.tf.json";
         config.GenerateVariables = true;
     })
-    .WithTerraformCustomization((stack, resource) =>
+    .PublishAsTerraform((stack, resource) =>
     {
         // Add API-specific infrastructure
     });

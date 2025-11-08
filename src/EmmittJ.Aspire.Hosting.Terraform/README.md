@@ -30,10 +30,11 @@ var terraform = builder.AddTerraformEnvironment("terraform")
 
 // Add resources - they'll be deployed via Terraform when published
 var api = builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform((infrastructure) =>
+    .PublishAsTerraform((stack, resource) =>
     {
         // Customize Terraform infrastructure for this resource
-        // Access infrastructure.Stack, infrastructure.Resource, infrastructure.Environment
+        // stack - the Terraform stack to add resources to
+        // resource - the Aspire resource being published
     });
 
 builder.Build().Run();
@@ -66,11 +67,8 @@ Use `PublishAsTerraform` to customize how resources are deployed:
 
 ```csharp
 var api = builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform((infrastructure) =>
+    .PublishAsTerraform((stack, resource) =>
     {
-        var stack = infrastructure.Stack;
-        var resource = infrastructure.Resource;
-
         // Add cloud-specific infrastructure
         // Example: AWS ECS task, Azure Container Instance, etc.
     });
@@ -82,7 +80,7 @@ Customize where Terraform files are generated:
 
 ```csharp
 var api = builder.AddContainer("api", "myapi")
-    .WithTerraform(stack =>
+    .PublishAsTerraform((stack, resource) =>
     {
         // Configure infrastructure
     })
@@ -96,7 +94,7 @@ By default, files are generated to `{output-path}/{resource-name}/main.tf`.
 
 ### Multiple Terraform Stacks
 
-You can attach multiple Terraform stacks to a single resource:
+You can attach multiple Terraform stacks to a single resource by calling `PublishAsTerraform` multiple times.
 
 ### Environment Configuration
 
@@ -115,26 +113,6 @@ builder.AddTerraformEnvironment("terraform")
     });
 ```
 
-### Customization
-
-Add resource-level customizations:
-
-```csharp
-var api = builder.AddProject<Projects.Api>("api")
-    .WithTerraformCustomization((stack, resource) =>
-    {
-        // Direct access to stack and resource for advanced scenarios
-    });
-```
-
-### Publish-Only Execution
-
-Terraform file generation **only occurs during publish mode** (`aspire publish`), not during `dotnet run`. This ensures:
-
-- ✅ Faster local development (no file I/O during app startup)
-- ✅ Infrastructure provisioning decoupled from application runtime
-- ✅ Terraform execution controlled by deployment pipelines
-
 ## API Reference
 
 ### Extension Methods
@@ -146,14 +124,14 @@ Publishes a resource to the Terraform environment with customization.
 ```csharp
 IResourceBuilder<T> PublishAsTerraform<T>(
     this IResourceBuilder<T> builder,
-    Action<TerraformResourceInfrastructure> configure)
+    Action<TerraformStack, IResource> configure)
     where T : IResource
 ```
 
 **Parameters:**
 
 - `builder` - The resource builder
-- `configure` - Action to configure the Terraform infrastructure
+- `configure` - Action to configure the Terraform infrastructure with direct access to stack and resource
 
 **Returns:** The resource builder for chaining
 
@@ -161,23 +139,23 @@ IResourceBuilder<T> PublishAsTerraform<T>(
 
 ```csharp
 builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform((infrastructure) =>
+    .PublishAsTerraform((stack, resource) =>
     {
-        var stack = infrastructure.Stack;
-        var resource = infrastructure.Resource;
-        var environment = infrastructure.Environment;
-
         // Add infrastructure for this resource
+        // stack - TerraformStack to add resources to
+        // resource - IResource being published
     });
 ```
 
-#### `WithTerraformCustomization<T>`
+#### `WithTerraformConfiguration<T>`
 
-Adds a customization to how a resource is represented in Terraform.
+Configures Terraform generation settings for a resource.
 
 ```csharp
-IResourceBuilder<T> WithTerraformCustomization<T>(
+IResourceBuilder<T> WithTerraformConfiguration<T>(
     this IResourceBuilder<T> builder,
+    Action<TerraformConfigurationAnnotation> configure)
+    where T : IResource
 ```
 
 **Parameters:**
@@ -187,23 +165,23 @@ IResourceBuilder<T> WithTerraformCustomization<T>(
 
 **Returns:** The resource builder for chaining
 
-### Annotations
+**Example:**
 
-#### `TerraformCustomizationAnnotation`
+```csharp
+builder.AddProject<Projects.Api>("api")
+    .WithTerraformConfiguration(config =>
+    {
+        config.OutputPath = "./terraform/custom-path";
+    });
+```
 
-Annotation that stores Terraform customization configuration on a resource.
+### Publish-Only Execution
 
-**Properties:**
+Terraform file generation **only occurs during publish mode** (`aspire publish`), not during `dotnet run`. This ensures:
 
-- `Configure` - Action to configure the Terraform stack and resource
-
-#### `TerraformConfigurationAnnotation`
-
-Annotation for configuring Terraform generation settings.
-
-**Properties:**
-
-- `OutputPath` - Custom output path for generated Terraform files (optional)
+- ✅ Faster local development (no file I/O during app startup)
+- ✅ Infrastructure provisioning decoupled from application runtime
+- ✅ Terraform execution controlled by deployment pipelines
 
 ## Additional documentation
 

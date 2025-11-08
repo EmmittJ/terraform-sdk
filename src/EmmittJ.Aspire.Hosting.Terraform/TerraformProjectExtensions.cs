@@ -28,56 +28,11 @@ public static class TerraformProjectExtensions
     /// var terraform = builder.AddTerraformEnvironment("azure");
     ///
     /// builder.AddProject&lt;Projects.Api&gt;("api")
-    ///     .PublishAsTerraform((infrastructure) =>
-    ///     {
-    ///         // Configure the Terraform infrastructure here
-    ///         // Access infrastructure.Stack, infrastructure.Resource, infrastructure.Environment
-    ///     });
-    /// </code>
-    /// </example>
-    /// </remarks>
-    public static IResourceBuilder<T> PublishAsTerraform<T>(
-        this IResourceBuilder<T> builder,
-        Action<TerraformResourceInfrastructure> configure)
-        where T : ProjectResource
-    {
-        ArgumentNullException.ThrowIfNull(builder);
-        ArgumentNullException.ThrowIfNull(configure);
-
-        if (!builder.ApplicationBuilder.ExecutionContext.IsPublishMode)
-        {
-            return builder;
-        }
-
-        builder.ApplicationBuilder.AddTerraformInfrastructureCore();
-
-        builder.WithAnnotation(new TerraformCustomizationAnnotation((stack, resource) =>
-        {
-            var infrastructure = new TerraformResourceInfrastructure(
-                resource,
-                stack,
-                TerraformExtensions.GetTerraformEnvironment(builder));
-            configure(infrastructure);
-        }));
-
-        return builder;
-    }
-
-    /// <summary>
-    /// Publishes the specified project resource as Terraform infrastructure with access to the stack and resource.
-    /// </summary>
-    /// <typeparam name="T">The type of the project resource.</typeparam>
-    /// <param name="builder">The project resource builder.</param>
-    /// <param name="configure">The configuration action for customizing the Terraform stack and resource.</param>
-    /// <returns>The updated project resource builder.</returns>
-    /// <remarks>
-    /// This overload provides direct access to the Terraform stack and Aspire resource for advanced scenarios.
-    /// <example>
-    /// <code>
-    /// builder.AddProject&lt;Projects.Api&gt;("api")
     ///     .PublishAsTerraform((stack, resource) =>
     ///     {
-    ///         // Direct access to stack and resource
+    ///         // Configure the Terraform infrastructure here
+    ///         // stack - the Terraform stack to add resources to
+    ///         // resource - the Aspire resource being published
     ///     });
     /// </code>
     /// </example>

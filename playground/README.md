@@ -87,7 +87,7 @@ This creates infrastructure files in the output directory that you can then appl
 
 1. Create your AppHost project
 2. Configure Terraform environments and resources
-3. Run `dotnet publish --publisher terraform`
+3. Run `aspire publish`
 4. Review generated `main.tf.json` in the output directory
 5. Test with `terraform init && terraform plan`
 

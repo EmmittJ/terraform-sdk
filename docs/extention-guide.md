@@ -111,7 +111,7 @@ public static class AwsTerraformExtensions
         var config = new EcsTaskConfiguration();
         configure?.Invoke(config);
 
-        return builder.WithTerraformCustomization((stack, resource) =>
+        return builder.PublishAsTerraform((stack, resource) =>
         {
             var processor = new AwsEcsResourceProcessor();
             processor.Process(stack, resource, config);
