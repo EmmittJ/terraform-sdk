@@ -135,10 +135,11 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
 
     private Task PublishAsync(PipelineStepContext context)
     {
-        // Compute output path - either use configured path or default to environment name
-        var outputPath = OutputPath ?? Name;
+        // Get the correct output path using the pipeline output service
+        var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
 
         var terraformContext = new TerraformPublishingContext(
+            context,
             context.ExecutionContext,
             outputPath,
             context.Logger,
@@ -150,8 +151,8 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
 
     private async Task RunTerraformCommandAsync(PipelineStepContext context, string command)
     {
-        // Compute output path - either use configured path or default to environment name
-        var outputPath = OutputPath ?? Name;
+        // Get the correct output path using the pipeline output service
+        var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
 
         context.Logger.LogInformation("Running terraform {Command} in {Path}", command, outputPath);
 

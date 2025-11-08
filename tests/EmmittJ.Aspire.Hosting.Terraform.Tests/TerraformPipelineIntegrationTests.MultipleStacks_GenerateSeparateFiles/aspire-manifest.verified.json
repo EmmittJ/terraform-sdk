@@ -1,8 +1,11 @@
 ﻿{
   "$schema": "https://json.schemastore.org/aspire-8.0.json",
   "resources": {
+    "terraform": {
+      "error": "This resource does not support generation in the manifest."
+    },
     "myapp": {
-      "type": "container.v0",
+      "type": "container.v1",
       "image": "image:latest"
     }
   }
