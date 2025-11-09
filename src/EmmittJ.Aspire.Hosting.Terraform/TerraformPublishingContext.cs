@@ -72,21 +72,22 @@ internal sealed class TerraformPublishingContext
         Directory.CreateDirectory(_baseOutputPath);
 
         // Create the root stack that will reference all resource modules
-        var rootStack = new TerraformStack();
+        var stack = new TerraformStack();
 
         // Process each resource that has a deployment target for this environment
         foreach (var resource in model.Resources)
         {
             if (resource.GetDeploymentTargetAnnotation(environment)?.DeploymentTarget is TerraformResource terraformResource)
             {
-                await ProcessResourceAsync(terraformResource, rootStack).ConfigureAwait(false);
+                var module = await ProcessResourceAsync(terraformResource).ConfigureAwait(false);
+                stack.Add(module);
             }
         }
 
         // Generate the root main.tf if we have any constructs
-        if (rootStack.Constructs.Count > 0)
+        if (stack.Constructs.Count > 0)
         {
-            await GenerateRootMainTfAsync(rootStack).ConfigureAwait(false);
+            await GenerateRootMainTfAsync(stack).ConfigureAwait(false);
         }
 
         // Generate .terraform-version file at the root if specified
@@ -97,7 +98,7 @@ internal sealed class TerraformPublishingContext
         }
     }
 
-    private async Task ProcessResourceAsync(TerraformResource terraformResource, TerraformStack rootStack)
+    private async Task<TerraformModule> ProcessResourceAsync(TerraformResource terraformResource)
     {
         _logger.LogInformation("Processing resource: {ResourceName}", terraformResource.TargetResource.Name);
 
@@ -106,17 +107,6 @@ internal sealed class TerraformPublishingContext
         // Get the output path for this specific resource
         var resourceOutputPath = PublishingContextUtils.GetResourceOutputPath(_pipelineContext, _environment, resource);
         Directory.CreateDirectory(resourceOutputPath);
-
-        // Compute the relative path from base output to resource output for the module source
-        var relativePath = Path.GetRelativePath(_baseOutputPath, resourceOutputPath);
-
-        // Add module reference to root stack using the SDK
-        var module = new TerraformModule(resource.Name)
-        {
-            Source = $"./{relativePath.Replace("\\", "/")}"
-        };
-        rootStack.Add(module);
-        _logger.LogInformation("Added module reference for resource {ResourceName} from {Source}", resource.Name, relativePath);
 
         // Process each TerraformCustomizationAnnotation separately (each creates its own stack/file)
         if (resource.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
@@ -146,6 +136,13 @@ internal sealed class TerraformPublishingContext
             await ProcessResourceByTypeAsync(resource, stack).ConfigureAwait(false);
             await GenerateConfigurationFileAsync(stack, resourceOutputPath, "main.tf").ConfigureAwait(false);
         }
+
+        // Compute the relative path from base output to resource output for the module source
+        var relativePath = Path.GetRelativePath(_baseOutputPath, resourceOutputPath);
+        return new TerraformModule(resource.Name)
+        {
+            Source = $"./{relativePath.Replace("\\", "/")}"
+        };
     }
 
     private async Task ProcessResourceByTypeAsync(IResource resource, TerraformStack stack)
