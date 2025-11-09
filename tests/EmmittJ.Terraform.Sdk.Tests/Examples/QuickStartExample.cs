@@ -45,7 +45,7 @@ public static class QuickStartExample
             .WithProperty("project_name", "example-vpc")
             .WithProperty("environment", "production");
         locals
-            .WithProperty("common_tags", new TerraformObjectExpression
+            .WithProperty("common_tags", new TerraformMapExpression
             {
                 ["Environment"] = locals["environment"],
                 ["Project"] = locals["project_name"],
@@ -69,7 +69,7 @@ public static class QuickStartExample
             .WithProperty("enable_dns_support", true)
             .WithProperty("tags", Tf.Functions.Merge(
                 locals["common_tags"],
-                new TerraformObjectExpression
+                new TerraformMapExpression
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-vpc")
                 }))
@@ -82,7 +82,7 @@ public static class QuickStartExample
             .WithProperty("vpc_id", vpc["id"])
             .WithProperty("tags", Tf.Functions.Merge(
                 locals["common_tags"],
-                new TerraformObjectExpression
+                new TerraformMapExpression
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-igw")
                 }))
@@ -103,7 +103,7 @@ public static class QuickStartExample
             .WithProperty("map_public_ip_on_launch", true)
             .WithProperty("tags", Tf.Functions.Merge(
                 locals["common_tags"],
-                new TerraformObjectExpression
+                new TerraformMapExpression
                 {
                     ["Name"] = TerraformExpression.Interpolate(locals["project_name"], "-public-", Tf.Helpers.EachValue),
                     ["Tier"] = "Public"

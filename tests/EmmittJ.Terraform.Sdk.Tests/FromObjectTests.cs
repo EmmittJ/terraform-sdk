@@ -123,7 +123,7 @@ public class FromObjectTests
     }
 
     [Fact]
-    public void TerraformObjectExpression_WithDictionaryOfObject_RendersCorrectly()
+    public void TerraformMapExpression_WithDictionaryOfObject_RendersCorrectly()
     {
         // Arrange
         var config = new TerraformStack

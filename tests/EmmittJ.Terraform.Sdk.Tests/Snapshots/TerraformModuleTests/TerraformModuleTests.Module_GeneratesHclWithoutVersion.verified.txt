@@ -1,0 +1,4 @@
+﻿module "local_module" {
+  source = "./modules/networking"
+  vpc_id = "vpc-123"
+}

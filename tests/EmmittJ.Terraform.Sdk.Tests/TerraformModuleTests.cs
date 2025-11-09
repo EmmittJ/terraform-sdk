@@ -3,7 +3,7 @@ namespace EmmittJ.Terraform.Sdk.Tests;
 public class TerraformModuleTests
 {
     [Fact]
-    public void Module_GeneratesBasicHcl()
+    public Task Module_GeneratesBasicHcl()
     {
         var module = new TerraformModule("vpc")
         {
@@ -16,15 +16,11 @@ public class TerraformModuleTests
 
         var hcl = module.Resolve();
 
-        Assert.Contains("module \"vpc\"", hcl);
-        Assert.Contains("source = \"terraform-aws-modules/vpc/aws\"", hcl);
-        Assert.Contains("version = \"5.0.0\"", hcl);
-        Assert.Contains("cidr = ", hcl);
-        Assert.Contains("azs = ", hcl);
+        return Verify(hcl);
     }
 
     [Fact]
-    public void Module_GeneratesHclWithoutVersion()
+    public Task Module_GeneratesHclWithoutVersion()
     {
         var module = new TerraformModule("local_module")
         {
@@ -35,9 +31,7 @@ public class TerraformModuleTests
 
         var hcl = module.Resolve();
 
-        Assert.Contains("module \"local_module\"", hcl);
-        Assert.Contains("source = \"./modules/networking\"", hcl);
-        Assert.DoesNotContain("version", hcl);
+        return Verify(hcl);
     }
 
     [Fact]
@@ -74,7 +68,7 @@ public class TerraformModuleTests
     }
 
     [Fact]
-    public void Module_CanBeUsedInConfiguration()
+    public Task Module_CanBeUsedInConfiguration()
     {
         var config = new TerraformStack();
 
@@ -92,10 +86,7 @@ public class TerraformModuleTests
         config.Add(vpcModule);
         config.Add(subnet);
 
-        var hcl = config.ToHcl();
-
-        Assert.Contains("module \"vpc\"", hcl);
-        Assert.Contains("resource \"aws_subnet\" \"app\"", hcl);
+        return Verify(config.ToHcl());
     }
 
     [Fact]

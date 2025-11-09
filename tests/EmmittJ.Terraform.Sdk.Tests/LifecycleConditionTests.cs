@@ -188,7 +188,7 @@ public class LifecycleConditionTests
     [Fact]
     public Task Output_WithMultiplePreconditions_GeneratesHcl()
     {
-        var objExpr = new TerraformObjectExpression
+        var objExpr = new TerraformMapExpression
         {
             ["id"] = TerraformExpression.Identifier("aws_instance.web.id"),
             ["ip"] = TerraformExpression.Identifier("aws_instance.web.public_ip")

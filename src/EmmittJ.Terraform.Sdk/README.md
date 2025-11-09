@@ -542,8 +542,8 @@ string hcl = config.ToHcl();
 - [x] Polymorphic `TerraformProperty` base class with sealed subclasses
 - [x] `LiteralProperty<T>` for .NET values (no null fields)
 - [x] `ExpressionProperty` for computed values and references (no null fields)
-- [x] `TerraformObject` for maps/objects
-- [x] `TerraformBlock` for nested blocks (no `=` operator)
+- [x] `TerraformMapExpression` for maps
+- [x] `TerraformBlockExpression` for nested blocks (no `=` operator)
 - [x] Implicit conversions and type safety
 - [x] Fluent builder API with generic extension methods
 

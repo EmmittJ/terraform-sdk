@@ -1,0 +1,16 @@
+﻿variable "environment" {
+  type = string
+  default = "dev"
+}
+
+resource "aws_instance" "app" {
+  ami = "ami-12345678"
+  instance_type = "t2.micro"
+  tags = {
+    Environment = var.environment
+    Name = "MyApp"
+    Region = var.region
+    Timestamp = timestamp()
+  }
+}
+

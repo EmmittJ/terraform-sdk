@@ -24,13 +24,51 @@ public static class TemplateHelpers
         // Remove nullable from the type for the wrapper
         // This goes in actual C# code, so NO XML escaping
         var baseType = property.CSharpType.TrimEnd('?');
+
+        // Handle Dictionary types specially
+        if (baseType.StartsWith("Dictionary<"))
+        {
+            var types = ExtractDictionaryTypes(baseType);
+            var typeParts = types.Split(new[] { ", " }, StringSplitOptions.None);
+            if (typeParts.Length == 2)
+            {
+                // TerraformMapProperty<TValue> - always string keys
+                return $"TerraformMapProperty<{typeParts[1]}>";
+            }
+            return $"TerraformMapProperty<object>";
+        }
+
         return $"TerraformProperty<{baseType}>";
+    }
+    private static string ExtractDictionaryTypes(string dictionaryType)
+    {
+        // Extract "TKey, TValue" from "Dictionary<TKey, TValue>"
+        var start = dictionaryType.IndexOf('<');
+        var end = dictionaryType.LastIndexOf('>');
+        if (start >= 0 && end > start)
+        {
+            return dictionaryType.Substring(start + 1, end - start - 1);
+        }
+        return "string, object"; // fallback
     }
 
     public static string GetSetterValue(PropertyModel property)
     {
         // This goes in actual C# code, so NO XML escaping
         var baseType = property.CSharpType.TrimEnd('?');
+
+        // Handle Dictionary types specially
+        if (baseType.StartsWith("Dictionary<"))
+        {
+            var types = ExtractDictionaryTypes(baseType);
+            var typeParts = types.Split(new[] { ", " }, StringSplitOptions.None);
+            if (typeParts.Length == 2)
+            {
+                // TerraformMapProperty has implicit conversion from Dictionary<string, TValue>
+                return $"value == null ? null : new TerraformMapProperty<{typeParts[1]}>(value)";
+            }
+            return $"value == null ? null : new TerraformMapProperty<object>(value)";
+        }
 
         if (property.IsCollection)
         {
@@ -43,7 +81,7 @@ public static class TemplateHelpers
             return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value.Value)";
         }
 
-        // For reference types (string?, List<>, Dictionary<>, etc.)
+        // For reference types (string?, List<>, etc.)
         return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value)";
     }
 

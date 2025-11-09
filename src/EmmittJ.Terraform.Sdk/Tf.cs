@@ -410,19 +410,19 @@ public static class Tf
         public static TerraformExpression EachKey => TerraformExpression.Identifier("each.key");
 
         /// <summary>
-        /// Creates a new TerraformObject for building HCL objects.
+        /// Creates a new TerraformMapExpression for building HCL maps.
         /// </summary>
-        /// <returns>A new TerraformObject.</returns>
-        public static TerraformObjectExpression Object() => new TerraformObjectExpression();
+        /// <returns>A new TerraformMapExpression.</returns>
+        public static TerraformMapExpression Object() => new TerraformMapExpression();
 
         /// <summary>
-        /// Creates an object expression with a fluent builder API.
+        /// Creates a map expression with a fluent builder API.
         /// </summary>
         /// <param name="configure">Action to configure the object.</param>
         /// <returns>A configured object expression.</returns>
-        public static TerraformObjectExpression Object(Action<TerraformObjectExpression> configure)
+        public static TerraformMapExpression Object(Action<TerraformMapExpression> configure)
         {
-            var obj = new TerraformObjectExpression();
+            var obj = new TerraformMapExpression();
             configure(obj);
             return obj;
         }

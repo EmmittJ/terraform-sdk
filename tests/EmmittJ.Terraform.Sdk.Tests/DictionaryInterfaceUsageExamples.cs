@@ -1,15 +1,15 @@
 namespace EmmittJ.Terraform.Sdk.Tests;
 
 /// <summary>
-/// Demonstrates the benefits of TerraformObjectExpression implementing standard dictionary interfaces.
+/// Demonstrates the benefits of TerraformMapExpression implementing standard dictionary interfaces.
 /// </summary>
 public class DictionaryInterfaceUsageExamples
 {
     [Fact]
-    public void Example_PassTerraformObjectToMethodAcceptingIDictionary()
+    public void Example_PassTerraformMapExpressionToMethodAcceptingIDictionary()
     {
-        // Arrange - Create a TerraformObjectExpression with backend configuration
-        var backend = new TerraformObjectExpression
+        // Arrange - Create a TerraformMapExpression with backend configuration
+        var backend = new TerraformMapExpression
         {
             ["bucket"] = "my-bucket",
             ["key"] = "terraform.tfstate",
@@ -25,10 +25,10 @@ public class DictionaryInterfaceUsageExamples
     }
 
     [Fact]
-    public void Example_UseLINQWithTerraformObject()
+    public void Example_UseLINQWithTerraformMapExpression()
     {
         // Arrange
-        var tags = new TerraformObjectExpression
+        var tags = new TerraformMapExpression
         {
             ["Name"] = "my-resource",
             ["Environment"] = "production",
@@ -52,7 +52,7 @@ public class DictionaryInterfaceUsageExamples
     public void Example_UseAsReadOnlyDictionary()
     {
         // Arrange - Create a config that should be read-only
-        var config = new TerraformObjectExpression
+        var config = new TerraformMapExpression
         {
             ["version"] = "1.0.0",
             ["readonly"] = true
@@ -69,7 +69,7 @@ public class DictionaryInterfaceUsageExamples
     public void Example_InteroperabilityWithGenericMethods()
     {
         // Arrange
-        var settings = new TerraformObjectExpression
+        var settings = new TerraformMapExpression
         {
             ["timeout"] = 30,
             ["retries"] = 3,
@@ -89,7 +89,7 @@ public class DictionaryInterfaceUsageExamples
     public void Example_CollectionInitializerWithDictionaryInterface()
     {
         // Arrange & Act - Collection initializer works because of IEnumerable + Add()
-        IDictionary<string, TerraformExpression> dict = new TerraformObjectExpression
+        IDictionary<string, TerraformExpression> dict = new TerraformMapExpression
         {
             { "key1", "value1" },
             { "key2", "value2" }
@@ -103,7 +103,7 @@ public class DictionaryInterfaceUsageExamples
     // Helper methods that demonstrate interoperability
 
     /// <summary>
-    /// Generic method that works with any IDictionary - TerraformObjectExpression now works here!
+    /// Generic method that works with any IDictionary - TerraformMapExpression now works here!
     /// </summary>
     private static string CreateConfigSummary(IDictionary<string, TerraformExpression> config)
     {

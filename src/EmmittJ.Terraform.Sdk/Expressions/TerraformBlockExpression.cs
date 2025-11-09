@@ -2,11 +2,11 @@ namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Represents a Terraform nested block body (container structure).
-/// Blocks don't use '=' assignment syntax, unlike object expressions.
+/// Blocks don't use '=' assignment syntax, unlike map expressions.
 /// Example: default_tags { tags = {...} } not default_tags = { tags = {...} }
-/// Inherits from TerraformObject but overrides ToHcl() to generate block syntax.
+/// Inherits from TerraformMapExpression but overrides ToHcl() to generate block syntax.
 /// </summary>
-public class TerraformBlockExpression : TerraformObjectExpression
+public class TerraformBlockExpression : TerraformMapExpression
 {
     /// <summary>
     /// Override assignment operator to use space instead of " = " for block syntax.

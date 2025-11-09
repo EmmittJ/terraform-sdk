@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
-/// Represents a Terraform object/map with string keys and expression values.
-/// Provides an ergonomic API for building HCL objects without TerraformExpression.Raw.
+/// Represents a Terraform map with string keys and expression values.
+/// Provides an ergonomic API for building HCL maps without TerraformExpression.Raw.
 /// Similar to BicepDictionary in Azure.Provisioning.
 /// Supports collection initializer syntax and standard dictionary interfaces.
 /// </summary>
-public class TerraformObjectExpression : TerraformExpression,
+public class TerraformMapExpression : TerraformExpression,
     IDictionary<string, TerraformExpression>,
     IDictionary,
     IReadOnlyDictionary<string, TerraformExpression>
@@ -18,9 +18,9 @@ public class TerraformObjectExpression : TerraformExpression,
     protected readonly Dictionary<string, TerraformExpression> _properties = new();
 
     /// <summary>
-    /// Creates a new empty TerraformObject.
+    /// Creates a new empty TerraformMapExpression.
     /// </summary>
-    public TerraformObjectExpression() { }
+    public TerraformMapExpression() { }
 
     #region IDictionary<string, TerraformExpression> Implementation
 
@@ -201,10 +201,10 @@ public class TerraformObjectExpression : TerraformExpression,
     }
 
     /// <summary>
-    /// Merges another TerraformObject into this one.
+    /// Merges another TerraformMapExpression into this one.
     /// Later values overwrite earlier ones.
     /// </summary>
-    public void Merge(TerraformObjectExpression other)
+    public void Merge(TerraformMapExpression other)
     {
         foreach (var (key, value) in other._properties)
         {
@@ -213,11 +213,11 @@ public class TerraformObjectExpression : TerraformExpression,
     }
 
     /// <summary>
-    /// Creates a new TerraformObject from key-value pairs.
+    /// Creates a new TerraformMapExpression from key-value pairs.
     /// </summary>
-    public static TerraformObjectExpression FromPairs(params (string Key, object Value)[] pairs)
+    public static TerraformMapExpression FromPairs(params (string Key, object Value)[] pairs)
     {
-        var obj = new TerraformObjectExpression();
+        var obj = new TerraformMapExpression();
         foreach (var (key, value) in pairs)
         {
             obj.Add(key, value);
@@ -226,11 +226,11 @@ public class TerraformObjectExpression : TerraformExpression,
     }
 
     /// <summary>
-    /// Implicit conversion from Dictionary to TerraformObject.
+    /// Implicit conversion from Dictionary to TerraformMapExpression.
     /// </summary>
-    public static implicit operator TerraformObjectExpression(Dictionary<string, TerraformExpression> dict)
+    public static implicit operator TerraformMapExpression(Dictionary<string, TerraformExpression> dict)
     {
-        var obj = new TerraformObjectExpression();
+        var obj = new TerraformMapExpression();
         foreach (var (key, value) in dict)
         {
             obj[key] = value;

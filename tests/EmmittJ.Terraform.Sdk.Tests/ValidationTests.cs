@@ -23,13 +23,13 @@ public class ValidationTests
         var resourceB = new TerraformResource("null_resource", "b");
 
         // Resource A depends on Resource B's id
-        resourceA.WithProperty("triggers", new TerraformObjectExpression
+        resourceA.WithProperty("triggers", new TerraformMapExpression
         {
             ["b_id"] = new TerraformReferenceExpression(resourceB, "id")
         });
 
         // Resource B depends on Resource A's id (creating the cycle)
-        resourceB.WithProperty("triggers", new TerraformObjectExpression
+        resourceB.WithProperty("triggers", new TerraformMapExpression
         {
             ["a_id"] = new TerraformReferenceExpression(resourceA, "id")
         });
@@ -48,9 +48,9 @@ public class ValidationTests
     }
 
     [Fact]
-    public void TerraformObject_PreparesCalled_RecordsDependencies()
+    public void TerraformMapExpression_PreparesCalled_RecordsDependencies()
     {
-        // This test verifies that TerraformObject.Prepare() is actually recording dependencies
+        // This test verifies that TerraformMapExpression.Prepare() is actually recording dependencies
         var config = new TerraformStack();
         var context = new TerraformContext(config);
 
@@ -61,8 +61,8 @@ public class ValidationTests
         context.DependencyGraph.AddConstruct(resourceA);
         context.DependencyGraph.AddConstruct(resourceB);
 
-        // Create a TerraformObject with a reference
-        var obj = new TerraformObjectExpression();
+        // Create a TerraformMapExpression with a reference
+        var obj = new TerraformMapExpression();
         var refToB = new TerraformReferenceExpression(resourceB, "id");
         obj["ref"] = refToB;
 

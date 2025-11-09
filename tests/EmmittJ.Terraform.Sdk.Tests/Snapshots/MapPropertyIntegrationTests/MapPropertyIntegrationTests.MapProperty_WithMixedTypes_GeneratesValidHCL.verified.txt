@@ -1,0 +1,13 @@
+﻿resource "kubernetes_config_map" "example" {
+  data = {
+    api_endpoint = "https://api.example.com"
+    max_retries = 3
+    retry_enabled = true
+    timeout_seconds = 30
+  }
+  metadata = {
+    name = "example-config"
+    namespace = "default"
+  }
+}
+

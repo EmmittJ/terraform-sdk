@@ -60,13 +60,13 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
     /// Implicit conversion from string array to ExpressionProperty (list).
     /// </summary>
     public static implicit operator TerraformProperty(string[] values)
-        => new TerraformExpressionProperty(values);
+        => new TerraformExpressionProperty(TerraformExpression.List(values.Select(TerraformExpression.Literal).ToArray()));
 
     /// <summary>
     /// Implicit conversion from int array to ExpressionProperty (list).
     /// </summary>
     public static implicit operator TerraformProperty(int[] values)
-        => new TerraformExpressionProperty(values);
+        => new TerraformExpressionProperty(TerraformExpression.List(values.Select(TerraformExpression.Literal).ToArray()));
 
     /// <summary>
     /// Implicit conversion from List&lt;string&gt; to ExpressionProperty (list).
@@ -75,31 +75,21 @@ public abstract class TerraformProperty : ITerraformResolvable<TerraformExpressi
         => new TerraformExpressionProperty(TerraformExpression.List(values.Select(TerraformExpression.Literal).ToArray()));
 
     /// <summary>
-    /// Implicit conversion from Dictionary&lt;string, string&gt; to ExpressionProperty (object/map).
+    /// Implicit conversion from Dictionary&lt;string, string&gt; to TerraformMapProperty.
     /// This enables cleaner map literals: .WithProperty("tags", new Dictionary&lt;string, string&gt; { ["Name"] = "value" })
     /// </summary>
     public static implicit operator TerraformProperty(Dictionary<string, string> values)
     {
-        var obj = new TerraformObjectExpression();
-        foreach (var (key, value) in values)
-        {
-            obj[key] = value;
-        }
-        return new TerraformExpressionProperty(obj);
+        return new TerraformMapProperty<string>(values);
     }
 
     /// <summary>
-    /// Implicit conversion from Dictionary&lt;string, object&gt; to ExpressionProperty (object/map).
+    /// Implicit conversion from Dictionary&lt;string, object&gt; to TerraformMapProperty.
     /// This enables cleaner map literals with mixed types.
     /// </summary>
     public static implicit operator TerraformProperty(Dictionary<string, object> values)
     {
-        var obj = new TerraformObjectExpression();
-        foreach (var (key, value) in values)
-        {
-            obj[key] = TerraformExpression.FromObject(value);
-        }
-        return new TerraformExpressionProperty(obj);
+        return new TerraformMapProperty<object>(values);
     }
 }
 
@@ -285,4 +275,80 @@ public sealed class TerraformTypeProperty : TerraformProperty
     /// </summary>
     public static implicit operator TerraformTypeProperty?(string? typeConstraint)
         => typeConstraint != null ? new TerraformTypeProperty(typeConstraint) : null;
+}
+
+/// <summary>
+/// Map property value - wraps a Dictionary&lt;string, TValue&gt;.
+/// Resolves to a Terraform map expression.
+/// Values can be literals, expressions, or any TerraformProperty type.
+/// </summary>
+/// <typeparam name="TValue">The value type (e.g., string, int, object, TerraformExpression).</typeparam>
+public sealed class TerraformMapProperty<TValue> : TerraformProperty
+{
+    private readonly Dictionary<string, TValue> _dictionary;
+
+    /// <summary>
+    /// Gets the dictionary value.
+    /// </summary>
+    public Dictionary<string, TValue> Dictionary => _dictionary;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="TerraformMapProperty{TValue}"/> class.
+    /// </summary>
+    /// <param name="dictionary">The dictionary value.</param>
+    public TerraformMapProperty(Dictionary<string, TValue> dictionary)
+    {
+        _dictionary = new Dictionary<string, TValue>();
+        foreach (var (key, value) in dictionary)
+        {
+            _dictionary[key] = value;
+        }
+    }
+
+    /// <inheritdoc/>
+    public override void Prepare(ITerraformContext context)
+    {
+        // Prepare nested values if they are preparable
+        foreach (var value in _dictionary.Values)
+        {
+            if (value is ITerraformPreparable preparable)
+            {
+                preparable.Prepare(context);
+            }
+        }
+    }
+
+    /// <inheritdoc/>
+    public override TerraformExpression Resolve(ITerraformContext? context = null)
+    {
+        var obj = new TerraformMapExpression();
+        foreach (var (key, value) in _dictionary)
+        {
+            if (value == null)
+            {
+                obj[key] = TerraformExpression.Literal("null");
+            }
+            else if (value is TerraformProperty prop)
+            {
+                obj[key] = prop.Resolve(context);
+            }
+            else if (value is TerraformExpression expr)
+            {
+                obj[key] = expr;
+            }
+            else
+            {
+                obj[key] = TerraformExpression.FromObject(value);
+            }
+        }
+        return obj;
+    }
+
+    /// <summary>
+    /// Implicit conversion from Dictionary&lt;string, TValue&gt; to TerraformMapProperty.
+    /// </summary>
+    public static implicit operator TerraformMapProperty<TValue>(Dictionary<string, TValue> dictionary)
+    {
+        return new TerraformMapProperty<TValue>(dictionary);
+    }
 }
