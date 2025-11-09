@@ -37,7 +37,8 @@ public class ResourceTemplate
             Description = TemplateHelpers.EscapeXmlDoc(resource.Description),
             resource.IsDeprecated,
             Properties = resource.Properties.Select(TemplateHelpers.PreparePropertyForTemplate).ToList(),
-            OutputAttributes = resource.OutputAttributes.Select(TemplateHelpers.PreparePropertyForTemplate).ToList()
+            OutputAttributes = resource.OutputAttributes.Select(TemplateHelpers.PreparePropertyForTemplate).ToList(),
+            BlockTypes = resource.BlockTypes.Select(TemplateHelpers.PrepareBlockTypeForTemplate).ToList()
         };
 
         return Renderer.Render(template, data);

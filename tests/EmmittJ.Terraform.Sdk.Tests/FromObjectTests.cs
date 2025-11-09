@@ -92,7 +92,7 @@ public class FromObjectTests
     }
 
     [Fact]
-    public void DictionaryOfObject_UsesFromObject()
+    public void DictionaryOfObject_ResolvesDirectly()
     {
         // Arrange
         var dict = new Dictionary<string, object>
@@ -104,9 +104,8 @@ public class FromObjectTests
             ["expr_val"] = TerraformExpression.Identifier("var.test")
         };
 
-        // Act - Implicit conversion should use FromObject
-        TerraformProperty property = dict;
-        var expr = property.Resolve();
+        // Act - Dictionaries are resolved directly via TerraformValueResolver
+        var expr = TerraformValueResolver.ResolveValue(dict, null);
         var hcl = expr.ToHcl();
 
         // Assert

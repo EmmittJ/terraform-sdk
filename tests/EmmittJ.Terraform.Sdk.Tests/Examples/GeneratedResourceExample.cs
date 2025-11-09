@@ -41,11 +41,11 @@ public class AwsInstance : TerraformResource
 
     /// <summary>
     /// Map of tags to assign to the resource.
-    /// Now properly typed as TerraformMapProperty instead of generic TerraformProperty!
+    /// Generated as Dictionary type that accepts TerraformProperty values.
     /// </summary>
-    public TerraformMapProperty<string>? Tags
+    public Dictionary<string, TerraformProperty<string>>? Tags
     {
-        get => GetProperty<TerraformMapProperty<string>>("tags");
+        get => GetProperty<Dictionary<string, TerraformProperty<string>>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -77,18 +77,18 @@ public static class UsageExample
     {
         var stack = new TerraformStack();
 
-        // Create an EC2 instance with tags using the new TerraformMapProperty
+        // Create an EC2 instance with tags using native Dictionary
         var instance = new AwsInstance("web_server")
         {
             Ami = "ami-0c55b159cbfafe1f0",
             InstanceType = "t2.micro",
-            // Now you can assign dictionaries directly with proper type safety!
-            Tags = new Dictionary<string, string>
+            // Now you can assign dictionaries with TerraformProperty values!
+            Tags = new Dictionary<string, TerraformProperty<string>>
             {
-                ["Name"] = "WebServer",
-                ["Environment"] = "Production",
-                ["ManagedBy"] = "Terraform",
-                ["CostCenter"] = "Engineering"
+                ["Name"] = new TerraformLiteralProperty<string>("WebServer"),
+                ["Environment"] = new TerraformLiteralProperty<string>("Production"),
+                ["ManagedBy"] = new TerraformLiteralProperty<string>("Terraform"),
+                ["CostCenter"] = new TerraformLiteralProperty<string>("Engineering")
             }
         };
 

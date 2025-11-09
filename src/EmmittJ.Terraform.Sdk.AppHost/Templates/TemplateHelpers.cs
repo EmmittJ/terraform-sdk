@@ -21,68 +21,16 @@ public static class TemplateHelpers
 
     public static string GetPropertyWrapper(PropertyModel property)
     {
-        // Remove nullable from the type for the wrapper
-        // This goes in actual C# code, so NO XML escaping
-        var baseType = property.CSharpType.TrimEnd('?');
-
-        // Handle Dictionary types specially
-        if (baseType.StartsWith("Dictionary<"))
-        {
-            var types = ExtractDictionaryTypes(baseType);
-            var typeParts = types.Split(new[] { ", " }, StringSplitOptions.None);
-            if (typeParts.Length == 2)
-            {
-                // TerraformMapProperty<TValue> - always string keys
-                return $"TerraformMapProperty<{typeParts[1]}>";
-            }
-            return $"TerraformMapProperty<object>";
-        }
-
-        return $"TerraformProperty<{baseType}>";
-    }
-    private static string ExtractDictionaryTypes(string dictionaryType)
-    {
-        // Extract "TKey, TValue" from "Dictionary<TKey, TValue>"
-        var start = dictionaryType.IndexOf('<');
-        var end = dictionaryType.LastIndexOf('>');
-        if (start >= 0 && end > start)
-        {
-            return dictionaryType.Substring(start + 1, end - start - 1);
-        }
-        return "string, object"; // fallback
+        // The CSharpType already contains the full type (e.g., TerraformProperty<string>, List<TerraformProperty<int>>)
+        // Just return it directly
+        return property.CSharpType;
     }
 
     public static string GetSetterValue(PropertyModel property)
     {
-        // This goes in actual C# code, so NO XML escaping
-        var baseType = property.CSharpType.TrimEnd('?');
-
-        // Handle Dictionary types specially
-        if (baseType.StartsWith("Dictionary<"))
-        {
-            var types = ExtractDictionaryTypes(baseType);
-            var typeParts = types.Split(new[] { ", " }, StringSplitOptions.None);
-            if (typeParts.Length == 2)
-            {
-                // TerraformMapProperty has implicit conversion from Dictionary<string, TValue>
-                return $"value == null ? null : new TerraformMapProperty<{typeParts[1]}>(value)";
-            }
-            return $"value == null ? null : new TerraformMapProperty<object>(value)";
-        }
-
-        if (property.IsCollection)
-        {
-            return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value)";
-        }
-
-        // For nullable value types (bool?, double?, int?, etc.)
-        if (property.IsValueType && property.CSharpType.EndsWith("?"))
-        {
-            return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value.Value)";
-        }
-
-        // For reference types (string?, List<>, etc.)
-        return $"value == null ? null : new TerraformLiteralProperty<{baseType}>(value)";
+        // Since we're using native collections, just pass the value through
+        // The implicit conversions on TerraformProperty will handle it
+        return "value";
     }
 
     public static object PreparePropertyForTemplate(PropertyModel property)
@@ -100,6 +48,21 @@ public static class TemplateHelpers
             property.IsDeprecated,
             PropertyWrapper = GetPropertyWrapper(property), // NOT escaped - goes in code
             SetterValue = GetSetterValue(property) // NOT escaped - goes in code
+        };
+    }
+
+    public static object PrepareBlockTypeForTemplate(BlockTypeModel block)
+    {
+        return new
+        {
+            block.Name,
+            block.TerraformName,
+            block.ClassName,
+            block.NestingMode,
+            block.BlockPropertyType,
+            block.MinItems,
+            block.MaxItems,
+            Properties = block.Properties.Select(PreparePropertyForTemplate).ToList()
         };
     }
 }

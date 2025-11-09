@@ -32,16 +32,18 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
 
     /// <summary>
     /// Internal setter for property accessors and extension methods.
+    /// Supports any value type: TerraformProperty, collections, blocks, literals.
     /// Supports null to remove properties.
     /// </summary>
-    internal void WithPropertyInternal(string key, TerraformProperty? value)
+    internal void WithPropertyInternal(string key, object? value)
         => _properties.Set(key, value);
 
     /// <summary>
     /// Internal setter for property accessors with priority support.
+    /// Supports any value type: TerraformProperty, collections, blocks, literals.
     /// Supports null to remove properties.
     /// </summary>
-    internal void WithPropertyInternal(string key, TerraformProperty? value, int? priority)
+    internal void WithPropertyInternal(string key, object? value, int? priority)
     {
         _properties.Set(key, value, priority);
     }
@@ -55,22 +57,26 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
     }
 
     /// <summary>
-    /// Gets the properties dictionary for subclasses to use in HCL generation.
+    /// Checks if a property exists (for derived classes).
     /// </summary>
-    protected IReadOnlyDictionary<string, TerraformProperty> BlockProperties => _properties;
+    protected bool HasProperty(string key)
+    {
+        return _properties.Get<object>(key) != null;
+    }
 
     /// <summary>
     /// Writes properties to HCL with proper formatting.
     /// Properties with priority (lower numbers first) are written before alphabetically sorted properties.
+    /// Delegates to TerraformValueResolver for consistent value resolution.
     /// </summary>
     /// <param name="sb">The StringBuilder to append to.</param>
     /// <param name="context">The context for indentation and resolution.</param>
     protected void WriteProperties(System.Text.StringBuilder sb, ITerraformContext context)
     {
         // Order by: priority first (ascending), then alphabetically by key
-        foreach (var (key, property) in _properties.GetOrderedProperties())
+        foreach (var (key, value) in _properties.GetOrderedProperties())
         {
-            var expression = property.Resolve(context);
+            var expression = TerraformValueResolver.ResolveValue(value, context);
             var hcl = expression.ToHcl(context);
             sb.AppendLine($"{context.Indent}{key}{expression.AssignmentOperator}{hcl}");
         }
@@ -81,12 +87,13 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
 
     /// <summary>
     /// Preparation phase - prepares all nested values and expressions.
+    /// Delegates to TerraformValueResolver for consistent value preparation.
     /// </summary>
     public virtual void Prepare(ITerraformContext context)
     {
-        foreach (var value in _properties.Values)
+        foreach (var value in _properties.GetValues())
         {
-            value.Prepare(context);
+            TerraformValueResolver.PrepareValue(value, context);
         }
     }
 

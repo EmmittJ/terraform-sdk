@@ -37,7 +37,8 @@ public class DataSourceTemplate
             Description = TemplateHelpers.EscapeXmlDoc(dataSource.Description),
             dataSource.IsDeprecated,
             Properties = dataSource.Properties.Select(TemplateHelpers.PreparePropertyForTemplate).ToList(),
-            OutputAttributes = dataSource.OutputAttributes.Select(TemplateHelpers.PreparePropertyForTemplate).ToList()
+            OutputAttributes = dataSource.OutputAttributes.Select(TemplateHelpers.PreparePropertyForTemplate).ToList(),
+            BlockTypes = dataSource.BlockTypes.Select(TemplateHelpers.PrepareBlockTypeForTemplate).ToList()
         };
 
         return Renderer.Render(template, data);

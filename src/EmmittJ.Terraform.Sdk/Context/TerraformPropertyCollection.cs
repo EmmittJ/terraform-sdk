@@ -6,50 +6,41 @@ namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
 /// Shared property storage for constructs and configuration containers.
-/// Maintains ordering semantics via optional priority and exposes read-only dictionary access.
+/// Stores heterogeneous values: TerraformProperty, ITerraformResolvable, collections, and plain values.
+/// Maintains ordering semantics via optional priority.
 /// </summary>
-internal sealed class TerraformPropertyCollection : IReadOnlyDictionary<string, TerraformProperty>
+internal sealed class TerraformPropertyCollection
 {
-    private readonly Dictionary<string, TerraformProperty> _properties = new();
+    private readonly Dictionary<string, object?> _properties = new();
+    private readonly Dictionary<string, int?> _priorities = new();
 
     public int Count => _properties.Count;
 
     public IEnumerable<string> Keys => _properties.Keys;
 
-    public IEnumerable<TerraformProperty> Values => _properties.Values;
-
-    public TerraformProperty this[string key] => _properties[key];
+    public IEnumerable<object?> GetValues() => _properties.Values;
 
     public bool ContainsKey(string key) => _properties.ContainsKey(key);
 
-    public bool TryGetValue(string key, out TerraformProperty value)
-    {
-        var result = _properties.TryGetValue(key, out var foundValue);
-        value = foundValue!;
-        return result;
-    }
-
-    public IEnumerator<KeyValuePair<string, TerraformProperty>> GetEnumerator() => _properties.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
     /// <summary>
-    /// Sets or removes a property while applying the desired priority.
+    /// Sets or removes a property value with optional priority.
+    /// Supports any value type: TerraformProperty, collections, blocks, literals.
     /// </summary>
-    public void Set(string key, TerraformProperty? value, int? priority = null)
+    public void Set(string key, object? value, int? priority = null)
     {
         if (value == null)
         {
             _properties.Remove(key);
+            _priorities.Remove(key);
             return;
         }
 
-        value.Priority = priority;
         _properties[key] = value;
+        _priorities[key] = priority;
     }
 
     /// <summary>
-    /// Gets a property as a specific type.
+    /// Gets a property value as a specific type.
     /// </summary>
     public T? Get<T>(string key) where T : class
     {
@@ -60,9 +51,12 @@ internal sealed class TerraformPropertyCollection : IReadOnlyDictionary<string, 
 
     /// <summary>
     /// Enumerates properties sorted by priority then key.
+    /// Returns (key, value) pairs where value can be any object type.
     /// </summary>
-    public IEnumerable<KeyValuePair<string, TerraformProperty>> GetOrderedProperties()
-        => _properties
-            .OrderBy(kvp => kvp.Value.Priority ?? int.MaxValue)
+    public IEnumerable<KeyValuePair<string, object?>> GetOrderedProperties()
+    {
+        return _properties
+            .OrderBy(kvp => _priorities.TryGetValue(kvp.Key, out var priority) ? priority ?? int.MaxValue : int.MaxValue)
             .ThenBy(kvp => kvp.Key);
+    }
 }

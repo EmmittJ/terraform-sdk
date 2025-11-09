@@ -2,6 +2,30 @@ using EmmittJ.Terraform.Sdk;
 
 namespace {{Namespace}};
 
+{{#BlockTypes}}
+/// <summary>
+/// Block type for {{TerraformName}} in {{../ClassName}}.
+/// Nesting mode: {{NestingMode}}
+/// </summary>
+public class {{ClassName}} : TerraformBlock
+{
+{{#Properties}}
+    /// <summary>
+    /// {{Description}}
+    /// </summary>
+{{#IsDeprecated}}
+    [Obsolete("This property is deprecated.")]
+{{/IsDeprecated}}
+    public {{{PropertyWrapper}}}? {{Name}}
+    {
+        get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
+        set => WithProperty("{{TerraformName}}", value);
+    }
+
+{{/Properties}}
+}
+
+{{/BlockTypes}}
 /// <summary>
 /// {{Description}}
 /// </summary>
@@ -36,6 +60,18 @@ public class {{ClassName}} : TerraformResource
     }
 
 {{/Properties}}
+{{#BlockTypes}}
+    /// <summary>
+    /// Block for {{TerraformName}}.
+    /// Nesting mode: {{NestingMode}}
+    /// </summary>
+    public {{BlockPropertyType}}? {{Name}}
+    {
+        get => GetProperty<{{BlockPropertyType}}>("{{TerraformName}}");
+        set => this.WithProperty("{{TerraformName}}", value);
+    }
+
+{{/BlockTypes}}
 {{#OutputAttributes}}
     /// <summary>
     /// {{Description}}
@@ -44,3 +80,4 @@ public class {{ClassName}} : TerraformResource
 
 {{/OutputAttributes}}
 }
+

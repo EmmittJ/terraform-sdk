@@ -71,7 +71,7 @@ public class TerraformSettings : ITerraformPreparable
     /// Gets an ordered, read-only view of the property dictionary.
     /// Primarily used for rendering.
     /// </summary>
-    internal IReadOnlyDictionary<string, TerraformProperty> Properties => _properties;
+    internal IEnumerable<KeyValuePair<string, object?>> Properties => _properties.GetOrderedProperties();
 
     /// <inheritdoc />
     public void Prepare(ITerraformContext context)
@@ -81,9 +81,9 @@ public class TerraformSettings : ITerraformPreparable
             throw new ArgumentNullException(nameof(context));
         }
 
-        foreach (var property in _properties.Values)
+        foreach (var value in _properties.GetValues())
         {
-            property.Prepare(context);
+            TerraformValueResolver.PrepareValue(value, context);
         }
     }
 
@@ -100,9 +100,10 @@ public class TerraformSettings : ITerraformPreparable
         using (context.PushIndent())
         {
             // 1. required_version (conventionally first)
-            if (_properties.TryGetValue("required_version", out var versionProp))
+            var versionProp = _properties.Get<TerraformProperty>("required_version");
+            if (versionProp != null)
             {
-                var expression = versionProp.Resolve(context);
+                var expression = TerraformValueResolver.ResolveValue(versionProp, context);
                 var hcl = expression.ToHcl(context);
                 sb.AppendLine($"{context.Indent}required_version{expression.AssignmentOperator}{hcl}");
             }
@@ -155,11 +156,11 @@ public class TerraformSettings : ITerraformPreparable
             }
 
             // 6. Remaining properties (backend, etc.) ordered by priority then key
-            foreach (var (key, property) in _properties.GetOrderedProperties().Where(p => p.Key != "required_version"))
+            foreach (var kvp in _properties.GetOrderedProperties().Where(p => p.Key != "required_version"))
             {
-                var expression = property.Resolve(context);
+                var expression = TerraformValueResolver.ResolveValue(kvp.Value, context);
                 var hcl = expression.ToHcl(context);
-                sb.AppendLine($"{context.Indent}{key}{expression.AssignmentOperator}{hcl}");
+                sb.AppendLine($"{context.Indent}{kvp.Key}{expression.AssignmentOperator}{hcl}");
             }
         }
 

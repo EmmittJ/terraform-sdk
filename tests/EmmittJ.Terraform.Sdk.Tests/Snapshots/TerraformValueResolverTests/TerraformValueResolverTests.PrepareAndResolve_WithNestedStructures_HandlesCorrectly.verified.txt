@@ -1,0 +1,10 @@
+﻿[{
+  tags = {
+    env = "dev"
+    owner = "team"
+  }
+}, {
+  tags = {
+    env = "prod"
+  }
+}]

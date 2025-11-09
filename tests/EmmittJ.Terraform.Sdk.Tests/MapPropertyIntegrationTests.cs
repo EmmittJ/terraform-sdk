@@ -86,7 +86,7 @@ public class MapPropertyIntegrationTests
         var instance = new TerraformResource("aws_instance", "app")
             .WithProperty("ami", "ami-12345678")
             .WithProperty("instance_type", "t2.micro")
-            .WithProperty("tags", new TerraformMapProperty<TerraformProperty<string>>(tags));
+            .WithProperty("tags", tags);
 
         stack.Add(instance);
 

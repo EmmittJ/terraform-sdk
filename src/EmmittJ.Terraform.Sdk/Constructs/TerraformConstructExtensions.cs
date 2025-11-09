@@ -7,9 +7,10 @@ namespace EmmittJ.Terraform.Sdk;
 public static class TerraformConstructExtensions
 {
     /// <summary>
-    /// Fluent builder method with type-safe return - returns T instead of TerraformConstruct.
+    /// Fluent builder method that accepts any value type (native collections, blocks, literals).
+    /// Supports the new native collections architecture.
     /// </summary>
-    public static T WithProperty<T>(this T construct, string key, TerraformProperty? value)
+    public static T WithProperty<T>(this T construct, string key, object? value)
         where T : TerraformConstruct
     {
         construct
@@ -18,10 +19,11 @@ public static class TerraformConstructExtensions
     }
 
     /// <summary>
-    /// Fluent builder method with type-safe return and priority support.
+    /// Fluent builder method that accepts any value type with priority support.
+    /// Supports the new native collections architecture.
     /// Lower priority values render first in HCL output.
     /// </summary>
-    public static T WithProperty<T>(this T construct, string key, TerraformProperty? value, int priority)
+    public static T WithProperty<T>(this T construct, string key, object? value, int priority)
         where T : TerraformConstruct
     {
         construct

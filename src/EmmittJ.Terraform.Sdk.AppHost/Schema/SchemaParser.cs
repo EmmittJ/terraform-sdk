@@ -109,8 +109,15 @@ public class SchemaParser
     {
         var csharpType = MapTerraformTypeToCSharp(attr.Type);
         var isCollection = csharpType.Contains("List<") || csharpType.Contains("Dictionary<") || csharpType.Contains("HashSet<");
-        var baseType = csharpType.TrimEnd('?');
-        var isValueType = baseType == "bool" || baseType == "double" || baseType == "int" || baseType == "long" || baseType == "float";
+
+        // Extract the inner type from TerraformProperty<T> or collection types
+        var isValueType = false;
+        if (csharpType.StartsWith("TerraformProperty<"))
+        {
+            // Extract T from TerraformProperty<T>
+            var innerType = csharpType.Substring("TerraformProperty<".Length, csharpType.Length - "TerraformProperty<".Length - 1);
+            isValueType = innerType == "bool" || innerType == "double" || innerType == "int" || innerType == "long" || innerType == "float";
+        }
 
         return new PropertyModel
         {
@@ -152,7 +159,7 @@ public class SchemaParser
     public string MapTerraformTypeToCSharp(object? type)
     {
         if (type == null)
-            return "string?";
+            return "TerraformProperty<string>";
 
         var typeStr = type.ToString() ?? "string";
 
@@ -174,27 +181,27 @@ public class SchemaParser
 
                     return collectionType switch
                     {
-                        "list" => $"List<{innerType.TrimEnd('?')}>?",
-                        "set" => $"HashSet<{innerType.TrimEnd('?')}>?",
-                        "map" => $"Dictionary<string, {innerType.TrimEnd('?')}>?",
-                        _ => "object?"
+                        "list" => $"List<{innerType}>",
+                        "set" => $"HashSet<{innerType}>",
+                        "map" => $"Dictionary<string, {innerType}>",
+                        _ => "TerraformProperty<object>"
                     };
                 }
             }
             else if (element.ValueKind == JsonValueKind.Object)
             {
                 // Complex object type - use Dictionary for now
-                return "Dictionary<string, object>?";
+                return "Dictionary<string, TerraformProperty<object>>";
             }
         }
 
         return typeStr switch
         {
-            "string" => "string?",
-            "number" => "double?",
-            "bool" => "bool?",
-            "dynamic" => "object?",
-            _ => "string?"
+            "string" => "TerraformProperty<string>",
+            "number" => "TerraformProperty<double>",
+            "bool" => "TerraformProperty<bool>",
+            "dynamic" => "TerraformProperty<object>",
+            _ => "TerraformProperty<string>"
         };
     }
 
