@@ -1,0 +1,51 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk;
+
+/// <summary>
+/// Provider-specific functions extension for {{ProviderName}}.
+/// </summary>
+public static partial class Tf
+{
+    /// <summary>
+    /// {{ProviderDisplayName}} provider-specific functions.
+    /// </summary>
+    public static class {{ProviderClassName}}
+    {
+        /// <summary>
+        /// {{ProviderDisplayName}} provider functions.
+        /// </summary>
+        public static class Functions
+        {
+{{#Functions}}
+            /// <summary>
+            /// {{Summary}}{{#Description}}
+            ///
+            /// {{Description}}{{/Description}}
+            /// </summary>
+{{#Parameters}}
+            /// <param name="{{Name}}">{{Description}}</param>
+{{/Parameters}}
+{{#VariadicParameter}}
+            /// <param name="{{Name}}">{{Description}}</param>
+{{/VariadicParameter}}
+{{#DeprecationMessage}}
+            [Obsolete("{{DeprecationMessage}}")]
+{{/DeprecationMessage}}
+            public static TerraformExpression {{Name}}({{ParameterList}})
+            {
+{{#HasParameters}}
+                return TerraformExpressionExtensions.Call(
+                    "{{TerraformFunctionCall}}",
+                    {{ArgumentList}}
+                );
+{{/HasParameters}}
+{{^HasParameters}}
+                return TerraformExpressionExtensions.Call("{{TerraformFunctionCall}}");
+{{/HasParameters}}
+            }
+
+{{/Functions}}
+        }
+    }
+}

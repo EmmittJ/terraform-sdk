@@ -61,3 +61,63 @@ public class BlockTypeModel
         _ => ClassName
     };
 }
+
+public class ProviderFunctionModel
+{
+    public required string Name { get; set; }
+    public required string TerraformName { get; set; }
+    public required string ProviderName { get; set; }
+    public string? Summary { get; set; }
+    public string? Description { get; set; }
+    public string? DeprecationMessage { get; set; }
+    public string ReturnType { get; set; } = "TerraformExpression";
+    public List<FunctionParameterModel> Parameters { get; set; } = new();
+    public FunctionParameterModel? VariadicParameter { get; set; }
+
+    /// <summary>
+    /// Gets the full Terraform function call name (provider::provider_name::function_name).
+    /// </summary>
+    public string TerraformFunctionCall => $"provider::{ProviderName}::{TerraformName}";
+
+    /// <summary>
+    /// Gets the method signature parameters as a comma-separated string.
+    /// </summary>
+    public string ParameterList
+    {
+        get
+        {
+            var parameters = Parameters.Select(p => $"TerraformExpression {p.Name}").ToList();
+            if (VariadicParameter != null)
+            {
+                parameters.Add($"params TerraformExpression[] {VariadicParameter.Name}");
+            }
+            return string.Join(", ", parameters);
+        }
+    }
+
+    /// <summary>
+    /// Gets the argument list for passing to the Call method.
+    /// </summary>
+    public string ArgumentList
+    {
+        get
+        {
+            var args = Parameters.Select(p => p.Name).ToList();
+            if (VariadicParameter != null)
+            {
+                args.Add(VariadicParameter.Name);
+            }
+            return string.Join(", ", args);
+        }
+    }
+
+    public bool HasParameters => Parameters.Count > 0 || VariadicParameter != null;
+}
+
+public class FunctionParameterModel
+{
+    public required string Name { get; set; }
+    public string? Description { get; set; }
+    public bool IsNullable { get; set; }
+    public string CSharpType { get; set; } = "TerraformExpression";
+}

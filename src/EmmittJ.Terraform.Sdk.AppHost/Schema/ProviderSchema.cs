@@ -21,6 +21,12 @@ public class ProviderSchema
 
     [JsonPropertyName("data_source_schemas")]
     public Dictionary<string, ResourceSchema> DataSourceSchemas { get; set; } = new();
+
+    [JsonPropertyName("ephemeral_resource_schemas")]
+    public Dictionary<string, ResourceSchema> EphemeralResourceSchemas { get; set; } = new();
+
+    [JsonPropertyName("functions")]
+    public Dictionary<string, FunctionSchema> Functions { get; set; } = new();
 }
 
 public class ResourceSchema
@@ -58,6 +64,9 @@ public class SchemaAttribute
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
+    [JsonPropertyName("description_kind")]
+    public string? DescriptionKind { get; set; }
+
     [JsonPropertyName("required")]
     public bool Required { get; set; }
 
@@ -87,4 +96,40 @@ public class SchemaBlockType
 
     [JsonPropertyName("max_items")]
     public int? MaxItems { get; set; }
+}
+
+public class FunctionSchema
+{
+    [JsonPropertyName("summary")]
+    public string? Summary { get; set; }
+
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
+    [JsonPropertyName("deprecation_message")]
+    public string? DeprecationMessage { get; set; }
+
+    [JsonPropertyName("return_type")]
+    public object? ReturnType { get; set; }
+
+    [JsonPropertyName("parameters")]
+    public List<ParameterSchema> Parameters { get; set; } = new();
+
+    [JsonPropertyName("variadic_parameter")]
+    public ParameterSchema? VariadicParameter { get; set; }
+}
+
+public class ParameterSchema
+{
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = string.Empty;
+
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
+    [JsonPropertyName("is_nullable")]
+    public bool IsNullable { get; set; }
+
+    [JsonPropertyName("type")]
+    public object? Type { get; set; }
 }

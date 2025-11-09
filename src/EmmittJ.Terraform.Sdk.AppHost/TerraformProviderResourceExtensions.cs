@@ -184,14 +184,36 @@ public static class TerraformProviderResourceExtensions
         };
         dataSourcesStep.DependsOn(schemaStep);
 
+        // Provider functions step (can run after schema, in parallel with other code generation)
+        var providerFunctionsStep = new PipelineStep
+        {
+            Name = $"provider-functions-{provider.Name}",
+            Resource = provider,
+            Action = async stepContext => await GenerateProviderFunctionsStepAsync(provider, stepContext),
+            Tags = { "codegen", "terraform", "functions" }
+        };
+        providerFunctionsStep.DependsOn(schemaStep);
+
+        // Ephemeral resources step (can run after schema, in parallel with other code generation)
+        var ephemeralResourcesStep = new PipelineStep
+        {
+            Name = $"ephemeral-resources-{provider.Name}",
+            Resource = provider,
+            Action = async stepContext => await GenerateEphemeralResourcesStepAsync(provider, stepContext),
+            Tags = { "codegen", "terraform", "ephemeral" }
+        };
+        ephemeralResourcesStep.DependsOn(schemaStep);
+
         // All steps should be required by publish
         schemaStep.RequiredBy(WellKnownPipelineSteps.Publish);
         projectStep.RequiredBy(WellKnownPipelineSteps.Publish);
         providerClassStep.RequiredBy(WellKnownPipelineSteps.Publish);
         resourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
         dataSourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
+        providerFunctionsStep.RequiredBy(WellKnownPipelineSteps.Publish);
+        ephemeralResourcesStep.RequiredBy(WellKnownPipelineSteps.Publish);
 
-        return [schemaStep, projectStep, providerClassStep, resourcesStep, dataSourcesStep];
+        return [schemaStep, projectStep, providerClassStep, resourcesStep, dataSourcesStep, providerFunctionsStep, ephemeralResourcesStep];
     }
 
     private static async Task GenerateSchemaStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
@@ -420,6 +442,109 @@ public static class TerraformProviderResourceExtensions
         catch (Exception ex)
         {
             logger.LogError(ex, "❌ Error generating data sources for {ProviderName}", provider.ProviderName);
+            await task.FailAsync(ex.Message, stepContext.CancellationToken);
+            throw;
+        }
+    }
+
+    private static async Task GenerateProviderFunctionsStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
+    {
+        var logger = stepContext.Logger;
+        var step = stepContext.ReportingStep;
+
+        var task = await step.CreateTaskAsync($"Generating provider functions", stepContext.CancellationToken);
+        try
+        {
+            var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
+            var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
+
+            // Parse schema
+            var schemaPath = Path.Combine(workingDir, "schema.json");
+            var schemaJson = await File.ReadAllTextAsync(schemaPath, stepContext.CancellationToken);
+            var parser = new SchemaParser();
+            var schemaRoot = parser.ParseSchema(schemaJson);
+            var providerSchema = schemaRoot.ProviderSchemas.Values.FirstOrDefault()
+                ?? throw new InvalidOperationException($"No provider schema found in {schemaPath}");
+
+            var functions = parser.ParseProviderFunctions(providerSchema, provider.ProviderName);
+
+            // Skip generation if no functions
+            if (functions.Count == 0)
+            {
+                logger.LogInformation("No provider functions found for {ProviderName}", provider.ProviderName);
+                await task.CompleteAsync("No provider functions to generate", CompletionState.Completed, stepContext.CancellationToken);
+                return;
+            }
+
+            // Generate provider-specific Tf extension class
+            var providerClassName = parser.ToClassName(provider.ProviderName);
+            var providerDisplayName = provider.ProviderName.ToUpper();
+
+            var functionsTemplate = new ProviderFunctionsTemplate(templatePath);
+            var code = functionsTemplate.Generate(functions, provider.ProviderName, providerDisplayName, providerClassName);
+
+            var filePath = Path.Combine(outputFolder, $"Tf{providerClassName}Functions.cs");
+            await File.WriteAllTextAsync(filePath, code, stepContext.CancellationToken);
+
+            logger.LogInformation("Generated {FunctionCount} provider functions", functions.Count);
+            await task.CompleteAsync($"{functions.Count} provider functions generated", CompletionState.Completed, stepContext.CancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "❌ Error generating provider functions for {ProviderName}", provider.ProviderName);
+            await task.FailAsync(ex.Message, stepContext.CancellationToken);
+            throw;
+        }
+    }
+
+    private static async Task GenerateEphemeralResourcesStepAsync(TerraformProviderResource provider, PipelineStepContext stepContext)
+    {
+        var logger = stepContext.Logger;
+        var step = stepContext.ReportingStep;
+
+        var task = await step.CreateTaskAsync($"Generating ephemeral resources", stepContext.CancellationToken);
+        try
+        {
+            var (repositoryRoot, templatePath, workingDir) = GetProviderPaths(provider, stepContext);
+            var outputFolder = provider.OutputFolder ?? Path.Combine(repositoryRoot, provider.Namespace);
+
+            // Parse schema
+            var schemaPath = Path.Combine(workingDir, "schema.json");
+            var schemaJson = await File.ReadAllTextAsync(schemaPath, stepContext.CancellationToken);
+            var parser = new SchemaParser();
+            var schemaRoot = parser.ParseSchema(schemaJson);
+            var providerSchema = schemaRoot.ProviderSchemas.Values.FirstOrDefault()
+                ?? throw new InvalidOperationException($"No provider schema found in {schemaPath}");
+
+            var ephemeralResources = parser.ParseEphemeralResources(providerSchema, provider.ProviderName);
+
+            // Skip generation if no ephemeral resources
+            if (ephemeralResources.Count == 0)
+            {
+                logger.LogInformation("No ephemeral resources found for {ProviderName}", provider.ProviderName);
+                await task.CompleteAsync("No ephemeral resources to generate", CompletionState.Completed, stepContext.CancellationToken);
+                return;
+            }
+
+            var ephemeralResourcesFolder = Path.Combine(outputFolder, "EphemeralResources");
+            Directory.CreateDirectory(ephemeralResourcesFolder);
+
+            var ephemeralResourceTemplate = new EphemeralResourceTemplate(templatePath);
+            var ephemeralResourceGenerationTasks = ephemeralResources.Select(async ephemeralResource =>
+            {
+                var code = ephemeralResourceTemplate.Generate(ephemeralResource, provider.Namespace);
+                var filePath = Path.Combine(ephemeralResourcesFolder, $"{ephemeralResource.ClassName}.cs");
+                await File.WriteAllTextAsync(filePath, code, stepContext.CancellationToken);
+            });
+
+            await Task.WhenAll(ephemeralResourceGenerationTasks);
+
+            logger.LogInformation("Generated {EphemeralResourceCount} ephemeral resources", ephemeralResources.Count);
+            await task.CompleteAsync($"{ephemeralResources.Count} ephemeral resources generated", CompletionState.Completed, stepContext.CancellationToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "❌ Error generating ephemeral resources for {ProviderName}", provider.ProviderName);
             await task.FailAsync(ex.Message, stepContext.CancellationToken);
             throw;
         }

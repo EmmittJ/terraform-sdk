@@ -3,8 +3,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <summary>
 /// Static helper class for Terraform built-in functions and type constraints.
 /// Provides convenient access to Terraform functions and type system.
+/// This class is partial to allow provider-specific function extensions.
 /// </summary>
-public static class Tf
+public static partial class Tf
 {
     /// <summary>
     /// Terraform type constraint helpers.

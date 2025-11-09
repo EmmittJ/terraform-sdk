@@ -105,6 +105,50 @@ public class SchemaParser
         return dataSources;
     }
 
+    public List<ResourceModel> ParseEphemeralResources(ProviderSchema providerSchema, string providerName)
+    {
+        var ephemeralResources = new List<ResourceModel>();
+
+        foreach (var (ephemeralType, ephemeralSchema) in providerSchema.EphemeralResourceSchemas)
+        {
+            var ephemeralResource = new ResourceModel
+            {
+                Name = ephemeralType,
+                TerraformType = ephemeralType,
+                ClassName = ToClassName(ephemeralType) + "EphemeralResource",
+                Description = ephemeralSchema.Block.Description ?? $"Manages a {ephemeralType} ephemeral resource (temporary credentials/tokens).",
+                IsDeprecated = ephemeralSchema.Block.Deprecated
+            };
+
+            // Parse attributes
+            foreach (var (attrName, attr) in ephemeralSchema.Block.Attributes)
+            {
+                var property = ParseAttribute(attrName, attr);
+
+                if (attr.Computed && !attr.Optional && !attr.Required)
+                {
+                    // Computed-only attributes are outputs
+                    ephemeralResource.OutputAttributes.Add(property);
+                }
+                else
+                {
+                    // Input properties
+                    ephemeralResource.Properties.Add(property);
+                }
+            }
+
+            // Parse block types
+            foreach (var (blockName, blockType) in ephemeralSchema.Block.BlockTypes)
+            {
+                ephemeralResource.BlockTypes.Add(ParseBlockType(blockName, blockType, ephemeralResource.ClassName));
+            }
+
+            ephemeralResources.Add(ephemeralResource);
+        }
+
+        return ephemeralResources;
+    }
+
     private PropertyModel ParseAttribute(string name, SchemaAttribute attr)
     {
         var csharpType = MapTerraformTypeToCSharp(attr.Type);
@@ -205,6 +249,51 @@ public class SchemaParser
         };
     }
 
+    public List<ProviderFunctionModel> ParseProviderFunctions(ProviderSchema providerSchema, string providerName)
+    {
+        var functions = new List<ProviderFunctionModel>();
+
+        foreach (var (functionName, functionSchema) in providerSchema.Functions)
+        {
+            var function = new ProviderFunctionModel
+            {
+                Name = ToPascalCase(functionName),
+                TerraformName = functionName,
+                ProviderName = providerName,
+                Summary = functionSchema.Summary,
+                Description = functionSchema.Description,
+                DeprecationMessage = functionSchema.DeprecationMessage
+            };
+
+            // Parse parameters
+            foreach (var param in functionSchema.Parameters)
+            {
+                function.Parameters.Add(new FunctionParameterModel
+                {
+                    Name = ToCamelCase(param.Name),
+                    Description = param.Description,
+                    IsNullable = param.IsNullable
+                });
+            }
+
+            // Parse variadic parameter
+            if (functionSchema.VariadicParameter != null)
+            {
+                var varParam = functionSchema.VariadicParameter;
+                function.VariadicParameter = new FunctionParameterModel
+                {
+                    Name = ToCamelCase(varParam.Name),
+                    Description = varParam.Description,
+                    IsNullable = varParam.IsNullable
+                };
+            }
+
+            functions.Add(function);
+        }
+
+        return functions;
+    }
+
     public string ToClassName(string terraformType)
     {
         // Convert aws_instance to AwsInstance
@@ -217,5 +306,20 @@ public class SchemaParser
         // Convert snake_case to PascalCase
         return string.Join("", name.Split('_')
             .Select(part => char.ToUpper(part[0]) + part.Substring(1)));
+    }
+
+    public string ToCamelCase(string name)
+    {
+        // Convert snake_case to camelCase
+        var parts = name.Split('_');
+        if (parts.Length == 0)
+            return name;
+
+        var result = parts[0].ToLowerInvariant();
+        for (int i = 1; i < parts.Length; i++)
+        {
+            result += char.ToUpper(parts[i][0]) + parts[i].Substring(1);
+        }
+        return result;
     }
 }

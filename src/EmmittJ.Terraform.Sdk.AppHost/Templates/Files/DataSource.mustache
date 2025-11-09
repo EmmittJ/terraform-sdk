@@ -13,10 +13,18 @@ public class {{ClassName}} : TerraformBlock
     /// <summary>
     /// {{Description}}
     /// </summary>
+{{#IsRequired}}
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "{{Name}} is required")]
+{{/IsRequired}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
+{{#UseRequiredKeyword}}
+    public required {{{PropertyWrapper}}} {{Name}}
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
     public {{{PropertyWrapper}}}? {{Name}}
+{{/UseNullable}}
     {
         get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
         set => WithProperty("{{TerraformName}}", value);
@@ -50,10 +58,18 @@ public class {{ClassName}} : TerraformDataSource
     /// <summary>
     /// {{Description}}
     /// </summary>
+{{#IsRequired}}
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "{{Name}} is required")]
+{{/IsRequired}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
+{{#UseRequiredKeyword}}
+    public required {{{PropertyWrapper}}} {{Name}}
+{{/UseRequiredKeyword}}
+{{#UseNullable}}
     public {{{PropertyWrapper}}}? {{Name}}
+{{/UseNullable}}
     {
         get => GetProperty<{{{PropertyWrapper}}}>("{{TerraformName}}");
         set => this.WithProperty("{{TerraformName}}", value);
@@ -65,6 +81,9 @@ public class {{ClassName}} : TerraformDataSource
     /// Block for {{TerraformName}}.
     /// Nesting mode: {{NestingMode}}
     /// </summary>
+{{#ValidationAttributes}}
+    {{{.}}}
+{{/ValidationAttributes}}
     public {{BlockPropertyType}}? {{Name}}
     {
         get => GetProperty<{{BlockPropertyType}}>("{{TerraformName}}");
