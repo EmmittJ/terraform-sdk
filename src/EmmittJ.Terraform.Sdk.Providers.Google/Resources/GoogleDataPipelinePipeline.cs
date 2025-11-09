@@ -53,9 +53,9 @@ public class GoogleDataPipelinePipeline : TerraformResource
     /// The sources of the pipeline (for example, Dataplex). The keys and values are set by the corresponding sources during pipeline creation.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? PipelineSources
+    public TerraformMapProperty<string>? PipelineSources
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("pipeline_sources");
+        get => GetProperty<TerraformMapProperty<string>>("pipeline_sources");
         set => this.WithProperty("pipeline_sources", value);
     }
 

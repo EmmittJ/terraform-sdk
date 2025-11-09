@@ -38,9 +38,9 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// <summary>
     /// Environment variables available to the application.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? EnvVariables
+    public TerraformMapProperty<string>? EnvVariables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("env_variables");
+        get => GetProperty<TerraformMapProperty<string>>("env_variables");
         set => this.WithProperty("env_variables", value);
     }
 

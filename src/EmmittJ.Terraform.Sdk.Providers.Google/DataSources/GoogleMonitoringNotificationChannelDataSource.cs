@@ -49,9 +49,9 @@ public class GoogleMonitoringNotificationChannelDataSource : TerraformDataSource
     /// determine if there are upstream changes to these fields. They can also be configured via
     /// the sensitive_labels block, but cannot be configured in both places.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -76,9 +76,9 @@ public class GoogleMonitoringNotificationChannelDataSource : TerraformDataSource
     /// <summary>
     /// User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor&#39;s schema, unlike the labels field. This field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? UserLabels
+    public TerraformMapProperty<string>? UserLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_labels");
+        get => GetProperty<TerraformMapProperty<string>>("user_labels");
         set => this.WithProperty("user_labels", value);
     }
 

@@ -37,9 +37,9 @@ public class AzurermSentinelAlertRuleScheduled : TerraformResource
     /// <summary>
     /// The custom_details attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? CustomDetails
+    public TerraformMapProperty<string>? CustomDetails
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("custom_details");
+        get => GetProperty<TerraformMapProperty<string>>("custom_details");
         set => this.WithProperty("custom_details", value);
     }
 

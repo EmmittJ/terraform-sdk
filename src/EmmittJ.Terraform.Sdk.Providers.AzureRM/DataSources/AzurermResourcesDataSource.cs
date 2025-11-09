@@ -38,9 +38,9 @@ public class AzurermResourcesDataSource : TerraformDataSource
     /// <summary>
     /// The required_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RequiredTags
+    public TerraformMapProperty<string>? RequiredTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("required_tags");
+        get => GetProperty<TerraformMapProperty<string>>("required_tags");
         set => this.WithProperty("required_tags", value);
     }
 

@@ -55,9 +55,9 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Properties
+    public TerraformMapProperty<string>? Properties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("properties");
+        get => GetProperty<TerraformMapProperty<string>>("properties");
         set => this.WithProperty("properties", value);
     }
 
@@ -82,9 +82,9 @@ public class AzurermMaintenanceConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

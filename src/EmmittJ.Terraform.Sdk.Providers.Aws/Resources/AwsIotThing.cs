@@ -22,9 +22,9 @@ public class AwsIotThing : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Attributes
+    public TerraformMapProperty<string>? Attributes
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attributes");
+        get => GetProperty<TerraformMapProperty<string>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 

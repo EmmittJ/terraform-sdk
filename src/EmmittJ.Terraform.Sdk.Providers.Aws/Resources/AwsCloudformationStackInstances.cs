@@ -48,9 +48,9 @@ public class AwsCloudformationStackInstances : TerraformResource
     /// <summary>
     /// The parameter_overrides attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ParameterOverrides
+    public TerraformMapProperty<string>? ParameterOverrides
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameter_overrides");
+        get => GetProperty<TerraformMapProperty<string>>("parameter_overrides");
         set => this.WithProperty("parameter_overrides", value);
     }
 

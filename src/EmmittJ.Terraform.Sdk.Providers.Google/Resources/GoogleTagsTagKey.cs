@@ -63,9 +63,9 @@ public class GoogleTagsTagKey : TerraformResource
     /// 
     /// Purpose data corresponds to the policy system that the tag is intended for. For example, the GCE_FIREWALL purpose expects data in the following format: &#39;network = &amp;quot;&amp;lt;project-name&amp;gt;/&amp;lt;vpc-name&amp;gt;&amp;quot;&#39;.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? PurposeData
+    public TerraformMapProperty<string>? PurposeData
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("purpose_data");
+        get => GetProperty<TerraformMapProperty<string>>("purpose_data");
         set => this.WithProperty("purpose_data", value);
     }
 

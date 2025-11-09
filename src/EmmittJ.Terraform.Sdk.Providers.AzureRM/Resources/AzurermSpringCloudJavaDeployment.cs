@@ -19,9 +19,9 @@ public class AzurermSpringCloudJavaDeployment : TerraformResource
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? EnvironmentVariables
+    public TerraformMapProperty<string>? EnvironmentVariables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("environment_variables");
+        get => GetProperty<TerraformMapProperty<string>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 

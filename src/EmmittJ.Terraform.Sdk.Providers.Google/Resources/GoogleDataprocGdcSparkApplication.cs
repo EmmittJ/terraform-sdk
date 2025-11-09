@@ -34,9 +34,9 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Annotations
+    public TerraformMapProperty<string>? Annotations
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformMapProperty<string>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -82,9 +82,9 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -118,9 +118,9 @@ public class GoogleDataprocGdcSparkApplication : TerraformResource
     /// <summary>
     /// application-specific properties.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Properties
+    public TerraformMapProperty<string>? Properties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("properties");
+        get => GetProperty<TerraformMapProperty<string>>("properties");
         set => this.WithProperty("properties", value);
     }
 

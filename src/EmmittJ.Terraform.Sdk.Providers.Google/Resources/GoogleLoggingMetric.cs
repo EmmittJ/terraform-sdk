@@ -70,9 +70,9 @@ public class GoogleLoggingMetric : TerraformResource
     /// have an associated extractor expression in this map. The syntax of the extractor expression is
     /// the same as for the valueExtractor field.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? LabelExtractors
+    public TerraformMapProperty<string>? LabelExtractors
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("label_extractors");
+        get => GetProperty<TerraformMapProperty<string>>("label_extractors");
         set => this.WithProperty("label_extractors", value);
     }
 

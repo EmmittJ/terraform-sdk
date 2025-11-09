@@ -94,9 +94,9 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -165,18 +165,18 @@ public class GoogleWorkflowsWorkflow : TerraformResource
     /// as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in
     /// the format tagValues/456. The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// User-defined environment variables associated with this workflow revision. This map has a maximum length of 20. Each string can take up to 4KiB. Keys cannot be empty strings and cannot start with &amp;quot;GOOGLE&amp;quot; or &amp;quot;WORKFLOWS&amp;quot;.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? UserEnvVars
+    public TerraformMapProperty<string>? UserEnvVars
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_env_vars");
+        get => GetProperty<TerraformMapProperty<string>>("user_env_vars");
         set => this.WithProperty("user_env_vars", value);
     }
 

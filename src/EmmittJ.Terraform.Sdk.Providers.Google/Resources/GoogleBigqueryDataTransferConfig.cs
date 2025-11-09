@@ -102,9 +102,9 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// 
     /// **NOTE** : If you are attempting to update a parameter that cannot be updated (due to api limitations) [please force recreation of the resource](https://www.terraform.io/cli/state/taint#forcing-re-creation-of-resources).
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Params
+    public TerraformMapProperty<string>? Params
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("params");
+        get => GetProperty<TerraformMapProperty<string>>("params");
         set => this.WithProperty("params", value);
     }
 

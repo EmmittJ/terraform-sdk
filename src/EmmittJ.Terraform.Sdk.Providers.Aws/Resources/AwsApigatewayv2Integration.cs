@@ -146,18 +146,18 @@ public class AwsApigatewayv2Integration : TerraformResource
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RequestParameters
+    public TerraformMapProperty<string>? RequestParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("request_parameters");
+        get => GetProperty<TerraformMapProperty<string>>("request_parameters");
         set => this.WithProperty("request_parameters", value);
     }
 
     /// <summary>
     /// The request_templates attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RequestTemplates
+    public TerraformMapProperty<string>? RequestTemplates
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("request_templates");
+        get => GetProperty<TerraformMapProperty<string>>("request_templates");
         set => this.WithProperty("request_templates", value);
     }
 

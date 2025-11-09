@@ -19,9 +19,9 @@ public class AzurermSecurityCenterAssessment : TerraformResource
     /// <summary>
     /// The additional_data attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AdditionalData
+    public TerraformMapProperty<string>? AdditionalData
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_data");
+        get => GetProperty<TerraformMapProperty<string>>("additional_data");
         set => this.WithProperty("additional_data", value);
     }
 

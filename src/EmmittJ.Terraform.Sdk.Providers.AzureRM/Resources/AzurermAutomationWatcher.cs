@@ -92,9 +92,9 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The script_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ScriptParameters
+    public TerraformMapProperty<string>? ScriptParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("script_parameters");
+        get => GetProperty<TerraformMapProperty<string>>("script_parameters");
         set => this.WithProperty("script_parameters", value);
     }
 
@@ -110,9 +110,9 @@ public class AzurermAutomationWatcher : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

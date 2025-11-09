@@ -22,9 +22,9 @@ public class AzurermStaticSite : TerraformResource
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AppSettings
+    public TerraformMapProperty<string>? AppSettings
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("app_settings");
+        get => GetProperty<TerraformMapProperty<string>>("app_settings");
         set => this.WithProperty("app_settings", value);
     }
 
@@ -85,9 +85,9 @@ public class AzurermStaticSite : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

@@ -100,18 +100,18 @@ public class AzurermDataFactoryPipeline : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Parameters
+    public TerraformMapProperty<string>? Parameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformMapProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Variables
+    public TerraformMapProperty<string>? Variables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("variables");
+        get => GetProperty<TerraformMapProperty<string>>("variables");
         set => this.WithProperty("variables", value);
     }
 

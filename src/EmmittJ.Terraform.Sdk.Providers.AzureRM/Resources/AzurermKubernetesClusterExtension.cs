@@ -30,18 +30,18 @@ public class AzurermKubernetesClusterExtension : TerraformResource
     /// <summary>
     /// The configuration_protected_settings attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ConfigurationProtectedSettings
+    public TerraformMapProperty<string>? ConfigurationProtectedSettings
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("configuration_protected_settings");
+        get => GetProperty<TerraformMapProperty<string>>("configuration_protected_settings");
         set => this.WithProperty("configuration_protected_settings", value);
     }
 
     /// <summary>
     /// The configuration_settings attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ConfigurationSettings
+    public TerraformMapProperty<string>? ConfigurationSettings
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("configuration_settings");
+        get => GetProperty<TerraformMapProperty<string>>("configuration_settings");
         set => this.WithProperty("configuration_settings", value);
     }
 

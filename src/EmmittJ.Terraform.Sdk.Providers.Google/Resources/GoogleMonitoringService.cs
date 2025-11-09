@@ -63,9 +63,9 @@ public class GoogleMonitoringService : TerraformResource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? UserLabels
+    public TerraformMapProperty<string>? UserLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_labels");
+        get => GetProperty<TerraformMapProperty<string>>("user_labels");
         set => this.WithProperty("user_labels", value);
     }
 

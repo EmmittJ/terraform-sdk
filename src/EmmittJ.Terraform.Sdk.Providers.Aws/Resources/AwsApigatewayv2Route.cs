@@ -100,9 +100,9 @@ public class AwsApigatewayv2Route : TerraformResource
     /// <summary>
     /// The request_models attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RequestModels
+    public TerraformMapProperty<string>? RequestModels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("request_models");
+        get => GetProperty<TerraformMapProperty<string>>("request_models");
         set => this.WithProperty("request_models", value);
     }
 

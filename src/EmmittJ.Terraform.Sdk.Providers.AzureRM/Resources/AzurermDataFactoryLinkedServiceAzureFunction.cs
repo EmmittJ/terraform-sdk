@@ -19,9 +19,9 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AdditionalProperties
+    public TerraformMapProperty<string>? AdditionalProperties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_properties");
+        get => GetProperty<TerraformMapProperty<string>>("additional_properties");
         set => this.WithProperty("additional_properties", value);
     }
 
@@ -91,9 +91,9 @@ public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Parameters
+    public TerraformMapProperty<string>? Parameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformMapProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 

@@ -42,9 +42,9 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? CommandLineArguments
+    public TerraformMapProperty<string>? CommandLineArguments
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("command_line_arguments");
+        get => GetProperty<TerraformMapProperty<string>>("command_line_arguments");
         set => this.WithProperty("command_line_arguments", value);
     }
 
@@ -123,18 +123,18 @@ public class AwsFinspaceKxCluster : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

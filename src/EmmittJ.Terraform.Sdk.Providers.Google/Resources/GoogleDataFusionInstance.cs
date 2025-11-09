@@ -98,9 +98,9 @@ public class GoogleDataFusionInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -116,9 +116,9 @@ public class GoogleDataFusionInstance : TerraformResource
     /// <summary>
     /// Map of additional options used to configure the behavior of Data Fusion instance.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Options
+    public TerraformMapProperty<string>? Options
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("options");
+        get => GetProperty<TerraformMapProperty<string>>("options");
         set => this.WithProperty("options", value);
     }
 
@@ -157,9 +157,9 @@ public class GoogleDataFusionInstance : TerraformResource
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

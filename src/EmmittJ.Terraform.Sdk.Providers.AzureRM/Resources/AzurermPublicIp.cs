@@ -93,9 +93,9 @@ public class AzurermPublicIp : TerraformResource
     /// <summary>
     /// The ip_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? IpTags
+    public TerraformMapProperty<string>? IpTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("ip_tags");
+        get => GetProperty<TerraformMapProperty<string>>("ip_tags");
         set => this.WithProperty("ip_tags", value);
     }
 
@@ -174,9 +174,9 @@ public class AzurermPublicIp : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

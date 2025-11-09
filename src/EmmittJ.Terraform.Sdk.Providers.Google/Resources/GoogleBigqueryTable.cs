@@ -115,9 +115,9 @@ public class GoogleBigqueryTable : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -151,9 +151,9 @@ public class GoogleBigqueryTable : TerraformResource
     /// <summary>
     /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be in the namespaced format, for example &amp;quot;123456789012/environment&amp;quot; where 123456789012 is the ID of the parent organization or project resource for this tag key. Tag value is expected to be the short name, for example &amp;quot;Production&amp;quot;.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResourceTags
+    public TerraformMapProperty<string>? ResourceTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_tags");
+        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 

@@ -109,9 +109,9 @@ public class AzurermDataFactoryTriggerSchedule : TerraformResource
     /// <summary>
     /// The pipeline_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? PipelineParameters
+    public TerraformMapProperty<string>? PipelineParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("pipeline_parameters");
+        get => GetProperty<TerraformMapProperty<string>>("pipeline_parameters");
         set => this.WithProperty("pipeline_parameters", value);
     }
 

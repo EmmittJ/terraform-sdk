@@ -56,18 +56,18 @@ public class AwsApiGatewayDeployment : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Triggers
+    public TerraformMapProperty<string>? Triggers
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("triggers");
+        get => GetProperty<TerraformMapProperty<string>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 
     /// <summary>
     /// The variables attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Variables
+    public TerraformMapProperty<string>? Variables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("variables");
+        get => GetProperty<TerraformMapProperty<string>>("variables");
         set => this.WithProperty("variables", value);
     }
 

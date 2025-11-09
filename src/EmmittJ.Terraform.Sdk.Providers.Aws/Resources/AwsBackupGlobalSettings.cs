@@ -19,9 +19,9 @@ public class AwsBackupGlobalSettings : TerraformResource
     /// <summary>
     /// The global_settings attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? GlobalSettings
+    public TerraformMapProperty<string>? GlobalSettings
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("global_settings");
+        get => GetProperty<TerraformMapProperty<string>>("global_settings");
         set => this.WithProperty("global_settings", value);
     }
 

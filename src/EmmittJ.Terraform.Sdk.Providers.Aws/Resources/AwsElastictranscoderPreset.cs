@@ -75,9 +75,9 @@ public class AwsElastictranscoderPreset : TerraformResource
     /// <summary>
     /// The video_codec_options attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? VideoCodecOptions
+    public TerraformMapProperty<string>? VideoCodecOptions
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("video_codec_options");
+        get => GetProperty<TerraformMapProperty<string>>("video_codec_options");
         set => this.WithProperty("video_codec_options", value);
     }
 

@@ -41,9 +41,9 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Annotations
+    public TerraformMapProperty<string>? Annotations
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformMapProperty<string>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -97,9 +97,9 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -135,9 +135,9 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
@@ -162,9 +162,9 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? VersionAliases
+    public TerraformMapProperty<string>? VersionAliases
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("version_aliases");
+        get => GetProperty<TerraformMapProperty<string>>("version_aliases");
         set => this.WithProperty("version_aliases", value);
     }
 

@@ -158,9 +158,9 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Substitutions
+    public TerraformMapProperty<string>? Substitutions
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("substitutions");
+        get => GetProperty<TerraformMapProperty<string>>("substitutions");
         set => this.WithProperty("substitutions", value);
     }
 

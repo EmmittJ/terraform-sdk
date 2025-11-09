@@ -138,9 +138,9 @@ public class GoogleFirestoreDatabase : TerraformResource
     /// resource replacement when mutated. To apply tags to an existing resource, see
     /// the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

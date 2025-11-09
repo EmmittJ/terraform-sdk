@@ -67,18 +67,18 @@ public class AwsLexv2modelsBot : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The test_bot_alias_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TestBotAliasTags
+    public TerraformMapProperty<string>? TestBotAliasTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("test_bot_alias_tags");
+        get => GetProperty<TerraformMapProperty<string>>("test_bot_alias_tags");
         set => this.WithProperty("test_bot_alias_tags", value);
     }
 

@@ -82,9 +82,9 @@ public class AwsLakeformationDataLakeSettings : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Parameters
+    public TerraformMapProperty<string>? Parameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformMapProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 

@@ -20,9 +20,9 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// <summary>
     /// Metadata settings that are supplied to this version to enable beta runtime features.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? BetaSettings
+    public TerraformMapProperty<string>? BetaSettings
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("beta_settings");
+        get => GetProperty<TerraformMapProperty<string>>("beta_settings");
         set => this.WithProperty("beta_settings", value);
     }
 
@@ -48,9 +48,9 @@ public class GoogleAppEngineFlexibleAppVersion : TerraformResource
     /// <summary>
     /// Environment variables available to the application.  As these are not returned in the API request, Terraform will not detect any changes made outside of the Terraform config.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? EnvVariables
+    public TerraformMapProperty<string>? EnvVariables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("env_variables");
+        get => GetProperty<TerraformMapProperty<string>>("env_variables");
         set => this.WithProperty("env_variables", value);
     }
 

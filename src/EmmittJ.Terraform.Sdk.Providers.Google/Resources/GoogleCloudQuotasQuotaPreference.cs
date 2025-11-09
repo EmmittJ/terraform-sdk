@@ -38,9 +38,9 @@ public class GoogleCloudQuotasQuotaPreference : TerraformResource
     /// 
     /// Example: &#39;{&amp;quot;provider&amp;quot;: &amp;quot;Foo Inc&amp;quot;}&#39; where &amp;quot;provider&amp;quot; is a service specific dimension.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Dimensions
+    public TerraformMapProperty<string>? Dimensions
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("dimensions");
+        get => GetProperty<TerraformMapProperty<string>>("dimensions");
         set => this.WithProperty("dimensions", value);
     }
 

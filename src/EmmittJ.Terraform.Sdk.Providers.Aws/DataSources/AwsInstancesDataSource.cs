@@ -41,9 +41,9 @@ public class AwsInstancesDataSource : TerraformDataSource
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? InstanceTags
+    public TerraformMapProperty<string>? InstanceTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("instance_tags");
+        get => GetProperty<TerraformMapProperty<string>>("instance_tags");
         set => this.WithProperty("instance_tags", value);
     }
 

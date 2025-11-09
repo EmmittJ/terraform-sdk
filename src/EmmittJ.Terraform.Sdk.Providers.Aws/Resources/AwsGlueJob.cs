@@ -29,9 +29,9 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The default_arguments attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? DefaultArguments
+    public TerraformMapProperty<string>? DefaultArguments
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("default_arguments");
+        get => GetProperty<TerraformMapProperty<string>>("default_arguments");
         set => this.WithProperty("default_arguments", value);
     }
 
@@ -128,9 +128,9 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The non_overridable_arguments attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? NonOverridableArguments
+    public TerraformMapProperty<string>? NonOverridableArguments
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("non_overridable_arguments");
+        get => GetProperty<TerraformMapProperty<string>>("non_overridable_arguments");
         set => this.WithProperty("non_overridable_arguments", value);
     }
 
@@ -173,18 +173,18 @@ public class AwsGlueJob : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

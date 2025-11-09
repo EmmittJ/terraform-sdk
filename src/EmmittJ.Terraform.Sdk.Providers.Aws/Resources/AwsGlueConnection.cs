@@ -20,9 +20,9 @@ public class AwsGlueConnection : TerraformResource
     /// <summary>
     /// The athena_properties attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AthenaProperties
+    public TerraformMapProperty<string>? AthenaProperties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("athena_properties");
+        get => GetProperty<TerraformMapProperty<string>>("athena_properties");
         set => this.WithProperty("athena_properties", value);
     }
 
@@ -38,9 +38,9 @@ public class AwsGlueConnection : TerraformResource
     /// <summary>
     /// The connection_properties attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ConnectionProperties
+    public TerraformMapProperty<string>? ConnectionProperties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("connection_properties");
+        get => GetProperty<TerraformMapProperty<string>>("connection_properties");
         set => this.WithProperty("connection_properties", value);
     }
 
@@ -101,18 +101,18 @@ public class AwsGlueConnection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

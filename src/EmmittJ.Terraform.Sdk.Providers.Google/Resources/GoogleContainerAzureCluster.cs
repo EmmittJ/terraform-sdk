@@ -31,9 +31,9 @@ public class GoogleContainerAzureCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Annotations
+    public TerraformMapProperty<string>? Annotations
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformMapProperty<string>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 

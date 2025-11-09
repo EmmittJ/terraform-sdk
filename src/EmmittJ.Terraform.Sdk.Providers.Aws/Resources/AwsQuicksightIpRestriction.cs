@@ -37,9 +37,9 @@ public class AwsQuicksightIpRestriction : TerraformResource
     /// <summary>
     /// The ip_restriction_rule_map attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? IpRestrictionRuleMap
+    public TerraformMapProperty<string>? IpRestrictionRuleMap
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("ip_restriction_rule_map");
+        get => GetProperty<TerraformMapProperty<string>>("ip_restriction_rule_map");
         set => this.WithProperty("ip_restriction_rule_map", value);
     }
 
@@ -55,18 +55,18 @@ public class AwsQuicksightIpRestriction : TerraformResource
     /// <summary>
     /// The vpc_endpoint_id_restriction_rule_map attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? VpcEndpointIdRestrictionRuleMap
+    public TerraformMapProperty<string>? VpcEndpointIdRestrictionRuleMap
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("vpc_endpoint_id_restriction_rule_map");
+        get => GetProperty<TerraformMapProperty<string>>("vpc_endpoint_id_restriction_rule_map");
         set => this.WithProperty("vpc_endpoint_id_restriction_rule_map", value);
     }
 
     /// <summary>
     /// The vpc_id_restriction_rule_map attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? VpcIdRestrictionRuleMap
+    public TerraformMapProperty<string>? VpcIdRestrictionRuleMap
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("vpc_id_restriction_rule_map");
+        get => GetProperty<TerraformMapProperty<string>>("vpc_id_restriction_rule_map");
         set => this.WithProperty("vpc_id_restriction_rule_map", value);
     }
 

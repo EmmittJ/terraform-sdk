@@ -98,9 +98,9 @@ public class GoogleIamWorkforcePoolProvider : TerraformResource
     /// An object containing a list of &#39;&amp;quot;key&amp;quot;: value&#39; pairs.
     /// Example: &#39;{ &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }&#39;.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AttributeMapping
+    public TerraformMapProperty<string>? AttributeMapping
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attribute_mapping");
+        get => GetProperty<TerraformMapProperty<string>>("attribute_mapping");
         set => this.WithProperty("attribute_mapping", value);
     }
 

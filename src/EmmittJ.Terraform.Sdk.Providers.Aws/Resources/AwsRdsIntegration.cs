@@ -22,9 +22,9 @@ public class AwsRdsIntegration : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AdditionalEncryptionContext
+    public TerraformMapProperty<string>? AdditionalEncryptionContext
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_encryption_context");
+        get => GetProperty<TerraformMapProperty<string>>("additional_encryption_context");
         set => this.WithProperty("additional_encryption_context", value);
     }
 
@@ -76,9 +76,9 @@ public class AwsRdsIntegration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

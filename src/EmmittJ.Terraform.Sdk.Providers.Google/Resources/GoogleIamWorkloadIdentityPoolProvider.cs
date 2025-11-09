@@ -107,9 +107,9 @@ public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
     ///     {&amp;quot;google.subject&amp;quot;: &amp;quot;assertion.sub&amp;quot;}
     ///     &#39;&#39;&#39;
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AttributeMapping
+    public TerraformMapProperty<string>? AttributeMapping
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attribute_mapping");
+        get => GetProperty<TerraformMapProperty<string>>("attribute_mapping");
         set => this.WithProperty("attribute_mapping", value);
     }
 

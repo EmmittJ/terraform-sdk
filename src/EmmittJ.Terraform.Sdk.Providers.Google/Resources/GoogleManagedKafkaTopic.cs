@@ -29,9 +29,9 @@ public class GoogleManagedKafkaTopic : TerraformResource
     /// <summary>
     /// Configuration for the topic that are overridden from the cluster defaults. The key of the map is a Kafka topic property name, for example: &#39;cleanup.policy=compact&#39;, &#39;compression.type=producer&#39;.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Configs
+    public TerraformMapProperty<string>? Configs
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("configs");
+        get => GetProperty<TerraformMapProperty<string>>("configs");
         set => this.WithProperty("configs", value);
     }
 

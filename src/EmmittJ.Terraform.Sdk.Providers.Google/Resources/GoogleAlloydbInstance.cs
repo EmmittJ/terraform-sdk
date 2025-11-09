@@ -50,9 +50,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Annotations
+    public TerraformMapProperty<string>? Annotations
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformMapProperty<string>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
@@ -83,9 +83,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// <summary>
     /// Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? DatabaseFlags
+    public TerraformMapProperty<string>? DatabaseFlags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("database_flags");
+        get => GetProperty<TerraformMapProperty<string>>("database_flags");
         set => this.WithProperty("database_flags", value);
     }
 
@@ -146,9 +146,9 @@ public class GoogleAlloydbInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 

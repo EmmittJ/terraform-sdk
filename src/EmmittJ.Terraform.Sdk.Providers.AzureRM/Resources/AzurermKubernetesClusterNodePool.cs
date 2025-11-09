@@ -172,9 +172,9 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The node_labels attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? NodeLabels
+    public TerraformMapProperty<string>? NodeLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("node_labels");
+        get => GetProperty<TerraformMapProperty<string>>("node_labels");
         set => this.WithProperty("node_labels", value);
     }
 
@@ -307,9 +307,9 @@ public class AzurermKubernetesClusterNodePool : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

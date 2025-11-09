@@ -64,9 +64,9 @@ public class AzurermStorageDataLakeGen2Filesystem : TerraformResource
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Properties
+    public TerraformMapProperty<string>? Properties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("properties");
+        get => GetProperty<TerraformMapProperty<string>>("properties");
         set => this.WithProperty("properties", value);
     }
 

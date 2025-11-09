@@ -37,9 +37,9 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Parameters
+    public TerraformMapProperty<string>? Parameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformMapProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -64,9 +64,9 @@ public class AwsApiGatewayRestApiPut : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Triggers
+    public TerraformMapProperty<string>? Triggers
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("triggers");
+        get => GetProperty<TerraformMapProperty<string>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 

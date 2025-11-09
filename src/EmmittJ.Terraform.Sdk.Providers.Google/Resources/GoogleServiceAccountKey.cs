@@ -33,9 +33,9 @@ public class GoogleServiceAccountKey : TerraformResource
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger recreation of resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Keepers
+    public TerraformMapProperty<string>? Keepers
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("keepers");
+        get => GetProperty<TerraformMapProperty<string>>("keepers");
         set => this.WithProperty("keepers", value);
     }
 

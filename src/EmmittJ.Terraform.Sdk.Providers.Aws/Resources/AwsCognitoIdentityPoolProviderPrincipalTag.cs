@@ -46,9 +46,9 @@ public class AwsCognitoIdentityPoolProviderPrincipalTag : TerraformResource
     /// <summary>
     /// The principal_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? PrincipalTags
+    public TerraformMapProperty<string>? PrincipalTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("principal_tags");
+        get => GetProperty<TerraformMapProperty<string>>("principal_tags");
         set => this.WithProperty("principal_tags", value);
     }
 

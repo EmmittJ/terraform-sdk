@@ -72,9 +72,9 @@ public class GoogleCloudIdentityGroup : TerraformResource
     /// 
     /// Identity-mapped groups for Cloud Search have a label with a key of system/groups/external and an empty value.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 

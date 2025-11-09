@@ -150,9 +150,9 @@ public class GoogleNotebooksInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -178,9 +178,9 @@ public class GoogleNotebooksInstance : TerraformResource
     /// Custom metadata to apply to this instance.
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Metadata
+    public TerraformMapProperty<string>? Metadata
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformMapProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 

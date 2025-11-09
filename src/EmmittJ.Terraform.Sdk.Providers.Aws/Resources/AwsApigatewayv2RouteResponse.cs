@@ -55,9 +55,9 @@ public class AwsApigatewayv2RouteResponse : TerraformResource
     /// <summary>
     /// The response_models attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResponseModels
+    public TerraformMapProperty<string>? ResponseModels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("response_models");
+        get => GetProperty<TerraformMapProperty<string>>("response_models");
         set => this.WithProperty("response_models", value);
     }
 

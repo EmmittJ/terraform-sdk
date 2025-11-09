@@ -73,9 +73,9 @@ public class AzurermAutomationConnection : TerraformResource
     /// <summary>
     /// The values attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Values
+    public TerraformMapProperty<string>? Values
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("values");
+        get => GetProperty<TerraformMapProperty<string>>("values");
         set => this.WithProperty("values", value);
     }
 

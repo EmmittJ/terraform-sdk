@@ -21,9 +21,9 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// <summary>
     /// Connector config as keys/values. The keys of the map are connector property names, for example: &#39;connector.class&#39;, &#39;tasks.max&#39;, &#39;key.converter&#39;.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Configs
+    public TerraformMapProperty<string>? Configs
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("configs");
+        get => GetProperty<TerraformMapProperty<string>>("configs");
         set => this.WithProperty("configs", value);
     }
 

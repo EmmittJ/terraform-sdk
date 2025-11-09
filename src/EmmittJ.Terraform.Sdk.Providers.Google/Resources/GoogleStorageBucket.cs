@@ -62,9 +62,9 @@ public class GoogleStorageBucket : TerraformResource
     /// <summary>
     /// A set of key/value label pairs to assign to the bucket.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 

@@ -58,9 +58,9 @@ public class GoogleComputeNodeTemplate : TerraformResource
     /// Labels to use for node affinity, which will be used in
     /// instance scheduling.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? NodeAffinityLabels
+    public TerraformMapProperty<string>? NodeAffinityLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("node_affinity_labels");
+        get => GetProperty<TerraformMapProperty<string>>("node_affinity_labels");
         set => this.WithProperty("node_affinity_labels", value);
     }
 

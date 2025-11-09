@@ -19,9 +19,9 @@ public class AwsCognitoIdentityProvider : TerraformResource
     /// <summary>
     /// The attribute_mapping attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AttributeMapping
+    public TerraformMapProperty<string>? AttributeMapping
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attribute_mapping");
+        get => GetProperty<TerraformMapProperty<string>>("attribute_mapping");
         set => this.WithProperty("attribute_mapping", value);
     }
 
@@ -46,9 +46,9 @@ public class AwsCognitoIdentityProvider : TerraformResource
     /// <summary>
     /// The provider_details attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ProviderDetails
+    public TerraformMapProperty<string>? ProviderDetails
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("provider_details");
+        get => GetProperty<TerraformMapProperty<string>>("provider_details");
         set => this.WithProperty("provider_details", value);
     }
 

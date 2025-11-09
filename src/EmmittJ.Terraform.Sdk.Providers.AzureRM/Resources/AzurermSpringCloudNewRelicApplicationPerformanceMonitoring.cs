@@ -100,9 +100,9 @@ public class AzurermSpringCloudNewRelicApplicationPerformanceMonitoring : Terraf
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 

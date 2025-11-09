@@ -99,9 +99,9 @@ public class GoogleMonitoringSlo : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? UserLabels
+    public TerraformMapProperty<string>? UserLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_labels");
+        get => GetProperty<TerraformMapProperty<string>>("user_labels");
         set => this.WithProperty("user_labels", value);
     }
 

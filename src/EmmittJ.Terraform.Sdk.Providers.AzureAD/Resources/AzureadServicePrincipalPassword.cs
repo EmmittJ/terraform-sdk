@@ -58,9 +58,9 @@ public class AzureadServicePrincipalPassword : TerraformResource
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger rotation of the password
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RotateWhenChanged
+    public TerraformMapProperty<string>? RotateWhenChanged
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("rotate_when_changed");
+        get => GetProperty<TerraformMapProperty<string>>("rotate_when_changed");
         set => this.WithProperty("rotate_when_changed", value);
     }
 

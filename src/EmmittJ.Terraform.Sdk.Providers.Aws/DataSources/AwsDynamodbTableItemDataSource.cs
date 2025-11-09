@@ -20,9 +20,9 @@ public class AwsDynamodbTableItemDataSource : TerraformDataSource
     /// <summary>
     /// The expression_attribute_names attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ExpressionAttributeNames
+    public TerraformMapProperty<string>? ExpressionAttributeNames
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("expression_attribute_names");
+        get => GetProperty<TerraformMapProperty<string>>("expression_attribute_names");
         set => this.WithProperty("expression_attribute_names", value);
     }
 

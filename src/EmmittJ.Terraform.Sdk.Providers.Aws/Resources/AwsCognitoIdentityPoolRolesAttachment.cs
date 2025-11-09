@@ -46,9 +46,9 @@ public class AwsCognitoIdentityPoolRolesAttachment : TerraformResource
     /// <summary>
     /// The roles attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Roles
+    public TerraformMapProperty<string>? Roles
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("roles");
+        get => GetProperty<TerraformMapProperty<string>>("roles");
         set => this.WithProperty("roles", value);
     }
 

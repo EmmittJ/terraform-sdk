@@ -20,9 +20,9 @@ public class AwsKmsCiphertextDataSource : TerraformDataSource
     /// <summary>
     /// The context attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Context
+    public TerraformMapProperty<string>? Context
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("context");
+        get => GetProperty<TerraformMapProperty<string>>("context");
         set => this.WithProperty("context", value);
     }
 

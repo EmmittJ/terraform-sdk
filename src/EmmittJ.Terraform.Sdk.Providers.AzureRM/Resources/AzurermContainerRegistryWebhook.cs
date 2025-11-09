@@ -28,9 +28,9 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The custom_headers attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? CustomHeaders
+    public TerraformMapProperty<string>? CustomHeaders
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("custom_headers");
+        get => GetProperty<TerraformMapProperty<string>>("custom_headers");
         set => this.WithProperty("custom_headers", value);
     }
 
@@ -109,9 +109,9 @@ public class AzurermContainerRegistryWebhook : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

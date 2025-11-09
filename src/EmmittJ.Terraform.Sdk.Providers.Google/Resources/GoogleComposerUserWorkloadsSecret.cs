@@ -19,9 +19,9 @@ public class GoogleComposerUserWorkloadsSecret : TerraformResource
     /// <summary>
     /// A map of the secret data.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Data
+    public TerraformMapProperty<string>? Data
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("data");
+        get => GetProperty<TerraformMapProperty<string>>("data");
         set => this.WithProperty("data", value);
     }
 

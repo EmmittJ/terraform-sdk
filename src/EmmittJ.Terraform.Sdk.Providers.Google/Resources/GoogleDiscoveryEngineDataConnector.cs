@@ -152,9 +152,9 @@ public class GoogleDiscoveryEngineDataConnector : TerraformResource
     /// <summary>
     /// Params needed to access the source in the format of String-to-String (Key, Value) pairs.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Params
+    public TerraformMapProperty<string>? Params
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("params");
+        get => GetProperty<TerraformMapProperty<string>>("params");
         set => this.WithProperty("params", value);
     }
 

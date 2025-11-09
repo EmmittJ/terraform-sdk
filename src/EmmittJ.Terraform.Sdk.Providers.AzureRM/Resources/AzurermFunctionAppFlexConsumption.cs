@@ -28,9 +28,9 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     /// <summary>
     /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AppSettings
+    public TerraformMapProperty<string>? AppSettings
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("app_settings");
+        get => GetProperty<TerraformMapProperty<string>>("app_settings");
         set => this.WithProperty("app_settings", value);
     }
 
@@ -226,9 +226,9 @@ public class AzurermFunctionAppFlexConsumption : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

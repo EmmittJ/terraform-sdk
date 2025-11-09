@@ -38,9 +38,9 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? EnvironmentVariables
+    public TerraformMapProperty<string>? EnvironmentVariables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("environment_variables");
+        get => GetProperty<TerraformMapProperty<string>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
@@ -92,9 +92,9 @@ public class AzurermSpringCloudGateway : TerraformResource
     /// <summary>
     /// The sensitive_environment_variables attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? SensitiveEnvironmentVariables
+    public TerraformMapProperty<string>? SensitiveEnvironmentVariables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("sensitive_environment_variables");
+        get => GetProperty<TerraformMapProperty<string>>("sensitive_environment_variables");
         set => this.WithProperty("sensitive_environment_variables", value);
     }
 

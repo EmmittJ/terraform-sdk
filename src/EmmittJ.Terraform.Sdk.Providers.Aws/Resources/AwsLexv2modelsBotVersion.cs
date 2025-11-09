@@ -47,9 +47,9 @@ public class AwsLexv2modelsBotVersion : TerraformResource
     /// <summary>
     /// The locale_specification attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, object>>? LocaleSpecification
+    public TerraformMapProperty<object>? LocaleSpecification
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, object>>>("locale_specification");
+        get => GetProperty<TerraformMapProperty<object>>("locale_specification");
         set => this.WithProperty("locale_specification", value);
     }
 

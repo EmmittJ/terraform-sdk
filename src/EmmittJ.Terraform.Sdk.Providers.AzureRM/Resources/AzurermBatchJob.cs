@@ -28,9 +28,9 @@ public class AzurermBatchJob : TerraformResource
     /// <summary>
     /// The common_environment_properties attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? CommonEnvironmentProperties
+    public TerraformMapProperty<string>? CommonEnvironmentProperties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("common_environment_properties");
+        get => GetProperty<TerraformMapProperty<string>>("common_environment_properties");
         set => this.WithProperty("common_environment_properties", value);
     }
 

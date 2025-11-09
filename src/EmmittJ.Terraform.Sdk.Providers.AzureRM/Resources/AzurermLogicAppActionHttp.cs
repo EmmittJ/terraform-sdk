@@ -28,9 +28,9 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Headers
+    public TerraformMapProperty<string>? Headers
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("headers");
+        get => GetProperty<TerraformMapProperty<string>>("headers");
         set => this.WithProperty("headers", value);
     }
 
@@ -73,9 +73,9 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The queries attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Queries
+    public TerraformMapProperty<string>? Queries
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("queries");
+        get => GetProperty<TerraformMapProperty<string>>("queries");
         set => this.WithProperty("queries", value);
     }
 

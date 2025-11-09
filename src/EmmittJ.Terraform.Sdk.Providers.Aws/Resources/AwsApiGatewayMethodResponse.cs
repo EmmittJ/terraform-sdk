@@ -55,18 +55,18 @@ public class AwsApiGatewayMethodResponse : TerraformResource
     /// <summary>
     /// The response_models attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResponseModels
+    public TerraformMapProperty<string>? ResponseModels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("response_models");
+        get => GetProperty<TerraformMapProperty<string>>("response_models");
         set => this.WithProperty("response_models", value);
     }
 
     /// <summary>
     /// The response_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, bool>>? ResponseParameters
+    public TerraformMapProperty<bool>? ResponseParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, bool>>>("response_parameters");
+        get => GetProperty<TerraformMapProperty<bool>>("response_parameters");
         set => this.WithProperty("response_parameters", value);
     }
 

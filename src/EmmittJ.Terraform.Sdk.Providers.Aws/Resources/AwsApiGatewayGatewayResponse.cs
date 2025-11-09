@@ -37,18 +37,18 @@ public class AwsApiGatewayGatewayResponse : TerraformResource
     /// <summary>
     /// The response_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResponseParameters
+    public TerraformMapProperty<string>? ResponseParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("response_parameters");
+        get => GetProperty<TerraformMapProperty<string>>("response_parameters");
         set => this.WithProperty("response_parameters", value);
     }
 
     /// <summary>
     /// The response_templates attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResponseTemplates
+    public TerraformMapProperty<string>? ResponseTemplates
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("response_templates");
+        get => GetProperty<TerraformMapProperty<string>>("response_templates");
         set => this.WithProperty("response_templates", value);
     }
 

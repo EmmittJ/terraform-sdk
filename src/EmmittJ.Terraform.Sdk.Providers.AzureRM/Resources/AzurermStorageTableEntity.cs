@@ -19,9 +19,9 @@ public class AzurermStorageTableEntity : TerraformResource
     /// <summary>
     /// The entity attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Entity
+    public TerraformMapProperty<string>? Entity
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("entity");
+        get => GetProperty<TerraformMapProperty<string>>("entity");
         set => this.WithProperty("entity", value);
     }
 

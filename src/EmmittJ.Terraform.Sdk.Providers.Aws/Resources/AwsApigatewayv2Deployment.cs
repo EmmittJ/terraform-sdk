@@ -56,9 +56,9 @@ public class AwsApigatewayv2Deployment : TerraformResource
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Triggers
+    public TerraformMapProperty<string>? Triggers
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("triggers");
+        get => GetProperty<TerraformMapProperty<string>>("triggers");
         set => this.WithProperty("triggers", value);
     }
 

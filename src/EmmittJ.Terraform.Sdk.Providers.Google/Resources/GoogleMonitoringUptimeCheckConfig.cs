@@ -93,9 +93,9 @@ public class GoogleMonitoringUptimeCheckConfig : TerraformResource
     /// <summary>
     /// User-supplied key/value data to be used for organizing and identifying the &#39;UptimeCheckConfig&#39; objects. The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? UserLabels
+    public TerraformMapProperty<string>? UserLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("user_labels");
+        get => GetProperty<TerraformMapProperty<string>>("user_labels");
         set => this.WithProperty("user_labels", value);
     }
 

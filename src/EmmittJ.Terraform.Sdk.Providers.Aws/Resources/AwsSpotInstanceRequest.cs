@@ -328,18 +328,18 @@ public class AwsSpotInstanceRequest : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 
@@ -400,9 +400,9 @@ public class AwsSpotInstanceRequest : TerraformResource
     /// <summary>
     /// The volume_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? VolumeTags
+    public TerraformMapProperty<string>? VolumeTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("volume_tags");
+        get => GetProperty<TerraformMapProperty<string>>("volume_tags");
         set => this.WithProperty("volume_tags", value);
     }
 

@@ -78,9 +78,9 @@ public class AzurermLogicAppWorkflow : TerraformResource
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Parameters
+    public TerraformMapProperty<string>? Parameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformMapProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -96,18 +96,18 @@ public class AzurermLogicAppWorkflow : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The workflow_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? WorkflowParameters
+    public TerraformMapProperty<string>? WorkflowParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("workflow_parameters");
+        get => GetProperty<TerraformMapProperty<string>>("workflow_parameters");
         set => this.WithProperty("workflow_parameters", value);
     }
 

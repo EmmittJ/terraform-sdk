@@ -130,18 +130,18 @@ public class AwsDrsReplicationConfigurationTemplate : TerraformResource
     /// <summary>
     /// The staging_area_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? StagingAreaTags
+    public TerraformMapProperty<string>? StagingAreaTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("staging_area_tags");
+        get => GetProperty<TerraformMapProperty<string>>("staging_area_tags");
         set => this.WithProperty("staging_area_tags", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

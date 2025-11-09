@@ -20,9 +20,9 @@ public class GoogleComposerUserWorkloadsConfigMap : TerraformResource
     /// The &amp;quot;data&amp;quot; field of Kubernetes ConfigMap, organized in key-value pairs.
     /// For details see: https://kubernetes.io/docs/concepts/configuration/configmap/
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Data
+    public TerraformMapProperty<string>? Data
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("data");
+        get => GetProperty<TerraformMapProperty<string>>("data");
         set => this.WithProperty("data", value);
     }
 

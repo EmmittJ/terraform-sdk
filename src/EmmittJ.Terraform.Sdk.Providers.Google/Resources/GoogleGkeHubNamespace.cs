@@ -40,9 +40,9 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -53,9 +53,9 @@ public class GoogleGkeHubNamespace : TerraformResource
     /// resource) take precedence over Namespace-level labels if they share
     /// a key. Keys and values must be Kubernetes-conformant.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? NamespaceLabels
+    public TerraformMapProperty<string>? NamespaceLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("namespace_labels");
+        get => GetProperty<TerraformMapProperty<string>>("namespace_labels");
         set => this.WithProperty("namespace_labels", value);
     }
 

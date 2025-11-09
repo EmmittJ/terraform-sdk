@@ -25,18 +25,18 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The attributes attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Attributes
+    public TerraformMapProperty<string>? Attributes
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("attributes");
+        get => GetProperty<TerraformMapProperty<string>>("attributes");
         set => this.WithProperty("attributes", value);
     }
 
     /// <summary>
     /// The client_metadata attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ClientMetadata
+    public TerraformMapProperty<string>? ClientMetadata
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("client_metadata");
+        get => GetProperty<TerraformMapProperty<string>>("client_metadata");
         set => this.WithProperty("client_metadata", value);
     }
 
@@ -133,9 +133,9 @@ public class AwsCognitoUser : TerraformResource
     /// <summary>
     /// The validation_data attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ValidationData
+    public TerraformMapProperty<string>? ValidationData
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("validation_data");
+        get => GetProperty<TerraformMapProperty<string>>("validation_data");
         set => this.WithProperty("validation_data", value);
     }
 

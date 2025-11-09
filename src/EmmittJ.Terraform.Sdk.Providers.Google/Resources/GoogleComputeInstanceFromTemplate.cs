@@ -113,9 +113,9 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -131,9 +131,9 @@ public class GoogleComputeInstanceFromTemplate : TerraformResource
     /// <summary>
     /// Metadata key/value pairs made available within the instance.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Metadata
+    public TerraformMapProperty<string>? Metadata
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformMapProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 

@@ -62,9 +62,9 @@ public class AwsBedrockCustomModel : TerraformResource
     /// <summary>
     /// The hyperparameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Hyperparameters
+    public TerraformMapProperty<string>? Hyperparameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("hyperparameters");
+        get => GetProperty<TerraformMapProperty<string>>("hyperparameters");
         set => this.WithProperty("hyperparameters", value);
     }
 
@@ -98,9 +98,9 @@ public class AwsBedrockCustomModel : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

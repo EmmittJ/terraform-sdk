@@ -179,18 +179,18 @@ public class AzurermRedisCache : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tenant_settings attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TenantSettings
+    public TerraformMapProperty<string>? TenantSettings
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tenant_settings");
+        get => GetProperty<TerraformMapProperty<string>>("tenant_settings");
         set => this.WithProperty("tenant_settings", value);
     }
 

@@ -73,9 +73,9 @@ public class AwsDatazoneEnvironmentBlueprintConfiguration : TerraformResource
     /// <summary>
     /// The regional_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, Dictionary<string, string>>>? RegionalParameters
+    public TerraformMapProperty<object>? RegionalParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, Dictionary<string, string>>>>("regional_parameters");
+        get => GetProperty<TerraformMapProperty<object>>("regional_parameters");
         set => this.WithProperty("regional_parameters", value);
     }
 

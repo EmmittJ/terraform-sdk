@@ -92,27 +92,27 @@ public class AwsCognitoIdentityPool : TerraformResource
     /// <summary>
     /// The supported_login_providers attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? SupportedLoginProviders
+    public TerraformMapProperty<string>? SupportedLoginProviders
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("supported_login_providers");
+        get => GetProperty<TerraformMapProperty<string>>("supported_login_providers");
         set => this.WithProperty("supported_login_providers", value);
     }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

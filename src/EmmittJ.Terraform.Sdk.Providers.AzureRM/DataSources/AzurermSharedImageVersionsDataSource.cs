@@ -56,9 +56,9 @@ public class AzurermSharedImageVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The tags_filter attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsFilter
+    public TerraformMapProperty<string>? TagsFilter
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_filter");
+        get => GetProperty<TerraformMapProperty<string>>("tags_filter");
         set => this.WithProperty("tags_filter", value);
     }
 

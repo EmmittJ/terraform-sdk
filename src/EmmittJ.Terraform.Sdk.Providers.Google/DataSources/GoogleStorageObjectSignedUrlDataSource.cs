@@ -65,9 +65,9 @@ public class GoogleStorageObjectSignedUrlDataSource : TerraformDataSource
     /// <summary>
     /// The extension_headers attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ExtensionHeaders
+    public TerraformMapProperty<string>? ExtensionHeaders
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("extension_headers");
+        get => GetProperty<TerraformMapProperty<string>>("extension_headers");
         set => this.WithProperty("extension_headers", value);
     }
 

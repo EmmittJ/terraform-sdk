@@ -68,9 +68,9 @@ public class GoogleDiscoveryEngineSearchEngine : TerraformResource
     /// <summary>
     /// A map of the feature config for the engine to opt in or opt out of features.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Features
+    public TerraformMapProperty<string>? Features
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("features");
+        get => GetProperty<TerraformMapProperty<string>>("features");
         set => this.WithProperty("features", value);
     }
 

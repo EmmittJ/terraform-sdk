@@ -55,9 +55,9 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResourceTags
+    public TerraformMapProperty<string>? ResourceTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_tags");
+        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 

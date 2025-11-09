@@ -94,9 +94,9 @@ public class GoogleCesApp : TerraformResource
     /// Metadata about the app. This field can be used to store additional
     /// information relevant to the app&#39;s details or intended usages.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Metadata
+    public TerraformMapProperty<string>? Metadata
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformMapProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 

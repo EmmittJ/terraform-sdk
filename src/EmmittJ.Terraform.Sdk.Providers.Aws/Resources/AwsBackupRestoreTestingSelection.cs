@@ -64,9 +64,9 @@ public class AwsBackupRestoreTestingSelection : TerraformResource
     /// <summary>
     /// The restore_metadata_overrides attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RestoreMetadataOverrides
+    public TerraformMapProperty<string>? RestoreMetadataOverrides
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("restore_metadata_overrides");
+        get => GetProperty<TerraformMapProperty<string>>("restore_metadata_overrides");
         set => this.WithProperty("restore_metadata_overrides", value);
     }
 

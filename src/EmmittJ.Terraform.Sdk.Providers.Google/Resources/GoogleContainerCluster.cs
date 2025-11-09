@@ -319,9 +319,9 @@ public class GoogleContainerCluster : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResourceLabels
+    public TerraformMapProperty<string>? ResourceLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_labels");
+        get => GetProperty<TerraformMapProperty<string>>("resource_labels");
         set => this.WithProperty("resource_labels", value);
     }
 

@@ -70,9 +70,9 @@ public class GoogleDataflowJob : TerraformResource
     /// User labels to be specified for the job. Keys and values should follow the restrictions specified in the labeling restrictions page. NOTE: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -124,9 +124,9 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// Key/Value pairs to be passed to the Dataflow job (as used in the template).
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Parameters
+    public TerraformMapProperty<string>? Parameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameters");
+        get => GetProperty<TerraformMapProperty<string>>("parameters");
         set => this.WithProperty("parameters", value);
     }
 
@@ -196,9 +196,9 @@ public class GoogleDataflowJob : TerraformResource
     /// <summary>
     /// Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced with the corresponding name prefixes of the new job.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TransformNameMapping
+    public TerraformMapProperty<string>? TransformNameMapping
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("transform_name_mapping");
+        get => GetProperty<TerraformMapProperty<string>>("transform_name_mapping");
         set => this.WithProperty("transform_name_mapping", value);
     }
 

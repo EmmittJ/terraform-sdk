@@ -85,9 +85,9 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResourceTags
+    public TerraformMapProperty<string>? ResourceTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_tags");
+        get => GetProperty<TerraformMapProperty<string>>("resource_tags");
         set => this.WithProperty("resource_tags", value);
     }
 
@@ -121,18 +121,18 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

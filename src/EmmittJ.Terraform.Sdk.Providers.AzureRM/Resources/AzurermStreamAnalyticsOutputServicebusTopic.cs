@@ -100,9 +100,9 @@ public class AzurermStreamAnalyticsOutputServicebusTopic : TerraformResource
     /// <summary>
     /// The system_property_columns attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? SystemPropertyColumns
+    public TerraformMapProperty<string>? SystemPropertyColumns
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("system_property_columns");
+        get => GetProperty<TerraformMapProperty<string>>("system_property_columns");
         set => this.WithProperty("system_property_columns", value);
     }
 

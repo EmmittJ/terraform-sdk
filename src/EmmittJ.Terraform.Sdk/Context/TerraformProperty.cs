@@ -115,7 +115,7 @@ public abstract class TerraformProperty<T> : TerraformProperty
     /// Implicit conversion from TerraformExpression.
     /// </summary>
     public static implicit operator TerraformProperty<T>(TerraformExpression expression)
-        => new TerraformTypedExpressionProperty<T>(expression);
+        => new TerraformExpressionProperty<T>(expression);
 }
 
 /// <summary>
@@ -162,7 +162,7 @@ public sealed class TerraformLiteralProperty<T> : TerraformProperty<T>
 /// Typed expression property - wraps a TerraformExpression as a TerraformProperty&lt;T&gt;.
 /// The type parameter T is used only for compile-time type safety; runtime expressions are untyped.
 /// </summary>
-public sealed class TerraformTypedExpressionProperty<T> : TerraformProperty<T>
+public sealed class TerraformExpressionProperty<T> : TerraformProperty<T>
 {
     private readonly TerraformExpression _expression;
 
@@ -172,9 +172,9 @@ public sealed class TerraformTypedExpressionProperty<T> : TerraformProperty<T>
     public TerraformExpression Expression => _expression;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformTypedExpressionProperty{T}"/> class.
+    /// Initializes a new instance of the <see cref="TerraformExpressionProperty{T}"/> class.
     /// </summary>
-    public TerraformTypedExpressionProperty(TerraformExpression expression)
+    public TerraformExpressionProperty(TerraformExpression expression)
     {
         _expression = expression ?? throw new ArgumentNullException(nameof(expression));
     }

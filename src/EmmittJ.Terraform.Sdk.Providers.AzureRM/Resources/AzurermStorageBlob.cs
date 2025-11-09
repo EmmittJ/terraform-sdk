@@ -74,9 +74,9 @@ public class AzurermStorageBlob : TerraformResource
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Metadata
+    public TerraformMapProperty<string>? Metadata
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformMapProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 

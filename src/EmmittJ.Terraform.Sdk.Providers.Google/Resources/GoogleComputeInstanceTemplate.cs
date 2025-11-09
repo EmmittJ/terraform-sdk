@@ -75,9 +75,9 @@ public class GoogleComputeInstanceTemplate : TerraformResource
     /// 				**Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// 				Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 
@@ -93,9 +93,9 @@ public class GoogleComputeInstanceTemplate : TerraformResource
     /// <summary>
     /// Metadata key/value pairs to make available from within instances created from this template.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Metadata
+    public TerraformMapProperty<string>? Metadata
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("metadata");
+        get => GetProperty<TerraformMapProperty<string>>("metadata");
         set => this.WithProperty("metadata", value);
     }
 
@@ -159,9 +159,9 @@ public class GoogleComputeInstanceTemplate : TerraformResource
     /// 				Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456.
     /// 				The field is ignored (both PUT &amp;amp; PATCH) when empty.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ResourceManagerTags
+    public TerraformMapProperty<string>? ResourceManagerTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("resource_manager_tags");
+        get => GetProperty<TerraformMapProperty<string>>("resource_manager_tags");
         set => this.WithProperty("resource_manager_tags", value);
     }
 

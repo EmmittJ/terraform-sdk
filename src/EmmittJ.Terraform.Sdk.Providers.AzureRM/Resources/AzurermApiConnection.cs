@@ -55,9 +55,9 @@ public class AzurermApiConnection : TerraformResource
     /// <summary>
     /// The parameter_values attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? ParameterValues
+    public TerraformMapProperty<string>? ParameterValues
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("parameter_values");
+        get => GetProperty<TerraformMapProperty<string>>("parameter_values");
         set => this.WithProperty("parameter_values", value);
     }
 
@@ -73,9 +73,9 @@ public class AzurermApiConnection : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 

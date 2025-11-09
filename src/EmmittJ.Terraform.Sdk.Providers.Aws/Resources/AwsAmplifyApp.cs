@@ -121,9 +121,9 @@ public class AwsAmplifyApp : TerraformResource
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? EnvironmentVariables
+    public TerraformMapProperty<string>? EnvironmentVariables
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("environment_variables");
+        get => GetProperty<TerraformMapProperty<string>>("environment_variables");
         set => this.WithProperty("environment_variables", value);
     }
 
@@ -193,18 +193,18 @@ public class AwsAmplifyApp : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

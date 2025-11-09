@@ -30,18 +30,18 @@ public class GoogleClouddeployTarget : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Annotations
+    public TerraformMapProperty<string>? Annotations
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("annotations");
+        get => GetProperty<TerraformMapProperty<string>>("annotations");
         set => this.WithProperty("annotations", value);
     }
 
     /// <summary>
     /// Optional. The deploy parameters to use for this target.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? DeployParameters
+    public TerraformMapProperty<string>? DeployParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("deploy_parameters");
+        get => GetProperty<TerraformMapProperty<string>>("deploy_parameters");
         set => this.WithProperty("deploy_parameters", value);
     }
 
@@ -69,9 +69,9 @@ public class GoogleClouddeployTarget : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Labels
+    public TerraformMapProperty<string>? Labels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("labels");
+        get => GetProperty<TerraformMapProperty<string>>("labels");
         set => this.WithProperty("labels", value);
     }
 

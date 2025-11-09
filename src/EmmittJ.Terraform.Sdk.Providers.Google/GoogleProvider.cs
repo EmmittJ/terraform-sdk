@@ -713,9 +713,9 @@ public class GoogleProvider : TerraformProvider
     /// The default_labels configuration.
     /// (Optional)
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? DefaultLabels
+    public TerraformMapProperty<string>? DefaultLabels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("default_labels");
+        get => GetProperty<TerraformMapProperty<string>>("default_labels");
         set => this.WithProperty("default_labels", value);
     }
 

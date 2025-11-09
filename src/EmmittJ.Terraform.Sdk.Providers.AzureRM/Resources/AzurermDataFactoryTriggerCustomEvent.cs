@@ -28,9 +28,9 @@ public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? AdditionalProperties
+    public TerraformMapProperty<string>? AdditionalProperties
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("additional_properties");
+        get => GetProperty<TerraformMapProperty<string>>("additional_properties");
         set => this.WithProperty("additional_properties", value);
     }
 

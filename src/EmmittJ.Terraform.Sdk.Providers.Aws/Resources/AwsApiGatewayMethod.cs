@@ -91,18 +91,18 @@ public class AwsApiGatewayMethod : TerraformResource
     /// <summary>
     /// The request_models attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RequestModels
+    public TerraformMapProperty<string>? RequestModels
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("request_models");
+        get => GetProperty<TerraformMapProperty<string>>("request_models");
         set => this.WithProperty("request_models", value);
     }
 
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, bool>>? RequestParameters
+    public TerraformMapProperty<bool>? RequestParameters
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, bool>>>("request_parameters");
+        get => GetProperty<TerraformMapProperty<bool>>("request_parameters");
         set => this.WithProperty("request_parameters", value);
     }
 

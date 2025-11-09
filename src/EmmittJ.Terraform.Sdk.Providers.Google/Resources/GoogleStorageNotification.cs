@@ -31,9 +31,9 @@ public class GoogleStorageNotification : TerraformResource
     /// <summary>
     /// A set of key/value attribute pairs to attach to each Cloud Pub/Sub message published for this notification subscription.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? CustomAttributes
+    public TerraformMapProperty<string>? CustomAttributes
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("custom_attributes");
+        get => GetProperty<TerraformMapProperty<string>>("custom_attributes");
         set => this.WithProperty("custom_attributes", value);
     }
 

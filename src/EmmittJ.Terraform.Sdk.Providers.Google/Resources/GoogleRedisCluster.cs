@@ -112,9 +112,9 @@ public class GoogleRedisCluster : TerraformResource
     /// Please check Memorystore documentation for the list of supported parameters:
     /// https://cloud.google.com/memorystore/docs/cluster/supported-instance-configurations
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? RedisConfigs
+    public TerraformMapProperty<string>? RedisConfigs
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("redis_configs");
+        get => GetProperty<TerraformMapProperty<string>>("redis_configs");
         set => this.WithProperty("redis_configs", value);
     }
 

@@ -124,9 +124,9 @@ public class AwsFsxLustreFileSystem : TerraformResource
     /// <summary>
     /// The final_backup_tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? FinalBackupTags
+    public TerraformMapProperty<string>? FinalBackupTags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("final_backup_tags");
+        get => GetProperty<TerraformMapProperty<string>>("final_backup_tags");
         set => this.WithProperty("final_backup_tags", value);
     }
 
@@ -232,18 +232,18 @@ public class AwsFsxLustreFileSystem : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? TagsAll
+    public TerraformMapProperty<string>? TagsAll
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags_all");
+        get => GetProperty<TerraformMapProperty<string>>("tags_all");
         set => this.WithProperty("tags_all", value);
     }
 

@@ -21,9 +21,9 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     /// <summary>
     /// The identity_provider_details attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? IdentityProviderDetails
+    public TerraformMapProperty<string>? IdentityProviderDetails
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("identity_provider_details");
+        get => GetProperty<TerraformMapProperty<string>>("identity_provider_details");
         set => this.WithProperty("identity_provider_details", value);
     }
 
@@ -66,9 +66,9 @@ public class AwsWorkspaceswebIdentityProvider : TerraformResource
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    public TerraformProperty<Dictionary<string, string>>? Tags
+    public TerraformMapProperty<string>? Tags
     {
-        get => GetProperty<TerraformProperty<Dictionary<string, string>>>("tags");
+        get => GetProperty<TerraformMapProperty<string>>("tags");
         set => this.WithProperty("tags", value);
     }
 
