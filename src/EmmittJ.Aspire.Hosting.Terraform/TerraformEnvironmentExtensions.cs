@@ -3,6 +3,7 @@
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Lifecycle;
+using EmmittJ.Terraform.Sdk;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
@@ -105,19 +106,24 @@ public static class TerraformEnvironmentExtensions
     /// </summary>
     /// <param name="builder">The Terraform environment resource builder.</param>
     /// <param name="backendType">The backend type (e.g., "local", "s3", "azurerm").</param>
-    /// <param name="configureBackend">Optional configuration for the backend.</param>
+    /// <param name="configureBackend">Optional configuration callback for the backend.</param>
     /// <returns>A reference to the <see cref="IResourceBuilder{T}"/>.</returns>
     public static IResourceBuilder<TerraformEnvironmentResource> WithBackend(
         this IResourceBuilder<TerraformEnvironmentResource> builder,
         string backendType,
-        Action<Dictionary<string, object>>? configureBackend = null)
+        Action<TerraformBackend>? configureBackend = null)
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(backendType);
 
-        builder.Resource.BackendType = backendType;
+        // Ensure Settings exists
+        builder.Resource.Settings ??= new TerraformSettings();
 
-        configureBackend?.Invoke(builder.Resource.BackendConfig);
+        // Create and configure the backend
+        var backend = new TerraformBackend(backendType);
+        configureBackend?.Invoke(backend);
+
+        builder.Resource.Settings.Backend = backend;
 
         return builder;
     }
@@ -159,6 +165,27 @@ public static class TerraformEnvironmentExtensions
         builder.Resource.AutoInit = autoInit;
         builder.Resource.AutoPlan = autoPlan;
         builder.Resource.AutoApply = autoApply;
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Configures the Terraform settings for the environment.
+    /// </summary>
+    /// <param name="builder">The Terraform environment resource builder.</param>
+    /// <param name="configureSettings">A callback to configure the Terraform settings.</param>
+    /// <returns>A reference to the <see cref="IResourceBuilder{T}"/>.</returns>
+    public static IResourceBuilder<TerraformEnvironmentResource> WithSettings(
+        this IResourceBuilder<TerraformEnvironmentResource> builder,
+        Action<TerraformSettings> configureSettings)
+    {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(configureSettings);
+
+        // Ensure Settings exists
+        builder.Resource.Settings ??= new TerraformSettings();
+
+        configureSettings(builder.Resource.Settings);
 
         return builder;
     }

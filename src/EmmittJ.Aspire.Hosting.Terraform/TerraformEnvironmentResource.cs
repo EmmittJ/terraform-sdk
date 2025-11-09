@@ -7,6 +7,7 @@ using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
 using Aspire.Hosting.Utils;
+using EmmittJ.Terraform.Sdk;
 using Microsoft.Extensions.Logging;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
@@ -27,14 +28,9 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     public string? TerraformVersion { get; set; }
 
     /// <summary>
-    /// Gets or sets the backend configuration type (e.g., "local", "s3", "azurerm").
+    /// Gets or sets the Terraform settings including backend configuration, required providers, and other global settings.
     /// </summary>
-    public string BackendType { get; set; } = "local";
-
-    /// <summary>
-    /// Gets or sets additional backend configuration options.
-    /// </summary>
-    public Dictionary<string, object> BackendConfig { get; } = new();
+    public TerraformSettings? Settings { get; set; }
 
     /// <summary>
     /// Gets or sets the output path for generated Terraform files relative to the publish output directory.

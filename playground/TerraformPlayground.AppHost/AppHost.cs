@@ -125,11 +125,15 @@ Workflow for deploying to Azure:
    terraform apply
 
 Moving to Azure Storage backend (production):
-- Update .WithBackend("azurerm", config => { ... })
+- Update .WithBackend("azurerm", backend =>
+  {
+      backend["resource_group_name"] = "tfstate-rg";
+      backend["storage_account_name"] = "tfstate";
+      backend["container_name"] = "tfstate";
+      backend["key"] = "terraform.tfstate";
+  })
 - Configure Azure Storage account for state
-- Add state locking with Azure Blob lease
-
-Benefits of this approach:
+- Add state locking with Azure Blob leaseBenefits of this approach:
 - Start simple with local state
 - Easy to version control and review changes
 - Gradual migration to remote state when needed

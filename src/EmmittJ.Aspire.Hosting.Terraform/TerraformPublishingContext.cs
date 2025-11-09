@@ -239,19 +239,10 @@ internal sealed class TerraformPublishingContext
     {
         _logger.LogInformation("Generating root main.tf with {Count} modules", rootStack.Constructs.Count);
 
-        // Add backend configuration to the root stack if specified
-        if (!string.IsNullOrEmpty(_environment.BackendType))
+        // Add terraform settings to the root stack if specified
+        if (_environment.Settings != null)
         {
-            var terraform = new TerraformSettings();
-            var backend = new TerraformBackend(_environment.BackendType);
-
-            foreach (var kvp in _environment.BackendConfig)
-            {
-                backend[kvp.Key] = TerraformExpression.Literal(kvp.Value);
-            }
-
-            terraform.Backend = backend;
-            rootStack.Terraform = terraform;
+            rootStack.Terraform = _environment.Settings;
         }
 
         // Generate root main.tf using the SDK

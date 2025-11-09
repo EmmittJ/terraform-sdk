@@ -21,10 +21,10 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 // Add a Terraform deployment environment
 var terraform = builder.AddTerraformEnvironment("terraform")
-    .WithBackend("s3", config =>
+    .WithBackend("s3", backend =>
     {
-        config["bucket"] = "my-terraform-state";
-        config["region"] = "us-west-2";
+        backend["bucket"] = "my-terraform-state";
+        backend["region"] = "us-west-2";
     })
     .WithVersion("1.9.0");
 
@@ -104,12 +104,39 @@ Configure the Terraform environment with backend, version, and automation settin
 builder.AddTerraformEnvironment("terraform")
     .WithWorkspace("production")
     .WithVersion("1.9.0")
-    .WithBackend("azurerm", config =>
+    .WithBackend("azurerm", backend =>
     {
-        config["resource_group_name"] = "terraform-state";
-        config["storage_account_name"] = "tfstate";
-        config["container_name"] = "state";
-        config["key"] = "aspire.tfstate";
+        backend["resource_group_name"] = "terraform-state";
+        backend["storage_account_name"] = "tfstate";
+        backend["container_name"] = "state";
+        backend["key"] = "aspire.tfstate";
+    });
+```
+
+For advanced scenarios, you can configure the entire `TerraformSettings` object:
+
+```csharp
+using EmmittJ.Terraform.Sdk;
+
+builder.AddTerraformEnvironment("terraform")
+    .WithSettings(settings =>
+    {
+        // Configure required version
+        settings.RequiredVersion = ">= 1.9.0";
+
+        // Add required providers
+        settings.RequiredProviders["aws"] = new ProviderRequirement
+        {
+            Source = "hashicorp/aws",
+            Version = "~> 5.0"
+        };
+
+        // Configure backend
+        var backend = new TerraformBackend("s3");
+        backend["bucket"] = "my-state-bucket";
+        backend["key"] = "terraform.tfstate";
+        backend["region"] = "us-west-2";
+        settings.Backend = backend;
     });
 ```
 
