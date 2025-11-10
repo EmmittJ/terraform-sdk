@@ -17,7 +17,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <code>
 /// var securityGroups = instance.SecurityGroups;  // TerraformList&lt;string&gt;
 /// var firstSg = securityGroups[0];  // TerraformReferenceProperty - represents instance.security_groups[0]
-/// 
+///
 /// // Cache if used multiple times
 /// var sgRef = instance.SecurityGroups[0];
 /// rule1.SecurityGroupId = sgRef;

@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// Blocks are structural configuration elements in Terraform, distinct from attributes.
 /// They use curly brace syntax without the = operator:
-/// 
+///
 /// <code>
 /// resource "aws_instance" "web" {
 ///   ebs_block_device {        // ← Block (no =)
@@ -17,7 +17,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///   }
 /// }
 /// </code>
-/// 
+///
 /// Usage:
 /// <code>
 /// public class AwsInstanceRootBlockDevice
@@ -25,12 +25,12 @@ namespace EmmittJ.Terraform.Sdk;
 ///     public TerraformProperty&lt;int&gt; VolumeSize { get; set; }
 ///     public TerraformProperty&lt;string&gt; VolumeType { get; set; }
 /// }
-/// 
+///
 /// public class AwsInstance : TerraformResource
 /// {
 ///     public TerraformBlock&lt;AwsInstanceRootBlockDevice&gt;? RootBlockDevice { get; set; }
 /// }
-/// 
+///
 /// // User code
 /// var instance = new AwsInstance("web", "main")
 /// {

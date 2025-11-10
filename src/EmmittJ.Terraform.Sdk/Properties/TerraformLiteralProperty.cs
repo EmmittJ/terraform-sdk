@@ -8,15 +8,15 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// This is the primary property type for user-settable arguments. It stores literal values
 /// and supports implicit conversion from the value type for ergonomic usage.
-/// 
+///
 /// Usage patterns:
 /// <code>
 /// // Setting literal value (implicit conversion)
 /// instance.Ami = "ami-12345";
-/// 
+///
 /// // Accessing the stored value (for serialization)
 /// var value = ((ITerraformLiteral&lt;string&gt;)instance.Ami).Value;
-/// 
+///
 /// // Using as reference in expressions
 /// otherInstance.Ami = instance.Ami; // Resolves to aws_instance.web.ami
 /// </code>

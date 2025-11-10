@@ -11,9 +11,9 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// Sets in Terraform are unordered collections of unique values. Common use cases include
 /// security group IDs and similar resources where order doesn't matter but uniqueness is required.
-/// 
+///
 /// Note: Sets have NO indexer because they are unordered.
-/// 
+///
 /// Example:
 /// <code>
 /// var sg = new AwsSecurityGroup("web", "main")
@@ -24,7 +24,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///         new() { Protocol = "tcp", FromPort = 443, ToPort = 443 }
 ///     }
 /// };
-/// 
+///
 /// // Add to set (natural C# usage)
 /// sg.Ingress.Add(new() { Protocol = "tcp", FromPort = 22, ToPort = 22 });
 /// </code>

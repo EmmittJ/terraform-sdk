@@ -17,7 +17,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <code>
 /// var tags = instance.Tags;  // TerraformMap&lt;string&gt;
 /// var nameTag = tags["Name"];  // TerraformReferenceProperty - represents instance.tags["Name"]
-/// 
+///
 /// // Cache if used multiple times
 /// var nameRef = instance.Tags["Name"];
 /// volume.Tags["InstanceName"] = nameRef;
@@ -75,7 +75,7 @@ public class TerraformMap<TValue> : TerraformProperty<IDictionary<string, Terraf
         ((IDictionary<string, TerraformProperty<TValue>>)_items).CopyTo(array, arrayIndex);
     public IEnumerator<KeyValuePair<string, TerraformProperty<TValue>>> GetEnumerator() => _items.GetEnumerator();
     public bool Remove(string key) => _items.Remove(key);
-    public bool Remove(KeyValuePair<string, TerraformProperty<TValue>> item) => 
+    public bool Remove(KeyValuePair<string, TerraformProperty<TValue>> item) =>
         ((IDictionary<string, TerraformProperty<TValue>>)_items).Remove(item);
     public bool TryGetValue(string key, out TerraformProperty<TValue> value) => _items.TryGetValue(key, out value!);
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
@@ -103,7 +103,7 @@ public class TerraformMap<TValue> : TerraformProperty<IDictionary<string, Terraf
     public override TerraformExpression Resolve(ITerraformContext? context = null)
     {
         var mapExpr = TerraformExpression.Object() as TerraformMapExpression;
-        
+
         foreach (var (key, value) in _items)
         {
             var resolvedValue = value.Resolve(context);

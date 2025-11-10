@@ -15,19 +15,19 @@ namespace EmmittJ.Terraform.Sdk;
 /// <item><description>Indexed property access (list[0], map["key"])</description></item>
 /// <item><description>Nested property references</description></item>
 /// </list>
-/// 
+///
 /// Note: Creates new instances on each access to maintain reference semantics.
 /// For frequently accessed properties, consider caching the reference.
-/// 
+///
 /// Usage patterns:
 /// <code>
 /// // Computed attribute (read-only)
-/// public TerraformProperty&lt;string&gt; Id => 
+/// public TerraformProperty&lt;string&gt; Id =>
 ///     new TerraformReferenceProperty&lt;string, object, object&gt;("aws_instance.web", "id");
-/// 
+///
 /// // Indexed access (created by indexer)
 /// var firstSg = instance.SecurityGroups[0]; // Returns TerraformReferenceProperty
-/// 
+///
 /// // Using reference in expressions
 /// rule.SourceSecurityGroupId = instance.SecurityGroups[0]; // aws_instance.web.security_groups[0]
 /// </code>
@@ -83,9 +83,8 @@ public class TerraformReferenceProperty<TValue, TSource, TIndex> : TerraformProp
             var sourceExpr = _sourceProperty.Resolve(context);
             var indexExpr = _indexProperty.Resolve(context);
             
-            // TODO: Create an IndexExpression type that renders as: source[index]
-            // For now, return a raw expression
-            return TerraformExpression.Raw($"{sourceExpr.ToHcl(context)}[{indexExpr.ToHcl(context)}]");
+            // Use IndexExpression for proper index access
+            return TerraformExpression.Index(sourceExpr, indexExpr);
         }
 
         // Direct reference: resource.attribute

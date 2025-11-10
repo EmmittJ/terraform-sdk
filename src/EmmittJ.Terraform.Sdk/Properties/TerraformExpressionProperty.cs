@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// This property type stores a Terraform expression and resolves to that expression.
 /// Used for advanced scenarios where the value is computed via Terraform expressions.
-/// 
+///
 /// Usage patterns:
 /// <code>
 /// // Conditional expression
@@ -19,7 +19,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///         TerraformExpression.Literal("t3.micro")
 ///     )
 /// );
-/// 
+///
 /// // Function call
 /// instance.Tags = new TerraformExpressionProperty&lt;Dictionary&lt;string, string&gt;&gt;(
 ///     TerraformExpression.FunctionCall("merge",

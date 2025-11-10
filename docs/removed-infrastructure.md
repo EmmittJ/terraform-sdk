@@ -10,17 +10,20 @@ This document tracks the infrastructure being removed as part of the property sy
 ## Files Being Removed
 
 ### 1. `TerraformPropertyCollection.cs`
+
 **Path**: `src/EmmittJ.Terraform.Sdk/Context/TerraformPropertyCollection.cs`
 
 **Purpose**: Shared property storage for constructs and configuration containers. Stored heterogeneous values as `object?` in a dictionary.
 
-**Why Removing**: 
+**Why Removing**:
+
 - Stores everything as `object?`, losing type safety
 - No distinction between settable arguments and read-only attributes
 - Can't enforce reference semantics for computed properties
 - Mixed concerns: storage + ordering logic
 
 **Used By**:
+
 - `TerraformConstruct` - base class for all constructs
 - `TerraformSettings` - Terraform settings configuration
 - `TerraformBlock` - nested configuration blocks
@@ -30,17 +33,20 @@ This document tracks the infrastructure being removed as part of the property sy
 ---
 
 ### 2. `TerraformValueResolver.cs`
+
 **Path**: `src/EmmittJ.Terraform.Sdk/Context/TerraformValueResolver.cs`
 
 **Purpose**: Centralized logic for preparing and resolving any value type. Used pattern matching on runtime types to determine how to handle values.
 
 **Why Removing**:
+
 - Runtime type inspection instead of compile-time type safety
 - Complex switch statements for different value types
 - Doesn't distinguish between set/get operations
 - Can't enforce computed-only semantics
 
 **Used By**:
+
 - `TerraformBlock.Prepare()` and `Resolve()`
 - `TerraformConstruct.Prepare()` and `WriteProperties()`
 - Any container storing property values
@@ -50,6 +56,7 @@ This document tracks the infrastructure being removed as part of the property sy
 ---
 
 ### 3. `TerraformValueResolverTests.cs`
+
 **Path**: `tests/EmmittJ.Terraform.Sdk.Tests/TerraformValueResolverTests.cs`
 
 **Purpose**: Tests for `TerraformValueResolver` class.
@@ -63,14 +70,17 @@ This document tracks the infrastructure being removed as part of the property sy
 ## Files Being Modified
 
 ### 1. `TerraformConstruct.cs`
+
 **Path**: `src/EmmittJ.Terraform.Sdk/Constructs/TerraformConstruct.cs`
 
 **Current Usage**:
+
 - `_properties` field of type `TerraformPropertyCollection`
 - `SetProperty()`, `GetProperty()`, `WriteProperties()` methods
 - `Prepare()` calls `TerraformValueResolver.PrepareValue()`
 
 **Changes Needed**:
+
 - Remove `_properties` field
 - Remove property accessor methods (`SetProperty`, `GetProperty`, etc.)
 - Derived classes will have strongly-typed properties instead
@@ -82,14 +92,17 @@ This document tracks the infrastructure being removed as part of the property sy
 ---
 
 ### 2. `TerraformBlock.cs`
+
 **Path**: `src/EmmittJ.Terraform.Sdk/Blocks/TerraformBlock.cs`
 
 **Current Usage**:
+
 - `_properties` field of type `TerraformPropertyCollection`
 - `SetProperty()`, `GetProperty()`, `WithProperty()` methods
 - `Prepare()` and `Resolve()` use `TerraformValueResolver`
 
 **Changes Needed**:
+
 - Remove `_properties` field
 - Remove property accessor methods
 - Blocks will be plain C# classes with `TerraformProperty<T>` fields
@@ -101,12 +114,15 @@ This document tracks the infrastructure being removed as part of the property sy
 ---
 
 ### 3. `TerraformSettings.cs`
+
 **Path**: `src/EmmittJ.Terraform.Sdk/Configuration/TerraformSettings.cs`
 
 **Current Usage**:
+
 - `_properties` field of type `TerraformPropertyCollection`
 
 **Changes Needed**:
+
 - Remove `_properties` field
 - Add strongly-typed properties for Terraform settings
 - Update serialization logic
@@ -118,6 +134,7 @@ This document tracks the infrastructure being removed as part of the property sy
 ## Architecture Changes
 
 ### Old Architecture
+
 ```
 User Code
     ↓
@@ -133,6 +150,7 @@ HCL String
 ```
 
 **Problems**:
+
 - Type erasure (`object?` storage)
 - Runtime type inspection
 - No distinction between arguments and attributes
@@ -140,6 +158,7 @@ HCL String
 - No reference tracking
 
 ### New Architecture
+
 ```
 User Code
     ↓
@@ -155,6 +174,7 @@ HCL String
 ```
 
 **Benefits**:
+
 - Compile-time type safety
 - Polymorphic resolution (no runtime inspection)
 - Clear distinction: arguments (settable) vs attributes (read-only)
@@ -176,7 +196,8 @@ Since this is **pre-release**, there are no external users to migrate. Internal 
 
 ## Timeline
 
-**Phase 1 - Cleanup**: 
+**Phase 1 - Cleanup**:
+
 - Document what's being removed (this file) ✅
 - Delete old files
 - Update dependent code to compile (may be non-functional)

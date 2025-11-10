@@ -13,15 +13,15 @@ namespace EmmittJ.Terraform.Sdk;
 /// <item><description><see cref="TerraformExpressionProperty{TValue}"/> - Stores expression values</description></item>
 /// <item><description><see cref="TerraformReferenceProperty{TValue, TSource, TIndex}"/> - Pure references (computed attributes, indexers)</description></item>
 /// </list>
-/// 
+///
 /// Usage patterns:
 /// <code>
 /// // Setting literal value (implicit conversion)
 /// instance.Ami = "ami-12345";
-/// 
+///
 /// // Referencing another resource (implicit conversion to expression)
 /// otherInstance.Ami = instance.Ami;
-/// 
+///
 /// // Using in expressions
 /// var expr = instance.Ami.Resolve();
 /// </code>

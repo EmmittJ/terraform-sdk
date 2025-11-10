@@ -164,6 +164,14 @@ public abstract class TerraformExpression : ITerraformResolvable<string>
     public static TerraformExpression Splat(TerraformExpression source, string attribute)
         => new SplatExpression(source, attribute);
 
+    /// <summary>
+    /// Creates an index access expression for lists and maps.
+    /// Example: Index(Identifier("list"), Literal(0)) produces "list[0]"
+    /// Example: Index(Identifier("map"), Literal("key")) produces "map['key']"
+    /// </summary>
+    public static TerraformExpression Index(TerraformExpression source, TerraformExpression index)
+        => new IndexExpression(source, index);
+
     // Implicit conversions from common types
     public static implicit operator TerraformExpression(string value) => Literal(value);
     public static implicit operator TerraformExpression(int value) => Literal(value);
