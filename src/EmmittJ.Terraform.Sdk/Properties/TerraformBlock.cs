@@ -94,7 +94,7 @@ public class TerraformBlock<TValue> : TerraformProperty<TValue>, ITerraformBlock
         }
 
         // If value is resolvable, resolve it
-        if (_value is ITerraformResolvable<TerraformExpression> resolvable)
+        if (_value is ITerraformProperty resolvable)
         {
             return resolvable.Resolve(context);
         }
@@ -102,7 +102,7 @@ public class TerraformBlock<TValue> : TerraformProperty<TValue>, ITerraformBlock
         // Otherwise, we need generated Resolve() method on the block class
         // This will be handled by code generation - each block class will implement ITerraformResolvable
         throw new InvalidOperationException(
-            $"Block type {typeof(TValue).Name} must implement ITerraformResolvable<TerraformExpression> or provide a Resolve() method via code generation.");
+            $"Block type {typeof(TValue).Name} must implement ITerraformProperty or provide a Resolve() method via code generation.");
     }
 
     /// <summary>

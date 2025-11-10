@@ -74,7 +74,7 @@ public class TerraformLiteralProperty<TValue> : TerraformProperty<TValue>, ITerr
         if (_value is not null)
         {
             // If value is already resolvable, resolve it
-            if (_value is ITerraformResolvable<TerraformExpression> resolvable)
+            if (_value is ITerraformProperty resolvable)
             {
                 return resolvable.Resolve(context);
             }

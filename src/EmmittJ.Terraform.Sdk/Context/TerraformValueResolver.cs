@@ -85,14 +85,14 @@ public static class TerraformValueResolver
             TerraformExpression expr => expr,
 
             // Generic resolvable to expression
-            ITerraformResolvable<TerraformExpression> resolvable => resolvable.Resolve(context),
+            ITerraformProperty resolvable => resolvable.Resolve(context),
 
             // Dictionary types (must check before IEnumerable since Dictionary implements it)
-            IDictionary<string, ITerraformResolvable<TerraformExpression>> propDict => ResolvePropertyDictionary(propDict, context),
+            IDictionary<string, ITerraformProperty> propDict => ResolvePropertyDictionary(propDict, context),
             IDictionary dict => ResolveDictionary(dict, context),
 
             // Collection types - must come after dictionary checks
-            IEnumerable<ITerraformResolvable<TerraformExpression>> resolvableList => ResolveResolvableCollection(resolvableList, context),
+            IEnumerable<ITerraformProperty> resolvableList => ResolveResolvableCollection(resolvableList, context),
             IEnumerable enumerable and not string => ResolveEnumerable(enumerable, context),
 
             // Fallback - literal value
@@ -101,7 +101,7 @@ public static class TerraformValueResolver
     }
 
     private static TerraformExpression ResolvePropertyCollection(
-        IEnumerable<ITerraformResolvable<TerraformExpression>> properties,
+        IEnumerable<ITerraformProperty> properties,
         ITerraformContext? context)
     {
         var expressions = properties.Select(p => p.Resolve(context)).ToArray();
@@ -109,7 +109,7 @@ public static class TerraformValueResolver
     }
 
     private static TerraformExpression ResolveResolvableCollection(
-        IEnumerable<ITerraformResolvable<TerraformExpression>> resolvables,
+        IEnumerable<ITerraformProperty> resolvables,
         ITerraformContext? context)
     {
         var expressions = resolvables.Select(r => r.Resolve(context)).ToArray();
@@ -129,7 +129,7 @@ public static class TerraformValueResolver
     }
 
     private static TerraformExpression ResolvePropertyDictionary(
-        IDictionary<string, ITerraformResolvable<TerraformExpression>> dictionary,
+        IDictionary<string, ITerraformProperty> dictionary,
         ITerraformContext? context)
     {
         var map = new TerraformMapExpression();

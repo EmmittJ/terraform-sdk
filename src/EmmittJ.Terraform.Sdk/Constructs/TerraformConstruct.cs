@@ -68,7 +68,7 @@ public abstract class TerraformConstruct : ITerraformSerializable
                 // Collections serialize their elements
                 SerializeCollection(sb, context, terraformName, collection);
             }
-            else if (value is ITerraformResolvable<TerraformExpression> resolvable)
+            else if (value is ITerraformProperty resolvable)
             {
                 // Regular properties (literal, reference, expression)
                 SerializeProperty(sb, context, terraformName, resolvable);
@@ -79,7 +79,7 @@ public abstract class TerraformConstruct : ITerraformSerializable
     /// <summary>
     /// Serializes a regular property (literal, reference, or expression).
     /// </summary>
-    private void SerializeProperty(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformResolvable<TerraformExpression> property)
+    private void SerializeProperty(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformProperty property)
     {
         var expression = property.Resolve(context);
         var hcl = expression.ToHcl(context);
@@ -92,7 +92,7 @@ public abstract class TerraformConstruct : ITerraformSerializable
     private void SerializeBlock(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformBlock block)
     {
         // Blocks are nested structures without = operator
-        if (block is ITerraformResolvable<TerraformExpression> resolvable)
+        if (block is ITerraformProperty resolvable)
         {
             var expression = resolvable.Resolve(context);
             var hcl = expression.ToHcl(context);
@@ -113,7 +113,7 @@ public abstract class TerraformConstruct : ITerraformSerializable
     private void SerializeCollection(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformCollection collection)
     {
         // Collections resolve to their HCL representation
-        if (collection is ITerraformResolvable<TerraformExpression> resolvable)
+        if (collection is ITerraformProperty resolvable)
         {
             var expression = resolvable.Resolve(context);
             var hcl = expression.ToHcl(context);
