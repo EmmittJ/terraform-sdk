@@ -35,12 +35,13 @@ public class {{ClassName}} : TerraformBlock
 
 {{/BlockTypes}}
 /// <summary>
-/// {{Description}}
+/// {{Description}}{{#AdditionalDescription}}
+/// {{AdditionalDescription}}{{/AdditionalDescription}}
 /// </summary>
 {{#IsDeprecated}}
-[Obsolete("This resource is deprecated.")]
+[Obsolete("This {{ConstructKind}} is deprecated.")]
 {{/IsDeprecated}}
-public class {{ClassName}} : TerraformResource
+public class {{ClassName}} : {{BaseClassName}}
 {
     public {{ClassName}}(string name) : base("{{TerraformType}}", name)
     {
@@ -99,4 +100,3 @@ public class {{ClassName}} : TerraformResource
 
 {{/OutputAttributes}}
 }
-
