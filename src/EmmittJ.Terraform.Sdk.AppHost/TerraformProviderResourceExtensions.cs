@@ -556,8 +556,10 @@ public static class TerraformProviderResourceExtensions
         var appHostDirectory = configuration["AppHost:Directory"]
             ?? throw new InvalidOperationException("AppHost:Directory not found in configuration");
 
-        var repositoryRoot = Directory.GetParent(appHostDirectory)?.FullName
-            ?? throw new InvalidOperationException("Could not determine repository root from AppHost directory");
+        var repositoryRoot = Path.Combine(
+                Directory.GetParent(appHostDirectory)?.FullName ?? throw new InvalidOperationException("Could not determine repository root from AppHost directory"),
+                "providers"
+            );
 
         var templatePath = provider.TemplatePath ?? Path.Combine(AppContext.BaseDirectory, "Templates", "Files");
         var workingDir = provider.WorkingDirectory ?? Path.Combine(Directory.GetCurrentDirectory(), ".terraform-codegen", provider.ProviderName);
