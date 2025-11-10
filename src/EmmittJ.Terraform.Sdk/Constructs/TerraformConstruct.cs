@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace EmmittJ.Terraform.Sdk;
 
 /// <summary>
@@ -46,8 +48,76 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
                 continue; // Skip null properties
             }
 
-            // TODO: Implement property serialization using ITerraformResolvable
-            // For now, this is a placeholder
+            // Get the Terraform property name from the attribute
+            var nameAttr = prop.GetCustomAttribute<TerraformPropertyNameAttribute>();
+            if (nameAttr == null)
+            {
+                continue; // Skip properties without the attribute
+            }
+
+            string terraformName = nameAttr.Name;
+
+            // Handle different property types
+            if (value is ITerraformBlock block)
+            {
+                // Blocks don't use = operator, they're nested directly
+                SerializeBlock(sb, context, terraformName, block);
+            }
+            else if (value is ITerraformCollection collection)
+            {
+                // Collections serialize their elements
+                SerializeCollection(sb, context, terraformName, collection);
+            }
+            else if (value is ITerraformResolvable<TerraformExpression> resolvable)
+            {
+                // Regular properties (literal, reference, expression)
+                SerializeProperty(sb, context, terraformName, resolvable);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Serializes a regular property (literal, reference, or expression).
+    /// </summary>
+    private void SerializeProperty(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformResolvable<TerraformExpression> property)
+    {
+        var expression = property.Resolve(context);
+        var hcl = expression.Resolve(context);
+        sb.AppendLine($"{context.Indent}{name} = {hcl}");
+    }
+
+    /// <summary>
+    /// Serializes a block property.
+    /// </summary>
+    private void SerializeBlock(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformBlock block)
+    {
+        // Blocks are nested structures without = operator
+        if (block is ITerraformResolvable<TerraformExpression> resolvable)
+        {
+            var expression = resolvable.Resolve(context);
+            var hcl = expression.Resolve(context);
+            
+            // Block syntax: name { ... }
+            sb.AppendLine($"{context.Indent}{name} {{");
+            using (context.PushIndent())
+            {
+                sb.Append(hcl);
+            }
+            sb.AppendLine($"{context.Indent}}}");
+        }
+    }
+
+    /// <summary>
+    /// Serializes a collection property (list, map, set).
+    /// </summary>
+    private void SerializeCollection(System.Text.StringBuilder sb, ITerraformContext context, string name, ITerraformCollection collection)
+    {
+        // Collections resolve to their HCL representation
+        if (collection is ITerraformResolvable<TerraformExpression> resolvable)
+        {
+            var expression = resolvable.Resolve(context);
+            var hcl = expression.Resolve(context);
+            sb.AppendLine($"{context.Indent}{name} = {hcl}");
         }
     }
 
@@ -72,10 +142,10 @@ public abstract class TerraformConstruct : ITerraformResolvable<string>
             }
 
             var value = prop.GetValue(this);
-            if (value is ITerraformResolvable<TerraformExpression> resolvable)
+            if (value is ITerraformPreparable preparable)
             {
                 // Call Prepare() on the property (polymorphic)
-                resolvable.Prepare(context);
+                preparable.Prepare(context);
             }
         }
     }

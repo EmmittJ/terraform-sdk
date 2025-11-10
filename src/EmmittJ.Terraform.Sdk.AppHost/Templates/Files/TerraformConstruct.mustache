@@ -22,6 +22,7 @@ public class {{ClassName}} : ITerraformBlock
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
+    [TerraformPropertyName("{{TerraformName}}")]
 {{#IsRequiredArgument}}
     // Required argument - user must set a value (no initializer for compile-time enforcement)
 {{#UseRequiredKeyword}}
@@ -84,6 +85,7 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This property is deprecated.")]
 {{/IsDeprecated}}
+    [TerraformPropertyName("{{TerraformName}}")]
 {{#IsRequiredArgument}}
     // Required argument - user must set a value (no initializer for compile-time enforcement)
 {{#UseRequiredKeyword}}
@@ -128,6 +130,7 @@ public class {{ClassName}} : {{BaseClassName}}
 {{#IsDeprecated}}
     [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
+    [TerraformPropertyName("{{TerraformName}}")]
 {{#UseRequiredKeyword}}
     public required {{{BlockPropertyType}}} {{Name}} { get; set; } = new();
 {{/UseRequiredKeyword}}
@@ -140,6 +143,7 @@ public class {{ClassName}} : {{BaseClassName}}
     /// <summary>
     /// {{Description}}
     /// </summary>
+    [TerraformPropertyName("{{TerraformName}}")]
     // Output-only attribute - read-only reference
     public {{{PropertyWrapper}}} {{Name}} => new TerraformReferenceProperty<{{{CSharpType}}}>(ResourceAddress, "{{TerraformName}}");
 
