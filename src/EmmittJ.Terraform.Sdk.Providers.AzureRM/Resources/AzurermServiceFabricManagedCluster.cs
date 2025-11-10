@@ -323,6 +323,7 @@ public class AzurermServiceFabricManagedClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_service_fabric_managed_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermServiceFabricManagedCluster : TerraformResource
 {
     public AzurermServiceFabricManagedCluster(string name) : base("azurerm_service_fabric_managed_cluster", name)

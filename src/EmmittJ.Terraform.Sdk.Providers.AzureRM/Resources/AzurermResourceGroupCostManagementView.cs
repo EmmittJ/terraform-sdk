@@ -113,6 +113,7 @@ public class AzurermResourceGroupCostManagementViewTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_resource_group_cost_management_view resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermResourceGroupCostManagementView : TerraformResource
 {
     public AzurermResourceGroupCostManagementView(string name) : base("azurerm_resource_group_cost_management_view", name)

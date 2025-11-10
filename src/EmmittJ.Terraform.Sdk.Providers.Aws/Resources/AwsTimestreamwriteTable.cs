@@ -58,6 +58,7 @@ public class AwsTimestreamwriteTableSchemaBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_timestreamwrite_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsTimestreamwriteTable : TerraformResource
 {
     public AwsTimestreamwriteTable(string name) : base("aws_timestreamwrite_table", name)

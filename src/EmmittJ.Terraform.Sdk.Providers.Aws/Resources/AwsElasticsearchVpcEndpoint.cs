@@ -85,6 +85,7 @@ public class AwsElasticsearchVpcEndpointVpcOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_elasticsearch_vpc_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElasticsearchVpcEndpoint : TerraformResource
 {
     public AwsElasticsearchVpcEndpoint(string name) : base("aws_elasticsearch_vpc_endpoint", name)

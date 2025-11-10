@@ -533,6 +533,7 @@ public class GoogleSqlDatabaseInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_sql_database_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSqlDatabaseInstance : TerraformResource
 {
     public GoogleSqlDatabaseInstance(string name) : base("google_sql_database_instance", name)

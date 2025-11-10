@@ -58,6 +58,7 @@ public class AwsDynamodbGlobalTableTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_dynamodb_global_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDynamodbGlobalTable : TerraformResource
 {
     public AwsDynamodbGlobalTable(string name) : base("aws_dynamodb_global_table", name)

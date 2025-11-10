@@ -66,6 +66,7 @@ public class AwsNeptuneClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_neptune_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNeptuneCluster : TerraformResource
 {
     public AwsNeptuneCluster(string name) : base("aws_neptune_cluster", name)

@@ -57,6 +57,7 @@ public class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_app_engine_service_network_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAppEngineServiceNetworkSettings : TerraformResource
 {
     public GoogleAppEngineServiceNetworkSettings(string name) : base("google_app_engine_service_network_settings", name)

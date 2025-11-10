@@ -86,6 +86,7 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_local_network_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLocalNetworkGateway : TerraformResource
 {
     public AzurermLocalNetworkGateway(string name) : base("azurerm_local_network_gateway", name)

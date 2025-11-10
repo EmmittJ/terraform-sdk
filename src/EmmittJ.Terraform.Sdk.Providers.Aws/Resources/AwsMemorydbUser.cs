@@ -41,6 +41,7 @@ public class AwsMemorydbUserAuthenticationModeBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_memorydb_user resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMemorydbUser : TerraformResource
 {
     public AwsMemorydbUser(string name) : base("aws_memorydb_user", name)

@@ -33,6 +33,7 @@ public class AwsGlueUserDefinedFunctionResourceUrisBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_user_defined_function resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueUserDefinedFunction : TerraformResource
 {
     public AwsGlueUserDefinedFunction(string name) : base("aws_glue_user_defined_function", name)

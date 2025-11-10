@@ -67,6 +67,7 @@ public class AwsApigatewayv2ApiCorsConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_apigatewayv2_api resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApigatewayv2Api : TerraformResource
 {
     public AwsApigatewayv2Api(string name) : base("aws_apigatewayv2_api", name)

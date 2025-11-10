@@ -75,6 +75,7 @@ public class AzureadInvitationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_invitation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadInvitation : TerraformResource
 {
     public AzureadInvitation(string name) : base("azuread_invitation", name)

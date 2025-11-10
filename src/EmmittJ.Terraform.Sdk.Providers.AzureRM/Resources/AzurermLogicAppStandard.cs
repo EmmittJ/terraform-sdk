@@ -312,6 +312,7 @@ public class AzurermLogicAppStandardTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_logic_app_standard resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLogicAppStandard : TerraformResource
 {
     public AzurermLogicAppStandard(string name) : base("azurerm_logic_app_standard", name)

@@ -31,6 +31,7 @@ public class AwsCloudfrontCachePolicyParametersInCacheKeyAndForwardedToOriginBlo
 /// <summary>
 /// Manages a aws_cloudfront_cache_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudfrontCachePolicy : TerraformResource
 {
     public AwsCloudfrontCachePolicy(string name) : base("aws_cloudfront_cache_policy", name)

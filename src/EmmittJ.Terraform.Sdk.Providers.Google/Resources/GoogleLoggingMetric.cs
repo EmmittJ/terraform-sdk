@@ -102,6 +102,7 @@ public class GoogleLoggingMetricTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_logging_metric resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLoggingMetric : TerraformResource
 {
     public GoogleLoggingMetric(string name) : base("google_logging_metric", name)

@@ -67,6 +67,7 @@ public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_sql_role_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbSqlRoleDefinition : TerraformResource
 {
     public AzurermCosmosdbSqlRoleDefinition(string name) : base("azurerm_cosmosdb_sql_role_definition", name)

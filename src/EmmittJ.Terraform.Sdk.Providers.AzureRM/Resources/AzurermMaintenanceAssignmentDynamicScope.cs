@@ -102,6 +102,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_maintenance_assignment_dynamic_scope resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMaintenanceAssignmentDynamicScope : TerraformResource
 {
     public AzurermMaintenanceAssignmentDynamicScope(string name) : base("azurerm_maintenance_assignment_dynamic_scope", name)

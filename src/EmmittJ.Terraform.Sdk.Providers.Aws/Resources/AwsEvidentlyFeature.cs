@@ -59,6 +59,7 @@ public class AwsEvidentlyFeatureVariationsBlock : TerraformBlock
 /// Manages a aws_evidently_feature resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEvidentlyFeature : TerraformResource
 {
     public AwsEvidentlyFeature(string name) : base("aws_evidently_feature", name)

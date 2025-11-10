@@ -241,6 +241,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_signalr_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSignalrService : TerraformResource
 {
     public AzurermSignalrService(string name) : base("azurerm_signalr_service", name)

@@ -42,6 +42,7 @@ public class GoogleSecretManagerRegionalSecretIamBindingConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_secret_manager_regional_secret_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecretManagerRegionalSecretIamBinding : TerraformResource
 {
     public GoogleSecretManagerRegionalSecretIamBinding(string name) : base("google_secret_manager_regional_secret_iam_binding", name)

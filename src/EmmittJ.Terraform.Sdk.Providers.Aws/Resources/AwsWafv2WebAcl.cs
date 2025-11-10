@@ -149,6 +149,7 @@ public class AwsWafv2WebAclVisibilityConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_wafv2_web_acl resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsWafv2WebAcl : TerraformResource
 {
     public AwsWafv2WebAcl(string name) : base("aws_wafv2_web_acl", name)

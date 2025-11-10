@@ -130,6 +130,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_batch_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBatchAccount : TerraformResource
 {
     public AzurermBatchAccount(string name) : base("azurerm_batch_account", name)

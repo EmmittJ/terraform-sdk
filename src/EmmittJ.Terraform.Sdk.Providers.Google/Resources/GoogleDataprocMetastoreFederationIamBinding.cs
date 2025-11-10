@@ -42,6 +42,7 @@ public class GoogleDataprocMetastoreFederationIamBindingConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_dataproc_metastore_federation_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocMetastoreFederationIamBinding : TerraformResource
 {
     public GoogleDataprocMetastoreFederationIamBinding(string name) : base("google_dataproc_metastore_federation_iam_binding", name)

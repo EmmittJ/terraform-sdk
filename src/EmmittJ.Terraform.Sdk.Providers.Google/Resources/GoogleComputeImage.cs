@@ -316,6 +316,7 @@ public class GoogleComputeImageTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_image resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeImage : TerraformResource
 {
     public GoogleComputeImage(string name) : base("google_compute_image", name)

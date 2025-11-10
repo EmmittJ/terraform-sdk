@@ -77,6 +77,7 @@ public class AzurermDataFactoryLinkedServiceOdbcTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_odbc resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceOdbc : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceOdbc(string name) : base("azurerm_data_factory_linked_service_odbc", name)

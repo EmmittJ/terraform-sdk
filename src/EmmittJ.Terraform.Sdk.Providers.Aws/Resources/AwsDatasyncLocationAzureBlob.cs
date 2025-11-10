@@ -23,6 +23,7 @@ public class AwsDatasyncLocationAzureBlobSasConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_datasync_location_azure_blob resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncLocationAzureBlob : TerraformResource
 {
     public AwsDatasyncLocationAzureBlob(string name) : base("aws_datasync_location_azure_blob", name)

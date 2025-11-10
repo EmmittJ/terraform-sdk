@@ -66,6 +66,7 @@ public class GoogleBigqueryDatapolicyDataPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_datapolicy_data_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDatapolicyDataPolicy : TerraformResource
 {
     public GoogleBigqueryDatapolicyDataPolicy(string name) : base("google_bigquery_datapolicy_data_policy", name)

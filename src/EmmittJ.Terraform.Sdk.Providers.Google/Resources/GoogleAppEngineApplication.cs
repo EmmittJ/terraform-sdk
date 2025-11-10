@@ -95,6 +95,7 @@ public class GoogleAppEngineApplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_app_engine_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAppEngineApplication : TerraformResource
 {
     public GoogleAppEngineApplication(string name) : base("google_app_engine_application", name)

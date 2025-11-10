@@ -33,6 +33,7 @@ public class AwsGlacierVaultNotificationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glacier_vault resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlacierVault : TerraformResource
 {
     public AwsGlacierVault(string name) : base("aws_glacier_vault", name)

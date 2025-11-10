@@ -166,6 +166,7 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_app_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAppConfiguration : TerraformResource
 {
     public AzurermAppConfiguration(string name) : base("azurerm_app_configuration", name)

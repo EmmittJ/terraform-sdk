@@ -186,6 +186,7 @@ public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_monitor_scheduled_query_rules_alert_v2 resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorScheduledQueryRulesAlertV2 : TerraformResource
 {
     public AzurermMonitorScheduledQueryRulesAlertV2(string name) : base("azurerm_monitor_scheduled_query_rules_alert_v2", name)

@@ -13,6 +13,7 @@ public class AwsLambdaFunctionEventInvokeConfigDestinationConfigBlock : Terrafor
 /// <summary>
 /// Manages a aws_lambda_function_event_invoke_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLambdaFunctionEventInvokeConfig : TerraformResource
 {
     public AwsLambdaFunctionEventInvokeConfig(string name) : base("aws_lambda_function_event_invoke_config", name)

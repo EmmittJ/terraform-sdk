@@ -175,6 +175,7 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appsync_datasource resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppsyncDatasource : TerraformResource
 {
     public AwsAppsyncDatasource(string name) : base("aws_appsync_datasource", name)

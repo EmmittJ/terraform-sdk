@@ -134,6 +134,7 @@ public class AwsSagemakerDataQualityJobDefinitionStoppingConditionBlock : Terraf
 /// <summary>
 /// Manages a aws_sagemaker_data_quality_job_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerDataQualityJobDefinition : TerraformResource
 {
     public AwsSagemakerDataQualityJobDefinition(string name) : base("aws_sagemaker_data_quality_job_definition", name)

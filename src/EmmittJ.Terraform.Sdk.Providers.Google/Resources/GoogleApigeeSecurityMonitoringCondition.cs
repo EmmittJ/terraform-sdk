@@ -48,6 +48,7 @@ public class GoogleApigeeSecurityMonitoringConditionTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a google_apigee_security_monitoring_condition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeSecurityMonitoringCondition : TerraformResource
 {
     public GoogleApigeeSecurityMonitoringCondition(string name) : base("google_apigee_security_monitoring_condition", name)

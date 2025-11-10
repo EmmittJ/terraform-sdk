@@ -67,6 +67,7 @@ public class AwsCeTagsDataSourceTimePeriodBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a aws_ce_tags.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCeTagsDataSource : TerraformDataSource
 {
     public AwsCeTagsDataSource(string name) : base("aws_ce_tags", name)

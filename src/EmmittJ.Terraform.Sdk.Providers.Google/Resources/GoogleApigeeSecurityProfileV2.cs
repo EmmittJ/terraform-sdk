@@ -68,6 +68,7 @@ public class GoogleApigeeSecurityProfileV2TimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_security_profile_v2 resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeSecurityProfileV2 : TerraformResource
 {
     public GoogleApigeeSecurityProfileV2(string name) : base("google_apigee_security_profile_v2", name)

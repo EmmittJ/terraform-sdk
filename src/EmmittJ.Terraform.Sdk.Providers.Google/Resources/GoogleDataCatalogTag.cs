@@ -124,6 +124,7 @@ public class GoogleDataCatalogTagTimeoutsBlock : TerraformBlock
 /// Manages a google_data_catalog_tag resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataCatalogTag : TerraformResource
 {
     public GoogleDataCatalogTag(string name) : base("google_data_catalog_tag", name)

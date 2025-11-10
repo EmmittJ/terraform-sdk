@@ -75,6 +75,7 @@ public class AwsCloudtrailInsightSelectorBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudtrail resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudtrail : TerraformResource
 {
     public AwsCloudtrail(string name) : base("aws_cloudtrail", name)

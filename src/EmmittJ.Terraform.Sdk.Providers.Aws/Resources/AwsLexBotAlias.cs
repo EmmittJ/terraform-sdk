@@ -58,6 +58,7 @@ public class AwsLexBotAliasTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lex_bot_alias resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLexBotAlias : TerraformResource
 {
     public AwsLexBotAlias(string name) : base("aws_lex_bot_alias", name)

@@ -112,6 +112,7 @@ public class AwsGlobalacceleratorEndpointGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_globalaccelerator_endpoint_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlobalacceleratorEndpointGroup : TerraformResource
 {
     public AwsGlobalacceleratorEndpointGroup(string name) : base("aws_globalaccelerator_endpoint_group", name)

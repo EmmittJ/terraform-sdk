@@ -119,6 +119,7 @@ public class GoogleManagedKafkaClusterTlsConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_managed_kafka_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleManagedKafkaCluster : TerraformResource
 {
     public GoogleManagedKafkaCluster(string name) : base("google_managed_kafka_cluster", name)

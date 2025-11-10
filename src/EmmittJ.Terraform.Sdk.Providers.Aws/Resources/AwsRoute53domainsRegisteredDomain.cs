@@ -594,6 +594,7 @@ public class AwsRoute53domainsRegisteredDomainTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_route53domains_registered_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRoute53domainsRegisteredDomain : TerraformResource
 {
     public AwsRoute53domainsRegisteredDomain(string name) : base("aws_route53domains_registered_domain", name)

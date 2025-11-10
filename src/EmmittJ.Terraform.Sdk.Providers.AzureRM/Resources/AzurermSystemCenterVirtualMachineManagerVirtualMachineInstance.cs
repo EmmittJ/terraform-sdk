@@ -315,6 +315,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeo
 /// <summary>
 /// Manages a azurerm_system_center_virtual_machine_manager_virtual_machine_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance : TerraformResource
 {
     public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance(string name) : base("azurerm_system_center_virtual_machine_manager_virtual_machine_instance", name)

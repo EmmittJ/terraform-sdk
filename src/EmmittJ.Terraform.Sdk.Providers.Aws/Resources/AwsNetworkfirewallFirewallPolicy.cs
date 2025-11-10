@@ -78,6 +78,7 @@ public class AwsNetworkfirewallFirewallPolicyFirewallPolicyBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_networkfirewall_firewall_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkfirewallFirewallPolicy : TerraformResource
 {
     public AwsNetworkfirewallFirewallPolicy(string name) : base("aws_networkfirewall_firewall_policy", name)

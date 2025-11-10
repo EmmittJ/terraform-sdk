@@ -42,6 +42,7 @@ public class GoogleSecureSourceManagerInstanceIamMemberConditionBlock : Terrafor
 /// <summary>
 /// Manages a google_secure_source_manager_instance_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecureSourceManagerInstanceIamMember : TerraformResource
 {
     public GoogleSecureSourceManagerInstanceIamMember(string name) : base("google_secure_source_manager_instance_iam_member", name)

@@ -248,6 +248,7 @@ public class GoogleNetworkManagementConnectivityTestTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a google_network_management_connectivity_test resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkManagementConnectivityTest : TerraformResource
 {
     public GoogleNetworkManagementConnectivityTest(string name) : base("google_network_management_connectivity_test", name)

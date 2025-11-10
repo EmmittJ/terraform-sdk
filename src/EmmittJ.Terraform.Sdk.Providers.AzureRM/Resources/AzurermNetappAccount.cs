@@ -233,6 +233,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_netapp_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetappAccount : TerraformResource
 {
     public AzurermNetappAccount(string name) : base("azurerm_netapp_account", name)

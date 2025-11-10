@@ -76,6 +76,7 @@ public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerTimeoutsBl
 /// <summary>
 /// Manages a azurerm_data_protection_backup_policy_postgresql_flexible_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServer : TerraformResource
 {
     public AzurermDataProtectionBackupPolicyPostgresqlFlexibleServer(string name) : base("azurerm_data_protection_backup_policy_postgresql_flexible_server", name)

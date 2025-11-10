@@ -23,6 +23,7 @@ public class AwsLocationMapConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_location_map resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLocationMap : TerraformResource
 {
     public AwsLocationMap(string name) : base("aws_location_map", name)

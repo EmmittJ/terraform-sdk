@@ -163,6 +163,7 @@ public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_notification_hub resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNotificationHub : TerraformResource
 {
     public AzurermNotificationHub(string name) : base("azurerm_notification_hub", name)

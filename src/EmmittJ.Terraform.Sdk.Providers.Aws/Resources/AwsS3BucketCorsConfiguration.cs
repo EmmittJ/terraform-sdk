@@ -69,6 +69,7 @@ public class AwsS3BucketCorsConfigurationCorsRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_cors_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketCorsConfiguration : TerraformResource
 {
     public AwsS3BucketCorsConfiguration(string name) : base("aws_s3_bucket_cors_configuration", name)

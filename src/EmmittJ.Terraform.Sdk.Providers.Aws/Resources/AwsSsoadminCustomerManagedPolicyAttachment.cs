@@ -58,6 +58,7 @@ public class AwsSsoadminCustomerManagedPolicyAttachmentTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a aws_ssoadmin_customer_managed_policy_attachment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsoadminCustomerManagedPolicyAttachment : TerraformResource
 {
     public AwsSsoadminCustomerManagedPolicyAttachment(string name) : base("aws_ssoadmin_customer_managed_policy_attachment", name)

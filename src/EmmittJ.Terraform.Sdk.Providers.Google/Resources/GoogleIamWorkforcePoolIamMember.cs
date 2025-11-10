@@ -42,6 +42,7 @@ public class GoogleIamWorkforcePoolIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iam_workforce_pool_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIamWorkforcePoolIamMember : TerraformResource
 {
     public GoogleIamWorkforcePoolIamMember(string name) : base("google_iam_workforce_pool_iam_member", name)

@@ -132,6 +132,7 @@ public class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_hpc_cache_access_policy resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHpcCacheAccessPolicy : TerraformResource
 {
     public AzurermHpcCacheAccessPolicy(string name) : base("azurerm_hpc_cache_access_policy", name)

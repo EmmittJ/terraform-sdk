@@ -57,6 +57,7 @@ public class AwsLakeformationDataLakeSettingsCreateTableDefaultPermissionsBlock 
 /// <summary>
 /// Manages a aws_lakeformation_data_lake_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLakeformationDataLakeSettings : TerraformResource
 {
     public AwsLakeformationDataLakeSettings(string name) : base("aws_lakeformation_data_lake_settings", name)

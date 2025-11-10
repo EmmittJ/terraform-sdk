@@ -13,6 +13,7 @@ public class AwsSecurityhubInsightFiltersBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_securityhub_insight resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSecurityhubInsight : TerraformResource
 {
     public AwsSecurityhubInsight(string name) : base("aws_securityhub_insight", name)

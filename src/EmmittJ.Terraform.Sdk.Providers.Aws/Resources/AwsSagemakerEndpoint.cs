@@ -13,6 +13,7 @@ public class AwsSagemakerEndpointDeploymentConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerEndpoint : TerraformResource
 {
     public AwsSagemakerEndpoint(string name) : base("aws_sagemaker_endpoint", name)

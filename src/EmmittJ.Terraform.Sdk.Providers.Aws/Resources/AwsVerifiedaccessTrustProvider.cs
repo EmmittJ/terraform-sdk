@@ -236,6 +236,7 @@ public class AwsVerifiedaccessTrustProviderTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_verifiedaccess_trust_provider resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVerifiedaccessTrustProvider : TerraformResource
 {
     public AwsVerifiedaccessTrustProvider(string name) : base("aws_verifiedaccess_trust_provider", name)

@@ -83,6 +83,7 @@ public class GoogleDiscoveryEngineSearchEngineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_discovery_engine_search_engine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDiscoveryEngineSearchEngine : TerraformResource
 {
     public GoogleDiscoveryEngineSearchEngine(string name) : base("google_discovery_engine_search_engine", name)

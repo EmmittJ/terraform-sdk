@@ -140,6 +140,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_container_app_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermContainerAppEnvironment : TerraformResource
 {
     public AzurermContainerAppEnvironment(string name) : base("azurerm_container_app_environment", name)

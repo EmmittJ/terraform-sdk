@@ -616,6 +616,7 @@ public class GoogleComputeHealthCheckTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_health_check resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeHealthCheck : TerraformResource
 {
     public GoogleComputeHealthCheck(string name) : base("google_compute_health_check", name)

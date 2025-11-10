@@ -186,6 +186,7 @@ public class GoogleContainerAzureClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_container_azure_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleContainerAzureCluster : TerraformResource
 {
     public GoogleContainerAzureCluster(string name) : base("google_container_azure_cluster", name)

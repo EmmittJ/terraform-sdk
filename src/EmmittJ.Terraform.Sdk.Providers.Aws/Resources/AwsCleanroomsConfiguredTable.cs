@@ -68,6 +68,7 @@ public class AwsCleanroomsConfiguredTableTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cleanrooms_configured_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCleanroomsConfiguredTable : TerraformResource
 {
     public AwsCleanroomsConfiguredTable(string name) : base("aws_cleanrooms_configured_table", name)

@@ -65,6 +65,7 @@ public class GoogleFirestoreBackupScheduleWeeklyRecurrenceBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firestore_backup_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirestoreBackupSchedule : TerraformResource
 {
     public GoogleFirestoreBackupSchedule(string name) : base("google_firestore_backup_schedule", name)

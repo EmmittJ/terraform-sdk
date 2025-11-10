@@ -80,6 +80,7 @@ public class GoogleAppEngineApplicationUrlDispatchRulesTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a google_app_engine_application_url_dispatch_rules resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAppEngineApplicationUrlDispatchRules : TerraformResource
 {
     public GoogleAppEngineApplicationUrlDispatchRules(string name) : base("google_app_engine_application_url_dispatch_rules", name)

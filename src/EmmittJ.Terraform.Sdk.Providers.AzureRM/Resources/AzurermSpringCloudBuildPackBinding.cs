@@ -75,6 +75,7 @@ public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_build_pack_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSpringCloudBuildPackBinding : TerraformResource
 {
     public AzurermSpringCloudBuildPackBinding(string name) : base("azurerm_spring_cloud_build_pack_binding", name)

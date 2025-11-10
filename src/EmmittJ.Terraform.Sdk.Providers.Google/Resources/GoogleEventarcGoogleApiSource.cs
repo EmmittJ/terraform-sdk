@@ -58,6 +58,7 @@ public class GoogleEventarcGoogleApiSourceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_eventarc_google_api_source resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEventarcGoogleApiSource : TerraformResource
 {
     public GoogleEventarcGoogleApiSource(string name) : base("google_eventarc_google_api_source", name)

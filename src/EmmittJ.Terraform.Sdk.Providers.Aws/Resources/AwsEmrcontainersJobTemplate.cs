@@ -59,6 +59,7 @@ public class AwsEmrcontainersJobTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_emrcontainers_job_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEmrcontainersJobTemplate : TerraformResource
 {
     public AwsEmrcontainersJobTemplate(string name) : base("aws_emrcontainers_job_template", name)

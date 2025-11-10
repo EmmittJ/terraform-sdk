@@ -237,6 +237,7 @@ public class AzureadConditionalAccessPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_conditional_access_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadConditionalAccessPolicy : TerraformResource
 {
     public AzureadConditionalAccessPolicy(string name) : base("azuread_conditional_access_policy", name)

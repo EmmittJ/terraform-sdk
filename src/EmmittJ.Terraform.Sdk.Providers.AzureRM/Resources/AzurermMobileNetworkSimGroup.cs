@@ -77,6 +77,7 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mobile_network_sim_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMobileNetworkSimGroup : TerraformResource
 {
     public AzurermMobileNetworkSimGroup(string name) : base("azurerm_mobile_network_sim_group", name)

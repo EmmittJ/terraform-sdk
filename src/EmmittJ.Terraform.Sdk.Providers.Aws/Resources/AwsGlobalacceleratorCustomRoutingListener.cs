@@ -66,6 +66,7 @@ public class AwsGlobalacceleratorCustomRoutingListenerTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a aws_globalaccelerator_custom_routing_listener resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlobalacceleratorCustomRoutingListener : TerraformResource
 {
     public AwsGlobalacceleratorCustomRoutingListener(string name) : base("aws_globalaccelerator_custom_routing_listener", name)

@@ -76,6 +76,7 @@ public class GoogleBigtableGcPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigtable_gc_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigtableGcPolicy : TerraformResource
 {
     public GoogleBigtableGcPolicy(string name) : base("google_bigtable_gc_policy", name)

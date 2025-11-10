@@ -442,6 +442,7 @@ public class GoogleBigqueryTableViewBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryTable : TerraformResource
 {
     public GoogleBigqueryTable(string name) : base("google_bigquery_table", name)

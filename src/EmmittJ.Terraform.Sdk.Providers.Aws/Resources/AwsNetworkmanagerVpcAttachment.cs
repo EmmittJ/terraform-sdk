@@ -84,6 +84,7 @@ public class AwsNetworkmanagerVpcAttachmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_networkmanager_vpc_attachment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkmanagerVpcAttachment : TerraformResource
 {
     public AwsNetworkmanagerVpcAttachment(string name) : base("aws_networkmanager_vpc_attachment", name)

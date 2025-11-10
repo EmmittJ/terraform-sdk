@@ -122,6 +122,7 @@ public class AzurermFluidRelayServerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_fluid_relay_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFluidRelayServer : TerraformResource
 {
     public AzurermFluidRelayServer(string name) : base("azurerm_fluid_relay_server", name)

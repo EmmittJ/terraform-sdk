@@ -48,6 +48,7 @@ public class GoogleBeyondcorpAppConnectorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_beyondcorp_app_connector resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBeyondcorpAppConnector : TerraformResource
 {
     public GoogleBeyondcorpAppConnector(string name) : base("google_beyondcorp_app_connector", name)

@@ -59,6 +59,7 @@ public class GoogleStorageBucketIamBindingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_bucket_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageBucketIamBinding : TerraformResource
 {
     public GoogleStorageBucketIamBinding(string name) : base("google_storage_bucket_iam_binding", name)

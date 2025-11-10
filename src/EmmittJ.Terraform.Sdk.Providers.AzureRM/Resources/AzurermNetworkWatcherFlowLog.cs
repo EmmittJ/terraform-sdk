@@ -134,6 +134,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_network_watcher_flow_log resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkWatcherFlowLog : TerraformResource
 {
     public AzurermNetworkWatcherFlowLog(string name) : base("azurerm_network_watcher_flow_log", name)

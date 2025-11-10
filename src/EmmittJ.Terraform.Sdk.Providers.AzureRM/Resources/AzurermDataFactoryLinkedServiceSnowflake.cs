@@ -77,6 +77,7 @@ public class AzurermDataFactoryLinkedServiceSnowflakeTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_snowflake resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceSnowflake : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceSnowflake(string name) : base("azurerm_data_factory_linked_service_snowflake", name)

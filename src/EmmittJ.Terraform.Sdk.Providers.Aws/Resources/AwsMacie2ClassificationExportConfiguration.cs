@@ -42,6 +42,7 @@ public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : Terr
 /// <summary>
 /// Manages a aws_macie2_classification_export_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMacie2ClassificationExportConfiguration : TerraformResource
 {
     public AwsMacie2ClassificationExportConfiguration(string name) : base("aws_macie2_classification_export_configuration", name)

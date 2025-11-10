@@ -23,6 +23,7 @@ public class AwsEfsBackupPolicyBackupPolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_efs_backup_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEfsBackupPolicy : TerraformResource
 {
     public AwsEfsBackupPolicy(string name) : base("aws_efs_backup_policy", name)

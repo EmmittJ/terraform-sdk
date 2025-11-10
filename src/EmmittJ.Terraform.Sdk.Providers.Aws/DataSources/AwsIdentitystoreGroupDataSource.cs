@@ -13,6 +13,7 @@ public class AwsIdentitystoreGroupDataSourceAlternateIdentifierBlock : Terraform
 /// <summary>
 /// Retrieves information about a aws_identitystore_group.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIdentitystoreGroupDataSource : TerraformDataSource
 {
     public AwsIdentitystoreGroupDataSource(string name) : base("aws_identitystore_group", name)

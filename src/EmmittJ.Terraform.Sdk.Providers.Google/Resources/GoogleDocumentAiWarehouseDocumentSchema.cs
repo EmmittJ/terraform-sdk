@@ -112,6 +112,7 @@ public class GoogleDocumentAiWarehouseDocumentSchemaTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a google_document_ai_warehouse_document_schema resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDocumentAiWarehouseDocumentSchema : TerraformResource
 {
     public GoogleDocumentAiWarehouseDocumentSchema(string name) : base("google_document_ai_warehouse_document_schema", name)

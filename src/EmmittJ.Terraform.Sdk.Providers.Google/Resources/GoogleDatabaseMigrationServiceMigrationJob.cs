@@ -137,6 +137,7 @@ public class GoogleDatabaseMigrationServiceMigrationJobVpcPeeringConnectivityBlo
 /// <summary>
 /// Manages a google_database_migration_service_migration_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDatabaseMigrationServiceMigrationJob : TerraformResource
 {
     public GoogleDatabaseMigrationServiceMigrationJob(string name) : base("google_database_migration_service_migration_job", name)

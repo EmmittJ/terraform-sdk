@@ -32,6 +32,7 @@ public class AwsS3BucketVersioningVersioningConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_versioning resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketVersioning : TerraformResource
 {
     public AwsS3BucketVersioning(string name) : base("aws_s3_bucket_versioning", name)

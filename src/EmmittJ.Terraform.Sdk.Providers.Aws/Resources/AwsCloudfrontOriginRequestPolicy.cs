@@ -58,6 +58,7 @@ public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock : Terraform
 /// <summary>
 /// Manages a aws_cloudfront_origin_request_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudfrontOriginRequestPolicy : TerraformResource
 {
     public AwsCloudfrontOriginRequestPolicy(string name) : base("aws_cloudfront_origin_request_policy", name)

@@ -42,6 +42,7 @@ public class GoogleDataplexLakeIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_lake_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexLakeIamMember : TerraformResource
 {
     public GoogleDataplexLakeIamMember(string name) : base("google_dataplex_lake_iam_member", name)

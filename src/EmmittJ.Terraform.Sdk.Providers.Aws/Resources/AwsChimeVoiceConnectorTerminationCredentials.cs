@@ -33,6 +33,7 @@ public class AwsChimeVoiceConnectorTerminationCredentialsCredentialsBlock : Terr
 /// <summary>
 /// Manages a aws_chime_voice_connector_termination_credentials resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimeVoiceConnectorTerminationCredentials : TerraformResource
 {
     public AwsChimeVoiceConnectorTerminationCredentials(string name) : base("aws_chime_voice_connector_termination_credentials", name)

@@ -110,6 +110,7 @@ public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_oracle_cloud_vm_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermOracleCloudVmCluster : TerraformResource
 {
     public AzurermOracleCloudVmCluster(string name) : base("azurerm_oracle_cloud_vm_cluster", name)

@@ -21,6 +21,7 @@ public class AwsVpnConnectionTunnel2LogOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpn_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpnConnection : TerraformResource
 {
     public AwsVpnConnection(string name) : base("aws_vpn_connection", name)

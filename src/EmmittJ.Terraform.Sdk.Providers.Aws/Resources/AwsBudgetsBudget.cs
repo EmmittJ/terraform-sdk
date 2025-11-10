@@ -271,6 +271,7 @@ public class AwsBudgetsBudgetPlannedLimitBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_budgets_budget resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsBudgetsBudget : TerraformResource
 {
     public AwsBudgetsBudget(string name) : base("aws_budgets_budget", name)

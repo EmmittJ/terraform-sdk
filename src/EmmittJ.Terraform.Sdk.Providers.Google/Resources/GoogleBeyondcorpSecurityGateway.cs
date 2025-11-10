@@ -114,6 +114,7 @@ public class GoogleBeyondcorpSecurityGatewayTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_beyondcorp_security_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBeyondcorpSecurityGateway : TerraformResource
 {
     public GoogleBeyondcorpSecurityGateway(string name) : base("google_beyondcorp_security_gateway", name)

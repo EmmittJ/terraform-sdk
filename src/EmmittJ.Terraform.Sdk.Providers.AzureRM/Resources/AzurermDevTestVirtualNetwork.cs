@@ -84,6 +84,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dev_test_virtual_network resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDevTestVirtualNetwork : TerraformResource
 {
     public AzurermDevTestVirtualNetwork(string name) : base("azurerm_dev_test_virtual_network", name)

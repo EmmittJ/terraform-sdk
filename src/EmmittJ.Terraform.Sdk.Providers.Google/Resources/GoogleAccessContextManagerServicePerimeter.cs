@@ -140,6 +140,7 @@ public class GoogleAccessContextManagerServicePerimeterTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a google_access_context_manager_service_perimeter resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAccessContextManagerServicePerimeter : TerraformResource
 {
     public GoogleAccessContextManagerServicePerimeter(string name) : base("google_access_context_manager_service_perimeter", name)

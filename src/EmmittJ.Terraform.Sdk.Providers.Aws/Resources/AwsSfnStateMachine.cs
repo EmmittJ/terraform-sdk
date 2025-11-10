@@ -127,6 +127,7 @@ public class AwsSfnStateMachineTracingConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sfn_state_machine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSfnStateMachine : TerraformResource
 {
     public AwsSfnStateMachine(string name) : base("aws_sfn_state_machine", name)

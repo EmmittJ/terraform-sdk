@@ -143,6 +143,7 @@ public class AwsDirectoryServiceDirectoryVpcSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_directory_service_directory resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDirectoryServiceDirectory : TerraformResource
 {
     public AwsDirectoryServiceDirectory(string name) : base("aws_directory_service_directory", name)

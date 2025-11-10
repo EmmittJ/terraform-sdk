@@ -98,6 +98,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
 /// <summary>
 /// Manages a azurerm_network_manager_verifier_workspace_reachability_analysis_intent resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent : TerraformResource
 {
     public AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(string name) : base("azurerm_network_manager_verifier_workspace_reachability_analysis_intent", name)

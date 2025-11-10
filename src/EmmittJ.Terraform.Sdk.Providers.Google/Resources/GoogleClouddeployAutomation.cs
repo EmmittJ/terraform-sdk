@@ -56,6 +56,7 @@ public class GoogleClouddeployAutomationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_clouddeploy_automation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleClouddeployAutomation : TerraformResource
 {
     public GoogleClouddeployAutomation(string name) : base("google_clouddeploy_automation", name)

@@ -184,6 +184,7 @@ public class AwsAmplifyAppJobConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_amplify_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAmplifyApp : TerraformResource
 {
     public AwsAmplifyApp(string name) : base("aws_amplify_app", name)

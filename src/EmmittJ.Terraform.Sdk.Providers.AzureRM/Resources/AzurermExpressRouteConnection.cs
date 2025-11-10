@@ -84,6 +84,7 @@ public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_express_route_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermExpressRouteConnection : TerraformResource
 {
     public AzurermExpressRouteConnection(string name) : base("azurerm_express_route_connection", name)

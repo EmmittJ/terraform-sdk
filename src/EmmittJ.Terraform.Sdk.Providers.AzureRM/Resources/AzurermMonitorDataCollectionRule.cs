@@ -183,6 +183,7 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_monitor_data_collection_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorDataCollectionRule : TerraformResource
 {
     public AzurermMonitorDataCollectionRule(string name) : base("azurerm_monitor_data_collection_rule", name)

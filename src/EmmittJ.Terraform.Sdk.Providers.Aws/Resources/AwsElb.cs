@@ -191,6 +191,7 @@ public class AwsElbTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_elb resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElb : TerraformResource
 {
     public AwsElb(string name) : base("aws_elb", name)

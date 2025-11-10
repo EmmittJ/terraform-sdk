@@ -13,6 +13,7 @@ public class AwsS3ObjectOverrideProviderBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_object resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3Object : TerraformResource
 {
     public AwsS3Object(string name) : base("aws_s3_object", name)

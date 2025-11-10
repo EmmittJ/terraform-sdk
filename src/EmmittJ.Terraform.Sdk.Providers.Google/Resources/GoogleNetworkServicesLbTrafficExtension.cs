@@ -61,6 +61,7 @@ public class GoogleNetworkServicesLbTrafficExtensionTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a google_network_services_lb_traffic_extension resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkServicesLbTrafficExtension : TerraformResource
 {
     public GoogleNetworkServicesLbTrafficExtension(string name) : base("google_network_services_lb_traffic_extension", name)

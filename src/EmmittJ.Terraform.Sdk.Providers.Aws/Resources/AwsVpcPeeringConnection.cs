@@ -74,6 +74,7 @@ public class AwsVpcPeeringConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpc_peering_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpcPeeringConnection : TerraformResource
 {
     public AwsVpcPeeringConnection(string name) : base("aws_vpc_peering_connection", name)

@@ -200,6 +200,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlock : TerraformBlock
 /// Manages a google_notebooks_runtime resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNotebooksRuntime : TerraformResource
 {
     public GoogleNotebooksRuntime(string name) : base("google_notebooks_runtime", name)

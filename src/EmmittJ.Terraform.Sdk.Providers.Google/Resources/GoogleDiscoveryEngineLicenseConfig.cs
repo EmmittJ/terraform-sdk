@@ -110,6 +110,7 @@ public class GoogleDiscoveryEngineLicenseConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_discovery_engine_license_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDiscoveryEngineLicenseConfig : TerraformResource
 {
     public GoogleDiscoveryEngineLicenseConfig(string name) : base("google_discovery_engine_license_config", name)

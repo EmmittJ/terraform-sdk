@@ -164,6 +164,7 @@ public class AwsGlueJobSourceControlDetailsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueJob : TerraformResource
 {
     public AwsGlueJob(string name) : base("aws_glue_job", name)

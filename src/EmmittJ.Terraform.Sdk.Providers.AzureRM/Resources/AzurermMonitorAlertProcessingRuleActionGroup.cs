@@ -92,6 +92,7 @@ public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a azurerm_monitor_alert_processing_rule_action_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorAlertProcessingRuleActionGroup : TerraformResource
 {
     public AzurermMonitorAlertProcessingRuleActionGroup(string name) : base("azurerm_monitor_alert_processing_rule_action_group", name)

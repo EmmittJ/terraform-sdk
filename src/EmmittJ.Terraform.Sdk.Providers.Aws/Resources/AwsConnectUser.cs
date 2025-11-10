@@ -94,6 +94,7 @@ public class AwsConnectUserPhoneConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_connect_user resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConnectUser : TerraformResource
 {
     public AwsConnectUser(string name) : base("aws_connect_user", name)

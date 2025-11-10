@@ -181,6 +181,7 @@ public class GoogleArtifactRegistryRepositoryVulnerabilityScanningConfigBlock : 
 /// <summary>
 /// Manages a google_artifact_registry_repository resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleArtifactRegistryRepository : TerraformResource
 {
     public GoogleArtifactRegistryRepository(string name) : base("google_artifact_registry_repository", name)

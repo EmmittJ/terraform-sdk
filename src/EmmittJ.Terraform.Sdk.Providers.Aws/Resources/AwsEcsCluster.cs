@@ -59,6 +59,7 @@ public class AwsEcsClusterSettingBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ecs_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcsCluster : TerraformResource
 {
     public AwsEcsCluster(string name) : base("aws_ecs_cluster", name)

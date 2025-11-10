@@ -84,6 +84,7 @@ public class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a google_compute_interconnect_attachment_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
 {
     public GoogleComputeInterconnectAttachmentGroup(string name) : base("google_compute_interconnect_attachment_group", name)

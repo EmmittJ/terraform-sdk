@@ -156,6 +156,7 @@ public class AzurermManagementGroupPolicyAssignmentTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_management_group_policy_assignment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermManagementGroupPolicyAssignment : TerraformResource
 {
     public AzurermManagementGroupPolicyAssignment(string name) : base("azurerm_management_group_policy_assignment", name)

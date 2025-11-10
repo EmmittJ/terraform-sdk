@@ -42,6 +42,7 @@ public class GoogleDataprocMetastoreTableIamBindingConditionBlock : TerraformBlo
 /// <summary>
 /// Manages a google_dataproc_metastore_table_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocMetastoreTableIamBinding : TerraformResource
 {
     public GoogleDataprocMetastoreTableIamBinding(string name) : base("google_dataproc_metastore_table_iam_binding", name)

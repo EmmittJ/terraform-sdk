@@ -85,6 +85,7 @@ public class AwsRoute53ResolverEndpointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_route53_resolver_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRoute53ResolverEndpoint : TerraformResource
 {
     public AwsRoute53ResolverEndpoint(string name) : base("aws_route53_resolver_endpoint", name)

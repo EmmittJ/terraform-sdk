@@ -74,6 +74,7 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_cassandra_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbCassandraTable : TerraformResource
 {
     public AzurermCosmosdbCassandraTable(string name) : base("azurerm_cosmosdb_cassandra_table", name)

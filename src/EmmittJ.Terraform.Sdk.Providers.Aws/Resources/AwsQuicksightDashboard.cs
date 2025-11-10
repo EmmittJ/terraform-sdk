@@ -100,6 +100,7 @@ public class AwsQuicksightDashboardTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_quicksight_dashboard resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsQuicksightDashboard : TerraformResource
 {
     public AwsQuicksightDashboard(string name) : base("aws_quicksight_dashboard", name)

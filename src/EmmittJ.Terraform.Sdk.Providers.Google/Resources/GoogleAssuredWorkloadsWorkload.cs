@@ -155,6 +155,7 @@ public class GoogleAssuredWorkloadsWorkloadWorkloadOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_assured_workloads_workload resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAssuredWorkloadsWorkload : TerraformResource
 {
     public GoogleAssuredWorkloadsWorkload(string name) : base("google_assured_workloads_workload", name)

@@ -94,6 +94,7 @@ public class AzurermSearchServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_search_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSearchService : TerraformResource
 {
     public AzurermSearchService(string name) : base("azurerm_search_service", name)

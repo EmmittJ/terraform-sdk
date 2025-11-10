@@ -140,6 +140,7 @@ public class AzurermChaosStudioExperimentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_chaos_studio_experiment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermChaosStudioExperiment : TerraformResource
 {
     public AzurermChaosStudioExperiment(string name) : base("azurerm_chaos_studio_experiment", name)

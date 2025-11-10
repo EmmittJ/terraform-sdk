@@ -202,6 +202,7 @@ public class AwsLbTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lb resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLb : TerraformResource
 {
     public AwsLb(string name) : base("aws_lb", name)

@@ -129,6 +129,7 @@ public class AwsSagemakerDomainRetentionPolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerDomain : TerraformResource
 {
     public AwsSagemakerDomain(string name) : base("aws_sagemaker_domain", name)

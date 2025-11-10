@@ -31,6 +31,7 @@ public class AwsS3BucketLoggingTargetObjectKeyFormatBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_logging resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketLogging : TerraformResource
 {
     public AwsS3BucketLogging(string name) : base("aws_s3_bucket_logging", name)

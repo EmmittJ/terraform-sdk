@@ -50,6 +50,7 @@ public class AwsApigatewayv2IntegrationTlsConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_apigatewayv2_integration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApigatewayv2Integration : TerraformResource
 {
     public AwsApigatewayv2Integration(string name) : base("aws_apigatewayv2_integration", name)

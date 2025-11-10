@@ -42,6 +42,7 @@ public class GoogleDataplexGlossaryIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_glossary_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexGlossaryIamMember : TerraformResource
 {
     public GoogleDataplexGlossaryIamMember(string name) : base("google_dataplex_glossary_iam_member", name)

@@ -560,6 +560,7 @@ public class AwsCloudfrontDistributionViewerCertificateBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudfront_distribution resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudfrontDistribution : TerraformResource
 {
     public AwsCloudfrontDistribution(string name) : base("aws_cloudfront_distribution", name)

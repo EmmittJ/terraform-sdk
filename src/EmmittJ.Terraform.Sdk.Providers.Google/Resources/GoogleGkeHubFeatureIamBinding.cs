@@ -42,6 +42,7 @@ public class GoogleGkeHubFeatureIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_hub_feature_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeHubFeatureIamBinding : TerraformResource
 {
     public GoogleGkeHubFeatureIamBinding(string name) : base("google_gke_hub_feature_iam_binding", name)

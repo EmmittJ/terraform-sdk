@@ -126,6 +126,7 @@ public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_os_config_os_policy_assignment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOsConfigOsPolicyAssignment : TerraformResource
 {
     public GoogleOsConfigOsPolicyAssignment(string name) : base("google_os_config_os_policy_assignment", name)

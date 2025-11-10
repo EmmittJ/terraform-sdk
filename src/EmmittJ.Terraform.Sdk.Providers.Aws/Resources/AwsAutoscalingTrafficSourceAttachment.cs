@@ -59,6 +59,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : Terraform
 /// <summary>
 /// Manages a aws_autoscaling_traffic_source_attachment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
 {
     public AwsAutoscalingTrafficSourceAttachment(string name) : base("aws_autoscaling_traffic_source_attachment", name)

@@ -134,6 +134,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_mskconnect_connector resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMskconnectConnector : TerraformResource
 {
     public AwsMskconnectConnector(string name) : base("aws_mskconnect_connector", name)

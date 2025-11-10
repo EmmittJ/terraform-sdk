@@ -109,6 +109,7 @@ public class AwsWafv2RuleGroupVisibilityConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_wafv2_rule_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsWafv2RuleGroup : TerraformResource
 {
     public AwsWafv2RuleGroup(string name) : base("aws_wafv2_rule_group", name)

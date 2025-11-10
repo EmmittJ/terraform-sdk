@@ -124,6 +124,7 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mssql_elasticpool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlElasticpool : TerraformResource
 {
     public AzurermMssqlElasticpool(string name) : base("azurerm_mssql_elasticpool", name)

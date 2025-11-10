@@ -42,6 +42,7 @@ public class GooglePrivatecaCaPoolIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_privateca_ca_pool_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePrivatecaCaPoolIamBinding : TerraformResource
 {
     public GooglePrivatecaCaPoolIamBinding(string name) : base("google_privateca_ca_pool_iam_binding", name)

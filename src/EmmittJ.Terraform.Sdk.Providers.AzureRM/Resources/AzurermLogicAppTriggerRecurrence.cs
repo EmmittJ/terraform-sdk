@@ -84,6 +84,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_logic_app_trigger_recurrence resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLogicAppTriggerRecurrence : TerraformResource
 {
     public AzurermLogicAppTriggerRecurrence(string name) : base("azurerm_logic_app_trigger_recurrence", name)

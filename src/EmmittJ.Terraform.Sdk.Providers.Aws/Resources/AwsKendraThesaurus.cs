@@ -68,6 +68,7 @@ public class AwsKendraThesaurusTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_kendra_thesaurus resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKendraThesaurus : TerraformResource
 {
     public AwsKendraThesaurus(string name) : base("aws_kendra_thesaurus", name)

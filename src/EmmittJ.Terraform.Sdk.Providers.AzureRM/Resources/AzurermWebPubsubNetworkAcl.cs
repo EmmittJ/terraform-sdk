@@ -111,6 +111,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_web_pubsub_network_acl resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWebPubsubNetworkAcl : TerraformResource
 {
     public AzurermWebPubsubNetworkAcl(string name) : base("azurerm_web_pubsub_network_acl", name)

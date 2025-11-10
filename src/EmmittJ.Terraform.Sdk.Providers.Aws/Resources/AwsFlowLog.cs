@@ -40,6 +40,7 @@ public class AwsFlowLogDestinationOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_flow_log resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFlowLog : TerraformResource
 {
     public AwsFlowLog(string name) : base("aws_flow_log", name)

@@ -94,6 +94,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_purview_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPurviewAccount : TerraformResource
 {
     public AzurermPurviewAccount(string name) : base("azurerm_purview_account", name)

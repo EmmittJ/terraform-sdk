@@ -42,6 +42,7 @@ public class GoogleBinaryAuthorizationAttestorIamBindingConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_binary_authorization_attestor_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBinaryAuthorizationAttestorIamBinding : TerraformResource
 {
     public GoogleBinaryAuthorizationAttestorIamBinding(string name) : base("google_binary_authorization_attestor_iam_binding", name)

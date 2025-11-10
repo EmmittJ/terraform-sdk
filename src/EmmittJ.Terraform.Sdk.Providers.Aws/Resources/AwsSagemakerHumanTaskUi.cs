@@ -40,6 +40,7 @@ public class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_human_task_ui resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerHumanTaskUi : TerraformResource
 {
     public AwsSagemakerHumanTaskUi(string name) : base("aws_sagemaker_human_task_ui", name)

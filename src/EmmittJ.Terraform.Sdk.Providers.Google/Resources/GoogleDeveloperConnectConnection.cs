@@ -343,6 +343,7 @@ public class GoogleDeveloperConnectConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_developer_connect_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDeveloperConnectConnection : TerraformResource
 {
     public GoogleDeveloperConnectConnection(string name) : base("google_developer_connect_connection", name)

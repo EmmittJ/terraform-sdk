@@ -181,6 +181,7 @@ public class AwsApprunnerServiceSourceConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_apprunner_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApprunnerService : TerraformResource
 {
     public AwsApprunnerService(string name) : base("aws_apprunner_service", name)

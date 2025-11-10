@@ -773,6 +773,7 @@ public class AzurermLinuxFunctionAppTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_linux_function_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLinuxFunctionApp : TerraformResource
 {
     public AzurermLinuxFunctionApp(string name) : base("azurerm_linux_function_app", name)

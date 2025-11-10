@@ -94,6 +94,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_blueprint_assignment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBlueprintAssignment : TerraformResource
 {
     public AzurermBlueprintAssignment(string name) : base("azurerm_blueprint_assignment", name)

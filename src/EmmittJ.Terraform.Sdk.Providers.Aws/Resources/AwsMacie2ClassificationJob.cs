@@ -74,6 +74,7 @@ public class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_macie2_classification_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMacie2ClassificationJob : TerraformResource
 {
     public AwsMacie2ClassificationJob(string name) : base("aws_macie2_classification_job", name)

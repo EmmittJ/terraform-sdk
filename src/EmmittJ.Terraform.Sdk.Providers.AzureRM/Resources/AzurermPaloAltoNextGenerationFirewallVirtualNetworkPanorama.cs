@@ -166,6 +166,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeouts
 /// <summary>
 /// Manages a azurerm_palo_alto_next_generation_firewall_virtual_network_panorama resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama : TerraformResource
 {
     public AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama(string name) : base("azurerm_palo_alto_next_generation_firewall_virtual_network_panorama", name)

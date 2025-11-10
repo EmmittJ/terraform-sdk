@@ -169,6 +169,7 @@ public class AzurermCdnEndpointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cdn_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCdnEndpoint : TerraformResource
 {
     public AzurermCdnEndpoint(string name) : base("azurerm_cdn_endpoint", name)

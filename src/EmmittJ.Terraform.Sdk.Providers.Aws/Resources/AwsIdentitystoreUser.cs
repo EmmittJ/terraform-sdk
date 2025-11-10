@@ -219,6 +219,7 @@ public class AwsIdentitystoreUserPhoneNumbersBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_identitystore_user resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIdentitystoreUser : TerraformResource
 {
     public AwsIdentitystoreUser(string name) : base("aws_identitystore_user", name)

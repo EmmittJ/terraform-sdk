@@ -66,6 +66,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_hub_scope_rbac_role_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
 {
     public GoogleGkeHubScopeRbacRoleBinding(string name) : base("google_gke_hub_scope_rbac_role_binding", name)

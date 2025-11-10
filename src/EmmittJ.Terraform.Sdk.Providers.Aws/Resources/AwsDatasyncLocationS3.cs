@@ -23,6 +23,7 @@ public class AwsDatasyncLocationS3S3ConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_datasync_location_s3 resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncLocationS3 : TerraformResource
 {
     public AwsDatasyncLocationS3(string name) : base("aws_datasync_location_s3", name)

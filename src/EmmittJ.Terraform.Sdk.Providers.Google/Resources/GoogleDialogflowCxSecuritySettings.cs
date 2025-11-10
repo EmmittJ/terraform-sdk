@@ -105,6 +105,7 @@ public class GoogleDialogflowCxSecuritySettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_security_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxSecuritySettings : TerraformResource
 {
     public GoogleDialogflowCxSecuritySettings(string name) : base("google_dialogflow_cx_security_settings", name)

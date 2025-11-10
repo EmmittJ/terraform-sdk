@@ -87,6 +87,7 @@ public class AzurermAppServicePlanTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_app_service_plan resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAppServicePlan : TerraformResource
 {
     public AzurermAppServicePlan(string name) : base("azurerm_app_service_plan", name)

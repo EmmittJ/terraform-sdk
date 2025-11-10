@@ -87,6 +87,7 @@ public class AwsIotTopicRuleDestinationVpcConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_iot_topic_rule_destination resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIotTopicRuleDestination : TerraformResource
 {
     public AwsIotTopicRuleDestination(string name) : base("aws_iot_topic_rule_destination", name)

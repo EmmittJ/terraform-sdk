@@ -763,6 +763,7 @@ public class AzurermWindowsWebAppTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_windows_web_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWindowsWebApp : TerraformResource
 {
     public AzurermWindowsWebApp(string name) : base("azurerm_windows_web_app", name)

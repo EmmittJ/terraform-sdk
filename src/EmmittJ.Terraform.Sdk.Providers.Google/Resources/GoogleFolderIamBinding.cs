@@ -42,6 +42,7 @@ public class GoogleFolderIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_folder_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFolderIamBinding : TerraformResource
 {
     public GoogleFolderIamBinding(string name) : base("google_folder_iam_binding", name)

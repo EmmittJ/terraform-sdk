@@ -68,6 +68,7 @@ public class GoogleBiglakeTableTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_biglake_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBiglakeTable : TerraformResource
 {
     public GoogleBiglakeTable(string name) : base("google_biglake_table", name)

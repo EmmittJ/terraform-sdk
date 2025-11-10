@@ -90,6 +90,7 @@ public class GoogleVertexAiIndexTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_index resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiIndex : TerraformResource
 {
     public GoogleVertexAiIndex(string name) : base("google_vertex_ai_index", name)

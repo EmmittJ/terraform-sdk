@@ -293,6 +293,7 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureTimeoutsBlock : Terra
 /// <summary>
 /// Manages a google_oracle_database_cloud_exadata_infrastructure resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOracleDatabaseCloudExadataInfrastructure : TerraformResource
 {
     public GoogleOracleDatabaseCloudExadataInfrastructure(string name) : base("google_oracle_database_cloud_exadata_infrastructure", name)

@@ -148,6 +148,7 @@ public class AwsAppflowFlowTriggerConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appflow_flow resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppflowFlow : TerraformResource
 {
     public AwsAppflowFlow(string name) : base("aws_appflow_flow", name)

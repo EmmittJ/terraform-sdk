@@ -84,6 +84,7 @@ public class AwsLambdaFunctionUrlTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lambda_function_url resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLambdaFunctionUrl : TerraformResource
 {
     public AwsLambdaFunctionUrl(string name) : base("aws_lambda_function_url", name)

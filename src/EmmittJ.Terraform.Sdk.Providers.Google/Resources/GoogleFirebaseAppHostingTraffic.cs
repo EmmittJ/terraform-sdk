@@ -84,6 +84,7 @@ public class GoogleFirebaseAppHostingTrafficTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firebase_app_hosting_traffic resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirebaseAppHostingTraffic : TerraformResource
 {
     public GoogleFirebaseAppHostingTraffic(string name) : base("google_firebase_app_hosting_traffic", name)

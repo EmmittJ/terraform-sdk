@@ -42,6 +42,7 @@ public class GoogleCloudRunV2WorkerPoolIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_run_v2_worker_pool_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudRunV2WorkerPoolIamBinding : TerraformResource
 {
     public GoogleCloudRunV2WorkerPoolIamBinding(string name) : base("google_cloud_run_v2_worker_pool_iam_binding", name)

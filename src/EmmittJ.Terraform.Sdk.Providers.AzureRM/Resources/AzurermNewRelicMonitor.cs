@@ -169,6 +169,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_new_relic_monitor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNewRelicMonitor : TerraformResource
 {
     public AzurermNewRelicMonitor(string name) : base("azurerm_new_relic_monitor", name)

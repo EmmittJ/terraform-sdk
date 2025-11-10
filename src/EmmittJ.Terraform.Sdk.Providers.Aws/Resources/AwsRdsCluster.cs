@@ -249,6 +249,7 @@ public class AwsRdsClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_rds_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRdsCluster : TerraformResource
 {
     public AwsRdsCluster(string name) : base("aws_rds_cluster", name)

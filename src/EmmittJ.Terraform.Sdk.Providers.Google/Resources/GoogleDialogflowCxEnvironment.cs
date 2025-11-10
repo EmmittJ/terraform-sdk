@@ -58,6 +58,7 @@ public class GoogleDialogflowCxEnvironmentVersionConfigsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxEnvironment : TerraformResource
 {
     public GoogleDialogflowCxEnvironment(string name) : base("google_dialogflow_cx_environment", name)

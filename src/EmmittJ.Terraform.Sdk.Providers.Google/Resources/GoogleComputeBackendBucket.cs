@@ -151,6 +151,7 @@ public class GoogleComputeBackendBucketTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_backend_bucket resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeBackendBucket : TerraformResource
 {
     public GoogleComputeBackendBucket(string name) : base("google_compute_backend_bucket", name)

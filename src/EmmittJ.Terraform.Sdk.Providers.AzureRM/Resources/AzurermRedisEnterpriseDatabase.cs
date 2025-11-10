@@ -86,6 +86,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_redis_enterprise_database resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermRedisEnterpriseDatabase : TerraformResource
 {
     public AzurermRedisEnterpriseDatabase(string name) : base("azurerm_redis_enterprise_database", name)

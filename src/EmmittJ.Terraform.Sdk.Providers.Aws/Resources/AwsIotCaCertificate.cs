@@ -40,6 +40,7 @@ public class AwsIotCaCertificateRegistrationConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_iot_ca_certificate resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIotCaCertificate : TerraformResource
 {
     public AwsIotCaCertificate(string name) : base("aws_iot_ca_certificate", name)

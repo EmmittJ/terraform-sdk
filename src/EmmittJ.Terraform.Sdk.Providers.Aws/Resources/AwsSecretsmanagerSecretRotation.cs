@@ -40,6 +40,7 @@ public class AwsSecretsmanagerSecretRotationRotationRulesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_secretsmanager_secret_rotation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSecretsmanagerSecretRotation : TerraformResource
 {
     public AwsSecretsmanagerSecretRotation(string name) : base("aws_secretsmanager_secret_rotation", name)

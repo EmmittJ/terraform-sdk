@@ -84,6 +84,7 @@ public class GoogleDataLossPreventionInspectTemplateTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a google_data_loss_prevention_inspect_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataLossPreventionInspectTemplate : TerraformResource
 {
     public GoogleDataLossPreventionInspectTemplate(string name) : base("google_data_loss_prevention_inspect_template", name)

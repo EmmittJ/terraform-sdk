@@ -42,6 +42,7 @@ public class GoogleGkeBackupRestorePlanIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_backup_restore_plan_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeBackupRestorePlanIamBinding : TerraformResource
 {
     public GoogleGkeBackupRestorePlanIamBinding(string name) : base("google_gke_backup_restore_plan_iam_binding", name)

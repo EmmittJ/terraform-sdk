@@ -57,6 +57,7 @@ public class AwsVpcIpamPoolCidrTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpc_ipam_pool_cidr resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpcIpamPoolCidr : TerraformResource
 {
     public AwsVpcIpamPoolCidr(string name) : base("aws_vpc_ipam_pool_cidr", name)

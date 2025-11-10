@@ -85,6 +85,7 @@ public class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_vmware_private_cloud resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVmwarePrivateCloud : TerraformResource
 {
     public AzurermVmwarePrivateCloud(string name) : base("azurerm_vmware_private_cloud", name)

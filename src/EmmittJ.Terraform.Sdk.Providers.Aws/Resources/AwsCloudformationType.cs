@@ -33,6 +33,7 @@ public class AwsCloudformationTypeLoggingConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudformation_type resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudformationType : TerraformResource
 {
     public AwsCloudformationType(string name) : base("aws_cloudformation_type", name)

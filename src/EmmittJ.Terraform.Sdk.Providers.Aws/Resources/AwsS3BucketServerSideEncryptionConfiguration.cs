@@ -22,6 +22,7 @@ public class AwsS3BucketServerSideEncryptionConfigurationRuleBlock : TerraformBl
 /// <summary>
 /// Manages a aws_s3_bucket_server_side_encryption_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketServerSideEncryptionConfiguration : TerraformResource
 {
     public AwsS3BucketServerSideEncryptionConfiguration(string name) : base("aws_s3_bucket_server_side_encryption_configuration", name)

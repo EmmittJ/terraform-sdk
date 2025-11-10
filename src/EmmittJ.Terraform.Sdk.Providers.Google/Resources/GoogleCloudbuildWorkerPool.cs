@@ -138,6 +138,7 @@ public class GoogleCloudbuildWorkerPoolWorkerConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloudbuild_worker_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudbuildWorkerPool : TerraformResource
 {
     public GoogleCloudbuildWorkerPool(string name) : base("google_cloudbuild_worker_pool", name)

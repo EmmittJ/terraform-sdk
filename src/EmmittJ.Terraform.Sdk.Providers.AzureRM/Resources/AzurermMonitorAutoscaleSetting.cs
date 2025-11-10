@@ -102,6 +102,7 @@ public class AzurermMonitorAutoscaleSettingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_monitor_autoscale_setting resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorAutoscaleSetting : TerraformResource
 {
     public AzurermMonitorAutoscaleSetting(string name) : base("azurerm_monitor_autoscale_setting", name)

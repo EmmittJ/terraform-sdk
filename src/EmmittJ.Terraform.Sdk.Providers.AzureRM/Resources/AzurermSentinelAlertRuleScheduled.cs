@@ -165,6 +165,7 @@ public class AzurermSentinelAlertRuleScheduledTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_sentinel_alert_rule_scheduled resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSentinelAlertRuleScheduled : TerraformResource
 {
     public AzurermSentinelAlertRuleScheduled(string name) : base("azurerm_sentinel_alert_rule_scheduled", name)

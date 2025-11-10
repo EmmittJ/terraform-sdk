@@ -68,6 +68,7 @@ public class AwsKendraQuerySuggestionsBlockListTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_kendra_query_suggestions_block_list resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKendraQuerySuggestionsBlockList : TerraformResource
 {
     public AwsKendraQuerySuggestionsBlockList(string name) : base("aws_kendra_query_suggestions_block_list", name)

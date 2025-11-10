@@ -42,6 +42,7 @@ public class GoogleBigqueryDatasetIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_dataset_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDatasetIamBinding : TerraformResource
 {
     public GoogleBigqueryDatasetIamBinding(string name) : base("google_bigquery_dataset_iam_binding", name)

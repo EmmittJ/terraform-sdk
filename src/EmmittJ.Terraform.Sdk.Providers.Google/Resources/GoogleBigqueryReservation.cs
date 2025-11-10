@@ -66,6 +66,7 @@ public class GoogleBigqueryReservationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_reservation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryReservation : TerraformResource
 {
     public GoogleBigqueryReservation(string name) : base("google_bigquery_reservation", name)

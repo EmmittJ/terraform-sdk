@@ -192,6 +192,7 @@ public class AzurermAiServicesTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_ai_services resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAiServices : TerraformResource
 {
     public AzurermAiServices(string name) : base("azurerm_ai_services", name)

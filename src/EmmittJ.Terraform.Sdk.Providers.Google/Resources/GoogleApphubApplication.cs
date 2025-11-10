@@ -69,6 +69,7 @@ public class GoogleApphubApplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apphub_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApphubApplication : TerraformResource
 {
     public GoogleApphubApplication(string name) : base("google_apphub_application", name)

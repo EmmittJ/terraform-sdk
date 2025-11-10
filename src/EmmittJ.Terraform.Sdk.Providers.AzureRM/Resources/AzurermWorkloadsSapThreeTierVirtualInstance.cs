@@ -113,6 +113,7 @@ public class AzurermWorkloadsSapThreeTierVirtualInstanceTimeoutsBlock : Terrafor
 /// <summary>
 /// Manages a azurerm_workloads_sap_three_tier_virtual_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWorkloadsSapThreeTierVirtualInstance : TerraformResource
 {
     public AzurermWorkloadsSapThreeTierVirtualInstance(string name) : base("azurerm_workloads_sap_three_tier_virtual_instance", name)

@@ -92,6 +92,7 @@ public class GoogleLoggingBillingAccountBucketConfigIndexConfigsBlock : Terrafor
 /// <summary>
 /// Manages a google_logging_billing_account_bucket_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLoggingBillingAccountBucketConfig : TerraformResource
 {
     public GoogleLoggingBillingAccountBucketConfig(string name) : base("google_logging_billing_account_bucket_config", name)

@@ -140,6 +140,7 @@ public class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_express_route_circuit_peering resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermExpressRouteCircuitPeering : TerraformResource
 {
     public AzurermExpressRouteCircuitPeering(string name) : base("azurerm_express_route_circuit_peering", name)

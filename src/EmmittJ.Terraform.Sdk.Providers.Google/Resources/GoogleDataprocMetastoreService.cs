@@ -228,6 +228,7 @@ public class GoogleDataprocMetastoreServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_metastore_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocMetastoreService : TerraformResource
 {
     public GoogleDataprocMetastoreService(string name) : base("google_dataproc_metastore_service", name)

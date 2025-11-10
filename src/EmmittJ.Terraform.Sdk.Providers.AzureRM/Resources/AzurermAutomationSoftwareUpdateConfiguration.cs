@@ -344,6 +344,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
 /// Manages a azurerm_automation_software_update_configuration resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
 {
     public AzurermAutomationSoftwareUpdateConfiguration(string name) : base("azurerm_automation_software_update_configuration", name)

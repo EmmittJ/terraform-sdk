@@ -77,6 +77,7 @@ public class GoogleProjectAccessApprovalSettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_project_access_approval_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleProjectAccessApprovalSettings : TerraformResource
 {
     public GoogleProjectAccessApprovalSettings(string name) : base("google_project_access_approval_settings", name)

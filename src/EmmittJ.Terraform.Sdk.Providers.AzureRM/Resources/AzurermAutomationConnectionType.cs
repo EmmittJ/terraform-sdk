@@ -86,6 +86,7 @@ public class AzurermAutomationConnectionTypeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_automation_connection_type resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomationConnectionType : TerraformResource
 {
     public AzurermAutomationConnectionType(string name) : base("azurerm_automation_connection_type", name)

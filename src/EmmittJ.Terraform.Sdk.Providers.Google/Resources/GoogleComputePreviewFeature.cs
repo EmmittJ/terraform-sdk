@@ -48,6 +48,7 @@ public class GoogleComputePreviewFeatureTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_preview_feature resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputePreviewFeature : TerraformResource
 {
     public GoogleComputePreviewFeature(string name) : base("google_compute_preview_feature", name)

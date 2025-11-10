@@ -243,6 +243,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_kusto_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKustoCluster : TerraformResource
 {
     public AzurermKustoCluster(string name) : base("azurerm_kusto_cluster", name)

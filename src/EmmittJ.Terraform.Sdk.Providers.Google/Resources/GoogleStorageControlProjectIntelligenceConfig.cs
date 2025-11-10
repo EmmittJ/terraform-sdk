@@ -48,6 +48,7 @@ public class GoogleStorageControlProjectIntelligenceConfigTimeoutsBlock : Terraf
 /// <summary>
 /// Manages a google_storage_control_project_intelligence_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageControlProjectIntelligenceConfig : TerraformResource
 {
     public GoogleStorageControlProjectIntelligenceConfig(string name) : base("google_storage_control_project_intelligence_config", name)

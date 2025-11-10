@@ -39,6 +39,7 @@ public class AwsVpcPeeringConnectionOptionsRequesterBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpc_peering_connection_options resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpcPeeringConnectionOptions : TerraformResource
 {
     public AwsVpcPeeringConnectionOptions(string name) : base("aws_vpc_peering_connection_options", name)

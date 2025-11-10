@@ -212,6 +212,7 @@ public class GoogleColabRuntimeTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_colab_runtime_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleColabRuntimeTemplate : TerraformResource
 {
     public GoogleColabRuntimeTemplate(string name) : base("google_colab_runtime_template", name)

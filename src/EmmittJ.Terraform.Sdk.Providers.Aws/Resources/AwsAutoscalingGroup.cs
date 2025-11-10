@@ -336,6 +336,7 @@ public class AwsAutoscalingGroupWarmPoolBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_autoscaling_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAutoscalingGroup : TerraformResource
 {
     public AwsAutoscalingGroup(string name) : base("aws_autoscaling_group", name)

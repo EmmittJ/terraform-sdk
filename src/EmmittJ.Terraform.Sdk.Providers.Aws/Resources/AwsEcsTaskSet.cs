@@ -194,6 +194,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ecs_task_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcsTaskSet : TerraformResource
 {
     public AwsEcsTaskSet(string name) : base("aws_ecs_task_set", name)

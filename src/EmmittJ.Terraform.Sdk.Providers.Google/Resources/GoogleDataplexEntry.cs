@@ -155,6 +155,7 @@ public class GoogleDataplexEntryTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_entry resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexEntry : TerraformResource
 {
     public GoogleDataplexEntry(string name) : base("google_dataplex_entry", name)

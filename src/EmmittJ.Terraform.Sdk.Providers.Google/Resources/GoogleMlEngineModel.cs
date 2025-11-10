@@ -59,6 +59,7 @@ public class GoogleMlEngineModelTimeoutsBlock : TerraformBlock
 /// Manages a google_ml_engine_model resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMlEngineModel : TerraformResource
 {
     public GoogleMlEngineModel(string name) : base("google_ml_engine_model", name)

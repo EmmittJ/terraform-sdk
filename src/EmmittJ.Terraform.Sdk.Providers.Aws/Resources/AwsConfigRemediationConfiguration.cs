@@ -58,6 +58,7 @@ public class AwsConfigRemediationConfigurationParameterBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_config_remediation_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConfigRemediationConfiguration : TerraformResource
 {
     public AwsConfigRemediationConfiguration(string name) : base("aws_config_remediation_configuration", name)

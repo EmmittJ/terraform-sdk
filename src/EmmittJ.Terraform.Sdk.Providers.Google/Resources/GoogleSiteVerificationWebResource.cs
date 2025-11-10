@@ -60,6 +60,7 @@ public class GoogleSiteVerificationWebResourceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_site_verification_web_resource resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSiteVerificationWebResource : TerraformResource
 {
     public GoogleSiteVerificationWebResource(string name) : base("google_site_verification_web_resource", name)

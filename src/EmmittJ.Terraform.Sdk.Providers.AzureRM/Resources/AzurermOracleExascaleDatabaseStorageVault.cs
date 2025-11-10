@@ -76,6 +76,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_oracle_exascale_database_storage_vault resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermOracleExascaleDatabaseStorageVault : TerraformResource
 {
     public AzurermOracleExascaleDatabaseStorageVault(string name) : base("azurerm_oracle_exascale_database_storage_vault", name)

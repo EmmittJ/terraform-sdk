@@ -58,6 +58,7 @@ public class GoogleVertexAiDatasetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_dataset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiDataset : TerraformResource
 {
     public GoogleVertexAiDataset(string name) : base("google_vertex_ai_dataset", name)

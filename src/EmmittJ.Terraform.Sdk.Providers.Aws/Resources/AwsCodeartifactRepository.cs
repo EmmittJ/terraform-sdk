@@ -59,6 +59,7 @@ public class AwsCodeartifactRepositoryUpstreamBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codeartifact_repository resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodeartifactRepository : TerraformResource
 {
     public AwsCodeartifactRepository(string name) : base("aws_codeartifact_repository", name)

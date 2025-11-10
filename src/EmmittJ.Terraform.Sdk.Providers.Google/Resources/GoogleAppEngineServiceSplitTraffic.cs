@@ -67,6 +67,7 @@ public class GoogleAppEngineServiceSplitTrafficTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_app_engine_service_split_traffic resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAppEngineServiceSplitTraffic : TerraformResource
 {
     public GoogleAppEngineServiceSplitTraffic(string name) : base("google_app_engine_service_split_traffic", name)

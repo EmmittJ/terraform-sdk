@@ -175,6 +175,7 @@ public class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBloc
 /// <summary>
 /// Retrieves information about a aws_ecs_task_execution.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcsTaskExecutionDataSource : TerraformDataSource
 {
     public AwsEcsTaskExecutionDataSource(string name) : base("aws_ecs_task_execution", name)

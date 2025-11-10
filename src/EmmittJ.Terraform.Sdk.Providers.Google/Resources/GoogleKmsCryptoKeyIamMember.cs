@@ -42,6 +42,7 @@ public class GoogleKmsCryptoKeyIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_kms_crypto_key_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleKmsCryptoKeyIamMember : TerraformResource
 {
     public GoogleKmsCryptoKeyIamMember(string name) : base("google_kms_crypto_key_iam_member", name)

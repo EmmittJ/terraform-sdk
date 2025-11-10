@@ -86,6 +86,7 @@ public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a azurerm_data_factory_credential_service_principal resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryCredentialServicePrincipal : TerraformResource
 {
     public AzurermDataFactoryCredentialServicePrincipal(string name) : base("azurerm_data_factory_credential_service_principal", name)

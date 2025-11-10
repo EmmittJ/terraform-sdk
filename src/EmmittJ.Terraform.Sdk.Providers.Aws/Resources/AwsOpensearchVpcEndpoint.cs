@@ -85,6 +85,7 @@ public class AwsOpensearchVpcEndpointVpcOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_opensearch_vpc_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsOpensearchVpcEndpoint : TerraformResource
 {
     public AwsOpensearchVpcEndpoint(string name) : base("aws_opensearch_vpc_endpoint", name)

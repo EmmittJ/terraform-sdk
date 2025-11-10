@@ -58,6 +58,7 @@ public class AwsBackupFrameworkTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_backup_framework resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsBackupFramework : TerraformResource
 {
     public AwsBackupFramework(string name) : base("aws_backup_framework", name)

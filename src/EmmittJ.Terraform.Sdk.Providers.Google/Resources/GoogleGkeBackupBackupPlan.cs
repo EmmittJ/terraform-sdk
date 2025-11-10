@@ -171,6 +171,7 @@ public class GoogleGkeBackupBackupPlanTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_backup_backup_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeBackupBackupPlan : TerraformResource
 {
     public GoogleGkeBackupBackupPlan(string name) : base("google_gke_backup_backup_plan", name)

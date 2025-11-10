@@ -343,6 +343,7 @@ public class AzureadApplicationWebBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadApplication : TerraformResource
 {
     public AzureadApplication(string name) : base("azuread_application", name)

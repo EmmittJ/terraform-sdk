@@ -153,6 +153,7 @@ public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_api_management_api_diagnostic resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApiManagementApiDiagnostic : TerraformResource
 {
     public AzurermApiManagementApiDiagnostic(string name) : base("azurerm_api_management_api_diagnostic", name)

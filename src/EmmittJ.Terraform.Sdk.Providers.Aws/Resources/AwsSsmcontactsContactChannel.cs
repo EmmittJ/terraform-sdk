@@ -23,6 +23,7 @@ public class AwsSsmcontactsContactChannelDeliveryAddressBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ssmcontacts_contact_channel resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmcontactsContactChannel : TerraformResource
 {
     public AwsSsmcontactsContactChannel(string name) : base("aws_ssmcontacts_contact_channel", name)

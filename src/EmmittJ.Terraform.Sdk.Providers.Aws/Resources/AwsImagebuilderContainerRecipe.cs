@@ -68,6 +68,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_imagebuilder_container_recipe resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsImagebuilderContainerRecipe : TerraformResource
 {
     public AwsImagebuilderContainerRecipe(string name) : base("aws_imagebuilder_container_recipe", name)

@@ -57,6 +57,7 @@ public class AwsEc2TrafficMirrorFilterRuleSourcePortRangeBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ec2_traffic_mirror_filter_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEc2TrafficMirrorFilterRule : TerraformResource
 {
     public AwsEc2TrafficMirrorFilterRule(string name) : base("aws_ec2_traffic_mirror_filter_rule", name)

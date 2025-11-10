@@ -42,6 +42,7 @@ public class GoogleProjectIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_project_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleProjectIamBinding : TerraformResource
 {
     public GoogleProjectIamBinding(string name) : base("google_project_iam_binding", name)

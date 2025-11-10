@@ -233,6 +233,7 @@ public class AwsMedialiveChannelVpcBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_medialive_channel resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMedialiveChannel : TerraformResource
 {
     public AwsMedialiveChannel(string name) : base("aws_medialive_channel", name)

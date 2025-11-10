@@ -85,6 +85,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_network_function_collector_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkFunctionCollectorPolicy : TerraformResource
 {
     public AzurermNetworkFunctionCollectorPolicy(string name) : base("azurerm_network_function_collector_policy", name)

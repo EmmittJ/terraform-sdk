@@ -41,6 +41,7 @@ public class AwsSagemakerDeviceDeviceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_device resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerDevice : TerraformResource
 {
     public AwsSagemakerDevice(string name) : base("aws_sagemaker_device", name)

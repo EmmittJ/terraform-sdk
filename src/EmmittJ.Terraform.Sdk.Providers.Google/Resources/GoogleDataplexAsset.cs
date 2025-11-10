@@ -121,6 +121,7 @@ public class GoogleDataplexAssetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_asset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexAsset : TerraformResource
 {
     public GoogleDataplexAsset(string name) : base("google_dataplex_asset", name)

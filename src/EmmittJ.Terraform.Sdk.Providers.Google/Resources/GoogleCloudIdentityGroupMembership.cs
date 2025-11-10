@@ -100,6 +100,7 @@ public class GoogleCloudIdentityGroupMembershipTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_identity_group_membership resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudIdentityGroupMembership : TerraformResource
 {
     public GoogleCloudIdentityGroupMembership(string name) : base("google_cloud_identity_group_membership", name)

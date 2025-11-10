@@ -104,6 +104,7 @@ public class AwsMskReplicatorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_msk_replicator resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMskReplicator : TerraformResource
 {
     public AwsMskReplicator(string name) : base("aws_msk_replicator", name)

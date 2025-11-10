@@ -119,6 +119,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a google_apigee_keystores_aliases_self_signed_cert resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
 {
     public GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : base("google_apigee_keystores_aliases_self_signed_cert", name)

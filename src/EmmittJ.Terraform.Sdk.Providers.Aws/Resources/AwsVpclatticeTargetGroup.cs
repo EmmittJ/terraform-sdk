@@ -102,6 +102,7 @@ public class AwsVpclatticeTargetGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpclattice_target_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpclatticeTargetGroup : TerraformResource
 {
     public AwsVpclatticeTargetGroup(string name) : base("aws_vpclattice_target_group", name)

@@ -108,6 +108,7 @@ public class GooglePrivilegedAccessManagerEntitlementTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a google_privileged_access_manager_entitlement resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePrivilegedAccessManagerEntitlement : TerraformResource
 {
     public GooglePrivilegedAccessManagerEntitlement(string name) : base("google_privileged_access_manager_entitlement", name)

@@ -111,6 +111,7 @@ public class AwsCodecatalystDevEnvironmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codecatalyst_dev_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodecatalystDevEnvironment : TerraformResource
 {
     public AwsCodecatalystDevEnvironment(string name) : base("aws_codecatalyst_dev_environment", name)

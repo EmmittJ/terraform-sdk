@@ -60,6 +60,7 @@ public class AwsSsmResourceDataSyncS3DestinationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ssm_resource_data_sync resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmResourceDataSync : TerraformResource
 {
     public AwsSsmResourceDataSync(string name) : base("aws_ssm_resource_data_sync", name)

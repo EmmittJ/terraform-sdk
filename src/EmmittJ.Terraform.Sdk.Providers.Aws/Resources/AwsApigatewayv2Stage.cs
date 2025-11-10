@@ -149,6 +149,7 @@ public class AwsApigatewayv2StageRouteSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_apigatewayv2_stage resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApigatewayv2Stage : TerraformResource
 {
     public AwsApigatewayv2Stage(string name) : base("aws_apigatewayv2_stage", name)

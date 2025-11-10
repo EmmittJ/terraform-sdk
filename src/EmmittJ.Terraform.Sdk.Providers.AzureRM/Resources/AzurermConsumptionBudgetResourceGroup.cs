@@ -157,6 +157,7 @@ public class AzurermConsumptionBudgetResourceGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_consumption_budget_resource_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermConsumptionBudgetResourceGroup : TerraformResource
 {
     public AzurermConsumptionBudgetResourceGroup(string name) : base("azurerm_consumption_budget_resource_group", name)

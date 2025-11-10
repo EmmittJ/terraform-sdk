@@ -113,6 +113,7 @@ public class AwsDocdbClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_docdb_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDocdbCluster : TerraformResource
 {
     public AwsDocdbCluster(string name) : base("aws_docdb_cluster", name)

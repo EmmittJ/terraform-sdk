@@ -87,6 +87,7 @@ public class AwsAmplifyDomainAssociationSubDomainBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_amplify_domain_association resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAmplifyDomainAssociation : TerraformResource
 {
     public AwsAmplifyDomainAssociation(string name) : base("aws_amplify_domain_association", name)

@@ -252,6 +252,7 @@ public class AwsVerifiedaccessEndpointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_verifiedaccess_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVerifiedaccessEndpoint : TerraformResource
 {
     public AwsVerifiedaccessEndpoint(string name) : base("aws_verifiedaccess_endpoint", name)

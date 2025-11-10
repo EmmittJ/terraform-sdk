@@ -299,6 +299,7 @@ public class AzurermFirewallPolicyTlsCertificateBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_firewall_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFirewallPolicy : TerraformResource
 {
     public AzurermFirewallPolicy(string name) : base("azurerm_firewall_policy", name)

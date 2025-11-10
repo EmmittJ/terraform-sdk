@@ -48,6 +48,7 @@ public class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_networkmanager_connect_peer resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkmanagerConnectPeer : TerraformResource
 {
     public AwsNetworkmanagerConnectPeer(string name) : base("aws_networkmanager_connect_peer", name)

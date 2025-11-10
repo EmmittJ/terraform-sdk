@@ -65,6 +65,7 @@ public class AwsIvsRecordingConfigurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ivs_recording_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIvsRecordingConfiguration : TerraformResource
 {
     public AwsIvsRecordingConfiguration(string name) : base("aws_ivs_recording_configuration", name)

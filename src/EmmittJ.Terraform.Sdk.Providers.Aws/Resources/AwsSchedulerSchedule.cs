@@ -69,6 +69,7 @@ public class AwsSchedulerScheduleTargetBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_scheduler_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSchedulerSchedule : TerraformResource
 {
     public AwsSchedulerSchedule(string name) : base("aws_scheduler_schedule", name)

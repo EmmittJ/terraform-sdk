@@ -57,6 +57,7 @@ public class AwsKeyspacesKeyspaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_keyspaces_keyspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKeyspacesKeyspace : TerraformResource
 {
     public AwsKeyspacesKeyspace(string name) : base("aws_keyspaces_keyspace", name)

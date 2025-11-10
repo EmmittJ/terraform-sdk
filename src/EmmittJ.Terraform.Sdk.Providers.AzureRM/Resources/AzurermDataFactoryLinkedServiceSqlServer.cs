@@ -105,6 +105,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_sql_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceSqlServer : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceSqlServer(string name) : base("azurerm_data_factory_linked_service_sql_server", name)

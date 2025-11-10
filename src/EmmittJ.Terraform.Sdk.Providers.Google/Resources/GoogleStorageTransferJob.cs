@@ -164,6 +164,7 @@ public class GoogleStorageTransferJobTransferSpecBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_transfer_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageTransferJob : TerraformResource
 {
     public GoogleStorageTransferJob(string name) : base("google_storage_transfer_job", name)

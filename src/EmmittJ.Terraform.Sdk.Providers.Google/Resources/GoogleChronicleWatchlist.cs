@@ -65,6 +65,7 @@ public class GoogleChronicleWatchlistWatchlistUserPreferencesBlock : TerraformBl
 /// <summary>
 /// Manages a google_chronicle_watchlist resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleChronicleWatchlist : TerraformResource
 {
     public GoogleChronicleWatchlist(string name) : base("google_chronicle_watchlist", name)

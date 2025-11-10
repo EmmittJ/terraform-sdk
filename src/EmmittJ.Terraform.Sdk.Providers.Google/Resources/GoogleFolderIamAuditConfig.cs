@@ -32,6 +32,7 @@ public class GoogleFolderIamAuditConfigAuditLogConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_folder_iam_audit_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFolderIamAuditConfig : TerraformResource
 {
     public GoogleFolderIamAuditConfig(string name) : base("google_folder_iam_audit_config", name)

@@ -42,6 +42,7 @@ public class GoogleStorageManagedFolderIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_managed_folder_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageManagedFolderIamMember : TerraformResource
 {
     public GoogleStorageManagedFolderIamMember(string name) : base("google_storage_managed_folder_iam_member", name)

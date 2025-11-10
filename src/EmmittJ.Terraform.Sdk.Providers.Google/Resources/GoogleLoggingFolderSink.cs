@@ -69,6 +69,7 @@ public class GoogleLoggingFolderSinkExclusionsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_logging_folder_sink resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLoggingFolderSink : TerraformResource
 {
     public GoogleLoggingFolderSink(string name) : base("google_logging_folder_sink", name)

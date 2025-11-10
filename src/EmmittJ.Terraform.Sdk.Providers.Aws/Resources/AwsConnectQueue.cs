@@ -40,6 +40,7 @@ public class AwsConnectQueueOutboundCallerConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_connect_queue resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConnectQueue : TerraformResource
 {
     public AwsConnectQueue(string name) : base("aws_connect_queue", name)

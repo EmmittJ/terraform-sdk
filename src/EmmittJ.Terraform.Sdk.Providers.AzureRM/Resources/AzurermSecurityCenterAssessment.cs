@@ -85,6 +85,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_security_center_assessment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSecurityCenterAssessment : TerraformResource
 {
     public AzurermSecurityCenterAssessment(string name) : base("azurerm_security_center_assessment", name)

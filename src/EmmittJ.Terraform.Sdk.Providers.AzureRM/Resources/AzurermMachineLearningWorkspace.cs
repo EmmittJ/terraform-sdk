@@ -218,6 +218,7 @@ public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_machine_learning_workspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMachineLearningWorkspace : TerraformResource
 {
     public AzurermMachineLearningWorkspace(string name) : base("azurerm_machine_learning_workspace", name)

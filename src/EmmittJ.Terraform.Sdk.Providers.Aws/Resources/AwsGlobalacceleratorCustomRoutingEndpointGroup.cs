@@ -86,6 +86,7 @@ public class AwsGlobalacceleratorCustomRoutingEndpointGroupTimeoutsBlock : Terra
 /// <summary>
 /// Manages a aws_globalaccelerator_custom_routing_endpoint_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlobalacceleratorCustomRoutingEndpointGroup : TerraformResource
 {
     public AwsGlobalacceleratorCustomRoutingEndpointGroup(string name) : base("aws_globalaccelerator_custom_routing_endpoint_group", name)

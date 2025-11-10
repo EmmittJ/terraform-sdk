@@ -171,6 +171,7 @@ public class GoogleComputeSubnetworkTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_subnetwork resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeSubnetwork : TerraformResource
 {
     public GoogleComputeSubnetwork(string name) : base("google_compute_subnetwork", name)

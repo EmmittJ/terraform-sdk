@@ -57,6 +57,7 @@ public class AwsEfsFileSystemProtectionBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_efs_file_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEfsFileSystem : TerraformResource
 {
     public AwsEfsFileSystem(string name) : base("aws_efs_file_system", name)

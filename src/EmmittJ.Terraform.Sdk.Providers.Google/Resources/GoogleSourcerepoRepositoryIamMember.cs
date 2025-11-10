@@ -42,6 +42,7 @@ public class GoogleSourcerepoRepositoryIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_sourcerepo_repository_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSourcerepoRepositoryIamMember : TerraformResource
 {
     public GoogleSourcerepoRepositoryIamMember(string name) : base("google_sourcerepo_repository_iam_member", name)

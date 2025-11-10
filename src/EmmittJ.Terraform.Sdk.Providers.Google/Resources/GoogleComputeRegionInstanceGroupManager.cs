@@ -379,6 +379,7 @@ public class GoogleComputeRegionInstanceGroupManagerVersionBlock : TerraformBloc
 /// <summary>
 /// Manages a google_compute_region_instance_group_manager resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionInstanceGroupManager : TerraformResource
 {
     public GoogleComputeRegionInstanceGroupManager(string name) : base("google_compute_region_instance_group_manager", name)

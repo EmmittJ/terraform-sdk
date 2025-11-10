@@ -57,6 +57,7 @@ public class AwsStoragegatewayFileSystemAssociationTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_storagegateway_file_system_association resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsStoragegatewayFileSystemAssociation : TerraformResource
 {
     public AwsStoragegatewayFileSystemAssociation(string name) : base("aws_storagegateway_file_system_association", name)

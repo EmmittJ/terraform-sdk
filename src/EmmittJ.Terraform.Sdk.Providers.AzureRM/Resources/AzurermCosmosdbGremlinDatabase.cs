@@ -66,6 +66,7 @@ public class AzurermCosmosdbGremlinDatabaseTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_gremlin_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbGremlinDatabase : TerraformResource
 {
     public AzurermCosmosdbGremlinDatabase(string name) : base("azurerm_cosmosdb_gremlin_database", name)

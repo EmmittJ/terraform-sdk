@@ -105,6 +105,7 @@ public class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_billing_account_cost_management_export resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBillingAccountCostManagementExport : TerraformResource
 {
     public AzurermBillingAccountCostManagementExport(string name) : base("azurerm_billing_account_cost_management_export", name)

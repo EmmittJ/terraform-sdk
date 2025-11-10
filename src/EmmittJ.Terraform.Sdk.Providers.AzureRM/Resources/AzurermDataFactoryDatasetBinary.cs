@@ -241,6 +241,7 @@ public class AzurermDataFactoryDatasetBinaryTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_dataset_binary resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryDatasetBinary : TerraformResource
 {
     public AzurermDataFactoryDatasetBinary(string name) : base("azurerm_data_factory_dataset_binary", name)

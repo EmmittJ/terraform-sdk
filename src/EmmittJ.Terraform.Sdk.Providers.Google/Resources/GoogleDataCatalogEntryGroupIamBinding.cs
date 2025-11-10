@@ -42,6 +42,7 @@ public class GoogleDataCatalogEntryGroupIamBindingConditionBlock : TerraformBloc
 /// <summary>
 /// Manages a google_data_catalog_entry_group_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataCatalogEntryGroupIamBinding : TerraformResource
 {
     public GoogleDataCatalogEntryGroupIamBinding(string name) : base("google_data_catalog_entry_group_iam_binding", name)

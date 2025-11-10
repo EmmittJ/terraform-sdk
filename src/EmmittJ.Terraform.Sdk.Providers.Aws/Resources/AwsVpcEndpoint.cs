@@ -101,6 +101,7 @@ public class AwsVpcEndpointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpc_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpcEndpoint : TerraformResource
 {
     public AwsVpcEndpoint(string name) : base("aws_vpc_endpoint", name)

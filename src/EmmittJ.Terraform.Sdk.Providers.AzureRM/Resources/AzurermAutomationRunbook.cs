@@ -120,6 +120,7 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_automation_runbook resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomationRunbook : TerraformResource
 {
     public AzurermAutomationRunbook(string name) : base("azurerm_automation_runbook", name)

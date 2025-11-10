@@ -22,6 +22,7 @@ public class AwsAppmeshGatewayRouteSpecBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appmesh_gateway_route resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppmeshGatewayRoute : TerraformResource
 {
     public AwsAppmeshGatewayRoute(string name) : base("aws_appmesh_gateway_route", name)

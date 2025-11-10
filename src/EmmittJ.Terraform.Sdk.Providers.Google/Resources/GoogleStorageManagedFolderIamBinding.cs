@@ -42,6 +42,7 @@ public class GoogleStorageManagedFolderIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_managed_folder_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageManagedFolderIamBinding : TerraformResource
 {
     public GoogleStorageManagedFolderIamBinding(string name) : base("google_storage_managed_folder_iam_binding", name)

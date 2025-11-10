@@ -39,6 +39,7 @@ public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_sesv2_account_vdm_attributes resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSesv2AccountVdmAttributes : TerraformResource
 {
     public AwsSesv2AccountVdmAttributes(string name) : base("aws_sesv2_account_vdm_attributes", name)

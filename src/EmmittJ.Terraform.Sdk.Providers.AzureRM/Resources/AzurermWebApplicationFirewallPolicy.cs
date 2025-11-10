@@ -229,6 +229,7 @@ public class AzurermWebApplicationFirewallPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_web_application_firewall_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWebApplicationFirewallPolicy : TerraformResource
 {
     public AzurermWebApplicationFirewallPolicy(string name) : base("azurerm_web_application_firewall_policy", name)

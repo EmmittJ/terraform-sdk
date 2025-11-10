@@ -22,6 +22,7 @@ public class AwsIotThingGroupPropertiesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_iot_thing_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIotThingGroup : TerraformResource
 {
     public AwsIotThingGroup(string name) : base("aws_iot_thing_group", name)

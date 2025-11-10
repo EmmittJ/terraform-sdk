@@ -77,6 +77,7 @@ public class AzureadGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadGroup : TerraformResource
 {
     public AzureadGroup(string name) : base("azuread_group", name)

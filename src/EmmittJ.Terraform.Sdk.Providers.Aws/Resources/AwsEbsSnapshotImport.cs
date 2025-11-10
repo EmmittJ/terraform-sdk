@@ -111,6 +111,7 @@ public class AwsEbsSnapshotImportTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ebs_snapshot_import resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEbsSnapshotImport : TerraformResource
 {
     public AwsEbsSnapshotImport(string name) : base("aws_ebs_snapshot_import", name)

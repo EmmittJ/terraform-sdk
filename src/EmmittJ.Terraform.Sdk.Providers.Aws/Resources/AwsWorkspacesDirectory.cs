@@ -280,6 +280,7 @@ public class AwsWorkspacesDirectoryWorkspaceCreationPropertiesBlock : TerraformB
 /// <summary>
 /// Manages a aws_workspaces_directory resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsWorkspacesDirectory : TerraformResource
 {
     public AwsWorkspacesDirectory(string name) : base("aws_workspaces_directory", name)

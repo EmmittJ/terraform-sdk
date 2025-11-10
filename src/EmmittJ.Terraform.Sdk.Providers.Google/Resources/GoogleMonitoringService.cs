@@ -68,6 +68,7 @@ public class GoogleMonitoringServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_monitoring_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMonitoringService : TerraformResource
 {
     public GoogleMonitoringService(string name) : base("google_monitoring_service", name)

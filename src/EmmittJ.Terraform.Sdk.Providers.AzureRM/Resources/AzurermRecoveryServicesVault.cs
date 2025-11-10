@@ -166,6 +166,7 @@ public class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_recovery_services_vault resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermRecoveryServicesVault : TerraformResource
 {
     public AzurermRecoveryServicesVault(string name) : base("azurerm_recovery_services_vault", name)

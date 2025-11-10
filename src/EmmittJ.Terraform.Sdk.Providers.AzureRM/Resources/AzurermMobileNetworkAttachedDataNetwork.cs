@@ -111,6 +111,7 @@ public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_mobile_network_attached_data_network resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMobileNetworkAttachedDataNetwork : TerraformResource
 {
     public AzurermMobileNetworkAttachedDataNetwork(string name) : base("azurerm_mobile_network_attached_data_network", name)

@@ -93,6 +93,7 @@ public class GoogleDatastreamPrivateConnectionVpcPeeringConfigBlock : TerraformB
 /// <summary>
 /// Manages a google_datastream_private_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDatastreamPrivateConnection : TerraformResource
 {
     public GoogleDatastreamPrivateConnection(string name) : base("google_datastream_private_connection", name)

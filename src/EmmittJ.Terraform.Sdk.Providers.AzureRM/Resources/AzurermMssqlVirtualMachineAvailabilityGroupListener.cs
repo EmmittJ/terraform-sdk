@@ -194,6 +194,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
 /// <summary>
 /// Manages a azurerm_mssql_virtual_machine_availability_group_listener resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlVirtualMachineAvailabilityGroupListener : TerraformResource
 {
     public AzurermMssqlVirtualMachineAvailabilityGroupListener(string name) : base("azurerm_mssql_virtual_machine_availability_group_listener", name)

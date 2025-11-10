@@ -228,6 +228,7 @@ public class AwsLaunchConfigurationRootBlockDeviceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_launch_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLaunchConfiguration : TerraformResource
 {
     public AwsLaunchConfiguration(string name) : base("aws_launch_configuration", name)

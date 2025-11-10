@@ -463,6 +463,7 @@ public class AzurermHdinsightHbaseClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_hdinsight_hbase_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHdinsightHbaseCluster : TerraformResource
 {
     public AzurermHdinsightHbaseCluster(string name) : base("azurerm_hdinsight_hbase_cluster", name)

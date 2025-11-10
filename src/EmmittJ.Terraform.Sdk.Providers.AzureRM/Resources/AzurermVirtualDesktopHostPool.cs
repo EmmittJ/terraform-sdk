@@ -84,6 +84,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_desktop_host_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualDesktopHostPool : TerraformResource
 {
     public AzurermVirtualDesktopHostPool(string name) : base("azurerm_virtual_desktop_host_pool", name)

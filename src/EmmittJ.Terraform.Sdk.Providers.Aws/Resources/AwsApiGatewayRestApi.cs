@@ -41,6 +41,7 @@ public class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_api_gateway_rest_api resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApiGatewayRestApi : TerraformResource
 {
     public AwsApiGatewayRestApi(string name) : base("aws_api_gateway_rest_api", name)

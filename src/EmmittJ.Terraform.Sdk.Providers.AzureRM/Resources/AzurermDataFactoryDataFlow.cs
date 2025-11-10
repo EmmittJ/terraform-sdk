@@ -130,6 +130,7 @@ public class AzurermDataFactoryDataFlowTransformationBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_data_flow resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryDataFlow : TerraformResource
 {
     public AzurermDataFactoryDataFlow(string name) : base("azurerm_data_factory_data_flow", name)

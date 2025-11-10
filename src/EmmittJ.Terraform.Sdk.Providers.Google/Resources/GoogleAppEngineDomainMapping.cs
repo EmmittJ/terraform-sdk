@@ -86,6 +86,7 @@ public class GoogleAppEngineDomainMappingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_app_engine_domain_mapping resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAppEngineDomainMapping : TerraformResource
 {
     public GoogleAppEngineDomainMapping(string name) : base("google_app_engine_domain_mapping", name)

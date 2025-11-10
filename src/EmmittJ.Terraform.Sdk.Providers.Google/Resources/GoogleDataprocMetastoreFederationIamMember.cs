@@ -42,6 +42,7 @@ public class GoogleDataprocMetastoreFederationIamMemberConditionBlock : Terrafor
 /// <summary>
 /// Manages a google_dataproc_metastore_federation_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocMetastoreFederationIamMember : TerraformResource
 {
     public GoogleDataprocMetastoreFederationIamMember(string name) : base("google_dataproc_metastore_federation_iam_member", name)

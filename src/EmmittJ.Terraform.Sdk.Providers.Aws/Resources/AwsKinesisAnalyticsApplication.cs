@@ -133,6 +133,7 @@ public class AwsKinesisAnalyticsApplicationReferenceDataSourcesBlock : Terraform
 /// Manages a aws_kinesis_analytics_application resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKinesisAnalyticsApplication : TerraformResource
 {
     public AwsKinesisAnalyticsApplication(string name) : base("aws_kinesis_analytics_application", name)

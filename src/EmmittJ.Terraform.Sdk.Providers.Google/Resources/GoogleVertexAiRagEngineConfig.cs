@@ -48,6 +48,7 @@ public class GoogleVertexAiRagEngineConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_rag_engine_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiRagEngineConfig : TerraformResource
 {
     public GoogleVertexAiRagEngineConfig(string name) : base("google_vertex_ai_rag_engine_config", name)

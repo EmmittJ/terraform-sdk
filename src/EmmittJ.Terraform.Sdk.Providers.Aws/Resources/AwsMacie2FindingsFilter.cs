@@ -30,6 +30,7 @@ public class AwsMacie2FindingsFilterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_macie2_findings_filter resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMacie2FindingsFilter : TerraformResource
 {
     public AwsMacie2FindingsFilter(string name) : base("aws_macie2_findings_filter", name)

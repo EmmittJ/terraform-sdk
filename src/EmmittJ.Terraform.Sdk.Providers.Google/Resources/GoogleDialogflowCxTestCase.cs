@@ -87,6 +87,7 @@ public class GoogleDialogflowCxTestCaseTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_test_case resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxTestCase : TerraformResource
 {
     public GoogleDialogflowCxTestCase(string name) : base("google_dialogflow_cx_test_case", name)

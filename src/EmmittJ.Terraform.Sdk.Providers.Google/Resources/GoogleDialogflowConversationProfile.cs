@@ -298,6 +298,7 @@ public class GoogleDialogflowConversationProfileTtsConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_conversation_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowConversationProfile : TerraformResource
 {
     public GoogleDialogflowConversationProfile(string name) : base("google_dialogflow_conversation_profile", name)

@@ -42,6 +42,7 @@ public class GoogleHealthcareConsentStoreIamBindingConditionBlock : TerraformBlo
 /// <summary>
 /// Manages a google_healthcare_consent_store_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareConsentStoreIamBinding : TerraformResource
 {
     public GoogleHealthcareConsentStoreIamBinding(string name) : base("google_healthcare_consent_store_iam_binding", name)

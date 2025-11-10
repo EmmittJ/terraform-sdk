@@ -42,6 +42,7 @@ public class GoogleGkeHubScopeIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_hub_scope_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeHubScopeIamMember : TerraformResource
 {
     public GoogleGkeHubScopeIamMember(string name) : base("google_gke_hub_scope_iam_member", name)

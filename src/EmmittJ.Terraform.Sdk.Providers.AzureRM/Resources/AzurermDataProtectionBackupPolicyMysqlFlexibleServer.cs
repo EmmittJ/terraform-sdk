@@ -76,6 +76,7 @@ public class AzurermDataProtectionBackupPolicyMysqlFlexibleServerTimeoutsBlock :
 /// <summary>
 /// Manages a azurerm_data_protection_backup_policy_mysql_flexible_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataProtectionBackupPolicyMysqlFlexibleServer : TerraformResource
 {
     public AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string name) : base("azurerm_data_protection_backup_policy_mysql_flexible_server", name)

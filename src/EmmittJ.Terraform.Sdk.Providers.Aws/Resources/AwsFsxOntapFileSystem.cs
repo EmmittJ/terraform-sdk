@@ -66,6 +66,7 @@ public class AwsFsxOntapFileSystemTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fsx_ontap_file_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFsxOntapFileSystem : TerraformResource
 {
     public AwsFsxOntapFileSystem(string name) : base("aws_fsx_ontap_file_system", name)

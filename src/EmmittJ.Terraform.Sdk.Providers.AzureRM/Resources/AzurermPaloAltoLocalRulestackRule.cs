@@ -173,6 +173,7 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_palo_alto_local_rulestack_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPaloAltoLocalRulestackRule : TerraformResource
 {
     public AzurermPaloAltoLocalRulestackRule(string name) : base("azurerm_palo_alto_local_rulestack_rule", name)

@@ -59,6 +59,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_api_gateway_documentation_part resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApiGatewayDocumentationPart : TerraformResource
 {
     public AwsApiGatewayDocumentationPart(string name) : base("aws_api_gateway_documentation_part", name)

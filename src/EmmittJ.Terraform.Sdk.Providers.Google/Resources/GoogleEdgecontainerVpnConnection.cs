@@ -57,6 +57,7 @@ public class GoogleEdgecontainerVpnConnectionVpcProjectBlock : TerraformBlock
 /// <summary>
 /// Manages a google_edgecontainer_vpn_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEdgecontainerVpnConnection : TerraformResource
 {
     public GoogleEdgecontainerVpnConnection(string name) : base("google_edgecontainer_vpn_connection", name)

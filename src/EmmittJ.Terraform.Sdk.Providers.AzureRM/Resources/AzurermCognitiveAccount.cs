@@ -212,6 +212,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cognitive_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCognitiveAccount : TerraformResource
 {
     public AzurermCognitiveAccount(string name) : base("azurerm_cognitive_account", name)

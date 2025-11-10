@@ -42,6 +42,7 @@ public class GoogleCloudRunV2WorkerPoolIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_run_v2_worker_pool_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudRunV2WorkerPoolIamMember : TerraformResource
 {
     public GoogleCloudRunV2WorkerPoolIamMember(string name) : base("google_cloud_run_v2_worker_pool_iam_member", name)

@@ -77,6 +77,7 @@ public class AzurermDataFactoryLinkedServiceAzureFileStorageTimeoutsBlock : Terr
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_azure_file_storage resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceAzureFileStorage : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceAzureFileStorage(string name) : base("azurerm_data_factory_linked_service_azure_file_storage", name)

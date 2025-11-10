@@ -66,6 +66,7 @@ public class AwsGluePartitionIndexTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_partition_index resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGluePartitionIndex : TerraformResource
 {
     public AwsGluePartitionIndex(string name) : base("aws_glue_partition_index", name)

@@ -72,6 +72,7 @@ public class GoogleFirebaseAppHostingBackendTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firebase_app_hosting_backend resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirebaseAppHostingBackend : TerraformResource
 {
     public GoogleFirebaseAppHostingBackend(string name) : base("google_firebase_app_hosting_backend", name)

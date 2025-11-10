@@ -84,6 +84,7 @@ public class GoogleFirestoreDatabaseTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firestore_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirestoreDatabase : TerraformResource
 {
     public GoogleFirestoreDatabase(string name) : base("google_firestore_database", name)

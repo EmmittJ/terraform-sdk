@@ -768,6 +768,7 @@ public class GoogleComputeRegionBackendServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_region_backend_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionBackendService : TerraformResource
 {
     public GoogleComputeRegionBackendService(string name) : base("google_compute_region_backend_service", name)

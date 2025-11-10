@@ -22,6 +22,7 @@ public class AwsLambdaAliasRoutingConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lambda_alias resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLambdaAlias : TerraformResource
 {
     public AwsLambdaAlias(string name) : base("aws_lambda_alias", name)

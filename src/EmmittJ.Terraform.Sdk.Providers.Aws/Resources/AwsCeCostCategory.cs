@@ -69,6 +69,7 @@ public class AwsCeCostCategorySplitChargeRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ce_cost_category resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCeCostCategory : TerraformResource
 {
     public AwsCeCostCategory(string name) : base("aws_ce_cost_category", name)

@@ -121,6 +121,7 @@ public class AzurermVideoIndexerAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_video_indexer_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVideoIndexerAccount : TerraformResource
 {
     public AzurermVideoIndexerAccount(string name) : base("azurerm_video_indexer_account", name)

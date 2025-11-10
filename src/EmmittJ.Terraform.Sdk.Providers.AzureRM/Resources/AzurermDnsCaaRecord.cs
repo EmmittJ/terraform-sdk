@@ -87,6 +87,7 @@ public class AzurermDnsCaaRecordTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dns_caa_record resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDnsCaaRecord : TerraformResource
 {
     public AzurermDnsCaaRecord(string name) : base("azurerm_dns_caa_record", name)

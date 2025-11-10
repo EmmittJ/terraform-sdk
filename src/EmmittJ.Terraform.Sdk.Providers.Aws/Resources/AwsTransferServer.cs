@@ -127,6 +127,7 @@ public class AwsTransferServerWorkflowDetailsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_transfer_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsTransferServer : TerraformResource
 {
     public AwsTransferServer(string name) : base("aws_transfer_server", name)

@@ -572,6 +572,7 @@ public class AwsSpotInstanceRequestTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_spot_instance_request resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSpotInstanceRequest : TerraformResource
 {
     public AwsSpotInstanceRequest(string name) : base("aws_spot_instance_request", name)

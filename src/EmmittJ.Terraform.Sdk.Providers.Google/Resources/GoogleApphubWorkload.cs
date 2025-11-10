@@ -48,6 +48,7 @@ public class GoogleApphubWorkloadTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apphub_workload resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApphubWorkload : TerraformResource
 {
     public GoogleApphubWorkload(string name) : base("google_apphub_workload", name)

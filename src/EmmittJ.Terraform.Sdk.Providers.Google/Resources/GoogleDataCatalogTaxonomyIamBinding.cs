@@ -42,6 +42,7 @@ public class GoogleDataCatalogTaxonomyIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_data_catalog_taxonomy_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataCatalogTaxonomyIamBinding : TerraformResource
 {
     public GoogleDataCatalogTaxonomyIamBinding(string name) : base("google_data_catalog_taxonomy_iam_binding", name)

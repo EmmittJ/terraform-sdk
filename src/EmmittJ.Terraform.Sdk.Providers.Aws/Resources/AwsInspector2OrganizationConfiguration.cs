@@ -95,6 +95,7 @@ public class AwsInspector2OrganizationConfigurationTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_inspector2_organization_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsInspector2OrganizationConfiguration : TerraformResource
 {
     public AwsInspector2OrganizationConfiguration(string name) : base("aws_inspector2_organization_configuration", name)

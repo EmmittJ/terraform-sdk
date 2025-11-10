@@ -85,6 +85,7 @@ public class AzurermStackHciClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_stack_hci_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStackHciCluster : TerraformResource
 {
     public AzurermStackHciCluster(string name) : base("azurerm_stack_hci_cluster", name)

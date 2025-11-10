@@ -70,6 +70,7 @@ public class AwsCloudwatchLogMetricFilterMetricTransformationBlock : TerraformBl
 /// <summary>
 /// Manages a aws_cloudwatch_log_metric_filter resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudwatchLogMetricFilter : TerraformResource
 {
     public AwsCloudwatchLogMetricFilter(string name) : base("aws_cloudwatch_log_metric_filter", name)

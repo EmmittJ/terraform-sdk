@@ -42,6 +42,7 @@ public class GoogleApigeeEnvironmentIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_environment_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeEnvironmentIamMember : TerraformResource
 {
     public GoogleApigeeEnvironmentIamMember(string name) : base("google_apigee_environment_iam_member", name)

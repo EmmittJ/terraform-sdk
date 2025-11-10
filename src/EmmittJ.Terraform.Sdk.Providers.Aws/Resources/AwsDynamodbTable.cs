@@ -438,6 +438,7 @@ public class AwsDynamodbTableWarmThroughputBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_dynamodb_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDynamodbTable : TerraformResource
 {
     public AwsDynamodbTable(string name) : base("aws_dynamodb_table", name)

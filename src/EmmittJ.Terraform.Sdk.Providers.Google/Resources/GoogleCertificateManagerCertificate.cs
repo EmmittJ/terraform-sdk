@@ -156,6 +156,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_certificate_manager_certificate resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCertificateManagerCertificate : TerraformResource
 {
     public GoogleCertificateManagerCertificate(string name) : base("google_certificate_manager_certificate", name)

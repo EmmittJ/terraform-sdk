@@ -85,6 +85,7 @@ public class AzurermDataShareAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_share_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataShareAccount : TerraformResource
 {
     public AzurermDataShareAccount(string name) : base("azurerm_data_share_account", name)

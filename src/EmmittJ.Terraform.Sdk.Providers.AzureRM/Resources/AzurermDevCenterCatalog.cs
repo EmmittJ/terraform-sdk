@@ -145,6 +145,7 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dev_center_catalog resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDevCenterCatalog : TerraformResource
 {
     public AzurermDevCenterCatalog(string name) : base("azurerm_dev_center_catalog", name)

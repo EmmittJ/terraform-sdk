@@ -76,6 +76,7 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_eventgrid_partner_namespace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermEventgridPartnerNamespace : TerraformResource
 {
     public AzurermEventgridPartnerNamespace(string name) : base("azurerm_eventgrid_partner_namespace", name)

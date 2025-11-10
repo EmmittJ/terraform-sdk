@@ -550,6 +550,7 @@ public class AwsOpensearchDomainVpcOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_opensearch_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsOpensearchDomain : TerraformResource
 {
     public AwsOpensearchDomain(string name) : base("aws_opensearch_domain", name)

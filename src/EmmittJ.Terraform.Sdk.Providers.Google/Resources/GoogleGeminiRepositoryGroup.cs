@@ -70,6 +70,7 @@ public class GoogleGeminiRepositoryGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gemini_repository_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGeminiRepositoryGroup : TerraformResource
 {
     public GoogleGeminiRepositoryGroup(string name) : base("google_gemini_repository_group", name)

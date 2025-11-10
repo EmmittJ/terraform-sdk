@@ -42,6 +42,7 @@ public class GoogleCloudfunctionsFunctionIamMemberConditionBlock : TerraformBloc
 /// <summary>
 /// Manages a google_cloudfunctions_function_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudfunctionsFunctionIamMember : TerraformResource
 {
     public GoogleCloudfunctionsFunctionIamMember(string name) : base("google_cloudfunctions_function_iam_member", name)

@@ -42,6 +42,7 @@ public class GoogleWorkbenchInstanceIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_workbench_instance_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleWorkbenchInstanceIamMember : TerraformResource
 {
     public GoogleWorkbenchInstanceIamMember(string name) : base("google_workbench_instance_iam_member", name)

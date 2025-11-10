@@ -58,6 +58,7 @@ public class GoogleStorageTransferAgentPoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_transfer_agent_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageTransferAgentPool : TerraformResource
 {
     public GoogleStorageTransferAgentPool(string name) : base("google_storage_transfer_agent_pool", name)

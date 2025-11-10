@@ -121,6 +121,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_maintenance_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMaintenanceConfiguration : TerraformResource
 {
     public AzurermMaintenanceConfiguration(string name) : base("azurerm_maintenance_configuration", name)

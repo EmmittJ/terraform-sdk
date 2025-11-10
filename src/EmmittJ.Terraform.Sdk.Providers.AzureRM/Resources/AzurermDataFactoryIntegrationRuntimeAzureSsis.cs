@@ -354,6 +354,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
 /// <summary>
 /// Manages a azurerm_data_factory_integration_runtime_azure_ssis resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryIntegrationRuntimeAzureSsis : TerraformResource
 {
     public AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) : base("azurerm_data_factory_integration_runtime_azure_ssis", name)

@@ -85,6 +85,7 @@ public class AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_stream_analytics_stream_input_blob resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStreamAnalyticsStreamInputBlob : TerraformResource
 {
     public AzurermStreamAnalyticsStreamInputBlob(string name) : base("azurerm_stream_analytics_stream_input_blob", name)

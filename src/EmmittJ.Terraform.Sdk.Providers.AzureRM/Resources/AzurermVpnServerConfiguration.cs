@@ -239,6 +239,7 @@ public class AzurermVpnServerConfigurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_vpn_server_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVpnServerConfiguration : TerraformResource
 {
     public AzurermVpnServerConfiguration(string name) : base("azurerm_vpn_server_configuration", name)

@@ -137,6 +137,7 @@ public class GoogleComputeReservationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_reservation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeReservation : TerraformResource
 {
     public GoogleComputeReservation(string name) : base("google_compute_reservation", name)

@@ -31,6 +31,7 @@ public class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock : TerraformBl
 /// <summary>
 /// Manages a aws_wafv2_web_acl_logging_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
 {
     public AwsWafv2WebAclLoggingConfiguration(string name) : base("aws_wafv2_web_acl_logging_configuration", name)

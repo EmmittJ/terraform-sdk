@@ -485,6 +485,7 @@ public class GoogleContainerNodePoolUpgradeSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_container_node_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleContainerNodePool : TerraformResource
 {
     public GoogleContainerNodePool(string name) : base("google_container_node_pool", name)

@@ -97,6 +97,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a azurerm_mssql_managed_instance_start_stop_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlManagedInstanceStartStopSchedule : TerraformResource
 {
     public AzurermMssqlManagedInstanceStartStopSchedule(string name) : base("azurerm_mssql_managed_instance_start_stop_schedule", name)

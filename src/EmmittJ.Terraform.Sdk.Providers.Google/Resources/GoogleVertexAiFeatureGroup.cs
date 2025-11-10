@@ -57,6 +57,7 @@ public class GoogleVertexAiFeatureGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_feature_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiFeatureGroup : TerraformResource
 {
     public GoogleVertexAiFeatureGroup(string name) : base("google_vertex_ai_feature_group", name)

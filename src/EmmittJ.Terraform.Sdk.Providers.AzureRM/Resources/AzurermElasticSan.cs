@@ -76,6 +76,7 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_elastic_san resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermElasticSan : TerraformResource
 {
     public AzurermElasticSan(string name) : base("azurerm_elastic_san", name)

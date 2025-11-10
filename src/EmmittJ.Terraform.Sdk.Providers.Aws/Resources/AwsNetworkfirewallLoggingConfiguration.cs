@@ -13,6 +13,7 @@ public class AwsNetworkfirewallLoggingConfigurationLoggingConfigurationBlock : T
 /// <summary>
 /// Manages a aws_networkfirewall_logging_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkfirewallLoggingConfiguration : TerraformResource
 {
     public AwsNetworkfirewallLoggingConfiguration(string name) : base("aws_networkfirewall_logging_configuration", name)

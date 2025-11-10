@@ -103,6 +103,7 @@ public class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_network_gateway_nat_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualNetworkGatewayNatRule : TerraformResource
 {
     public AzurermVirtualNetworkGatewayNatRule(string name) : base("azurerm_virtual_network_gateway_nat_rule", name)

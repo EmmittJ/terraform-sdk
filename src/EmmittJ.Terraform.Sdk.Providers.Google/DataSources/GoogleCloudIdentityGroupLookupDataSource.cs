@@ -35,6 +35,7 @@ public class GoogleCloudIdentityGroupLookupDataSourceGroupKeyBlock : TerraformBl
 /// <summary>
 /// Retrieves information about a google_cloud_identity_group_lookup.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudIdentityGroupLookupDataSource : TerraformDataSource
 {
     public GoogleCloudIdentityGroupLookupDataSource(string name) : base("google_cloud_identity_group_lookup", name)

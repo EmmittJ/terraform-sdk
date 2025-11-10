@@ -204,6 +204,7 @@ public class AwsLakeformationResourceLfTagsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lakeformation_resource_lf_tags resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLakeformationResourceLfTags : TerraformResource
 {
     public AwsLakeformationResourceLfTags(string name) : base("aws_lakeformation_resource_lf_tags", name)

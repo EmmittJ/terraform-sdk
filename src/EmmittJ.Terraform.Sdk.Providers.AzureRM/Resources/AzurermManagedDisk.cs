@@ -57,6 +57,7 @@ public class AzurermManagedDiskTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_managed_disk resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermManagedDisk : TerraformResource
 {
     public AzurermManagedDisk(string name) : base("azurerm_managed_disk", name)

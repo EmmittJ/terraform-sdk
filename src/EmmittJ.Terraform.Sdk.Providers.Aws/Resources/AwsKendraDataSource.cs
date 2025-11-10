@@ -65,6 +65,7 @@ public class AwsKendraDataSourceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_kendra_data_source resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKendraDataSource : TerraformResource
 {
     public AwsKendraDataSource(string name) : base("aws_kendra_data_source", name)

@@ -57,6 +57,7 @@ public class AwsDaxClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_dax_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDaxCluster : TerraformResource
 {
     public AwsDaxCluster(string name) : base("aws_dax_cluster", name)

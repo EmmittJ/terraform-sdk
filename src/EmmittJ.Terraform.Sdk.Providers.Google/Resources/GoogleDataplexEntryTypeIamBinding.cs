@@ -42,6 +42,7 @@ public class GoogleDataplexEntryTypeIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_entry_type_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexEntryTypeIamBinding : TerraformResource
 {
     public GoogleDataplexEntryTypeIamBinding(string name) : base("google_dataplex_entry_type_iam_binding", name)

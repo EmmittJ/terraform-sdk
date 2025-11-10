@@ -230,6 +230,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSpringCloudApp : TerraformResource
 {
     public AzurermSpringCloudApp(string name) : base("azurerm_spring_cloud_app", name)

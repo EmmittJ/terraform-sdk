@@ -22,6 +22,7 @@ public class AwsApprunnerObservabilityConfigurationTraceConfigurationBlock : Ter
 /// <summary>
 /// Manages a aws_apprunner_observability_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApprunnerObservabilityConfiguration : TerraformResource
 {
     public AwsApprunnerObservabilityConfiguration(string name) : base("aws_apprunner_observability_configuration", name)

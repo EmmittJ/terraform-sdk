@@ -85,6 +85,7 @@ public class AzurermIotcentralApplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_iotcentral_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermIotcentralApplication : TerraformResource
 {
     public AzurermIotcentralApplication(string name) : base("azurerm_iotcentral_application", name)

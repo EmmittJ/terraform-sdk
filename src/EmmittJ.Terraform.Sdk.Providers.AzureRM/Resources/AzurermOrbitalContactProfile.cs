@@ -88,6 +88,7 @@ public class AzurermOrbitalContactProfileTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_orbital_contact_profile resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermOrbitalContactProfile : TerraformResource
 {
     public AzurermOrbitalContactProfile(string name) : base("azurerm_orbital_contact_profile", name)

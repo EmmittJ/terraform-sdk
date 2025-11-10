@@ -93,6 +93,7 @@ public class GoogleNetworkSecurityAuthzPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_security_authz_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkSecurityAuthzPolicy : TerraformResource
 {
     public GoogleNetworkSecurityAuthzPolicy(string name) : base("google_network_security_authz_policy", name)

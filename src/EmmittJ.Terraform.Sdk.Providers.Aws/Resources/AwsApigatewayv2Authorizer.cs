@@ -48,6 +48,7 @@ public class AwsApigatewayv2AuthorizerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_apigatewayv2_authorizer resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApigatewayv2Authorizer : TerraformResource
 {
     public AwsApigatewayv2Authorizer(string name) : base("aws_apigatewayv2_authorizer", name)

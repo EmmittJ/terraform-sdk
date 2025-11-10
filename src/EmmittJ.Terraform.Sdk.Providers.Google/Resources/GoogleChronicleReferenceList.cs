@@ -66,6 +66,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_chronicle_reference_list resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleChronicleReferenceList : TerraformResource
 {
     public GoogleChronicleReferenceList(string name) : base("google_chronicle_reference_list", name)

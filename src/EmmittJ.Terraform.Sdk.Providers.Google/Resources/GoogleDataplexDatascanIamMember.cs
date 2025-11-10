@@ -42,6 +42,7 @@ public class GoogleDataplexDatascanIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_datascan_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexDatascanIamMember : TerraformResource
 {
     public GoogleDataplexDatascanIamMember(string name) : base("google_dataplex_datascan_iam_member", name)

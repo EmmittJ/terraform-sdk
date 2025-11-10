@@ -23,6 +23,7 @@ public class AwsCodebuildReportGroupExportConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codebuild_report_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodebuildReportGroup : TerraformResource
 {
     public AwsCodebuildReportGroup(string name) : base("aws_codebuild_report_group", name)

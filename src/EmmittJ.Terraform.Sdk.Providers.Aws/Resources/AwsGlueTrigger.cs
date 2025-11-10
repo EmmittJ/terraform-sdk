@@ -137,6 +137,7 @@ public class AwsGlueTriggerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_trigger resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueTrigger : TerraformResource
 {
     public AwsGlueTrigger(string name) : base("aws_glue_trigger", name)

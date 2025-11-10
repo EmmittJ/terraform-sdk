@@ -87,6 +87,7 @@ public class AwsGrafanaWorkspaceVpcConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_grafana_workspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGrafanaWorkspace : TerraformResource
 {
     public AwsGrafanaWorkspace(string name) : base("aws_grafana_workspace", name)

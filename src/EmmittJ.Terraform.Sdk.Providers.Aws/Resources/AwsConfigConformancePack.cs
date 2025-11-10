@@ -33,6 +33,7 @@ public class AwsConfigConformancePackInputParameterBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_config_conformance_pack resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConfigConformancePack : TerraformResource
 {
     public AwsConfigConformancePack(string name) : base("aws_config_conformance_pack", name)

@@ -271,6 +271,7 @@ public class AzurermKubernetesClusterNodePoolWindowsProfileBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_kubernetes_cluster_node_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKubernetesClusterNodePool : TerraformResource
 {
     public AzurermKubernetesClusterNodePool(string name) : base("azurerm_kubernetes_cluster_node_pool", name)

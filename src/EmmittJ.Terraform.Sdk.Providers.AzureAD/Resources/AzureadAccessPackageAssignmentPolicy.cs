@@ -216,6 +216,7 @@ public class AzureadAccessPackageAssignmentPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_access_package_assignment_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadAccessPackageAssignmentPolicy : TerraformResource
 {
     public AzureadAccessPackageAssignmentPolicy(string name) : base("azuread_access_package_assignment_policy", name)

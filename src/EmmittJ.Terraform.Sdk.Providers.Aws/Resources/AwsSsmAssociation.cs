@@ -69,6 +69,7 @@ public class AwsSsmAssociationTargetsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ssm_association resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmAssociation : TerraformResource
 {
     public AwsSsmAssociation(string name) : base("aws_ssm_association", name)

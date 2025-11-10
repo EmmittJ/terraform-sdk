@@ -165,6 +165,7 @@ public class AzurermCosmosdbGremlinGraphUniqueKeyBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_gremlin_graph resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbGremlinGraph : TerraformResource
 {
     public AzurermCosmosdbGremlinGraph(string name) : base("azurerm_cosmosdb_gremlin_graph", name)

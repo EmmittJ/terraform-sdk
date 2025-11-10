@@ -117,6 +117,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_storage_blob_inventory_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStorageBlobInventoryPolicy : TerraformResource
 {
     public AzurermStorageBlobInventoryPolicy(string name) : base("azurerm_storage_blob_inventory_policy", name)

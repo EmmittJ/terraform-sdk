@@ -103,6 +103,7 @@ public class GoogleNetworkServicesEdgeCacheKeysetValidationSharedKeysBlock : Ter
 /// <summary>
 /// Manages a google_network_services_edge_cache_keyset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkServicesEdgeCacheKeyset : TerraformResource
 {
     public GoogleNetworkServicesEdgeCacheKeyset(string name) : base("google_network_services_edge_cache_keyset", name)

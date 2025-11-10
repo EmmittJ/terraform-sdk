@@ -48,6 +48,7 @@ public class GoogleIdentityPlatformTenantTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_identity_platform_tenant resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIdentityPlatformTenant : TerraformResource
 {
     public GoogleIdentityPlatformTenant(string name) : base("google_identity_platform_tenant", name)

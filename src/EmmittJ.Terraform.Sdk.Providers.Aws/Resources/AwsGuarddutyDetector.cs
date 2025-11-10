@@ -13,6 +13,7 @@ public class AwsGuarddutyDetectorDatasourcesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_guardduty_detector resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGuarddutyDetector : TerraformResource
 {
     public AwsGuarddutyDetector(string name) : base("aws_guardduty_detector", name)

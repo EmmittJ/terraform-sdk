@@ -737,6 +737,7 @@ public class AzurermWindowsWebAppSlotTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_windows_web_app_slot resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWindowsWebAppSlot : TerraformResource
 {
     public AzurermWindowsWebAppSlot(string name) : base("azurerm_windows_web_app_slot", name)

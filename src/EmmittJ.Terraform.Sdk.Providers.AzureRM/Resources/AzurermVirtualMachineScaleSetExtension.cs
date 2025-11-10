@@ -77,6 +77,7 @@ public class AzurermVirtualMachineScaleSetExtensionTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_virtual_machine_scale_set_extension resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualMachineScaleSetExtension : TerraformResource
 {
     public AzurermVirtualMachineScaleSetExtension(string name) : base("azurerm_virtual_machine_scale_set_extension", name)

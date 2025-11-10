@@ -104,6 +104,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a azurerm_application_insights_workbook_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
 {
     public AzurermApplicationInsightsWorkbookTemplate(string name) : base("azurerm_application_insights_workbook_template", name)

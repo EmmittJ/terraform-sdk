@@ -158,6 +158,7 @@ public class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_resource_deployment_script_azure_cli resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermResourceDeploymentScriptAzureCli : TerraformResource
 {
     public AzurermResourceDeploymentScriptAzureCli(string name) : base("azurerm_resource_deployment_script_azure_cli", name)

@@ -130,6 +130,7 @@ public class AwsDmsReplicationConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_dms_replication_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDmsReplicationConfig : TerraformResource
 {
     public AwsDmsReplicationConfig(string name) : base("aws_dms_replication_config", name)

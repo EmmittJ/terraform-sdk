@@ -191,6 +191,7 @@ public class AzurermEventgridDomainTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_eventgrid_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermEventgridDomain : TerraformResource
 {
     public AzurermEventgridDomain(string name) : base("azurerm_eventgrid_domain", name)

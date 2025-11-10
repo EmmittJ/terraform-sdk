@@ -39,6 +39,7 @@ public class AwsSesConfigurationSetTrackingOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ses_configuration_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSesConfigurationSet : TerraformResource
 {
     public AwsSesConfigurationSet(string name) : base("aws_ses_configuration_set", name)

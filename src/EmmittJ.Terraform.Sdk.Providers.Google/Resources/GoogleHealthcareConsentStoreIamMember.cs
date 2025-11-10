@@ -42,6 +42,7 @@ public class GoogleHealthcareConsentStoreIamMemberConditionBlock : TerraformBloc
 /// <summary>
 /// Manages a google_healthcare_consent_store_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareConsentStoreIamMember : TerraformResource
 {
     public GoogleHealthcareConsentStoreIamMember(string name) : base("google_healthcare_consent_store_iam_member", name)

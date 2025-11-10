@@ -99,6 +99,7 @@ public class AwsConnectRoutingProfileQueueConfigsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_connect_routing_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConnectRoutingProfile : TerraformResource
 {
     public AwsConnectRoutingProfile(string name) : base("aws_connect_routing_profile", name)

@@ -143,6 +143,7 @@ public class AwsSagemakerFlowDefinitionOutputConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_flow_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerFlowDefinition : TerraformResource
 {
     public AwsSagemakerFlowDefinition(string name) : base("aws_sagemaker_flow_definition", name)

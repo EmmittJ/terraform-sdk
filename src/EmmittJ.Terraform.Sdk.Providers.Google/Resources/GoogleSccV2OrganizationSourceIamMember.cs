@@ -42,6 +42,7 @@ public class GoogleSccV2OrganizationSourceIamMemberConditionBlock : TerraformBlo
 /// <summary>
 /// Manages a google_scc_v2_organization_source_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccV2OrganizationSourceIamMember : TerraformResource
 {
     public GoogleSccV2OrganizationSourceIamMember(string name) : base("google_scc_v2_organization_source_iam_member", name)

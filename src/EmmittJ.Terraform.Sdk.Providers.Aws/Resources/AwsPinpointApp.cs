@@ -110,6 +110,7 @@ public class AwsPinpointAppQuietTimeBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_pinpoint_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsPinpointApp : TerraformResource
 {
     public AwsPinpointApp(string name) : base("aws_pinpoint_app", name)

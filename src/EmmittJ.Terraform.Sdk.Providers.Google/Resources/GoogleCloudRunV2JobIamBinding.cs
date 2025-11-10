@@ -42,6 +42,7 @@ public class GoogleCloudRunV2JobIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_run_v2_job_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudRunV2JobIamBinding : TerraformResource
 {
     public GoogleCloudRunV2JobIamBinding(string name) : base("google_cloud_run_v2_job_iam_binding", name)

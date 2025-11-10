@@ -130,6 +130,7 @@ public class GoogleApigeeTargetServerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_target_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeTargetServer : TerraformResource
 {
     public GoogleApigeeTargetServer(string name) : base("google_apigee_target_server", name)

@@ -43,6 +43,7 @@ public class AwsLightsailInstanceAddOnBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lightsail_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLightsailInstance : TerraformResource
 {
     public AwsLightsailInstance(string name) : base("aws_lightsail_instance", name)

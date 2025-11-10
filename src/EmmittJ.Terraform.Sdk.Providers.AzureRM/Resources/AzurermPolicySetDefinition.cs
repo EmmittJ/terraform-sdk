@@ -157,6 +157,7 @@ public class AzurermPolicySetDefinitionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_policy_set_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPolicySetDefinition : TerraformResource
 {
     public AzurermPolicySetDefinition(string name) : base("azurerm_policy_set_definition", name)

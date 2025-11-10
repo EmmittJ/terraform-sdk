@@ -42,6 +42,7 @@ public class GoogleHealthcareDicomStoreIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_dicom_store_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareDicomStoreIamMember : TerraformResource
 {
     public GoogleHealthcareDicomStoreIamMember(string name) : base("google_healthcare_dicom_store_iam_member", name)

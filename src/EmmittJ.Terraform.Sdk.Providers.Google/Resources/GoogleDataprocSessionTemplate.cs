@@ -126,6 +126,7 @@ public class GoogleDataprocSessionTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_session_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocSessionTemplate : TerraformResource
 {
     public GoogleDataprocSessionTemplate(string name) : base("google_dataproc_session_template", name)

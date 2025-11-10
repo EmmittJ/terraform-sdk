@@ -139,6 +139,7 @@ public class AzurermMapsAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_maps_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMapsAccount : TerraformResource
 {
     public AzurermMapsAccount(string name) : base("azurerm_maps_account", name)

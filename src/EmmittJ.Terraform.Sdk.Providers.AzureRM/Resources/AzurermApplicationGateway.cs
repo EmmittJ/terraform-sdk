@@ -1565,6 +1565,7 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_application_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApplicationGateway : TerraformResource
 {
     public AzurermApplicationGateway(string name) : base("azurerm_application_gateway", name)

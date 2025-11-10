@@ -223,6 +223,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_azure_databricks resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceAzureDatabricks : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceAzureDatabricks(string name) : base("azurerm_data_factory_linked_service_azure_databricks", name)

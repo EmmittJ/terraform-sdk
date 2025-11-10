@@ -280,6 +280,7 @@ public class AwsLakeformationPermissionsDataSourceTableWithColumnsBlock : Terraf
 /// <summary>
 /// Retrieves information about a aws_lakeformation_permissions.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLakeformationPermissionsDataSource : TerraformDataSource
 {
     public AwsLakeformationPermissionsDataSource(string name) : base("aws_lakeformation_permissions", name)

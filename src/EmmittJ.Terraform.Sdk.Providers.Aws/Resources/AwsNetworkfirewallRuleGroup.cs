@@ -40,6 +40,7 @@ public class AwsNetworkfirewallRuleGroupRuleGroupBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_networkfirewall_rule_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkfirewallRuleGroup : TerraformResource
 {
     public AwsNetworkfirewallRuleGroup(string name) : base("aws_networkfirewall_rule_group", name)

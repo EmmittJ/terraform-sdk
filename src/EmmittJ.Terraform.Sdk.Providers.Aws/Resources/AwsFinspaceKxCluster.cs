@@ -394,6 +394,7 @@ public class AwsFinspaceKxClusterVpcConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_finspace_kx_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFinspaceKxCluster : TerraformResource
 {
     public AwsFinspaceKxCluster(string name) : base("aws_finspace_kx_cluster", name)

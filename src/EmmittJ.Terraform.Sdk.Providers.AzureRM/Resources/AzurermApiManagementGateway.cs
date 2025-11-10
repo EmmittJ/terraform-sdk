@@ -94,6 +94,7 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_api_management_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApiManagementGateway : TerraformResource
 {
     public AzurermApiManagementGateway(string name) : base("azurerm_api_management_gateway", name)

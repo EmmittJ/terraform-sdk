@@ -333,6 +333,7 @@ public class GoogleStorageBucketWebsiteBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_bucket resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageBucket : TerraformResource
 {
     public GoogleStorageBucket(string name) : base("google_storage_bucket", name)

@@ -48,6 +48,7 @@ public class GoogleColabScheduleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_colab_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleColabSchedule : TerraformResource
 {
     public GoogleColabSchedule(string name) : base("google_colab_schedule", name)

@@ -124,6 +124,7 @@ public class AwsOpensearchOutboundConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_opensearch_outbound_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsOpensearchOutboundConnection : TerraformResource
 {
     public AwsOpensearchOutboundConnection(string name) : base("aws_opensearch_outbound_connection", name)

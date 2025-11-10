@@ -94,6 +94,7 @@ public class GoogleNetworkConnectivityServiceConnectionPolicyTimeoutsBlock : Ter
 /// <summary>
 /// Manages a google_network_connectivity_service_connection_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkConnectivityServiceConnectionPolicy : TerraformResource
 {
     public GoogleNetworkConnectivityServiceConnectionPolicy(string name) : base("google_network_connectivity_service_connection_policy", name)

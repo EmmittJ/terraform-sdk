@@ -105,6 +105,7 @@ public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a azurerm_logic_app_integration_account_agreement resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
 {
     public AzurermLogicAppIntegrationAccountAgreement(string name) : base("azurerm_logic_app_integration_account_agreement", name)

@@ -111,6 +111,7 @@ public class AwsRumAppMonitorCustomEventsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_rum_app_monitor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRumAppMonitor : TerraformResource
 {
     public AwsRumAppMonitor(string name) : base("aws_rum_app_monitor", name)

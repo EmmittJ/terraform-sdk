@@ -157,6 +157,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_data_transfer_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDataTransferConfig : TerraformResource
 {
     public GoogleBigqueryDataTransferConfig(string name) : base("google_bigquery_data_transfer_config", name)

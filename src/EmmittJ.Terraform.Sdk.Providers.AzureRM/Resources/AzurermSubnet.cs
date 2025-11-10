@@ -104,6 +104,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_subnet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSubnet : TerraformResource
 {
     public AzurermSubnet(string name) : base("azurerm_subnet", name)

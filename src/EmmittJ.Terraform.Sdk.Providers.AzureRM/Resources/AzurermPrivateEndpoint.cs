@@ -205,6 +205,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_private_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPrivateEndpoint : TerraformResource
 {
     public AzurermPrivateEndpoint(string name) : base("azurerm_private_endpoint", name)

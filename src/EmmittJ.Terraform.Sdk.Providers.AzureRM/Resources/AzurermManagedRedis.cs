@@ -202,6 +202,7 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_managed_redis resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermManagedRedis : TerraformResource
 {
     public AzurermManagedRedis(string name) : base("azurerm_managed_redis", name)

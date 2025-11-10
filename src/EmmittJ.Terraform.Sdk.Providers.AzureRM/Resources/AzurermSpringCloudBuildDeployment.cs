@@ -75,6 +75,7 @@ public class AzurermSpringCloudBuildDeploymentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_build_deployment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSpringCloudBuildDeployment : TerraformResource
 {
     public AzurermSpringCloudBuildDeployment(string name) : base("azurerm_spring_cloud_build_deployment", name)

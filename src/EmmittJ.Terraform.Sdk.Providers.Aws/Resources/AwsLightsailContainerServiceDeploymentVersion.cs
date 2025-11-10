@@ -105,6 +105,7 @@ public class AwsLightsailContainerServiceDeploymentVersionTimeoutsBlock : Terraf
 /// <summary>
 /// Manages a aws_lightsail_container_service_deployment_version resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLightsailContainerServiceDeploymentVersion : TerraformResource
 {
     public AwsLightsailContainerServiceDeploymentVersion(string name) : base("aws_lightsail_container_service_deployment_version", name)

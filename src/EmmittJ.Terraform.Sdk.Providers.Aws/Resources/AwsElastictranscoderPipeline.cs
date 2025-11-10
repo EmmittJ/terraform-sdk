@@ -172,6 +172,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : Terra
 /// Manages a aws_elastictranscoder_pipeline resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElastictranscoderPipeline : TerraformResource
 {
     public AwsElastictranscoderPipeline(string name) : base("aws_elastictranscoder_pipeline", name)

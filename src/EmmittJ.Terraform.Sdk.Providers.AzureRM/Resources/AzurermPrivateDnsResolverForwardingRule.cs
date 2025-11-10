@@ -76,6 +76,7 @@ public class AzurermPrivateDnsResolverForwardingRuleTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_private_dns_resolver_forwarding_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPrivateDnsResolverForwardingRule : TerraformResource
 {
     public AzurermPrivateDnsResolverForwardingRule(string name) : base("azurerm_private_dns_resolver_forwarding_rule", name)

@@ -68,6 +68,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_ecs_capacity_provider resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcsCapacityProvider : TerraformResource
 {
     public AwsEcsCapacityProvider(string name) : base("aws_ecs_capacity_provider", name)

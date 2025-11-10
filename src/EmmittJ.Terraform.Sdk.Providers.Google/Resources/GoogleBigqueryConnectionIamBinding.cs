@@ -42,6 +42,7 @@ public class GoogleBigqueryConnectionIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_connection_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryConnectionIamBinding : TerraformResource
 {
     public GoogleBigqueryConnectionIamBinding(string name) : base("google_bigquery_connection_iam_binding", name)

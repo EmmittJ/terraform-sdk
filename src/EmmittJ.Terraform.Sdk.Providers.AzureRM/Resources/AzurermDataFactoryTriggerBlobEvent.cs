@@ -76,6 +76,7 @@ public class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_trigger_blob_event resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
 {
     public AzurermDataFactoryTriggerBlobEvent(string name) : base("azurerm_data_factory_trigger_blob_event", name)

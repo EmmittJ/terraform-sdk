@@ -225,6 +225,7 @@ public class AwsAppsyncGraphqlApiUserPoolConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appsync_graphql_api resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppsyncGraphqlApi : TerraformResource
 {
     public AwsAppsyncGraphqlApi(string name) : base("aws_appsync_graphql_api", name)

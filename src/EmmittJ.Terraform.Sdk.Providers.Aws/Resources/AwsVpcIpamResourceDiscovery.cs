@@ -58,6 +58,7 @@ public class AwsVpcIpamResourceDiscoveryTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpc_ipam_resource_discovery resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpcIpamResourceDiscovery : TerraformResource
 {
     public AwsVpcIpamResourceDiscovery(string name) : base("aws_vpc_ipam_resource_discovery", name)

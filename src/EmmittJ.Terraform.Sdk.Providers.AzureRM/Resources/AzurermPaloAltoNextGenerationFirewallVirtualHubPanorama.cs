@@ -213,6 +213,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanoramaTimeoutsBloc
 /// <summary>
 /// Manages a azurerm_palo_alto_next_generation_firewall_virtual_hub_panorama resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama : TerraformResource
 {
     public AzurermPaloAltoNextGenerationFirewallVirtualHubPanorama(string name) : base("azurerm_palo_alto_next_generation_firewall_virtual_hub_panorama", name)

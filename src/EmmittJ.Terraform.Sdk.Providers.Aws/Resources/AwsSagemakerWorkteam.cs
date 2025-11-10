@@ -38,6 +38,7 @@ public class AwsSagemakerWorkteamWorkerAccessConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_workteam resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerWorkteam : TerraformResource
 {
     public AwsSagemakerWorkteam(string name) : base("aws_sagemaker_workteam", name)

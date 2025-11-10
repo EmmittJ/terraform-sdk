@@ -47,6 +47,7 @@ public class AwsBatchJobDefinitionTimeoutBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_batch_job_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsBatchJobDefinition : TerraformResource
 {
     public AwsBatchJobDefinition(string name) : base("aws_batch_job_definition", name)

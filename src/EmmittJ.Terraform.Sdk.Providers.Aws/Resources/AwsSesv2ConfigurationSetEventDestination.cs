@@ -32,6 +32,7 @@ public class AwsSesv2ConfigurationSetEventDestinationEventDestinationBlock : Ter
 /// <summary>
 /// Manages a aws_sesv2_configuration_set_event_destination resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSesv2ConfigurationSetEventDestination : TerraformResource
 {
     public AwsSesv2ConfigurationSetEventDestination(string name) : base("aws_sesv2_configuration_set_event_destination", name)

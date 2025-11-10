@@ -83,6 +83,7 @@ public class GoogleDialogflowCxPlaybookTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_playbook resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxPlaybook : TerraformResource
 {
     public GoogleDialogflowCxPlaybook(string name) : base("google_dialogflow_cx_playbook", name)

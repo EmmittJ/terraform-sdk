@@ -42,6 +42,7 @@ public class GoogleContainerAnalysisNoteIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_container_analysis_note_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleContainerAnalysisNoteIamMember : TerraformResource
 {
     public GoogleContainerAnalysisNoteIamMember(string name) : base("google_container_analysis_note_iam_member", name)

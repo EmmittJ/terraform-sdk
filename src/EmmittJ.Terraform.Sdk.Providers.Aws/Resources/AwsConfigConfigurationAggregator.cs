@@ -77,6 +77,7 @@ public class AwsConfigConfigurationAggregatorOrganizationAggregationSourceBlock 
 /// <summary>
 /// Manages a aws_config_configuration_aggregator resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConfigConfigurationAggregator : TerraformResource
 {
     public AwsConfigConfigurationAggregator(string name) : base("aws_config_configuration_aggregator", name)

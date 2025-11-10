@@ -81,6 +81,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_binary_authorization_attestor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBinaryAuthorizationAttestor : TerraformResource
 {
     public GoogleBinaryAuthorizationAttestor(string name) : base("google_binary_authorization_attestor", name)

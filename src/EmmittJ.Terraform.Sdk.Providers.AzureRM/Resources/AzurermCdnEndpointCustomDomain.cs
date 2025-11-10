@@ -113,6 +113,7 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_cdn_endpoint_custom_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCdnEndpointCustomDomain : TerraformResource
 {
     public AzurermCdnEndpointCustomDomain(string name) : base("azurerm_cdn_endpoint_custom_domain", name)

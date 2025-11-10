@@ -42,6 +42,7 @@ public class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ssm_document resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmDocument : TerraformResource
 {
     public AwsSsmDocument(string name) : base("aws_ssm_document", name)

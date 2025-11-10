@@ -96,6 +96,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_hpc_cache_nfs_target resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHpcCacheNfsTarget : TerraformResource
 {
     public AzurermHpcCacheNfsTarget(string name) : base("azurerm_hpc_cache_nfs_target", name)

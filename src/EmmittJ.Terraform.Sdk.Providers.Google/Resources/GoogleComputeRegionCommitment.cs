@@ -106,6 +106,7 @@ public class GoogleComputeRegionCommitmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_region_commitment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionCommitment : TerraformResource
 {
     public GoogleComputeRegionCommitment(string name) : base("google_compute_region_commitment", name)

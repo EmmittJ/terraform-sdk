@@ -530,6 +530,7 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_service_fabric_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermServiceFabricCluster : TerraformResource
 {
     public AzurermServiceFabricCluster(string name) : base("azurerm_service_fabric_cluster", name)

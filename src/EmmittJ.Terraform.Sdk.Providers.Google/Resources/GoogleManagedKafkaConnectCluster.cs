@@ -76,6 +76,7 @@ public class GoogleManagedKafkaConnectClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_managed_kafka_connect_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleManagedKafkaConnectCluster : TerraformResource
 {
     public GoogleManagedKafkaConnectCluster(string name) : base("google_managed_kafka_connect_cluster", name)

@@ -237,6 +237,7 @@ public class GoogleRedisClusterZoneDistributionConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_redis_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleRedisCluster : TerraformResource
 {
     public GoogleRedisCluster(string name) : base("google_redis_cluster", name)

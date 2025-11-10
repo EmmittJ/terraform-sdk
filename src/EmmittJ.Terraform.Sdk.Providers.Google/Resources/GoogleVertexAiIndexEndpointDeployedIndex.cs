@@ -105,6 +105,7 @@ public class GoogleVertexAiIndexEndpointDeployedIndexTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a google_vertex_ai_index_endpoint_deployed_index resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiIndexEndpointDeployedIndex : TerraformResource
 {
     public GoogleVertexAiIndexEndpointDeployedIndex(string name) : base("google_vertex_ai_index_endpoint_deployed_index", name)

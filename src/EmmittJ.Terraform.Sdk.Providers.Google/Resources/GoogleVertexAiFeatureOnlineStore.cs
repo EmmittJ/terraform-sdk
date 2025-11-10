@@ -82,6 +82,7 @@ public class GoogleVertexAiFeatureOnlineStoreTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_feature_online_store resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiFeatureOnlineStore : TerraformResource
 {
     public GoogleVertexAiFeatureOnlineStore(string name) : base("google_vertex_ai_feature_online_store", name)

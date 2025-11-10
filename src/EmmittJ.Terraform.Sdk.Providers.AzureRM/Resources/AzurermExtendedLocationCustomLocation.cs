@@ -76,6 +76,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_extended_location_custom_location resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermExtendedLocationCustomLocation : TerraformResource
 {
     public AzurermExtendedLocationCustomLocation(string name) : base("azurerm_extended_location_custom_location", name)

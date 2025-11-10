@@ -33,6 +33,7 @@ public class AwsChimeVoiceConnectorGroupConnectorBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_chime_voice_connector_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimeVoiceConnectorGroup : TerraformResource
 {
     public AwsChimeVoiceConnectorGroup(string name) : base("aws_chime_voice_connector_group", name)

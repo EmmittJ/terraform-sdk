@@ -48,6 +48,7 @@ public class GoogleDataLossPreventionDeidentifyTemplateTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a google_data_loss_prevention_deidentify_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataLossPreventionDeidentifyTemplate : TerraformResource
 {
     public GoogleDataLossPreventionDeidentifyTemplate(string name) : base("google_data_loss_prevention_deidentify_template", name)

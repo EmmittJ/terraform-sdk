@@ -69,6 +69,7 @@ public class GoogleLoggingBillingAccountSinkExclusionsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_logging_billing_account_sink resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLoggingBillingAccountSink : TerraformResource
 {
     public GoogleLoggingBillingAccountSink(string name) : base("google_logging_billing_account_sink", name)

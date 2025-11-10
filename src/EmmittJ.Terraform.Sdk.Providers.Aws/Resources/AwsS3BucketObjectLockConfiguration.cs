@@ -13,6 +13,7 @@ public class AwsS3BucketObjectLockConfigurationRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_object_lock_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketObjectLockConfiguration : TerraformResource
 {
     public AwsS3BucketObjectLockConfiguration(string name) : base("aws_s3_bucket_object_lock_configuration", name)

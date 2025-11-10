@@ -107,6 +107,7 @@ public class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cognitive_account_rai_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCognitiveAccountRaiPolicy : TerraformResource
 {
     public AzurermCognitiveAccountRaiPolicy(string name) : base("azurerm_cognitive_account_rai_policy", name)

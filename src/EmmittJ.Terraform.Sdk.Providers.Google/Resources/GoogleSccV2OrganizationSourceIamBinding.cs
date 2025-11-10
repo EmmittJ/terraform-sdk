@@ -42,6 +42,7 @@ public class GoogleSccV2OrganizationSourceIamBindingConditionBlock : TerraformBl
 /// <summary>
 /// Manages a google_scc_v2_organization_source_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccV2OrganizationSourceIamBinding : TerraformResource
 {
     public GoogleSccV2OrganizationSourceIamBinding(string name) : base("google_scc_v2_organization_source_iam_binding", name)

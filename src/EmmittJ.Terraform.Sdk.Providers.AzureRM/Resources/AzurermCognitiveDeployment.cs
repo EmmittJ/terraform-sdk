@@ -140,6 +140,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cognitive_deployment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCognitiveDeployment : TerraformResource
 {
     public AzurermCognitiveDeployment(string name) : base("azurerm_cognitive_deployment", name)

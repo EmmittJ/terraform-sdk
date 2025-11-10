@@ -137,6 +137,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_synthetics_canary resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSyntheticsCanary : TerraformResource
 {
     public AwsSyntheticsCanary(string name) : base("aws_synthetics_canary", name)

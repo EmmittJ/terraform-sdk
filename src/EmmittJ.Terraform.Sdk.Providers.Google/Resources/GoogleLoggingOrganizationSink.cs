@@ -69,6 +69,7 @@ public class GoogleLoggingOrganizationSinkExclusionsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_logging_organization_sink resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLoggingOrganizationSink : TerraformResource
 {
     public GoogleLoggingOrganizationSink(string name) : base("google_logging_organization_sink", name)

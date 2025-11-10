@@ -50,6 +50,7 @@ public class GoogleComputeManagedSslCertificateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_managed_ssl_certificate resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeManagedSslCertificate : TerraformResource
 {
     public GoogleComputeManagedSslCertificate(string name) : base("google_compute_managed_ssl_certificate", name)

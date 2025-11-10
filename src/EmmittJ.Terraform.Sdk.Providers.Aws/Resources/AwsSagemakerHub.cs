@@ -22,6 +22,7 @@ public class AwsSagemakerHubS3StorageConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_hub resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerHub : TerraformResource
 {
     public AwsSagemakerHub(string name) : base("aws_sagemaker_hub", name)

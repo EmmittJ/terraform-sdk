@@ -76,6 +76,7 @@ public class AwsMwaaEnvironmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_mwaa_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMwaaEnvironment : TerraformResource
 {
     public AwsMwaaEnvironment(string name) : base("aws_mwaa_environment", name)

@@ -31,6 +31,7 @@ public class AwsOpensearchDomainDataSourceOffPeakWindowOptionsBlock : TerraformB
 /// <summary>
 /// Retrieves information about a aws_opensearch_domain.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsOpensearchDomainDataSource : TerraformDataSource
 {
     public AwsOpensearchDomainDataSource(string name) : base("aws_opensearch_domain", name)

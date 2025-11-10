@@ -49,6 +49,7 @@ public class AwsEvidentlyProjectTimeoutsBlock : TerraformBlock
 /// Manages a aws_evidently_project resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEvidentlyProject : TerraformResource
 {
     public AwsEvidentlyProject(string name) : base("aws_evidently_project", name)

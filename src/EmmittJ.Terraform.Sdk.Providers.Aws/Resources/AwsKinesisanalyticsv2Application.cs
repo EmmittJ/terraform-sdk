@@ -75,6 +75,7 @@ public class AwsKinesisanalyticsv2ApplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_kinesisanalyticsv2_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKinesisanalyticsv2Application : TerraformResource
 {
     public AwsKinesisanalyticsv2Application(string name) : base("aws_kinesisanalyticsv2_application", name)

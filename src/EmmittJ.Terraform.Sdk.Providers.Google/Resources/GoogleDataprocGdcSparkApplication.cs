@@ -245,6 +245,7 @@ public class GoogleDataprocGdcSparkApplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_gdc_spark_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocGdcSparkApplication : TerraformResource
 {
     public GoogleDataprocGdcSparkApplication(string name) : base("google_dataproc_gdc_spark_application", name)

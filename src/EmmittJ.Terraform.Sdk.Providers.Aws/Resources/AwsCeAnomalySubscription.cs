@@ -41,6 +41,7 @@ public class AwsCeAnomalySubscriptionThresholdExpressionBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ce_anomaly_subscription resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCeAnomalySubscription : TerraformResource
 {
     public AwsCeAnomalySubscription(string name) : base("aws_ce_anomaly_subscription", name)

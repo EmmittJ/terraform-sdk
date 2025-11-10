@@ -138,6 +138,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_machine_learning_inference_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMachineLearningInferenceCluster : TerraformResource
 {
     public AzurermMachineLearningInferenceCluster(string name) : base("azurerm_machine_learning_inference_cluster", name)

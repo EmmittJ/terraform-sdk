@@ -397,6 +397,7 @@ public class GoogleCloudRunV2ServiceTrafficBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_run_v2_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudRunV2Service : TerraformResource
 {
     public GoogleCloudRunV2Service(string name) : base("google_cloud_run_v2_service", name)

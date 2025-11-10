@@ -187,6 +187,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_services_wasm_plugin resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkServicesWasmPlugin : TerraformResource
 {
     public GoogleNetworkServicesWasmPlugin(string name) : base("google_network_services_wasm_plugin", name)

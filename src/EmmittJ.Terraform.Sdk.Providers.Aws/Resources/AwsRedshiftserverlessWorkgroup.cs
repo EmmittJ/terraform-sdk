@@ -95,6 +95,7 @@ public class AwsRedshiftserverlessWorkgroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_redshiftserverless_workgroup resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRedshiftserverlessWorkgroup : TerraformResource
 {
     public AwsRedshiftserverlessWorkgroup(string name) : base("aws_redshiftserverless_workgroup", name)

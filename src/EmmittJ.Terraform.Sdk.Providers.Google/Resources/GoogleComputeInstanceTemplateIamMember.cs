@@ -42,6 +42,7 @@ public class GoogleComputeInstanceTemplateIamMemberConditionBlock : TerraformBlo
 /// <summary>
 /// Manages a google_compute_instance_template_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeInstanceTemplateIamMember : TerraformResource
 {
     public GoogleComputeInstanceTemplateIamMember(string name) : base("google_compute_instance_template_iam_member", name)

@@ -84,6 +84,7 @@ public class GoogleBigtableTableTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigtable_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigtableTable : TerraformResource
 {
     public GoogleBigtableTable(string name) : base("google_bigtable_table", name)

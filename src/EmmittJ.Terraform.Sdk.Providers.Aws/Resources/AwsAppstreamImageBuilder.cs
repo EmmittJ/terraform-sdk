@@ -84,6 +84,7 @@ public class AwsAppstreamImageBuilderVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appstream_image_builder resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppstreamImageBuilder : TerraformResource
 {
     public AwsAppstreamImageBuilder(string name) : base("aws_appstream_image_builder", name)

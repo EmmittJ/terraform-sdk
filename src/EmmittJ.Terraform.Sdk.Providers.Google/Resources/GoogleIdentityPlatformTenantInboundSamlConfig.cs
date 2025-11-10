@@ -114,6 +114,7 @@ public class GoogleIdentityPlatformTenantInboundSamlConfigTimeoutsBlock : Terraf
 /// <summary>
 /// Manages a google_identity_platform_tenant_inbound_saml_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIdentityPlatformTenantInboundSamlConfig : TerraformResource
 {
     public GoogleIdentityPlatformTenantInboundSamlConfig(string name) : base("google_identity_platform_tenant_inbound_saml_config", name)

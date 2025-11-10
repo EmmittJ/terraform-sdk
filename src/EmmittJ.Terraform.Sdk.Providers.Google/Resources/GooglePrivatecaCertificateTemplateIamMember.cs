@@ -42,6 +42,7 @@ public class GooglePrivatecaCertificateTemplateIamMemberConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_privateca_certificate_template_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePrivatecaCertificateTemplateIamMember : TerraformResource
 {
     public GooglePrivatecaCertificateTemplateIamMember(string name) : base("google_privateca_certificate_template_iam_member", name)

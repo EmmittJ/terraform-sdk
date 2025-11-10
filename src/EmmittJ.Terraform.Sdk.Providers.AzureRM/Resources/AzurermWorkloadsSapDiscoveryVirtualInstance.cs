@@ -77,6 +77,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
 /// <summary>
 /// Manages a azurerm_workloads_sap_discovery_virtual_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWorkloadsSapDiscoveryVirtualInstance : TerraformResource
 {
     public AzurermWorkloadsSapDiscoveryVirtualInstance(string name) : base("azurerm_workloads_sap_discovery_virtual_instance", name)

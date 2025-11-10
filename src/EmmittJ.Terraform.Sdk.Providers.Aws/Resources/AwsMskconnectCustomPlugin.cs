@@ -39,6 +39,7 @@ public class AwsMskconnectCustomPluginTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_mskconnect_custom_plugin resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMskconnectCustomPlugin : TerraformResource
 {
     public AwsMskconnectCustomPlugin(string name) : base("aws_mskconnect_custom_plugin", name)

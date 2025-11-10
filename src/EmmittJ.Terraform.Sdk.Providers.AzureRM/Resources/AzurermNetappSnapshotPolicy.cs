@@ -211,6 +211,7 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_netapp_snapshot_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetappSnapshotPolicy : TerraformResource
 {
     public AzurermNetappSnapshotPolicy(string name) : base("azurerm_netapp_snapshot_policy", name)

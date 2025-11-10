@@ -66,6 +66,7 @@ public class AwsMskServerlessClusterVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_msk_serverless_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMskServerlessCluster : TerraformResource
 {
     public AwsMskServerlessCluster(string name) : base("aws_msk_serverless_cluster", name)

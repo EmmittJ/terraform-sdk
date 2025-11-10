@@ -48,6 +48,7 @@ public class GoogleApigeeAddonsConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_addons_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeAddonsConfig : TerraformResource
 {
     public GoogleApigeeAddonsConfig(string name) : base("google_apigee_addons_config", name)

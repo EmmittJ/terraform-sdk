@@ -42,6 +42,7 @@ public class GoogleCloudbuildv2ConnectionIamBindingConditionBlock : TerraformBlo
 /// <summary>
 /// Manages a google_cloudbuildv2_connection_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudbuildv2ConnectionIamBinding : TerraformResource
 {
     public GoogleCloudbuildv2ConnectionIamBinding(string name) : base("google_cloudbuildv2_connection_iam_binding", name)

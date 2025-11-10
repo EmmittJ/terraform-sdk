@@ -48,6 +48,7 @@ public class GoogleComputeVpnTunnelTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_vpn_tunnel resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeVpnTunnel : TerraformResource
 {
     public GoogleComputeVpnTunnel(string name) : base("google_compute_vpn_tunnel", name)

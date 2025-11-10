@@ -135,6 +135,7 @@ public class AwsSesv2ConfigurationSetVdmOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sesv2_configuration_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSesv2ConfigurationSet : TerraformResource
 {
     public AwsSesv2ConfigurationSet(string name) : base("aws_sesv2_configuration_set", name)

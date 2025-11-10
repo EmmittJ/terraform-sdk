@@ -42,6 +42,7 @@ public class GoogleIapWebTypeComputeIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iap_web_type_compute_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIapWebTypeComputeIamMember : TerraformResource
 {
     public GoogleIapWebTypeComputeIamMember(string name) : base("google_iap_web_type_compute_iam_member", name)

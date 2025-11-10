@@ -735,6 +735,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_orchestrated_virtual_machine_scale_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
 {
     public AzurermOrchestratedVirtualMachineScaleSet(string name) : base("azurerm_orchestrated_virtual_machine_scale_set", name)

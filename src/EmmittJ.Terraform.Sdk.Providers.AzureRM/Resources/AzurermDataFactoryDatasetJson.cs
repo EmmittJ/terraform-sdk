@@ -206,6 +206,7 @@ public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_dataset_json resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryDatasetJson : TerraformResource
 {
     public AzurermDataFactoryDatasetJson(string name) : base("azurerm_data_factory_dataset_json", name)

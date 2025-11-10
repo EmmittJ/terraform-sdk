@@ -118,6 +118,7 @@ public class GoogleComputeNodeGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_node_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeNodeGroup : TerraformResource
 {
     public GoogleComputeNodeGroup(string name) : base("google_compute_node_group", name)

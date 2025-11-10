@@ -532,6 +532,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_container_registry_task resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermContainerRegistryTask : TerraformResource
 {
     public AzurermContainerRegistryTask(string name) : base("azurerm_container_registry_task", name)

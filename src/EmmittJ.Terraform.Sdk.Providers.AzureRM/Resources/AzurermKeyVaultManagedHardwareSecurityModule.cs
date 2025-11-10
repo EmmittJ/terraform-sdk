@@ -77,6 +77,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a azurerm_key_vault_managed_hardware_security_module resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKeyVaultManagedHardwareSecurityModule : TerraformResource
 {
     public AzurermKeyVaultManagedHardwareSecurityModule(string name) : base("azurerm_key_vault_managed_hardware_security_module", name)

@@ -66,6 +66,7 @@ public class AzurermCosmosdbMongoDatabaseTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_mongo_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbMongoDatabase : TerraformResource
 {
     public AzurermCosmosdbMongoDatabase(string name) : base("azurerm_cosmosdb_mongo_database", name)

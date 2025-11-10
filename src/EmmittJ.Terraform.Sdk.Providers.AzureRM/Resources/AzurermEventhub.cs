@@ -140,6 +140,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_eventhub resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermEventhub : TerraformResource
 {
     public AzurermEventhub(string name) : base("azurerm_eventhub", name)

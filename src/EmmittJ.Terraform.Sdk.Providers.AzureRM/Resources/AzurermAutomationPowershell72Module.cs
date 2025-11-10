@@ -67,6 +67,7 @@ public class AzurermAutomationPowershell72ModuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_automation_powershell72_module resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomationPowershell72Module : TerraformResource
 {
     public AzurermAutomationPowershell72Module(string name) : base("azurerm_automation_powershell72_module", name)

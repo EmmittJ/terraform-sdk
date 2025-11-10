@@ -464,6 +464,7 @@ public class AzurermFunctionAppTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_function_app resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFunctionApp : TerraformResource
 {
     public AzurermFunctionApp(string name) : base("azurerm_function_app", name)

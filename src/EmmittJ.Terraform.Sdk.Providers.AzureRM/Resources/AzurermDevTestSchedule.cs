@@ -147,6 +147,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dev_test_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDevTestSchedule : TerraformResource
 {
     public AzurermDevTestSchedule(string name) : base("azurerm_dev_test_schedule", name)

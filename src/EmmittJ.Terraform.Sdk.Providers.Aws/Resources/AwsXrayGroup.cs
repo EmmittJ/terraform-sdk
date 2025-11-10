@@ -32,6 +32,7 @@ public class AwsXrayGroupInsightsConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_xray_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsXrayGroup : TerraformResource
 {
     public AwsXrayGroup(string name) : base("aws_xray_group", name)

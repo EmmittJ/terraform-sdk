@@ -78,6 +78,7 @@ public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mobile_network_slice resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMobileNetworkSlice : TerraformResource
 {
     public AzurermMobileNetworkSlice(string name) : base("azurerm_mobile_network_slice", name)

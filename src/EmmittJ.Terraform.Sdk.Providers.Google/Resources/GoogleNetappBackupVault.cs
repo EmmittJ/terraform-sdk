@@ -94,6 +94,7 @@ public class GoogleNetappBackupVaultTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_netapp_backup_vault resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetappBackupVault : TerraformResource
 {
     public GoogleNetappBackupVault(string name) : base("google_netapp_backup_vault", name)

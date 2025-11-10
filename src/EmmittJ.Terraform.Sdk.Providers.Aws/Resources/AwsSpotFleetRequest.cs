@@ -219,6 +219,7 @@ public class AwsSpotFleetRequestTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_spot_fleet_request resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSpotFleetRequest : TerraformResource
 {
     public AwsSpotFleetRequest(string name) : base("aws_spot_fleet_request", name)

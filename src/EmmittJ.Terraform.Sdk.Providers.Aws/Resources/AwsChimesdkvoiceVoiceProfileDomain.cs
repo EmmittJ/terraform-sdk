@@ -58,6 +58,7 @@ public class AwsChimesdkvoiceVoiceProfileDomainTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_chimesdkvoice_voice_profile_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimesdkvoiceVoiceProfileDomain : TerraformResource
 {
     public AwsChimesdkvoiceVoiceProfileDomain(string name) : base("aws_chimesdkvoice_voice_profile_domain", name)

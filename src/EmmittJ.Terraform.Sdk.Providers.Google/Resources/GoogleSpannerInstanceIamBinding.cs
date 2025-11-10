@@ -42,6 +42,7 @@ public class GoogleSpannerInstanceIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_spanner_instance_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSpannerInstanceIamBinding : TerraformResource
 {
     public GoogleSpannerInstanceIamBinding(string name) : base("google_spanner_instance_iam_binding", name)

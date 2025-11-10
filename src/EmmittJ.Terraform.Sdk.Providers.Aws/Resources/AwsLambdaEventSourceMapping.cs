@@ -198,6 +198,7 @@ public class AwsLambdaEventSourceMappingSourceAccessConfigurationBlock : Terrafo
 /// <summary>
 /// Manages a aws_lambda_event_source_mapping resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLambdaEventSourceMapping : TerraformResource
 {
     public AwsLambdaEventSourceMapping(string name) : base("aws_lambda_event_source_mapping", name)

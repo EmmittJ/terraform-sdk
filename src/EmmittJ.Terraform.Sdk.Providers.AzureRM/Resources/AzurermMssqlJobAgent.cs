@@ -77,6 +77,7 @@ public class AzurermMssqlJobAgentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mssql_job_agent resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlJobAgent : TerraformResource
 {
     public AzurermMssqlJobAgent(string name) : base("azurerm_mssql_job_agent", name)

@@ -75,6 +75,7 @@ public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfigurationTimeouts
 /// <summary>
 /// Manages a aws_chimesdkmediapipelines_media_insights_pipeline_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration : TerraformResource
 {
     public AwsChimesdkmediapipelinesMediaInsightsPipelineConfiguration(string name) : base("aws_chimesdkmediapipelines_media_insights_pipeline_configuration", name)

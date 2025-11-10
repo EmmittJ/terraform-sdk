@@ -345,6 +345,7 @@ public class AwsS3BucketWebsiteBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3Bucket : TerraformResource
 {
     public AwsS3Bucket(string name) : base("aws_s3_bucket", name)

@@ -58,6 +58,7 @@ public class GooglePubsubLiteSubscriptionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_pubsub_lite_subscription resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePubsubLiteSubscription : TerraformResource
 {
     public GooglePubsubLiteSubscription(string name) : base("google_pubsub_lite_subscription", name)

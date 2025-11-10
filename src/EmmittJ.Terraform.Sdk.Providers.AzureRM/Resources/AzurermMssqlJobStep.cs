@@ -95,6 +95,7 @@ public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mssql_job_step resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlJobStep : TerraformResource
 {
     public AzurermMssqlJobStep(string name) : base("azurerm_mssql_job_step", name)

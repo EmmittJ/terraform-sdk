@@ -104,6 +104,7 @@ public class GoogleIamFoldersPolicyBindingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iam_folders_policy_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIamFoldersPolicyBinding : TerraformResource
 {
     public GoogleIamFoldersPolicyBinding(string name) : base("google_iam_folders_policy_binding", name)

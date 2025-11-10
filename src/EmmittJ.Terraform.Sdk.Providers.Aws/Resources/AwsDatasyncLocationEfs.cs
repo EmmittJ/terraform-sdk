@@ -33,6 +33,7 @@ public class AwsDatasyncLocationEfsEc2ConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_datasync_location_efs resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncLocationEfs : TerraformResource
 {
     public AwsDatasyncLocationEfs(string name) : base("aws_datasync_location_efs", name)

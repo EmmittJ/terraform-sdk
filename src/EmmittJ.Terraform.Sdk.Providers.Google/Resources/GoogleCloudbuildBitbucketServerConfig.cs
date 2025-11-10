@@ -107,6 +107,7 @@ public class GoogleCloudbuildBitbucketServerConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloudbuild_bitbucket_server_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudbuildBitbucketServerConfig : TerraformResource
 {
     public GoogleCloudbuildBitbucketServerConfig(string name) : base("google_cloudbuild_bitbucket_server_config", name)

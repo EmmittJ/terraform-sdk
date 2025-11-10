@@ -191,6 +191,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_sentinel_metadata resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSentinelMetadata : TerraformResource
 {
     public AzurermSentinelMetadata(string name) : base("azurerm_sentinel_metadata", name)

@@ -66,6 +66,7 @@ public class AwsGlobalacceleratorCustomRoutingAcceleratorTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a aws_globalaccelerator_custom_routing_accelerator resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlobalacceleratorCustomRoutingAccelerator : TerraformResource
 {
     public AwsGlobalacceleratorCustomRoutingAccelerator(string name) : base("aws_globalaccelerator_custom_routing_accelerator", name)

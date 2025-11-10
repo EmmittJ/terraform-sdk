@@ -166,6 +166,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTi
 /// <summary>
 /// Manages a azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack : TerraformResource
 {
     public AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack(string name) : base("azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack", name)

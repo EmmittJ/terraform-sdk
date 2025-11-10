@@ -57,6 +57,7 @@ public class GoogleDataplexLakeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_lake resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexLake : TerraformResource
 {
     public GoogleDataplexLake(string name) : base("google_dataplex_lake", name)

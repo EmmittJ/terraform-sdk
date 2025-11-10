@@ -48,6 +48,7 @@ public class AwsIotDomainConfigurationTlsConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_iot_domain_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIotDomainConfiguration : TerraformResource
 {
     public AwsIotDomainConfiguration(string name) : base("aws_iot_domain_configuration", name)

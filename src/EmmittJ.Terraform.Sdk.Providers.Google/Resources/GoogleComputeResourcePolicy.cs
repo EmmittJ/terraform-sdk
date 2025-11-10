@@ -191,6 +191,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_resource_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeResourcePolicy : TerraformResource
 {
     public GoogleComputeResourcePolicy(string name) : base("google_compute_resource_policy", name)

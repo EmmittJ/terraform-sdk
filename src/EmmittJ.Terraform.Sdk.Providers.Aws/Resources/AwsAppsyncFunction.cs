@@ -59,6 +59,7 @@ public class AwsAppsyncFunctionSyncConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appsync_function resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppsyncFunction : TerraformResource
 {
     public AwsAppsyncFunction(string name) : base("aws_appsync_function", name)

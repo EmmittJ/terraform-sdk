@@ -139,6 +139,7 @@ public class GoogleVertexAiEndpointWithModelGardenDeploymentTimeoutsBlock : Terr
 /// <summary>
 /// Manages a google_vertex_ai_endpoint_with_model_garden_deployment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiEndpointWithModelGardenDeployment : TerraformResource
 {
     public GoogleVertexAiEndpointWithModelGardenDeployment(string name) : base("google_vertex_ai_endpoint_with_model_garden_deployment", name)

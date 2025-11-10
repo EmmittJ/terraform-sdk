@@ -102,6 +102,7 @@ public class AwsAppsyncResolverSyncConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appsync_resolver resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppsyncResolver : TerraformResource
 {
     public AwsAppsyncResolver(string name) : base("aws_appsync_resolver", name)

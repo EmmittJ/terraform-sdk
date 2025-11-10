@@ -121,6 +121,7 @@ public class GoogleNetworkConnectivityPolicyBasedRouteVirtualMachineBlock : Terr
 /// <summary>
 /// Manages a google_network_connectivity_policy_based_route resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkConnectivityPolicyBasedRoute : TerraformResource
 {
     public GoogleNetworkConnectivityPolicyBasedRoute(string name) : base("google_network_connectivity_policy_based_route", name)

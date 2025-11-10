@@ -120,6 +120,7 @@ public class AwsImagebuilderImagePipelineWorkflowBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_imagebuilder_image_pipeline resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsImagebuilderImagePipeline : TerraformResource
 {
     public AwsImagebuilderImagePipeline(string name) : base("aws_imagebuilder_image_pipeline", name)

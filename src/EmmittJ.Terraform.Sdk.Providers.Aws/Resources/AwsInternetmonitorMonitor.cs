@@ -39,6 +39,7 @@ public class AwsInternetmonitorMonitorInternetMeasurementsLogDeliveryBlock : Ter
 /// <summary>
 /// Manages a aws_internetmonitor_monitor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsInternetmonitorMonitor : TerraformResource
 {
     public AwsInternetmonitorMonitor(string name) : base("aws_internetmonitor_monitor", name)

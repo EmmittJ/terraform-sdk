@@ -552,6 +552,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloudbuild_trigger resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudbuildTrigger : TerraformResource
 {
     public GoogleCloudbuildTrigger(string name) : base("google_cloudbuild_trigger", name)

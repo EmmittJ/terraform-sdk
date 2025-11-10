@@ -250,6 +250,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_scheduler_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudSchedulerJob : TerraformResource
 {
     public GoogleCloudSchedulerJob(string name) : base("google_cloud_scheduler_job", name)

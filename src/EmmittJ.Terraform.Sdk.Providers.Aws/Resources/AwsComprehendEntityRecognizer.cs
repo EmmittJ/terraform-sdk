@@ -85,6 +85,7 @@ public class AwsComprehendEntityRecognizerVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_comprehend_entity_recognizer resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsComprehendEntityRecognizer : TerraformResource
 {
     public AwsComprehendEntityRecognizer(string name) : base("aws_comprehend_entity_recognizer", name)

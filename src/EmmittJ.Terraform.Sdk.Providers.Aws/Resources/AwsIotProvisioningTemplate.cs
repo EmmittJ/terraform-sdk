@@ -32,6 +32,7 @@ public class AwsIotProvisioningTemplatePreProvisioningHookBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_iot_provisioning_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIotProvisioningTemplate : TerraformResource
 {
     public AwsIotProvisioningTemplate(string name) : base("aws_iot_provisioning_template", name)

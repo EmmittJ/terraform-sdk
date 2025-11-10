@@ -556,6 +556,7 @@ public class GoogleDataprocJobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocJob : TerraformResource
 {
     public GoogleDataprocJob(string name) : base("google_dataproc_job", name)

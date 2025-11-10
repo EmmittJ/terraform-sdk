@@ -70,6 +70,7 @@ public class GoogleApigeeInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeInstance : TerraformResource
 {
     public GoogleApigeeInstance(string name) : base("google_apigee_instance", name)

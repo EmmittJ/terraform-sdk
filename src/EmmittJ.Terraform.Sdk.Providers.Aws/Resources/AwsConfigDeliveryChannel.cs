@@ -22,6 +22,7 @@ public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : Terraform
 /// <summary>
 /// Manages a aws_config_delivery_channel resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConfigDeliveryChannel : TerraformResource
 {
     public AwsConfigDeliveryChannel(string name) : base("aws_config_delivery_channel", name)

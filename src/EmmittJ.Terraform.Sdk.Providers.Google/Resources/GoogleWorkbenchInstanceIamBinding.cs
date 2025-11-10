@@ -42,6 +42,7 @@ public class GoogleWorkbenchInstanceIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_workbench_instance_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleWorkbenchInstanceIamBinding : TerraformResource
 {
     public GoogleWorkbenchInstanceIamBinding(string name) : base("google_workbench_instance_iam_binding", name)

@@ -48,6 +48,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock : Te
 /// <summary>
 /// Manages a google_certificate_manager_certificate_issuance_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResource
 {
     public GoogleCertificateManagerCertificateIssuanceConfig(string name) : base("google_certificate_manager_certificate_issuance_config", name)

@@ -32,6 +32,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : Terr
 /// <summary>
 /// Retrieves information about a aws_resourcegroupstaggingapi_resources.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSource
 {
     public AwsResourcegroupstaggingapiResourcesDataSource(string name) : base("aws_resourcegroupstaggingapi_resources", name)

@@ -76,6 +76,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_website_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketWebsiteConfiguration : TerraformResource
 {
     public AwsS3BucketWebsiteConfiguration(string name) : base("aws_s3_bucket_website_configuration", name)

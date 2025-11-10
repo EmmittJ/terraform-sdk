@@ -202,6 +202,7 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_image resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermImage : TerraformResource
 {
     public AzurermImage(string name) : base("azurerm_image", name)

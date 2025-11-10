@@ -271,6 +271,7 @@ public class AwsEc2FleetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ec2_fleet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEc2Fleet : TerraformResource
 {
     public AwsEc2Fleet(string name) : base("aws_ec2_fleet", name)

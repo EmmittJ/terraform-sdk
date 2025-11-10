@@ -111,6 +111,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_kusto_attached_database_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKustoAttachedDatabaseConfiguration : TerraformResource
 {
     public AzurermKustoAttachedDatabaseConfiguration(string name) : base("azurerm_kusto_attached_database_configuration", name)

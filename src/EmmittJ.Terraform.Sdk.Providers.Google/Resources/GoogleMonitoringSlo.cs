@@ -130,6 +130,7 @@ public class GoogleMonitoringSloWindowsBasedSliBlock : TerraformBlock
 /// <summary>
 /// Manages a google_monitoring_slo resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMonitoringSlo : TerraformResource
 {
     public GoogleMonitoringSlo(string name) : base("google_monitoring_slo", name)

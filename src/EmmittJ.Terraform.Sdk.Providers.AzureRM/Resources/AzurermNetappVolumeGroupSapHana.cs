@@ -203,6 +203,7 @@ public class AzurermNetappVolumeGroupSapHanaVolumeBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_netapp_volume_group_sap_hana resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetappVolumeGroupSapHana : TerraformResource
 {
     public AzurermNetappVolumeGroupSapHana(string name) : base("azurerm_netapp_volume_group_sap_hana", name)

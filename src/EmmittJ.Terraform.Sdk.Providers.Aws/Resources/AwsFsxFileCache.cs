@@ -195,6 +195,7 @@ public class AwsFsxFileCacheTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fsx_file_cache resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFsxFileCache : TerraformResource
 {
     public AwsFsxFileCache(string name) : base("aws_fsx_file_cache", name)

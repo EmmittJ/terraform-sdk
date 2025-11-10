@@ -393,6 +393,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_eventgrid_event_subscription resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermEventgridEventSubscription : TerraformResource
 {
     public AzurermEventgridEventSubscription(string name) : base("azurerm_eventgrid_event_subscription", name)

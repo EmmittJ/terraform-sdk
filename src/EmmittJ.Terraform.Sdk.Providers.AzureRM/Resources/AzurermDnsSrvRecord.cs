@@ -97,6 +97,7 @@ public class AzurermDnsSrvRecordTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dns_srv_record resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDnsSrvRecord : TerraformResource
 {
     public AzurermDnsSrvRecord(string name) : base("azurerm_dns_srv_record", name)

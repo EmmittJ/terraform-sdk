@@ -645,6 +645,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a google_oracle_database_autonomous_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
 {
     public GoogleOracleDatabaseAutonomousDatabase(string name) : base("google_oracle_database_autonomous_database", name)

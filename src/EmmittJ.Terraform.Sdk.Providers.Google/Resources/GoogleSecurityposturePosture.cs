@@ -67,6 +67,7 @@ public class GoogleSecurityposturePostureTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_securityposture_posture resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecurityposturePosture : TerraformResource
 {
     public GoogleSecurityposturePosture(string name) : base("google_securityposture_posture", name)

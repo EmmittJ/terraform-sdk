@@ -104,6 +104,7 @@ public class GoogleBigtableAppProfileTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigtable_app_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigtableAppProfile : TerraformResource
 {
     public GoogleBigtableAppProfile(string name) : base("google_bigtable_app_profile", name)

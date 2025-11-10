@@ -85,6 +85,7 @@ public class AzurermStreamAnalyticsStreamInputIothubTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_stream_analytics_stream_input_iothub resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStreamAnalyticsStreamInputIothub : TerraformResource
 {
     public AzurermStreamAnalyticsStreamInputIothub(string name) : base("azurerm_stream_analytics_stream_input_iothub", name)

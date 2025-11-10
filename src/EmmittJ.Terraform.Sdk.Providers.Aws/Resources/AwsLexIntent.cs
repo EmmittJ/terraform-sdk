@@ -238,6 +238,7 @@ public class AwsLexIntentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lex_intent resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLexIntent : TerraformResource
 {
     public AwsLexIntent(string name) : base("aws_lex_intent", name)

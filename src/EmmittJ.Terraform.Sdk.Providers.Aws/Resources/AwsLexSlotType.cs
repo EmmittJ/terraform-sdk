@@ -67,6 +67,7 @@ public class AwsLexSlotTypeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lex_slot_type resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLexSlotType : TerraformResource
 {
     public AwsLexSlotType(string name) : base("aws_lex_slot_type", name)

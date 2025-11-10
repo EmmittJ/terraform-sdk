@@ -148,6 +148,7 @@ public class AzurermDnsZoneTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dns_zone resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDnsZone : TerraformResource
 {
     public AzurermDnsZone(string name) : base("azurerm_dns_zone", name)

@@ -177,6 +177,7 @@ public class AwsGlueClassifierXmlClassifierBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_classifier resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueClassifier : TerraformResource
 {
     public AwsGlueClassifier(string name) : base("aws_glue_classifier", name)

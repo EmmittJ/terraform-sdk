@@ -76,6 +76,7 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_kubernetes_fleet_update_strategy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
 {
     public AzurermKubernetesFleetUpdateStrategy(string name) : base("azurerm_kubernetes_fleet_update_strategy", name)

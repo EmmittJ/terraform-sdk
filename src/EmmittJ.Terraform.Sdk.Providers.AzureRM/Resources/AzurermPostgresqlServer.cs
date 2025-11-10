@@ -157,6 +157,7 @@ public class AzurermPostgresqlServerTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_postgresql_server resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPostgresqlServer : TerraformResource
 {
     public AzurermPostgresqlServer(string name) : base("azurerm_postgresql_server", name)

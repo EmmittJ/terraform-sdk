@@ -305,6 +305,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : Terr
 /// <summary>
 /// Manages a google_database_migration_service_connection_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
 {
     public GoogleDatabaseMigrationServiceConnectionProfile(string name) : base("google_database_migration_service_connection_profile", name)

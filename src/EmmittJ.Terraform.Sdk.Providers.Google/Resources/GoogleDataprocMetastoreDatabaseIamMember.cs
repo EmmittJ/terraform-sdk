@@ -42,6 +42,7 @@ public class GoogleDataprocMetastoreDatabaseIamMemberConditionBlock : TerraformB
 /// <summary>
 /// Manages a google_dataproc_metastore_database_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocMetastoreDatabaseIamMember : TerraformResource
 {
     public GoogleDataprocMetastoreDatabaseIamMember(string name) : base("google_dataproc_metastore_database_iam_member", name)

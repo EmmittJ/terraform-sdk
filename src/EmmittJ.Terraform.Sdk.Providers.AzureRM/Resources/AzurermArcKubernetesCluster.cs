@@ -85,6 +85,7 @@ public class AzurermArcKubernetesClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_arc_kubernetes_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermArcKubernetesCluster : TerraformResource
 {
     public AzurermArcKubernetesCluster(string name) : base("azurerm_arc_kubernetes_cluster", name)

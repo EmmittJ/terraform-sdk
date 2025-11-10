@@ -42,6 +42,7 @@ public class GoogleBigqueryDatapolicyDataPolicyIamMemberConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_bigquery_datapolicy_data_policy_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDatapolicyDataPolicyIamMember : TerraformResource
 {
     public GoogleBigqueryDatapolicyDataPolicyIamMember(string name) : base("google_bigquery_datapolicy_data_policy_iam_member", name)

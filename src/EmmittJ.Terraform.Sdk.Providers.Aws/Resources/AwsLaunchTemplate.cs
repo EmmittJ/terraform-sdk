@@ -773,6 +773,7 @@ public class AwsLaunchTemplateTagSpecificationsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_launch_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLaunchTemplate : TerraformResource
 {
     public AwsLaunchTemplate(string name) : base("aws_launch_template", name)

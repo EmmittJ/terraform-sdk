@@ -78,6 +78,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForFolderTimeoutsBlock : Terrafor
 /// <summary>
 /// Manages a google_os_config_v2_policy_orchestrator_for_folder resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOsConfigV2PolicyOrchestratorForFolder : TerraformResource
 {
     public GoogleOsConfigV2PolicyOrchestratorForFolder(string name) : base("google_os_config_v2_policy_orchestrator_for_folder", name)

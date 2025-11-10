@@ -31,6 +31,7 @@ public class AwsAppautoscalingScheduledActionScalableTargetActionBlock : Terrafo
 /// <summary>
 /// Manages a aws_appautoscaling_scheduled_action resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppautoscalingScheduledAction : TerraformResource
 {
     public AwsAppautoscalingScheduledAction(string name) : base("aws_appautoscaling_scheduled_action", name)

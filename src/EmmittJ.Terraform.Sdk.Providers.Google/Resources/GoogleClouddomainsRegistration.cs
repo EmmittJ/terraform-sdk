@@ -138,6 +138,7 @@ public class GoogleClouddomainsRegistrationYearlyPriceBlock : TerraformBlock
 /// <summary>
 /// Manages a google_clouddomains_registration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleClouddomainsRegistration : TerraformResource
 {
     public GoogleClouddomainsRegistration(string name) : base("google_clouddomains_registration", name)

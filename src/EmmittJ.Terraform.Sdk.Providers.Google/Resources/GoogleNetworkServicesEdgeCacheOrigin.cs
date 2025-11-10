@@ -194,6 +194,7 @@ public class GoogleNetworkServicesEdgeCacheOriginTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_services_edge_cache_origin resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkServicesEdgeCacheOrigin : TerraformResource
 {
     public GoogleNetworkServicesEdgeCacheOrigin(string name) : base("google_network_services_edge_cache_origin", name)

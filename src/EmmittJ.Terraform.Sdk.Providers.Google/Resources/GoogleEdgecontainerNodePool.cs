@@ -94,6 +94,7 @@ public class GoogleEdgecontainerNodePoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_edgecontainer_node_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEdgecontainerNodePool : TerraformResource
 {
     public GoogleEdgecontainerNodePool(string name) : base("google_edgecontainer_node_pool", name)

@@ -48,6 +48,7 @@ public class GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a google_storage_control_folder_intelligence_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageControlFolderIntelligenceConfig : TerraformResource
 {
     public GoogleStorageControlFolderIntelligenceConfig(string name) : base("google_storage_control_folder_intelligence_config", name)

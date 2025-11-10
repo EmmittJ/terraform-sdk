@@ -96,6 +96,7 @@ public class GoogleIntegrationsAuthConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_integrations_auth_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIntegrationsAuthConfig : TerraformResource
 {
     public GoogleIntegrationsAuthConfig(string name) : base("google_integrations_auth_config", name)

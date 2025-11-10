@@ -42,6 +42,7 @@ public class GoogleDataplexEntryGroupIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_entry_group_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexEntryGroupIamMember : TerraformResource
 {
     public GoogleDataplexEntryGroupIamMember(string name) : base("google_dataplex_entry_group_iam_member", name)

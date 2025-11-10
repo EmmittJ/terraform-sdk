@@ -101,6 +101,7 @@ public class GoogleDataprocClusterVirtualClusterConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocCluster : TerraformResource
 {
     public GoogleDataprocCluster(string name) : base("google_dataproc_cluster", name)

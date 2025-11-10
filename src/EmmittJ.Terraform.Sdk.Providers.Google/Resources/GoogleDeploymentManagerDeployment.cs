@@ -74,6 +74,7 @@ public class GoogleDeploymentManagerDeploymentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_deployment_manager_deployment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDeploymentManagerDeployment : TerraformResource
 {
     public GoogleDeploymentManagerDeployment(string name) : base("google_deployment_manager_deployment", name)

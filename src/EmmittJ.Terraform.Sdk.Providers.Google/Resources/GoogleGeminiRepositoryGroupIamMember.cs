@@ -42,6 +42,7 @@ public class GoogleGeminiRepositoryGroupIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gemini_repository_group_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGeminiRepositoryGroupIamMember : TerraformResource
 {
     public GoogleGeminiRepositoryGroupIamMember(string name) : base("google_gemini_repository_group_iam_member", name)

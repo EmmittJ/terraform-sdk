@@ -209,6 +209,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_databricks_workspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDatabricksWorkspace : TerraformResource
 {
     public AzurermDatabricksWorkspace(string name) : base("azurerm_databricks_workspace", name)

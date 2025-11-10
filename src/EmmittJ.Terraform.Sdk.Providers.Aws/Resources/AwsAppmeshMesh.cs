@@ -13,6 +13,7 @@ public class AwsAppmeshMeshSpecBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appmesh_mesh resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppmeshMesh : TerraformResource
 {
     public AwsAppmeshMesh(string name) : base("aws_appmesh_mesh", name)

@@ -163,6 +163,7 @@ public class GoogleDialogflowCxGenerativeSettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_generative_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxGenerativeSettings : TerraformResource
 {
     public GoogleDialogflowCxGenerativeSettings(string name) : base("google_dialogflow_cx_generative_settings", name)

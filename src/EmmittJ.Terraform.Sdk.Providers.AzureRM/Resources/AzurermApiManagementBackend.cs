@@ -202,6 +202,7 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_api_management_backend resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApiManagementBackend : TerraformResource
 {
     public AzurermApiManagementBackend(string name) : base("azurerm_api_management_backend", name)

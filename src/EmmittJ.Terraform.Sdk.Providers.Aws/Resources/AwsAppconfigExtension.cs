@@ -59,6 +59,7 @@ public class AwsAppconfigExtensionParameterBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appconfig_extension resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppconfigExtension : TerraformResource
 {
     public AwsAppconfigExtension(string name) : base("aws_appconfig_extension", name)

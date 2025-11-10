@@ -481,6 +481,7 @@ public class AwsElasticsearchDomainVpcOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_elasticsearch_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElasticsearchDomain : TerraformResource
 {
     public AwsElasticsearchDomain(string name) : base("aws_elasticsearch_domain", name)

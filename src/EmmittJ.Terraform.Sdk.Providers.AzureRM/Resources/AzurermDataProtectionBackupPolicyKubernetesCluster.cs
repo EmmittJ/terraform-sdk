@@ -76,6 +76,7 @@ public class AzurermDataProtectionBackupPolicyKubernetesClusterTimeoutsBlock : T
 /// <summary>
 /// Manages a azurerm_data_protection_backup_policy_kubernetes_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataProtectionBackupPolicyKubernetesCluster : TerraformResource
 {
     public AzurermDataProtectionBackupPolicyKubernetesCluster(string name) : base("azurerm_data_protection_backup_policy_kubernetes_cluster", name)

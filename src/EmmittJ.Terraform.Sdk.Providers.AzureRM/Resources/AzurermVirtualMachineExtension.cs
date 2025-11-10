@@ -77,6 +77,7 @@ public class AzurermVirtualMachineExtensionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_machine_extension resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualMachineExtension : TerraformResource
 {
     public AzurermVirtualMachineExtension(string name) : base("azurerm_virtual_machine_extension", name)

@@ -153,6 +153,7 @@ public class GoogleStorageInsightsDatasetConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_insights_dataset_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageInsightsDatasetConfig : TerraformResource
 {
     public GoogleStorageInsightsDatasetConfig(string name) : base("google_storage_insights_dataset_config", name)

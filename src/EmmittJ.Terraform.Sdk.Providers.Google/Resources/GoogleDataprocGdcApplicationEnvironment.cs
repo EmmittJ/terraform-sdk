@@ -66,6 +66,7 @@ public class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a google_dataproc_gdc_application_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
 {
     public GoogleDataprocGdcApplicationEnvironment(string name) : base("google_dataproc_gdc_application_environment", name)

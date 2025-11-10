@@ -89,6 +89,7 @@ public class GoogleManagedKafkaAclTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_managed_kafka_acl resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleManagedKafkaAcl : TerraformResource
 {
     public GoogleManagedKafkaAcl(string name) : base("google_managed_kafka_acl", name)

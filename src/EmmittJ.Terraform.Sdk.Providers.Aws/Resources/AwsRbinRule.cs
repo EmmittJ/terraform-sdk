@@ -130,6 +130,7 @@ public class AwsRbinRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_rbin_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRbinRule : TerraformResource
 {
     public AwsRbinRule(string name) : base("aws_rbin_rule", name)

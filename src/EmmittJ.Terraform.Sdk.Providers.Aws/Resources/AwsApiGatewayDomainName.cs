@@ -59,6 +59,7 @@ public class AwsApiGatewayDomainNameMutualTlsAuthenticationBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_api_gateway_domain_name resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApiGatewayDomainName : TerraformResource
 {
     public AwsApiGatewayDomainName(string name) : base("aws_api_gateway_domain_name", name)

@@ -87,6 +87,7 @@ public class GoogleSecureSourceManagerRepositoryTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_secure_source_manager_repository resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecureSourceManagerRepository : TerraformResource
 {
     public GoogleSecureSourceManagerRepository(string name) : base("google_secure_source_manager_repository", name)

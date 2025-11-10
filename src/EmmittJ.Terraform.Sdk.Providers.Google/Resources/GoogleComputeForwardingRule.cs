@@ -66,6 +66,7 @@ public class GoogleComputeForwardingRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_forwarding_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeForwardingRule : TerraformResource
 {
     public GoogleComputeForwardingRule(string name) : base("google_compute_forwarding_rule", name)

@@ -86,6 +86,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_vpn_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVpnGateway : TerraformResource
 {
     public AzurermVpnGateway(string name) : base("azurerm_vpn_gateway", name)

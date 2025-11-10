@@ -107,6 +107,7 @@ public class GoogleDiscoveryEngineRecommendationEngineTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a google_discovery_engine_recommendation_engine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDiscoveryEngineRecommendationEngine : TerraformResource
 {
     public GoogleDiscoveryEngineRecommendationEngine(string name) : base("google_discovery_engine_recommendation_engine", name)

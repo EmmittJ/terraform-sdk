@@ -78,6 +78,7 @@ public class AzurermDataShareDatasetBlobStorageTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_share_dataset_blob_storage resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataShareDatasetBlobStorage : TerraformResource
 {
     public AzurermDataShareDatasetBlobStorage(string name) : base("azurerm_data_share_dataset_blob_storage", name)

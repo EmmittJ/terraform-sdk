@@ -240,6 +240,7 @@ public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_backup_policy_file_share resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBackupPolicyFileShare : TerraformResource
 {
     public AzurermBackupPolicyFileShare(string name) : base("azurerm_backup_policy_file_share", name)

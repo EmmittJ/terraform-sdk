@@ -175,6 +175,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_servicebus_namespace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermServicebusNamespace : TerraformResource
 {
     public AzurermServicebusNamespace(string name) : base("azurerm_servicebus_namespace", name)

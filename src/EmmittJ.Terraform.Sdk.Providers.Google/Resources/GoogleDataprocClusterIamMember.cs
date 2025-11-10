@@ -42,6 +42,7 @@ public class GoogleDataprocClusterIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_cluster_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocClusterIamMember : TerraformResource
 {
     public GoogleDataprocClusterIamMember(string name) : base("google_dataproc_cluster_iam_member", name)

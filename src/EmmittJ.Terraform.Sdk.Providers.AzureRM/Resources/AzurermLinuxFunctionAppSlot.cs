@@ -756,6 +756,7 @@ public class AzurermLinuxFunctionAppSlotTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_linux_function_app_slot resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLinuxFunctionAppSlot : TerraformResource
 {
     public AzurermLinuxFunctionAppSlot(string name) : base("azurerm_linux_function_app_slot", name)

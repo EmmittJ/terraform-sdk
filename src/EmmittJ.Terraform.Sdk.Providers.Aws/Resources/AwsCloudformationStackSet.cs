@@ -127,6 +127,7 @@ public class AwsCloudformationStackSetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudformation_stack_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudformationStackSet : TerraformResource
 {
     public AwsCloudformationStackSet(string name) : base("aws_cloudformation_stack_set", name)

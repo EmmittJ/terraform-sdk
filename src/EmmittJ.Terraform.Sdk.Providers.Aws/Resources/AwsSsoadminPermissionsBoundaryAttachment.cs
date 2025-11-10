@@ -48,6 +48,7 @@ public class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a aws_ssoadmin_permissions_boundary_attachment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
 {
     public AwsSsoadminPermissionsBoundaryAttachment(string name) : base("aws_ssoadmin_permissions_boundary_attachment", name)

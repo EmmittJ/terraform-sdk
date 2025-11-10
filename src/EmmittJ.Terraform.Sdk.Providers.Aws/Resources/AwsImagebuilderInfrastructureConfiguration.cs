@@ -83,6 +83,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock : Terrafor
 /// <summary>
 /// Manages a aws_imagebuilder_infrastructure_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
 {
     public AwsImagebuilderInfrastructureConfiguration(string name) : base("aws_imagebuilder_infrastructure_configuration", name)

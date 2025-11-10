@@ -94,6 +94,7 @@ public class AzurermDatabricksAccessConnectorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_databricks_access_connector resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDatabricksAccessConnector : TerraformResource
 {
     public AzurermDatabricksAccessConnector(string name) : base("azurerm_databricks_access_connector", name)

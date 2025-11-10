@@ -84,6 +84,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_elastic_cloud_elasticsearch resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermElasticCloudElasticsearch : TerraformResource
 {
     public AzurermElasticCloudElasticsearch(string name) : base("azurerm_elastic_cloud_elasticsearch", name)

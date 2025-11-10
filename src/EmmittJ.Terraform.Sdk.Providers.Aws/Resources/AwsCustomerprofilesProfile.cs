@@ -397,6 +397,7 @@ public class AwsCustomerprofilesProfileShippingAddressBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_customerprofiles_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCustomerprofilesProfile : TerraformResource
 {
     public AwsCustomerprofilesProfile(string name) : base("aws_customerprofiles_profile", name)

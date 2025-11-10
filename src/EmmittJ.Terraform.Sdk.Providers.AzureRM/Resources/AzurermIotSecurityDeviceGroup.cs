@@ -141,6 +141,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_iot_security_device_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermIotSecurityDeviceGroup : TerraformResource
 {
     public AzurermIotSecurityDeviceGroup(string name) : base("azurerm_iot_security_device_group", name)

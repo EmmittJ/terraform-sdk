@@ -252,6 +252,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBl
 /// <summary>
 /// Manages a aws_codedeploy_deployment_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodedeployDeploymentGroup : TerraformResource
 {
     public AwsCodedeployDeploymentGroup(string name) : base("aws_codedeploy_deployment_group", name)

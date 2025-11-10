@@ -141,6 +141,7 @@ public class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_firewall_network_rule_collection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFirewallNetworkRuleCollection : TerraformResource
 {
     public AzurermFirewallNetworkRuleCollection(string name) : base("azurerm_firewall_network_rule_collection", name)

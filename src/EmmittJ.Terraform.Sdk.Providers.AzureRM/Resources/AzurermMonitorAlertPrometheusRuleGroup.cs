@@ -130,6 +130,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_monitor_alert_prometheus_rule_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorAlertPrometheusRuleGroup : TerraformResource
 {
     public AzurermMonitorAlertPrometheusRuleGroup(string name) : base("azurerm_monitor_alert_prometheus_rule_group", name)

@@ -112,6 +112,7 @@ public class AzurermLoadTestTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_load_test resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLoadTest : TerraformResource
 {
     public AzurermLoadTest(string name) : base("azurerm_load_test", name)

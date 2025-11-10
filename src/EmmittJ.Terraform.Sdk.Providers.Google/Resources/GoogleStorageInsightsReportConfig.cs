@@ -119,6 +119,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_insights_report_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageInsightsReportConfig : TerraformResource
 {
     public GoogleStorageInsightsReportConfig(string name) : base("google_storage_insights_report_config", name)

@@ -42,6 +42,7 @@ public class GoogleBigtableTableIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigtable_table_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigtableTableIamMember : TerraformResource
 {
     public GoogleBigtableTableIamMember(string name) : base("google_bigtable_table_iam_member", name)

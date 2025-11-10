@@ -212,6 +212,7 @@ public class GoogleNotebooksInstanceVmImageBlock : TerraformBlock
 /// Manages a google_notebooks_instance resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNotebooksInstance : TerraformResource
 {
     public GoogleNotebooksInstance(string name) : base("google_notebooks_instance", name)

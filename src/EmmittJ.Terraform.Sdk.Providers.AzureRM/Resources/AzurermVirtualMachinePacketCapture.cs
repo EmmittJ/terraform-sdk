@@ -129,6 +129,7 @@ public class AzurermVirtualMachinePacketCaptureTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_machine_packet_capture resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualMachinePacketCapture : TerraformResource
 {
     public AzurermVirtualMachinePacketCapture(string name) : base("azurerm_virtual_machine_packet_capture", name)

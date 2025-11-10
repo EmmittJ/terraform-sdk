@@ -77,6 +77,7 @@ public class AzurermFabricCapacityTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_fabric_capacity resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFabricCapacity : TerraformResource
 {
     public AzurermFabricCapacity(string name) : base("azurerm_fabric_capacity", name)

@@ -43,6 +43,7 @@ public class AwsRoute53recoverycontrolconfigSafetyRuleRuleConfigBlock : Terrafor
 /// <summary>
 /// Manages a aws_route53recoverycontrolconfig_safety_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRoute53recoverycontrolconfigSafetyRule : TerraformResource
 {
     public AwsRoute53recoverycontrolconfigSafetyRule(string name) : base("aws_route53recoverycontrolconfig_safety_rule", name)

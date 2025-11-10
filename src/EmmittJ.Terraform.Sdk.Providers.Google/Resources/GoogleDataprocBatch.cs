@@ -312,6 +312,7 @@ public class GoogleDataprocBatchTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_batch resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocBatch : TerraformResource
 {
     public GoogleDataprocBatch(string name) : base("google_dataproc_batch", name)

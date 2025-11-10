@@ -41,6 +41,7 @@ public class AwsS3controlObjectLambdaAccessPointConfigurationBlock : TerraformBl
 /// <summary>
 /// Manages a aws_s3control_object_lambda_access_point resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3controlObjectLambdaAccessPoint : TerraformResource
 {
     public AwsS3controlObjectLambdaAccessPoint(string name) : base("aws_s3control_object_lambda_access_point", name)

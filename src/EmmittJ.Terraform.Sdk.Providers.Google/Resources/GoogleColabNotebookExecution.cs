@@ -103,6 +103,7 @@ public class GoogleColabNotebookExecutionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_colab_notebook_execution resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleColabNotebookExecution : TerraformResource
 {
     public GoogleColabNotebookExecution(string name) : base("google_colab_notebook_execution", name)

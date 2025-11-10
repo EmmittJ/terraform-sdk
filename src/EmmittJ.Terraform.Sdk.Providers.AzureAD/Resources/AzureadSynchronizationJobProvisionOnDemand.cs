@@ -58,6 +58,7 @@ public class AzureadSynchronizationJobProvisionOnDemandTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a azuread_synchronization_job_provision_on_demand resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadSynchronizationJobProvisionOnDemand : TerraformResource
 {
     public AzureadSynchronizationJobProvisionOnDemand(string name) : base("azuread_synchronization_job_provision_on_demand", name)

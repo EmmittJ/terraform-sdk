@@ -43,6 +43,7 @@ public class AwsAppintegrationsDataIntegrationScheduleConfigBlock : TerraformBlo
 /// <summary>
 /// Manages a aws_appintegrations_data_integration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppintegrationsDataIntegration : TerraformResource
 {
     public AwsAppintegrationsDataIntegration(string name) : base("aws_appintegrations_data_integration", name)

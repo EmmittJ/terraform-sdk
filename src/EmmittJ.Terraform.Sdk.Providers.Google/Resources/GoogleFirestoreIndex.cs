@@ -68,6 +68,7 @@ public class GoogleFirestoreIndexTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firestore_index resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirestoreIndex : TerraformResource
 {
     public GoogleFirestoreIndex(string name) : base("google_firestore_index", name)

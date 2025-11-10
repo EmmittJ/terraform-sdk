@@ -85,6 +85,7 @@ public class AzurermStreamAnalyticsStreamInputEventhubV2TimeoutsBlock : Terrafor
 /// <summary>
 /// Manages a azurerm_stream_analytics_stream_input_eventhub_v2 resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStreamAnalyticsStreamInputEventhubV2 : TerraformResource
 {
     public AzurermStreamAnalyticsStreamInputEventhubV2(string name) : base("azurerm_stream_analytics_stream_input_eventhub_v2", name)

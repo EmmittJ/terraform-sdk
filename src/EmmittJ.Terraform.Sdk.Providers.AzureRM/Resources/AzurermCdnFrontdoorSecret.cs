@@ -48,6 +48,7 @@ public class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cdn_frontdoor_secret resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCdnFrontdoorSecret : TerraformResource
 {
     public AzurermCdnFrontdoorSecret(string name) : base("azurerm_cdn_frontdoor_secret", name)

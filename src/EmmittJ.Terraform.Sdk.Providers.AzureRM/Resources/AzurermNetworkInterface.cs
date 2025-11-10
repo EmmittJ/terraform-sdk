@@ -131,6 +131,7 @@ public class AzurermNetworkInterfaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_network_interface resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkInterface : TerraformResource
 {
     public AzurermNetworkInterface(string name) : base("azurerm_network_interface", name)

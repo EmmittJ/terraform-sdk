@@ -67,6 +67,7 @@ public class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_monitor_scheduled_query_rules_log resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorScheduledQueryRulesLog : TerraformResource
 {
     public AzurermMonitorScheduledQueryRulesLog(string name) : base("azurerm_monitor_scheduled_query_rules_log", name)

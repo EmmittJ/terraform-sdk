@@ -102,6 +102,7 @@ public class GooglePrivatecaCertificateTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_privateca_certificate_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePrivatecaCertificateTemplate : TerraformResource
 {
     public GooglePrivatecaCertificateTemplate(string name) : base("google_privateca_certificate_template", name)

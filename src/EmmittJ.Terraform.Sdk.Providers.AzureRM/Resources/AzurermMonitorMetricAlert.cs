@@ -275,6 +275,7 @@ public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_monitor_metric_alert resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorMetricAlert : TerraformResource
 {
     public AzurermMonitorMetricAlert(string name) : base("azurerm_monitor_metric_alert", name)

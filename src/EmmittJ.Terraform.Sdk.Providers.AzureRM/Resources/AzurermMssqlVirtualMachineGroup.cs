@@ -131,6 +131,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_mssql_virtual_machine_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlVirtualMachineGroup : TerraformResource
 {
     public AzurermMssqlVirtualMachineGroup(string name) : base("azurerm_mssql_virtual_machine_group", name)

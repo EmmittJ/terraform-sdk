@@ -66,6 +66,7 @@ public class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_identity_platform_oauth_idp_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
 {
     public GoogleIdentityPlatformOauthIdpConfig(string name) : base("google_identity_platform_oauth_idp_config", name)

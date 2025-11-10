@@ -59,6 +59,7 @@ public class AwsSagemakerUserProfileUserSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_user_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerUserProfile : TerraformResource
 {
     public AwsSagemakerUserProfile(string name) : base("aws_sagemaker_user_profile", name)

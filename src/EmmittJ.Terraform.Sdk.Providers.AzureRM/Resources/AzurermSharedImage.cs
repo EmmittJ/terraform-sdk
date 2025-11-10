@@ -123,6 +123,7 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_shared_image resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSharedImage : TerraformResource
 {
     public AzurermSharedImage(string name) : base("azurerm_shared_image", name)

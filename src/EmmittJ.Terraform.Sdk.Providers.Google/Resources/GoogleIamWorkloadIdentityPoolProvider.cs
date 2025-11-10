@@ -153,6 +153,7 @@ public class GoogleIamWorkloadIdentityPoolProviderX509Block : TerraformBlock
 /// <summary>
 /// Manages a google_iam_workload_identity_pool_provider resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIamWorkloadIdentityPoolProvider : TerraformResource
 {
     public GoogleIamWorkloadIdentityPoolProvider(string name) : base("google_iam_workload_identity_pool_provider", name)

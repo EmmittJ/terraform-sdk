@@ -280,6 +280,7 @@ public class AzurermContainerAppJobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_container_app_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermContainerAppJob : TerraformResource
 {
     public AzurermContainerAppJob(string name) : base("azurerm_container_app_job", name)

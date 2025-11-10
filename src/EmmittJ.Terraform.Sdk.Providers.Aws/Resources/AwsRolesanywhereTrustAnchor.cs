@@ -76,6 +76,7 @@ public class AwsRolesanywhereTrustAnchorSourceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_rolesanywhere_trust_anchor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRolesanywhereTrustAnchor : TerraformResource
 {
     public AwsRolesanywhereTrustAnchor(string name) : base("aws_rolesanywhere_trust_anchor", name)

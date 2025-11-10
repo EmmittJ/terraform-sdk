@@ -77,6 +77,7 @@ public class GoogleOrganizationAccessApprovalSettingsTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a google_organization_access_approval_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOrganizationAccessApprovalSettings : TerraformResource
 {
     public GoogleOrganizationAccessApprovalSettings(string name) : base("google_organization_access_approval_settings", name)

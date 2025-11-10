@@ -463,6 +463,7 @@ public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_hdinsight_interactive_query_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHdinsightInteractiveQueryCluster : TerraformResource
 {
     public AzurermHdinsightInteractiveQueryCluster(string name) : base("azurerm_hdinsight_interactive_query_cluster", name)

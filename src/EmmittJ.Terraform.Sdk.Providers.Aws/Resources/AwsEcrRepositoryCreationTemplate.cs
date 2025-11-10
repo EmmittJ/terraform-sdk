@@ -59,6 +59,7 @@ public class AwsEcrRepositoryCreationTemplateImageTagMutabilityExclusionFilterBl
 /// <summary>
 /// Manages a aws_ecr_repository_creation_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcrRepositoryCreationTemplate : TerraformResource
 {
     public AwsEcrRepositoryCreationTemplate(string name) : base("aws_ecr_repository_creation_template", name)

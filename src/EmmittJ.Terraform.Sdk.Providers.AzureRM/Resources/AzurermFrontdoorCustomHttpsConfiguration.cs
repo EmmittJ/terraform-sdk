@@ -120,6 +120,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_frontdoor_custom_https_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFrontdoorCustomHttpsConfiguration : TerraformResource
 {
     public AzurermFrontdoorCustomHttpsConfiguration(string name) : base("azurerm_frontdoor_custom_https_configuration", name)

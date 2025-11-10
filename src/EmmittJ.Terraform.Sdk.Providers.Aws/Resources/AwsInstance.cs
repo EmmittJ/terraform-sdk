@@ -625,6 +625,7 @@ public class AwsInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsInstance : TerraformResource
 {
     public AwsInstance(string name) : base("aws_instance", name)

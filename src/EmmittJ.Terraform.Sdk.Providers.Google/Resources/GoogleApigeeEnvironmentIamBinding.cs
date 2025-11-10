@@ -42,6 +42,7 @@ public class GoogleApigeeEnvironmentIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_environment_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeEnvironmentIamBinding : TerraformResource
 {
     public GoogleApigeeEnvironmentIamBinding(string name) : base("google_apigee_environment_iam_binding", name)

@@ -22,6 +22,7 @@ public class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlo
 /// <summary>
 /// Manages a aws_sagemaker_notebook_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerNotebookInstance : TerraformResource
 {
     public AwsSagemakerNotebookInstance(string name) : base("aws_sagemaker_notebook_instance", name)

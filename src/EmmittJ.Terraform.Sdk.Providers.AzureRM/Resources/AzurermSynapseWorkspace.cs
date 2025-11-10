@@ -272,6 +272,7 @@ public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_synapse_workspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSynapseWorkspace : TerraformResource
 {
     public AzurermSynapseWorkspace(string name) : base("azurerm_synapse_workspace", name)

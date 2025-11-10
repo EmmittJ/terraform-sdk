@@ -23,6 +23,7 @@ public class AwsChimesdkvoiceSipMediaApplicationEndpointsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_chimesdkvoice_sip_media_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimesdkvoiceSipMediaApplication : TerraformResource
 {
     public AwsChimesdkvoiceSipMediaApplication(string name) : base("aws_chimesdkvoice_sip_media_application", name)

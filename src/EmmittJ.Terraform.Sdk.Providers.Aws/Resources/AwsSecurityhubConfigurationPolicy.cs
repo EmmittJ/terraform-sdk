@@ -32,6 +32,7 @@ public class AwsSecurityhubConfigurationPolicyConfigurationPolicyBlock : Terrafo
 /// <summary>
 /// Manages a aws_securityhub_configuration_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSecurityhubConfigurationPolicy : TerraformResource
 {
     public AwsSecurityhubConfigurationPolicy(string name) : base("aws_securityhub_configuration_policy", name)

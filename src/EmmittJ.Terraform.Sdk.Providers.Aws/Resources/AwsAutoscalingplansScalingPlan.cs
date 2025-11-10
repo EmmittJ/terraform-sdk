@@ -134,6 +134,7 @@ public class AwsAutoscalingplansScalingPlanScalingInstructionBlock : TerraformBl
 /// <summary>
 /// Manages a aws_autoscalingplans_scaling_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAutoscalingplansScalingPlan : TerraformResource
 {
     public AwsAutoscalingplansScalingPlan(string name) : base("aws_autoscalingplans_scaling_plan", name)

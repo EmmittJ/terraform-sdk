@@ -68,6 +68,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : Terraf
 /// <summary>
 /// Manages a aws_iot_indexing_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIotIndexingConfiguration : TerraformResource
 {
     public AwsIotIndexingConfiguration(string name) : base("aws_iot_indexing_configuration", name)

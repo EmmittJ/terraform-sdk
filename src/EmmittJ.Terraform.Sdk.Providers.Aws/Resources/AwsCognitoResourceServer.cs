@@ -33,6 +33,7 @@ public class AwsCognitoResourceServerScopeBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cognito_resource_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCognitoResourceServer : TerraformResource
 {
     public AwsCognitoResourceServer(string name) : base("aws_cognito_resource_server", name)

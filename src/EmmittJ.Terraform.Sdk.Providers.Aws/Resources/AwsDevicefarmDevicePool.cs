@@ -40,6 +40,7 @@ public class AwsDevicefarmDevicePoolRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_devicefarm_device_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDevicefarmDevicePool : TerraformResource
 {
     public AwsDevicefarmDevicePool(string name) : base("aws_devicefarm_device_pool", name)

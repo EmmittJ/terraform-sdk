@@ -104,6 +104,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_voice_services_communications_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
 {
     public AzurermVoiceServicesCommunicationsGateway(string name) : base("azurerm_voice_services_communications_gateway", name)

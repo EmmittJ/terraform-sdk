@@ -42,6 +42,7 @@ public class GoogleTagsTagKeyIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_tags_tag_key_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleTagsTagKeyIamMember : TerraformResource
 {
     public GoogleTagsTagKeyIamMember(string name) : base("google_tags_tag_key_iam_member", name)

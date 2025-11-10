@@ -135,6 +135,7 @@ public class AwsCleanroomsCollaborationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cleanrooms_collaboration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCleanroomsCollaboration : TerraformResource
 {
     public AwsCleanroomsCollaboration(string name) : base("aws_cleanrooms_collaboration", name)

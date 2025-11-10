@@ -84,6 +84,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_discovery_engine_data_store resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDiscoveryEngineDataStore : TerraformResource
 {
     public GoogleDiscoveryEngineDataStore(string name) : base("google_discovery_engine_data_store", name)

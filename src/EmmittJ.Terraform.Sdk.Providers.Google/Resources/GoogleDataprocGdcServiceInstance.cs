@@ -66,6 +66,7 @@ public class GoogleDataprocGdcServiceInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_gdc_service_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocGdcServiceInstance : TerraformResource
 {
     public GoogleDataprocGdcServiceInstance(string name) : base("google_dataproc_gdc_service_instance", name)

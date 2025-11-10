@@ -22,6 +22,7 @@ public class AwsEc2TransitGatewayPeeringAttachmentOptionsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ec2_transit_gateway_peering_attachment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEc2TransitGatewayPeeringAttachment : TerraformResource
 {
     public AwsEc2TransitGatewayPeeringAttachment(string name) : base("aws_ec2_transit_gateway_peering_attachment", name)

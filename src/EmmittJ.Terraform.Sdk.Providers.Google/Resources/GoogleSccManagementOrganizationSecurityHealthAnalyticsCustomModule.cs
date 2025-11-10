@@ -81,6 +81,7 @@ public class GoogleSccManagementOrganizationSecurityHealthAnalyticsCustomModuleT
 /// <summary>
 /// Manages a google_scc_management_organization_security_health_analytics_custom_module resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccManagementOrganizationSecurityHealthAnalyticsCustomModule : TerraformResource
 {
     public GoogleSccManagementOrganizationSecurityHealthAnalyticsCustomModule(string name) : base("google_scc_management_organization_security_health_analytics_custom_module", name)

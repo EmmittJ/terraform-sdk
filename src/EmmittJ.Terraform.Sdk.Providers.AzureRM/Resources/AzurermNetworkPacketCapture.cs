@@ -130,6 +130,7 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_network_packet_capture resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkPacketCapture : TerraformResource
 {
     public AzurermNetworkPacketCapture(string name) : base("azurerm_network_packet_capture", name)

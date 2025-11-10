@@ -85,6 +85,7 @@ public class GoogleNetappVolumeReplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_netapp_volume_replication resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetappVolumeReplication : TerraformResource
 {
     public GoogleNetappVolumeReplication(string name) : base("google_netapp_volume_replication", name)

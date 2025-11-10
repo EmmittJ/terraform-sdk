@@ -42,6 +42,7 @@ public class GoogleArtifactRegistryRepositoryIamMemberConditionBlock : Terraform
 /// <summary>
 /// Manages a google_artifact_registry_repository_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleArtifactRegistryRepositoryIamMember : TerraformResource
 {
     public GoogleArtifactRegistryRepositoryIamMember(string name) : base("google_artifact_registry_repository_iam_member", name)

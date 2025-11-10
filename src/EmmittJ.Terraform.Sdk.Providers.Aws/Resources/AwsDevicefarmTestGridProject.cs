@@ -43,6 +43,7 @@ public class AwsDevicefarmTestGridProjectVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_devicefarm_test_grid_project resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDevicefarmTestGridProject : TerraformResource
 {
     public AwsDevicefarmTestGridProject(string name) : base("aws_devicefarm_test_grid_project", name)

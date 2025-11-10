@@ -156,6 +156,7 @@ public class GoogleGkeonpremVmwareNodePoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gkeonprem_vmware_node_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeonpremVmwareNodePool : TerraformResource
 {
     public GoogleGkeonpremVmwareNodePool(string name) : base("google_gkeonprem_vmware_node_pool", name)

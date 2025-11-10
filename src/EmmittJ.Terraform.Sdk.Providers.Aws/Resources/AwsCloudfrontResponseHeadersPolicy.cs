@@ -94,6 +94,7 @@ public class AwsCloudfrontResponseHeadersPolicyServerTimingHeadersConfigBlock : 
 /// <summary>
 /// Manages a aws_cloudfront_response_headers_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudfrontResponseHeadersPolicy : TerraformResource
 {
     public AwsCloudfrontResponseHeadersPolicy(string name) : base("aws_cloudfront_response_headers_policy", name)

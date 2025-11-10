@@ -87,6 +87,7 @@ public class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_vpn_server_configuration_policy_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVpnServerConfigurationPolicyGroup : TerraformResource
 {
     public AzurermVpnServerConfigurationPolicyGroup(string name) : base("azurerm_vpn_server_configuration_policy_group", name)

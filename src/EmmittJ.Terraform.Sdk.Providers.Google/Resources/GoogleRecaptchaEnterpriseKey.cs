@@ -200,6 +200,7 @@ public class GoogleRecaptchaEnterpriseKeyWebSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_recaptcha_enterprise_key resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleRecaptchaEnterpriseKey : TerraformResource
 {
     public GoogleRecaptchaEnterpriseKey(string name) : base("google_recaptcha_enterprise_key", name)

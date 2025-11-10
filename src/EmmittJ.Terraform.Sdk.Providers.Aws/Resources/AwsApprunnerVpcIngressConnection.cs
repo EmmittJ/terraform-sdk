@@ -31,6 +31,7 @@ public class AwsApprunnerVpcIngressConnectionIngressVpcConfigurationBlock : Terr
 /// <summary>
 /// Manages a aws_apprunner_vpc_ingress_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApprunnerVpcIngressConnection : TerraformResource
 {
     public AwsApprunnerVpcIngressConnection(string name) : base("aws_apprunner_vpc_ingress_connection", name)

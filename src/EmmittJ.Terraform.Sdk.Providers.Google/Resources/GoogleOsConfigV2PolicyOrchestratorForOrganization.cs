@@ -78,6 +78,7 @@ public class GoogleOsConfigV2PolicyOrchestratorForOrganizationTimeoutsBlock : Te
 /// <summary>
 /// Manages a google_os_config_v2_policy_orchestrator_for_organization resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOsConfigV2PolicyOrchestratorForOrganization : TerraformResource
 {
     public GoogleOsConfigV2PolicyOrchestratorForOrganization(string name) : base("google_os_config_v2_policy_orchestrator_for_organization", name)

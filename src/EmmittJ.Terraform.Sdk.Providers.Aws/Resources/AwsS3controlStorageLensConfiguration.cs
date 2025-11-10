@@ -23,6 +23,7 @@ public class AwsS3controlStorageLensConfigurationStorageLensConfigurationBlock :
 /// <summary>
 /// Manages a aws_s3control_storage_lens_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3controlStorageLensConfiguration : TerraformResource
 {
     public AwsS3controlStorageLensConfiguration(string name) : base("aws_s3control_storage_lens_configuration", name)

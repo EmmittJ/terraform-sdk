@@ -110,6 +110,7 @@ public class AwsAppstreamFleetVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appstream_fleet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppstreamFleet : TerraformResource
 {
     public AwsAppstreamFleet(string name) : base("aws_appstream_fleet", name)

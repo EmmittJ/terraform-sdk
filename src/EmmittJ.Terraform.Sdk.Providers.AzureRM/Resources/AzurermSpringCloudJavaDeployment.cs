@@ -75,6 +75,7 @@ public class AzurermSpringCloudJavaDeploymentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_java_deployment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSpringCloudJavaDeployment : TerraformResource
 {
     public AzurermSpringCloudJavaDeployment(string name) : base("azurerm_spring_cloud_java_deployment", name)

@@ -85,6 +85,7 @@ public class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_machine_learning_synapse_spark resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMachineLearningSynapseSpark : TerraformResource
 {
     public AzurermMachineLearningSynapseSpark(string name) : base("azurerm_machine_learning_synapse_spark", name)

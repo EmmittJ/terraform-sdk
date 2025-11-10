@@ -42,6 +42,7 @@ public class GoogleDataprocJobIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_job_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocJobIamBinding : TerraformResource
 {
     public GoogleDataprocJobIamBinding(string name) : base("google_dataproc_job_iam_binding", name)

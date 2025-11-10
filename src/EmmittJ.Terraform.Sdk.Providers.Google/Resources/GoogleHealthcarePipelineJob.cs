@@ -126,6 +126,7 @@ public class GoogleHealthcarePipelineJobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_pipeline_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcarePipelineJob : TerraformResource
 {
     public GoogleHealthcarePipelineJob(string name) : base("google_healthcare_pipeline_job", name)

@@ -405,6 +405,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbAccount : TerraformResource
 {
     public AzurermCosmosdbAccount(string name) : base("azurerm_cosmosdb_account", name)

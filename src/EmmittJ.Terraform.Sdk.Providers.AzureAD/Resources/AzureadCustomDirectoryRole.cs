@@ -67,6 +67,7 @@ public class AzureadCustomDirectoryRoleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_custom_directory_role resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadCustomDirectoryRole : TerraformResource
 {
     public AzureadCustomDirectoryRole(string name) : base("azuread_custom_directory_role", name)

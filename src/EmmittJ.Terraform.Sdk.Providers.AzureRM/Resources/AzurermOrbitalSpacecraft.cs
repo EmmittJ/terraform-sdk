@@ -108,6 +108,7 @@ public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_orbital_spacecraft resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermOrbitalSpacecraft : TerraformResource
 {
     public AzurermOrbitalSpacecraft(string name) : base("azurerm_orbital_spacecraft", name)

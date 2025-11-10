@@ -96,6 +96,7 @@ public class AwsApiGatewayUsagePlanThrottleSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_api_gateway_usage_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApiGatewayUsagePlan : TerraformResource
 {
     public AwsApiGatewayUsagePlan(string name) : base("aws_api_gateway_usage_plan", name)

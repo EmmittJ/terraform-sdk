@@ -151,6 +151,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_frontdoor_firewall_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFrontdoorFirewallPolicy : TerraformResource
 {
     public AzurermFrontdoorFirewallPolicy(string name) : base("azurerm_frontdoor_firewall_policy", name)

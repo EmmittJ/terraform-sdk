@@ -90,6 +90,7 @@ public class GoogleFolderAccessApprovalSettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_folder_access_approval_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFolderAccessApprovalSettings : TerraformResource
 {
     public GoogleFolderAccessApprovalSettings(string name) : base("google_folder_access_approval_settings", name)

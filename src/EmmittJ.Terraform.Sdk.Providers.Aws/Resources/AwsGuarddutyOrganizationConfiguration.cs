@@ -13,6 +13,7 @@ public class AwsGuarddutyOrganizationConfigurationDatasourcesBlock : TerraformBl
 /// <summary>
 /// Manages a aws_guardduty_organization_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGuarddutyOrganizationConfiguration : TerraformResource
 {
     public AwsGuarddutyOrganizationConfiguration(string name) : base("aws_guardduty_organization_configuration", name)

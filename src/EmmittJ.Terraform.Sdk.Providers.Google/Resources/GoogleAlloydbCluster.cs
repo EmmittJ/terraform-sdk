@@ -288,6 +288,7 @@ public class GoogleAlloydbClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_alloydb_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAlloydbCluster : TerraformResource
 {
     public GoogleAlloydbCluster(string name) : base("google_alloydb_cluster", name)

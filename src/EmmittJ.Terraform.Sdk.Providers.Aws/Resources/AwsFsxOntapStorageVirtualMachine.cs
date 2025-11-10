@@ -57,6 +57,7 @@ public class AwsFsxOntapStorageVirtualMachineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fsx_ontap_storage_virtual_machine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFsxOntapStorageVirtualMachine : TerraformResource
 {
     public AwsFsxOntapStorageVirtualMachine(string name) : base("aws_fsx_ontap_storage_virtual_machine", name)

@@ -77,6 +77,7 @@ public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_bot_channel_facebook resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBotChannelFacebook : TerraformResource
 {
     public AzurermBotChannelFacebook(string name) : base("azurerm_bot_channel_facebook", name)

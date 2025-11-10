@@ -411,6 +411,7 @@ public class AzurermFunctionAppSlotTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_function_app_slot resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFunctionAppSlot : TerraformResource
 {
     public AzurermFunctionAppSlot(string name) : base("azurerm_function_app_slot", name)

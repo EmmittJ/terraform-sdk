@@ -148,6 +148,7 @@ public class AwsComprehendDocumentClassifierVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_comprehend_document_classifier resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsComprehendDocumentClassifier : TerraformResource
 {
     public AwsComprehendDocumentClassifier(string name) : base("aws_comprehend_document_classifier", name)

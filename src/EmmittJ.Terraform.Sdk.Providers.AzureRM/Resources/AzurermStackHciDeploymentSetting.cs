@@ -205,6 +205,7 @@ public class AzurermStackHciDeploymentSettingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_stack_hci_deployment_setting resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStackHciDeploymentSetting : TerraformResource
 {
     public AzurermStackHciDeploymentSetting(string name) : base("azurerm_stack_hci_deployment_setting", name)

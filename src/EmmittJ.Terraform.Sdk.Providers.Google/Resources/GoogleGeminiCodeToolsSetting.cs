@@ -87,6 +87,7 @@ public class GoogleGeminiCodeToolsSettingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gemini_code_tools_setting resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGeminiCodeToolsSetting : TerraformResource
 {
     public GoogleGeminiCodeToolsSetting(string name) : base("google_gemini_code_tools_setting", name)

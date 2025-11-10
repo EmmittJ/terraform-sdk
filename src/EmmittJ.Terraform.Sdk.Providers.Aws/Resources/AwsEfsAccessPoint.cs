@@ -59,6 +59,7 @@ public class AwsEfsAccessPointRootDirectoryBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_efs_access_point resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEfsAccessPoint : TerraformResource
 {
     public AwsEfsAccessPoint(string name) : base("aws_efs_access_point", name)

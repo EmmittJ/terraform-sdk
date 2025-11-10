@@ -236,6 +236,7 @@ public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_storage_account_queue_properties resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStorageAccountQueueProperties : TerraformResource
 {
     public AzurermStorageAccountQueueProperties(string name) : base("azurerm_storage_account_queue_properties", name)

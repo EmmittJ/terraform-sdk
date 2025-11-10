@@ -75,6 +75,7 @@ public class GoogleMonitoringNotificationChannelTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_monitoring_notification_channel resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMonitoringNotificationChannel : TerraformResource
 {
     public GoogleMonitoringNotificationChannel(string name) : base("google_monitoring_notification_channel", name)

@@ -85,6 +85,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cdn_frontdoor_custom_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCdnFrontdoorCustomDomain : TerraformResource
 {
     public AzurermCdnFrontdoorCustomDomain(string name) : base("azurerm_cdn_frontdoor_custom_domain", name)

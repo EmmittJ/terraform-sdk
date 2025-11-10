@@ -94,6 +94,7 @@ public class AzurermAiFoundryProjectTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_ai_foundry_project resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAiFoundryProject : TerraformResource
 {
     public AzurermAiFoundryProject(string name) : base("azurerm_ai_foundry_project", name)

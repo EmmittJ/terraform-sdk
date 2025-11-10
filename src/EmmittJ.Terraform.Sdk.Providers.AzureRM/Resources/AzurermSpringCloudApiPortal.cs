@@ -93,6 +93,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_api_portal resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSpringCloudApiPortal : TerraformResource
 {
     public AzurermSpringCloudApiPortal(string name) : base("azurerm_spring_cloud_api_portal", name)

@@ -76,6 +76,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_mssql_managed_instance_failover_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlManagedInstanceFailoverGroup : TerraformResource
 {
     public AzurermMssqlManagedInstanceFailoverGroup(string name) : base("azurerm_mssql_managed_instance_failover_group", name)

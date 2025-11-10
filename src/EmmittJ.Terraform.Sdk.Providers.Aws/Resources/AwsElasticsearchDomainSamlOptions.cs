@@ -93,6 +93,7 @@ public class AwsElasticsearchDomainSamlOptionsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_elasticsearch_domain_saml_options resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElasticsearchDomainSamlOptions : TerraformResource
 {
     public AwsElasticsearchDomainSamlOptions(string name) : base("aws_elasticsearch_domain_saml_options", name)

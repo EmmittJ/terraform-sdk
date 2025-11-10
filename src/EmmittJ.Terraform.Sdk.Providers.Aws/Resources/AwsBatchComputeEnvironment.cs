@@ -205,6 +205,7 @@ public class AwsBatchComputeEnvironmentUpdatePolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_batch_compute_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsBatchComputeEnvironment : TerraformResource
 {
     public AwsBatchComputeEnvironment(string name) : base("aws_batch_compute_environment", name)

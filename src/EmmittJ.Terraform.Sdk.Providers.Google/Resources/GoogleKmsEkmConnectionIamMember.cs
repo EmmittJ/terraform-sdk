@@ -42,6 +42,7 @@ public class GoogleKmsEkmConnectionIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_kms_ekm_connection_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleKmsEkmConnectionIamMember : TerraformResource
 {
     public GoogleKmsEkmConnectionIamMember(string name) : base("google_kms_ekm_connection_iam_member", name)

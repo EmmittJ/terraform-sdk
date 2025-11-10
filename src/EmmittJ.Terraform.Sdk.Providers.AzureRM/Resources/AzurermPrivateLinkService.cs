@@ -105,6 +105,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_private_link_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPrivateLinkService : TerraformResource
 {
     public AzurermPrivateLinkService(string name) : base("azurerm_private_link_service", name)

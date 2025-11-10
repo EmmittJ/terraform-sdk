@@ -104,6 +104,7 @@ public class AwsEvidentlyLaunchTimeoutsBlock : TerraformBlock
 /// Manages a aws_evidently_launch resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEvidentlyLaunch : TerraformResource
 {
     public AwsEvidentlyLaunch(string name) : base("aws_evidently_launch", name)

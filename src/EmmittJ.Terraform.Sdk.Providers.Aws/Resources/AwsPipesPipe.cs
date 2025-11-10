@@ -109,6 +109,7 @@ public class AwsPipesPipeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_pipes_pipe resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsPipesPipe : TerraformResource
 {
     public AwsPipesPipe(string name) : base("aws_pipes_pipe", name)

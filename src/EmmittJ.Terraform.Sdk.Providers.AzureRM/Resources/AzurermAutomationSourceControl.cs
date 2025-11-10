@@ -86,6 +86,7 @@ public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_automation_source_control resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomationSourceControl : TerraformResource
 {
     public AzurermAutomationSourceControl(string name) : base("azurerm_automation_source_control", name)

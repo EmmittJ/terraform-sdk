@@ -84,6 +84,7 @@ public class AwsDbProxyDefaultTargetGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_db_proxy_default_target_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDbProxyDefaultTargetGroup : TerraformResource
 {
     public AwsDbProxyDefaultTargetGroup(string name) : base("aws_db_proxy_default_target_group", name)

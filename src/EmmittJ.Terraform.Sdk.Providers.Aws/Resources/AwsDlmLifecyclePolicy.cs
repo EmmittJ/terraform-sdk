@@ -103,6 +103,7 @@ public class AwsDlmLifecyclePolicyPolicyDetailsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_dlm_lifecycle_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDlmLifecyclePolicy : TerraformResource
 {
     public AwsDlmLifecyclePolicy(string name) : base("aws_dlm_lifecycle_policy", name)

@@ -115,6 +115,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_confidential_ledger resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermConfidentialLedger : TerraformResource
 {
     public AzurermConfidentialLedger(string name) : base("azurerm_confidential_ledger", name)

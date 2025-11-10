@@ -42,6 +42,7 @@ public class GoogleServiceAccountIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_service_account_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleServiceAccountIamBinding : TerraformResource
 {
     public GoogleServiceAccountIamBinding(string name) : base("google_service_account_iam_binding", name)

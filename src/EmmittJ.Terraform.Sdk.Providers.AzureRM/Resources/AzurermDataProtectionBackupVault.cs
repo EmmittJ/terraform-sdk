@@ -94,6 +94,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_protection_backup_vault resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataProtectionBackupVault : TerraformResource
 {
     public AzurermDataProtectionBackupVault(string name) : base("azurerm_data_protection_backup_vault", name)

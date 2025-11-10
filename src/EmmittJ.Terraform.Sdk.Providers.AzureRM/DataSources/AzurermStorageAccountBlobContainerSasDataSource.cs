@@ -90,6 +90,7 @@ public class AzurermStorageAccountBlobContainerSasDataSourceTimeoutsBlock : Terr
 /// <summary>
 /// Retrieves information about a azurerm_storage_account_blob_container_sas.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStorageAccountBlobContainerSasDataSource : TerraformDataSource
 {
     public AzurermStorageAccountBlobContainerSasDataSource(string name) : base("azurerm_storage_account_blob_container_sas", name)

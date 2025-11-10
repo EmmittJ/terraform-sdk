@@ -620,6 +620,7 @@ public class GoogleComputeInstanceTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_instance_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeInstanceTemplate : TerraformResource
 {
     public GoogleComputeInstanceTemplate(string name) : base("google_compute_instance_template", name)

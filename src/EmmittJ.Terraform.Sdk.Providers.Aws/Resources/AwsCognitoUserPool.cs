@@ -581,6 +581,7 @@ public class AwsCognitoUserPoolWebAuthnConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cognito_user_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCognitoUserPool : TerraformResource
 {
     public AwsCognitoUserPool(string name) : base("aws_cognito_user_pool", name)

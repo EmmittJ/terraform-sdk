@@ -290,6 +290,7 @@ public class AzurermHpcCacheTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_hpc_cache resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHpcCache : TerraformResource
 {
     public AzurermHpcCache(string name) : base("azurerm_hpc_cache", name)

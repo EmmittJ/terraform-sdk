@@ -332,6 +332,7 @@ public class GoogleGkeonpremVmwareClusterVcenterBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gkeonprem_vmware_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeonpremVmwareCluster : TerraformResource
 {
     public GoogleGkeonpremVmwareCluster(string name) : base("google_gkeonprem_vmware_cluster", name)

@@ -42,6 +42,7 @@ public class GoogleBigtableTableIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigtable_table_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigtableTableIamBinding : TerraformResource
 {
     public GoogleBigtableTableIamBinding(string name) : base("google_bigtable_table_iam_binding", name)

@@ -112,6 +112,7 @@ public class AwsNetworkfirewallFirewallTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_networkfirewall_firewall resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkfirewallFirewall : TerraformResource
 {
     public AwsNetworkfirewallFirewall(string name) : base("aws_networkfirewall_firewall", name)

@@ -132,6 +132,7 @@ public class AwsApigatewayv2DomainNameTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_apigatewayv2_domain_name resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApigatewayv2DomainName : TerraformResource
 {
     public AwsApigatewayv2DomainName(string name) : base("aws_apigatewayv2_domain_name", name)

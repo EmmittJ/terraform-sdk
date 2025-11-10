@@ -79,6 +79,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlock
 /// Manages a google_data_catalog_entry resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataCatalogEntry : TerraformResource
 {
     public GoogleDataCatalogEntry(string name) : base("google_data_catalog_entry", name)

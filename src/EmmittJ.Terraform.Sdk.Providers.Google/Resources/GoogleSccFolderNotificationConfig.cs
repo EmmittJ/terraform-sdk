@@ -82,6 +82,7 @@ public class GoogleSccFolderNotificationConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_scc_folder_notification_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccFolderNotificationConfig : TerraformResource
 {
     public GoogleSccFolderNotificationConfig(string name) : base("google_scc_folder_notification_config", name)

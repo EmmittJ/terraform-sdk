@@ -94,6 +94,7 @@ public class AzurermDigitalTwinsInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_digital_twins_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDigitalTwinsInstance : TerraformResource
 {
     public AzurermDigitalTwinsInstance(string name) : base("azurerm_digital_twins_instance", name)

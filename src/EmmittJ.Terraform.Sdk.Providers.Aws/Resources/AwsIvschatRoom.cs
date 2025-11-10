@@ -66,6 +66,7 @@ public class AwsIvschatRoomTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ivschat_room resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIvschatRoom : TerraformResource
 {
     public AwsIvschatRoom(string name) : base("aws_ivschat_room", name)

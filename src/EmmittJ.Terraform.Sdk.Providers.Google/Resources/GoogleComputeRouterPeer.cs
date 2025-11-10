@@ -175,6 +175,7 @@ public class GoogleComputeRouterPeerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_router_peer resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRouterPeer : TerraformResource
 {
     public GoogleComputeRouterPeer(string name) : base("google_compute_router_peer", name)

@@ -58,6 +58,7 @@ public class GoogleHealthcareWorkspaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_workspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareWorkspace : TerraformResource
 {
     public GoogleHealthcareWorkspace(string name) : base("google_healthcare_workspace", name)

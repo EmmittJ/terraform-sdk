@@ -23,6 +23,7 @@ public class AwsEcrRegistryScanningConfigurationRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ecr_registry_scanning_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcrRegistryScanningConfiguration : TerraformResource
 {
     public AwsEcrRegistryScanningConfiguration(string name) : base("aws_ecr_registry_scanning_configuration", name)

@@ -178,6 +178,7 @@ public class GoogleIdentityPlatformConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_identity_platform_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIdentityPlatformConfig : TerraformResource
 {
     public GoogleIdentityPlatformConfig(string name) : base("google_identity_platform_config", name)

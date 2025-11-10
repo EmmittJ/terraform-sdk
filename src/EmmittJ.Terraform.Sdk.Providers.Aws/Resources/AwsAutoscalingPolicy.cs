@@ -112,6 +112,7 @@ public class AwsAutoscalingPolicyTargetTrackingConfigurationBlock : TerraformBlo
 /// <summary>
 /// Manages a aws_autoscaling_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAutoscalingPolicy : TerraformResource
 {
     public AwsAutoscalingPolicy(string name) : base("aws_autoscaling_policy", name)

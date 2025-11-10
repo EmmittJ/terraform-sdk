@@ -67,6 +67,7 @@ public class AwsAlbListenerRuleTransformBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_alb_listener_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAlbListenerRule : TerraformResource
 {
     public AwsAlbListenerRule(string name) : base("aws_alb_listener_rule", name)

@@ -497,6 +497,7 @@ public class GoogleBigqueryJobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryJob : TerraformResource
 {
     public GoogleBigqueryJob(string name) : base("google_bigquery_job", name)

@@ -77,6 +77,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_elastic_san_volume resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermElasticSanVolume : TerraformResource
 {
     public AzurermElasticSanVolume(string name) : base("azurerm_elastic_san_volume", name)

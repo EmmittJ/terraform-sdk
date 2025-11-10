@@ -385,6 +385,7 @@ public class AzurermArcKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_arc_kubernetes_flux_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermArcKubernetesFluxConfiguration : TerraformResource
 {
     public AzurermArcKubernetesFluxConfiguration(string name) : base("azurerm_arc_kubernetes_flux_configuration", name)

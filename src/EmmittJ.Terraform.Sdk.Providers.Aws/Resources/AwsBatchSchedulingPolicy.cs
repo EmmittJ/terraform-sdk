@@ -31,6 +31,7 @@ public class AwsBatchSchedulingPolicyFairSharePolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_batch_scheduling_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsBatchSchedulingPolicy : TerraformResource
 {
     public AwsBatchSchedulingPolicy(string name) : base("aws_batch_scheduling_policy", name)

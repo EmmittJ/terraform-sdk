@@ -94,6 +94,7 @@ public class AzurermBackupPolicyVmWorkloadTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_backup_policy_vm_workload resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBackupPolicyVmWorkload : TerraformResource
 {
     public AzurermBackupPolicyVmWorkload(string name) : base("azurerm_backup_policy_vm_workload", name)

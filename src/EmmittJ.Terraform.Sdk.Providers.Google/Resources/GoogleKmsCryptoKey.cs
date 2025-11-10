@@ -68,6 +68,7 @@ public class GoogleKmsCryptoKeyVersionTemplateBlock : TerraformBlock
 /// <summary>
 /// Manages a google_kms_crypto_key resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleKmsCryptoKey : TerraformResource
 {
     public GoogleKmsCryptoKey(string name) : base("google_kms_crypto_key", name)

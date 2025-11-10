@@ -449,6 +449,7 @@ public class AwsEcsServiceVpcLatticeConfigurationsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ecs_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcsService : TerraformResource
 {
     public AwsEcsService(string name) : base("aws_ecs_service", name)

@@ -43,6 +43,7 @@ public class AwsCloudwatchEventPermissionConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudwatch_event_permission resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudwatchEventPermission : TerraformResource
 {
     public AwsCloudwatchEventPermission(string name) : base("aws_cloudwatch_event_permission", name)

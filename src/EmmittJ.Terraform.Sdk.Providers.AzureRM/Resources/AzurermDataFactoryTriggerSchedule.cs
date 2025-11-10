@@ -120,6 +120,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_trigger_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryTriggerSchedule : TerraformResource
 {
     public AzurermDataFactoryTriggerSchedule(string name) : base("azurerm_data_factory_trigger_schedule", name)

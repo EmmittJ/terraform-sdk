@@ -69,6 +69,7 @@ public class GoogleDatabaseMigrationServicePrivateConnectionVpcPeeringConfigBloc
 /// <summary>
 /// Manages a google_database_migration_service_private_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDatabaseMigrationServicePrivateConnection : TerraformResource
 {
     public GoogleDatabaseMigrationServicePrivateConnection(string name) : base("google_database_migration_service_private_connection", name)

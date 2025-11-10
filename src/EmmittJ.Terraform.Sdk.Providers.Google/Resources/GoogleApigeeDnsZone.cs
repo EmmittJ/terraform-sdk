@@ -59,6 +59,7 @@ public class GoogleApigeeDnsZoneTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_dns_zone resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeDnsZone : TerraformResource
 {
     public GoogleApigeeDnsZone(string name) : base("google_apigee_dns_zone", name)

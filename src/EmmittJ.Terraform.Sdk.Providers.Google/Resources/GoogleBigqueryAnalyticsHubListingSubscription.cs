@@ -78,6 +78,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : Terraf
 /// <summary>
 /// Manages a google_bigquery_analytics_hub_listing_subscription resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
 {
     public GoogleBigqueryAnalyticsHubListingSubscription(string name) : base("google_bigquery_analytics_hub_listing_subscription", name)

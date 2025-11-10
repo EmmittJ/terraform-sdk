@@ -65,6 +65,7 @@ public class GoogleDataLossPreventionJobTriggerTriggersBlock : TerraformBlock
 /// <summary>
 /// Manages a google_data_loss_prevention_job_trigger resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataLossPreventionJobTrigger : TerraformResource
 {
     public GoogleDataLossPreventionJobTrigger(string name) : base("google_data_loss_prevention_job_trigger", name)

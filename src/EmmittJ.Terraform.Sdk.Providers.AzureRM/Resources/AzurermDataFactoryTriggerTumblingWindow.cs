@@ -138,6 +138,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
 /// <summary>
 /// Manages a azurerm_data_factory_trigger_tumbling_window resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryTriggerTumblingWindow : TerraformResource
 {
     public AzurermDataFactoryTriggerTumblingWindow(string name) : base("azurerm_data_factory_trigger_tumbling_window", name)

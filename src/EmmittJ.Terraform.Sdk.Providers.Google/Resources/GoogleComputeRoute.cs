@@ -53,6 +53,7 @@ public class GoogleComputeRouteTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_route resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRoute : TerraformResource
 {
     public GoogleComputeRoute(string name) : base("google_compute_route", name)

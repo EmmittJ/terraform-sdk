@@ -31,6 +31,7 @@ public class GoogleDnsRecordSetRoutingPolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dns_record_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDnsRecordSet : TerraformResource
 {
     public GoogleDnsRecordSet(string name) : base("google_dns_record_set", name)

@@ -67,6 +67,7 @@ public class AzurermNetappAccountDataSourceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a azurerm_netapp_account.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetappAccountDataSource : TerraformDataSource
 {
     public AzurermNetappAccountDataSource(string name) : base("azurerm_netapp_account", name)

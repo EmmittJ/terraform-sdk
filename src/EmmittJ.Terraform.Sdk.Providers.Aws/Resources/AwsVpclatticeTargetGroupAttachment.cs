@@ -58,6 +58,7 @@ public class AwsVpclatticeTargetGroupAttachmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpclattice_target_group_attachment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpclatticeTargetGroupAttachment : TerraformResource
 {
     public AwsVpclatticeTargetGroupAttachment(string name) : base("aws_vpclattice_target_group_attachment", name)

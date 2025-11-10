@@ -59,6 +59,7 @@ public class AwsAcmCertificateValidationOptionBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_acm_certificate resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAcmCertificate : TerraformResource
 {
     public AwsAcmCertificate(string name) : base("aws_acm_certificate", name)

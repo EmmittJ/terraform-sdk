@@ -95,6 +95,7 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cdn_frontdoor_origin resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCdnFrontdoorOrigin : TerraformResource
 {
     public AzurermCdnFrontdoorOrigin(string name) : base("azurerm_cdn_frontdoor_origin", name)

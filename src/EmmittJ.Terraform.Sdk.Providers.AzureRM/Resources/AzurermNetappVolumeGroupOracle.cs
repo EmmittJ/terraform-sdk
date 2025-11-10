@@ -239,6 +239,7 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_netapp_volume_group_oracle resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetappVolumeGroupOracle : TerraformResource
 {
     public AzurermNetappVolumeGroupOracle(string name) : base("azurerm_netapp_volume_group_oracle", name)

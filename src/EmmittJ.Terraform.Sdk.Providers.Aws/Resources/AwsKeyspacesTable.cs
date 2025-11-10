@@ -179,6 +179,7 @@ public class AwsKeyspacesTableTtlBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_keyspaces_table resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKeyspacesTable : TerraformResource
 {
     public AwsKeyspacesTable(string name) : base("aws_keyspaces_table", name)

@@ -230,6 +230,7 @@ public class AwsRoute53RecordWeightedRoutingPolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_route53_record resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRoute53Record : TerraformResource
 {
     public AwsRoute53Record(string name) : base("aws_route53_record", name)

@@ -340,6 +340,7 @@ public class GoogleComputeUrlMapTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_url_map resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeUrlMap : TerraformResource
 {
     public GoogleComputeUrlMap(string name) : base("google_compute_url_map", name)

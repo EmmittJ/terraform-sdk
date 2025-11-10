@@ -111,6 +111,7 @@ public class GoogleEventarcTriggerTransportBlock : TerraformBlock
 /// <summary>
 /// Manages a google_eventarc_trigger resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEventarcTrigger : TerraformResource
 {
     public GoogleEventarcTrigger(string name) : base("google_eventarc_trigger", name)

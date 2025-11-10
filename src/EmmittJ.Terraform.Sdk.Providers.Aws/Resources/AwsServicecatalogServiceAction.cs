@@ -104,6 +104,7 @@ public class AwsServicecatalogServiceActionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_servicecatalog_service_action resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsServicecatalogServiceAction : TerraformResource
 {
     public AwsServicecatalogServiceAction(string name) : base("aws_servicecatalog_service_action", name)

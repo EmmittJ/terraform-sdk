@@ -85,6 +85,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_stack_hci_logical_network resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStackHciLogicalNetwork : TerraformResource
 {
     public AzurermStackHciLogicalNetwork(string name) : base("azurerm_stack_hci_logical_network", name)

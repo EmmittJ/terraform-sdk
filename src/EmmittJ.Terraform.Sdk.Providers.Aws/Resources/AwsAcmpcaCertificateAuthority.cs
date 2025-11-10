@@ -58,6 +58,7 @@ public class AwsAcmpcaCertificateAuthorityTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_acmpca_certificate_authority resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAcmpcaCertificateAuthority : TerraformResource
 {
     public AwsAcmpcaCertificateAuthority(string name) : base("aws_acmpca_certificate_authority", name)

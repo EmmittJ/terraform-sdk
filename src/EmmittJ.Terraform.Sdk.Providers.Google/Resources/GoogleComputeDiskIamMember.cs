@@ -42,6 +42,7 @@ public class GoogleComputeDiskIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_disk_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeDiskIamMember : TerraformResource
 {
     public GoogleComputeDiskIamMember(string name) : base("google_compute_disk_iam_member", name)

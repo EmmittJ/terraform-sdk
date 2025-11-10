@@ -112,6 +112,7 @@ public class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_security_center_automation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSecurityCenterAutomation : TerraformResource
 {
     public AzurermSecurityCenterAutomation(string name) : base("azurerm_security_center_automation", name)

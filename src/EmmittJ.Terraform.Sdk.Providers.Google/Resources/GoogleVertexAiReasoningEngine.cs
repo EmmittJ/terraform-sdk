@@ -98,6 +98,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_reasoning_engine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiReasoningEngine : TerraformResource
 {
     public GoogleVertexAiReasoningEngine(string name) : base("google_vertex_ai_reasoning_engine", name)

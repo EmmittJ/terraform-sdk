@@ -42,6 +42,7 @@ public class GoogleIapAppEngineServiceIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iap_app_engine_service_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIapAppEngineServiceIamBinding : TerraformResource
 {
     public GoogleIapAppEngineServiceIamBinding(string name) : base("google_iap_app_engine_service_iam_binding", name)

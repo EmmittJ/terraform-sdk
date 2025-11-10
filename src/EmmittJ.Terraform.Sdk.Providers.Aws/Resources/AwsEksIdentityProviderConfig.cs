@@ -114,6 +114,7 @@ public class AwsEksIdentityProviderConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_eks_identity_provider_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEksIdentityProviderConfig : TerraformResource
 {
     public AwsEksIdentityProviderConfig(string name) : base("aws_eks_identity_provider_config", name)

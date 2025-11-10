@@ -43,6 +43,7 @@ public class AwsMediaConvertQueueReservationPlanSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_media_convert_queue resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMediaConvertQueue : TerraformResource
 {
     public AwsMediaConvertQueue(string name) : base("aws_media_convert_queue", name)

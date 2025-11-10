@@ -52,6 +52,7 @@ public class AwsGameliftScriptStorageLocationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_gamelift_script resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGameliftScript : TerraformResource
 {
     public AwsGameliftScript(string name) : base("aws_gamelift_script", name)

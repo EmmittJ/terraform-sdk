@@ -40,6 +40,7 @@ public class AwsAppautoscalingTargetSuspendedStateBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appautoscaling_target resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppautoscalingTarget : TerraformResource
 {
     public AwsAppautoscalingTarget(string name) : base("aws_appautoscaling_target", name)

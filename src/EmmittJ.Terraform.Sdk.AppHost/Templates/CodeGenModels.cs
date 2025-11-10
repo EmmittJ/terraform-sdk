@@ -22,6 +22,7 @@ public class ResourceModel
     public List<PropertyModel> OutputAttributes { get; set; } = new();
     public List<BlockTypeModel> BlockTypes { get; set; } = new();
     public bool IsDeprecated { get; set; }
+    public bool RequiresUnreferencedCode { get; set; }
 }
 
 public class PropertyModel

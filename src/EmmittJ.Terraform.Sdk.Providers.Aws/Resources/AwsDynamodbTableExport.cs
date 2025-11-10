@@ -66,6 +66,7 @@ public class AwsDynamodbTableExportTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_dynamodb_table_export resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDynamodbTableExport : TerraformResource
 {
     public AwsDynamodbTableExport(string name) : base("aws_dynamodb_table_export", name)

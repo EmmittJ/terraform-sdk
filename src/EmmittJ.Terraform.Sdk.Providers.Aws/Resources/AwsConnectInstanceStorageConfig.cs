@@ -23,6 +23,7 @@ public class AwsConnectInstanceStorageConfigStorageConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_connect_instance_storage_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConnectInstanceStorageConfig : TerraformResource
 {
     public AwsConnectInstanceStorageConfig(string name) : base("aws_connect_instance_storage_config", name)

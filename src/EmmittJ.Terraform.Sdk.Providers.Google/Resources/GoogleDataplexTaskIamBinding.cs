@@ -42,6 +42,7 @@ public class GoogleDataplexTaskIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_task_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexTaskIamBinding : TerraformResource
 {
     public GoogleDataplexTaskIamBinding(string name) : base("google_dataplex_task_iam_binding", name)

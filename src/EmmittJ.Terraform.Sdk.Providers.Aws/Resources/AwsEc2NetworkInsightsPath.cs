@@ -57,6 +57,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ec2_network_insights_path resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEc2NetworkInsightsPath : TerraformResource
 {
     public AwsEc2NetworkInsightsPath(string name) : base("aws_ec2_network_insights_path", name)

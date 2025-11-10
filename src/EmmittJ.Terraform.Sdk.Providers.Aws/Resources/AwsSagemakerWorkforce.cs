@@ -201,6 +201,7 @@ public class AwsSagemakerWorkforceWorkforceVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_workforce resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerWorkforce : TerraformResource
 {
     public AwsSagemakerWorkforce(string name) : base("aws_sagemaker_workforce", name)

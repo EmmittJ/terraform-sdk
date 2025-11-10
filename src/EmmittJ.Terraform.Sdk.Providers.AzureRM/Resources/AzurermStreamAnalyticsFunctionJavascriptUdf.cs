@@ -94,6 +94,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfTimeoutsBlock : Terrafor
 /// <summary>
 /// Manages a azurerm_stream_analytics_function_javascript_udf resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStreamAnalyticsFunctionJavascriptUdf : TerraformResource
 {
     public AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : base("azurerm_stream_analytics_function_javascript_udf", name)

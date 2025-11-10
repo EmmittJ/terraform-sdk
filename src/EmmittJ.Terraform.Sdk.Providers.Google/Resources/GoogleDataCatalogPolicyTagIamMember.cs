@@ -42,6 +42,7 @@ public class GoogleDataCatalogPolicyTagIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_data_catalog_policy_tag_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataCatalogPolicyTagIamMember : TerraformResource
 {
     public GoogleDataCatalogPolicyTagIamMember(string name) : base("google_data_catalog_policy_tag_iam_member", name)

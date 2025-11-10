@@ -77,6 +77,7 @@ public class AwsQuicksightFolderTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_quicksight_folder resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsQuicksightFolder : TerraformResource
 {
     public AwsQuicksightFolder(string name) : base("aws_quicksight_folder", name)

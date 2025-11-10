@@ -48,6 +48,7 @@ public class AwsCloudwatchEventEndpointRoutingConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudwatch_event_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudwatchEventEndpoint : TerraformResource
 {
     public AwsCloudwatchEventEndpoint(string name) : base("aws_cloudwatch_event_endpoint", name)

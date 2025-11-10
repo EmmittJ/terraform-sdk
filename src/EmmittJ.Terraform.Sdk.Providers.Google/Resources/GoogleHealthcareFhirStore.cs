@@ -194,6 +194,7 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_fhir_store resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareFhirStore : TerraformResource
 {
     public GoogleHealthcareFhirStore(string name) : base("google_healthcare_fhir_store", name)

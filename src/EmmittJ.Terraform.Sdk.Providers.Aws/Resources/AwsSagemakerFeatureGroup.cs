@@ -127,6 +127,7 @@ public class AwsSagemakerFeatureGroupThroughputConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_feature_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerFeatureGroup : TerraformResource
 {
     public AwsSagemakerFeatureGroup(string name) : base("aws_sagemaker_feature_group", name)

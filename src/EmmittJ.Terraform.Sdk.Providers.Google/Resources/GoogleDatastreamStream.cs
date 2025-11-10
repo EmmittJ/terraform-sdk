@@ -92,6 +92,7 @@ public class GoogleDatastreamStreamTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_datastream_stream resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDatastreamStream : TerraformResource
 {
     public GoogleDatastreamStream(string name) : base("google_datastream_stream", name)

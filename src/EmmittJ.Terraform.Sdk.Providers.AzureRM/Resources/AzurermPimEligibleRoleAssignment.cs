@@ -83,6 +83,7 @@ public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_pim_eligible_role_assignment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPimEligibleRoleAssignment : TerraformResource
 {
     public AzurermPimEligibleRoleAssignment(string name) : base("azurerm_pim_eligible_role_assignment", name)

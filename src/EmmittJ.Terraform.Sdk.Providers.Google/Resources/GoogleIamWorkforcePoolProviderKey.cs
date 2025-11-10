@@ -95,6 +95,7 @@ public class GoogleIamWorkforcePoolProviderKeyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iam_workforce_pool_provider_key resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIamWorkforcePoolProviderKey : TerraformResource
 {
     public GoogleIamWorkforcePoolProviderKey(string name) : base("google_iam_workforce_pool_provider_key", name)

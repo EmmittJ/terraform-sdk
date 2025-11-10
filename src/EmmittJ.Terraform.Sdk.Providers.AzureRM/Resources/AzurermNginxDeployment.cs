@@ -258,6 +258,7 @@ public class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_nginx_deployment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNginxDeployment : TerraformResource
 {
     public AzurermNginxDeployment(string name) : base("azurerm_nginx_deployment", name)

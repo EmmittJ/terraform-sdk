@@ -13,6 +13,7 @@ public class AwsAppmeshVirtualNodeSpecBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appmesh_virtual_node resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppmeshVirtualNode : TerraformResource
 {
     public AwsAppmeshVirtualNode(string name) : base("aws_appmesh_virtual_node", name)

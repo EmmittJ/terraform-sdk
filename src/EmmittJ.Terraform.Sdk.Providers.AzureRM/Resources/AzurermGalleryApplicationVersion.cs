@@ -159,6 +159,7 @@ public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_gallery_application_version resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermGalleryApplicationVersion : TerraformResource
 {
     public AzurermGalleryApplicationVersion(string name) : base("azurerm_gallery_application_version", name)

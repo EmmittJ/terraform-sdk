@@ -58,6 +58,7 @@ public class GoogleEventarcMessageBusTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_eventarc_message_bus resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEventarcMessageBus : TerraformResource
 {
     public GoogleEventarcMessageBus(string name) : base("google_eventarc_message_bus", name)

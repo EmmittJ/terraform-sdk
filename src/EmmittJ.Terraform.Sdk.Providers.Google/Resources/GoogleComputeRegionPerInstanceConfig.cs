@@ -57,6 +57,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_region_per_instance_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionPerInstanceConfig : TerraformResource
 {
     public GoogleComputeRegionPerInstanceConfig(string name) : base("google_compute_region_per_instance_config", name)

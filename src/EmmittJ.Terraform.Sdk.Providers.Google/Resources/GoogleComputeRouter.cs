@@ -164,6 +164,7 @@ public class GoogleComputeRouterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_router resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRouter : TerraformResource
 {
     public GoogleComputeRouter(string name) : base("google_compute_router", name)

@@ -21,6 +21,7 @@ public class AwsCloudwatchEventConnectionInvocationConnectivityParametersBlock :
 /// <summary>
 /// Manages a aws_cloudwatch_event_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudwatchEventConnection : TerraformResource
 {
     public AwsCloudwatchEventConnection(string name) : base("aws_cloudwatch_event_connection", name)

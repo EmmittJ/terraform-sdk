@@ -95,6 +95,7 @@ public class GoogleWorkbenchInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_workbench_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleWorkbenchInstance : TerraformResource
 {
     public GoogleWorkbenchInstance(string name) : base("google_workbench_instance", name)

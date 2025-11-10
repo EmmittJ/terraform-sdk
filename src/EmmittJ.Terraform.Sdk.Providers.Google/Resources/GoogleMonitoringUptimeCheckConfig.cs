@@ -245,6 +245,7 @@ public class GoogleMonitoringUptimeCheckConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_monitoring_uptime_check_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMonitoringUptimeCheckConfig : TerraformResource
 {
     public GoogleMonitoringUptimeCheckConfig(string name) : base("google_monitoring_uptime_check_config", name)

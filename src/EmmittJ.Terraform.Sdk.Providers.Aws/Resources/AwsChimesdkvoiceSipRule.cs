@@ -43,6 +43,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_chimesdkvoice_sip_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimesdkvoiceSipRule : TerraformResource
 {
     public AwsChimesdkvoiceSipRule(string name) : base("aws_chimesdkvoice_sip_rule", name)

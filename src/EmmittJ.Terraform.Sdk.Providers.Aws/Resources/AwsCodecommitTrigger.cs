@@ -61,6 +61,7 @@ public class AwsCodecommitTriggerTriggerBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codecommit_trigger resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodecommitTrigger : TerraformResource
 {
     public AwsCodecommitTrigger(string name) : base("aws_codecommit_trigger", name)

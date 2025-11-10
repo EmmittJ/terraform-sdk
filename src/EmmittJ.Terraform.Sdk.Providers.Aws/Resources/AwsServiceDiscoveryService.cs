@@ -85,6 +85,7 @@ public class AwsServiceDiscoveryServiceHealthCheckCustomConfigBlock : TerraformB
 /// <summary>
 /// Manages a aws_service_discovery_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsServiceDiscoveryService : TerraformResource
 {
     public AwsServiceDiscoveryService(string name) : base("aws_service_discovery_service", name)

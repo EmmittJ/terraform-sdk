@@ -152,6 +152,7 @@ public class GoogleComputeFirewallTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_firewall resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeFirewall : TerraformResource
 {
     public GoogleComputeFirewall(string name) : base("google_compute_firewall", name)

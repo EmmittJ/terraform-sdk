@@ -40,6 +40,7 @@ public class AwsGlueConnectionPhysicalConnectionRequirementsBlock : TerraformBlo
 /// <summary>
 /// Manages a aws_glue_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueConnection : TerraformResource
 {
     public AwsGlueConnection(string name) : base("aws_glue_connection", name)

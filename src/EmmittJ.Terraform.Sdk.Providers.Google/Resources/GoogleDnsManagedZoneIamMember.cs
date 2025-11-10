@@ -42,6 +42,7 @@ public class GoogleDnsManagedZoneIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dns_managed_zone_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDnsManagedZoneIamMember : TerraformResource
 {
     public GoogleDnsManagedZoneIamMember(string name) : base("google_dns_managed_zone_iam_member", name)

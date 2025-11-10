@@ -180,6 +180,7 @@ public class AwsCodepipelineCustomActionTypeSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codepipeline_custom_action_type resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodepipelineCustomActionType : TerraformResource
 {
     public AwsCodepipelineCustomActionType(string name) : base("aws_codepipeline_custom_action_type", name)

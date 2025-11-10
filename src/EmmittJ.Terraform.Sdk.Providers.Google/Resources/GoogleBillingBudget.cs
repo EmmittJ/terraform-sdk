@@ -262,6 +262,7 @@ public class GoogleBillingBudgetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_billing_budget resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBillingBudget : TerraformResource
 {
     public GoogleBillingBudget(string name) : base("google_billing_budget", name)

@@ -148,6 +148,7 @@ public class AwsEcsTaskDefinitionVolumeBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ecs_task_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcsTaskDefinition : TerraformResource
 {
     public AwsEcsTaskDefinition(string name) : base("aws_ecs_task_definition", name)

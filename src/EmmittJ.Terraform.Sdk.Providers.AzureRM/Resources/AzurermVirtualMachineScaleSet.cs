@@ -667,6 +667,7 @@ public class AzurermVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_virtual_machine_scale_set resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualMachineScaleSet : TerraformResource
 {
     public AzurermVirtualMachineScaleSet(string name) : base("azurerm_virtual_machine_scale_set", name)

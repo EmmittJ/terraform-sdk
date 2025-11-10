@@ -164,6 +164,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyRuleTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a google_compute_region_network_firewall_policy_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
 {
     public GoogleComputeRegionNetworkFirewallPolicyRule(string name) : base("google_compute_region_network_firewall_policy_rule", name)

@@ -235,6 +235,7 @@ public class GoogleNetworkConnectivitySpokeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_connectivity_spoke resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkConnectivitySpoke : TerraformResource
 {
     public GoogleNetworkConnectivitySpoke(string name) : base("google_network_connectivity_spoke", name)

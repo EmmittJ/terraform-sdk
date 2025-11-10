@@ -280,6 +280,7 @@ public class AwsLakeformationPermissionsTableWithColumnsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lakeformation_permissions resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLakeformationPermissions : TerraformResource
 {
     public AwsLakeformationPermissions(string name) : base("aws_lakeformation_permissions", name)

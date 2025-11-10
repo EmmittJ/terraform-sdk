@@ -59,6 +59,7 @@ public class GoogleStorageBucketIamMemberTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_bucket_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageBucketIamMember : TerraformResource
 {
     public GoogleStorageBucketIamMember(string name) : base("google_storage_bucket_iam_member", name)

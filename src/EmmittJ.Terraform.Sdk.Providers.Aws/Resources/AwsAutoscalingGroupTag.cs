@@ -43,6 +43,7 @@ public class AwsAutoscalingGroupTagTagBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_autoscaling_group_tag resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAutoscalingGroupTag : TerraformResource
 {
     public AwsAutoscalingGroupTag(string name) : base("aws_autoscaling_group_tag", name)

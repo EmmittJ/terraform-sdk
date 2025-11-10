@@ -68,6 +68,7 @@ public class GoogleSpannerDatabaseTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_spanner_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSpannerDatabase : TerraformResource
 {
     public GoogleSpannerDatabase(string name) : base("google_spanner_database", name)

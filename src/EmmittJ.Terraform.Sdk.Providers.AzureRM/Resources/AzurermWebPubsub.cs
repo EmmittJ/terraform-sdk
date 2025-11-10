@@ -138,6 +138,7 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_web_pubsub resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWebPubsub : TerraformResource
 {
     public AzurermWebPubsub(string name) : base("azurerm_web_pubsub", name)

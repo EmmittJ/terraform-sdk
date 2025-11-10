@@ -13,6 +13,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_datasync_location_fsx_ontap_file_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
 {
     public AwsDatasyncLocationFsxOntapFileSystem(string name) : base("aws_datasync_location_fsx_ontap_file_system", name)

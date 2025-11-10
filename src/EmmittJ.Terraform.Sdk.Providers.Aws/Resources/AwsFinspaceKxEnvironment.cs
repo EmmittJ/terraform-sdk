@@ -96,6 +96,7 @@ public class AwsFinspaceKxEnvironmentTransitGatewayConfigurationBlock : Terrafor
 /// <summary>
 /// Manages a aws_finspace_kx_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFinspaceKxEnvironment : TerraformResource
 {
     public AwsFinspaceKxEnvironment(string name) : base("aws_finspace_kx_environment", name)

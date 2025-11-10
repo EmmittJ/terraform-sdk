@@ -94,6 +94,7 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_disk_encryption_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDiskEncryptionSet : TerraformResource
 {
     public AzurermDiskEncryptionSet(string name) : base("azurerm_disk_encryption_set", name)

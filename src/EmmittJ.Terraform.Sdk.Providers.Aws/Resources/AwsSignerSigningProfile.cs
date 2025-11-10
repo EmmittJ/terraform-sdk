@@ -51,6 +51,7 @@ public class AwsSignerSigningProfileSigningMaterialBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_signer_signing_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSignerSigningProfile : TerraformResource
 {
     public AwsSignerSigningProfile(string name) : base("aws_signer_signing_profile", name)

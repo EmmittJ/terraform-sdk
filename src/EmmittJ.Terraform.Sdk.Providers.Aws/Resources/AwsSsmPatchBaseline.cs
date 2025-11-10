@@ -115,6 +115,7 @@ public class AwsSsmPatchBaselineSourceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ssm_patch_baseline resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmPatchBaseline : TerraformResource
 {
     public AwsSsmPatchBaseline(string name) : base("aws_ssm_patch_baseline", name)

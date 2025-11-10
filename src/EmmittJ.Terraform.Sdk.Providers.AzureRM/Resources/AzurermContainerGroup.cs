@@ -331,6 +331,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_container_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermContainerGroup : TerraformResource
 {
     public AzurermContainerGroup(string name) : base("azurerm_container_group", name)

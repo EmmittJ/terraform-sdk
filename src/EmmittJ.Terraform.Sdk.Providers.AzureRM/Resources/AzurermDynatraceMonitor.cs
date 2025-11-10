@@ -196,6 +196,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dynatrace_monitor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDynatraceMonitor : TerraformResource
 {
     public AzurermDynatraceMonitor(string name) : base("azurerm_dynatrace_monitor", name)

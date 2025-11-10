@@ -79,6 +79,7 @@ public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModuleTimeout
 /// <summary>
 /// Manages a google_scc_management_folder_security_health_analytics_custom_module resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule : TerraformResource
 {
     public GoogleSccManagementFolderSecurityHealthAnalyticsCustomModule(string name) : base("google_scc_management_folder_security_health_analytics_custom_module", name)

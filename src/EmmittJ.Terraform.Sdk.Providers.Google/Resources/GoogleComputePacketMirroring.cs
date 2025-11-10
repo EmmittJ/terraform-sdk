@@ -129,6 +129,7 @@ public class GoogleComputePacketMirroringTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_packet_mirroring resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputePacketMirroring : TerraformResource
 {
     public GoogleComputePacketMirroring(string name) : base("google_compute_packet_mirroring", name)

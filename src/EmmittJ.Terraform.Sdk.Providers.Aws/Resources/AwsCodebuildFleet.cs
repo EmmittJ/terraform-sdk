@@ -131,6 +131,7 @@ public class AwsCodebuildFleetVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codebuild_fleet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodebuildFleet : TerraformResource
 {
     public AwsCodebuildFleet(string name) : base("aws_codebuild_fleet", name)

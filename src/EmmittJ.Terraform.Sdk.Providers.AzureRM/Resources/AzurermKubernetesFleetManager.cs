@@ -85,6 +85,7 @@ public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_kubernetes_fleet_manager resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKubernetesFleetManager : TerraformResource
 {
     public AzurermKubernetesFleetManager(string name) : base("azurerm_kubernetes_fleet_manager", name)

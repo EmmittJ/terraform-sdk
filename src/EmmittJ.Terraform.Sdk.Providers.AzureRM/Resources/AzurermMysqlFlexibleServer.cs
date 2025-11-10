@@ -245,6 +245,7 @@ public class AzurermMysqlFlexibleServerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mysql_flexible_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMysqlFlexibleServer : TerraformResource
 {
     public AzurermMysqlFlexibleServer(string name) : base("azurerm_mysql_flexible_server", name)

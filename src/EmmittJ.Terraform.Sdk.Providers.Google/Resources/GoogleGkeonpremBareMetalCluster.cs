@@ -260,6 +260,7 @@ public class GoogleGkeonpremBareMetalClusterUpgradePolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gkeonprem_bare_metal_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeonpremBareMetalCluster : TerraformResource
 {
     public GoogleGkeonpremBareMetalCluster(string name) : base("google_gkeonprem_bare_metal_cluster", name)

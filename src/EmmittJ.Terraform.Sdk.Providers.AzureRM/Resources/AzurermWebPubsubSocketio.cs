@@ -121,6 +121,7 @@ public class AzurermWebPubsubSocketioTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_web_pubsub_socketio resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWebPubsubSocketio : TerraformResource
 {
     public AzurermWebPubsubSocketio(string name) : base("azurerm_web_pubsub_socketio", name)

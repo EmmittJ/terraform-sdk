@@ -76,6 +76,7 @@ public class AzurermDataFactoryCustomDatasetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_custom_dataset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryCustomDataset : TerraformResource
 {
     public AzurermDataFactoryCustomDataset(string name) : base("azurerm_data_factory_custom_dataset", name)

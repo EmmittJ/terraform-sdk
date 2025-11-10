@@ -190,6 +190,7 @@ public class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock : 
 /// <summary>
 /// Manages a azurerm_virtual_network_gateway_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualNetworkGatewayConnection : TerraformResource
 {
     public AzurermVirtualNetworkGatewayConnection(string name) : base("azurerm_virtual_network_gateway_connection", name)

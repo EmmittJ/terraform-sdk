@@ -67,6 +67,7 @@ public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_network_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkProfile : TerraformResource
 {
     public AzurermNetworkProfile(string name) : base("azurerm_network_profile", name)

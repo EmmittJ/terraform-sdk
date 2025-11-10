@@ -755,6 +755,7 @@ public class AzurermWindowsFunctionAppTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_windows_function_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWindowsFunctionApp : TerraformResource
 {
     public AzurermWindowsFunctionApp(string name) : base("azurerm_windows_function_app", name)

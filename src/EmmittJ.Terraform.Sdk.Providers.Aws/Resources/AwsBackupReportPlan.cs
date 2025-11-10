@@ -104,6 +104,7 @@ public class AwsBackupReportPlanReportSettingBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_backup_report_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsBackupReportPlan : TerraformResource
 {
     public AwsBackupReportPlan(string name) : base("aws_backup_report_plan", name)

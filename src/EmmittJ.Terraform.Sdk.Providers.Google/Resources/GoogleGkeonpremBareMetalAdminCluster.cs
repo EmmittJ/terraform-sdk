@@ -185,6 +185,7 @@ public class GoogleGkeonpremBareMetalAdminClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gkeonprem_bare_metal_admin_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeonpremBareMetalAdminCluster : TerraformResource
 {
     public GoogleGkeonpremBareMetalAdminCluster(string name) : base("google_gkeonprem_bare_metal_admin_cluster", name)

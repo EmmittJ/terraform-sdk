@@ -48,6 +48,7 @@ public class AwsFsxDataRepositoryAssociationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fsx_data_repository_association resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFsxDataRepositoryAssociation : TerraformResource
 {
     public AwsFsxDataRepositoryAssociation(string name) : base("aws_fsx_data_repository_association", name)

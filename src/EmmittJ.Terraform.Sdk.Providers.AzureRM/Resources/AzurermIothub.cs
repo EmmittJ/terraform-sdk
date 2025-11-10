@@ -309,6 +309,7 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_iothub resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermIothub : TerraformResource
 {
     public AzurermIothub(string name) : base("azurerm_iothub", name)

@@ -291,6 +291,7 @@ public class GoogleComputeRegionUrlMapTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_region_url_map resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionUrlMap : TerraformResource
 {
     public GoogleComputeRegionUrlMap(string name) : base("google_compute_region_url_map", name)

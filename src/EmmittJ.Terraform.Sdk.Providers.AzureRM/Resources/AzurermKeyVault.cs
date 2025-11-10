@@ -131,6 +131,7 @@ public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_key_vault resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKeyVault : TerraformResource
 {
     public AzurermKeyVault(string name) : base("azurerm_key_vault", name)

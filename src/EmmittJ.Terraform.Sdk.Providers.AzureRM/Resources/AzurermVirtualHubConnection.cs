@@ -102,6 +102,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_hub_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualHubConnection : TerraformResource
 {
     public AzurermVirtualHubConnection(string name) : base("azurerm_virtual_hub_connection", name)

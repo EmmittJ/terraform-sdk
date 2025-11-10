@@ -133,6 +133,7 @@ public class GooglePrivatecaCaPoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_privateca_ca_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePrivatecaCaPool : TerraformResource
 {
     public GooglePrivatecaCaPool(string name) : base("google_privateca_ca_pool", name)

@@ -42,6 +42,7 @@ public class GooglePubsubTopicIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_pubsub_topic_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePubsubTopicIamBinding : TerraformResource
 {
     public GooglePubsubTopicIamBinding(string name) : base("google_pubsub_topic_iam_binding", name)

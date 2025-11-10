@@ -651,6 +651,7 @@ public class AzurermFunctionAppFlexConsumptionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_function_app_flex_consumption resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFunctionAppFlexConsumption : TerraformResource
 {
     public AzurermFunctionAppFlexConsumption(string name) : base("azurerm_function_app_flex_consumption", name)

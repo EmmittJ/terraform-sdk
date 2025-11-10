@@ -154,6 +154,7 @@ public class GoogleHealthcareHl7V2StoreTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_hl7_v2_store resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareHl7V2Store : TerraformResource
 {
     public GoogleHealthcareHl7V2Store(string name) : base("google_healthcare_hl7_v2_store", name)

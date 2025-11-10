@@ -56,6 +56,7 @@ public class GoogleGkeHubFeatureTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_hub_feature resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeHubFeature : TerraformResource
 {
     public GoogleGkeHubFeature(string name) : base("google_gke_hub_feature", name)

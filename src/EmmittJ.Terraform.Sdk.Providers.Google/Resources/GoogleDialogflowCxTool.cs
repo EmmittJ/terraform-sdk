@@ -95,6 +95,7 @@ public class GoogleDialogflowCxToolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_tool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxTool : TerraformResource
 {
     public GoogleDialogflowCxTool(string name) : base("google_dialogflow_cx_tool", name)

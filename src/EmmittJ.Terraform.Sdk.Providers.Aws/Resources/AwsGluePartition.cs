@@ -94,6 +94,7 @@ public class AwsGluePartitionStorageDescriptorBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_partition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGluePartition : TerraformResource
 {
     public AwsGluePartition(string name) : base("aws_glue_partition", name)

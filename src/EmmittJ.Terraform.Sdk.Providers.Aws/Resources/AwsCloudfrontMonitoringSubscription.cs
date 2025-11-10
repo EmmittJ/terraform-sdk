@@ -13,6 +13,7 @@ public class AwsCloudfrontMonitoringSubscriptionMonitoringSubscriptionBlock : Te
 /// <summary>
 /// Manages a aws_cloudfront_monitoring_subscription resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudfrontMonitoringSubscription : TerraformResource
 {
     public AwsCloudfrontMonitoringSubscription(string name) : base("aws_cloudfront_monitoring_subscription", name)

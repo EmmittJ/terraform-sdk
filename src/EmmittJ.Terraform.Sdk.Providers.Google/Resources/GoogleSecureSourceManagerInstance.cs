@@ -103,6 +103,7 @@ public class GoogleSecureSourceManagerInstanceWorkforceIdentityFederationConfigB
 /// <summary>
 /// Manages a google_secure_source_manager_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecureSourceManagerInstance : TerraformResource
 {
     public GoogleSecureSourceManagerInstance(string name) : base("google_secure_source_manager_instance", name)

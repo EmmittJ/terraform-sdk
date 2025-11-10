@@ -58,6 +58,7 @@ public class AwsMedialiveInputSecurityGroupWhitelistRulesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_medialive_input_security_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMedialiveInputSecurityGroup : TerraformResource
 {
     public AwsMedialiveInputSecurityGroup(string name) : base("aws_medialive_input_security_group", name)

@@ -76,6 +76,7 @@ public class AzurermDataFactoryLinkedCustomServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_linked_custom_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedCustomService : TerraformResource
 {
     public AzurermDataFactoryLinkedCustomService(string name) : base("azurerm_data_factory_linked_custom_service", name)

@@ -110,6 +110,7 @@ public class AwsGameliftGameServerGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_gamelift_game_server_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGameliftGameServerGroup : TerraformResource
 {
     public AwsGameliftGameServerGroup(string name) : base("aws_gamelift_game_server_group", name)

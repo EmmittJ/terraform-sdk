@@ -42,6 +42,7 @@ public class GooglePrivatecaCertificateTemplateIamBindingConditionBlock : Terraf
 /// <summary>
 /// Manages a google_privateca_certificate_template_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePrivatecaCertificateTemplateIamBinding : TerraformResource
 {
     public GooglePrivatecaCertificateTemplateIamBinding(string name) : base("google_privateca_certificate_template_iam_binding", name)

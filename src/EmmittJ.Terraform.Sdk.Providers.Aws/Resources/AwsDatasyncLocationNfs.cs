@@ -40,6 +40,7 @@ public class AwsDatasyncLocationNfsOnPremConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_datasync_location_nfs resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncLocationNfs : TerraformResource
 {
     public AwsDatasyncLocationNfs(string name) : base("aws_datasync_location_nfs", name)

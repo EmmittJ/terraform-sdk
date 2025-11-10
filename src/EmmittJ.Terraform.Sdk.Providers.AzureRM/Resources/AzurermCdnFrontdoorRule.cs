@@ -65,6 +65,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cdn_frontdoor_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCdnFrontdoorRule : TerraformResource
 {
     public AzurermCdnFrontdoorRule(string name) : base("azurerm_cdn_frontdoor_rule", name)

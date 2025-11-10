@@ -97,6 +97,7 @@ public class GoogleIntegrationsClientTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_integrations_client resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIntegrationsClient : TerraformResource
 {
     public GoogleIntegrationsClient(string name) : base("google_integrations_client", name)

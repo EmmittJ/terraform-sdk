@@ -13,6 +13,7 @@ public class AwsGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsBl
 /// <summary>
 /// Manages a aws_glue_data_catalog_encryption_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueDataCatalogEncryptionSettings : TerraformResource
 {
     public AwsGlueDataCatalogEncryptionSettings(string name) : base("aws_glue_data_catalog_encryption_settings", name)

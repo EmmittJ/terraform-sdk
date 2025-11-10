@@ -57,6 +57,7 @@ public class GoogleComputeInstanceSettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_instance_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeInstanceSettings : TerraformResource
 {
     public GoogleComputeInstanceSettings(string name) : base("google_compute_instance_settings", name)

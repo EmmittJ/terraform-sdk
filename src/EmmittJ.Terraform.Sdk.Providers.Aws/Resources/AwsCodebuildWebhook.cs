@@ -77,6 +77,7 @@ public class AwsCodebuildWebhookScopeConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codebuild_webhook resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodebuildWebhook : TerraformResource
 {
     public AwsCodebuildWebhook(string name) : base("aws_codebuild_webhook", name)

@@ -77,6 +77,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_iothub_device_update_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermIothubDeviceUpdateInstance : TerraformResource
 {
     public AzurermIothubDeviceUpdateInstance(string name) : base("azurerm_iothub_device_update_instance", name)

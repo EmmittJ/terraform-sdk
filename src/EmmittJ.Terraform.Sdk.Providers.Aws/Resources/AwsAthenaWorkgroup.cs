@@ -58,6 +58,7 @@ public class AwsAthenaWorkgroupConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_athena_workgroup resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAthenaWorkgroup : TerraformResource
 {
     public AwsAthenaWorkgroup(string name) : base("aws_athena_workgroup", name)

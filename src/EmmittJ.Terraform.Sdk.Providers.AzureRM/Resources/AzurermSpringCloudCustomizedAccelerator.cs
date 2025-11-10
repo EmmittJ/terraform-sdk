@@ -121,6 +121,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_spring_cloud_customized_accelerator resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSpringCloudCustomizedAccelerator : TerraformResource
 {
     public AzurermSpringCloudCustomizedAccelerator(string name) : base("azurerm_spring_cloud_customized_accelerator", name)

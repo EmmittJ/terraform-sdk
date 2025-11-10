@@ -79,6 +79,7 @@ public class AwsDatapipelinePipelineDefinitionPipelineObjectBlock : TerraformBlo
 /// <summary>
 /// Manages a aws_datapipeline_pipeline_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatapipelinePipelineDefinition : TerraformResource
 {
     public AwsDatapipelinePipelineDefinition(string name) : base("aws_datapipeline_pipeline_definition", name)

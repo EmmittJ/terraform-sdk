@@ -42,6 +42,7 @@ public class GooglePubsubSubscriptionIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_pubsub_subscription_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePubsubSubscriptionIamMember : TerraformResource
 {
     public GooglePubsubSubscriptionIamMember(string name) : base("google_pubsub_subscription_iam_member", name)

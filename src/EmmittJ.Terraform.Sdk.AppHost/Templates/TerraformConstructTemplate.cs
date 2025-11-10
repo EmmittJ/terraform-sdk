@@ -32,6 +32,9 @@ public abstract class TerraformConstructTemplate
     {
         var template = LoadTemplate();
 
+        // Check if any block has validation attributes (which require MinLength/MaxLength)
+        var requiresUnreferencedCode = model.BlockTypes.Any(b => b.MinItems.HasValue || b.MaxItems.HasValue);
+
         var data = new
         {
             Namespace = namespacePrefix,
@@ -39,6 +42,7 @@ public abstract class TerraformConstructTemplate
             model.TerraformType,
             Description = TemplateHelpers.EscapeXmlDoc(model.Description),
             model.IsDeprecated,
+            RequiresUnreferencedCode = requiresUnreferencedCode,
             BaseClassName = baseClassName,
             ConstructKind = constructKind,
             AdditionalDescription = additionalDescription,

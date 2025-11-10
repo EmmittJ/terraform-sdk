@@ -56,6 +56,7 @@ public class AwsVpclatticeListenerRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpclattice_listener_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpclatticeListenerRule : TerraformResource
 {
     public AwsVpclatticeListenerRule(string name) : base("aws_vpclattice_listener_rule", name)

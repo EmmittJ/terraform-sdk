@@ -84,6 +84,7 @@ public class AwsEcrpublicRepositoryTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ecrpublic_repository resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcrpublicRepository : TerraformResource
 {
     public AwsEcrpublicRepository(string name) : base("aws_ecrpublic_repository", name)

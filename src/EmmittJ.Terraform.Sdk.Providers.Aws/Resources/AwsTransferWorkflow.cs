@@ -41,6 +41,7 @@ public class AwsTransferWorkflowStepsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_transfer_workflow resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsTransferWorkflow : TerraformResource
 {
     public AwsTransferWorkflow(string name) : base("aws_transfer_workflow", name)

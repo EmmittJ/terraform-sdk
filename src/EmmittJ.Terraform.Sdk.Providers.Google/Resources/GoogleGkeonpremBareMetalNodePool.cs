@@ -75,6 +75,7 @@ public class GoogleGkeonpremBareMetalNodePoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gkeonprem_bare_metal_node_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeonpremBareMetalNodePool : TerraformResource
 {
     public GoogleGkeonpremBareMetalNodePool(string name) : base("google_gkeonprem_bare_metal_node_pool", name)

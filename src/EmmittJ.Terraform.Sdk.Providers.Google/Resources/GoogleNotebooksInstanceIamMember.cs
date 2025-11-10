@@ -42,6 +42,7 @@ public class GoogleNotebooksInstanceIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_notebooks_instance_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNotebooksInstanceIamMember : TerraformResource
 {
     public GoogleNotebooksInstanceIamMember(string name) : base("google_notebooks_instance_iam_member", name)

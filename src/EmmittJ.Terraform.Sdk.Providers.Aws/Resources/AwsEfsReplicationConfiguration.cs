@@ -84,6 +84,7 @@ public class AwsEfsReplicationConfigurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_efs_replication_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEfsReplicationConfiguration : TerraformResource
 {
     public AwsEfsReplicationConfiguration(string name) : base("aws_efs_replication_configuration", name)

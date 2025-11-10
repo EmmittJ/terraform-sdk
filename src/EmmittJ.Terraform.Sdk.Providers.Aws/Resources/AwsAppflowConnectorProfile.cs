@@ -13,6 +13,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlock : TerraformBl
 /// <summary>
 /// Manages a aws_appflow_connector_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppflowConnectorProfile : TerraformResource
 {
     public AwsAppflowConnectorProfile(string name) : base("aws_appflow_connector_profile", name)

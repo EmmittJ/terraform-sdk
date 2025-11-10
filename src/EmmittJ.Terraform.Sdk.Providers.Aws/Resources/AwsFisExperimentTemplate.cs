@@ -239,6 +239,7 @@ public class AwsFisExperimentTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fis_experiment_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFisExperimentTemplate : TerraformResource
 {
     public AwsFisExperimentTemplate(string name) : base("aws_fis_experiment_template", name)

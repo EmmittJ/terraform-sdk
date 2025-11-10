@@ -31,6 +31,7 @@ public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : Terrafor
 /// <summary>
 /// Retrieves information about a aws_codecatalyst_dev_environment.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
 {
     public AwsCodecatalystDevEnvironmentDataSource(string name) : base("aws_codecatalyst_dev_environment", name)

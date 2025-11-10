@@ -72,6 +72,7 @@ public class GoogleHealthcareDicomStoreTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_dicom_store resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareDicomStore : TerraformResource
 {
     public GoogleHealthcareDicomStore(string name) : base("google_healthcare_dicom_store", name)

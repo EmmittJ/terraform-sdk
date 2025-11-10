@@ -13,6 +13,7 @@ public class AwsEcrReplicationConfigurationReplicationConfigurationBlock : Terra
 /// <summary>
 /// Manages a aws_ecr_replication_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEcrReplicationConfiguration : TerraformResource
 {
     public AwsEcrReplicationConfiguration(string name) : base("aws_ecr_replication_configuration", name)

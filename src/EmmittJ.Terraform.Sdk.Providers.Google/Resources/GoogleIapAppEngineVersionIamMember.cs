@@ -42,6 +42,7 @@ public class GoogleIapAppEngineVersionIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iap_app_engine_version_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIapAppEngineVersionIamMember : TerraformResource
 {
     public GoogleIapAppEngineVersionIamMember(string name) : base("google_iap_app_engine_version_iam_member", name)

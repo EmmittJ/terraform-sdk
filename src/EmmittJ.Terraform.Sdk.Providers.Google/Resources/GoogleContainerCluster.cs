@@ -1383,6 +1383,7 @@ public class GoogleContainerClusterWorkloadIdentityConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_container_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleContainerCluster : TerraformResource
 {
     public GoogleContainerCluster(string name) : base("google_container_cluster", name)

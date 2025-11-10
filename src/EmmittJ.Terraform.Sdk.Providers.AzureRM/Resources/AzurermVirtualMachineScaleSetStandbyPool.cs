@@ -77,6 +77,7 @@ public class AzurermVirtualMachineScaleSetStandbyPoolTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_virtual_machine_scale_set_standby_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualMachineScaleSetStandbyPool : TerraformResource
 {
     public AzurermVirtualMachineScaleSetStandbyPool(string name) : base("azurerm_virtual_machine_scale_set_standby_pool", name)

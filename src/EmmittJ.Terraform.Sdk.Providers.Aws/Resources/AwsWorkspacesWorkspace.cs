@@ -93,6 +93,7 @@ public class AwsWorkspacesWorkspaceWorkspacePropertiesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_workspaces_workspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsWorkspacesWorkspace : TerraformResource
 {
     public AwsWorkspacesWorkspace(string name) : base("aws_workspaces_workspace", name)

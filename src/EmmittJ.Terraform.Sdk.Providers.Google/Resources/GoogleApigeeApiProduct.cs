@@ -108,6 +108,7 @@ public class GoogleApigeeApiProductTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apigee_api_product resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApigeeApiProduct : TerraformResource
 {
     public GoogleApigeeApiProduct(string name) : base("google_apigee_api_product", name)

@@ -109,6 +109,7 @@ public class GoogleSecretManagerRegionalSecretTopicsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_secret_manager_regional_secret resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecretManagerRegionalSecret : TerraformResource
 {
     public GoogleSecretManagerRegionalSecret(string name) : base("google_secret_manager_regional_secret", name)

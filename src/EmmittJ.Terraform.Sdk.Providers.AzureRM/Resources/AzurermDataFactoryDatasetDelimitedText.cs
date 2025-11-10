@@ -266,6 +266,7 @@ public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_data_factory_dataset_delimited_text resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryDatasetDelimitedText : TerraformResource
 {
     public AzurermDataFactoryDatasetDelimitedText(string name) : base("azurerm_data_factory_dataset_delimited_text", name)

@@ -104,6 +104,7 @@ public class AwsBudgetsBudgetActionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_budgets_budget_action resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsBudgetsBudgetAction : TerraformResource
 {
     public AwsBudgetsBudgetAction(string name) : base("aws_budgets_budget_action", name)

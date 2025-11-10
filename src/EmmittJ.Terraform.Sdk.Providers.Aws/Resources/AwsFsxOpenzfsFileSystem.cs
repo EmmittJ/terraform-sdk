@@ -110,6 +110,7 @@ public class AwsFsxOpenzfsFileSystemTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fsx_openzfs_file_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFsxOpenzfsFileSystem : TerraformResource
 {
     public AwsFsxOpenzfsFileSystem(string name) : base("aws_fsx_openzfs_file_system", name)

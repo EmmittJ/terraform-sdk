@@ -13,6 +13,7 @@ public class AwsAccessanalyzerAnalyzerConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_accessanalyzer_analyzer resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAccessanalyzerAnalyzer : TerraformResource
 {
     public AwsAccessanalyzerAnalyzer(string name) : base("aws_accessanalyzer_analyzer", name)

@@ -33,6 +33,7 @@ public class AwsOpensearchPackagePackageSourceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_opensearch_package resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsOpensearchPackage : TerraformResource
 {
     public AwsOpensearchPackage(string name) : base("aws_opensearch_package", name)

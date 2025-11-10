@@ -198,6 +198,7 @@ public class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_role_management_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermRoleManagementPolicy : TerraformResource
 {
     public AzurermRoleManagementPolicy(string name) : base("azurerm_role_management_policy", name)

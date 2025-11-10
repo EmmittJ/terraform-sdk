@@ -42,6 +42,7 @@ public class GoogleDataplexAspectTypeIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_aspect_type_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexAspectTypeIamMember : TerraformResource
 {
     public GoogleDataplexAspectTypeIamMember(string name) : base("google_dataplex_aspect_type_iam_member", name)

@@ -92,6 +92,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a azurerm_monitor_alert_processing_rule_suppression resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
 {
     public AzurermMonitorAlertProcessingRuleSuppression(string name) : base("azurerm_monitor_alert_processing_rule_suppression", name)

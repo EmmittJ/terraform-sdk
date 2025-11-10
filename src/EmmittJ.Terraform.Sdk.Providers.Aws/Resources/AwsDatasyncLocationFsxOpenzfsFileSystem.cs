@@ -13,6 +13,7 @@ public class AwsDatasyncLocationFsxOpenzfsFileSystemProtocolBlock : TerraformBlo
 /// <summary>
 /// Manages a aws_datasync_location_fsx_openzfs_file_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncLocationFsxOpenzfsFileSystem : TerraformResource
 {
     public AwsDatasyncLocationFsxOpenzfsFileSystem(string name) : base("aws_datasync_location_fsx_openzfs_file_system", name)

@@ -101,6 +101,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_container_registry_token_password resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermContainerRegistryTokenPassword : TerraformResource
 {
     public AzurermContainerRegistryTokenPassword(string name) : base("azurerm_container_registry_token_password", name)

@@ -165,6 +165,7 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_eventgrid_namespace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermEventgridNamespace : TerraformResource
 {
     public AzurermEventgridNamespace(string name) : base("azurerm_eventgrid_namespace", name)

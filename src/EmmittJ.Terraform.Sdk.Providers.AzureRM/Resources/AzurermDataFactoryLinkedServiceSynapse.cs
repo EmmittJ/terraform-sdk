@@ -77,6 +77,7 @@ public class AzurermDataFactoryLinkedServiceSynapseTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_synapse resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceSynapse : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceSynapse(string name) : base("azurerm_data_factory_linked_service_synapse", name)

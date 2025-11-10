@@ -42,6 +42,7 @@ public class GoogleDataCatalogTagTemplateIamBindingConditionBlock : TerraformBlo
 /// <summary>
 /// Manages a google_data_catalog_tag_template_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataCatalogTagTemplateIamBinding : TerraformResource
 {
     public GoogleDataCatalogTagTemplateIamBinding(string name) : base("google_data_catalog_tag_template_iam_binding", name)

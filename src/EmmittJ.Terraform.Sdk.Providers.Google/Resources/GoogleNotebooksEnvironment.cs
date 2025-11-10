@@ -105,6 +105,7 @@ public class GoogleNotebooksEnvironmentVmImageBlock : TerraformBlock
 /// <summary>
 /// Manages a google_notebooks_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNotebooksEnvironment : TerraformResource
 {
     public GoogleNotebooksEnvironment(string name) : base("google_notebooks_environment", name)

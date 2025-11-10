@@ -96,6 +96,7 @@ public class GoogleCloudAssetProjectFeedTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_asset_project_feed resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudAssetProjectFeed : TerraformResource
 {
     public GoogleCloudAssetProjectFeed(string name) : base("google_cloud_asset_project_feed", name)

@@ -103,6 +103,7 @@ public class GoogleDataplexZoneTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataplex_zone resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataplexZone : TerraformResource
 {
     public GoogleDataplexZone(string name) : base("google_dataplex_zone", name)

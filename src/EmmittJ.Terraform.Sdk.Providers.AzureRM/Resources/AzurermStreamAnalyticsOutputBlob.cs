@@ -94,6 +94,7 @@ public class AzurermStreamAnalyticsOutputBlobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_stream_analytics_output_blob resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStreamAnalyticsOutputBlob : TerraformResource
 {
     public AzurermStreamAnalyticsOutputBlob(string name) : base("azurerm_stream_analytics_output_blob", name)

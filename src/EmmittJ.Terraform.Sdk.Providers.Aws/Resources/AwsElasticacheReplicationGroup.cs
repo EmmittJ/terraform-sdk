@@ -88,6 +88,7 @@ public class AwsElasticacheReplicationGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_elasticache_replication_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElasticacheReplicationGroup : TerraformResource
 {
     public AwsElasticacheReplicationGroup(string name) : base("aws_elasticache_replication_group", name)

@@ -42,6 +42,7 @@ public class GoogleBigqueryAnalyticsHubListingIamBindingConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_bigquery_analytics_hub_listing_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryAnalyticsHubListingIamBinding : TerraformResource
 {
     public GoogleBigqueryAnalyticsHubListingIamBinding(string name) : base("google_bigquery_analytics_hub_listing_iam_binding", name)

@@ -42,6 +42,7 @@ public class GoogleCloudTasksQueueIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_tasks_queue_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudTasksQueueIamBinding : TerraformResource
 {
     public GoogleCloudTasksQueueIamBinding(string name) : base("google_cloud_tasks_queue_iam_binding", name)

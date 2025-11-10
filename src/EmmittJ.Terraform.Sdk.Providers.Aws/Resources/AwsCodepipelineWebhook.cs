@@ -59,6 +59,7 @@ public class AwsCodepipelineWebhookFilterBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codepipeline_webhook resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodepipelineWebhook : TerraformResource
 {
     public AwsCodepipelineWebhook(string name) : base("aws_codepipeline_webhook", name)

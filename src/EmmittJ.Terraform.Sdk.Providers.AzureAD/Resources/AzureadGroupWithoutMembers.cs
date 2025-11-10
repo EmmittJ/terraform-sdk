@@ -77,6 +77,7 @@ public class AzureadGroupWithoutMembersTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_group_without_members resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadGroupWithoutMembers : TerraformResource
 {
     public AzureadGroupWithoutMembers(string name) : base("azuread_group_without_members", name)

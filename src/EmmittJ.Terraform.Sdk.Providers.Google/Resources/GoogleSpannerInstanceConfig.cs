@@ -78,6 +78,7 @@ public class GoogleSpannerInstanceConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_spanner_instance_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSpannerInstanceConfig : TerraformResource
 {
     public GoogleSpannerInstanceConfig(string name) : base("google_spanner_instance_config", name)

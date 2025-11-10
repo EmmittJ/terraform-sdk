@@ -111,6 +111,7 @@ public class GoogleVertexAiEndpointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiEndpoint : TerraformResource
 {
     public GoogleVertexAiEndpoint(string name) : base("google_vertex_ai_endpoint", name)

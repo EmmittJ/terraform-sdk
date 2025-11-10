@@ -67,6 +67,7 @@ public class AzurermAutomationModuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_automation_module resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomationModule : TerraformResource
 {
     public AzurermAutomationModule(string name) : base("azurerm_automation_module", name)

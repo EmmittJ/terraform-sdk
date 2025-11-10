@@ -58,6 +58,7 @@ public class AwsEmrInstanceFleetLaunchSpecificationsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_emr_instance_fleet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEmrInstanceFleet : TerraformResource
 {
     public AwsEmrInstanceFleet(string name) : base("aws_emr_instance_fleet", name)

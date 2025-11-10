@@ -89,6 +89,7 @@ public class AwsSesEventDestinationSnsDestinationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ses_event_destination resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSesEventDestination : TerraformResource
 {
     public AwsSesEventDestination(string name) : base("aws_ses_event_destination", name)

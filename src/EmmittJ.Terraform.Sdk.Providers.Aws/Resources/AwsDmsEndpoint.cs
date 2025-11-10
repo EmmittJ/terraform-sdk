@@ -838,6 +838,7 @@ public class AwsDmsEndpointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_dms_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDmsEndpoint : TerraformResource
 {
     public AwsDmsEndpoint(string name) : base("aws_dms_endpoint", name)

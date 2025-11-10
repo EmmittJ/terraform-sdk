@@ -82,6 +82,7 @@ public class GoogleSccProjectNotificationConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_scc_project_notification_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccProjectNotificationConfig : TerraformResource
 {
     public GoogleSccProjectNotificationConfig(string name) : base("google_scc_project_notification_config", name)

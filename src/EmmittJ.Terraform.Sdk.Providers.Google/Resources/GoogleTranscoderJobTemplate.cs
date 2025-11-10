@@ -48,6 +48,7 @@ public class GoogleTranscoderJobTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_transcoder_job_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleTranscoderJobTemplate : TerraformResource
 {
     public GoogleTranscoderJobTemplate(string name) : base("google_transcoder_job_template", name)

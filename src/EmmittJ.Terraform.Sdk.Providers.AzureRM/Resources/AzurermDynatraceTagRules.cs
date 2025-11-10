@@ -101,6 +101,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dynatrace_tag_rules resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDynatraceTagRules : TerraformResource
 {
     public AzurermDynatraceTagRules(string name) : base("azurerm_dynatrace_tag_rules", name)

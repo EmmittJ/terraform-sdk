@@ -70,6 +70,7 @@ public class AwsTransferAccessPosixProfileBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_transfer_access resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsTransferAccess : TerraformResource
 {
     public AwsTransferAccess(string name) : base("aws_transfer_access", name)

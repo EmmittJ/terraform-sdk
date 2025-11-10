@@ -197,6 +197,7 @@ public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_dashboard_grafana resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDashboardGrafana : TerraformResource
 {
     public AzurermDashboardGrafana(string name) : base("azurerm_dashboard_grafana", name)

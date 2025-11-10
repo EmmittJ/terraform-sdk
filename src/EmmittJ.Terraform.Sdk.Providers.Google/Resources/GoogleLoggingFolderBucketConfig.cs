@@ -92,6 +92,7 @@ public class GoogleLoggingFolderBucketConfigIndexConfigsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_logging_folder_bucket_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLoggingFolderBucketConfig : TerraformResource
 {
     public GoogleLoggingFolderBucketConfig(string name) : base("google_logging_folder_bucket_config", name)

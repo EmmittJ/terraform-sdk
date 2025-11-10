@@ -150,6 +150,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_traffic_manager_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermTrafficManagerProfile : TerraformResource
 {
     public AzurermTrafficManagerProfile(string name) : base("azurerm_traffic_manager_profile", name)

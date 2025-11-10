@@ -58,6 +58,7 @@ public class AwsSecurityhubOrganizationConfigurationTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a aws_securityhub_organization_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSecurityhubOrganizationConfiguration : TerraformResource
 {
     public AwsSecurityhubOrganizationConfiguration(string name) : base("aws_securityhub_organization_configuration", name)

@@ -424,6 +424,7 @@ public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_storage_account resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStorageAccount : TerraformResource
 {
     public AzurermStorageAccount(string name) : base("azurerm_storage_account", name)

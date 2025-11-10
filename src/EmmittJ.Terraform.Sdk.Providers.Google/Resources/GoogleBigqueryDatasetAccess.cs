@@ -178,6 +178,7 @@ public class GoogleBigqueryDatasetAccessViewBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_dataset_access resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDatasetAccess : TerraformResource
 {
     public GoogleBigqueryDatasetAccess(string name) : base("google_bigquery_dataset_access", name)

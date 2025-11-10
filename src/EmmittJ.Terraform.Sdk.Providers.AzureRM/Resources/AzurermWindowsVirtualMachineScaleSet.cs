@@ -908,6 +908,7 @@ public class AzurermWindowsVirtualMachineScaleSetWinrmListenerBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_windows_virtual_machine_scale_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWindowsVirtualMachineScaleSet : TerraformResource
 {
     public AzurermWindowsVirtualMachineScaleSet(string name) : base("azurerm_windows_virtual_machine_scale_set", name)

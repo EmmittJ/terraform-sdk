@@ -104,6 +104,7 @@ public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_network_manager_routing_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkManagerRoutingRule : TerraformResource
 {
     public AzurermNetworkManagerRoutingRule(string name) : base("azurerm_network_manager_routing_rule", name)

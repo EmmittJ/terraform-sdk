@@ -138,6 +138,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_container_azure_node_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleContainerAzureNodePool : TerraformResource
 {
     public GoogleContainerAzureNodePool(string name) : base("google_container_azure_node_pool", name)

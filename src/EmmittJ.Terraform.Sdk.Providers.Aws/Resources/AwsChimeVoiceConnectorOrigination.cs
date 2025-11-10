@@ -62,6 +62,7 @@ public class AwsChimeVoiceConnectorOriginationRouteBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_chime_voice_connector_origination resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimeVoiceConnectorOrigination : TerraformResource
 {
     public AwsChimeVoiceConnectorOrigination(string name) : base("aws_chime_voice_connector_origination", name)

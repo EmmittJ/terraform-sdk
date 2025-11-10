@@ -393,6 +393,7 @@ public class AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock : 
 /// <summary>
 /// Manages a azurerm_eventgrid_system_topic_event_subscription resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermEventgridSystemTopicEventSubscription : TerraformResource
 {
     public AzurermEventgridSystemTopicEventSubscription(string name) : base("azurerm_eventgrid_system_topic_event_subscription", name)

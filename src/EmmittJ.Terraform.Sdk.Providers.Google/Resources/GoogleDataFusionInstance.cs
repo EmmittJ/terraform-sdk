@@ -154,6 +154,7 @@ public class GoogleDataFusionInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_data_fusion_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataFusionInstance : TerraformResource
 {
     public GoogleDataFusionInstance(string name) : base("google_data_fusion_instance", name)

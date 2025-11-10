@@ -13,6 +13,7 @@ public class AwsGlueSecurityConfigurationEncryptionConfigurationBlock : Terrafor
 /// <summary>
 /// Manages a aws_glue_security_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueSecurityConfiguration : TerraformResource
 {
     public AwsGlueSecurityConfiguration(string name) : base("aws_glue_security_configuration", name)

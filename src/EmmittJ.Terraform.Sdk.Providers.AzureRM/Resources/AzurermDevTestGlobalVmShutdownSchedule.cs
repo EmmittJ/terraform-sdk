@@ -94,6 +94,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_dev_test_global_vm_shutdown_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDevTestGlobalVmShutdownSchedule : TerraformResource
 {
     public AzurermDevTestGlobalVmShutdownSchedule(string name) : base("azurerm_dev_test_global_vm_shutdown_schedule", name)

@@ -113,6 +113,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_container_registry_credential_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermContainerRegistryCredentialSet : TerraformResource
 {
     public AzurermContainerRegistryCredentialSet(string name) : base("azurerm_container_registry_credential_set", name)

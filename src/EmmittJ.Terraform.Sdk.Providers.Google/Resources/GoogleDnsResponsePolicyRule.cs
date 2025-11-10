@@ -48,6 +48,7 @@ public class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dns_response_policy_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDnsResponsePolicyRule : TerraformResource
 {
     public GoogleDnsResponsePolicyRule(string name) : base("google_dns_response_policy_rule", name)

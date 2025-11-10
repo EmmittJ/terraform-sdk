@@ -615,6 +615,7 @@ public class GoogleAppEngineFlexibleAppVersionVpcAccessConnectorBlock : Terrafor
 /// <summary>
 /// Manages a google_app_engine_flexible_app_version resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAppEngineFlexibleAppVersion : TerraformResource
 {
     public GoogleAppEngineFlexibleAppVersion(string name) : base("google_app_engine_flexible_app_version", name)

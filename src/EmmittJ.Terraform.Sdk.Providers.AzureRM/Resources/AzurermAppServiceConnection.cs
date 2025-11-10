@@ -139,6 +139,7 @@ public class AzurermAppServiceConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_app_service_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAppServiceConnection : TerraformResource
 {
     public AzurermAppServiceConnection(string name) : base("azurerm_app_service_connection", name)

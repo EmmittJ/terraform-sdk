@@ -84,6 +84,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fms_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFmsPolicy : TerraformResource
 {
     public AwsFmsPolicy(string name) : base("aws_fms_policy", name)

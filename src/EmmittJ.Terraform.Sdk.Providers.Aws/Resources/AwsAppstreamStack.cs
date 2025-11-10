@@ -140,6 +140,7 @@ public class AwsAppstreamStackUserSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appstream_stack resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppstreamStack : TerraformResource
 {
     public AwsAppstreamStack(string name) : base("aws_appstream_stack", name)

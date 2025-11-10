@@ -279,6 +279,7 @@ public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : Terrafor
 /// <summary>
 /// Manages a google_app_engine_standard_app_version resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAppEngineStandardAppVersion : TerraformResource
 {
     public GoogleAppEngineStandardAppVersion(string name) : base("google_app_engine_standard_app_version", name)

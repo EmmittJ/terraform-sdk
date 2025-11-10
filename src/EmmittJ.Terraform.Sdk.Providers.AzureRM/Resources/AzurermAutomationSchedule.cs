@@ -77,6 +77,7 @@ public class AzurermAutomationScheduleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_automation_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomationSchedule : TerraformResource
 {
     public AzurermAutomationSchedule(string name) : base("azurerm_automation_schedule", name)

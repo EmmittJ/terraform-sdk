@@ -95,6 +95,7 @@ public class AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_subnet_service_endpoint_storage_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSubnetServiceEndpointStoragePolicy : TerraformResource
 {
     public AzurermSubnetServiceEndpointStoragePolicy(string name) : base("azurerm_subnet_service_endpoint_storage_policy", name)

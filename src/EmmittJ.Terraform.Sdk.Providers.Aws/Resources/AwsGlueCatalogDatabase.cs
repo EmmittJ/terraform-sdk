@@ -85,6 +85,7 @@ public class AwsGlueCatalogDatabaseTargetDatabaseBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_catalog_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueCatalogDatabase : TerraformResource
 {
     public AwsGlueCatalogDatabase(string name) : base("aws_glue_catalog_database", name)

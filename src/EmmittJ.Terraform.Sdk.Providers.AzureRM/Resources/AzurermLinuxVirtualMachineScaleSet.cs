@@ -881,6 +881,7 @@ public class AzurermLinuxVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_linux_virtual_machine_scale_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLinuxVirtualMachineScaleSet : TerraformResource
 {
     public AzurermLinuxVirtualMachineScaleSet(string name) : base("azurerm_linux_virtual_machine_scale_set", name)

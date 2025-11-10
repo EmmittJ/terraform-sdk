@@ -154,6 +154,7 @@ public class AzureadServicePrincipalTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_service_principal resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadServicePrincipal : TerraformResource
 {
     public AzureadServicePrincipal(string name) : base("azuread_service_principal", name)

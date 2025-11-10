@@ -42,6 +42,7 @@ public class GoogleDataprocAutoscalingPolicyIamBindingConditionBlock : Terraform
 /// <summary>
 /// Manages a google_dataproc_autoscaling_policy_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocAutoscalingPolicyIamBinding : TerraformResource
 {
     public GoogleDataprocAutoscalingPolicyIamBinding(string name) : base("google_dataproc_autoscaling_policy_iam_binding", name)

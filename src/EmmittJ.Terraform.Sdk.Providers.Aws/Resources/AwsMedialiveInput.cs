@@ -159,6 +159,7 @@ public class AwsMedialiveInputVpcBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_medialive_input resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMedialiveInput : TerraformResource
 {
     public AwsMedialiveInput(string name) : base("aws_medialive_input", name)

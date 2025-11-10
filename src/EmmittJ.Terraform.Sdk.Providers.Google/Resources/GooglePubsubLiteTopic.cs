@@ -107,6 +107,7 @@ public class GooglePubsubLiteTopicTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_pubsub_lite_topic resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePubsubLiteTopic : TerraformResource
 {
     public GooglePubsubLiteTopic(string name) : base("google_pubsub_lite_topic", name)

@@ -42,6 +42,7 @@ public class GoogleColabRuntimeTemplateIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_colab_runtime_template_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleColabRuntimeTemplateIamMember : TerraformResource
 {
     public GoogleColabRuntimeTemplateIamMember(string name) : base("google_colab_runtime_template_iam_member", name)

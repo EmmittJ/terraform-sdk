@@ -255,6 +255,7 @@ public class AwsQuicksightDataSetRowLevelPermissionTagConfigurationBlock : Terra
 /// <summary>
 /// Manages a aws_quicksight_data_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsQuicksightDataSet : TerraformResource
 {
     public AwsQuicksightDataSet(string name) : base("aws_quicksight_data_set", name)

@@ -42,6 +42,7 @@ public class GoogleGeminiRepositoryGroupIamBindingConditionBlock : TerraformBloc
 /// <summary>
 /// Manages a google_gemini_repository_group_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGeminiRepositoryGroupIamBinding : TerraformResource
 {
     public GoogleGeminiRepositoryGroupIamBinding(string name) : base("google_gemini_repository_group_iam_binding", name)

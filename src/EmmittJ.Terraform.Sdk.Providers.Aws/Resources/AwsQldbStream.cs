@@ -58,6 +58,7 @@ public class AwsQldbStreamTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_qldb_stream resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsQldbStream : TerraformResource
 {
     public AwsQldbStream(string name) : base("aws_qldb_stream", name)

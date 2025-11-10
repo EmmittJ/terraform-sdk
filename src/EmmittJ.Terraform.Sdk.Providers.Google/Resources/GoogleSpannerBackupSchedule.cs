@@ -105,6 +105,7 @@ public class GoogleSpannerBackupScheduleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_spanner_backup_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSpannerBackupSchedule : TerraformResource
 {
     public GoogleSpannerBackupSchedule(string name) : base("google_spanner_backup_schedule", name)

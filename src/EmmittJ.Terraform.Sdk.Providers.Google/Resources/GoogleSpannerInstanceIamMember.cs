@@ -42,6 +42,7 @@ public class GoogleSpannerInstanceIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_spanner_instance_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSpannerInstanceIamMember : TerraformResource
 {
     public GoogleSpannerInstanceIamMember(string name) : base("google_spanner_instance_iam_member", name)

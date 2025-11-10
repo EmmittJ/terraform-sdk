@@ -141,6 +141,7 @@ public class AwsStoragegatewayGatewayTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_storagegateway_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsStoragegatewayGateway : TerraformResource
 {
     public AwsStoragegatewayGateway(string name) : base("aws_storagegateway_gateway", name)

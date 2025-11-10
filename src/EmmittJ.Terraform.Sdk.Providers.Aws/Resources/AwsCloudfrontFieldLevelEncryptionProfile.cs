@@ -13,6 +13,7 @@ public class AwsCloudfrontFieldLevelEncryptionProfileEncryptionEntitiesBlock : T
 /// <summary>
 /// Manages a aws_cloudfront_field_level_encryption_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudfrontFieldLevelEncryptionProfile : TerraformResource
 {
     public AwsCloudfrontFieldLevelEncryptionProfile(string name) : base("aws_cloudfront_field_level_encryption_profile", name)

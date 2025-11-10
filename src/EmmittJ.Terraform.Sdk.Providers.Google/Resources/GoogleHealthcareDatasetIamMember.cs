@@ -42,6 +42,7 @@ public class GoogleHealthcareDatasetIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_dataset_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareDatasetIamMember : TerraformResource
 {
     public GoogleHealthcareDatasetIamMember(string name) : base("google_healthcare_dataset_iam_member", name)

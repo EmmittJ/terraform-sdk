@@ -84,6 +84,7 @@ public class GoogleDataPipelinePipelineWorkloadBlock : TerraformBlock
 /// <summary>
 /// Manages a google_data_pipeline_pipeline resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataPipelinePipeline : TerraformResource
 {
     public GoogleDataPipelinePipeline(string name) : base("google_data_pipeline_pipeline", name)

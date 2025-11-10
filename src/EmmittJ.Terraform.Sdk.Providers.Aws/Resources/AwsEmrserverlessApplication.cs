@@ -234,6 +234,7 @@ public class AwsEmrserverlessApplicationSchedulerConfigurationBlock : TerraformB
 /// <summary>
 /// Manages a aws_emrserverless_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEmrserverlessApplication : TerraformResource
 {
     public AwsEmrserverlessApplication(string name) : base("aws_emrserverless_application", name)

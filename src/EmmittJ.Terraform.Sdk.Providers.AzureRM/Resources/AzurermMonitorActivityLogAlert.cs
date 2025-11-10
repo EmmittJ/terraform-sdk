@@ -265,6 +265,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_monitor_activity_log_alert resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMonitorActivityLogAlert : TerraformResource
 {
     public AzurermMonitorActivityLogAlert(string name) : base("azurerm_monitor_activity_log_alert", name)

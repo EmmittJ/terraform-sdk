@@ -216,6 +216,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_managed_lustre_file_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermManagedLustreFileSystem : TerraformResource
 {
     public AzurermManagedLustreFileSystem(string name) : base("azurerm_managed_lustre_file_system", name)

@@ -275,6 +275,7 @@ public class AwsSagemakerEndpointConfigurationShadowProductionVariantsBlock : Te
 /// <summary>
 /// Manages a aws_sagemaker_endpoint_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerEndpointConfiguration : TerraformResource
 {
     public AwsSagemakerEndpointConfiguration(string name) : base("aws_sagemaker_endpoint_configuration", name)

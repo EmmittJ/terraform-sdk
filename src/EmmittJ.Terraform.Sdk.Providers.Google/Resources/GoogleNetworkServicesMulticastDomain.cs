@@ -73,6 +73,7 @@ public class GoogleNetworkServicesMulticastDomainTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_services_multicast_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkServicesMulticastDomain : TerraformResource
 {
     public GoogleNetworkServicesMulticastDomain(string name) : base("google_network_services_multicast_domain", name)

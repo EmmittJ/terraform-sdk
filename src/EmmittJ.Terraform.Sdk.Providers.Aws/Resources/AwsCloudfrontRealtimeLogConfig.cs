@@ -23,6 +23,7 @@ public class AwsCloudfrontRealtimeLogConfigEndpointBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudfront_realtime_log_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudfrontRealtimeLogConfig : TerraformResource
 {
     public AwsCloudfrontRealtimeLogConfig(string name) : base("aws_cloudfront_realtime_log_config", name)

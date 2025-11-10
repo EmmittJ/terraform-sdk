@@ -304,6 +304,7 @@ public class AwsEksClusterZonalShiftConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_eks_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEksCluster : TerraformResource
 {
     public AwsEksCluster(string name) : base("aws_eks_cluster", name)

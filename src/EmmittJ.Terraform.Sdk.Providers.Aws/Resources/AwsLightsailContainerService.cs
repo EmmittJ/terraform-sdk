@@ -56,6 +56,7 @@ public class AwsLightsailContainerServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lightsail_container_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLightsailContainerService : TerraformResource
 {
     public AwsLightsailContainerService(string name) : base("aws_lightsail_container_service", name)

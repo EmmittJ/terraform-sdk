@@ -792,6 +792,7 @@ public class GoogleComputeBackendServiceTlsSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_backend_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeBackendService : TerraformResource
 {
     public GoogleComputeBackendService(string name) : base("google_compute_backend_service", name)

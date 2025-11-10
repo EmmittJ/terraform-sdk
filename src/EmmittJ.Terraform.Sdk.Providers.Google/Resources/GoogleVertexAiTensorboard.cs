@@ -59,6 +59,7 @@ public class GoogleVertexAiTensorboardTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_tensorboard resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiTensorboard : TerraformResource
 {
     public GoogleVertexAiTensorboard(string name) : base("google_vertex_ai_tensorboard", name)

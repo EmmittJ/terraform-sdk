@@ -129,6 +129,7 @@ public class GoogleCloudRunV2JobTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_run_v2_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudRunV2Job : TerraformResource
 {
     public GoogleCloudRunV2Job(string name) : base("google_cloud_run_v2_job", name)

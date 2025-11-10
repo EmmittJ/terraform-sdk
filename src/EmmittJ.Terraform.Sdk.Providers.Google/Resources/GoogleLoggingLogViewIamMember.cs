@@ -42,6 +42,7 @@ public class GoogleLoggingLogViewIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_logging_log_view_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLoggingLogViewIamMember : TerraformResource
 {
     public GoogleLoggingLogViewIamMember(string name) : base("google_logging_log_view_iam_member", name)

@@ -42,6 +42,7 @@ public class GoogleColabRuntimeTemplateIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_colab_runtime_template_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleColabRuntimeTemplateIamBinding : TerraformResource
 {
     public GoogleColabRuntimeTemplateIamBinding(string name) : base("google_colab_runtime_template_iam_binding", name)

@@ -192,6 +192,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_machine_run_command resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualMachineRunCommand : TerraformResource
 {
     public AzurermVirtualMachineRunCommand(string name) : base("azurerm_virtual_machine_run_command", name)

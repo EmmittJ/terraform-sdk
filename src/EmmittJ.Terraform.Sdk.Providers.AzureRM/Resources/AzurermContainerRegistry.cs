@@ -139,6 +139,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_container_registry resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermContainerRegistry : TerraformResource
 {
     public AzurermContainerRegistry(string name) : base("azurerm_container_registry", name)

@@ -638,6 +638,7 @@ public class AzurermApiManagementVirtualNetworkConfigurationBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_api_management resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApiManagement : TerraformResource
 {
     public AzurermApiManagement(string name) : base("azurerm_api_management", name)

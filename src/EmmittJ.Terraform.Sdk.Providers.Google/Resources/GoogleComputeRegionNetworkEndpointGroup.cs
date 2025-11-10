@@ -178,6 +178,7 @@ public class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a google_compute_region_network_endpoint_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
 {
     public GoogleComputeRegionNetworkEndpointGroup(string name) : base("google_compute_region_network_endpoint_group", name)

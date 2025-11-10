@@ -158,6 +158,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
 /// <summary>
 /// Manages a azurerm_resource_deployment_script_azure_power_shell resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermResourceDeploymentScriptAzurePowerShell : TerraformResource
 {
     public AzurermResourceDeploymentScriptAzurePowerShell(string name) : base("azurerm_resource_deployment_script_azure_power_shell", name)

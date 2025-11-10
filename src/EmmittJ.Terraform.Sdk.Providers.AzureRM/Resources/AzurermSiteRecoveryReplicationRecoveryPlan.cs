@@ -126,6 +126,7 @@ public class AzurermSiteRecoveryReplicationRecoveryPlanTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a azurerm_site_recovery_replication_recovery_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSiteRecoveryReplicationRecoveryPlan : TerraformResource
 {
     public AzurermSiteRecoveryReplicationRecoveryPlan(string name) : base("azurerm_site_recovery_replication_recovery_plan", name)

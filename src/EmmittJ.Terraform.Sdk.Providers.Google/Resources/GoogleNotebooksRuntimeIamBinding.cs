@@ -42,6 +42,7 @@ public class GoogleNotebooksRuntimeIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_notebooks_runtime_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNotebooksRuntimeIamBinding : TerraformResource
 {
     public GoogleNotebooksRuntimeIamBinding(string name) : base("google_notebooks_runtime_iam_binding", name)

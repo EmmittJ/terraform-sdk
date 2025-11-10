@@ -151,6 +151,7 @@ public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_synapse_spark_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSynapseSparkPool : TerraformResource
 {
     public AzurermSynapseSparkPool(string name) : base("azurerm_synapse_spark_pool", name)

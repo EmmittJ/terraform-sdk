@@ -42,6 +42,7 @@ public class GoogleNetworkSecurityAddressGroupIamMemberConditionBlock : Terrafor
 /// <summary>
 /// Manages a google_network_security_address_group_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkSecurityAddressGroupIamMember : TerraformResource
 {
     public GoogleNetworkSecurityAddressGroupIamMember(string name) : base("google_network_security_address_group_iam_member", name)

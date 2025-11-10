@@ -59,6 +59,7 @@ public class AwsDatasyncLocationHdfsQopConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_datasync_location_hdfs resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncLocationHdfs : TerraformResource
 {
     public AwsDatasyncLocationHdfs(string name) : base("aws_datasync_location_hdfs", name)

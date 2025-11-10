@@ -42,6 +42,7 @@ public class GoogleBeyondcorpSecurityGatewayIamBindingConditionBlock : Terraform
 /// <summary>
 /// Manages a google_beyondcorp_security_gateway_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBeyondcorpSecurityGatewayIamBinding : TerraformResource
 {
     public GoogleBeyondcorpSecurityGatewayIamBinding(string name) : base("google_beyondcorp_security_gateway_iam_binding", name)

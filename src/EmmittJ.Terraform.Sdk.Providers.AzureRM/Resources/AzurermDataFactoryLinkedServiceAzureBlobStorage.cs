@@ -105,6 +105,7 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : Terr
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_azure_blob_storage resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceAzureBlobStorage : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceAzureBlobStorage(string name) : base("azurerm_data_factory_linked_service_azure_blob_storage", name)

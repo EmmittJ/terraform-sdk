@@ -159,6 +159,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_autoscaling_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocAutoscalingPolicy : TerraformResource
 {
     public GoogleDataprocAutoscalingPolicy(string name) : base("google_dataproc_autoscaling_policy", name)

@@ -32,6 +32,7 @@ public class AwsSagemakerDeviceFleetOutputConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_device_fleet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerDeviceFleet : TerraformResource
 {
     public AwsSagemakerDeviceFleet(string name) : base("aws_sagemaker_device_fleet", name)

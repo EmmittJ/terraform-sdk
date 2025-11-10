@@ -49,6 +49,7 @@ public class AwsDirectoryServiceSharedDirectoryTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_directory_service_shared_directory resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDirectoryServiceSharedDirectory : TerraformResource
 {
     public AwsDirectoryServiceSharedDirectory(string name) : base("aws_directory_service_shared_directory", name)

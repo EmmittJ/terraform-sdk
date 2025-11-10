@@ -94,6 +94,7 @@ public class AzurermStackHciNetworkInterfaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_stack_hci_network_interface resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStackHciNetworkInterface : TerraformResource
 {
     public AzurermStackHciNetworkInterface(string name) : base("azurerm_stack_hci_network_interface", name)

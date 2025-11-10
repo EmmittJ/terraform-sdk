@@ -120,6 +120,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_api_management_logger resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApiManagementLogger : TerraformResource
 {
     public AzurermApiManagementLogger(string name) : base("azurerm_api_management_logger", name)

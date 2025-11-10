@@ -201,6 +201,7 @@ public class AwsCloudsearchDomainTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudsearch_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudsearchDomain : TerraformResource
 {
     public AwsCloudsearchDomain(string name) : base("aws_cloudsearch_domain", name)

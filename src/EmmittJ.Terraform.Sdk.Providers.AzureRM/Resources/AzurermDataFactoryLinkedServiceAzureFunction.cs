@@ -77,6 +77,7 @@ public class AzurermDataFactoryLinkedServiceAzureFunctionTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a azurerm_data_factory_linked_service_azure_function resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryLinkedServiceAzureFunction : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceAzureFunction(string name) : base("azurerm_data_factory_linked_service_azure_function", name)

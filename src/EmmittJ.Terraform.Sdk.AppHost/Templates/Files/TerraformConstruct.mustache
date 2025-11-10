@@ -41,6 +41,9 @@ public class {{ClassName}} : TerraformBlock
 {{#IsDeprecated}}
 [Obsolete("This {{ConstructKind}} is deprecated.")]
 {{/IsDeprecated}}
+{{#RequiresUnreferencedCode}}
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
+{{/RequiresUnreferencedCode}}
 public class {{ClassName}} : {{BaseClassName}}
 {
     public {{ClassName}}(string name) : base("{{TerraformType}}", name)

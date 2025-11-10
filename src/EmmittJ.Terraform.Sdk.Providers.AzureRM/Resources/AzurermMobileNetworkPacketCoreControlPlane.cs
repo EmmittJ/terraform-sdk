@@ -158,6 +158,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
 /// <summary>
 /// Manages a azurerm_mobile_network_packet_core_control_plane resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMobileNetworkPacketCoreControlPlane : TerraformResource
 {
     public AzurermMobileNetworkPacketCoreControlPlane(string name) : base("azurerm_mobile_network_packet_core_control_plane", name)

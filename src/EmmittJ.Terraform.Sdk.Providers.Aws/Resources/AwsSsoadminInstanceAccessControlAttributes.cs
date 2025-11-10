@@ -23,6 +23,7 @@ public class AwsSsoadminInstanceAccessControlAttributesAttributeBlock : Terrafor
 /// <summary>
 /// Manages a aws_ssoadmin_instance_access_control_attributes resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsoadminInstanceAccessControlAttributes : TerraformResource
 {
     public AwsSsoadminInstanceAccessControlAttributes(string name) : base("aws_ssoadmin_instance_access_control_attributes", name)

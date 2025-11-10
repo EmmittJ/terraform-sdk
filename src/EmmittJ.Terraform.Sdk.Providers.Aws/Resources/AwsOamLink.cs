@@ -48,6 +48,7 @@ public class AwsOamLinkTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_oam_link resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsOamLink : TerraformResource
 {
     public AwsOamLink(string name) : base("aws_oam_link", name)

@@ -57,6 +57,7 @@ public class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_route53recoveryreadiness_resource_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRoute53recoveryreadinessResourceSet : TerraformResource
 {
     public AwsRoute53recoveryreadinessResourceSet(string name) : base("aws_route53recoveryreadiness_resource_set", name)

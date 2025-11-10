@@ -23,6 +23,7 @@ public class AwsSsmcontactsPlanStageBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ssmcontacts_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmcontactsPlan : TerraformResource
 {
     public AwsSsmcontactsPlan(string name) : base("aws_ssmcontacts_plan", name)

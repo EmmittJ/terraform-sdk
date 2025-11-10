@@ -101,6 +101,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a google_network_connectivity_internal_range resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkConnectivityInternalRange : TerraformResource
 {
     public GoogleNetworkConnectivityInternalRange(string name) : base("google_network_connectivity_internal_range", name)

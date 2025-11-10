@@ -96,6 +96,7 @@ public class GoogleCloudAssetFolderFeedTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_asset_folder_feed resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudAssetFolderFeed : TerraformResource
 {
     public GoogleCloudAssetFolderFeed(string name) : base("google_cloud_asset_folder_feed", name)

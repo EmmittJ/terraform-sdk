@@ -67,6 +67,7 @@ public class AwsS3AccessPointVpcConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_access_point resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3AccessPoint : TerraformResource
 {
     public AwsS3AccessPoint(string name) : base("aws_s3_access_point", name)

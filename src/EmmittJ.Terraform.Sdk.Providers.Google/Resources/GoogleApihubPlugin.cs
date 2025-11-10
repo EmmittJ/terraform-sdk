@@ -128,6 +128,7 @@ public class GoogleApihubPluginTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apihub_plugin resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApihubPlugin : TerraformResource
 {
     public GoogleApihubPlugin(string name) : base("google_apihub_plugin", name)

@@ -58,6 +58,7 @@ public class GoogleNetworkConnectivityGroupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_connectivity_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkConnectivityGroup : TerraformResource
 {
     public GoogleNetworkConnectivityGroup(string name) : base("google_network_connectivity_group", name)

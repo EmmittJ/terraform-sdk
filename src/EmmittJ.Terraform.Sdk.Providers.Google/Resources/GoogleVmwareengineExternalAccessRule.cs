@@ -92,6 +92,7 @@ public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vmwareengine_external_access_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVmwareengineExternalAccessRule : TerraformResource
 {
     public GoogleVmwareengineExternalAccessRule(string name) : base("google_vmwareengine_external_access_rule", name)

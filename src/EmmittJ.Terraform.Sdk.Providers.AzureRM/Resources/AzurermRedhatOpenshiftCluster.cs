@@ -371,6 +371,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_redhat_openshift_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermRedhatOpenshiftCluster : TerraformResource
 {
     public AzurermRedhatOpenshiftCluster(string name) : base("azurerm_redhat_openshift_cluster", name)

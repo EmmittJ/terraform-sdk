@@ -246,6 +246,7 @@ public class GoogleLookerInstanceUserMetadataBlock : TerraformBlock
 /// <summary>
 /// Manages a google_looker_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleLookerInstance : TerraformResource
 {
     public GoogleLookerInstance(string name) : base("google_looker_instance", name)

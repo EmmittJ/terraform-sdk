@@ -147,6 +147,7 @@ public class AzurermMachineLearningComputeInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_machine_learning_compute_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMachineLearningComputeInstance : TerraformResource
 {
     public AzurermMachineLearningComputeInstance(string name) : base("azurerm_machine_learning_compute_instance", name)

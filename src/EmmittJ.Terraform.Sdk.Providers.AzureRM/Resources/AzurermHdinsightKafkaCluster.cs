@@ -491,6 +491,7 @@ public class AzurermHdinsightKafkaClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_hdinsight_kafka_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHdinsightKafkaCluster : TerraformResource
 {
     public AzurermHdinsightKafkaCluster(string name) : base("azurerm_hdinsight_kafka_cluster", name)

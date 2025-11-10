@@ -677,6 +677,7 @@ public class AzurermBatchPoolWindowsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_batch_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBatchPool : TerraformResource
 {
     public AzurermBatchPool(string name) : base("azurerm_batch_pool", name)

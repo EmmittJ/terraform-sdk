@@ -198,6 +198,7 @@ public class AzureadGroupRoleManagementPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_group_role_management_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadGroupRoleManagementPolicy : TerraformResource
 {
     public AzureadGroupRoleManagementPolicy(string name) : base("azuread_group_role_management_policy", name)

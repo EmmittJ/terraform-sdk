@@ -107,6 +107,7 @@ public class GoogleIamProjectsPolicyBindingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iam_projects_policy_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIamProjectsPolicyBinding : TerraformResource
 {
     public GoogleIamProjectsPolicyBinding(string name) : base("google_iam_projects_policy_binding", name)

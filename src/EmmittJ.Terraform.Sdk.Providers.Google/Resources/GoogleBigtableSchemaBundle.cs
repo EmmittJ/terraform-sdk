@@ -58,6 +58,7 @@ public class GoogleBigtableSchemaBundleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigtable_schema_bundle resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigtableSchemaBundle : TerraformResource
 {
     public GoogleBigtableSchemaBundle(string name) : base("google_bigtable_schema_bundle", name)

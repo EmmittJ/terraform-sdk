@@ -318,6 +318,7 @@ public class AwsMqBrokerUserBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_mq_broker resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMqBroker : TerraformResource
 {
     public AwsMqBroker(string name) : base("aws_mq_broker", name)

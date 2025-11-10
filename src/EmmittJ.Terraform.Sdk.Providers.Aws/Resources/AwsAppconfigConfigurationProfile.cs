@@ -32,6 +32,7 @@ public class AwsAppconfigConfigurationProfileValidatorBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appconfig_configuration_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppconfigConfigurationProfile : TerraformResource
 {
     public AwsAppconfigConfigurationProfile(string name) : base("aws_appconfig_configuration_profile", name)

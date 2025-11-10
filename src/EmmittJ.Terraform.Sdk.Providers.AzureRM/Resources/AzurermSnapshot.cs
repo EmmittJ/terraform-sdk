@@ -57,6 +57,7 @@ public class AzurermSnapshotTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_snapshot resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSnapshot : TerraformResource
 {
     public AzurermSnapshot(string name) : base("azurerm_snapshot", name)

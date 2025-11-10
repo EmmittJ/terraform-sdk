@@ -32,6 +32,7 @@ public class AwsS3controlBucketLifecycleConfigurationRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3control_bucket_lifecycle_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3controlBucketLifecycleConfiguration : TerraformResource
 {
     public AwsS3controlBucketLifecycleConfiguration(string name) : base("aws_s3control_bucket_lifecycle_configuration", name)

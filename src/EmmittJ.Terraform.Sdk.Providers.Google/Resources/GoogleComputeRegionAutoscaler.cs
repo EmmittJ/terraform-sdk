@@ -101,6 +101,7 @@ public class GoogleComputeRegionAutoscalerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_region_autoscaler resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeRegionAutoscaler : TerraformResource
 {
     public GoogleComputeRegionAutoscaler(string name) : base("google_compute_region_autoscaler", name)

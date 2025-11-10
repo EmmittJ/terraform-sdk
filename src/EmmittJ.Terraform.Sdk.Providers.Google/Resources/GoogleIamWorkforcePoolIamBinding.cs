@@ -42,6 +42,7 @@ public class GoogleIamWorkforcePoolIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iam_workforce_pool_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIamWorkforcePoolIamBinding : TerraformResource
 {
     public GoogleIamWorkforcePoolIamBinding(string name) : base("google_iam_workforce_pool_iam_binding", name)

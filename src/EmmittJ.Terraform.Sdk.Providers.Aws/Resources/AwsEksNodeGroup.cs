@@ -220,6 +220,7 @@ public class AwsEksNodeGroupUpdateConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_eks_node_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEksNodeGroup : TerraformResource
 {
     public AwsEksNodeGroup(string name) : base("aws_eks_node_group", name)

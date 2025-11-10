@@ -58,6 +58,7 @@ public class AwsSagemakerSpaceSpaceSharingSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_space resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerSpace : TerraformResource
 {
     public AwsSagemakerSpace(string name) : base("aws_sagemaker_space", name)

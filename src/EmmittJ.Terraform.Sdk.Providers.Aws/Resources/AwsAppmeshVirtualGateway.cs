@@ -13,6 +13,7 @@ public class AwsAppmeshVirtualGatewaySpecBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appmesh_virtual_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppmeshVirtualGateway : TerraformResource
 {
     public AwsAppmeshVirtualGateway(string name) : base("aws_appmesh_virtual_gateway", name)

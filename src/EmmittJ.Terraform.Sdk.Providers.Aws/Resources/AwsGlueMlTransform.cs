@@ -69,6 +69,7 @@ public class AwsGlueMlTransformParametersBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_ml_transform resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueMlTransform : TerraformResource
 {
     public AwsGlueMlTransform(string name) : base("aws_glue_ml_transform", name)

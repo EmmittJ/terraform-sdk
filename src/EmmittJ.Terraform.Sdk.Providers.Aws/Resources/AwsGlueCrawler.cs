@@ -466,6 +466,7 @@ public class AwsGlueCrawlerSchemaChangePolicyBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_crawler resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueCrawler : TerraformResource
 {
     public AwsGlueCrawler(string name) : base("aws_glue_crawler", name)

@@ -95,6 +95,7 @@ public class AzurermStaticSiteTimeoutsBlock : TerraformBlock
 /// Manages a azurerm_static_site resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStaticSite : TerraformResource
 {
     public AzurermStaticSite(string name) : base("azurerm_static_site", name)

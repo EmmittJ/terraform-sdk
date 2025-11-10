@@ -87,6 +87,7 @@ public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_stack_hci_marketplace_gallery_image resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStackHciMarketplaceGalleryImage : TerraformResource
 {
     public AzurermStackHciMarketplaceGalleryImage(string name) : base("azurerm_stack_hci_marketplace_gallery_image", name)

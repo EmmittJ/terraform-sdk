@@ -13,6 +13,7 @@ public class AwsAppmeshVirtualRouterSpecBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appmesh_virtual_router resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppmeshVirtualRouter : TerraformResource
 {
     public AwsAppmeshVirtualRouter(string name) : base("aws_appmesh_virtual_router", name)

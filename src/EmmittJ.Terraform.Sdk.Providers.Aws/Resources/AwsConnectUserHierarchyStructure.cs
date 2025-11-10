@@ -13,6 +13,7 @@ public class AwsConnectUserHierarchyStructureHierarchyStructureBlock : Terraform
 /// <summary>
 /// Manages a aws_connect_user_hierarchy_structure resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConnectUserHierarchyStructure : TerraformResource
 {
     public AwsConnectUserHierarchyStructure(string name) : base("aws_connect_user_hierarchy_structure", name)

@@ -42,6 +42,7 @@ public class GoogleSecureSourceManagerInstanceIamBindingConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_secure_source_manager_instance_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecureSourceManagerInstanceIamBinding : TerraformResource
 {
     public GoogleSecureSourceManagerInstanceIamBinding(string name) : base("google_secure_source_manager_instance_iam_binding", name)

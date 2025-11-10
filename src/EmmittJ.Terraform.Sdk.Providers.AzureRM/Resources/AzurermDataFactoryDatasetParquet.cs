@@ -265,6 +265,7 @@ public class AzurermDataFactoryDatasetParquetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_dataset_parquet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryDatasetParquet : TerraformResource
 {
     public AzurermDataFactoryDatasetParquet(string name) : base("azurerm_data_factory_dataset_parquet", name)

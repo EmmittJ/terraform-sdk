@@ -56,6 +56,7 @@ public class AwsCognitoRiskConfigurationRiskExceptionConfigurationBlock : Terraf
 /// <summary>
 /// Manages a aws_cognito_risk_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCognitoRiskConfiguration : TerraformResource
 {
     public AwsCognitoRiskConfiguration(string name) : base("aws_cognito_risk_configuration", name)

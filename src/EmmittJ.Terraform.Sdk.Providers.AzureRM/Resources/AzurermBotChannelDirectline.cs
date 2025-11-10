@@ -166,6 +166,7 @@ public class AzurermBotChannelDirectlineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_bot_channel_directline resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermBotChannelDirectline : TerraformResource
 {
     public AzurermBotChannelDirectline(string name) : base("azurerm_bot_channel_directline", name)

@@ -345,6 +345,7 @@ public class GoogleCloudfunctions2FunctionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloudfunctions2_function resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudfunctions2Function : TerraformResource
 {
     public GoogleCloudfunctions2Function(string name) : base("google_cloudfunctions2_function", name)

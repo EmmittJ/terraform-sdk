@@ -42,6 +42,7 @@ public class GoogleGkeHubFeatureIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_hub_feature_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeHubFeatureIamMember : TerraformResource
 {
     public GoogleGkeHubFeatureIamMember(string name) : base("google_gke_hub_feature_iam_member", name)

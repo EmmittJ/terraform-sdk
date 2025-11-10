@@ -193,6 +193,7 @@ public class AwsSagemakerModelVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_model resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerModel : TerraformResource
 {
     public AwsSagemakerModel(string name) : base("aws_sagemaker_model", name)

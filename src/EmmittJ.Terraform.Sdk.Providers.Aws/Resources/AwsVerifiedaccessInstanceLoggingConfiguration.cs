@@ -31,6 +31,7 @@ public class AwsVerifiedaccessInstanceLoggingConfigurationAccessLogsBlock : Terr
 /// <summary>
 /// Manages a aws_verifiedaccess_instance_logging_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVerifiedaccessInstanceLoggingConfiguration : TerraformResource
 {
     public AwsVerifiedaccessInstanceLoggingConfiguration(string name) : base("aws_verifiedaccess_instance_logging_configuration", name)

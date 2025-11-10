@@ -66,6 +66,7 @@ public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_app_service_source_control_slot resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAppServiceSourceControlSlot : TerraformResource
 {
     public AzurermAppServiceSourceControlSlot(string name) : base("azurerm_app_service_source_control_slot", name)

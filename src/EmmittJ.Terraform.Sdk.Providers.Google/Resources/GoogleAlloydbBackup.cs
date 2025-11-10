@@ -57,6 +57,7 @@ public class GoogleAlloydbBackupTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_alloydb_backup resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAlloydbBackup : TerraformResource
 {
     public GoogleAlloydbBackup(string name) : base("google_alloydb_backup", name)

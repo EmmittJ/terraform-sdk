@@ -60,6 +60,7 @@ public class GoogleHealthcareDatasetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_dataset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareDataset : TerraformResource
 {
     public GoogleHealthcareDataset(string name) : base("google_healthcare_dataset", name)

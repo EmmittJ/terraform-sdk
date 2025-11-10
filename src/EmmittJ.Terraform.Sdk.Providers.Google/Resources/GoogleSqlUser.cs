@@ -93,6 +93,7 @@ public class GoogleSqlUserTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_sql_user resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSqlUser : TerraformResource
 {
     public GoogleSqlUser(string name) : base("google_sql_user", name)

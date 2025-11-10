@@ -216,6 +216,7 @@ public class AzurermStorageAccountSasDataSourceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a azurerm_storage_account_sas.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStorageAccountSasDataSource : TerraformDataSource
 {
     public AzurermStorageAccountSasDataSource(string name) : base("azurerm_storage_account_sas", name)

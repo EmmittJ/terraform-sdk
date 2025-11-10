@@ -42,6 +42,7 @@ public class GoogleNetworkSecurityAddressGroupIamBindingConditionBlock : Terrafo
 /// <summary>
 /// Manages a google_network_security_address_group_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkSecurityAddressGroupIamBinding : TerraformResource
 {
     public GoogleNetworkSecurityAddressGroupIamBinding(string name) : base("google_network_security_address_group_iam_binding", name)

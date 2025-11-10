@@ -58,6 +58,7 @@ public class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_disk_async_replication resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeDiskAsyncReplication : TerraformResource
 {
     public GoogleComputeDiskAsyncReplication(string name) : base("google_compute_disk_async_replication", name)

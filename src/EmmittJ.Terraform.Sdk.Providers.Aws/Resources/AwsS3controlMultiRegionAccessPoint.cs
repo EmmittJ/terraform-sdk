@@ -49,6 +49,7 @@ public class AwsS3controlMultiRegionAccessPointTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3control_multi_region_access_point resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3controlMultiRegionAccessPoint : TerraformResource
 {
     public AwsS3controlMultiRegionAccessPoint(string name) : base("aws_s3control_multi_region_access_point", name)

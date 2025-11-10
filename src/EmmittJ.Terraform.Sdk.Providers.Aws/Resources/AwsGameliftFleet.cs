@@ -148,6 +148,7 @@ public class AwsGameliftFleetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_gamelift_fleet resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGameliftFleet : TerraformResource
 {
     public AwsGameliftFleet(string name) : base("aws_gamelift_fleet", name)

@@ -48,6 +48,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a google_bigquery_analytics_hub_data_exchange resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryAnalyticsHubDataExchange : TerraformResource
 {
     public GoogleBigqueryAnalyticsHubDataExchange(string name) : base("google_bigquery_analytics_hub_data_exchange", name)

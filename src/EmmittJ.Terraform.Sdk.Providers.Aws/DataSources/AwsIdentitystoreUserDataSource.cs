@@ -13,6 +13,7 @@ public class AwsIdentitystoreUserDataSourceAlternateIdentifierBlock : TerraformB
 /// <summary>
 /// Retrieves information about a aws_identitystore_user.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIdentitystoreUserDataSource : TerraformDataSource
 {
     public AwsIdentitystoreUserDataSource(string name) : base("aws_identitystore_user", name)

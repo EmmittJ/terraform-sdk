@@ -112,6 +112,7 @@ public class AwsAlbListenerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_alb_listener resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAlbListener : TerraformResource
 {
     public AwsAlbListener(string name) : base("aws_alb_listener", name)

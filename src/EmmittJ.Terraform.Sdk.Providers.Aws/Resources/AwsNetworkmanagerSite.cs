@@ -75,6 +75,7 @@ public class AwsNetworkmanagerSiteTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_networkmanager_site resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkmanagerSite : TerraformResource
 {
     public AwsNetworkmanagerSite(string name) : base("aws_networkmanager_site", name)

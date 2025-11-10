@@ -79,6 +79,7 @@ public class GoogleIapSettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iap_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIapSettings : TerraformResource
 {
     public GoogleIapSettings(string name) : base("google_iap_settings", name)

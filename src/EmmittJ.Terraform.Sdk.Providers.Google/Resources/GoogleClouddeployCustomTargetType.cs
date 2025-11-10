@@ -67,6 +67,7 @@ public class GoogleClouddeployCustomTargetTypeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_clouddeploy_custom_target_type resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleClouddeployCustomTargetType : TerraformResource
 {
     public GoogleClouddeployCustomTargetType(string name) : base("google_clouddeploy_custom_target_type", name)

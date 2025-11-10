@@ -224,6 +224,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_network_connection_monitor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkConnectionMonitor : TerraformResource
 {
     public AzurermNetworkConnectionMonitor(string name) : base("azurerm_network_connection_monitor", name)

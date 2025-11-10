@@ -48,6 +48,7 @@ public class GoogleApikeysKeyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apikeys_key resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApikeysKey : TerraformResource
 {
     public GoogleApikeysKey(string name) : base("google_apikeys_key", name)

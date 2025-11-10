@@ -101,6 +101,7 @@ public class AwsStoragegatewayNfsFileShareTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_storagegateway_nfs_file_share resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsStoragegatewayNfsFileShare : TerraformResource
 {
     public AwsStoragegatewayNfsFileShare(string name) : base("aws_storagegateway_nfs_file_share", name)

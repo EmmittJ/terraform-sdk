@@ -102,6 +102,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_logic_app_workflow resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLogicAppWorkflow : TerraformResource
 {
     public AzurermLogicAppWorkflow(string name) : base("azurerm_logic_app_workflow", name)

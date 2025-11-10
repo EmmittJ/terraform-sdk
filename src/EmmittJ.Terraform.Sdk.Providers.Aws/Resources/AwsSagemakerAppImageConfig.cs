@@ -29,6 +29,7 @@ public class AwsSagemakerAppImageConfigKernelGatewayImageConfigBlock : Terraform
 /// <summary>
 /// Manages a aws_sagemaker_app_image_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerAppImageConfig : TerraformResource
 {
     public AwsSagemakerAppImageConfig(string name) : base("aws_sagemaker_app_image_config", name)

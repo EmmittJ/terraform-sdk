@@ -42,6 +42,7 @@ public class GoogleComputeInstantSnapshotIamBindingConditionBlock : TerraformBlo
 /// <summary>
 /// Manages a google_compute_instant_snapshot_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeInstantSnapshotIamBinding : TerraformResource
 {
     public GoogleComputeInstantSnapshotIamBinding(string name) : base("google_compute_instant_snapshot_iam_binding", name)

@@ -31,6 +31,7 @@ public class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBloc
 /// <summary>
 /// Retrieves information about a aws_dynamodb_table.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDynamodbTableDataSource : TerraformDataSource
 {
     public AwsDynamodbTableDataSource(string name) : base("aws_dynamodb_table", name)

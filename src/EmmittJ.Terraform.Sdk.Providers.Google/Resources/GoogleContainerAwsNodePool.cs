@@ -209,6 +209,7 @@ public class GoogleContainerAwsNodePoolUpdateSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_container_aws_node_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleContainerAwsNodePool : TerraformResource
 {
     public GoogleContainerAwsNodePool(string name) : base("google_container_aws_node_pool", name)

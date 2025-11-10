@@ -202,6 +202,7 @@ public class AwsAlbTargetGroupTargetHealthStateBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_alb_target_group resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAlbTargetGroup : TerraformResource
 {
     public AwsAlbTargetGroup(string name) : base("aws_alb_target_group", name)

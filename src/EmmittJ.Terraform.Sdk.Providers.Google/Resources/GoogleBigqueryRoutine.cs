@@ -247,6 +247,7 @@ public class GoogleBigqueryRoutineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_routine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryRoutine : TerraformResource
 {
     public GoogleBigqueryRoutine(string name) : base("google_bigquery_routine", name)

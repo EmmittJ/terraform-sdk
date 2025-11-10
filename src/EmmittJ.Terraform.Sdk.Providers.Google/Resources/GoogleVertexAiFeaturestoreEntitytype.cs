@@ -48,6 +48,7 @@ public class GoogleVertexAiFeaturestoreEntitytypeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_featurestore_entitytype resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiFeaturestoreEntitytype : TerraformResource
 {
     public GoogleVertexAiFeaturestoreEntitytype(string name) : base("google_vertex_ai_featurestore_entitytype", name)

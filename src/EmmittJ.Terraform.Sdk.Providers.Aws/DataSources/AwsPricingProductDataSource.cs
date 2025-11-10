@@ -33,6 +33,7 @@ public class AwsPricingProductDataSourceFiltersBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a aws_pricing_product.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsPricingProductDataSource : TerraformDataSource
 {
     public AwsPricingProductDataSource(string name) : base("aws_pricing_product", name)

@@ -111,6 +111,7 @@ public class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_signalr_service_network_acl resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSignalrServiceNetworkAcl : TerraformResource
 {
     public AzurermSignalrServiceNetworkAcl(string name) : base("azurerm_signalr_service_network_acl", name)

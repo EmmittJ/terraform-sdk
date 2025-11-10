@@ -94,6 +94,7 @@ public class AzurermStreamAnalyticsOutputServicebusQueueTimeoutsBlock : Terrafor
 /// <summary>
 /// Manages a azurerm_stream_analytics_output_servicebus_queue resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStreamAnalyticsOutputServicebusQueue : TerraformResource
 {
     public AzurermStreamAnalyticsOutputServicebusQueue(string name) : base("azurerm_stream_analytics_output_servicebus_queue", name)

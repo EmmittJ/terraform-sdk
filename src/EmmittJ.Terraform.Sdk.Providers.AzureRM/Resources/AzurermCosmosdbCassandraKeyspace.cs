@@ -66,6 +66,7 @@ public class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_cassandra_keyspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbCassandraKeyspace : TerraformResource
 {
     public AzurermCosmosdbCassandraKeyspace(string name) : base("azurerm_cosmosdb_cassandra_keyspace", name)

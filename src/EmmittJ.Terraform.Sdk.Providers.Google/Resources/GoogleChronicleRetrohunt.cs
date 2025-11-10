@@ -59,6 +59,7 @@ public class GoogleChronicleRetrohuntTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_chronicle_retrohunt resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleChronicleRetrohunt : TerraformResource
 {
     public GoogleChronicleRetrohunt(string name) : base("google_chronicle_retrohunt", name)

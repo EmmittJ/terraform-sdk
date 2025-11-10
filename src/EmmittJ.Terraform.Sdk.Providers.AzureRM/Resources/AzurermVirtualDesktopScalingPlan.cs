@@ -263,6 +263,7 @@ public class AzurermVirtualDesktopScalingPlanTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_desktop_scaling_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualDesktopScalingPlan : TerraformResource
 {
     public AzurermVirtualDesktopScalingPlan(string name) : base("azurerm_virtual_desktop_scaling_plan", name)

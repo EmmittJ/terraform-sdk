@@ -84,6 +84,7 @@ public class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_kubernetes_fleet_update_run resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKubernetesFleetUpdateRun : TerraformResource
 {
     public AzurermKubernetesFleetUpdateRun(string name) : base("azurerm_kubernetes_fleet_update_run", name)

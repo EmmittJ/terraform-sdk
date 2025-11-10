@@ -180,6 +180,7 @@ public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_lighthouse_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLighthouseDefinition : TerraformResource
 {
     public AzurermLighthouseDefinition(string name) : base("azurerm_lighthouse_definition", name)

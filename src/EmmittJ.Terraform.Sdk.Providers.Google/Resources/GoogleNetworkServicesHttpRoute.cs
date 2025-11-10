@@ -48,6 +48,7 @@ public class GoogleNetworkServicesHttpRouteTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_services_http_route resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkServicesHttpRoute : TerraformResource
 {
     public GoogleNetworkServicesHttpRoute(string name) : base("google_network_services_http_route", name)

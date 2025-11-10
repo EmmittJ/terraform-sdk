@@ -41,6 +41,7 @@ public class AwsSsmMaintenanceWindowTaskTaskInvocationParametersBlock : Terrafor
 /// <summary>
 /// Manages a aws_ssm_maintenance_window_task resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmMaintenanceWindowTask : TerraformResource
 {
     public AwsSsmMaintenanceWindowTask(string name) : base("aws_ssm_maintenance_window_task", name)

@@ -93,6 +93,7 @@ public class AwsConfigConfigRuleSourceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_config_config_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConfigConfigRule : TerraformResource
 {
     public AwsConfigConfigRule(string name) : base("aws_config_config_rule", name)

@@ -57,6 +57,7 @@ public class AwsConfigConfigurationRecorderRecordingModeBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_config_configuration_recorder resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConfigConfigurationRecorder : TerraformResource
 {
     public AwsConfigConfigurationRecorder(string name) : base("aws_config_configuration_recorder", name)

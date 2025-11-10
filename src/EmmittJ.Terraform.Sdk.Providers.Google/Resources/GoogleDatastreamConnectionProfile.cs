@@ -454,6 +454,7 @@ public class GoogleDatastreamConnectionProfileTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_datastream_connection_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDatastreamConnectionProfile : TerraformResource
 {
     public GoogleDatastreamConnectionProfile(string name) : base("google_datastream_connection_profile", name)

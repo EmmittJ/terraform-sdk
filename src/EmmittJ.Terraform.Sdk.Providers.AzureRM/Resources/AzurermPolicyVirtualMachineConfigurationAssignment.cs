@@ -93,6 +93,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : T
 /// <summary>
 /// Manages a azurerm_policy_virtual_machine_configuration_assignment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPolicyVirtualMachineConfigurationAssignment : TerraformResource
 {
     public AzurermPolicyVirtualMachineConfigurationAssignment(string name) : base("azurerm_policy_virtual_machine_configuration_assignment", name)

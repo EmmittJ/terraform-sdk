@@ -48,6 +48,7 @@ public class GoogleFirebaserulesRulesetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firebaserules_ruleset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirebaserulesRuleset : TerraformResource
 {
     public GoogleFirebaserulesRuleset(string name) : base("google_firebaserules_ruleset", name)

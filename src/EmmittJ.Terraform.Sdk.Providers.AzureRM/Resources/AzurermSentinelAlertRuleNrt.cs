@@ -165,6 +165,7 @@ public class AzurermSentinelAlertRuleNrtTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_sentinel_alert_rule_nrt resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSentinelAlertRuleNrt : TerraformResource
 {
     public AzurermSentinelAlertRuleNrt(string name) : base("azurerm_sentinel_alert_rule_nrt", name)

@@ -1592,6 +1592,7 @@ public class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_kubernetes_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermKubernetesCluster : TerraformResource
 {
     public AzurermKubernetesCluster(string name) : base("azurerm_kubernetes_cluster", name)

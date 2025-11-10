@@ -40,6 +40,7 @@ public class AwsS3BucketMetricFilterBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_metric resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketMetric : TerraformResource
 {
     public AwsS3BucketMetric(string name) : base("aws_s3_bucket_metric", name)

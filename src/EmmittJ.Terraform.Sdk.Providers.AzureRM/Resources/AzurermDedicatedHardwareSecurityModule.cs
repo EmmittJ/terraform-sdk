@@ -105,6 +105,7 @@ public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_dedicated_hardware_security_module resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDedicatedHardwareSecurityModule : TerraformResource
 {
     public AzurermDedicatedHardwareSecurityModule(string name) : base("azurerm_dedicated_hardware_security_module", name)

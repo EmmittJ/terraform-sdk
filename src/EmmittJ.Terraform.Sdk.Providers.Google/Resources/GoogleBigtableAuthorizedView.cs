@@ -48,6 +48,7 @@ public class GoogleBigtableAuthorizedViewTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigtable_authorized_view resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigtableAuthorizedView : TerraformResource
 {
     public GoogleBigtableAuthorizedView(string name) : base("google_bigtable_authorized_view", name)

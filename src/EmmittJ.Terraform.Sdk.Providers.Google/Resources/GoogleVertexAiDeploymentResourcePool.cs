@@ -58,6 +58,7 @@ public class GoogleVertexAiDeploymentResourcePoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vertex_ai_deployment_resource_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVertexAiDeploymentResourcePool : TerraformResource
 {
     public GoogleVertexAiDeploymentResourcePool(string name) : base("google_vertex_ai_deployment_resource_pool", name)

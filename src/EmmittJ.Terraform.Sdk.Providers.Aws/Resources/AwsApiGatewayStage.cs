@@ -78,6 +78,7 @@ public class AwsApiGatewayStageCanarySettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_api_gateway_stage resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApiGatewayStage : TerraformResource
 {
     public AwsApiGatewayStage(string name) : base("aws_api_gateway_stage", name)

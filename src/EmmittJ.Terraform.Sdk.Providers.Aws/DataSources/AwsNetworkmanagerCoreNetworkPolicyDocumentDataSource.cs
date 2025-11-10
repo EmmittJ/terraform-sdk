@@ -286,6 +286,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSourceSegmentsBlock :
 /// <summary>
 /// Retrieves information about a aws_networkmanager_core_network_policy_document.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource : TerraformDataSource
 {
     public AwsNetworkmanagerCoreNetworkPolicyDocumentDataSource(string name) : base("aws_networkmanager_core_network_policy_document", name)

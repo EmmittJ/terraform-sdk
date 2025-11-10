@@ -95,6 +95,7 @@ public class GoogleStorageBucketObjectTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_storage_bucket_object resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleStorageBucketObject : TerraformResource
 {
     public GoogleStorageBucketObject(string name) : base("google_storage_bucket_object", name)

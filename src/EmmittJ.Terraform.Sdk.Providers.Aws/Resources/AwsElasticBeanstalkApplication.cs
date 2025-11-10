@@ -50,6 +50,7 @@ public class AwsElasticBeanstalkApplicationAppversionLifecycleBlock : TerraformB
 /// <summary>
 /// Manages a aws_elastic_beanstalk_application resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElasticBeanstalkApplication : TerraformResource
 {
     public AwsElasticBeanstalkApplication(string name) : base("aws_elastic_beanstalk_application", name)

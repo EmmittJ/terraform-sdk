@@ -85,6 +85,7 @@ public class AwsSesv2EmailIdentityDkimSigningAttributesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sesv2_email_identity resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSesv2EmailIdentity : TerraformResource
 {
     public AwsSesv2EmailIdentity(string name) : base("aws_sesv2_email_identity", name)

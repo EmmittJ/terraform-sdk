@@ -68,6 +68,7 @@ public class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_backup_dr_backup_plan resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBackupDrBackupPlan : TerraformResource
 {
     public GoogleBackupDrBackupPlan(string name) : base("google_backup_dr_backup_plan", name)

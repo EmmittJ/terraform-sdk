@@ -48,6 +48,7 @@ public class AwsS3BucketInventoryScheduleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_inventory resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketInventory : TerraformResource
 {
     public AwsS3BucketInventory(string name) : base("aws_s3_bucket_inventory", name)

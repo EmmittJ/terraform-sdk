@@ -85,6 +85,7 @@ public class AzurermArcMachineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_arc_machine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermArcMachine : TerraformResource
 {
     public AzurermArcMachine(string name) : base("azurerm_arc_machine", name)

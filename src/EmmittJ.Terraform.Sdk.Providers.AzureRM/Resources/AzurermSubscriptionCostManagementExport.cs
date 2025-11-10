@@ -105,6 +105,7 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_subscription_cost_management_export resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSubscriptionCostManagementExport : TerraformResource
 {
     public AzurermSubscriptionCostManagementExport(string name) : base("azurerm_subscription_cost_management_export", name)

@@ -603,6 +603,7 @@ public class AwsCodebuildProjectVpcConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codebuild_project resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodebuildProject : TerraformResource
 {
     public AwsCodebuildProject(string name) : base("aws_codebuild_project", name)

@@ -76,6 +76,7 @@ public class AzurermApiManagementNamedValueValueFromKeyVaultBlock : TerraformBlo
 /// <summary>
 /// Manages a azurerm_api_management_named_value resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApiManagementNamedValue : TerraformResource
 {
     public AzurermApiManagementNamedValue(string name) : base("azurerm_api_management_named_value", name)

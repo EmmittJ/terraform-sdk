@@ -42,6 +42,7 @@ public class GooglePrivatecaCaPoolIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_privateca_ca_pool_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePrivatecaCaPoolIamMember : TerraformResource
 {
     public GooglePrivatecaCaPoolIamMember(string name) : base("google_privateca_ca_pool_iam_member", name)

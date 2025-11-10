@@ -265,6 +265,7 @@ public class GoogleBigqueryConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryConnection : TerraformResource
 {
     public GoogleBigqueryConnection(string name) : base("google_bigquery_connection", name)

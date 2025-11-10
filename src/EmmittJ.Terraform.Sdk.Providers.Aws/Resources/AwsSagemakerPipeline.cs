@@ -60,6 +60,7 @@ public class AwsSagemakerPipelinePipelineDefinitionS3LocationBlock : TerraformBl
 /// <summary>
 /// Manages a aws_sagemaker_pipeline resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerPipeline : TerraformResource
 {
     public AwsSagemakerPipeline(string name) : base("aws_sagemaker_pipeline", name)

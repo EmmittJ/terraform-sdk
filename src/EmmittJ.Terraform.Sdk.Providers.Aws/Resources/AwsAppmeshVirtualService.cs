@@ -13,6 +13,7 @@ public class AwsAppmeshVirtualServiceSpecBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appmesh_virtual_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppmeshVirtualService : TerraformResource
 {
     public AwsAppmeshVirtualService(string name) : base("aws_appmesh_virtual_service", name)

@@ -52,6 +52,7 @@ public class GoogleDialogflowEncryptionSpecTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_encryption_spec resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowEncryptionSpec : TerraformResource
 {
     public GoogleDialogflowEncryptionSpec(string name) : base("google_dialogflow_encryption_spec", name)

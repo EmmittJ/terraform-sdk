@@ -168,6 +168,7 @@ public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_machine_learning_compute_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMachineLearningComputeCluster : TerraformResource
 {
     public AzurermMachineLearningComputeCluster(string name) : base("azurerm_machine_learning_compute_cluster", name)

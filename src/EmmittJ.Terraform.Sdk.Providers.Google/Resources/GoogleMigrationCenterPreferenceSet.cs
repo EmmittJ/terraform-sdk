@@ -75,6 +75,7 @@ public class GoogleMigrationCenterPreferenceSetVirtualMachinePreferencesBlock : 
 /// <summary>
 /// Manages a google_migration_center_preference_set resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMigrationCenterPreferenceSet : TerraformResource
 {
     public GoogleMigrationCenterPreferenceSet(string name) : base("google_migration_center_preference_set", name)

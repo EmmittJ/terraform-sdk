@@ -84,6 +84,7 @@ public class GoogleDataLossPreventionStoredInfoTypeTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a google_data_loss_prevention_stored_info_type resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataLossPreventionStoredInfoType : TerraformResource
 {
     public GoogleDataLossPreventionStoredInfoType(string name) : base("google_data_loss_prevention_stored_info_type", name)

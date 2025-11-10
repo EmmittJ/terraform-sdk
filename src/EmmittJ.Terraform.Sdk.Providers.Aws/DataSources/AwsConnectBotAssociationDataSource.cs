@@ -32,6 +32,7 @@ public class AwsConnectBotAssociationDataSourceLexBotBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a aws_connect_bot_association.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConnectBotAssociationDataSource : TerraformDataSource
 {
     public AwsConnectBotAssociationDataSource(string name) : base("aws_connect_bot_association", name)

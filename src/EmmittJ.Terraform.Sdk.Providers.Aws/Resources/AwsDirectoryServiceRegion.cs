@@ -68,6 +68,7 @@ public class AwsDirectoryServiceRegionVpcSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_directory_service_region resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDirectoryServiceRegion : TerraformResource
 {
     public AwsDirectoryServiceRegion(string name) : base("aws_directory_service_region", name)

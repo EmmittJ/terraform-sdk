@@ -112,6 +112,7 @@ public class AzureadNamedLocationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azuread_named_location resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzureadNamedLocation : TerraformResource
 {
     public AzureadNamedLocation(string name) : base("azuread_named_location", name)

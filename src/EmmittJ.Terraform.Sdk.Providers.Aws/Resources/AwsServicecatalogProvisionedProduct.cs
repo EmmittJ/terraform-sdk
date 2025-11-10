@@ -147,6 +147,7 @@ public class AwsServicecatalogProvisionedProductTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_servicecatalog_provisioned_product resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsServicecatalogProvisionedProduct : TerraformResource
 {
     public AwsServicecatalogProvisionedProduct(string name) : base("aws_servicecatalog_provisioned_product", name)

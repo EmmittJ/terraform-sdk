@@ -169,6 +169,7 @@ public class GoogleComputeSecurityPolicyRuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_security_policy_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeSecurityPolicyRule : TerraformResource
 {
     public GoogleComputeSecurityPolicyRule(string name) : base("google_compute_security_policy_rule", name)

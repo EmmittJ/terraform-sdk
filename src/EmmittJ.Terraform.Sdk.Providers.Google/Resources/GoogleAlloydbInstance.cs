@@ -224,6 +224,7 @@ public class GoogleAlloydbInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_alloydb_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleAlloydbInstance : TerraformResource
 {
     public GoogleAlloydbInstance(string name) : base("google_alloydb_instance", name)

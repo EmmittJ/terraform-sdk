@@ -197,6 +197,7 @@ public class GoogleCloudRunDomainMappingTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_run_domain_mapping resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudRunDomainMapping : TerraformResource
 {
     public GoogleCloudRunDomainMapping(string name) : base("google_cloud_run_domain_mapping", name)

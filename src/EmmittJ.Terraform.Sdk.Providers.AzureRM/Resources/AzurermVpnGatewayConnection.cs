@@ -249,6 +249,7 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_vpn_gateway_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVpnGatewayConnection : TerraformResource
 {
     public AzurermVpnGatewayConnection(string name) : base("azurerm_vpn_gateway_connection", name)

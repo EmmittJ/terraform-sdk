@@ -270,6 +270,7 @@ public class AwsDatasyncTaskTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_datasync_task resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsDatasyncTask : TerraformResource
 {
     public AwsDatasyncTask(string name) : base("aws_datasync_task", name)

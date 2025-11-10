@@ -58,6 +58,7 @@ public class AwsSagemakerAppResourceSpecBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sagemaker_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerApp : TerraformResource
 {
     public AwsSagemakerApp(string name) : base("aws_sagemaker_app", name)

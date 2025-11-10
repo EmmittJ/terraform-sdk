@@ -85,6 +85,7 @@ public class AzurermPrivateDnsResolverInboundEndpointTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a azurerm_private_dns_resolver_inbound_endpoint resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPrivateDnsResolverInboundEndpoint : TerraformResource
 {
     public AzurermPrivateDnsResolverInboundEndpoint(string name) : base("azurerm_private_dns_resolver_inbound_endpoint", name)

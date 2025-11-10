@@ -32,6 +32,7 @@ public class GoogleOrganizationIamAuditConfigAuditLogConfigBlock : TerraformBloc
 /// <summary>
 /// Manages a google_organization_iam_audit_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOrganizationIamAuditConfig : TerraformResource
 {
     public GoogleOrganizationIamAuditConfig(string name) : base("google_organization_iam_audit_config", name)

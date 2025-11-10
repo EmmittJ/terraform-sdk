@@ -105,6 +105,7 @@ public class AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBl
 /// <summary>
 /// Manages a azurerm_mobile_network_sim_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMobileNetworkSimPolicy : TerraformResource
 {
     public AzurermMobileNetworkSimPolicy(string name) : base("azurerm_mobile_network_sim_policy", name)

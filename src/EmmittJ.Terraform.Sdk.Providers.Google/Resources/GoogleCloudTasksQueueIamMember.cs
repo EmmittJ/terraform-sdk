@@ -42,6 +42,7 @@ public class GoogleCloudTasksQueueIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_tasks_queue_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudTasksQueueIamMember : TerraformResource
 {
     public GoogleCloudTasksQueueIamMember(string name) : base("google_cloud_tasks_queue_iam_member", name)

@@ -103,6 +103,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_api_gateway_method_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsApiGatewayMethodSettings : TerraformResource
 {
     public AwsApiGatewayMethodSettings(string name) : base("aws_api_gateway_method_settings", name)

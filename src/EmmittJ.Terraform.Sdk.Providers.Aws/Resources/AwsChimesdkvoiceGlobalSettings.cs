@@ -22,6 +22,7 @@ public class AwsChimesdkvoiceGlobalSettingsVoiceConnectorBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_chimesdkvoice_global_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimesdkvoiceGlobalSettings : TerraformResource
 {
     public AwsChimesdkvoiceGlobalSettings(string name) : base("aws_chimesdkvoice_global_settings", name)

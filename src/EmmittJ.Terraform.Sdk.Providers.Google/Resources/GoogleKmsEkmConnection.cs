@@ -77,6 +77,7 @@ public class GoogleKmsEkmConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_kms_ekm_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleKmsEkmConnection : TerraformResource
 {
     public GoogleKmsEkmConnection(string name) : base("google_kms_ekm_connection", name)

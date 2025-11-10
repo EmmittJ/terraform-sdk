@@ -13,6 +13,7 @@ public class AwsRedshiftScheduledActionTargetActionBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_redshift_scheduled_action resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsRedshiftScheduledAction : TerraformResource
 {
     public AwsRedshiftScheduledAction(string name) : base("aws_redshift_scheduled_action", name)

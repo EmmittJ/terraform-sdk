@@ -60,6 +60,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBloc
 /// <summary>
 /// Manages a google_iam_principal_access_boundary_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
 {
     public GoogleIamPrincipalAccessBoundaryPolicy(string name) : base("google_iam_principal_access_boundary_policy", name)

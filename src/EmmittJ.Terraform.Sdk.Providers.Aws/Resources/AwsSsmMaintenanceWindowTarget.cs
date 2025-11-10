@@ -33,6 +33,7 @@ public class AwsSsmMaintenanceWindowTargetTargetsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ssm_maintenance_window_target resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSsmMaintenanceWindowTarget : TerraformResource
 {
     public AwsSsmMaintenanceWindowTarget(string name) : base("aws_ssm_maintenance_window_target", name)

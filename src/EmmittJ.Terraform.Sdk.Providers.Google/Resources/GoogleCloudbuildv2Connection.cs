@@ -248,6 +248,7 @@ public class GoogleCloudbuildv2ConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloudbuildv2_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudbuildv2Connection : TerraformResource
 {
     public GoogleCloudbuildv2Connection(string name) : base("google_cloudbuildv2_connection", name)

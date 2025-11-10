@@ -251,6 +251,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_tasks_queue resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudTasksQueue : TerraformResource
 {
     public GoogleCloudTasksQueue(string name) : base("google_cloud_tasks_queue", name)

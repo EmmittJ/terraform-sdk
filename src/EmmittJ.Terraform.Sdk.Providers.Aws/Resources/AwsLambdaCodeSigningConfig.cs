@@ -41,6 +41,7 @@ public class AwsLambdaCodeSigningConfigPoliciesBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_lambda_code_signing_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsLambdaCodeSigningConfig : TerraformResource
 {
     public AwsLambdaCodeSigningConfig(string name) : base("aws_lambda_code_signing_config", name)

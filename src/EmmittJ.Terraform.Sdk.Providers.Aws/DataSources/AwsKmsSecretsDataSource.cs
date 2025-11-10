@@ -69,6 +69,7 @@ public class AwsKmsSecretsDataSourceSecretBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a aws_kms_secrets.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKmsSecretsDataSource : TerraformDataSource
 {
     public AwsKmsSecretsDataSource(string name) : base("aws_kms_secrets", name)

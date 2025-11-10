@@ -94,6 +94,7 @@ public class AzurermEventhubNamespaceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_eventhub_namespace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermEventhubNamespace : TerraformResource
 {
     public AzurermEventhubNamespace(string name) : base("azurerm_eventhub_namespace", name)

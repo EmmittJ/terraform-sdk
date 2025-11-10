@@ -157,6 +157,7 @@ public class AzurermManagementGroupPolicySetDefinitionTimeoutsBlock : TerraformB
 /// <summary>
 /// Manages a azurerm_management_group_policy_set_definition resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermManagementGroupPolicySetDefinition : TerraformResource
 {
     public AzurermManagementGroupPolicySetDefinition(string name) : base("azurerm_management_group_policy_set_definition", name)

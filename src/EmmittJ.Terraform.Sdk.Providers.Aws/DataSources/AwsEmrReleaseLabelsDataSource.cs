@@ -31,6 +31,7 @@ public class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a aws_emr_release_labels.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
 {
     public AwsEmrReleaseLabelsDataSource(string name) : base("aws_emr_release_labels", name)

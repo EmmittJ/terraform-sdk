@@ -42,6 +42,7 @@ public class GoogleBigqueryDatasetIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_dataset_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDatasetIamMember : TerraformResource
 {
     public GoogleBigqueryDatasetIamMember(string name) : base("google_bigquery_dataset_iam_member", name)

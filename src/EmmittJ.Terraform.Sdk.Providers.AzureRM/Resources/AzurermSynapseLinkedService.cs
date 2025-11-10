@@ -76,6 +76,7 @@ public class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_synapse_linked_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSynapseLinkedService : TerraformResource
 {
     public AzurermSynapseLinkedService(string name) : base("azurerm_synapse_linked_service", name)

@@ -57,6 +57,7 @@ public class AwsStoragegatewaySmbFileShareTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_storagegateway_smb_file_share resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsStoragegatewaySmbFileShare : TerraformResource
 {
     public AwsStoragegatewaySmbFileShare(string name) : base("aws_storagegateway_smb_file_share", name)

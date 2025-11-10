@@ -75,6 +75,7 @@ public class AzurermLogicAppIntegrationAccountBatchConfigurationTimeoutsBlock : 
 /// <summary>
 /// Manages a azurerm_logic_app_integration_account_batch_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLogicAppIntegrationAccountBatchConfiguration : TerraformResource
 {
     public AzurermLogicAppIntegrationAccountBatchConfiguration(string name) : base("azurerm_logic_app_integration_account_batch_configuration", name)

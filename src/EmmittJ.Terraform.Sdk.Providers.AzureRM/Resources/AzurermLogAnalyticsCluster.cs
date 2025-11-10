@@ -94,6 +94,7 @@ public class AzurermLogAnalyticsClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_log_analytics_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLogAnalyticsCluster : TerraformResource
 {
     public AzurermLogAnalyticsCluster(string name) : base("azurerm_log_analytics_cluster", name)

@@ -189,6 +189,7 @@ public class GoogleOsConfigPatchDeploymentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_os_config_patch_deployment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOsConfigPatchDeployment : TerraformResource
 {
     public GoogleOsConfigPatchDeployment(string name) : base("google_os_config_patch_deployment", name)

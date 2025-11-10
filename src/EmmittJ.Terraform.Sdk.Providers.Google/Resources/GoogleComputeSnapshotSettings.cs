@@ -58,6 +58,7 @@ public class GoogleComputeSnapshotSettingsTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_snapshot_settings resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeSnapshotSettings : TerraformResource
 {
     public GoogleComputeSnapshotSettings(string name) : base("google_compute_snapshot_settings", name)

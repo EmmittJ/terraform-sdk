@@ -145,6 +145,7 @@ public class AwsFsxLustreFileSystemTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_fsx_lustre_file_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsFsxLustreFileSystem : TerraformResource
 {
     public AwsFsxLustreFileSystem(string name) : base("aws_fsx_lustre_file_system", name)

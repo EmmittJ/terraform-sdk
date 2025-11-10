@@ -68,6 +68,7 @@ public class AwsConfigOrganizationConformancePackTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_config_organization_conformance_pack resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConfigOrganizationConformancePack : TerraformResource
 {
     public AwsConfigOrganizationConformancePack(string name) : base("aws_config_organization_conformance_pack", name)

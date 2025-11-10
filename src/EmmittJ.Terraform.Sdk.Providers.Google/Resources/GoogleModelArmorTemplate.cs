@@ -134,6 +134,7 @@ public class GoogleModelArmorTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_model_armor_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleModelArmorTemplate : TerraformResource
 {
     public GoogleModelArmorTemplate(string name) : base("google_model_armor_template", name)

@@ -123,6 +123,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
 /// <summary>
 /// Manages a azurerm_network_manager_connectivity_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
 {
     public AzurermNetworkManagerConnectivityConfiguration(string name) : base("azurerm_network_manager_connectivity_configuration", name)

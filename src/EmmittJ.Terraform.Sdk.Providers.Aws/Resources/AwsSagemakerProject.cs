@@ -41,6 +41,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : Terrafo
 /// <summary>
 /// Manages a aws_sagemaker_project resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerProject : TerraformResource
 {
     public AwsSagemakerProject(string name) : base("aws_sagemaker_project", name)

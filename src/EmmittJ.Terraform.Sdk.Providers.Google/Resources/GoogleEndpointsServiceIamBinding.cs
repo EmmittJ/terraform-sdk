@@ -42,6 +42,7 @@ public class GoogleEndpointsServiceIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_endpoints_service_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEndpointsServiceIamBinding : TerraformResource
 {
     public GoogleEndpointsServiceIamBinding(string name) : base("google_endpoints_service_iam_binding", name)

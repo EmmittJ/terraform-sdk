@@ -56,6 +56,7 @@ public class GoogleNetworkSecurityClientTlsPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_network_security_client_tls_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkSecurityClientTlsPolicy : TerraformResource
 {
     public GoogleNetworkSecurityClientTlsPolicy(string name) : base("google_network_security_client_tls_policy", name)

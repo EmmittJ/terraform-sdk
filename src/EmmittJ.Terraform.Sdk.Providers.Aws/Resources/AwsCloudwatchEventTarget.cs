@@ -396,6 +396,7 @@ public class AwsCloudwatchEventTargetSqsTargetBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudwatch_event_target resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudwatchEventTarget : TerraformResource
 {
     public AwsCloudwatchEventTarget(string name) : base("aws_cloudwatch_event_target", name)

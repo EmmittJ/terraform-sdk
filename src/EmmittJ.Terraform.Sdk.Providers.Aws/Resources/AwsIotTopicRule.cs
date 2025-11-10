@@ -844,6 +844,7 @@ public class AwsIotTopicRuleTimestreamBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_iot_topic_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIotTopicRule : TerraformResource
 {
     public AwsIotTopicRule(string name) : base("aws_iot_topic_rule", name)

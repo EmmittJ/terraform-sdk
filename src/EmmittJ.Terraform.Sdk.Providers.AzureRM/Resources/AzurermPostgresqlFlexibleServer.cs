@@ -236,6 +236,7 @@ public class AzurermPostgresqlFlexibleServerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_postgresql_flexible_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermPostgresqlFlexibleServer : TerraformResource
 {
     public AzurermPostgresqlFlexibleServer(string name) : base("azurerm_postgresql_flexible_server", name)

@@ -21,6 +21,7 @@ public class AwsSignerSigningJobSourceBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_signer_signing_job resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSignerSigningJob : TerraformResource
 {
     public AwsSignerSigningJob(string name) : base("aws_signer_signing_job", name)

@@ -42,6 +42,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeIamBindingConditionBlock : Te
 /// <summary>
 /// Manages a google_bigquery_analytics_hub_data_exchange_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryAnalyticsHubDataExchangeIamBinding : TerraformResource
 {
     public GoogleBigqueryAnalyticsHubDataExchangeIamBinding(string name) : base("google_bigquery_analytics_hub_data_exchange_iam_binding", name)

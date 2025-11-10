@@ -88,6 +88,7 @@ public class AwsElasticacheClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_elasticache_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElasticacheCluster : TerraformResource
 {
     public AwsElasticacheCluster(string name) : base("aws_elasticache_cluster", name)

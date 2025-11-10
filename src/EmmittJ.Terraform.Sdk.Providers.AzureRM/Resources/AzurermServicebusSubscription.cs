@@ -84,6 +84,7 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_servicebus_subscription resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermServicebusSubscription : TerraformResource
 {
     public AzurermServicebusSubscription(string name) : base("azurerm_servicebus_subscription", name)

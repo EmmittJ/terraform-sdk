@@ -110,6 +110,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_gke_hub_feature_membership resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleGkeHubFeatureMembership : TerraformResource
 {
     public GoogleGkeHubFeatureMembership(string name) : base("google_gke_hub_feature_membership", name)

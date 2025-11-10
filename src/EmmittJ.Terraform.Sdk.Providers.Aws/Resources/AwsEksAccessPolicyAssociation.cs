@@ -58,6 +58,7 @@ public class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_eks_access_policy_association resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEksAccessPolicyAssociation : TerraformResource
 {
     public AwsEksAccessPolicyAssociation(string name) : base("aws_eks_access_policy_association", name)

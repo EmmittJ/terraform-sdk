@@ -140,6 +140,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mssql_server resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlServer : TerraformResource
 {
     public AzurermMssqlServer(string name) : base("azurerm_mssql_server", name)

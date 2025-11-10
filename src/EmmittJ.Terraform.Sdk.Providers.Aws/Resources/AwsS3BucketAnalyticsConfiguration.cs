@@ -39,6 +39,7 @@ public class AwsS3BucketAnalyticsConfigurationStorageClassAnalysisBlock : Terraf
 /// <summary>
 /// Manages a aws_s3_bucket_analytics_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketAnalyticsConfiguration : TerraformResource
 {
     public AwsS3BucketAnalyticsConfiguration(string name) : base("aws_s3_bucket_analytics_configuration", name)

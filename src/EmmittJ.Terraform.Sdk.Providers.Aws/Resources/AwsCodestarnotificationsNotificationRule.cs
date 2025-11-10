@@ -41,6 +41,7 @@ public class AwsCodestarnotificationsNotificationRuleTargetBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_codestarnotifications_notification_rule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodestarnotificationsNotificationRule : TerraformResource
 {
     public AwsCodestarnotificationsNotificationRule(string name) : base("aws_codestarnotifications_notification_rule", name)

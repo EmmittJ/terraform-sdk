@@ -31,6 +31,7 @@ public class AwsChimeVoiceConnectorStreamingMediaInsightsConfigurationBlock : Te
 /// <summary>
 /// Manages a aws_chime_voice_connector_streaming resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsChimeVoiceConnectorStreaming : TerraformResource
 {
     public AwsChimeVoiceConnectorStreaming(string name) : base("aws_chime_voice_connector_streaming", name)

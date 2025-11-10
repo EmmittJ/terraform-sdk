@@ -102,6 +102,7 @@ public class GoogleMonitoringMetricDescriptorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_monitoring_metric_descriptor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMonitoringMetricDescriptor : TerraformResource
 {
     public GoogleMonitoringMetricDescriptor(string name) : base("google_monitoring_metric_descriptor", name)

@@ -48,6 +48,7 @@ public class GoogleFirebaseAppHostingDomainTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firebase_app_hosting_domain resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirebaseAppHostingDomain : TerraformResource
 {
     public GoogleFirebaseAppHostingDomain(string name) : base("google_firebase_app_hosting_domain", name)

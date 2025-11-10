@@ -42,6 +42,7 @@ public class GoogleProjectIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_project_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleProjectIamMember : TerraformResource
 {
     public GoogleProjectIamMember(string name) : base("google_project_iam_member", name)

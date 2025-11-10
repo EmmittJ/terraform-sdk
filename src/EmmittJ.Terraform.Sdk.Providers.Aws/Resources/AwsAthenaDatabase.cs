@@ -50,6 +50,7 @@ public class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_athena_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAthenaDatabase : TerraformResource
 {
     public AwsAthenaDatabase(string name) : base("aws_athena_database", name)

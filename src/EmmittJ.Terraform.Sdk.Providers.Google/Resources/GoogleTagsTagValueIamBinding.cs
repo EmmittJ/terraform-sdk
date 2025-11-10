@@ -42,6 +42,7 @@ public class GoogleTagsTagValueIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_tags_tag_value_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleTagsTagValueIamBinding : TerraformResource
 {
     public GoogleTagsTagValueIamBinding(string name) : base("google_tags_tag_value_iam_binding", name)

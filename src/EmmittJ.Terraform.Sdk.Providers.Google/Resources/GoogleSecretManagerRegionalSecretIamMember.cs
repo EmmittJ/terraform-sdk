@@ -42,6 +42,7 @@ public class GoogleSecretManagerRegionalSecretIamMemberConditionBlock : Terrafor
 /// <summary>
 /// Manages a google_secret_manager_regional_secret_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecretManagerRegionalSecretIamMember : TerraformResource
 {
     public GoogleSecretManagerRegionalSecretIamMember(string name) : base("google_secret_manager_regional_secret_iam_member", name)

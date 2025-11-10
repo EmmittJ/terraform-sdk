@@ -221,6 +221,7 @@ public class GoogleEdgecontainerClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_edgecontainer_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEdgecontainerCluster : TerraformResource
 {
     public GoogleEdgecontainerCluster(string name) : base("google_edgecontainer_cluster", name)

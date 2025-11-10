@@ -68,6 +68,7 @@ public class AwsS3ObjectCopyOverrideProviderBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_object_copy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3ObjectCopy : TerraformResource
 {
     public AwsS3ObjectCopy(string name) : base("aws_s3_object_copy", name)

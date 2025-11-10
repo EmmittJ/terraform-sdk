@@ -58,6 +58,7 @@ public class AwsVpcIpamTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_vpc_ipam resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsVpcIpam : TerraformResource
 {
     public AwsVpcIpam(string name) : base("aws_vpc_ipam", name)

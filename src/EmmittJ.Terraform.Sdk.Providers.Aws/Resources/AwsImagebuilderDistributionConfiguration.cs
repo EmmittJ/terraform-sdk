@@ -32,6 +32,7 @@ public class AwsImagebuilderDistributionConfigurationDistributionBlock : Terrafo
 /// <summary>
 /// Manages a aws_imagebuilder_distribution_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsImagebuilderDistributionConfiguration : TerraformResource
 {
     public AwsImagebuilderDistributionConfiguration(string name) : base("aws_imagebuilder_distribution_configuration", name)

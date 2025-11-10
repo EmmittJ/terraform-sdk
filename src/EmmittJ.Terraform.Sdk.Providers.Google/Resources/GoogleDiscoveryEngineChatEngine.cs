@@ -90,6 +90,7 @@ public class GoogleDiscoveryEngineChatEngineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_discovery_engine_chat_engine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDiscoveryEngineChatEngine : TerraformResource
 {
     public GoogleDiscoveryEngineChatEngine(string name) : base("google_discovery_engine_chat_engine", name)

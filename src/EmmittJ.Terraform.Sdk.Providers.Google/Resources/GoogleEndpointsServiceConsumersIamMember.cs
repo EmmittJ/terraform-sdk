@@ -42,6 +42,7 @@ public class GoogleEndpointsServiceConsumersIamMemberConditionBlock : TerraformB
 /// <summary>
 /// Manages a google_endpoints_service_consumers_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEndpointsServiceConsumersIamMember : TerraformResource
 {
     public GoogleEndpointsServiceConsumersIamMember(string name) : base("google_endpoints_service_consumers_iam_member", name)

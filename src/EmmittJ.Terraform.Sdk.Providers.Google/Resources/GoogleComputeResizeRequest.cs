@@ -58,6 +58,7 @@ public class GoogleComputeResizeRequestTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_resize_request resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeResizeRequest : TerraformResource
 {
     public GoogleComputeResizeRequest(string name) : base("google_compute_resize_request", name)

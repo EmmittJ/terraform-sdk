@@ -40,6 +40,7 @@ public class AwsSfnActivityEncryptionConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sfn_activity resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSfnActivity : TerraformResource
 {
     public AwsSfnActivity(string name) : base("aws_sfn_activity", name)

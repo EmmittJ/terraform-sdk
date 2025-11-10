@@ -77,6 +77,7 @@ public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_capacity_reservation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCapacityReservation : TerraformResource
 {
     public AzurermCapacityReservation(string name) : base("azurerm_capacity_reservation", name)

@@ -48,6 +48,7 @@ public class AwsKendraExperienceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_kendra_experience resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKendraExperience : TerraformResource
 {
     public AwsKendraExperience(string name) : base("aws_kendra_experience", name)

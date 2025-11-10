@@ -317,6 +317,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_netapp_volume resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermNetappVolume : TerraformResource
 {
     public AzurermNetappVolume(string name) : base("azurerm_netapp_volume", name)

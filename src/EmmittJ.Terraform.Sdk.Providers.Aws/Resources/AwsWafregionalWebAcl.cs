@@ -78,6 +78,7 @@ public class AwsWafregionalWebAclRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_wafregional_web_acl resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsWafregionalWebAcl : TerraformResource
 {
     public AwsWafregionalWebAcl(string name) : base("aws_wafregional_web_acl", name)

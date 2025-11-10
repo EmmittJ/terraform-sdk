@@ -42,6 +42,7 @@ public class GoogleSecretManagerSecretIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_secret_manager_secret_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSecretManagerSecretIamBinding : TerraformResource
 {
     public GoogleSecretManagerSecretIamBinding(string name) : base("google_secret_manager_secret_iam_binding", name)

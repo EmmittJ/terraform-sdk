@@ -137,6 +137,7 @@ public class AzurermCosmosdbSqlContainerUniqueKeyBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_sql_container resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCosmosdbSqlContainer : TerraformResource
 {
     public AzurermCosmosdbSqlContainer(string name) : base("azurerm_cosmosdb_sql_container", name)

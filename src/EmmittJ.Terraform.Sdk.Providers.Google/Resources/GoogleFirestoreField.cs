@@ -65,6 +65,7 @@ public class GoogleFirestoreFieldTtlConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a google_firestore_field resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleFirestoreField : TerraformResource
 {
     public GoogleFirestoreField(string name) : base("google_firestore_field", name)

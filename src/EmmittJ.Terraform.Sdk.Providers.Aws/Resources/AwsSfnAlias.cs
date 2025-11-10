@@ -68,6 +68,7 @@ public class AwsSfnAliasTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_sfn_alias resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSfnAlias : TerraformResource
 {
     public AwsSfnAlias(string name) : base("aws_sfn_alias", name)

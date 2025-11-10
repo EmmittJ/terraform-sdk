@@ -86,6 +86,7 @@ public class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock : Terrafo
 /// <summary>
 /// Manages a azurerm_logic_app_integration_account_certificate resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLogicAppIntegrationAccountCertificate : TerraformResource
 {
     public AzurermLogicAppIntegrationAccountCertificate(string name) : base("azurerm_logic_app_integration_account_certificate", name)

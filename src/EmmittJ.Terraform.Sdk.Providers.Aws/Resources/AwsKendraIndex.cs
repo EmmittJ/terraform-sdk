@@ -137,6 +137,7 @@ public class AwsKendraIndexUserTokenConfigurationsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_kendra_index resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKendraIndex : TerraformResource
 {
     public AwsKendraIndex(string name) : base("aws_kendra_index", name)

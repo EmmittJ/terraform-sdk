@@ -78,6 +78,7 @@ public class GoogleDataprocMetastoreFederationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_metastore_federation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocMetastoreFederation : TerraformResource
 {
     public GoogleDataprocMetastoreFederation(string name) : base("google_dataproc_metastore_federation", name)

@@ -76,6 +76,7 @@ public class AwsImagebuilderImageRecipeSystemsManagerAgentBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_imagebuilder_image_recipe resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsImagebuilderImageRecipe : TerraformResource
 {
     public AwsImagebuilderImageRecipe(string name) : base("aws_imagebuilder_image_recipe", name)

@@ -223,6 +223,7 @@ public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_healthcare_fhir_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHealthcareFhirService : TerraformResource
 {
     public AzurermHealthcareFhirService(string name) : base("azurerm_healthcare_fhir_service", name)

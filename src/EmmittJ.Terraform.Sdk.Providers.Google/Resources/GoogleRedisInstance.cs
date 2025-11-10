@@ -141,6 +141,7 @@ public class GoogleRedisInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_redis_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleRedisInstance : TerraformResource
 {
     public GoogleRedisInstance(string name) : base("google_redis_instance", name)

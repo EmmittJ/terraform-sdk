@@ -154,6 +154,7 @@ public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_automanage_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermAutomanageConfiguration : TerraformResource
 {
     public AzurermAutomanageConfiguration(string name) : base("azurerm_automanage_configuration", name)

@@ -66,6 +66,7 @@ public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : Terra
 /// <summary>
 /// Manages a google_network_services_endpoint_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleNetworkServicesEndpointPolicy : TerraformResource
 {
     public GoogleNetworkServicesEndpointPolicy(string name) : base("google_network_services_endpoint_policy", name)

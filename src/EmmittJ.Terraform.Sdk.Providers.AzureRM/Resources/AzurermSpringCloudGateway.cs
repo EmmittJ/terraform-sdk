@@ -321,6 +321,7 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_gateway resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSpringCloudGateway : TerraformResource
 {
     public AzurermSpringCloudGateway(string name) : base("azurerm_spring_cloud_gateway", name)

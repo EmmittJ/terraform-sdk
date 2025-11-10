@@ -138,6 +138,7 @@ public class GoogleComposerEnvironmentTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_composer_environment resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComposerEnvironment : TerraformResource
 {
     public GoogleComposerEnvironment(string name) : base("google_composer_environment", name)

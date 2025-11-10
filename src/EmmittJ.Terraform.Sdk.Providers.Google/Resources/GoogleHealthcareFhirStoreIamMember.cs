@@ -42,6 +42,7 @@ public class GoogleHealthcareFhirStoreIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_healthcare_fhir_store_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleHealthcareFhirStoreIamMember : TerraformResource
 {
     public GoogleHealthcareFhirStoreIamMember(string name) : base("google_healthcare_fhir_store_iam_member", name)

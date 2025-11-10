@@ -23,6 +23,7 @@ public class AwsPrometheusWorkspaceLoggingConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_prometheus_workspace resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsPrometheusWorkspace : TerraformResource
 {
     public AwsPrometheusWorkspace(string name) : base("aws_prometheus_workspace", name)

@@ -42,6 +42,7 @@ public class GoogleCloudfunctions2FunctionIamBindingConditionBlock : TerraformBl
 /// <summary>
 /// Manages a google_cloudfunctions2_function_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudfunctions2FunctionIamBinding : TerraformResource
 {
     public GoogleCloudfunctions2FunctionIamBinding(string name) : base("google_cloudfunctions2_function_iam_binding", name)

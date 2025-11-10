@@ -42,6 +42,7 @@ public class GoogleComputeSnapshotIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_snapshot_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeSnapshotIamMember : TerraformResource
 {
     public GoogleComputeSnapshotIamMember(string name) : base("google_compute_snapshot_iam_member", name)

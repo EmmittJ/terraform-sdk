@@ -85,6 +85,7 @@ public class AwsElasticacheUserTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_elasticache_user resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElasticacheUser : TerraformResource
 {
     public AwsElasticacheUser(string name) : base("aws_elasticache_user", name)

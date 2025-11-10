@@ -103,6 +103,7 @@ public class AwsQuicksightDataSourceVpcConnectionPropertiesBlock : TerraformBloc
 /// <summary>
 /// Manages a aws_quicksight_data_source resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsQuicksightDataSource : TerraformResource
 {
     public AwsQuicksightDataSource(string name) : base("aws_quicksight_data_source", name)

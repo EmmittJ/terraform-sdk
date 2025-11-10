@@ -23,6 +23,7 @@ public class AwsConnectQuickConnectQuickConnectConfigBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_connect_quick_connect resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsConnectQuickConnect : TerraformResource
 {
     public AwsConnectQuickConnect(string name) : base("aws_connect_quick_connect", name)

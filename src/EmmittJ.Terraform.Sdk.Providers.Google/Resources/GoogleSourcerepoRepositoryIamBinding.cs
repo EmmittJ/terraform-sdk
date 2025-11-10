@@ -42,6 +42,7 @@ public class GoogleSourcerepoRepositoryIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_sourcerepo_repository_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSourcerepoRepositoryIamBinding : TerraformResource
 {
     public GoogleSourcerepoRepositoryIamBinding(string name) : base("google_sourcerepo_repository_iam_binding", name)

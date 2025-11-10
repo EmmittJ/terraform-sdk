@@ -58,6 +58,7 @@ public class AwsEksFargateProfileTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_eks_fargate_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEksFargateProfile : TerraformResource
 {
     public AwsEksFargateProfile(string name) : base("aws_eks_fargate_profile", name)

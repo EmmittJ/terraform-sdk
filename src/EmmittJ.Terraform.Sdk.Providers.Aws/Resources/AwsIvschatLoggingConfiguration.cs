@@ -48,6 +48,7 @@ public class AwsIvschatLoggingConfigurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_ivschat_logging_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsIvschatLoggingConfiguration : TerraformResource
 {
     public AwsIvschatLoggingConfiguration(string name) : base("aws_ivschat_logging_configuration", name)

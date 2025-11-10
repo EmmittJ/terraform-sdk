@@ -76,6 +76,7 @@ public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory_trigger_custom_event resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactoryTriggerCustomEvent : TerraformResource
 {
     public AzurermDataFactoryTriggerCustomEvent(string name) : base("azurerm_data_factory_trigger_custom_event", name)

@@ -275,6 +275,7 @@ public class GoogleMemorystoreInstanceZoneDistributionConfigBlock : TerraformBlo
 /// <summary>
 /// Manages a google_memorystore_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMemorystoreInstance : TerraformResource
 {
     public GoogleMemorystoreInstance(string name) : base("google_memorystore_instance", name)

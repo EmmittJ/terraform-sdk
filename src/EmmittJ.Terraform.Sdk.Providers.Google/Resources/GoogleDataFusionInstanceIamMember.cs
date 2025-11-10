@@ -42,6 +42,7 @@ public class GoogleDataFusionInstanceIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_data_fusion_instance_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataFusionInstanceIamMember : TerraformResource
 {
     public GoogleDataFusionInstanceIamMember(string name) : base("google_data_fusion_instance_iam_member", name)

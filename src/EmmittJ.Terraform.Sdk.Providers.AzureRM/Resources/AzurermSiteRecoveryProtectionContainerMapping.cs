@@ -84,6 +84,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
 /// <summary>
 /// Manages a azurerm_site_recovery_protection_container_mapping resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermSiteRecoveryProtectionContainerMapping : TerraformResource
 {
     public AzurermSiteRecoveryProtectionContainerMapping(string name) : base("azurerm_site_recovery_protection_container_mapping", name)

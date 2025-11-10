@@ -33,6 +33,7 @@ public class AwsEc2TransitGatewayRouteTableRoutesDataSourceFilterBlock : Terrafo
 /// <summary>
 /// Retrieves information about a aws_ec2_transit_gateway_route_table_routes.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsEc2TransitGatewayRouteTableRoutesDataSource : TerraformDataSource
 {
     public AwsEc2TransitGatewayRouteTableRoutesDataSource(string name) : base("aws_ec2_transit_gateway_route_table_routes", name)

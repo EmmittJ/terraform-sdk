@@ -292,6 +292,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_active_directory_domain_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermActiveDirectoryDomainService : TerraformResource
 {
     public AzurermActiveDirectoryDomainService(string name) : base("azurerm_active_directory_domain_service", name)

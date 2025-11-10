@@ -104,6 +104,7 @@ public class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_storage_object_replication resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermStorageObjectReplication : TerraformResource
 {
     public AzurermStorageObjectReplication(string name) : base("azurerm_storage_object_replication", name)

@@ -275,6 +275,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_data_factory resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDataFactory : TerraformResource
 {
     public AzurermDataFactory(string name) : base("azurerm_data_factory", name)

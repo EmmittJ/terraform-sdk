@@ -23,6 +23,7 @@ public class AwsS3BucketOwnershipControlsRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_ownership_controls resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketOwnershipControls : TerraformResource
 {
     public AwsS3BucketOwnershipControls(string name) : base("aws_s3_bucket_ownership_controls", name)

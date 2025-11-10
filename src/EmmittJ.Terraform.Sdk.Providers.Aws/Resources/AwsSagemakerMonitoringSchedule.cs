@@ -33,6 +33,7 @@ public class AwsSagemakerMonitoringScheduleMonitoringScheduleConfigBlock : Terra
 /// <summary>
 /// Manages a aws_sagemaker_monitoring_schedule resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsSagemakerMonitoringSchedule : TerraformResource
 {
     public AwsSagemakerMonitoringSchedule(string name) : base("aws_sagemaker_monitoring_schedule", name)

@@ -42,6 +42,7 @@ public class GoogleSccSourceIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_scc_source_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccSourceIamBinding : TerraformResource
 {
     public GoogleSccSourceIamBinding(string name) : base("google_scc_source_iam_binding", name)

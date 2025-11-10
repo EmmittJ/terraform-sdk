@@ -754,6 +754,7 @@ public class AzurermLinuxWebAppTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_linux_web_app resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermLinuxWebApp : TerraformResource
 {
     public AzurermLinuxWebApp(string name) : base("azurerm_linux_web_app", name)

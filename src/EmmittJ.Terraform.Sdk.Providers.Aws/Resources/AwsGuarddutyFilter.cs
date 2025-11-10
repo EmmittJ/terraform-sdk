@@ -13,6 +13,7 @@ public class AwsGuarddutyFilterFindingCriteriaBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_guardduty_filter resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGuarddutyFilter : TerraformResource
 {
     public AwsGuarddutyFilter(string name) : base("aws_guardduty_filter", name)

@@ -245,6 +245,7 @@ public class GoogleCloudRunV2WorkerPoolTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_run_v2_worker_pool resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudRunV2WorkerPool : TerraformResource
 {
     public GoogleCloudRunV2WorkerPool(string name) : base("google_cloud_run_v2_worker_pool", name)

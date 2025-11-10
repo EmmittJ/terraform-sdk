@@ -81,6 +81,7 @@ public class GoogleSccOrganizationCustomModuleTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_scc_organization_custom_module resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleSccOrganizationCustomModule : TerraformResource
 {
     public GoogleSccOrganizationCustomModule(string name) : base("google_scc_organization_custom_module", name)

@@ -190,6 +190,7 @@ public class GoogleBigqueryDatasetTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_bigquery_dataset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDataset : TerraformResource
 {
     public GoogleBigqueryDataset(string name) : base("google_bigquery_dataset", name)

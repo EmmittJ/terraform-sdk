@@ -165,6 +165,7 @@ public class AwsMskClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_msk_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsMskCluster : TerraformResource
 {
     public AwsMskCluster(string name) : base("aws_msk_cluster", name)

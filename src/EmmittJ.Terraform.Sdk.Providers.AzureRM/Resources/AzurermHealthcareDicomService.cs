@@ -175,6 +175,7 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_healthcare_dicom_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermHealthcareDicomService : TerraformResource
 {
     public AzurermHealthcareDicomService(string name) : base("azurerm_healthcare_dicom_service", name)

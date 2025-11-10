@@ -112,6 +112,7 @@ public class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_cdn_frontdoor_profile resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermCdnFrontdoorProfile : TerraformResource
 {
     public AzurermCdnFrontdoorProfile(string name) : base("azurerm_cdn_frontdoor_profile", name)

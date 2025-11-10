@@ -86,6 +86,7 @@ public class GoogleDialogflowCxEntityTypeTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_entity_type resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxEntityType : TerraformResource
 {
     public GoogleDialogflowCxEntityType(string name) : base("google_dialogflow_cx_entity_type", name)

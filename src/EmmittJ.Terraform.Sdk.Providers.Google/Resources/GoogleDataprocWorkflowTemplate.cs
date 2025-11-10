@@ -138,6 +138,7 @@ public class GoogleDataprocWorkflowTemplateTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dataproc_workflow_template resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataprocWorkflowTemplate : TerraformResource
 {
     public GoogleDataprocWorkflowTemplate(string name) : base("google_dataproc_workflow_template", name)

@@ -40,6 +40,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
 /// <summary>
 /// Retrieves information about a aws_cloudwatch_log_data_protection_policy_document.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformDataSource
 {
     public AwsCloudwatchLogDataProtectionPolicyDocumentDataSource(string name) : base("aws_cloudwatch_log_data_protection_policy_document", name)

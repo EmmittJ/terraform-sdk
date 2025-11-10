@@ -23,6 +23,7 @@ public class AwsAppintegrationsEventIntegrationEventFilterBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_appintegrations_event_integration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppintegrationsEventIntegration : TerraformResource
 {
     public AwsAppintegrationsEventIntegration(string name) : base("aws_appintegrations_event_integration", name)

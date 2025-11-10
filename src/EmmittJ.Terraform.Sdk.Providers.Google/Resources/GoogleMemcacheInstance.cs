@@ -135,6 +135,7 @@ public class GoogleMemcacheInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_memcache_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMemcacheInstance : TerraformResource
 {
     public GoogleMemcacheInstance(string name) : base("google_memcache_instance", name)

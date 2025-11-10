@@ -228,6 +228,7 @@ public class GoogleOracleDatabaseDbSystemTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_oracle_database_db_system resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOracleDatabaseDbSystem : TerraformResource
 {
     public GoogleOracleDatabaseDbSystem(string name) : base("google_oracle_database_db_system", name)

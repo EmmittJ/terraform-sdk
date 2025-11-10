@@ -59,6 +59,7 @@ public class AwsAppstreamDirectoryConfigServiceAccountCredentialsBlock : Terrafo
 /// <summary>
 /// Manages a aws_appstream_directory_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsAppstreamDirectoryConfig : TerraformResource
 {
     public AwsAppstreamDirectoryConfig(string name) : base("aws_appstream_directory_config", name)

@@ -144,6 +144,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_monitoring_alert_policy resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleMonitoringAlertPolicy : TerraformResource
 {
     public GoogleMonitoringAlertPolicy(string name) : base("google_monitoring_alert_policy", name)

@@ -130,6 +130,7 @@ public class AzurermMobileNetworkServiceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mobile_network_service resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMobileNetworkService : TerraformResource
 {
     public AzurermMobileNetworkService(string name) : base("azurerm_mobile_network_service", name)

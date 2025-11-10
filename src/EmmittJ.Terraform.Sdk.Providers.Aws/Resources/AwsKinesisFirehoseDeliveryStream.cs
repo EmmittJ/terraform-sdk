@@ -998,6 +998,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_kinesis_firehose_delivery_stream resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKinesisFirehoseDeliveryStream : TerraformResource
 {
     public AwsKinesisFirehoseDeliveryStream(string name) : base("aws_kinesis_firehose_delivery_stream", name)

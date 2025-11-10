@@ -540,6 +540,7 @@ public class AzurermVirtualMachineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_virtual_machine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermVirtualMachine : TerraformResource
 {
     public AzurermVirtualMachine(string name) : base("azurerm_virtual_machine", name)

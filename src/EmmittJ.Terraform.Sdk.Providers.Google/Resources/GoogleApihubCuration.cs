@@ -48,6 +48,7 @@ public class GoogleApihubCurationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_apihub_curation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleApihubCuration : TerraformResource
 {
     public GoogleApihubCuration(string name) : base("google_apihub_curation", name)

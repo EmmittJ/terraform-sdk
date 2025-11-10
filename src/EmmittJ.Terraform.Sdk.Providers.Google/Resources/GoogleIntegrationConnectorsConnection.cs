@@ -281,6 +281,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_integration_connectors_connection resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIntegrationConnectorsConnection : TerraformResource
 {
     public GoogleIntegrationConnectorsConnection(string name) : base("google_integration_connectors_connection", name)

@@ -42,6 +42,7 @@ public class GoogleComputeInstanceTemplateIamBindingConditionBlock : TerraformBl
 /// <summary>
 /// Manages a google_compute_instance_template_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeInstanceTemplateIamBinding : TerraformResource
 {
     public GoogleComputeInstanceTemplateIamBinding(string name) : base("google_compute_instance_template_iam_binding", name)

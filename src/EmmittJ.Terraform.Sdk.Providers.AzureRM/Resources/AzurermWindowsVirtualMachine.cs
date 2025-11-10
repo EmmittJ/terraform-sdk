@@ -493,6 +493,7 @@ public class AzurermWindowsVirtualMachineWinrmListenerBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_windows_virtual_machine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermWindowsVirtualMachine : TerraformResource
 {
     public AzurermWindowsVirtualMachine(string name) : base("azurerm_windows_virtual_machine", name)

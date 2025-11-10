@@ -51,6 +51,7 @@ public class AwsS3BucketReplicationConfigurationRuleBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_s3_bucket_replication_configuration resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsS3BucketReplicationConfiguration : TerraformResource
 {
     public AwsS3BucketReplicationConfiguration(string name) : base("aws_s3_bucket_replication_configuration", name)

@@ -150,6 +150,7 @@ public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mssql_managed_instance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlManagedInstance : TerraformResource
 {
     public AzurermMssqlManagedInstance(string name) : base("azurerm_mssql_managed_instance", name)

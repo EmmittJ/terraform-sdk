@@ -85,6 +85,7 @@ public class AzurermArcResourceBridgeApplianceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_arc_resource_bridge_appliance resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermArcResourceBridgeAppliance : TerraformResource
 {
     public AzurermArcResourceBridgeAppliance(string name) : base("azurerm_arc_resource_bridge_appliance", name)

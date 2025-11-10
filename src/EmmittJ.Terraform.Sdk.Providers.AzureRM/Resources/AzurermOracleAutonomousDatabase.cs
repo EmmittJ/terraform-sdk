@@ -97,6 +97,7 @@ public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_oracle_autonomous_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermOracleAutonomousDatabase : TerraformResource
 {
     public AzurermOracleAutonomousDatabase(string name) : base("azurerm_oracle_autonomous_database", name)

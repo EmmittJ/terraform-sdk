@@ -87,6 +87,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_codestarconnections_host resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodestarconnectionsHost : TerraformResource
 {
     public AwsCodestarconnectionsHost(string name) : base("aws_codestarconnections_host", name)

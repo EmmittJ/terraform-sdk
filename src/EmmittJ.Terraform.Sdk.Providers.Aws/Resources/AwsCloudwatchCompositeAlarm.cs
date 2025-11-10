@@ -43,6 +43,7 @@ public class AwsCloudwatchCompositeAlarmActionsSuppressorBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_cloudwatch_composite_alarm resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCloudwatchCompositeAlarm : TerraformResource
 {
     public AwsCloudwatchCompositeAlarm(string name) : base("aws_cloudwatch_composite_alarm", name)

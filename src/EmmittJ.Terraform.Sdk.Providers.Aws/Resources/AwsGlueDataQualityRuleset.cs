@@ -42,6 +42,7 @@ public class AwsGlueDataQualityRulesetTargetTableBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_glue_data_quality_ruleset resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueDataQualityRuleset : TerraformResource
 {
     public AwsGlueDataQualityRuleset(string name) : base("aws_glue_data_quality_ruleset", name)

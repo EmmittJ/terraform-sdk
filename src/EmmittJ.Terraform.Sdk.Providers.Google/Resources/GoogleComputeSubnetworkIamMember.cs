@@ -42,6 +42,7 @@ public class GoogleComputeSubnetworkIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_compute_subnetwork_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleComputeSubnetworkIamMember : TerraformResource
 {
     public GoogleComputeSubnetworkIamMember(string name) : base("google_compute_subnetwork_iam_member", name)

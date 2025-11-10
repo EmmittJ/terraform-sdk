@@ -42,6 +42,7 @@ public class GoogleBigqueryDatapolicyv2DataPolicyIamBindingConditionBlock : Terr
 /// <summary>
 /// Manages a google_bigquery_datapolicyv2_data_policy_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryDatapolicyv2DataPolicyIamBinding : TerraformResource
 {
     public GoogleBigqueryDatapolicyv2DataPolicyIamBinding(string name) : base("google_bigquery_datapolicyv2_data_policy_iam_binding", name)

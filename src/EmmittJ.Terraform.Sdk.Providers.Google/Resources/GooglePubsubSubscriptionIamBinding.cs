@@ -42,6 +42,7 @@ public class GooglePubsubSubscriptionIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_pubsub_subscription_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GooglePubsubSubscriptionIamBinding : TerraformResource
 {
     public GooglePubsubSubscriptionIamBinding(string name) : base("google_pubsub_subscription_iam_binding", name)

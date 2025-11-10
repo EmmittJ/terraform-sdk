@@ -157,6 +157,7 @@ public class GoogleDialogflowCxGeneratorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dialogflow_cx_generator resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDialogflowCxGenerator : TerraformResource
 {
     public GoogleDialogflowCxGenerator(string name) : base("google_dialogflow_cx_generator", name)

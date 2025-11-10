@@ -79,6 +79,7 @@ public class AwsGlueScriptDataSourceDagNodeBlock : TerraformBlock
 /// <summary>
 /// Retrieves information about a aws_glue_script.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlueScriptDataSource : TerraformDataSource
 {
     public AwsGlueScriptDataSource(string name) : base("aws_glue_script", name)

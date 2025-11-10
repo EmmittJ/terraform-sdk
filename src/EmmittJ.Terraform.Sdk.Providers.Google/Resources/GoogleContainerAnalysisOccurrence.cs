@@ -59,6 +59,7 @@ public class GoogleContainerAnalysisOccurrenceTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_container_analysis_occurrence resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleContainerAnalysisOccurrence : TerraformResource
 {
     public GoogleContainerAnalysisOccurrence(string name) : base("google_container_analysis_occurrence", name)

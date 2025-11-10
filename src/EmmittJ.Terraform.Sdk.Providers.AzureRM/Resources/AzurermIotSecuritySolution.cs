@@ -229,6 +229,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_iot_security_solution resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermIotSecuritySolution : TerraformResource
 {
     public AzurermIotSecuritySolution(string name) : base("azurerm_iot_security_solution", name)

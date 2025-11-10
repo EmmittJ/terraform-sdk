@@ -42,6 +42,7 @@ public class GoogleIapTunnelIamBindingConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_iap_tunnel_iam_binding resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleIapTunnelIamBinding : TerraformResource
 {
     public GoogleIapTunnelIamBinding(string name) : base("google_iap_tunnel_iam_binding", name)

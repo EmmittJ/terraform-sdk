@@ -57,6 +57,7 @@ public class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_discovery_engine_acl_config resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDiscoveryEngineAclConfig : TerraformResource
 {
     public GoogleDiscoveryEngineAclConfig(string name) : base("google_discovery_engine_acl_config", name)

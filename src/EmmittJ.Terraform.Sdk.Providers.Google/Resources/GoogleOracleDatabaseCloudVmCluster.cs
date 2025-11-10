@@ -341,6 +341,7 @@ public class GoogleOracleDatabaseCloudVmClusterTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_oracle_database_cloud_vm_cluster resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleOracleDatabaseCloudVmCluster : TerraformResource
 {
     public GoogleOracleDatabaseCloudVmCluster(string name) : base("google_oracle_database_cloud_vm_cluster", name)

@@ -158,6 +158,7 @@ public class GoogleEventarcPipelineTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_eventarc_pipeline resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleEventarcPipeline : TerraformResource
 {
     public GoogleEventarcPipeline(string name) : base("google_eventarc_pipeline", name)

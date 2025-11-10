@@ -186,6 +186,7 @@ public class AzurermFirewallVirtualHubBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_firewall resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermFirewall : TerraformResource
 {
     public AzurermFirewall(string name) : base("azurerm_firewall", name)

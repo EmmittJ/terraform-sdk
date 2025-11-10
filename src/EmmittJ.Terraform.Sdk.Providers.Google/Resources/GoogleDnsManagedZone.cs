@@ -118,6 +118,7 @@ public class GoogleDnsManagedZoneTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_dns_managed_zone resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDnsManagedZone : TerraformResource
 {
     public GoogleDnsManagedZone(string name) : base("google_dns_managed_zone", name)

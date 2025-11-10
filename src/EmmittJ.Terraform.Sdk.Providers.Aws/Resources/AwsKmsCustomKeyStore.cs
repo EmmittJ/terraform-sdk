@@ -68,6 +68,7 @@ public class AwsKmsCustomKeyStoreXksProxyAuthenticationCredentialBlock : Terrafo
 /// <summary>
 /// Manages a aws_kms_custom_key_store resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsKmsCustomKeyStore : TerraformResource
 {
     public AwsKmsCustomKeyStore(string name) : base("aws_kms_custom_key_store", name)

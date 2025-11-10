@@ -373,6 +373,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
 /// <summary>
 /// Manages a azurerm_mssql_virtual_machine resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlVirtualMachine : TerraformResource
 {
     public AzurermMssqlVirtualMachine(string name) : base("azurerm_mssql_virtual_machine", name)

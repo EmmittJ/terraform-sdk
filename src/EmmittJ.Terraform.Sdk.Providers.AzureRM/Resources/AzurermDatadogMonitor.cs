@@ -204,6 +204,7 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_datadog_monitor resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermDatadogMonitor : TerraformResource
 {
     public AzurermDatadogMonitor(string name) : base("azurerm_datadog_monitor", name)

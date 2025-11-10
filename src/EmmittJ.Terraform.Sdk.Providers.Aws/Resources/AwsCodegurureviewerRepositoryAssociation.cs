@@ -74,6 +74,7 @@ public class AwsCodegurureviewerRepositoryAssociationTimeoutsBlock : TerraformBl
 /// <summary>
 /// Manages a aws_codegurureviewer_repository_association resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsCodegurureviewerRepositoryAssociation : TerraformResource
 {
     public AwsCodegurureviewerRepositoryAssociation(string name) : base("aws_codegurureviewer_repository_association", name)

@@ -67,6 +67,7 @@ public class GoogleVpcAccessConnectorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_vpc_access_connector resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleVpcAccessConnector : TerraformResource
 {
     public GoogleVpcAccessConnector(string name) : base("google_vpc_access_connector", name)

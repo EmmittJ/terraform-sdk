@@ -305,6 +305,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_mssql_database resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermMssqlDatabase : TerraformResource
 {
     public AzurermMssqlDatabase(string name) : base("azurerm_mssql_database", name)

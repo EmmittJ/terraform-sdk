@@ -66,6 +66,7 @@ public class AwsGlobalacceleratorAcceleratorTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_globalaccelerator_accelerator resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGlobalacceleratorAccelerator : TerraformResource
 {
     public AwsGlobalacceleratorAccelerator(string name) : base("aws_globalaccelerator_accelerator", name)

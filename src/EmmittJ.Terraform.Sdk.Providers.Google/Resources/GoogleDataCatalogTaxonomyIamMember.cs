@@ -42,6 +42,7 @@ public class GoogleDataCatalogTaxonomyIamMemberConditionBlock : TerraformBlock
 /// <summary>
 /// Manages a google_data_catalog_taxonomy_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleDataCatalogTaxonomyIamMember : TerraformResource
 {
     public GoogleDataCatalogTaxonomyIamMember(string name) : base("google_data_catalog_taxonomy_iam_member", name)

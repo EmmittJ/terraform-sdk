@@ -41,6 +41,7 @@ public class AwsGameliftAliasRoutingStrategyBlock : TerraformBlock
 /// <summary>
 /// Manages a aws_gamelift_alias resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsGameliftAlias : TerraformResource
 {
     public AwsGameliftAlias(string name) : base("aws_gamelift_alias", name)

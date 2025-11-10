@@ -42,6 +42,7 @@ public class GoogleBigqueryAnalyticsHubDataExchangeIamMemberConditionBlock : Ter
 /// <summary>
 /// Manages a google_bigquery_analytics_hub_data_exchange_iam_member resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleBigqueryAnalyticsHubDataExchangeIamMember : TerraformResource
 {
     public GoogleBigqueryAnalyticsHubDataExchangeIamMember(string name) : base("google_bigquery_analytics_hub_data_exchange_iam_member", name)

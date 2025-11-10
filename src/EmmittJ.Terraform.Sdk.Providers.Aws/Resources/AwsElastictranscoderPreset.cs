@@ -406,6 +406,7 @@ public class AwsElastictranscoderPresetVideoWatermarksBlock : TerraformBlock
 /// Manages a aws_elastictranscoder_preset resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AwsElastictranscoderPreset : TerraformResource
 {
     public AwsElastictranscoderPreset(string name) : base("aws_elastictranscoder_preset", name)

@@ -96,6 +96,7 @@ public class GoogleCloudAssetOrganizationFeedTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a google_cloud_asset_organization_feed resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class GoogleCloudAssetOrganizationFeed : TerraformResource
 {
     public GoogleCloudAssetOrganizationFeed(string name) : base("google_cloud_asset_organization_feed", name)

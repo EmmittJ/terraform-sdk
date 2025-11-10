@@ -176,6 +176,7 @@ public class AzurermApiManagementApiOperationTimeoutsBlock : TerraformBlock
 /// <summary>
 /// Manages a azurerm_api_management_api_operation resource.
 /// </summary>
+[System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
 public class AzurermApiManagementApiOperation : TerraformResource
 {
     public AzurermApiManagementApiOperation(string name) : base("azurerm_api_management_api_operation", name)
