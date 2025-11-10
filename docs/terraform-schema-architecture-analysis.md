@@ -265,10 +265,10 @@ public class TerraformLiteralProperty<TValue> : TerraformProperty<TValue>, ITerr
     }
 
     // Public property for value access - allows both get and internal set
-    public TValue? Value 
-    { 
+    public TValue? Value
+    {
         get => _value;
-        internal set => _value = value; 
+        internal set => _value = value;
     }
 
     // Implement ITerraformLiteral<TValue> - type-safe access
@@ -380,12 +380,12 @@ public class TerraformReferenceProperty<TValue, TSource, TIndex> : TerraformProp
 /// <summary>
 /// Represents a Terraform list property. Stores a list of values and provides reference semantics.
 /// Implements IList for natural C# collection usage.
-/// 
+///
 /// Note on Indexer Behavior:
 /// - Getter creates a NEW TerraformReferenceProperty instance on each access
 /// - This represents the Terraform expression: list[index]
 /// - For caching reference instances, store the result in a variable
-/// 
+///
 /// Example:
 /// <code>
 /// var securityGroups = instance.SecurityGroups;  // TerraformList&lt;string&gt;
@@ -456,12 +456,12 @@ public class TerraformList<TValue> : TerraformProperty<IList<TerraformProperty<T
 /// <summary>
 /// Represents a Terraform map property. Stores key-value pairs and provides reference semantics.
 /// Implements IDictionary for natural C# dictionary usage.
-/// 
+///
 /// Note on Indexer Behavior:
 /// - Getter creates a NEW TerraformReferenceProperty instance on each access
 /// - This represents the Terraform expression: map["key"]
 /// - For caching reference instances, store the result in a variable
-/// 
+///
 /// Example:
 /// <code>
 /// var tags = instance.Tags;  // TerraformMap&lt;string&gt;
@@ -677,7 +677,7 @@ public class AwsInstance : TerraformResource
 {
     // Backing field stores the literal property
     private TerraformLiteralProperty<string> _ami;
-    
+
     // Property exposes as base type for flexibility
     public TerraformProperty<string> Ami
     {
@@ -692,9 +692,9 @@ public class AwsInstance : TerraformResource
             else
             {
                 // Wrap other property types as needed
-                _ami = new TerraformLiteralProperty<string>(ResourceAddress, "ami") 
-                { 
-                    Value = ((ITerraformLiteral<string>)value).Value 
+                _ami = new TerraformLiteralProperty<string>(ResourceAddress, "ami")
+                {
+                    Value = ((ITerraformLiteral<string>)value).Value
                 };
             }
         }
@@ -716,13 +716,13 @@ Attributes are read-only, computed by the provider:
 public class AwsInstance : TerraformResource
 {
     // Computed attributes use TerraformReferenceProperty - no setter!
-    public TerraformProperty<string> Id => 
+    public TerraformProperty<string> Id =>
         new TerraformReferenceProperty<string, object, object>(ResourceAddress, "id");
-    
-    public TerraformProperty<string> Arn => 
+
+    public TerraformProperty<string> Arn =>
         new TerraformReferenceProperty<string, object, object>(ResourceAddress, "arn");
-    
-    public TerraformProperty<string> PrivateIp => 
+
+    public TerraformProperty<string> PrivateIp =>
         new TerraformReferenceProperty<string, object, object>(ResourceAddress, "private_ip");
 }
 
@@ -742,7 +742,7 @@ Collections support both literal values and reference semantics:
 public class AwsInstance : TerraformResource
 {
     private TerraformList<string> _securityGroups;
-    
+
     public TerraformList<string> SecurityGroups
     {
         get => _securityGroups;
@@ -875,12 +875,14 @@ instance.SubnetId = new TerraformFunctionProperty<string>(
 **Current Design: `TerraformList<TValue>` stores `List<TerraformProperty<TValue>>`**
 
 ✅ **Advantages:**
+
 - Each element can be a literal, expression, or reference independently
 - Indexer returns proper reference: `list[0]` → `TerraformReferenceProperty<TValue>`
 - Supports heterogeneous element sources: `["literal", var.some_var, other.resource.id]`
 - Natural C# collection manipulation
 
 ❌ **Disadvantages:**
+
 - More complex type signatures
 - New reference instance created on each indexer access (requires caching for performance)
 - More memory overhead
@@ -888,11 +890,13 @@ instance.SubnetId = new TerraformFunctionProperty<string>(
 **Alternative: `TerraformProperty<List<TValue>>` (simpler, like CDK)**
 
 ✅ **Advantages:**
+
 - Simpler type: single property wrapping entire collection
 - Single resolution point
 - Like AWS CDK's `Token.asList()`
 
 ❌ **Disadvantages:**
+
 - Can't have mixed literal/expression elements
 - Indexing returns `TValue`, not a reference
 - Loses per-element flexibility
@@ -903,6 +907,7 @@ instance.SubnetId = new TerraformFunctionProperty<string>(
 ### 4. Key Improvements Summary
 
 ✅ **Fixed Issues:**
+
 1. ✅ Added public `Value` property with internal setter to `TerraformLiteralProperty<T>`
 2. ✅ Fixed syntax errors in `TerraformReferenceProperty<T>` (removed duplicate declaration, fixed if statement)
 3. ✅ Added XML documentation explaining indexer behavior (creates new instances)
@@ -911,6 +916,7 @@ instance.SubnetId = new TerraformFunctionProperty<string>(
 6. ✅ Added `TerraformFunctionProperty<T>` for function calls
 
 📋 **Remaining Considerations:**
+
 1. Consider reference caching mechanism if performance becomes an issue
 2. Add builder/fluent API for complex expressions
 3. Document serialization strategy (how `Prepare()` and `Resolve()` work together)
@@ -1925,11 +1931,13 @@ Based on comparison with AWS CDK and Azure SDK for .NET patterns, the following 
 #### ✅ **Issues Fixed:**
 
 1. **`TerraformLiteralProperty<T>` Value Access**
+
    - **Problem**: Value was only accessible via explicit interface implementation, no public setter
    - **Fix**: Added public `Value` property with internal setter for proper mutability
    - **Impact**: Enables proper value assignment and retrieval
 
 2. **`TerraformReferenceProperty<T>` Syntax Errors**
+
    - **Problem**: Duplicate class declaration and malformed if statement
    - **Fix**: Removed duplicate declaration, fixed conditional logic
    - **Impact**: Code now compiles correctly
@@ -1942,6 +1950,7 @@ Based on comparison with AWS CDK and Azure SDK for .NET patterns, the following 
 #### ✅ **Enhancements Added:**
 
 4. **Usage Pattern Documentation**
+
    - Added Pattern 1: Arguments (configurable properties)
    - Added Pattern 2: Attributes (computed-only properties)
    - Added Pattern 3: Collection properties with indexing
@@ -1949,6 +1958,7 @@ Based on comparison with AWS CDK and Azure SDK for .NET patterns, the following 
    - Added Pattern 5: Function calls
 
 5. **Advanced Expression Support**
+
    - Added `TerraformConditionalProperty<T>` for ternary expressions
    - Added `TerraformFunctionProperty<T>` for Terraform function calls
    - Enables: `condition ? value1 : value2` and `merge(map1, map2)` patterns
@@ -1981,9 +1991,9 @@ The architecture is fundamentally sound and follows proven patterns from success
 /// </summary>
 public class AwsInstanceRootBlockDevice : ITerraformResolvable<TerraformExpression>
 {
-    public TerraformProperty<int> VolumeSize { get; set; }
-    public TerraformProperty<string> VolumeType { get; set; }
-    public TerraformProperty<bool> DeleteOnTermination { get; set; }
+public TerraformProperty<int> VolumeSize { get; set; }
+public TerraformProperty<string> VolumeType { get; set; }
+public TerraformProperty<bool> DeleteOnTermination { get; set; }
 
     public TerraformExpression Resolve(ITerraformContext? context = null)
     {
@@ -2005,6 +2015,7 @@ public class AwsInstanceRootBlockDevice : ITerraformResolvable<TerraformExpressi
 
         return TerraformExpression.Object(properties);
     }
+
 }
 
 /// <summary>
@@ -2012,9 +2023,9 @@ public class AwsInstanceRootBlockDevice : ITerraformResolvable<TerraformExpressi
 /// </summary>
 public class AwsInstance : TerraformResource, ITerraformResolvable<TerraformExpression>
 {
-    public TerraformProperty<string> Ami { get; set; }
-    public TerraformList<string> SecurityGroups { get; set; }
-    public TerraformBlock<AwsInstanceRootBlockDevice>? RootBlockDevice { get; set; }
+public TerraformProperty<string> Ami { get; set; }
+public TerraformList<string> SecurityGroups { get; set; }
+public TerraformBlock<AwsInstanceRootBlockDevice>? RootBlockDevice { get; set; }
 
     public TerraformExpression Resolve(ITerraformContext? context = null)
     {
@@ -2036,8 +2047,10 @@ public class AwsInstance : TerraformResource, ITerraformResolvable<TerraformExpr
 
         return TerraformExpression.Resource("aws_instance", Name, properties);
     }
+
 }
-```
+
+````
 
 **Benefits of Expression-Based Resolution:**
 
@@ -2068,7 +2081,7 @@ public TerraformExpression Resolve(ITerraformContext? context = null)
 
     return TerraformExpression.Object(properties);
 }
-```
+````
 
 **Serialization Flow:**
 
@@ -2087,6 +2100,520 @@ HCL String Output
 ```
 
 No reflection needed - everything follows the resolution chain!
+
+## Implementation Plan
+
+This section outlines the step-by-step plan for implementing the new property type architecture. Since this SDK has not been released yet, we can make completely breaking changes without migration concerns.
+
+### Phase 1: Clean Slate
+
+#### Task 1: Evaluate and Remove Existing Property Infrastructure
+
+**Status**: Not Started  
+**Description**: Since this is pre-release, we can completely remove old code without backward compatibility concerns.
+
+**Files to Remove/Modify**:
+
+- `TerraformPropertyCollection` - old property storage system
+- `TerraformValueResolver` - old value resolution logic
+- Related property management infrastructure
+
+**Action Items**:
+
+1. Identify all files using old property system
+2. Document what's being removed and why
+3. Delete old implementation files
+4. Remove references from existing code
+
+**Validation**: Project should still compile (though with reduced functionality) after cleanup.
+
+---
+
+### Phase 2: Core Type System Implementation
+
+#### Task 2: Implement Core TerraformProperty<T> Base Class
+
+**Status**: Not Started  
+**Description**: Foundation for all property types.
+
+**Implementation**:
+
+```csharp
+public class TerraformProperty<TValue> : ITerraformResolvable<TerraformExpression>
+{
+    protected readonly string _resourceAddress;
+    protected readonly string _attributeName;
+
+    internal TerraformProperty(string resourceAddress, string attributeName)
+    {
+        _resourceAddress = resourceAddress;
+        _attributeName = attributeName;
+    }
+
+    public virtual void Prepare(ITerraformContext context) { }
+
+    public virtual TerraformExpression Resolve(ITerraformContext? context = null)
+    {
+        return TerraformExpression.Identifier($"{_resourceAddress}.{_attributeName}");
+    }
+
+    public static implicit operator TerraformExpression(TerraformProperty<TValue> prop)
+        => prop.Resolve();
+}
+```
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformProperty.cs`
+
+**Validation**: Class compiles, implicit conversion works.
+
+---
+
+#### Task 3: Implement TerraformLiteralProperty<T> for Arguments
+
+**Status**: Not Started  
+**Description**: Stores literal values for user-settable arguments.
+
+**Implementation**: See design section for full code.
+
+**Key Features**:
+
+- Public `Value` property with internal setter
+- Implements `ITerraformLiteral<TValue>`
+- `Prepare()` override handling nested preparables
+- Implicit conversion from `TValue`
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformLiteralProperty.cs`
+
+**Validation**: Can set values, implicit conversion works, nested preparation works.
+
+---
+
+#### Task 4: Implement TerraformExpressionProperty<T> for Expressions
+
+**Status**: Not Started  
+**Description**: Stores expression values for advanced scenarios.
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformExpressionProperty.cs`
+
+**Validation**: Can store expressions, resolves correctly.
+
+---
+
+#### Task 5: Implement TerraformReferenceProperty<T> for Computed Attributes
+
+**Status**: Not Started  
+**Description**: Pure references for read-only computed values and indexer access.
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformReferenceProperty.cs`
+
+**Validation**: Reference path builds correctly, no value storage.
+
+---
+
+#### Task 6: Implement TerraformList<T> Collection Type
+
+**Status**: Not Started  
+**Description**: List collection with reference semantics.
+
+**Key Features**:
+
+- Implements `IList<TerraformProperty<T>>`
+- Indexer getter returns `TerraformReferenceProperty<T>` (creates new instance)
+- Implicit conversion from `List<TerraformProperty<T>>`
+- XML docs warning about reference creation
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/Collections/TerraformList.cs`
+
+**Validation**: LINQ works, indexer returns references, collection operations work.
+
+---
+
+#### Task 7: Implement TerraformMap<T> Collection Type
+
+**Status**: Not Started  
+**Description**: Dictionary with reference semantics for key access.
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/Collections/TerraformMap.cs`
+
+**Validation**: Key access returns references, dictionary operations work.
+
+---
+
+#### Task 8: Implement TerraformSet<T> Collection Type
+
+**Status**: Not Started  
+**Description**: Unordered, unique collection.
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/Collections/TerraformSet.cs`
+
+**Validation**: Uniqueness enforced, set operations work, no indexer.
+
+---
+
+#### Task 9: Implement TerraformBlock<T> for Block Structures
+
+**Status**: Not Started  
+**Description**: Wrapper for nested block configuration.
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/TerraformBlock.cs`
+
+**Validation**: Serializes without `=` operator, supports nested blocks.
+
+---
+
+#### Task 10: Implement ITerraformResolvable<T> and Expression Types
+
+**Status**: Not Started  
+**Description**: Resolution chain terminal with HCL serialization.
+
+**Implementation**:
+
+- `ITerraformResolvable<T>` interface
+- `TerraformExpression` base class
+- `LiteralExpression`, `IdentifierExpression`, `ObjectExpression`
+- `FunctionCallExpression`, `ConditionalExpression`
+
+**Files**:
+
+- `src/EmmittJ.Terraform.Sdk/Expressions/ITerraformResolvable.cs`
+- `src/EmmittJ.Terraform.Sdk/Expressions/TerraformExpression.cs`
+- `src/EmmittJ.Terraform.Sdk/Expressions/*.cs` (concrete types)
+
+**Validation**: Resolution chain works, HCL output correct.
+
+---
+
+#### Task 11: Add Helper Property Types for Advanced Scenarios
+
+**Status**: Not Started  
+**Description**: Support conditionals and function calls.
+
+**Types**:
+
+- `TerraformConditionalProperty<T>` - for `condition ? true : false`
+- `TerraformFunctionProperty<T>` - for `merge()`, `element()`, etc.
+
+**Files**: `src/EmmittJ.Terraform.Sdk/Properties/Advanced/*.cs`
+
+**Validation**: Generates correct HCL expressions.
+
+---
+
+### Phase 3: Code Generation Updates
+
+#### Task 12: Update Schema Parser to Detect Property Classifications
+
+**Status**: Not Started  
+**Description**: Parse schema to determine correct property type.
+
+**Classifications**:
+
+- **Arguments**: `Required` or `Optional` (without `Computed`)
+- **Attributes**: `Computed` only
+- **Optional+Computed**: Both flags set
+- **Blocks**: `ListNestedBlock`, `SetNestedBlock`, `SingleNestedBlock`
+
+**Files**: Schema parser in code generator project
+
+**Validation**: Parser correctly identifies all property types.
+
+---
+
+#### Task 13: Update Code Generation Templates for Arguments
+
+**Status**: Not Started  
+**Description**: Generate proper argument properties.
+
+**Template Pattern**:
+
+```csharp
+private TerraformProperty<{{Type}}> _{{propertyName}};
+public TerraformProperty<{{Type}}> {{PropertyName}}
+{
+    get => _{{propertyName}};
+    set => _{{propertyName}} = value;
+}
+```
+
+**Files**: Code generation templates
+
+**Validation**: Generated arguments support implicit conversion from literals.
+
+---
+
+#### Task 14: Update Code Generation Templates for Computed Attributes
+
+**Status**: Not Started  
+**Description**: Generate read-only computed properties.
+
+**Template Pattern**:
+
+```csharp
+public TerraformProperty<{{Type}}> {{PropertyName}} =>
+    new TerraformReferenceProperty<{{Type}}>(ResourceAddress, "{{attribute_name}}");
+```
+
+**Files**: Code generation templates
+
+**Validation**: Generated attributes are read-only, no setter.
+
+---
+
+#### Task 15: Update Code Generation Templates for Blocks
+
+**Status**: Not Started  
+**Description**: Generate block classes and properties.
+
+**Templates**:
+
+- Nested block class (plain C# class with `TerraformProperty<T>` members)
+- Single block: `TerraformBlock<T>?`
+- List block: `TerraformList<TerraformBlock<T>>?`
+- Set block: `TerraformSet<TerraformBlock<T>>?`
+
+**Files**: Code generation templates
+
+**Validation**: Generated blocks serialize correctly without `=`.
+
+---
+
+#### Task 16: Update Code Generation for Resolve() Implementations
+
+**Status**: Not Started  
+**Description**: Generate `Resolve()` method for each resource/block class.
+
+**Template Pattern**:
+
+```csharp
+public TerraformExpression Resolve(ITerraformContext? context = null)
+{
+    var properties = new Dictionary<string, TerraformExpression>();
+
+    if ({{PropertyName}} is not null)
+    {
+        properties["{{attribute_name}}"] = {{PropertyName}}.Resolve(context);
+    }
+
+    return TerraformExpression.Object(properties);
+}
+```
+
+**Files**: Code generation templates
+
+**Validation**: Generated `Resolve()` methods build correct expression trees.
+
+---
+
+#### Task 17: Update Serialization to Use Expression Resolution
+
+**Status**: Not Started  
+**Description**: Modify serialization logic to use `Resolve()` chain.
+
+**Changes**:
+
+- `TerraformConstruct.Prepare()` updates
+- Handle `ITerraformBlock` for block syntax
+- Delete old `TerraformValueResolver`
+
+**Files**: `src/EmmittJ.Terraform.Sdk/TerraformConstruct.cs`
+
+**Validation**: Serialization produces correct HCL for all property types.
+
+---
+
+### Phase 4: Provider Code Regeneration
+
+#### Task 18: Regenerate AWS Provider Code
+
+**Status**: Not Started  
+**Description**: Run generator against AWS provider schema.
+
+**Actions**:
+
+1. Run code generator with updated templates
+2. Validate generated code compiles
+3. Check sample resources for correctness
+
+**Files**: `src/providers/aws/` (or similar)
+
+**Validation**: AWS resources generate, compile, serialize correctly.
+
+---
+
+#### Task 19: Regenerate Azure Provider Code
+
+**Status**: Not Started  
+**Description**: Run generator against Azure provider schema.
+
+**Files**: `src/providers/azure/` (or similar)
+
+**Validation**: Azure resources generate, compile, serialize correctly.
+
+---
+
+### Phase 5: Testing
+
+#### Task 20: Create Unit Tests for Property Type Hierarchy
+
+**Status**: Not Started  
+**Description**: Test core property types.
+
+**Test Coverage**:
+
+- `TerraformProperty<T>` base behavior
+- `TerraformLiteralProperty<T>` value storage
+- `TerraformExpressionProperty<T>` expression storage
+- `TerraformReferenceProperty<T>` reference paths
+- Implicit conversions
+
+**Files**: `tests/EmmittJ.Terraform.Sdk.Tests/Properties/*.cs`
+
+**Validation**: All property types work as designed.
+
+---
+
+#### Task 21: Create Unit Tests for Collection Types
+
+**Status**: Not Started  
+**Description**: Test collection behavior.
+
+**Test Coverage**:
+
+- `TerraformList<T>` indexer returns references
+- `TerraformMap<T>` key access returns references
+- `TerraformSet<T>` uniqueness
+- Collection modification (Add/Remove)
+- LINQ operations
+- Implicit conversions
+
+**Files**: `tests/EmmittJ.Terraform.Sdk.Tests/Properties/Collections/*.cs`
+
+**Validation**: Collections work with standard C# patterns.
+
+---
+
+#### Task 22: Create Unit Tests for Block Types
+
+**Status**: Not Started  
+**Description**: Test block functionality.
+
+**Test Coverage**:
+
+- `TerraformBlock<T>` value storage
+- Serialization without `=` operator
+- Nested blocks within blocks
+- List/Set of blocks
+- Block reference semantics
+
+**Files**: `tests/EmmittJ.Terraform.Sdk.Tests/Properties/TerraformBlockTests.cs`
+
+**Validation**: Blocks serialize correctly.
+
+---
+
+#### Task 23: Create Integration Tests for Expression Resolution
+
+**Status**: Not Started  
+**Description**: Test full resolution chain.
+
+**Test Coverage**:
+
+- Property to `TerraformExpression` resolution
+- `Prepare()` calling `Resolve()` correctly
+- Nested property resolution
+- Cross-resource references
+- Indexed references
+- Function calls
+
+**Files**: `tests/EmmittJ.Terraform.Sdk.Tests/Integration/ExpressionResolutionTests.cs`
+
+**Validation**: Resolution chain works end-to-end.
+
+---
+
+#### Task 24: Create Integration Tests for HCL Serialization
+
+**Status**: Not Started  
+**Description**: Test generated HCL output.
+
+**Test Coverage**:
+
+- Arguments with literal values
+- Arguments with expressions
+- Computed-only attributes (should not serialize)
+- Blocks with proper syntax
+- Nested blocks
+- Collections (lists, maps, sets)
+- Cross-resource references
+
+**Files**: `tests/EmmittJ.Terraform.Sdk.Tests/Integration/HclSerializationTests.cs`
+
+**Validation**: Generated HCL matches expected Terraform syntax.
+
+---
+
+#### Task 25: Validate Playground Examples with New System
+
+**Status**: Not Started  
+**Description**: Update and test playground projects.
+
+**Projects**:
+
+- `playground/azure-container-apps/`
+- Other playground scenarios
+
+**Actions**:
+
+1. Update code to use new property system
+2. Ensure compilation succeeds
+3. Validate generated HCL
+4. Test actual Terraform execution (optional)
+
+**Validation**: Playground examples work correctly.
+
+---
+
+### Phase 6: Documentation
+
+#### Task 26: Document Breaking Changes and Migration Guide
+
+**Status**: Not Started  
+**Description**: Document the new system for users.
+
+**Content**:
+
+- What changed (removal of `TerraformPropertyCollection`)
+- New property type hierarchy overview
+- How to work with `TerraformProperty<T>` types
+- Implicit conversions usage
+- Reference semantics explanation
+- Indexer behavior (creates new instances)
+- Performance considerations (caching references)
+
+**Files**:
+
+- `docs/breaking-changes.md`
+- `docs/property-system.md`
+- Update main `README.md`
+
+**Validation**: Documentation is clear and comprehensive.
+
+---
+
+### Implementation Order Recommendation
+
+**Critical Path**:
+
+1. Tasks 1-10: Core type system (foundational)
+2. Tasks 12-16: Code generation (enables provider code)
+3. Task 17: Serialization (makes it work end-to-end)
+4. Tasks 18-19: Regenerate providers (validate system)
+5. Tasks 20-25: Testing (ensure correctness)
+6. Task 26: Documentation (communicate changes)
+
+**Estimated Timeline**: 2-3 weeks for full implementation and testing.
+
+---
 
 ### Reference Semantics for Blocks
 
